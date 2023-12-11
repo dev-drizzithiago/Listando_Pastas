@@ -6,7 +6,5 @@ pasta_home = Path.home()
 subpastas = Path()
 
 for listando in listdir(pasta_home):
-    resultado = search('BAT', listando)
-    if resultado:
-        print(listando)
+    print(listando)
 
