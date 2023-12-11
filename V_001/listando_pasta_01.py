@@ -1,6 +1,5 @@
-from time import sleep
-from re import search, match
 from pathlib import Path
+from re import search
 
 lista_arquivos_listados = []
 lista_pastas_listadas = []
