@@ -4,14 +4,10 @@ from re import search, match
 
 pasta_home = Path.home()
 subpastas = Path()
-arquivos = ['pdf', 'jpg']
+arquivos = ['pdf']
 lista_arquivos = []
 
-for registrando in listdir(pasta_home):
-    lista_arquivos.append(registrando)
-
-for busca in lista_arquivos:
-    resultado = match(arquivos, busca)
-    if resultado:
-        print(busca)
+for listando in listdir(pasta_home):
+    if search(arquivos, listando):
+        print(listando)
 
