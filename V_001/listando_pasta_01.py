@@ -1,7 +1,6 @@
 from pathlib import Path
 from re import search
 from time import sleep
-from threading import Timer
 from tkinter.filedialog import askopenfilename, askdirectory
 
 lista_arquivos_listados = []
@@ -16,7 +15,7 @@ def diretorio():
     return diretorio_escolhido
 
 
-caminho_busca = Timer(diretorio(), 1)
+caminho_busca = (diretorio())
 busca_geral = Path(caminho_busca)
 for valor_busca in busca_geral.glob('**/*'):
     if valor_busca.is_dir():
