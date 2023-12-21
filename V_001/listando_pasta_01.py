@@ -16,10 +16,8 @@ def diretorio():
     return diretorio_escolhido
 
 
-valor_thread = Timer(diretorio(), 1)
-caminho_busca = valor_thread
+caminho_busca = Timer(diretorio(), 1)
 busca_geral = Path(caminho_busca)
-
 for valor_busca in busca_geral.glob('**/*'):
     if valor_busca.is_dir():
         nome_pasta = valor_busca.name
