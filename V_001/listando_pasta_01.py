@@ -14,13 +14,12 @@ def diretorio():
 
 
 def end_diretorio():
-    return Path(caminho_busca)
+    return Path(diretorio())
 
 
 valor_arq_txt = open(end_diretorio(), 'r')
 
 valor_arquivo = input('Digite a extensão do arquivo: ')
-caminho_busca = (diretorio())
 busca_geral = end_diretorio()
 for valor_busca in busca_geral.glob('**/*.' + valor_arquivo):
     if valor_busca.is_dir():
