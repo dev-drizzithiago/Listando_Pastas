@@ -17,7 +17,6 @@ valor_arquivo = input('Digite a extensão do arquivo: ')
 caminho_busca = (diretorio())
 busca_geral = Path(caminho_busca)
 for valor_busca in busca_geral.glob('**/*'):
-    print(valor_busca)
     if valor_busca.is_dir():
         nome_pasta = valor_busca.name
         print(f'[{cont_path}] - [{nome_pasta}]')
