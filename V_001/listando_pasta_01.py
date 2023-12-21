@@ -3,9 +3,9 @@ from tkinter.filedialog import askopenfilename, askdirectory
 
 lista_arquivos_listados = []
 lista_pastas_listadas = []
-cont_arq_total = 1
-cont_arq = 1
-cont_path = 1
+cont_arq_total = 0
+cont_arq = 0
+cont_path = 0
 
 
 def diretorio():
@@ -16,8 +16,6 @@ def diretorio():
 def end_diretorio():
     return Path(diretorio())
 
-
-valor_arq_txt = open(end_diretorio(), 'r')
 
 valor_arquivo = input('Digite a extensão do arquivo: ')
 busca_geral = end_diretorio()
@@ -32,6 +30,5 @@ for valor_busca in busca_geral.glob('**/*.' + valor_arquivo):
         status_arq = valor_busca.stat().st_size
         cont_arq += 1
         cont_arq_total += 1
-        valor_arq_txt.write(f'{cont_arq} - {nome_arquivo}')
         print(f'<{cont_arq}> - <{nome_arquivo}>')
 print(f'Foram encontrados ao total de {cont_path} arquivos em {cont_path} pastas')
