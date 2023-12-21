@@ -16,9 +16,8 @@ def diretorio():
 valor_arquivo = input('Digite a extensão do arquivo: ')
 caminho_busca = (diretorio())
 busca_geral = Path(caminho_busca)
-tipo_arquivo_busca = busca_geral.glob('**/' + valor_arquivo + "'")
-print(tipo_arquivo_busca)
-for valor_busca in tipo_arquivo_busca:
+for valor_busca in busca_geral.glob('**/*'):
+    print(valor_busca)
     if valor_busca.is_dir():
         nome_pasta = valor_busca.name
         print(f'[{cont_path}] - [{nome_pasta}]')
