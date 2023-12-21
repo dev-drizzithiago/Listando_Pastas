@@ -16,7 +16,7 @@ def diretorio():
     return diretorio_escolhido
 
 
-valor_thread = Timer(diretorio, 1)
+valor_thread = Timer(diretorio(), 1)
 caminho_busca = valor_thread
 busca_geral = Path(caminho_busca)
 
