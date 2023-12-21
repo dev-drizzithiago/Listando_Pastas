@@ -1,5 +1,7 @@
 from pathlib import Path
 from re import search
+from tkinter.filedialog import askopenfilename, askdirectory
+
 
 lista_arquivos_listados = []
 lista_pastas_listadas = []
@@ -7,7 +9,7 @@ cont_arq_total = 1
 cont_arq = 1
 cont_path = 1
 
-caminho_busca = 'Z:\\Thiago\\Fotos\\Niver\\'
+caminho_busca = askdirectory()
 busca_geral = Path(caminho_busca)
 
 for valor_busca in busca_geral.glob('**/*'):
