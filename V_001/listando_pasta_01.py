@@ -1,6 +1,4 @@
 from pathlib import Path
-from re import search
-from time import sleep
 from tkinter.filedialog import askopenfilename, askdirectory
 
 lista_arquivos_listados = []
@@ -15,9 +13,10 @@ def diretorio():
     return diretorio_escolhido
 
 
+valor_arquivo = input('Digite a extensão do arquivo: ')
 caminho_busca = (diretorio())
 busca_geral = Path(caminho_busca)
-for valor_busca in busca_geral.glob('**/*'):
+for valor_busca in busca_geral.glob('**/' + valor_arquivo + "'"):
     if valor_busca.is_dir():
         nome_pasta = valor_busca.name
         print(f'[{cont_path}] - [{nome_pasta}]')
