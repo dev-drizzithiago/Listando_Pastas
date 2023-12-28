@@ -18,11 +18,12 @@ def end_diretorio():
     return Path(diretorio())
 
 
+print('_-_' * 16)
 valor_arquivo = input('Digite a extensão do arquivo: ')
 busca_geral = end_diretorio()
-print(f'Busca pelos arquivos [{valor_arquivo}], no diretório {busca_geral}')
+print(f'Busca pelos arquivos [{valor_arquivo}], no diretório [{busca_geral}]')
 sleep(1)
-for valor_busca in busca_geral.glob('**/*.' + valor_arquivo):
+for valor_busca in busca_geral.glob('**/*' + valor_arquivo):
     if valor_busca.is_dir():
         nome_pasta = valor_busca.name
         cont_path += 1
