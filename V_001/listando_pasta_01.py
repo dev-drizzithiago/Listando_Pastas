@@ -31,7 +31,7 @@ for valor_busca_pasta in busca_geral_diretorio.glob('**/*' + valor_arquivo):
         nome_pasta = valor_busca_pasta.name
         lista_pastas_listadas.append(nome_pasta)
         cont_path += 1
-        print(f'>>> [{cont_path}] - [{nome_pasta}]')
+        print(f'[{cont_path}] - [{nome_pasta}]')
     elif valor_busca_pasta.is_file():
         nome_arquivo = valor_busca_pasta.name
         lista_arquivos_listados.append(nome_arquivo)
