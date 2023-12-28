@@ -20,6 +20,9 @@ def end_diretorio():
 
 print('_-_' * 16)
 valor_arquivo = input('Digite a extensão do arquivo: ')
+if len(valor_arquivo) != 0:
+    valor_arquivo = '.' + valor_arquivo
+
 busca_geral = end_diretorio()
 print(f'Busca pelos arquivos [{valor_arquivo}], no diretório [{busca_geral}]')
 sleep(1)
