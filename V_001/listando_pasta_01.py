@@ -29,13 +29,17 @@ sleep(1)
 for valor_busca_pasta in busca_geral_diretorio.glob('**/*' + valor_arquivo):
     if valor_busca_pasta.is_dir():
         nome_pasta = valor_busca_pasta.name
+        lista_pastas_listadas.append(nome_pasta)
         cont_path += 1
         cont_arq += 1
-        print(f'[{cont_path}] - [{nome_pasta}]')
+        # print(f'>>> [{cont_path}] - [{nome_pasta}]')
     elif valor_busca_pasta.is_file():
         nome_arquivo = valor_busca_pasta.name
+        lista_arquivos_listados.append(nome_arquivo)
         status_arq = valor_busca_pasta.stat().st_size
         cont_arq += 1
         cont_arq_total += 1
-        print(f'<{cont_arq}> - <{nome_arquivo}>')
+        # print(f'<{cont_arq}> - <{nome_arquivo}>')
+print(lista_pastas_listadas)
+print(lista_arquivos_listados)
 print(f'Foram encontrados ao total de {cont_path} arquivos em {cont_path} pastas')
