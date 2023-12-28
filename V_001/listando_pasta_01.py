@@ -23,18 +23,18 @@ valor_arquivo = input('Digite a extensão do arquivo: ')
 if len(valor_arquivo) != 0:
     valor_arquivo = '.' + valor_arquivo
 
-busca_geral = end_diretorio()
-print(f'Busca pelos arquivos [{valor_arquivo}], no diretório [{busca_geral}]')
+busca_geral_diretorio = end_diretorio()
+print(f'Busca pelos arquivos [{valor_arquivo}], no diretório [{busca_geral_diretorio}]')
 sleep(1)
-for valor_busca in busca_geral.glob('**/*' + valor_arquivo):
-    if valor_busca.is_dir():
-        nome_pasta = valor_busca.name
+for valor_busca_pasta in busca_geral_diretorio.glob('**/*' + valor_arquivo):
+    if valor_busca_pasta.is_dir():
+        nome_pasta = valor_busca_pasta.name
         cont_path += 1
         cont_arq += 1
         print(f'[{cont_path}] - [{nome_pasta}]')
-    elif valor_busca.is_file():
-        nome_arquivo = valor_busca.name
-        status_arq = valor_busca.stat().st_size
+    elif valor_busca_pasta.is_file():
+        nome_arquivo = valor_busca_pasta.name
+        status_arq = valor_busca_pasta.stat().st_size
         cont_arq += 1
         cont_arq_total += 1
         print(f'<{cont_arq}> - <{nome_arquivo}>')
