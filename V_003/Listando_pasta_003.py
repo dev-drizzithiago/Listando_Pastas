@@ -11,8 +11,16 @@ class JanelaTK:
         janela_principal = tk.Tk()
         frame_txt_01 = tk.Frame(janela_principal)
         frame_txt_01.pack()
-        caixa_entrada = tk.Label(janela_principal, text="Digita uma extensão de arquivo")
+        frame_txt_02 = tk.Frame(janela_principal)
+        frame_txt_02.pack()
+        caixa_entrada = tk.Label(janela_principal, text="Escolha uma extensão de arquivo")
         caixa_entrada.pack()
+
+        lista_arqs = tk.Listbox(frame_txt_02)
+        lista_arqs.insert(1,'JPG')
+        lista_arqs.insert(2, 'MP4')
+        lista_arqs.insert(3,'TXT')
+        lista_arqs.pack(side='topdw')
         janela_principal.mainloop()
 
 
