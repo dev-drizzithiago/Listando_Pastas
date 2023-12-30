@@ -34,12 +34,15 @@ class JanelaTK:
 
     def mensagem(self):
         msg = self.lista_arqs.get(1, 3)
-        tk.messagebox.showinfo('AVISO!', msg)
+        tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
+        if len(msg) != 0:
+            msg = '.' + msg
+            return msg
 
 
 obj_janela = JanelaTK()
 
-for listagem in pasta_busca.glob('**/*.in'):
+for listagem in pasta_busca.glob('**/*' + obj_janela.mensagem()):
     # print(listagem)
     if listagem.is_file():
         print(listagem)
