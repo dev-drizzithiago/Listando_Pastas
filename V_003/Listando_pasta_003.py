@@ -9,6 +9,7 @@ pasta_busca = Path(home)
 
 class JanelaTK:
     def __init__(self):
+        self.extensoes = ['']
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x400')
 
@@ -35,25 +36,32 @@ class JanelaTK:
 
     def mensagem(self):
         msg = self.lista_arqs.curselection()
-        tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
+        print(len(msg))
         if msg == 0:
             self.lista_arqs = ''
+            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
             return self.lista_arqs
         elif msg == 1:
             self.arq_busca = '.jpg'
+            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
             return self.lista_arqs
         elif msg == 2:
             self.arq_busca = '.mp4'
+            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
             return self.lista_arqs
         elif msg == 3:
             self.arq_busca = '.txt'
+            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
             return self.lista_arqs
         self.janela_principal.destroy()
 
+    def busca_pasta(self):
+        for listagem in pasta_busca.glob('**/*' + self.mensagem):
+            # print(listagem)
+            if listagem.is_file():
+                print(listagem)
 
-obj_janela = JanelaTK()
-print(obj_janela.mensagem())
-for listagem in pasta_busca.glob('**/*' + obj_janela.mensagem):
-    # print(listagem)
-    if listagem.is_file():
-        print(listagem)
+
+obj_janela_busca = JanelaTK()
+
+
