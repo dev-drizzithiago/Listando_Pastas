@@ -34,34 +34,17 @@ class JanelaTK:
         self.lista_arqs.pack(anchor='center')
         self.janela_principal.mainloop()
 
-    def mensagem(self):
-        msg = self.lista_arqs.curselection()
-        print(len(msg))
-        if msg == 0:
-            self.lista_arqs = ''
-            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
-            return self.lista_arqs
-        elif msg == 1:
-            self.arq_busca = '.jpg'
-            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
-            return self.lista_arqs
-        elif msg == 2:
-            self.arq_busca = '.mp4'
-            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
-            return self.lista_arqs
-        elif msg == 3:
-            self.arq_busca = '.txt'
-            tk.messagebox.showinfo('AVISO!', f'Você escolhei a extesão: {msg}')
-            return self.lista_arqs
-        self.janela_principal.destroy()
+    def item_selecionado(self):
+        self.selecao = self.lista_arqs.get(str)
+        tk.messagebox.showinfo(self.selecao)
 
-    def busca_pasta(self):
-        for listagem in pasta_busca.glob('**/*' + self.mensagem):
-            # print(listagem)
-            if listagem.is_file():
-                print(listagem)
 
 
 obj_janela_busca = JanelaTK()
 
 
+def busca_pasta(self):
+    for listagem in pasta_busca.glob('**/*' + self.mensagem):
+        # print(listagem)
+        if listagem.is_file():
+            print(listagem)
