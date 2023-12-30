@@ -9,7 +9,7 @@ pasta_busca = Path(home)
 
 class JanelaTK:
     def __init__(self):
-        self.extensoes = ['']
+        self.extensoes = ['all', 'jpg', 'mp4', 'txt']
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x400')
 
