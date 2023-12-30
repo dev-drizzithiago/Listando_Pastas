@@ -52,7 +52,7 @@ class JanelaTK:
 
 
 obj_janela = JanelaTK()
-
+print(obj_janela.mensagem())
 for listagem in pasta_busca.glob('**/*' + obj_janela.mensagem):
     # print(listagem)
     if listagem.is_file():
