@@ -9,8 +9,7 @@ from tkinter.messagebox import showinfo, showerror, showwarning
 class JanelaTK:
     def __init__(self):
         # GERAL
-        self.home = Path.home()
-        self.pasta_busca = Path(home)
+        self.pasta_busca = Path(Path.home())
         self.extensoes = ['TUDO', 'JPG', 'MP4', 'TXT']
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('400x400')
@@ -53,12 +52,12 @@ class JanelaTK:
 
     def diretorio(self):
         local_busca = askdirectory()
-        self.local_busca
+        self.local_busca = local_busca
 
     def busca_pasta(self):
         print('inciando busca...')
         print('Buscando arquivos ', self.opcao_arquivo)
-        for listagem in pasta_busca.glob('**/*' + self.opcao_arquivo):
+        for listagem in self.pasta_busca.glob('**/*' + self.opcao_arquivo):
             # print(listagem)
             if listagem.is_file():
                 print(listagem)
