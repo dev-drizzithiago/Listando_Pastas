@@ -16,7 +16,7 @@ class JanelaTK:
         self.frame_txt_01 = tk.Frame(self.janela_principal)
         self.frame_txt_01.pack(anchor='n')
         self.frame_txt_02 = tk.Frame(self.janela_principal)
-        self.frame_txt_02.pack()
+        self.frame_txt_02.pack(anchor='center')
 
         self.frame_botao_001 = tk.Frame(self.janela_principal)
         self.frame_botao_001.pack(anchor='s')
