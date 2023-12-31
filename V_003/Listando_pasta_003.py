@@ -14,22 +14,23 @@ class JanelaTK:
         self.janela_principal.geometry('400x400')
 
         self.frame_txt_01 = tk.Frame(self.janela_principal)
-        self.frame_txt_01.pack()
+        self.frame_txt_01.pack(anchor='n')
         self.frame_txt_02 = tk.Frame(self.janela_principal)
         self.frame_txt_02.pack()
+
         self.frame_botao_001 = tk.Frame(self.janela_principal)
-        self.frame_botao_001.pack()
+        self.frame_botao_001.pack(anchor='s')
 
         caixa_entrada = tk.Label(self.janela_principal, text="Escolha uma extensão de arquivo")
         caixa_entrada.pack(anchor='n')
 
-        self.botao_entrar = tk.Button(self.frame_botao_001, text='Entrar', command=self.item_selecionado)
-        self.botao_entrar.pack(anchor='s')
-
         self.var_extersao = tk.Variable(value=self.extensoes)
 
-        self.lista_arqs = tk.Listbox(self.frame_txt_02, listvariable=self.var_extersao, selectmode=tk.EXTENDED)
+        self.lista_arqs = tk.Listbox(self.frame_txt_01, listvariable=self.var_extersao, selectmode=tk.EXTENDED)
         self.lista_arqs.pack(anchor='s')
+
+        self.botao_entrar = tk.Button(self.frame_botao_001, text='Entrar', command=self.item_selecionado)
+        self.botao_entrar.pack(anchor='s')
 
         self.janela_principal.mainloop()
 
