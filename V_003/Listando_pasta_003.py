@@ -42,10 +42,12 @@ class JanelaTK:
 
     def busca_pasta(self):
         print('inciando busca...')
+        print('Buscando arquivos ', self.opcao_arquivo)
         for listagem in pasta_busca.glob('**/*' + self.opcao_arquivo):
             # print(listagem)
             if listagem.is_file():
                 print(listagem)
+        print('\nBusca finalizada!')
 
 
 obj_janela_busca = JanelaTK()
