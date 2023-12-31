@@ -9,7 +9,7 @@ pasta_busca = Path(home)
 
 class JanelaTK:
     def __init__(self):
-        self.extensoes = ['all', 'jpg', 'mp4', 'txt']
+        self.extensoes = ['TUDO', 'JPG', 'MP4', 'TXT']
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x400')
 
@@ -41,6 +41,7 @@ class JanelaTK:
             self.busca_pasta()
 
     def busca_pasta(self):
+        print('inciando busca...')
         for listagem in pasta_busca.glob('**/*' + self.opcao_arquivo):
             # print(listagem)
             if listagem.is_file():
