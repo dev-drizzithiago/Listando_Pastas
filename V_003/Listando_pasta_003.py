@@ -9,10 +9,12 @@ pasta_busca = Path(home)
 
 class JanelaTK:
     def __init__(self):
+        # GERAL
         self.extensoes = ['TUDO', 'JPG', 'MP4', 'TXT']
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('400x400')
 
+        # FRAMES
         self.frame_txt_01 = tk.Frame(self.janela_principal)
         self.frame_txt_01.pack(anchor='n')
         self.frame_txt_02 = tk.Frame(self.janela_principal)
@@ -21,16 +23,20 @@ class JanelaTK:
         self.frame_botao_001 = tk.Frame(self.janela_principal)
         self.frame_botao_001.pack(anchor='s')
 
-        caixa_entrada = tk.Label(self.janela_principal, text="Escolha uma extensão de arquivo")
-        caixa_entrada.pack(anchor='n')
-
+        # VARIAVEIS
         self.var_extersao = tk.Variable(value=self.extensoes)
+
+        # LABELSdw
+        caixa_entrada = tk.Label(self.frame_txt_01, text="Escolha uma extensão de arquivo")
+        caixa_entrada.pack(anchor='n')
 
         self.lista_arqs = tk.Listbox(self.frame_txt_01, listvariable=self.var_extersao, selectmode=tk.EXTENDED)
         self.lista_arqs.pack(anchor='s')
 
         self.botao_entrar = tk.Button(self.frame_botao_001, text='Entrar', command=self.item_selecionado)
-        self.botao_entrar.pack(anchor='s')
+        self.botao_entrar.pack(side='left')
+        self.botao_destino = tk.Button(self.frame_botao_001, text='Caminho', command=self.diretorio)
+        self.botao_destino.pack(side='right')
 
         self.janela_principal.mainloop()
 
@@ -43,6 +49,9 @@ class JanelaTK:
                 self.opcao_arquivo = self.extensoes[extensao]
             tk.messagebox.showinfo('AVISO!!', self.opcao_arquivo)
             self.busca_pasta()
+
+    def diretorio(self):
+        
 
     def busca_pasta(self):
         print('inciando busca...')
