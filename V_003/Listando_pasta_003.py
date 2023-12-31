@@ -34,16 +34,10 @@ class JanelaTK:
         self.janela_principal.mainloop()
 
     def item_selecionado(self):
-        selecao = self.lista_arqs.curselection()
-        print(len(selecao))
+        selecao = self.lista_arqs.curselection() # Tupla
+        tk.messagebox.showinfo('AVISO!!', selecao)
         if selecao == 0:
-            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[0]}')
-        elif selecao == 1:
-            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[1]}')
-        elif selecao == 2:
-            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[2]}')
-        elif selecao == 3:
-            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[3]}')
+            print('teste')
 
         self.janela_principal.mainloop()
 
