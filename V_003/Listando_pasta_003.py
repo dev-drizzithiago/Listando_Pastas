@@ -1,5 +1,6 @@
 from pathlib import Path
 import tkinter as tk
+from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo, showerror, showwarning
 
 home = Path.home()
@@ -51,7 +52,7 @@ class JanelaTK:
             self.busca_pasta()
 
     def diretorio(self):
-        
+        local_busca = askdirectory()
 
     def busca_pasta(self):
         print('inciando busca...')
