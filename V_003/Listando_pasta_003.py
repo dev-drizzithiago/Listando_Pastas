@@ -3,14 +3,14 @@ import tkinter as tk
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo, showerror, showwarning
 
-home = Path.home()
 
-pasta_busca = Path(home)
 
 
 class JanelaTK:
     def __init__(self):
         # GERAL
+        self.home = Path.home()
+        self.pasta_busca = Path(home)
         self.extensoes = ['TUDO', 'JPG', 'MP4', 'TXT']
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('400x400')
@@ -53,6 +53,7 @@ class JanelaTK:
 
     def diretorio(self):
         local_busca = askdirectory()
+        self.local_busca
 
     def busca_pasta(self):
         print('inciando busca...')
