@@ -34,10 +34,8 @@ class JanelaTK:
         self.janela_principal.mainloop()
 
     def item_selecionado(self):
-        self.selecao = self.lista_arqs.curselection()
-        itens_selecionados = ','.join([self.lista_arqs.get(i) for i in self.selecao])
-        tk.messagebox.showinfo('AVISO', f'Você selecionou {self.selecao}')
-        self.lista_arqs.bind(itens_selecionados)
+        selecao = self.lista_arqs.curselection()
+        tk.messagebox.showinfo('AVISO!!', selecao)
 
         self.janela_principal.mainloop()
 
