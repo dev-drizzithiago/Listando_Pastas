@@ -34,19 +34,17 @@ class JanelaTK:
         self.janela_principal.mainloop()
 
     def item_selecionado(self):
-        selecao = self.lista_arqs.curselection() # Tupla
-        tk.messagebox.showinfo('AVISO!!', selecao)
-        if selecao == 0:
-            print('teste')
+        selecao = self.lista_arqs.curselection()  # Tupla
+        for extensao in selecao:
+            self.opcao_arquivo = self.extensoes[extensao]
+            tk.messagebox.showinfo('AVISO!!', self.opcao_arquivo)
+            self.busca_pasta()
 
-        self.janela_principal.mainloop()
+    def busca_pasta(self):
+        for listagem in pasta_busca.glob('**/*' + self.opcao_arquivo):
+            # print(listagem)
+            if listagem.is_file():
+                print(listagem)
 
 
 obj_janela_busca = JanelaTK()
-
-
-def busca_pasta():
-    for listagem in pasta_busca.glob('**/*'):
-        # print(listagem)
-        if listagem.is_file():
-            print(listagem)
