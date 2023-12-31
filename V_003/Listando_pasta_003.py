@@ -36,7 +36,10 @@ class JanelaTK:
     def item_selecionado(self):
         selecao = self.lista_arqs.curselection()  # Tupla
         for extensao in selecao:
-            self.opcao_arquivo = self.extensoes[extensao]
+            if len(extensao) == 0:
+                self.opcao_arquivo = ''
+            else:
+                self.opcao_arquivo = self.extensoes[extensao]
             tk.messagebox.showinfo('AVISO!!', self.opcao_arquivo)
             self.busca_pasta()
 
