@@ -36,7 +36,7 @@ class JanelaTK:
     def item_selecionado(self):
         selecao = self.lista_arqs.curselection()  # Tupla
         for extensao in selecao:
-            if len(extensao) == 0:
+            if extensao == 0:
                 self.opcao_arquivo = ''
             else:
                 self.opcao_arquivo = self.extensoes[extensao]
