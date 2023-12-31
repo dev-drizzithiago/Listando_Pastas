@@ -29,13 +29,22 @@ class JanelaTK:
         self.var_extersao = tk.Variable(value=self.extensoes)
 
         self.lista_arqs = tk.Listbox(self.frame_txt_02, listvariable=self.var_extersao, selectmode=tk.EXTENDED)
+        self.lista_arqs.pack(anchor='s')
 
-        self.lista_arqs.pack(anchor='center')
         self.janela_principal.mainloop()
 
     def item_selecionado(self):
         selecao = self.lista_arqs.curselection()
-        tk.messagebox.showinfo('AVISO!!', selecao)
+        print(len(selecao))
+        print(selecao)
+        if selecao == 0:
+            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[0]}')
+        elif selecao == 1:
+            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[1]}')
+        elif selecao == 2:
+            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[2]}')
+        elif selecao == 3:
+            tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[3]}')
 
         self.janela_principal.mainloop()
 
