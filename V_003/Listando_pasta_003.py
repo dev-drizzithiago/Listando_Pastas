@@ -11,7 +11,7 @@ class JanelaTK:
     def __init__(self):
         self.extensoes = ['TUDO', 'JPG', 'MP4', 'TXT']
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('600x400')
+        self.janela_principal.geometry('400x400')
 
         self.frame_txt_01 = tk.Frame(self.janela_principal)
         self.frame_txt_01.pack()
