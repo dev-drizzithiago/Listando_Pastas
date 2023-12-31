@@ -36,7 +36,6 @@ class JanelaTK:
     def item_selecionado(self):
         selecao = self.lista_arqs.curselection()
         print(len(selecao))
-        print(selecao)
         if selecao == 0:
             tk.messagebox.showinfo('AVISO!!', f'{self.extensoes[0]}')
         elif selecao == 1:
