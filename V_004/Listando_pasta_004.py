@@ -25,7 +25,7 @@ class ListandoPastas:
 
         # Lista
         self.lista_extensoes_001 = tk.Listbox(self.frame_label_001)
-
+        self.lista_extensoes_001.pack(fill='buth')
         # Botoes
         self.botao_entrar = tk.Button(self.frame_label_002, text='Selecionar')
         self.botao_entrar.pack(side='right')
