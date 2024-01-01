@@ -11,6 +11,7 @@ class JanelaTK:
         self.pasta_destino = Path(Path.home())
         self.extensoes = ['TUDO', 'JPG', 'MP4', 'TXT']
         self.linhas_aparencia = '-=-' * 30
+
         # Janela principal
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('350x250')
