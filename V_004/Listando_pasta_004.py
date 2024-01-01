@@ -42,7 +42,8 @@ class ListandoPastas:
 
     def iniciando_busca_arquivos(self):
         tipo_arquivo = self.lista_extensoes_001.curselection()
-        print(tipo_arquivo)
+        for extensao_arq in tipo_arquivo:
+            print(self.extensoes_arquivos_imagem[extensao_arq])
 
 
 obj_listando_pasta = ListandoPastas()
