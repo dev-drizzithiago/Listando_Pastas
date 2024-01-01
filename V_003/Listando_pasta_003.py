@@ -48,14 +48,14 @@ class JanelaTK:
             else:
                 self.opcao_arquivo = self.extensoes[extensao]
             tk.messagebox.showinfo('AVISO!!', self.opcao_arquivo)
-            self.busca_pasta()
+            self.buscando_arquivos()
 
     def diretorio(self):
         local_busca = askdirectory()
         self.pasta_busca = local_busca
         self.item_selecionado()
 
-    def busca_pasta(self):
+    def buscando_arquivos(self):
         print('inciando busca...')
         print('Buscando arquivos ', self.opcao_arquivo)
         for listagem in self.pasta_busca.glob('**/*' + self.opcao_arquivo):
