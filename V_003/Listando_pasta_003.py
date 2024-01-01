@@ -31,9 +31,9 @@ class JanelaTK:
         self.lista_arqs = tk.Listbox(self.frame_txt_01, listvariable=self.var_extersao, selectmode=tk.EXTENDED)
         self.lista_arqs.pack(anchor='s')
 
-        self.botao_entrar = tk.Button(self.frame_botao_001, text='Entrar', command=self.extensao_selecionado)
+        self.botao_entrar = tk.Button(self.frame_botao_001, text='Pasta HOME', command=self.extensao_selecionado)
         self.botao_entrar.pack(side='left')
-        self.botao_destino = tk.Button(self.frame_botao_001, text='Caminho', command=self.diretorio)
+        self.botao_destino = tk.Button(self.frame_botao_001, text='Escolher Caminho', command=self.diretorio)
         self.botao_destino.pack(side='right')
 
         self.janela_principal.mainloop()
