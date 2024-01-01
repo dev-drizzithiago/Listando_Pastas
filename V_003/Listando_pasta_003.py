@@ -13,7 +13,7 @@ class JanelaTK:
         self.linhas_aparencia = '-=-' * 30
         # Janela principal
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('400x400')
+        self.janela_principal.geometry('350x250')
 
         # FRAMES
         self.frame_txt_01 = tk.Frame(self.janela_principal)
