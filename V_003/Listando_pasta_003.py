@@ -52,7 +52,7 @@ class JanelaTK:
 
     def diretorio(self):
         local_busca = askdirectory()
-        self.local_busca = local_busca
+        self.pasta_busca = local_busca
         self.item_selecionado()
 
     def busca_pasta(self):
