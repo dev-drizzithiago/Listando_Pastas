@@ -23,16 +23,14 @@ class ListandoPastas:
         self.frame_txt_001.pack(side='top')
         self.frame_txt_002.pack(side='bottom')
 
+        # Lista
+        self.lista_extensoes_001 = tk.Listbox(self.frame_label_001)
+
         # Botoes
         self.botao_entrar = tk.Button(self.frame_label_002, text='Selecionar')
         self.botao_entrar.pack(side='right')
         self.botao_sair = tk.Button(self.frame_label_002, text='Sair', command=self.janela_principal.destroy)
         self.botao_sair.pack(side='right')
-
-
-
-
-
 
         self.janela_principal.mainloop()
 
