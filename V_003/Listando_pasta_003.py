@@ -9,7 +9,7 @@ from tkinter.messagebox import showinfo, showerror, showwarning
 class JanelaTK:
     def __init__(self):
         # GERAL
-        self.pasta_busca = Path(Path.home())
+        self.pasta_destino = Path(Path.home())
         self.extensoes = ['TUDO', 'JPG', 'MP4', 'TXT']
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('400x400')
@@ -40,7 +40,7 @@ class JanelaTK:
 
         self.janela_principal.mainloop()
 
-    def item_selecionado(self):
+    def extensao_selecionado(self):
         selecao = self.lista_arqs.curselection()  # Tupla
         for extensao in selecao:
             if extensao == 0:
@@ -53,7 +53,7 @@ class JanelaTK:
     def diretorio(self):
         local_busca = askdirectory()
         self.pasta_busca = local_busca
-        self.item_selecionado()
+        self.extensao_selecionado()
 
     def buscando_arquivos(self):
         print('inciando busca...')
