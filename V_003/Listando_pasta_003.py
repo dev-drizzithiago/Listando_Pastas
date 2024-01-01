@@ -1,7 +1,8 @@
 from pathlib import Path
+from time import sleep
 import tkinter as tk
 from tkinter.filedialog import askdirectory
-from tkinter.messagebox import showinfo, showerror, showwarning
+from tkinter.messagebox import showinfo
 
 
 class JanelaTK:
@@ -35,6 +36,8 @@ class JanelaTK:
         self.botao_entrar.pack(side='left')
         self.botao_destino = tk.Button(self.frame_botao_001, text='Escolher Caminho', command=self.diretorio)
         self.botao_destino.pack(side='right')
+        self.botao_sair = tk.Button(self.frame_botao_001, text='Sair', command=self.janela_principal.destroy)
+        self.botao_sair.pack(side='bottom')
 
         self.janela_principal.mainloop()
 
