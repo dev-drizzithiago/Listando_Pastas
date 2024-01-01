@@ -6,7 +6,6 @@ class ListandoPasta:
     def __init__(self):
         janela_principal = tkinter.Tk()
 
-
         janela_principal.mainloop()
 
 
