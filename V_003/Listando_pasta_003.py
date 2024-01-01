@@ -14,6 +14,7 @@ class JanelaTK:
         # Janela principal
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('350x250')
+        self.janela_principal.title('Buscando arquivos...')
 
         # FRAMES
         self.frame_txt_01 = tk.Frame(self.janela_principal)
