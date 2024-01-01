@@ -6,14 +6,16 @@ import tkinter as tk
 
 class ListandoPastas:
     def __init__(self):
+        # Variaveis
+        self.extensoes_arquivos_imagem = ['JPG', 'PNG', 'BMP']
         # Janela principal
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('300x300')
         self.janela_principal.title('Buscando arquivos...')
 
         # Frames Label
-        self.frame_label_001 = tk.LabelFrame(self.janela_principal, text='Arquivos Disponível')
-        self.frame_label_002 = tk.LabelFrame(self.janela_principal, text='Botões')
+        self.frame_label_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo')
+        self.frame_label_002 = tk.LabelFrame(self.janela_principal)
         self.frame_label_001.pack(fill='both')
         self.frame_label_002.pack(fill='both')
 
@@ -25,7 +27,7 @@ class ListandoPastas:
 
         # Lista
         self.lista_extensoes_001 = tk.Listbox(self.frame_label_001)
-        self.lista_extensoes_001.pack(fill='buth')
+        self.lista_extensoes_001.pack(fill='both', expand='yes')
         # Botoes
         self.botao_entrar = tk.Button(self.frame_label_002, text='Selecionar')
         self.botao_entrar.pack(side='right')
