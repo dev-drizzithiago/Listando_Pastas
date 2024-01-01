@@ -50,7 +50,7 @@ class JanelaTK:
 
     def diretorio(self):
         destino_selecao = askdirectory()
-        self.pasta_destino = destino_selecao
+        self.pasta_destino = str(destino_selecao)
         self.extensao_selecionado()
 
     def buscando_arquivos(self):
