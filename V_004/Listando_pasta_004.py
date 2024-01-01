@@ -28,7 +28,7 @@ class ListandoPastas:
         self.frame_txt_002.pack(side='bottom')
 
         # Lista
-        self.lista_extensoes_001 = tk.Listbox(self.frame_label_001)
+        self.lista_extensoes_001 = tk.Listbox(self.frame_label_001, listvariable=self.variavel_extensao)
         self.lista_extensoes_001.pack(fill='both', expand='yes')
 
         # Botoes
