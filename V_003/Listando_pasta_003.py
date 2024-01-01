@@ -4,8 +4,6 @@ from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo, showerror, showwarning
 
 
-
-
 class JanelaTK:
     def __init__(self):
         # GERAL
@@ -51,10 +49,10 @@ class JanelaTK:
             self.buscando_arquivos()
 
     def diretorio(self):
-        print(self.lista_arqs)
+        print(self.lista_arqs.curselection)
+        self.extensao_selecionado()
         destino_selecao = askdirectory()
         self.pasta_destino = destino_selecao
-        self.extensao_selecionado()
 
     def buscando_arquivos(self):
         print('inciando busca...')
