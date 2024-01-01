@@ -8,7 +8,7 @@ class ListandoPastas:
     def __init__(self):
         # Variaveis
         self.extensoes_arquivos_imagem = ['JPG', 'PNG', 'BMP']
-        self.variavel_extensao = tk.Variable(value=self.extensoes_arquivos_imagem)
+
 
         # Janela principal
         self.janela_principal = tk.Tk()
@@ -16,24 +16,25 @@ class ListandoPastas:
         self.janela_principal.title('Buscando arquivos...')
 
         # Frames Label
-        self.frame_label_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo')
-        self.frame_label_002 = tk.LabelFrame(self.janela_principal)
+        self.frame_label_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo', pady=3, padx=3)
+        self.frame_label_002 = tk.LabelFrame(self.janela_principal, padx=3, pady=3)
         self.frame_label_001.pack(fill='both')
         self.frame_label_002.pack(fill='both')
 
         # Frames
-        self.frame_txt_001 = tk.Frame(self.frame_label_001)
-        self.frame_txt_002 = tk.Frame(self.frame_label_001)
+        self.frame_txt_001 = tk.Frame(self.frame_label_001, pady=3, padx=3)
+        self.frame_txt_002 = tk.Frame(self.frame_label_001, pady=3, padx=3)
         self.frame_txt_001.pack(side='top')
         self.frame_txt_002.pack(side='bottom')
 
         # Lista
-        self.lista_extensoes_001 = tk.Listbox(self.frame_label_001, listvariable=self.variavel_extensao)
+        self.variavel_extensao = tk.Variable(value=self.extensoes_arquivos_imagem)
+        self.lista_extensoes_001 = tk.Listbox(self.frame_label_001, listvariable=self.variavel_extensao, justify='center')
         self.lista_extensoes_001.pack(fill='both', expand='yes')
 
         # Botoes
         self.botao_entrar = tk.Button(self.frame_label_002, text='Selecionar')
-        self.botao_entrar.pack(side='right')
+        self.botao_entrar.pack(side='left')
         self.botao_sair = tk.Button(self.frame_label_002, text='Sair', command=self.janela_principal.destroy)
         self.botao_sair.pack(side='right')
 
