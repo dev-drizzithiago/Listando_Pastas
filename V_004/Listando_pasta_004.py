@@ -24,8 +24,11 @@ class ListandoPastas:
         self.frame_txt_002.pack(side='bottom')
 
         # Botoes
-        self.botao_entrar = tk.Button(self.frame_label_002, text='Entrar')
+        self.botao_entrar = tk.Button(self.frame_label_002, text='Selecionar')
         self.botao_entrar.pack(side='right')
+        self.botao_sair = tk.Button(self.frame_label_002, text='Sair', command=self.janela_principal.destroy)
+        self.botao_sair.pack(side='right')
+
 
 
 
