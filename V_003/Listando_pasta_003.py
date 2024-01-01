@@ -33,7 +33,7 @@ class JanelaTK:
         self.lista_arqs = tk.Listbox(self.frame_txt_01, listvariable=self.var_extersao, selectmode=tk.EXTENDED)
         self.lista_arqs.pack(anchor='s')
 
-        self.botao_entrar = tk.Button(self.frame_botao_001, text='Entrar', command=self.item_selecionado)
+        self.botao_entrar = tk.Button(self.frame_botao_001, text='Entrar', command=self.extensao_selecionado)
         self.botao_entrar.pack(side='left')
         self.botao_destino = tk.Button(self.frame_botao_001, text='Caminho', command=self.diretorio)
         self.botao_destino.pack(side='right')
@@ -52,13 +52,13 @@ class JanelaTK:
 
     def diretorio(self):
         local_busca = askdirectory()
-        self.pasta_busca = local_busca
+        self.pasta_destino = local_busca
         self.extensao_selecionado()
 
     def buscando_arquivos(self):
         print('inciando busca...')
         print('Buscando arquivos ', self.opcao_arquivo)
-        for listagem in self.pasta_busca.glob('**/*' + self.opcao_arquivo):
+        for listagem in self.pasta_destino.glob('**/*' + self.opcao_arquivo):
             # print(listagem)
             if listagem.is_file():
                 print(listagem)
