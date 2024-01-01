@@ -9,7 +9,7 @@ class ListandoPastas:
         # Janela principal
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('300x300')
-        self.janela_principal.title('Buscando arquivos em na pasta')
+        self.janela_principal.title('Buscando arquivos...')
 
         # Frames
         self.frame_label_001 = tk.LabelFrame(self.janela_principal, text='Escolha uma opção')
