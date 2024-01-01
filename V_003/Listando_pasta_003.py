@@ -30,7 +30,7 @@ class JanelaTK:
         caixa_entrada = tk.Label(self.frame_txt_01, text="Escolha uma extensão de arquivo")
         caixa_entrada.pack(anchor='n')
 
-        self.lista_arqs = tk.Listbox(self.frame_txt_01, listvariable=self.var_extersao, selectmode=tk.EXTENDED)
+        self.lista_arqs = tk.Listbox(self.frame_txt_01, listvariable=self.var_extersao, selectmode=tk.EXTENDED, xview())
         self.lista_arqs.pack(anchor='s')
 
         self.botao_entrar = tk.Button(self.frame_botao_001, text='Entrar', command=self.item_selecionado)
