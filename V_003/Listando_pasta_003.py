@@ -50,14 +50,13 @@ class JanelaTK:
 
     def diretorio(self):
         destino_selecao = askdirectory()
-        self.pasta_destino = str(destino_selecao)
+        self.pasta_destino = Path(destino_selecao)
         self.extensao_selecionado()
 
     def buscando_arquivos(self):
         print('inciando busca...')
         print('Buscando arquivos ', self.opcao_arquivo)
         for listagem in self.pasta_destino.glob('**/*' + self.opcao_arquivo):
-            # print(listagem)
             if listagem.is_file():
                 print(listagem)
         print('\nBusca finalizada!')
