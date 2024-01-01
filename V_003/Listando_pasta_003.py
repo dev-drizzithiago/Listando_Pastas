@@ -49,7 +49,6 @@ class JanelaTK:
             self.buscando_arquivos()
 
     def diretorio(self):
-        print(self.lista_arqs.curselection)
         self.extensao_selecionado()
         destino_selecao = askdirectory()
         self.pasta_destino = destino_selecao
