@@ -50,7 +50,7 @@ class ListandoPastas:
 
         # janela listagem
         self.janela_listagem = tk.Tk()
-        self.janela_listagem.geometry('300x230')
+        self.janela_listagem.geometry('500x230')
         self.janela_listagem.title('Listando arquivos...')
 
         # Frames
