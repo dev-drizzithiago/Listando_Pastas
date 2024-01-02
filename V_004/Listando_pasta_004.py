@@ -19,6 +19,7 @@ class ListandoPastas:
         self.frame_label_principal_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo', pady=3,
                                                        padx=3)
         self.frame_label_principal_002 = tk.LabelFrame(self.janela_principal, padx=3, pady=3)
+        self.frame_label_principal_003 = tk.LabelFrame(self.janela_principal, padx=3, pady=3, text='Escolha uma mídia!')
         self.frame_label_principal_001.pack(fill='both')
         self.frame_label_principal_002.pack(fill='both')
 
@@ -62,6 +63,7 @@ class ListandoPastas:
 
         # SCROLL
         self.scroll_listagem_001 = tk.Scrollbar(self.lista_arquivos)
+        self.scroll_listagem_001.pack(side='right', fill=tk.Y)
 
         # Mesangem
         self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='center',
