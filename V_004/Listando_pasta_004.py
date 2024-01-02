@@ -63,15 +63,17 @@ class ListandoPastas:
         self.frame_label_listagem_002.pack(fill='both')
 
         # SCROLL
-        self.scroll_listagem_001 = tk.Scrollbar(self.lista_arquivos)
-        self.scroll_listagem_001.pack(side='right', fill=tk.Y)
+        self.scroll_listagem_001 = tk.Scrollbar(self.janela_listagem)
+        self.scroll_listagem_001.pack(side='right', fill='both')
 
         # Mesangem
         self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='center',
                                          yscrollcommand=self.scroll_listagem_001.set)
+
         for extensao_arq in tipo_arquivo:
             self.valor_extensao = str(self.extensoes_arquivos_imagem[extensao_arq])
-        self.scroll_listagem_001.config(command=self.lista_arquivos.xview)
+        self.scroll_listagem_001.config(self.lista_arquivos.xview)
+
         # Listagem de pasta
         for listagem in pasta_destino_busca.glob('**/*' + self.valor_extensao):
             if listagem.is_file():
