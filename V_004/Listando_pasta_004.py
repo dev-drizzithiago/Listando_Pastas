@@ -34,7 +34,7 @@ class ListandoPastas:
         self.lista_extensoes_001 = tk.Listbox(self.frame_label_principal_001, listvariable=self.variavel_extensao,
                                               justify='center')
         self.lista_extensoes_001.pack(fill='both', expand='yes')
-        self.canvas.pack()
+
         # Botoes
         self.botao_entrar = tk.Button(self.frame_label_principal_002, text='Selecionar',
                                       command=self.iniciando_busca_arquivos)
