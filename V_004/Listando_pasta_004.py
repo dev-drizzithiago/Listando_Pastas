@@ -9,8 +9,8 @@ class ListandoPastas:
         # Variaveis
         self.scroll_listagem_001 = None
         self.lista_arquivos = None
-        self.extensoes_arquivos_imagem = ['JPG', 'PNG', 'BMP']
-        self.extensoes_arquivos_documentos = ('PDF', 'TXT', )
+        self.extensoes_arquivos_imagem = ['JPG', 'JPEG', 'PNG', 'BMP', 'GIF']
+        self.extensoes_arquivos_documentos = ('PDF', 'TXT', 'DOCX', )
 
         # Janela principal
         self.janela_principal = tk.Tk()
