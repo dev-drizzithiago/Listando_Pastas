@@ -44,6 +44,11 @@ class ListandoPastas:
         self.janela_principal.mainloop()
 
     def iniciando_busca_arquivos(self):
+        tipo_arquivo = self.lista_extensoes_001.curselection()
+        for extensao_arq in tipo_arquivo:
+            valor_extensao = str(self.extensoes_arquivos_imagem[extensao_arq])
+            print(valor_extensao)
+
         # janela listagem
         self.janela_listagem = tk.Tk()
         self.janela_listagem.geometry('300x300')
@@ -55,16 +60,16 @@ class ListandoPastas:
         self.frame_label_listagem_002.pack(fill='both')
 
         # Mesangem
-        self.caixa_txt_001 = tk.Message(self.frame_label_listagem_001, pady=3, padx=3, relief='raised')
+        valor_var_ext = tk.StringVar()
+        valor_var_ext.set(value=valor_extensao)
+        self.caixa_txt_001 = tk.Message(self.frame_label_listagem_001, pady=3, padx=3, relief='raised',
+                                        textvariable=valor_var_ext)
         self.caixa_txt_001.pack(anchor='center')
+
         # Botao
         self.botao_sair_listagem = tk.Button(self.frame_label_listagem_002, text='Sair da janela', padx=3, pady=3,
                                              command=self.janela_listagem.destroy)
         self.botao_sair_listagem.pack(anchor='se')
-
-        tipo_arquivo = self.lista_extensoes_001.curselection()
-        for extensao_arq in tipo_arquivo:
-            print(self.extensoes_arquivos_imagem[extensao_arq])
 
 
 obj_listando_pasta = ListandoPastas()
