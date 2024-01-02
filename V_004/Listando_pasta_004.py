@@ -17,8 +17,7 @@ class ListandoPastas:
         self.janela_principal.title('Listagem de arquivos')
 
         # Frames Label
-        self.frame_label_principal_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo', pady=3,
-                                                       padx=3)
+        self.frame_label_principal_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo', pady=3, padx=3)
         self.frame_label_principal_002 = tk.LabelFrame(self.janela_principal, padx=3, pady=3)
         self.frame_label_principal_003 = tk.LabelFrame(self.janela_principal, padx=3, pady=3, text='Escolha uma mídia!')
         self.frame_label_principal_001.pack(fill='both')
@@ -35,7 +34,7 @@ class ListandoPastas:
         self.lista_extensoes_001 = tk.Listbox(self.frame_label_principal_001, listvariable=self.variavel_extensao,
                                               justify='center')
         self.lista_extensoes_001.pack(fill='both', expand='yes')
-
+        self.canvas.pack()
         # Botoes
         self.botao_entrar = tk.Button(self.frame_label_principal_002, text='Selecionar',
                                       command=self.iniciando_busca_arquivos)
