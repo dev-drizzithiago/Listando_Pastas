@@ -10,6 +10,7 @@ class ListandoPastas:
         self.scroll_listagem_001 = None
         self.lista_arquivos = None
         self.extensoes_arquivos_imagem = ['JPG', 'PNG', 'BMP']
+        self.extensoes_arquivos_documentos = ('PDF', 'TXT', )
 
         # Janela principal
         self.janela_principal = tk.Tk()
@@ -22,6 +23,7 @@ class ListandoPastas:
         self.frame_label_principal_003 = tk.LabelFrame(self.janela_principal, padx=3, pady=3, text='Escolha uma mídia!')
         self.frame_label_principal_001.pack(fill='both')
         self.frame_label_principal_002.pack(fill='both')
+        self.frame_label_principal_003.pack(fill='both')
 
         # Frames
         self.frame_txt_001 = tk.Frame(self.frame_label_principal_001, pady=3, padx=3)
