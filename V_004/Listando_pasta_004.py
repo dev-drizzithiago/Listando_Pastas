@@ -11,7 +11,7 @@ class ListandoPastas:
 
         # Janela principal
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('300x300')
+        self.janela_principal.geometry('300x230')
         self.janela_principal.title('Listagem de arquivos')
 
         # Frames Label
@@ -46,10 +46,9 @@ class ListandoPastas:
     def iniciando_busca_arquivos(self):
         tipo_arquivo = self.lista_extensoes_001.curselection()
 
-
         # janela listagem
         self.janela_listagem = tk.Tk()
-        self.janela_listagem.geometry('300x300')
+        self.janela_listagem.geometry('300x230')
         self.janela_listagem.title('Listando arquivos...')
         # Frames
         self.frame_label_listagem_001 = tk.LabelFrame(self.janela_listagem, text='Arquivos listados', padx=3, pady=3)
@@ -59,7 +58,7 @@ class ListandoPastas:
 
         # Mesangem
 
-        self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001)
+        self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='center')
         for extensao_arq in tipo_arquivo:
             valor_extensao = str(self.extensoes_arquivos_imagem[extensao_arq])
             self.lista_arquivos.insert('end', valor_extensao)
