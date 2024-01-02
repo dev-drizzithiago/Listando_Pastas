@@ -9,8 +9,10 @@ class ListandoPastas:
         # Variaveis
         self.scroll_listagem_001 = None
         self.lista_arquivos = None
-        self.extensoes_arquivos_imagem = ['JPG', 'JPEG', 'PNG', 'BMP', 'GIF']
-        self.extensoes_arquivos_documentos = ('PDF', 'TXT', 'DOCX', )
+        self.extensoes_imagem = ['JPG', 'JPEG', 'PNG', 'BMP', 'GIF']
+        self.extensoes_documentos = ('PDF', 'TXT', 'DOCX')
+        self.extensoes_arquivos = ("ISO", 'DLL')
+        self.extensoes_midias = ('MP4', 'MP3', 'MPEG', 'AVI')
 
         # Janela principal
         self.janela_principal = tk.Tk()
@@ -32,7 +34,7 @@ class ListandoPastas:
         self.frame_txt_002.pack(side='bottom')
 
         # Lista
-        self.variavel_extensao = tk.Variable(value=self.extensoes_arquivos_imagem)
+        self.variavel_extensao = tk.Variable(value=self.extensoes_imagem)
         self.lista_extensoes_001 = tk.Listbox(self.frame_label_principal_001, listvariable=self.variavel_extensao,
                                               justify='center')
         self.lista_extensoes_001.pack(fill='both', expand='yes')
