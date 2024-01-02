@@ -66,7 +66,8 @@ class ListandoPastas:
 
         # Listagem de pasta
         for listagem in pasta_destino_busca.glob('**/*' + self.valor_extensao):
-            self.lista_arquivos.insert('end', listagem)
+            if listagem.is_file():
+                self.lista_arquivos.insert('end', listagem)
         self.lista_arquivos.pack(anchor='center', fill='both')
         # Botao
         self.botao_sair_listagem = tk.Button(self.frame_label_listagem_002, text='Sair da janela', padx=3, pady=3,
