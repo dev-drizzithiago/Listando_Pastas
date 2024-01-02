@@ -56,7 +56,7 @@ class ListandoPastas:
 
         # janela listagem
         self.janela_listagem = tk.Tk()
-        self.janela_listagem.geometry('500x230')
+        self.janela_listagem.geometry('800x230')
         self.janela_listagem.title('Listando arquivos...')
 
         # Frames
@@ -70,7 +70,7 @@ class ListandoPastas:
         self.scroll_listagem.pack(side='right', fill='both')
 
         # Mesangem
-        self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='center')
+        self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='left')
 
         for extensao_arq in tipo_arquivo:
             self.valor_extensao = str(self.extensoes_imagem[extensao_arq])
