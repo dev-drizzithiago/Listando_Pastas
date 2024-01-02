@@ -1,4 +1,4 @@
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askdirectory
 from pathlib import Path
 from time import sleep
 import tkinter as tk
@@ -8,7 +8,6 @@ class ListandoPastas:
     def __init__(self):
         # Variaveis
         self.extensoes_arquivos_imagem = ['JPG', 'PNG', 'BMP']
-
 
         # Janela principal
         self.janela_principal = tk.Tk()
@@ -31,6 +30,9 @@ class ListandoPastas:
         self.variavel_extensao = tk.Variable(value=self.extensoes_arquivos_imagem)
         self.lista_extensoes_001 = tk.Listbox(self.frame_label_001, listvariable=self.variavel_extensao, justify='center')
         self.lista_extensoes_001.pack(fill='both', expand='yes')
+
+        # Mesangem
+        self.caixa_txt_001 = 
 
         # Botoes
         self.botao_entrar = tk.Button(self.frame_label_002, text='Selecionar', command=self.iniciando_busca_arquivos)
