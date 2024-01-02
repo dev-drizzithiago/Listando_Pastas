@@ -7,6 +7,7 @@ import tkinter as tk
 class ListandoPastas:
     def __init__(self):
         # Variaveis
+        self.lista_arquivos = None
         self.extensoes_arquivos_imagem = ['JPG', 'PNG', 'BMP']
 
         # Janela principal
@@ -59,8 +60,12 @@ class ListandoPastas:
         self.frame_label_listagem_001.pack(fill='both')
         self.frame_label_listagem_002.pack(fill='both')
 
+        # SCROLL
+        self.scroll_listagem_001 = tk.Scrollbar(self.lista_arquivos)
+
         # Mesangem
-        self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='center')
+        self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='center',
+                                         yscrollcommand=self.scroll_listagem_001.set)
         for extensao_arq in tipo_arquivo:
             self.valor_extensao = str(self.extensoes_arquivos_imagem[extensao_arq])
 
