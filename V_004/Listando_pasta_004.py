@@ -15,7 +15,8 @@ class ListandoPastas:
         self.janela_principal.title('Listagem de arquivos')
 
         # Frames Label
-        self.frame_label_principal_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo', pady=3, padx=3)
+        self.frame_label_principal_001 = tk.LabelFrame(self.janela_principal, text='Selecione um arquivo', pady=3,
+                                                       padx=3)
         self.frame_label_principal_002 = tk.LabelFrame(self.janela_principal, padx=3, pady=3)
         self.frame_label_principal_001.pack(fill='both')
         self.frame_label_principal_002.pack(fill='both')
@@ -28,17 +29,17 @@ class ListandoPastas:
 
         # Lista
         self.variavel_extensao = tk.Variable(value=self.extensoes_arquivos_imagem)
-        self.lista_extensoes_001 = tk.Listbox(self.frame_label_principal_001, listvariable=self.variavel_extensao, justify='center')
+        self.lista_extensoes_001 = tk.Listbox(self.frame_label_principal_001, listvariable=self.variavel_extensao,
+                                              justify='center')
         self.lista_extensoes_001.pack(fill='both', expand='yes')
 
-
-
         # Botoes
-        self.botao_entrar = tk.Button(self.frame_label_principal_002, text='Selecionar', command=self.iniciando_busca_arquivos)
+        self.botao_entrar = tk.Button(self.frame_label_principal_002, text='Selecionar',
+                                      command=self.iniciando_busca_arquivos)
         self.botao_entrar.pack(side='left')
-        self.botao_sair_principal = tk.Button(self.frame_label_principal_002, text='Sair', command=self.janela_principal.destroy)
+        self.botao_sair_principal = tk.Button(self.frame_label_principal_002, text='Sair',
+                                              command=self.janela_principal.destroy)
         self.botao_sair_principal.pack(side='right')
-
 
         self.janela_principal.mainloop()
 
@@ -57,7 +58,8 @@ class ListandoPastas:
         self.caixa_txt_001 = tk.Message(self.frame_label_listagem_001, pady=3, padx=3, relief='raised')
         self.caixa_txt_001.pack(anchor='center')
         # Botao
-        self.botao_sair_listagem = tk.Button(self.frame_label_listagem_002, padx=3, pady=3)
+        self.botao_sair_listagem = tk.Button(self.frame_label_listagem_002, text='Sair da janela', padx=3, pady=3,
+                                             command=self.janela_listagem.destroy)
         self.botao_sair_listagem.pack(anchor='se')
 
         tipo_arquivo = self.lista_extensoes_001.curselection()
