@@ -45,12 +45,14 @@ class ListandoPastas:
 
     def iniciando_busca_arquivos(self):
         tipo_arquivo = self.lista_extensoes_001.curselection()
+        valor_pasta_destino = askdirectory()
+        pasta_destino_busca = Path(valor_pasta_destino)
 
         # janela listagem
         self.janela_listagem = tk.Tk()
         self.janela_listagem.geometry('300x230')
         self.janela_listagem.title('Listando arquivos...')
-        
+
         # Frames
         self.frame_label_listagem_001 = tk.LabelFrame(self.janela_listagem, text='Arquivos listados', padx=3, pady=3)
         self.frame_label_listagem_002 = tk.LabelFrame(self.janela_listagem, pady=3, padx=3)
@@ -60,11 +62,11 @@ class ListandoPastas:
         # Mesangem
         self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='center')
         for extensao_arq in tipo_arquivo:
-            valor_extensao = str(self.extensoes_arquivos_imagem[extensao_arq])
+            self.valor_extensao = str(self.extensoes_arquivos_imagem[extensao_arq])
 
         # Listagem de pasta
-        for listagem in
-            self.lista_arquivos.insert('end', valor_extensao)
+        for listagem in pasta_destino_busca.glob('**/*' + self.valor_extensao):
+            self.lista_arquivos.insert('end', listagem)
         self.lista_arquivos.pack(anchor='center', fill='both')
         # Botao
         self.botao_sair_listagem = tk.Button(self.frame_label_listagem_002, text='Sair da janela', padx=3, pady=3,
