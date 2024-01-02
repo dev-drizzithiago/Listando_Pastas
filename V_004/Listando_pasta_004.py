@@ -7,6 +7,7 @@ import tkinter as tk
 class ListandoPastas:
     def __init__(self):
         # Variaveis
+        self.scroll_listagem_001 = None
         self.lista_arquivos = None
         self.extensoes_arquivos_imagem = ['JPG', 'PNG', 'BMP']
 
@@ -70,7 +71,7 @@ class ListandoPastas:
                                          yscrollcommand=self.scroll_listagem_001.set)
         for extensao_arq in tipo_arquivo:
             self.valor_extensao = str(self.extensoes_arquivos_imagem[extensao_arq])
-
+        self.scroll_listagem_001.config(command=self.lista_arquivos.xview)
         # Listagem de pasta
         for listagem in pasta_destino_busca.glob('**/*' + self.valor_extensao):
             if listagem.is_file():
