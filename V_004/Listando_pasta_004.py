@@ -60,8 +60,9 @@ class ListandoPastas:
         self.frame_label_listagem_002.pack(fill='both')
 
         # Mesangem
-        valor_var_ext = tk.Variable(valor_extensao)
-        self.caixa_txt_001 = tk.Listbox(self.frame_label_listagem_001, relief='raised', listvariable=valor_var_ext)
+        valor_var_ext = tk.StringVar()
+        valor_var_ext.set('valor_extensao')
+        self.caixa_txt_001 = tk.Message(self.frame_label_listagem_001, textvariable=valor_var_ext)
         self.caixa_txt_001.pack(anchor='center')
 
         # Botao
