@@ -1,4 +1,5 @@
 import tkinter as tk
+from os import mkdir
 from pathlib import Path
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo
@@ -9,7 +10,8 @@ class ListagemPasta:
     def __init__(self):
         self.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
-        self.pasta_destino = Path(pasta_home, 'AppData', 'LocalLow', 'extensoes', 'extensoes.txt')
+        self.pasta_destino = Path(pasta_home, 'AppData', 'LocalLow', 'extensoes')
+        self.arqui_txt = '\\extensoes.txt'
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
@@ -32,14 +34,17 @@ class ListagemPasta:
 
         self.janela_principal.mainloop()
 
-    def registrar_extensao(self, valor_registro):
-        valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
+    def registrar_extensao(self):
         try:
-            obj_registro = open(self.pasta_destino, 'a')
-            obj_registro.write(f'{valor_registro}\n')
-            tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
-        except:
-            tk.messagebox.showerror('AVISO!', 'Não foi possível registrar nos arquivo')
+            mkdir(self.pasta_destino)
+        except FileExistsError:
+            valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
+            try:
+                obj_registro = open(self.pasta_destino + self.arqui_txt, 'a')
+                obj_registro.write(f'{valor_dados_add}\n')
+                tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
+            except:
+                tk.messagebox.showerror('AVISO!', 'Não foi possível registrar nos arquivo')
 
 
 inicio_obj = ListagemPasta()
