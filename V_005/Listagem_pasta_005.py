@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter.messagebox import *
+from tkinter.filedialog import askdirectory
+from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring, askinteger, askfloat
 
 
@@ -24,8 +25,11 @@ class ListagemPasta:
         self.janela_principal.mainloop()
 
     def add_extensao(self):
-        valor_dados_add = tk.simpledialog.askinteger('Bem vindo!', 'Adicione uma extensão')
-        print(valor_dados_add)
+        try:
+            valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
+            self.extensoes.append(valor_dados_add)
+        except:
+            tk.
 
 
 inicio_obj = ListagemPasta()
