@@ -12,12 +12,13 @@ class ListagemPasta:
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
 
-        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão')
+        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=3, padx=3,
+                                                width=500)
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
-        valor_extensoes = tk.Variable(self.extensoes)
+        valor_extensoes = tk.Variable(value=self.extensoes)
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center')
         self.lista_extensoes_dispo.pack(anchor='center')
 
