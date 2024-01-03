@@ -17,6 +17,10 @@ class ListagemPasta:
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
+        valor_extensoes = tk.Variable(self.extensoes)
+        self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center')
+        self.lista_extensoes_dispo.pack(anchor='center')
+
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar', command=self.add_extensao)
         self.botao_adicionar_01.pack(side='left')
         self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa')
