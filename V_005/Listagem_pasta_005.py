@@ -44,7 +44,8 @@ class ListagemPasta:
                 obj_registro.write(f'{valor_dados_add}\n')
                 tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
             except:
-                tk.messagebox.showerror('AVISO!', 'Não foi possível registrar nos arquivo')
+                tk.messagebox.showerror('AVISO!', 'Não foi possível registrar nos arquivo\n'
+                                                  '{0037/registro}')
 
 
 inicio_obj = ListagemPasta()
