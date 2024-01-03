@@ -8,7 +8,8 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 
 class ListagemPasta:
     def __init__(self):
-        self.extensoes = ['JPG', 'MP4', 'MP3']
+        self.extensoes_adicionadas()
+        # elf.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
         self.pasta_destino = str(Path(pasta_home, 'AppData', 'LocalLow', 'extensoes'))
         self.arqui_txt = str('\\extensoes.txt')
@@ -22,7 +23,8 @@ class ListagemPasta:
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
-        valor_extensoes = tk.Variable(value=self.extensoes)
+        # valor_extensoes = tk.Variable(value=self.extensoes)
+        valor_extensoes = tk.Variable(value=self.exten_listadas)
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center')
         self.lista_extensoes_dispo.pack(anchor='center')
 
@@ -50,8 +52,9 @@ class ListagemPasta:
     def extensoes_adicionadas(self):
         try:
             valor_extensao = open(self.pasta_destino + self.arqui_txt, 'r')
-            for extensoes in valor_extensao:
-                print(extensoes)
+            for valor_ext in valor_extensao:
+                self.exten_listadas = valor_ext
+                print(self.exten_listadas)
         except FileNotFoundError:
             tk.messagebox.showerror('AVISO!', f'Não vou encontrado do arquivo {self.arqui_txt}')
 
