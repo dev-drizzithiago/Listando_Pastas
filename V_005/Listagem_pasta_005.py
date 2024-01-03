@@ -28,8 +28,9 @@ class ListagemPasta:
         try:
             valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
             self.extensoes.append(valor_dados_add)
+            tk.messagebox.showinfo('AVISO', 'Extensão adicionada com sucesso!')
         except:
-            tk.
+            tk.messagebox.showerror('AVISO', 'Não foi possível adicionar a extensão')
 
 
 inicio_obj = ListagemPasta()
