@@ -39,6 +39,8 @@ class ListagemPasta:
 
 
     def registrar_extensao(self):
-        valor_registro = open()
+        pasta_destino = self.pasta_home + 'AppData' + 'Extensoes' + 'extensoes.txt'
+        valor_registro = open(pasta_destino, 'a')
+        valor_registro.write(f'{valor_registro}\n')
 
 inicio_obj = ListagemPasta()
