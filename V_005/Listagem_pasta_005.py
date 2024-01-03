@@ -12,8 +12,7 @@ class ListagemPasta:
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
 
-        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=3, padx=3,
-                                                width=500)
+        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=3, padx=3)
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
         self.label_principal_01.pack()
         self.label_principal_02.pack()
