@@ -8,7 +8,9 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 class ListagemPasta:
     def __init__(self):
         self.extensoes = ['JPG', 'MP4', 'MP3']
-        self.pasta_home = Path.home()
+        pasta_home = Path.home()
+        self.pasta_destino = pasta_home + 'AppData' + 'LocalLow' + 'extensoes' + 'extensoes.txt'
+        print(self.pasta_destino)
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
@@ -40,11 +42,8 @@ class ListagemPasta:
             tk.messagebox.showerror('AVISO', f'Não foi possível adicionar a extensão {valor_dados_add}')
 
     def registrar_extensao(self, valor_registro):
-        print(valor_registro)
-        pasta_destino = self.pasta_home + 'AppData' + 'LocalLow' + 'extensoes' + 'extensoes.txt'
-        print(pasta_destino)
+        pasta_destino = self.pasta_destino
         try:
-
             obj_registro = open(pasta_destino, 'a')
             obj_registro.write(f'{valor_registro}\n')
             tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
