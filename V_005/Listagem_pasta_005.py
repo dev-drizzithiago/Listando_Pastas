@@ -32,7 +32,7 @@ class ListagemPasta:
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões',
                                             command=self.registrar_extensao)
         self.botao_adicionar_01.pack(side='left')
-        self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa')
+        self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa', command=self.busca_principal)
         self.botao_iniciar_programa.pack(side='right')
 
         self.janela_principal.mainloop()
@@ -57,7 +57,12 @@ class ListagemPasta:
                 self.exten_listadas = valor_ext
                 print(self.exten_listadas)
         except FileNotFoundError:
-            tk.messagebox.showerror('AVISO!', f'Não vou encontrado do arquivo {self.arqui_txt}')
+            tk.messagebox.showerror('AVISO!', f'Não foi encontrado o arquivo {self.arqui_txt}')
+
+    def busca_principal(self):
+        valor_busca = self.lista_extensoes_dispo.curselection()
+        for busca in valor_busca:
+            print(busca)
 
 
 inicio_obj = ListagemPasta()
