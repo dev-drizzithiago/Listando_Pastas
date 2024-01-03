@@ -32,15 +32,19 @@ class ListagemPasta:
     def add_extensao(self):
         try:
             valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
-            self.extensoes.append(valor_dados_add)
-            tk.messagebox.showinfo('AVISO', 'Extensão adicionada com sucesso!')
+            self.registrar_extensao(valor_dados_add)
+            tk.messagebox.showinfo('AVISO', f'Extensão [{valor_dados_add.upper()}] adicionada com sucesso!')
         except:
             tk.messagebox.showerror('AVISO', 'Não foi possível adicionar a extensão')
 
 
-    def registrar_extensao(self):
-        pasta_destino = self.pasta_home + 'AppData' + 'Extensoes' + 'extensoes.txt'
-        valor_registro = open(pasta_destino, 'a')
-        valor_registro.write(f'{valor_registro}\n')
+    def registrar_extensao(self, valor_registro):
+        try:
+            pasta_destino = self.pasta_home + 'AppData' + 'Extensoes' + 'extensoes.txt'
+            obj_registro = open(pasta_destino, 'a')
+            obj_registro.write(f'{valor_registro}\n')
+            tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
+        except:
+            tk.messagebox.showerror('AVISO!', 'Não foi possível registrar nos arquivo')
 
 inicio_obj = ListagemPasta()
