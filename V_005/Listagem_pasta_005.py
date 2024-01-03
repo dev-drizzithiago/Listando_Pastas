@@ -40,8 +40,11 @@ class ListagemPasta:
             tk.messagebox.showerror('AVISO', f'Não foi possível adicionar a extensão {valor_dados_add}')
 
     def registrar_extensao(self, valor_registro):
+        print(valor_registro)
+        pasta_destino = self.pasta_home + 'AppData' + 'LocalLow' + 'extensoes' + 'extensoes.txt'
+        print(pasta_destino)
         try:
-            pasta_destino = self.pasta_home + 'AppData' + 'Extensoes' + 'extensoes.txt'
+
             obj_registro = open(pasta_destino, 'a')
             obj_registro.write(f'{valor_registro}\n')
             tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
