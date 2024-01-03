@@ -48,6 +48,12 @@ class ListagemPasta:
                                                   '{0037/registro}')
 
     def extensoes_adicionadas(self):
+        try:
+            valor_extensao = open(self.pasta_destino + self.arqui_txt, 'r')
+            for extensoes in valor_extensao:
+                print(extensoes)
+        except FileNotFoundError:
+            tk.messagebox.showerror('AVISO!', f'Não vou encontrado do arquivo {self.arqui_txt}')
 
 
 inicio_obj = ListagemPasta()
