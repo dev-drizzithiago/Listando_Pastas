@@ -12,9 +12,7 @@ class ListagemPasta:
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
-
-
-        self.botao_adicionar_01 = tk.Button()
+        self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar ')
 
         self.janela_principal.mainloop()
 
