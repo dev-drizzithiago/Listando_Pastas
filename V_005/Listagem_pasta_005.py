@@ -34,9 +34,8 @@ class ListagemPasta:
 
     def registrar_extensao(self, valor_registro):
         valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
-        pasta_destino = self.pasta_destino
         try:
-            obj_registro = open(pasta_destino, 'a')
+            obj_registro = open(self.pasta_destino, 'a')
             obj_registro.write(f'{valor_registro}\n')
             tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
         except:
