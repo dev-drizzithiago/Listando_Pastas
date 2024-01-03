@@ -1,4 +1,5 @@
 import tkinter as tk
+from pathlib import Path
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring, askinteger, askfloat
@@ -7,7 +8,7 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 class ListagemPasta:
     def __init__(self):
         self.extensoes = ['JPG', 'MP4', 'MP3']
-
+        self.pasta_home = Path.home()
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
@@ -38,6 +39,6 @@ class ListagemPasta:
 
 
     def registrar_extensao(self):
-        
+        valor_registro = open()
 
 inicio_obj = ListagemPasta()
