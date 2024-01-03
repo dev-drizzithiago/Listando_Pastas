@@ -8,7 +8,7 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 
 class ListagemPasta:
     def __init__(self):
-        self.extensoes_adicionadas()
+
         # elf.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
         self.pasta_destino = str(Path(pasta_home, 'AppData', 'LocalLow', 'extensoes'))
@@ -23,6 +23,7 @@ class ListagemPasta:
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
+        self.extensoes_adicionadas()
         # valor_extensoes = tk.Variable(value=self.extensoes)
         valor_extensoes = tk.Variable(value=self.exten_listadas)
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center')
