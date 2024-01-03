@@ -10,8 +10,8 @@ class ListagemPasta:
     def __init__(self):
         self.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
-        self.pasta_destino = Path(pasta_home, 'AppData', 'LocalLow', 'extensoes')
-        self.arqui_txt = '\\extensoes.txt'
+        self.pasta_destino = str(Path(pasta_home, 'AppData', 'LocalLow', 'extensoes'))
+        self.arqui_txt = str('\\extensoes.txt')
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
@@ -42,10 +42,12 @@ class ListagemPasta:
             try:
                 obj_registro = open(self.pasta_destino + self.arqui_txt, 'a')
                 obj_registro.write(f'{valor_dados_add}\n')
-                tk.messagebox.showinfo('AVISO', 'Extensão {} foi adicionada com sucesso!')
+                tk.messagebox.showinfo('AVISO', f'Extensão [{valor_dados_add}] foi adicionada com sucesso!')
             except:
                 tk.messagebox.showerror('AVISO!', 'Não foi possível registrar nos arquivo\n'
                                                   '{0037/registro}')
+
+    def extensoes_adicionadas(self):
 
 
 inicio_obj = ListagemPasta()
