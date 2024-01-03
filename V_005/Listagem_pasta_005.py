@@ -9,7 +9,7 @@ class ListagemPasta:
     def __init__(self):
         self.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
-        self.pasta_destino = pasta_home + 'AppData' + 'LocalLow' + 'extensoes' + 'extensoes.txt'
+        self.pasta_destino = Path(pasta_home + 'AppData' + 'LocalLow' + 'extensoes' + 'extensoes.txt')
         print(self.pasta_destino)
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x300')
