@@ -9,8 +9,7 @@ class ListagemPasta:
     def __init__(self):
         self.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
-        self.pasta_destino = Path(pasta_home + 'AppData' + 'LocalLow' + 'extensoes' + 'extensoes.txt')
-        print(self.pasta_destino)
+        self.pasta_destino = Path(pasta_home, 'AppData', 'LocalLow', 'extensoes', 'extensoes.txt')
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
@@ -26,22 +25,15 @@ class ListagemPasta:
         self.lista_extensoes_dispo.pack(anchor='center')
 
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões',
-                                            command=self.add_extensao)
+                                            command=self.registrar_extensao)
         self.botao_adicionar_01.pack(side='left')
         self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa')
         self.botao_iniciar_programa.pack(side='right')
 
         self.janela_principal.mainloop()
 
-    def add_extensao(self):
-        try:
-            valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
-            self.registrar_extensao(valor_dados_add)
-            # tk.messagebox.showinfo('AVISO', f'Extensão [{valor_dados_add.upper()}] adicionada com sucesso!')
-        except:
-            tk.messagebox.showerror('AVISO', f'Não foi possível adicionar a extensão {valor_dados_add}')
-
     def registrar_extensao(self, valor_registro):
+        valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
         pasta_destino = self.pasta_destino
         try:
             obj_registro = open(pasta_destino, 'a')
