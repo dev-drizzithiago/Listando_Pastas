@@ -66,6 +66,7 @@ class ListagemPasta:
 
     def busca_principal(self):
         valor_busca = self.lista_extensoes_dispo.curselection()
+        print(valor_busca)
         for busca in valor_busca:
             print(busca)
 
