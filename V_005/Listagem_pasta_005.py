@@ -30,11 +30,11 @@ class ListagemPasta:
         # Iniciando algumas funções
         self.verif_arq_ext_txt()
 
-        self.extensoes_adicionadas()
+        # self.extensoes_adicionadas()
         # valor_extensoes = tk.Variable(value=self.extensoes)
-        valor_extensoes = tk.Variable(value=self.exten_listadas)
-        self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center',
-                                                selectmode=tk.MULTIPLE, relief='sunken')
+        # valor_extensoes = tk.Variable(value=self.exten_listadas)
+        self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, justify='center', selectmode=tk.MULTIPLE,
+                                                relief='sunken')
         self.lista_extensoes_dispo.pack(anchor='center')
 
         # Botoes
@@ -45,7 +45,7 @@ class ListagemPasta:
                                                 command=self.busca_principal)
         self.botao_iniciar_programa.pack(side='right')
         self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista',
-                                               command=self.atualizar_lista)
+                                               command=self.extensoes_adicionadas)
         self.botao_atualizar_lista.pack(side='top')
 
         self.janela_principal.mainloop()
@@ -67,7 +67,8 @@ class ListagemPasta:
         try:
             valor_extensao = open(self.pasta_destino + self.arqui_txt, 'r')
             for valor_ext in valor_extensao:
-                self.exten_listadas.append(valor_ext.replace('\n', ''))
+                # self.exten_listadas.append(valor_ext.replace('\n', ''))
+                self.lista_extensoes_dispo.insert('end', valor_ext)
         except FileNotFoundError:
             tk.messagebox.showerror('AVISO!', f'Não foi encontrado o arquivo {self.arqui_txt}')
 
@@ -76,12 +77,7 @@ class ListagemPasta:
         for busca in valor_busca:
             print(self.exten_listadas[busca])
 
-    def atualizar_lista(self):
-        # self.lista_extensoes_dispo.delete('0', 'end')
-        self.extensoes_adicionadas()
-
-        # Verificações
-
+    # Verificações
     def verif_arq_ext_txt(self):
         try:
             teste_arq = open(self.pasta_destino + self.arqui_txt, 'r')
