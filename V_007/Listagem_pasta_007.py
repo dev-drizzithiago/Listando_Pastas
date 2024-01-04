@@ -75,8 +75,7 @@ class ListagemPastas:
         self.combo_tipo_arquivo.current()
         self.var_cambo.trace('w', self.valor_combo_add)
 
-    def valor_cambo_add(self, *args):
-        print('teste')
+    def valor_combo_add(self, *args):
         print("AVISO!", self.var_combo.get())
 
 
