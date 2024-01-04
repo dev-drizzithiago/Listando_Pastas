@@ -26,6 +26,7 @@ class ListagemPastas:
         self.label_frame_004 = Frame(self.janela_principal)
         self.label_frame_001.pack(anchor='n', fill='both')
         self.label_frame_002.pack(anchor='center', fill='both')
+        self.label_frame_003.pack()
 
         self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
         self.label_titulo_principal.pack(side='top', fill='both')
@@ -44,7 +45,9 @@ class ListagemPastas:
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca')
+        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões')
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
+        self.botao_adicionar_extensao.pack(fill='both', padx=3, pady=3)
 
         self.janela_principal.mainloop()
 
