@@ -15,7 +15,7 @@ class ListagemPasta:
 
         # Janela Principal
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('300x300')
+        self.janela_principal.geometry('300x330')
         self.janela_principal.title('Versão 5')
 
         # LabelFrames
@@ -42,7 +42,8 @@ class ListagemPasta:
         self.botao_iniciar_programa.pack(fill='both')
         self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista', command=self.atualizar_lista)
         self.botao_atualizar_lista.pack(side='top')
-        self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy())
+        self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy)
+        self.botao_sair.pack(fill='both')
 
 
         self.janela_principal.mainloop()
