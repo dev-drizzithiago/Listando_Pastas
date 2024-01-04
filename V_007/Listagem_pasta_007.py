@@ -9,6 +9,7 @@ from tkinter.simpledialog import *
 class ListagemPastas:
     def __init__(self):
         # Varias Global
+        self.valor_extensao = None
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
@@ -45,7 +46,7 @@ class ListagemPastas:
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca')
-        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões')
+        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões', command=self.criando_registro_extensoes)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_adicionar_extensao.pack(fill='both', padx=3, pady=3)
 
@@ -70,13 +71,13 @@ class ListagemPastas:
         self.combo_tipo_arquivo.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo.pack(side='top', fill='both')
         self.combo_tipo_arquivo.current()
-        self.var_cambo.trace('w', self.lista_tipos_extensoes)
+        self.var_cambo.trace('w', self.valor_extensao)
 
-        if valor_extensao == 'VÍDEOS':
+        if self.valor_extensao == 'VÍDEOS':
             valor = '\\ext_videos.txt'
-        elif valor_extensao == 'IMAGENS':
+        elif self.valor_extensao == 'IMAGENS':
             valor = '\\ext_imagem.txt'
-        elif valor_extensao == 'ARQUIVOS_LEITURA':
+        elif self.valor_extensao == 'ARQUIVOS_LEITURA':
             valor = '\\ext_arquivos.txt'
 
         try:
