@@ -48,5 +48,9 @@ class ListagemPastas:
     def opcao_midia(self, *args):
         print(self.combo_tipo_arquivo.get())
 
+    def criando_arqs_extensoes(self):
+        try:
+            valor_arq_txt = open(self.pastas_arquivos_extensao, )
+
 
 obj_principal = ListagemPastas()
