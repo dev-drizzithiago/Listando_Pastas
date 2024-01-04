@@ -46,7 +46,15 @@ class ListagemPastas:
         self.janela_principal.mainloop()
 
     def opcao_midia(self, *args):
-        print(self.combo_tipo_arquivo.get())
+        self.criando_arqs_extensoes(self.combo_tipo_arquivo.get())
+
+    def criando_arqs_extensoes(self, valor_extensao):
+        if valor_extensao == 'VÍDEOS':
+            var_videos = '\\ext_videos.txt'
+        elif valor_extensao == 'IMAGENS':
+            var_imagens = '\\ext_imagem.txt'
+        elif valor_extensao == 'ARQUIVOS_LEITURA':
+            var_arq_leitura = '\\ext_arquivos.txt'
 
         try:
             valor_arq_txt = open(self.pastas_arquivos_extensao, var_videos, 'a')
