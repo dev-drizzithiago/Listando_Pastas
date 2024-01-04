@@ -29,16 +29,15 @@ class ListagemPasta:
         # Frames
         self.frame_botao_01 = tk.Button(self.label_principal_02)
         self.frame_botao_01.pack()
+
         # Iniciando algumas funções
         self.verif_arq_ext_txt()
 
-        # self.extensoes_adicionadas()
-        # valor_extensoes = tk.Variable(value=self.extensoes)
-        # valor_extensoes = tk.Variable(value=self.exten_listadas)
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, justify='center', selectmode=tk.SINGLE,
                                                 relief='sunken')
         self.lista_extensoes_dispo.pack(anchor='center')
-
+        self.extensoes_adicionadas()
+        
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões',
                                             command=self.registrar_extensao)
