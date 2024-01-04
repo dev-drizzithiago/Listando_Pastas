@@ -6,6 +6,7 @@ from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring, askinteger, askfloat
 
 
+
 class ListagemPasta:
     def __init__(self):
 
@@ -63,6 +64,16 @@ class ListagemPasta:
         valor_busca = self.lista_extensoes_dispo.curselection()
         for busca in valor_busca:
             print(busca)
+
+    # Verificações
+    def verif_arq_ext_txt(self):
+        try:
+            teste_arq = open(self.pasta_destino + self.arqui_txt, 'r')
+            teste_arq.close()
+        except FileNotFoundError:
+            tk.messagebox.showwarning('Importante', f'O arquivos {self.arqui_txt} não existe!\n'
+                                                    f'É preciso criar com pelo menos uma extensão...')
+            self.registrar_extensao()
 
 
 inicio_obj = ListagemPasta()
