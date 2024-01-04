@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter.ttk import *
 
 class ListagemPastas:
     def __init__(self):
@@ -18,4 +19,14 @@ class ListagemPastas:
         self.label_frame_004 = Frame(self.janela_principal)
         self.label_frame_001.pack()
         self.label_frame_002.pack()
+
+        # Lista Combo
+        self.var_cambo = StringVar()
+        self.combo_tipo_arquivo = Combobox(self.janela_principal)
+        self.combo_tipo_arquivo.pack(side='top', fill='both')
+
+
+        self.janela_principal.mainloop()
+
+obj_principal = ListagemPastas()
 
