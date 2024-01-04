@@ -50,8 +50,7 @@ class ListagemPasta:
 
     def busca_principal(self):
         valor_busca = self.lista_extensoes_dispo.curselection()
-        if len(valor_busca) == 0:
-            valor_busca = ''
+
         # Janele da busca
         self.janela_da_busca = tk.Tk()
         self.janela_da_busca.geometry('700x300')
