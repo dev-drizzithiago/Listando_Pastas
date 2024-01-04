@@ -32,7 +32,7 @@ class ListagemPasta:
         )
         # Iniciando algumas funções
         self.verif_arq_ext_txt()
-        self.extensoes_adicionadas()
+        
 
         # valor_extensoes = tk.Variable(value=self.extensoes)
         valor_extensoes = tk.Variable(value=self.exten_listadas)
@@ -46,8 +46,8 @@ class ListagemPasta:
         self.botao_adicionar_01.pack(side='left')
         self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa', command=self.busca_principal)
         self.botao_iniciar_programa.pack(side='right')
-        self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista')
-        self.botao_atualizar_lista.pack(side='bottom')
+        self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista', command=self.atualizar_lista)
+        self.botao_atualizar_lista.pack(side='top')
 
         self.janela_principal.mainloop()
 
@@ -77,6 +77,10 @@ class ListagemPasta:
         valor_busca = self.lista_extensoes_dispo.curselection()
         for busca in valor_busca:
             print(self.exten_listadas[busca])
+
+    def atualizar_lista(self):
+        self.extensoes_adicionadas()
+        self.lista_extensoes_dispo.delete('0', 'end')
 
     # Verificações
     def verif_arq_ext_txt(self):
