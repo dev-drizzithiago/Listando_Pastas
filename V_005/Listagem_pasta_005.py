@@ -9,7 +9,6 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 class ListagemPasta:
     def __init__(self):
         self.exten_listadas = []
-        # elf.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
         self.pasta_destino = str(Path(pasta_home, 'AppData', 'LocalLow', 'extensoes'))
         self.arqui_txt = str('\\extensoes.txt')
