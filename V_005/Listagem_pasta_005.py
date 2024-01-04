@@ -52,11 +52,16 @@ class ListagemPasta:
 
     def busca_principal(self):
         valor_busca = str(self.lista_extensoes_dispo.curselection())
-        print(type(valor_busca))
+        for valor_extensao in valor_busca:
+            print(self.exten_listadas[valor_extensao])
         caminho_da_busca = Path(askdirectory())
+
         for busca in caminho_da_busca.glob('**/*' + valor_busca):
             if busca.is_file():
                 print(busca)
+            else:
+                tk.messagebox.showwarning("AVISO!!", f"Não foi encontrado nenhum "
+                                                     "arquivo com a extensão {}")
 
     def registrar_extensao(self):
         try:
