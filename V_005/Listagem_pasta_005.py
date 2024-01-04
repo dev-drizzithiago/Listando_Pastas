@@ -43,9 +43,10 @@ class ListagemPasta:
         self.current_var.get()
         self.current_var.set(value=self.tipos_midias)
         self.lista_de_midias = ttk.Combobox(self.label_principal_03, textvariable=self.current_var, justify='center')
-        self.lista_de_midias.pack(fill='both', side='top')
+        self.lista_de_midias['values'] = self.tipos_midias
         self.lista_de_midias.set('Tipos de arquivos disponível')
-
+        self.lista_de_midias.pack(fill='both', side='top')
+        self.lista_de_midias.current()
 
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar + extensões', command=self.registrar_extensao)
