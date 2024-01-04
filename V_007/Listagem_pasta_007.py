@@ -9,6 +9,7 @@ from tkinter.simpledialog import *
 class ListagemPastas:
     def __init__(self):
         # Varias Global
+        self.valor_combo_add = None
         self.valor_extensao = None
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
@@ -66,18 +67,17 @@ class ListagemPastas:
         self.label_frame_add_001 = LabelFrame(self.janela_add_extensao)
         self.label_frame_add_001.pack(fill='both')
 
-        self.var_cambo = StringVar()
+        self.var_combo = StringVar()
         self.combo_tipo_arquivo = Combobox(self.label_frame_add_001, textvariable=self.var_cambo, justify='center')
         self.combo_tipo_arquivo['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo.pack(side='top', fill='both')
         self.combo_tipo_arquivo.current()
-        self.var_cambo.trace('w', self.valor_cambo_add)
-
-        print(self.valor_extensao.get())
+        self.var_cambo.trace('w', self.valor_combo_add)
 
     def valor_cambo_add(self, *args):
-        showinfo(self.var_cambo.get())
+        print('teste')
+        print("AVISO!", self.var_combo.get())
 
 
 obj_principal = ListagemPastas()
