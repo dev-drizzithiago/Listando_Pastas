@@ -15,14 +15,16 @@ class ListagemPasta:
 
         # Janela Principal
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('300x330')
+        self.janela_principal.geometry('300x400')
         self.janela_principal.title('Versão 5')
 
         # LabelFrames
         self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=5, padx=5, relief='sunken')
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
+        self.label_principal_03 = tk.LabelFrame(self.janela_principal, text='Arquivos de mídia')
         self.label_principal_01.pack(fill='both')
         self.label_principal_02.pack(fill='both')
+        self.label_principal_03.pack(side='top', fill='both')
 
         # Frames
         self.frame_botao_01 = tk.Button(self.label_principal_02)
@@ -37,14 +39,14 @@ class ListagemPasta:
 
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar + extensões', command=self.registrar_extensao)
-        self.botao_adicionar_01.pack(fill='both')
         self.botao_iniciar_programa = tk.Button(self.frame_botao_01, text='Iniciar a busca', command=self.busca_principal)
-        self.botao_iniciar_programa.pack(side='top')
         self.botao_atualizar_lista = tk.Button(self.label_principal_02, text='Atualizar Lista de extensões', command=self.atualizar_lista)
-        self.botao_atualizar_lista.pack(fill='both')
-        self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy, pady=5, padx=5)
-        self.botao_sair.pack()
+        self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy)
 
+        self.botao_adicionar_01.pack(fill='both', padx=5, pady=5)
+        self.botao_iniciar_programa.pack(side='top', padx=5, pady=5)
+        self.botao_atualizar_lista.pack(fill='both', padx=5, pady=5)
+        self.botao_sair.pack(pady=5, padx=5)
         # looping
         self.janela_principal.mainloop()
 
@@ -57,7 +59,7 @@ class ListagemPasta:
         self.janela_da_busca.title('Busca V_5')
 
         self.label_frame_busca_01 = tk.LabelFrame(self.janela_da_busca)
-        self.label_frame_busca_01.pack(fill='both')
+        self.label_frame_busca_01.pack(side='bottom', fill='both')
 
         self.label_da_busca = tk.LabelFrame(self.janela_da_busca, text='Buscando arquivos', padx=5, pady=5)
         self.label_da_busca.pack(fill='both')
