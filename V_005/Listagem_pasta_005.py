@@ -15,14 +15,14 @@ class ListagemPasta:
 
         # Janela Principal
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('600x300')
+        self.janela_principal.geometry('300x300')
         self.janela_principal.title('Versão 5')
 
         # LabelFrames
         self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=5, padx=5, relief='sunken')
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
-        self.label_principal_01.pack()
-        self.label_principal_02.pack()
+        self.label_principal_01.pack(fill='both')
+        self.label_principal_02.pack(fill='both')
 
         # Frames
         self.frame_botao_01 = tk.Button(self.label_principal_02)
@@ -32,16 +32,18 @@ class ListagemPasta:
         self.verif_arq_ext_txt()
 
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, justify='center', selectmode=tk.SINGLE, relief='sunken')
-        self.lista_extensoes_dispo.pack(anchor='center')
+        self.lista_extensoes_dispo.pack(fill='both')
         self.extensoes_adicionadas()
 
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões', command=self.registrar_extensao)
-        self.botao_adicionar_01.pack(side='left')
+        self.botao_adicionar_01.pack(fill='both')
         self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa', command=self.busca_principal)
-        self.botao_iniciar_programa.pack(side='right')
+        self.botao_iniciar_programa.pack(fill='both')
         self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista', command=self.atualizar_lista)
         self.botao_atualizar_lista.pack(side='top')
+        self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy())
+
 
         self.janela_principal.mainloop()
 
@@ -52,7 +54,7 @@ class ListagemPasta:
         self.janela_da_busca.geometry('700x300')
         self.janela_da_busca.title('Busca V_5')
         self.label_da_busca = tk.LabelFrame(self.janela_da_busca, text='Buscando arquivos', padx=5, pady=5)
-        self.label_da_busca.pack(side='left', anchor=tk.EXTENDED)
+        self.label_da_busca.pack(fill='both')
         self.lista_das_busca = tk.Listbox(self.label_da_busca, justify='center')
 
         for valor_extensao in valor_busca:
