@@ -51,8 +51,9 @@ class ListagemPasta:
         self.janela_principal.mainloop()
 
     def busca_principal(self):
-        valor_busca = self.lista_extensoes_dispo.curselection()
-        for busca in valor_busca.glob:
+        valor_busca = str(self.lista_extensoes_dispo.curselection())
+        caminho_da_busca = Path(askdirectory())
+        for busca in caminho_da_busca.glob('**/*' + valor_busca):
             if busca.is_file:
                 print(busca)
 
