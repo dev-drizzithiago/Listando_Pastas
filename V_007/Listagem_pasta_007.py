@@ -68,17 +68,6 @@ class ListagemPastas:
         self.label_frame_add_001 = LabelFrame(self.janela_add_extensao)
         self.label_frame_add_001.pack(fill='both')
 
-        self.var_combo_add = StringVar()
-        self.combo_tipo_arquivo = Combobox(self.label_frame_add_001, textvariable=self.var_combo_add, justify='center')
-        self.combo_tipo_arquivo['values'] = self.lista_tipos_extensoes_add
-        self.combo_tipo_arquivo.set('Escolha um tipo de Mídia')
-        self.combo_tipo_arquivo.pack(side='top', fill='both')
-        self.combo_tipo_arquivo.current()
-        self.var_combo_add.trace('w', self.valor_combo_add)
-
-    def valor_combo_add(self, *args):
-        print(self.var_combo_add.get())
-
     def tipos_extensao(self, *args):
         print(self.var_combo.get())
 
