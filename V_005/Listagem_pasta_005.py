@@ -18,15 +18,9 @@ class ListagemPasta:
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
 
-        # Janele da busca
-        self.janela_da_busca = tk.Tk()
-        self.janela_da_busca.geometry('700x300')
-        self.janela_da_busca.title('Busca V_5')
-
         # LabelFrames
         self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=5, padx=5, relief='sunken')
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
-        self.label_da_busca = tk.LabelFrame(self.janela_da_busca, text='Buscando arquivos', padx=5, pady=5)
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
@@ -41,8 +35,6 @@ class ListagemPasta:
         self.lista_extensoes_dispo.pack(anchor='center')
         self.extensoes_adicionadas()
 
-        self.lista_das_busca = tk.Listbox()
-
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões', command=self.registrar_extensao)
         self.botao_adicionar_01.pack(side='left')
@@ -55,16 +47,24 @@ class ListagemPasta:
 
     def busca_principal(self):
         valor_busca = self.lista_extensoes_dispo.curselection()
+        # Janele da busca
+        self.janela_da_busca = tk.Tk()
+        self.janela_da_busca.geometry('700x300')
+        self.janela_da_busca.title('Busca V_5')
+        self.label_da_busca = tk.LabelFrame(self.janela_da_busca, text='Buscando arquivos', padx=5, pady=5)
+        self.label_da_busca.pack(side='left', anchor=tk.EXTENDED)
+        self.lista_das_busca = tk.Listbox(self.label_da_busca, justify='center')
+
         for valor_extensao in valor_busca:
             self.valor_ext = str(self.exten_listadas[valor_extensao])
-            print(self.valor_ext)
         caminho_da_busca = Path(askdirectory())
         for busca in caminho_da_busca.glob('**/*' + self.valor_ext):
             if busca.is_file():
-                print(busca)
+                self.lista_das_busca.insert('0', busca)
             else:
                 tk.messagebox.showwarning("AVISO!!", f"Não foi encontrado nenhum "
                                                      "arquivo com a extensão {}")
+        self.lista_das_busca.pack(anchor='center')
 
     def registrar_extensao(self):
         try:
