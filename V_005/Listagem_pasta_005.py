@@ -40,8 +40,6 @@ class ListagemPasta:
 
         # Caixa de combinação
         self.current_var = tk.StringVar()
-        self.current_var.get()
-        self.current_var.set(value=self.tipos_midias)
         self.lista_de_midias = ttk.Combobox(self.label_principal_03, textvariable=self.current_var, justify='center')
         self.lista_de_midias['values'] = self.tipos_midias
         self.lista_de_midias.set('Tipos de arquivos disponível')
@@ -60,7 +58,7 @@ class ListagemPasta:
         self.botao_sair.pack(pady=5, padx=5)
         # looping
         self.janela_principal.mainloop()
-
+    
     def busca_principal(self):
         valor_busca = self.lista_extensoes_dispo.curselection()
 
