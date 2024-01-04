@@ -11,7 +11,7 @@ class ListagemPastas:
         # Varias Global
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
-        self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_TXT')
+        self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
 
         # Janela principa
         self.janela_principal = Tk()
@@ -48,9 +48,10 @@ class ListagemPastas:
     def opcao_midia(self, *args):
         print(self.combo_tipo_arquivo.get())
 
-    def criando_arqs_extensoes(self):
         try:
-            valor_arq_txt = open(self.pastas_arquivos_extensao, )
+            valor_arq_txt = open(self.pastas_arquivos_extensao, var_videos, 'a')
+        except FileNotFoundError:
+            showerror('AVISO!', 'Arquivo não foi encontrado!')
 
 
 obj_principal = ListagemPastas()
