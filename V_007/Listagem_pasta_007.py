@@ -43,12 +43,15 @@ class ListagemPastas:
         self.lista_extensao = Listbox(self.label_frame_002, justify='center')
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
+        self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca')
+        self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
+
         self.janela_principal.mainloop()
 
     def opcao_midia(self, *args):
-        self.criando_arqs_extensoes(self.combo_tipo_arquivo.get())
+        self.criando_registro_extensoes(self.combo_tipo_arquivo.get())
 
-    def criando_arqs_extensoes(self, valor_extensao):
+    def criando_registro_extensoes(self, valor_extensao):
         if valor_extensao == 'VÍDEOS':
             valor = '\\ext_videos.txt'
         elif valor_extensao == 'IMAGENS':
@@ -57,7 +60,8 @@ class ListagemPastas:
             valor = '\\ext_arquivos.txt'
 
         try:
-            valor_arq_txt = open(self.pastas_arquivos_extensao, valor, 'a')
+            valor_arq_txt = open(self.pastas_arquivos_extensao + valor, 'a')
+            valor_arq_txt.write(f'')
         except FileNotFoundError:
             showerror('AVISO!', 'Arquivo não foi encontrado!')
 
