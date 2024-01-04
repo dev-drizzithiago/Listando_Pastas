@@ -18,8 +18,8 @@ class ListagemPasta:
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
 
-        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=3,
-                                                padx=3)
+        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=5,
+                                                padx=5, relief='sunken')
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
         self.label_principal_01.pack()
         self.label_principal_02.pack()
@@ -30,7 +30,8 @@ class ListagemPasta:
 
         # valor_extensoes = tk.Variable(value=self.extensoes)
         valor_extensoes = tk.Variable(value=self.exten_listadas)
-        self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center')
+        self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center',
+                                                selectmode=tk.MULTIPLE, relief='sunken')
         self.lista_extensoes_dispo.pack(anchor='center')
 
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões',
