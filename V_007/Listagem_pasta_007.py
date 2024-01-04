@@ -65,8 +65,17 @@ class ListagemPastas:
         self.janela_add_extensao.geometry('400x300')
         self.janela_add_extensao.title('Adicionando uma extensão')
 
-        self.label_frame_add_001 = LabelFrame(self.janela_add_extensao)
+        self.label_frame_add_001 = LabelFrame(self.janela_add_extensao, text='Escolha uma categoria')
         self.label_frame_add_001.pack(fill='both')
+
+        # RADIOS
+        self.var_radio = IntVar()
+        self.radio_opcao_01 = Radiobutton(self.label_frame_add_001, text='Vídeos', variable=self.var_radio, value=1)
+        self.radio_opcao_02 = Radiobutton(self.label_frame_add_001, text='Imagens', variable=self.var_radio, value=2)
+        self.radio_opcao_03 = Radiobutton(self.label_frame_add_001, text='Arq de Texto', variable=self.var_radio, value=3)
+        self.radio_opcao_01.pack(side='left')
+        self.radio_opcao_02.pack(side='left')
+        self.radio_opcao_03.pack(side='left')
 
     def tipos_extensao(self, *args):
         print(self.var_combo.get())
