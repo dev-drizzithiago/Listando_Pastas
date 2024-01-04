@@ -72,9 +72,8 @@ class ListagemPasta:
         for busca in caminho_da_busca.glob('**/*' + self.valor_ext):
             if busca.is_file():
                 self.lista_das_busca.insert('0', busca)
-            else:
-                tk.messagebox.showwarning("AVISO!!", f"Não foi encontrado nenhum "
-                                                     "arquivo com a extensão {}")
+            elif busca.is_dir():
+                self.lista_das_busca.insert('0', busca)
         self.lista_das_busca.pack(anchor='center')
 
     def registrar_extensao(self):
