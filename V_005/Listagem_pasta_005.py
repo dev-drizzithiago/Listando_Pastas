@@ -50,6 +50,8 @@ class ListagemPasta:
 
     def busca_principal(self):
         valor_busca = self.lista_extensoes_dispo.curselection()
+        if len(valor_busca) == 0:
+            valor_busca = ''
         # Janele da busca
         self.janela_da_busca = tk.Tk()
         self.janela_da_busca.geometry('700x300')
@@ -57,6 +59,7 @@ class ListagemPasta:
         self.label_da_busca = tk.LabelFrame(self.janela_da_busca, text='Buscando arquivos', padx=5, pady=5)
         self.label_da_busca.pack(fill='both')
         self.lista_das_busca = tk.Listbox(self.label_da_busca, justify='center')
+        self.lista_das_busca.pack(fill='both')
 
         for valor_extensao in valor_busca:
             self.valor_ext = str(self.exten_listadas[valor_extensao])
