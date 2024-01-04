@@ -24,6 +24,7 @@ class ListagemPasta:
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
+        self.verif_arq_ext_txt()
         self.extensoes_adicionadas()
         # valor_extensoes = tk.Variable(value=self.extensoes)
         valor_extensoes = tk.Variable(value=self.exten_listadas)
