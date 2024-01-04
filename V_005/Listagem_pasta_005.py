@@ -66,9 +66,8 @@ class ListagemPasta:
 
     def busca_principal(self):
         valor_busca = self.lista_extensoes_dispo.curselection()
-        print(valor_busca)
         for busca in valor_busca:
-            print(busca)
+            print(self.exten_listadas[busca])
 
     # Verificações
     def verif_arq_ext_txt(self):
@@ -78,6 +77,7 @@ class ListagemPasta:
         except FileNotFoundError:
             tk.messagebox.showwarning('Importante', f'O arquivos {self.arqui_txt} não existe!\n'
                                                     f'É preciso criar com pelo menos uma extensão...')
+            self.janela_principal.destroy()
             self.registrar_extensao()
 
 
