@@ -45,7 +45,7 @@ class ListagemPasta:
         self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy)
         self.botao_sair.pack(fill='both')
 
-
+        # looping
         self.janela_principal.mainloop()
 
     def busca_principal(self):
@@ -60,8 +60,12 @@ class ListagemPasta:
         self.lista_das_busca = tk.Listbox(self.label_da_busca, justify='center')
         self.lista_das_busca.pack(fill='both')
 
-        for valor_extensao in valor_busca:
-            self.valor_ext = str(self.exten_listadas[valor_extensao])
+        if len(valor_busca) == 0:
+            self.valor_ext = ''
+        else:
+            for valor_extensao in valor_busca:
+                self.valor_ext = str(self.exten_listadas[valor_extensao])
+
         caminho_da_busca = Path(askdirectory())
         for busca in caminho_da_busca.glob('**/*' + self.valor_ext):
             if busca.is_file():
