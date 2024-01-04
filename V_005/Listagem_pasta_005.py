@@ -24,8 +24,10 @@ class ListagemPasta:
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
+        # Iniciando algumas funções
         self.verif_arq_ext_txt()
         self.extensoes_adicionadas()
+
         # valor_extensoes = tk.Variable(value=self.extensoes)
         valor_extensoes = tk.Variable(value=self.exten_listadas)
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, listvariable=valor_extensoes, justify='center')
