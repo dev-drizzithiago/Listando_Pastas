@@ -79,4 +79,5 @@ class ListagemPastas:
     def valor_cambo_add(self, *args):
         showinfo(self.var_cambo.get())
 
+
 obj_principal = ListagemPastas()
