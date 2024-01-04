@@ -51,7 +51,7 @@ class ListagemPasta:
         self.janela_principal.mainloop()
 
     def busca_principal(self):
-        valor_busca = str(self.lista_extensoes_dispo.curselection())
+        valor_busca = self.lista_extensoes_dispo.curselection()
         for valor_extensao in valor_busca:
             self.valor_ext = str(self.exten_listadas[valor_extensao])
             print(self.valor_ext)
