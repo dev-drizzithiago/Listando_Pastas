@@ -34,7 +34,8 @@ class ListagemPastas:
 
         # Lista Combo principal
         self.var_cambo = StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_cambo, justify='center')
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_cambo,
+                                                     justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both')
@@ -46,18 +47,18 @@ class ListagemPastas:
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca')
-        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões', command=self.criando_registro_extensoes)
+        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões',
+                                               command=self.criando_registro_extensoes)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_adicionar_extensao.pack(fill='both', padx=3, pady=3)
 
         # Looping janela
         self.janela_principal.mainloop()
 
-    #def opcao_midia(self, *args):
+    # def opcao_midia(self, *args):
     #    self.criando_registro_extensoes(self.combo_tipo_arquivo.get())
 
     def criando_registro_extensoes(self):
-
         self.janela_add_extensao = Tk()
         self.janela_add_extensao.geometry('400x300')
         self.janela_add_extensao.title('Adicionando uma extensão')
@@ -66,25 +67,16 @@ class ListagemPastas:
         self.label_frame_add_001.pack(fill='both')
 
         self.var_cambo = StringVar()
-        self.combo_tipo_arquivo = Combobox(self.label_frame_001, textvariable=self.var_cambo, justify='center')
+        self.combo_tipo_arquivo = Combobox(self.label_frame_add_001, textvariable=self.var_cambo, justify='center')
         self.combo_tipo_arquivo['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo.pack(side='top', fill='both')
         self.combo_tipo_arquivo.current()
-        self.var_cambo.trace('w', self.valor_extensao)
+        self.var_cambo.trace('w', self.valor_cambo_add)
 
-        if self.valor_extensao == 'VÍDEOS':
-            valor = '\\ext_videos.txt'
-        elif self.valor_extensao == 'IMAGENS':
-            valor = '\\ext_imagem.txt'
-        elif self.valor_extensao == 'ARQUIVOS_LEITURA':
-            valor = '\\ext_arquivos.txt'
+        print(self.valor_extensao.get())
 
-        try:
-            valor_arq_txt = open(self.pastas_arquivos_extensao + valor, 'a')
-            valor_arq_txt.write(f'')
-        except FileNotFoundError:
-            showerror('AVISO!', 'Arquivo não foi encontrado!')
-
+    def valor_cambo_add(self, *args):
+        showinfo(self.var_cambo.get())
 
 obj_principal = ListagemPastas()
