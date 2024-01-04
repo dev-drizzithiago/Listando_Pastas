@@ -52,6 +52,7 @@ class ListagemPasta:
 
     def busca_principal(self):
         valor_busca = str(self.lista_extensoes_dispo.curselection())
+        print(type(valor_busca))
         caminho_da_busca = Path(askdirectory())
         for busca in caminho_da_busca.glob('**/*' + valor_busca):
             if busca.is_file():
