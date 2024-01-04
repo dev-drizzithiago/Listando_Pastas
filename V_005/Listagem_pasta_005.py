@@ -117,7 +117,6 @@ class ListagemPasta:
         except FileNotFoundError:
             tk.messagebox.showerror('AVISO!', f'Não foi encontrado o arquivo {self.arqui_txt}')
 
-
     def atualizar_lista(self):
         self.lista_extensoes_dispo.delete('0', 'end')
         self.extensoes_adicionadas()
@@ -132,7 +131,8 @@ class ListagemPasta:
                                                     f'É preciso criar com pelo menos uma extensão...')
             self.registrar_extensao()
 
-    def tipo_midia_selecionado(self):
+    def tipo_midia_selecionado(self, *args):
         print(self.current_var.get())
+
 
 inicio_obj = ListagemPasta()
