@@ -20,6 +20,7 @@ class ListagemPasta:
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('300x390')
         self.janela_principal.title('Versão 5')
+        self.janela_principal.resizable(False, False)
 
         # LabelFrames
         self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão')
@@ -39,11 +40,12 @@ class ListagemPasta:
 
         # Caixa de combinação
         self.current_var = tk.StringVar()
+        self.current_var.get()
         self.current_var.set(value=self.tipos_midias)
         self.lista_de_midias = ttk.Combobox(self.label_principal_03, textvariable=self.current_var, justify='center')
         self.lista_de_midias.pack(fill='both', side='top')
         self.lista_de_midias.set('Tipos de arquivos disponível')
-        self.current_value = self.lista_de_midias.get()
+
 
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar + extensões', command=self.registrar_extensao)
