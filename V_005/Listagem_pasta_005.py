@@ -54,7 +54,7 @@ class ListagemPasta:
         valor_busca = str(self.lista_extensoes_dispo.curselection())
         caminho_da_busca = Path(askdirectory())
         for busca in caminho_da_busca.glob('**/*' + valor_busca):
-            if busca.is_file:
+            if busca.is_file():
                 print(busca)
 
     def registrar_extensao(self):
