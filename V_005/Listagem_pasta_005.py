@@ -1,5 +1,6 @@
 import tkinter as tk
 from os import mkdir
+from tkinter import ttk
 from pathlib import Path
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo
@@ -8,43 +9,50 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 
 class ListagemPasta:
     def __init__(self):
-        self.exten_listadas = []
+
         pasta_home = Path.home()
+        self.exten_listadas = []
+        self.tipos_midias = ['Videos', 'Imagens']
         self.pasta_destino = str(Path(pasta_home, 'AppData', 'LocalLow', 'extensoes'))
         self.arqui_txt = str('\\extensoes.txt')
 
         # Janela Principal
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('300x400')
+        self.janela_principal.geometry('300x390')
         self.janela_principal.title('Versão 5')
 
         # LabelFrames
-        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=5, padx=5, relief='sunken')
+        self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão')
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
-        self.label_principal_03 = tk.LabelFrame(self.janela_principal, text='Arquivos de mídia')
-        self.label_principal_01.pack(fill='both')
-        self.label_principal_02.pack(fill='both')
-        self.label_principal_03.pack(side='top', fill='both')
+        self.label_principal_03 = tk.LabelFrame(self.janela_principal)
+        self.label_principal_03.pack(side='top', fill='both', pady=5, padx=5)
+        self.label_principal_01.pack(anchor='center', fill='both', pady=5, padx=5)
+        self.label_principal_02.pack(anchor='s', fill='both', pady=5, padx=5)
 
-        # Frames
-        self.frame_botao_01 = tk.Button(self.label_principal_02)
-        self.frame_botao_01.pack()
+
 
         # Iniciando algumas funções
         self.verif_arq_ext_txt()
-
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, justify='center', selectmode=tk.SINGLE, relief='sunken')
         self.lista_extensoes_dispo.pack(fill='both')
         self.extensoes_adicionadas()
 
+        # Caixa de combinação
+        self.current_var = tk.StringVar()
+        self.current_var.set(value=self.tipos_midias)
+        self.lista_de_midias = ttk.Combobox(self.label_principal_03, textvariable=self.current_var, justify='center')
+        self.lista_de_midias.pack(fill='both', side='top')
+        self.lista_de_midias.set('Tipos de arquivos disponível')
+        self.current_value = self.lista_de_midias.get()
+
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar + extensões', command=self.registrar_extensao)
-        self.botao_iniciar_programa = tk.Button(self.frame_botao_01, text='Iniciar a busca', command=self.busca_principal)
+        self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar a busca', command=self.busca_principal)
         self.botao_atualizar_lista = tk.Button(self.label_principal_02, text='Atualizar Lista de extensões', command=self.atualizar_lista)
         self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy)
 
-        self.botao_adicionar_01.pack(fill='both', padx=5, pady=5)
         self.botao_iniciar_programa.pack(side='top', padx=5, pady=5)
+        self.botao_adicionar_01.pack(fill='both', padx=5, pady=5)
         self.botao_atualizar_lista.pack(fill='both', padx=5, pady=5)
         self.botao_sair.pack(pady=5, padx=5)
         # looping
