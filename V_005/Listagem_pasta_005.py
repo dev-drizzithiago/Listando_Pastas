@@ -37,7 +37,7 @@ class ListagemPasta:
                                                 relief='sunken')
         self.lista_extensoes_dispo.pack(anchor='center')
         self.extensoes_adicionadas()
-        
+
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões',
                                             command=self.registrar_extensao)
@@ -50,6 +50,12 @@ class ListagemPasta:
         self.botao_atualizar_lista.pack(side='top')
 
         self.janela_principal.mainloop()
+
+    def busca_principal(self):
+        valor_busca = self.lista_extensoes_dispo.curselection()
+        for busca in valor_busca.glob:
+            if busca.is_file:
+                print(busca)
 
     def registrar_extensao(self):
         try:
@@ -73,10 +79,6 @@ class ListagemPasta:
         except FileNotFoundError:
             tk.messagebox.showerror('AVISO!', f'Não foi encontrado o arquivo {self.arqui_txt}')
 
-    def busca_principal(self):
-        valor_busca = self.lista_extensoes_dispo.curselection()
-        for busca in valor_busca:
-            print(self.exten_listadas[busca])
 
     def atualizar_lista(self):
         self.lista_extensoes_dispo.delete('0', 'end')
