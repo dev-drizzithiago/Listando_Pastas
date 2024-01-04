@@ -36,14 +36,14 @@ class ListagemPasta:
         self.extensoes_adicionadas()
 
         # Botoes
-        self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões', command=self.registrar_extensao)
+        self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar + extensões', command=self.registrar_extensao)
         self.botao_adicionar_01.pack(fill='both')
-        self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa', command=self.busca_principal)
-        self.botao_iniciar_programa.pack(fill='both')
-        self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista', command=self.atualizar_lista)
-        self.botao_atualizar_lista.pack(side='top')
-        self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy)
-        self.botao_sair.pack(fill='both')
+        self.botao_iniciar_programa = tk.Button(self.frame_botao_01, text='Iniciar a busca', command=self.busca_principal)
+        self.botao_iniciar_programa.pack(side='top')
+        self.botao_atualizar_lista = tk.Button(self.label_principal_02, text='Atualizar Lista de extensões', command=self.atualizar_lista)
+        self.botao_atualizar_lista.pack(fill='both')
+        self.botao_sair = tk.Button(self.label_principal_02, text='Fechar o Programa', command=self.janela_principal.destroy, pady=5, padx=5)
+        self.botao_sair.pack()
 
         # looping
         self.janela_principal.mainloop()
@@ -62,6 +62,8 @@ class ListagemPasta:
 
         if len(valor_busca) == 0:
             self.valor_ext = ''
+            tk.messagebox.showinfo('Aviso', 'Você não escolheu nenhuma extensão,\n'
+                                            'sera listado todos os arquivos!')
         else:
             for valor_extensao in valor_busca:
                 self.valor_ext = str(self.exten_listadas[valor_extensao])
