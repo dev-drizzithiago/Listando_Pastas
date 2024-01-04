@@ -55,10 +55,18 @@ class ListagemPasta:
         self.janela_da_busca = tk.Tk()
         self.janela_da_busca.geometry('700x300')
         self.janela_da_busca.title('Busca V_5')
+
+        self.label_frame_busca_01 = tk.LabelFrame(self.janela_da_busca)
+        self.label_frame_busca_01.pack(fill='both')
+
         self.label_da_busca = tk.LabelFrame(self.janela_da_busca, text='Buscando arquivos', padx=5, pady=5)
         self.label_da_busca.pack(fill='both')
-        self.lista_das_busca = tk.Listbox(self.label_da_busca, justify='center')
+
+        self.lista_das_busca = tk.Listbox(self.label_da_busca, justify='left')
         self.lista_das_busca.pack(fill='both')
+
+        self.botao_busca_sair = tk.Button(self.label_frame_busca_01, text='Sair')
+        self.botao_busca_sair.pack(fill='both')
 
         if len(valor_busca) == 0:
             self.valor_ext = ''
