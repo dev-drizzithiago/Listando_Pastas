@@ -34,14 +34,14 @@ class ListagemPastas:
         self.label_titulo_principal.pack(side='top', fill='both')
 
         # Lista Combo principal
-        self.var_cambo = StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_cambo,
+        self.var_combo = StringVar()
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
                                                      justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both')
         self.combo_tipo_arquivo_principal.current()
-        self.var_cambo.trace('w', self.lista_tipos_extensoes)
+        self.var_combo.trace('w', self.tipos_extensao)
 
         # Lista de exntesão
         self.lista_extensao = Listbox(self.label_frame_002, justify='center')
@@ -60,6 +60,7 @@ class ListagemPastas:
     #    self.criando_registro_extensoes(self.combo_tipo_arquivo.get())
 
     def criando_registro_extensoes(self):
+        self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.janela_add_extensao = Tk()
         self.janela_add_extensao.geometry('400x300')
         self.janela_add_extensao.title('Adicionando uma extensão')
@@ -67,15 +68,18 @@ class ListagemPastas:
         self.label_frame_add_001 = LabelFrame(self.janela_add_extensao)
         self.label_frame_add_001.pack(fill='both')
 
-        self.var_combo = StringVar()
-        self.combo_tipo_arquivo = Combobox(self.label_frame_add_001, textvariable=self.var_combo, justify='center')
-        self.combo_tipo_arquivo['values'] = self.lista_tipos_extensoes
+        self.var_combo_add = StringVar()
+        self.combo_tipo_arquivo = Combobox(self.label_frame_add_001, textvariable=self.var_combo_add, justify='center')
+        self.combo_tipo_arquivo['values'] = self.lista_tipos_extensoes_add
         self.combo_tipo_arquivo.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo.pack(side='top', fill='both')
         self.combo_tipo_arquivo.current()
-        self.var_combo.trace('w', self.valor_combo_add)
+        self.var_combo_add.trace('w', self.valor_combo_add)
 
     def valor_combo_add(self, *args):
+        print(self.var_combo_add.get())
+
+    def tipos_extensao(self, *args):
         print(self.var_combo.get())
 
 
