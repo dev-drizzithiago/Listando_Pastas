@@ -35,7 +35,7 @@ class ListagemPasta:
         # self.extensoes_adicionadas()
         # valor_extensoes = tk.Variable(value=self.extensoes)
         # valor_extensoes = tk.Variable(value=self.exten_listadas)
-        self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, justify='center', selectmode=tk.MULTIPLE,
+        self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, justify='center', selectmode=tk.SINGLE,
                                                 relief='sunken')
         self.lista_extensoes_dispo.pack(anchor='center')
 
@@ -69,7 +69,7 @@ class ListagemPasta:
         try:
             valor_extensao = open(self.pasta_destino + self.arqui_txt, 'r')
             for valor_ext in valor_extensao:
-                # self.exten_listadas.append(valor_ext.replace('\n', ''))
+                self.exten_listadas.append(valor_ext.replace('\n', ''))
                 self.lista_extensoes_dispo.insert('end', valor_ext)
         except FileNotFoundError:
             tk.messagebox.showerror('AVISO!', f'Não foi encontrado o arquivo {self.arqui_txt}')
