@@ -13,6 +13,8 @@ class ListagemPasta:
         pasta_home = Path.home()
         self.pasta_destino = str(Path(pasta_home, 'AppData', 'LocalLow', 'extensoes'))
         self.arqui_txt = str('\\extensoes.txt')
+
+        # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
