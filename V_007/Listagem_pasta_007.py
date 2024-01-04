@@ -1,12 +1,16 @@
 from tkinter import *
 from tkinter.ttk import *
 from pathlib import Path
+from tkinter.filedialog import *
+from tkinter.messagebox import *
+from tkinter.simpledialog import *
 
 
 class ListagemPastas:
     def __init__(self):
         # Varias Global
         self.pasta_home = Path.home()
+        self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_TXT')
 
         # Janela principa
@@ -36,8 +40,8 @@ class ListagemPastas:
         self.var_cambo.trace('w', self.opcao_midia)
 
         # Lista de exntesão
-        self.lista_extensão = Listbox(self.label_frame_002, justify='center')
-        self.lista_extensão.pack(side='top', fill='both', padx=5, pady=5)
+        self.lista_extensao = Listbox(self.label_frame_002, justify='center')
+        self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         self.janela_principal.mainloop()
 
