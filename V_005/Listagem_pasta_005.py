@@ -18,12 +18,18 @@ class ListagemPasta:
         self.janela_principal.geometry('600x300')
         self.janela_principal.title('Versão 5')
 
+        # LabelFrames
         self.label_principal_01 = tk.LabelFrame(self.janela_principal, text='Escolha um tipo de extensão', pady=5,
                                                 padx=5, relief='sunken')
         self.label_principal_02 = tk.LabelFrame(self.janela_principal)
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
+        #Frames
+        self.frame_botao_01 = tk.Button(self.label_principal_02)
+        self.frame_botao_01.pack(
+
+        )
         # Iniciando algumas funções
         self.verif_arq_ext_txt()
         self.extensoes_adicionadas()
@@ -34,11 +40,14 @@ class ListagemPasta:
                                                 selectmode=tk.MULTIPLE, relief='sunken')
         self.lista_extensoes_dispo.pack(anchor='center')
 
+        # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões',
                                             command=self.registrar_extensao)
         self.botao_adicionar_01.pack(side='left')
         self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa', command=self.busca_principal)
         self.botao_iniciar_programa.pack(side='right')
+        self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista')
+        self.botao_atualizar_lista.pack(side='bottom')
 
         self.janela_principal.mainloop()
 
@@ -77,7 +86,6 @@ class ListagemPasta:
         except FileNotFoundError:
             tk.messagebox.showwarning('Importante', f'O arquivos {self.arqui_txt} não existe!\n'
                                                     f'É preciso criar com pelo menos uma extensão...')
-            self.janela_principal.destroy()
             self.registrar_extensao()
 
 
