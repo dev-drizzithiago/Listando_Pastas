@@ -31,7 +31,6 @@ class ListagemPasta:
         self.label_principal_02.pack(anchor='s', fill='both', pady=5, padx=5)
 
 
-
         # Iniciando algumas funções
         self.verif_arq_ext_txt()
         self.lista_extensoes_dispo = tk.Listbox(self.label_principal_01, justify='center', selectmode=tk.SINGLE, relief='sunken')
@@ -45,6 +44,7 @@ class ListagemPasta:
         self.lista_de_midias.set('Tipos de arquivos disponível')
         self.lista_de_midias.pack(fill='both', side='top')
         self.lista_de_midias.current()
+        self.current_var.trace('w', self.tipo_midia_selecionado)
 
         # Botoes
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar + extensões', command=self.registrar_extensao)
@@ -58,7 +58,7 @@ class ListagemPasta:
         self.botao_sair.pack(pady=5, padx=5)
         # looping
         self.janela_principal.mainloop()
-    
+
     def busca_principal(self):
         valor_busca = self.lista_extensoes_dispo.curselection()
 
@@ -132,5 +132,7 @@ class ListagemPasta:
                                                     f'É preciso criar com pelo menos uma extensão...')
             self.registrar_extensao()
 
+    def tipo_midia_selecionado(self):
+        print(self.current_var.get())
 
 inicio_obj = ListagemPasta()
