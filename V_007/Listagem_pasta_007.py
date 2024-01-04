@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.ttk import *
 
+
 class ListagemPastas:
     def __init__(self):
         # Varias Global
@@ -25,8 +26,7 @@ class ListagemPastas:
         self.combo_tipo_arquivo = Combobox(self.janela_principal)
         self.combo_tipo_arquivo.pack(side='top', fill='both')
 
-
         self.janela_principal.mainloop()
 
-obj_principal = ListagemPastas()
 
+obj_principal = ListagemPastas()
