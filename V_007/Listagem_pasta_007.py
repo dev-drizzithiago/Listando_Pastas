@@ -67,15 +67,21 @@ class ListagemPastas:
 
         self.label_frame_add_001 = LabelFrame(self.janela_add_extensao, text='Escolha uma categoria')
         self.label_frame_add_001.pack(fill='both')
+        self.frame_opcao_01 = Frame(self.label_frame_add_001)
+        self.frame_opcao_02 = Frame(self.label_frame_add_001)
+        self.frame_opcao_01.pack(anchor='w')
+        self.frame_opcao_02.pack(anchor='center')
 
         # RADIOS
         self.var_radio = IntVar()
-        self.radio_opcao_01 = Radiobutton(self.label_frame_add_001, text='Vídeos', variable=self.var_radio, value=1)
-        self.radio_opcao_02 = Radiobutton(self.label_frame_add_001, text='Imagens', variable=self.var_radio, value=2)
-        self.radio_opcao_03 = Radiobutton(self.label_frame_add_001, text='Arq de Texto', variable=self.var_radio, value=3)
-        self.radio_opcao_01.pack(side='left')
-        self.radio_opcao_02.pack(side='left')
-        self.radio_opcao_03.pack(side='left')
+        self.var_radio.get()
+        self.radio_opcao_01 = Radiobutton(self.frame_opcao_01, text='Vídeos', variable=self.var_radio, value=1)
+        self.radio_opcao_02 = Radiobutton(self.frame_opcao_01, text='Imagens', variable=self.var_radio, value=2)
+        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
+
+        self.radio_opcao_01.pack(anchor='w')
+        self.radio_opcao_02.pack(anchor='w')
+        self.radio_opcao_03.pack(anchor='w')
 
     def tipos_extensao(self, *args):
         print(self.var_combo.get())
