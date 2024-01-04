@@ -6,6 +6,7 @@ from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring, askinteger, askfloat
 
 
+
 class ListagemPasta:
     def __init__(self):
         self.exten_listadas = []
@@ -24,13 +25,12 @@ class ListagemPasta:
         self.label_principal_01.pack()
         self.label_principal_02.pack()
 
-        # Frames
+        #Frames
         self.frame_botao_01 = tk.Button(self.label_principal_02)
-        self.frame_botao_01.pack(
-
-        )
+        self.frame_botao_01.pack()
         # Iniciando algumas funções
         self.verif_arq_ext_txt()
+
 
         # valor_extensoes = tk.Variable(value=self.extensoes)
         valor_extensoes = tk.Variable(value=self.exten_listadas)
@@ -42,11 +42,9 @@ class ListagemPasta:
         self.botao_adicionar_01 = tk.Button(self.label_principal_02, text='Adicionar extensões',
                                             command=self.registrar_extensao)
         self.botao_adicionar_01.pack(side='left')
-        self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa',
-                                                command=self.busca_principal)
+        self.botao_iniciar_programa = tk.Button(self.label_principal_02, text='Iniciar programa', command=self.busca_principal)
         self.botao_iniciar_programa.pack(side='right')
-        self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista',
-                                               command=self.atualizar_lista)
+        self.botao_atualizar_lista = tk.Button(self.frame_botao_01, text='Atualizar Lista', command=self.atualizar_lista)
         self.botao_atualizar_lista.pack(side='top')
 
         self.janela_principal.mainloop()
