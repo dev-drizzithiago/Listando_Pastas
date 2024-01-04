@@ -16,9 +16,14 @@ class JanelaTeste:
         self.lista_de_midias['values'] = self.tipo_midia
         self.lista_de_midias.set('Tipos de arquivos disponível')
         self.lista_de_midias.pack(fill='both', side='top')
-        self.lista_de_midias.current()
+        self.lista_de_midias.current(1)
+
+        self.botao_limpar = tk.Button(self.janela_principal, text='Limpar', command=self.limpeza)
+        self.botao_limpar.pack(side='bottom', padx=5, pady=5)
 
         self.janela_principal.mainloop()
 
+    def limpeza(self):
+        self.lista_de_midias.set('')
 
 iniciando_programa = JanelaTeste()
