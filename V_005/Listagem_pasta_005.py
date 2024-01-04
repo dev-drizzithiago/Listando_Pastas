@@ -9,7 +9,7 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 
 class ListagemPasta:
     def __init__(self):
-
+        self.exten_listadas = []
         # elf.extensoes = ['JPG', 'MP4', 'MP3']
         pasta_home = Path.home()
         self.pasta_destino = str(Path(pasta_home, 'AppData', 'LocalLow', 'extensoes'))
@@ -48,7 +48,7 @@ class ListagemPasta:
             valor_dados_add = tk.simpledialog.askstring('Bem vindo!', 'Adicione uma extensão')
             try:
                 obj_registro = open(self.pasta_destino + self.arqui_txt, 'a')
-                obj_registro.write(f'{valor_dados_add}\n')
+                obj_registro.write(f'{valor_dados_add.upper()}\n')
                 tk.messagebox.showinfo('AVISO', f'Extensão [{valor_dados_add}] foi adicionada com sucesso!')
             except:
                 tk.messagebox.showerror('AVISO!', 'Não foi possível registrar nos arquivo\n'
@@ -58,8 +58,8 @@ class ListagemPasta:
         try:
             valor_extensao = open(self.pasta_destino + self.arqui_txt, 'r')
             for valor_ext in valor_extensao:
-                self.exten_listadas = valor_ext
-                print(self.exten_listadas)
+                self.exten_listadas.append(valor_ext.replace('\n', ''))
+            print(self.exten_listadas)
         except FileNotFoundError:
             tk.messagebox.showerror('AVISO!', f'Não foi encontrado o arquivo {self.arqui_txt}')
 
