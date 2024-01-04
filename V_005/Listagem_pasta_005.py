@@ -77,7 +77,8 @@ class ListagemPasta:
             print(self.exten_listadas[busca])
 
     def atualizar_lista(self):
-        self.lista_extensoes_dispo.delete('0', 'end')
+        # self.lista_extensoes_dispo.delete('0', 'end')
+        self.extensoes_adicionadas()
 
         # Verificações
 
