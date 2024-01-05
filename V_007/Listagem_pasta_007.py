@@ -8,7 +8,7 @@ from tkinter.simpledialog import *
 
 class ListagemPastas:
     def __init__(self):
-        self.iniciar_busca()
+        
         # Varias Global
         self.valor_combo_add = None
         self.valor_extensao = None
