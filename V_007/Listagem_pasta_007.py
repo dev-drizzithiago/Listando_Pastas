@@ -74,7 +74,7 @@ class ListagemPastas:
 
         # RADIOS
         self.var_radio = IntVar()
-        self.var_radio.get()
+        self.var_radio.set(0)
         self.radio_opcao_01 = Radiobutton(self.frame_opcao_01, text='Vídeos', variable=self.var_radio, value=1)
         self.radio_opcao_02 = Radiobutton(self.frame_opcao_01, text='Imagens', variable=self.var_radio, value=2)
         self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
