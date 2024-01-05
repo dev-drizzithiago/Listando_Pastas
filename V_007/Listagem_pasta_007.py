@@ -87,8 +87,9 @@ class ListagemPastas:
         self.radio_opcao_03.pack(anchor='w')
 
         # Entrada
-        self.entrada_txt_ext = Entry(self.label_frame_add_001, width=30, justify='center', bd=2)
-        self.entrada_txt_ext.pack(fill='both')
+        var_texto_ext = StringVar()
+        self.enter_txt_ext = Entry(self.label_frame_add_001, width=30, textvariable=var_texto_ext, justify='center', bd=2)
+        self.enter_txt_ext.pack(fill='both')
 
         # botoes
         self.botao_adicionar = Button(self.label_frame_add_002, text='Adicionar')
