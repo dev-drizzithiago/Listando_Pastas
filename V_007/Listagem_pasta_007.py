@@ -78,7 +78,6 @@ class ListagemPastas:
 
         # RADIOS
         self.var_radio = IntVar()
-        self.var_radio.set(0)
         self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1, bd=2)
         self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2, bd=2)
         self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3, bd=2)
@@ -87,13 +86,17 @@ class ListagemPastas:
         self.radio_opcao_03.pack(anchor='w')
 
         # Entrada
-        var_texto_ext = StringVar()
-        self.enter_txt_ext = Entry(self.label_frame_add_001, width=30, textvariable=var_texto_ext, justify='center', bd=2)
+        self.var_texto_ext = StringVar()
+        self.enter_txt_ext = Entry(self.label_frame_add_001, width=30, textvariable=self.var_texto_ext, justify='center')
         self.enter_txt_ext.pack(fill='both')
 
         # botoes
-        self.botao_adicionar = Button(self.label_frame_add_002, text='Adicionar')
+        self.botao_adicionar = Button(self.label_frame_add_002, text='Adicionar', command=self.registro_extensao)
         self.botao_adicionar.pack(anchor='center', ipady=3, ipadx=3)
+
+    def registro_extensao(self):
+        print(self.var_radio.get())
+        print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
 
