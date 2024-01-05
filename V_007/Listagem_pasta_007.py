@@ -87,6 +87,7 @@ class ListagemPastas:
         print(self.var_combo.get())
 
     def iniciar_busca(self):
+
         # janela busca
         self.janela_busca = Tk()
         self.janela_busca.geometry('600x300')
