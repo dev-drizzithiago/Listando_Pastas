@@ -36,7 +36,8 @@ class ListagemPastas:
 
         # Lista Combo principal
         self.var_combo = StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo, justify='center')
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
+                                                     justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both')
@@ -82,7 +83,6 @@ class ListagemPastas:
         self.radio_opcao_02.pack(anchor='w')
         self.radio_opcao_03.pack(anchor='w')
 
-
     def tipos_extensao(self, *args):
         print(self.var_combo.get())
 
@@ -93,7 +93,7 @@ class ListagemPastas:
         self.janela_busca.title('Buscando por arquivos')
 
         # label frame busca
-        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca',)
+        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca', )
         self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
 
         # Lista da busca
