@@ -78,15 +78,29 @@ class ListagemPastas:
         self.radio_opcao_01 = Radiobutton(self.frame_opcao_01, text='Vídeos', variable=self.var_radio, value=1)
         self.radio_opcao_02 = Radiobutton(self.frame_opcao_01, text='Imagens', variable=self.var_radio, value=2)
         self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
-
         self.radio_opcao_01.pack(anchor='w')
         self.radio_opcao_02.pack(anchor='w')
         self.radio_opcao_03.pack(anchor='w')
+
 
     def tipos_extensao(self, *args):
         print(self.var_combo.get())
 
     def iniciar_busca(self):
+        # janela busca
+        self.janela_busca = Tk()
+        self.janela_busca.geometry('600x300')
+        self.janela_busca.title('Buscando por arquivos')
+
+        # label frame busca
+        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca')
+        self.label_frame_busca.pack()
+
+        # Lista da busca
+        self.var_busca = Variable()
+        self.lista_da_busca = Listbox(self.label_frame_busca)
+        self.lista_da_busca.pack(fill='both', pady=3, padx=3)
+
         valor_extensao = '<desenvolvimento>'
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao):
