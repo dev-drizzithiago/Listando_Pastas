@@ -105,9 +105,9 @@ class ListagemPastas:
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao):
             if valor_da_busca.is_file():
-                self.lista_da_busca.insert('0', valor_extensao)
+                self.lista_da_busca.insert('0', valor_da_busca)
             elif valor_da_busca.is_dir():
-                self.lista_extensao.insert('0', valor_extensao)
+                self.lista_extensao.insert('0', valor_da_busca)
 
 
 obj_principal = ListagemPastas()
