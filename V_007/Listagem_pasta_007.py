@@ -48,27 +48,29 @@ class ListagemPastas:
         self.lista_extensao = Listbox(self.label_frame_002, justify='center')
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
-        self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca', command=self.iniciar_busca)
-        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões', command=self.criando_registro_extensoes)
+        self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
+        self.botao_add_ext = Button(self.label_frame_003, text='Adicionar Extensões', command=self.janela_adicionar_registrar)
         self.botao_sair_programa = Button(self.label_frame_003, text='Sair do programa')
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
-        self.botao_adicionar_extensao.pack(fill='both', padx=3, pady=3)
+        self.botao_add_ext.pack(fill='both', padx=3, pady=3)
         self.botao_sair_programa.pack(fill='both', ipady=3, ipadx=3)
 
         # Looping janela
         self.janela_principal.mainloop()
 
-    # def opcao_midia(self, *args):
-    #    self.criando_registro_extensoes(self.combo_tipo_arquivo.get())
+    def tipos_extensao(self, *args):
+        valor_categoria_busca = self.var_combo.get()
 
-    def criando_registro_extensoes(self):
+    def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.janela_add_extensao = Tk()
         self.janela_add_extensao.geometry('400x300')
         self.janela_add_extensao.title('Adicionando uma extensão')
 
         self.label_frame_add_001 = LabelFrame(self.janela_add_extensao, text='Escolha uma categoria')
+        self.label_frame_add_002 = LabelFrame(self.janela_add_extensao)
         self.label_frame_add_001.pack(fill='both')
+        self.label_frame_add_002.pack(fill='both')
         self.frame_opcao_01 = Frame(self.label_frame_add_001)
         self.frame_opcao_02 = Frame(self.label_frame_add_001)
         self.frame_opcao_01.pack(anchor='w')
@@ -77,17 +79,22 @@ class ListagemPastas:
         # RADIOS
         self.var_radio = IntVar()
         self.var_radio.set(0)
-        self.radio_opcao_01 = Radiobutton(self.frame_opcao_01, text='Vídeos', variable=self.var_radio, value=1)
-        self.radio_opcao_02 = Radiobutton(self.frame_opcao_01, text='Imagens', variable=self.var_radio, value=2)
+        self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1)
+        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2)
         self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
         self.radio_opcao_01.pack(anchor='w')
         self.radio_opcao_02.pack(anchor='w')
         self.radio_opcao_03.pack(anchor='w')
 
-    def tipos_extensao(self, *args):
-        print(self.var_combo.get())
+        # Entrada
+        self.entrada_txt_ext = Entry(self.label_frame_add_001, width=30, justify='center')
+        self.entrada_txt_ext.pack(fill='both')
 
-    def iniciar_busca(self):
+        # botoes
+        self.botao_adicionar = Button(self.label_frame_add_002, text='Adicionar')
+        self.botao_adicionar.pack(anchor='center', ipady=3, ipadx=3)
+
+    def janela_inicio_busca(self):
 
         # janela busca
         self.janela_busca = Tk()
