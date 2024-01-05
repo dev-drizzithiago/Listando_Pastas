@@ -77,7 +77,7 @@ class ListagemPastas:
         self.frame_opcao_02.pack(anchor='center')
 
         # RADIOS
-        self.var_radio = IntVar()
+        self.var_radio = StringVar()
         self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1, bd=2)
         self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2, bd=2)
         self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3, bd=2)
