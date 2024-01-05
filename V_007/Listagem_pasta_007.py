@@ -101,11 +101,13 @@ class ListagemPastas:
         self.lista_da_busca = Listbox(self.label_frame_busca, justify='left')
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
-        valor_extensao = '<desenvolvimento>'
+        valor_extensao = 'jpg'
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao):
             if valor_da_busca.is_file():
-                print(valor_da_busca)
+                self.lista_da_busca.insert('0', valor_extensao)
+            elif valor_da_busca.is_dir():
+                self.lista_extensao.insert('0', valor_extensao)
 
 
 obj_principal = ListagemPastas()
