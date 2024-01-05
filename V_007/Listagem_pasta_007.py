@@ -31,7 +31,7 @@ class ListagemPastas:
         self.label_frame_002.pack(anchor='center', fill='both')
         self.label_frame_003.pack()
 
-        self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
+        self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center', bd=2)
         self.label_titulo_principal.pack(side='top', fill='both')
 
         # Lista Combo principal
@@ -79,15 +79,15 @@ class ListagemPastas:
         # RADIOS
         self.var_radio = IntVar()
         self.var_radio.set(0)
-        self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1)
-        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2)
-        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
+        self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1, bd=2)
+        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2, bd=2)
+        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3, bd=2)
         self.radio_opcao_01.pack(anchor='w')
         self.radio_opcao_02.pack(anchor='w')
         self.radio_opcao_03.pack(anchor='w')
 
         # Entrada
-        self.entrada_txt_ext = Entry(self.label_frame_add_001, width=30, justify='center')
+        self.entrada_txt_ext = Entry(self.label_frame_add_001, width=30, justify='center', bd=2)
         self.entrada_txt_ext.pack(fill='both')
 
         # botoes
