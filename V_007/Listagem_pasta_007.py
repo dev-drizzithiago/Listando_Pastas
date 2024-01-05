@@ -86,5 +86,12 @@ class ListagemPastas:
     def tipos_extensao(self, *args):
         print(self.var_combo.get())
 
+    def iniciar_busca(self):
+        valor_extensao = '<desenvolvimento>'
+        pasta_destino_busca = Path(askdirectory())
+        for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao):
+            if valor_da_busca.is_file():
+                print(valor_da_busca)
+
 
 obj_principal = ListagemPastas()
