@@ -8,6 +8,7 @@ from tkinter.simpledialog import *
 
 class ListagemPastas:
     def __init__(self):
+        self.iniciar_busca()
         # Varias Global
         self.valor_combo_add = None
         self.valor_extensao = None
@@ -35,8 +36,7 @@ class ListagemPastas:
 
         # Lista Combo principal
         self.var_combo = StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
-                                                     justify='center')
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo, justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both')
@@ -47,7 +47,7 @@ class ListagemPastas:
         self.lista_extensao = Listbox(self.label_frame_002, justify='center')
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
-        self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca')
+        self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca', command=self.iniciar_busca)
         self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões',
                                                command=self.criando_registro_extensoes)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
@@ -93,13 +93,13 @@ class ListagemPastas:
         self.janela_busca.title('Buscando por arquivos')
 
         # label frame busca
-        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca')
-        self.label_frame_busca.pack()
+        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca',)
+        self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
 
         # Lista da busca
         self.var_busca = Variable()
-        self.lista_da_busca = Listbox(self.label_frame_busca)
-        self.lista_da_busca.pack(fill='both', pady=3, padx=3)
+        self.lista_da_busca = Listbox(self.label_frame_busca, justify='left')
+        self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
         valor_extensao = '<desenvolvimento>'
         pasta_destino_busca = Path(askdirectory())
