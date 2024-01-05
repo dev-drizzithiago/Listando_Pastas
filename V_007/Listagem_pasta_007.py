@@ -8,7 +8,7 @@ from tkinter.simpledialog import *
 
 class ListagemPastas:
     def __init__(self):
-        
+
         # Varias Global
         self.valor_combo_add = None
         self.valor_extensao = None
@@ -40,7 +40,7 @@ class ListagemPastas:
                                                      justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha um tipo de Mídia')
-        self.combo_tipo_arquivo_principal.pack(side='top', fill='both')
+        self.combo_tipo_arquivo_principal.pack(side='top', fill='both', ipady=3, ipadx=3)
         self.combo_tipo_arquivo_principal.current()
         self.var_combo.trace('w', self.tipos_extensao)
 
@@ -49,10 +49,11 @@ class ListagemPastas:
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca', command=self.iniciar_busca)
-        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões',
-                                               command=self.criando_registro_extensoes)
+        self.botao_adicionar_extensao = Button(self.label_frame_003, text='Adicionar Extensões', command=self.criando_registro_extensoes)
+        self.botao_sair_programa = Button(self.label_frame_003, text='Sair do programa')
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_adicionar_extensao.pack(fill='both', padx=3, pady=3)
+        self.botao_sair_programa.pack(fill='both', ipady=3, ipadx=3)
 
         # Looping janela
         self.janela_principal.mainloop()
