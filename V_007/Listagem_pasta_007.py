@@ -27,12 +27,13 @@ class ListagemPastas:
 
         # Label Frame
         self.label_frame_001 = Frame(self.janela_principal)
-        self.label_frame_002 = Frame(self.janela_principal)
-        self.label_frame_003 = Frame(self.janela_principal)
-        self.label_frame_004 = Frame(self.janela_principal)
         self.label_frame_001.pack(anchor='n', fill='both')
+        self.label_frame_002 = Frame(self.janela_principal)
         self.label_frame_002.pack(anchor='center', fill='both')
+        self.label_frame_003 = Frame(self.janela_principal)
         self.label_frame_003.pack()
+        self.label_frame_004 = Frame(self.janela_principal)
+        self.label_frame_004.pack()
 
         self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
         self.label_titulo_principal.pack(side='top', fill='both')
@@ -82,21 +83,22 @@ class ListagemPastas:
         self.janela_add_extensao.title('Adicionando uma extensão')
 
         self.label_frame_add_001 = LabelFrame(self.janela_add_extensao, text='Escolha uma categoria')
-        self.label_frame_add_002 = LabelFrame(self.janela_add_extensao)
         self.label_frame_add_001.pack(fill='both')
+        self.label_frame_add_002 = LabelFrame(self.janela_add_extensao)
         self.label_frame_add_002.pack(fill='both')
+
         self.frame_opcao_01 = Frame(self.label_frame_add_001)
-        self.frame_opcao_02 = Frame(self.label_frame_add_001)
         self.frame_opcao_01.pack(anchor='w')
+        self.frame_opcao_02 = Frame(self.label_frame_add_001)
         self.frame_opcao_02.pack(anchor='center')
 
         # RADIOS
         self.var_radio = tk.StringVar()
         self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1)
-        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2)
-        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
         self.radio_opcao_01.pack(anchor='w')
+        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2)
         self.radio_opcao_02.pack(anchor='w')
+        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
         self.radio_opcao_03.pack(anchor='w')
 
         # Entrada
