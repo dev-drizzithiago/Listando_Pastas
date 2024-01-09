@@ -14,8 +14,8 @@ class ListagemPastas:
         self.valor_extensao = None
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
+        
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-
         self.extensoes_imagem = ['JPG', 'PNG' 'GIF']
         self.extensoes_videos = ['MP4', 'AVI', 'MKV']
         self.extensoes_arq_txt = ['TXT', 'PDF', 'DOCX']
@@ -41,8 +41,7 @@ class ListagemPastas:
 
         # Lista Combo principal
         self.var_combo = tk.StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
-                                                     justify='center')
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha um tipo de Mídia')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both', ipady=3, ipadx=3)
