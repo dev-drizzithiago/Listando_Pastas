@@ -15,9 +15,8 @@ class ListagemPastas:
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-        self.lista_extensao_videos = False
-        self.lista_extensao_imagens = False
-        self.lista_extensao_arq_txt = False
+        self.lista_extensao_ativa_videos = False
+        self.lista_extensao_ativa_imagem = False
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -67,10 +66,13 @@ class ListagemPastas:
         self.lista_extensao.delete('0', 'end')
         if valor_categoria_busca == 'VÍDEOS':
             self.lista_extensao.insert('0', 'MP4', 'AVI')
+            self.lista_extensao_ativa = True
         elif valor_categoria_busca == 'IMAGENS':
             self.lista_extensao.insert('0', 'JPG', 'PNG')
+            self.lista_extensao_ativa = True
         elif valor_categoria_busca == 'ARQUIVOS_LEITURA':
             self.lista_extensao.insert('0', 'TXT', 'PDF', 'DOCX')
+            self.lista_extensao_ativa = True
 
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
@@ -111,8 +113,8 @@ class ListagemPastas:
 
     def janela_inicio_busca(self):
         valor_lista_extensao = self.lista_extensao.curselection()
-        #for valor_extensao_busca in valor_lista_extensao:
-        tk.messagebox.showinfo('Teste', valor_lista_extensao)
+        if self.lista_extensao_ativa:
+            tk.messagebox.showinfo('Teste', valor_lista_extensao)
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
