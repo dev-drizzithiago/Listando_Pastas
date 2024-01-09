@@ -61,11 +61,14 @@ class ListagemPastas:
 
     def tipos_extensao(self, *args):
         valor_categoria_busca = self.var_combo.get()
-        tk.messagebox.showinfo(valor_categoria_busca)
+        self.lista_extensao.delete('0', 'end')
+        #tk.messagebox.showinfo(valor_categoria_busca)
         if valor_categoria_busca == 'VÍDEOS':
             self.lista_extensao.insert('0', 'MP4', 'AVI')
         elif valor_categoria_busca == 'IMAGENS':
             self.lista_extensao.insert('0', 'JPG', 'PNG')
+        elif valor_categoria_busca == 'ARQUIVOS_LEITURA':
+            self.lista_extensao.insert('0', 'TXT', 'PDF', 'DOCX')
 
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
