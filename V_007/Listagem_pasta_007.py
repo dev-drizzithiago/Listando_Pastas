@@ -170,7 +170,6 @@ class ListagemPastas:
             print(valor_extensao_busca)
             self.lista_ativa_textos = False
 
-        # valor_extensao = 'jpg'
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
