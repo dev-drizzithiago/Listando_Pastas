@@ -14,6 +14,9 @@ class ListagemPastas:
         self.valor_extensao = None
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
+        self.lista_ativa_imagem = False
+        self.lista_ativa_videos = False
+        self.lista_ativa_textos = False
         
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.extensoes_imagem = ['JPG', 'PNG' 'GIF']
@@ -69,13 +72,15 @@ class ListagemPastas:
         if valor_categoria_busca == 'VÍDEOS':
             for valor_lista_video in self.extensoes_videos:
                 self.lista_extensao.insert('0', valor_lista_video)
+            self.lista_ativa_videos = True
         elif valor_categoria_busca == 'IMAGENS':
             for valor_lista_imgem in self.extensoes_imagem:
                 self.lista_extensao.insert('0', valor_lista_imgem)
+            self.lista_ativa_imagem = True
         elif valor_categoria_busca == 'ARQUIVOS_LEITURA':
             for valor_lista_texto in self.extensoes_arq_txt:
                 self.lista_extensao.insert('0', valor_lista_texto)
-
+            self.lista_ativa_textos = True
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.janela_add_extensao = tk.Tk()
@@ -119,6 +124,17 @@ class ListagemPastas:
         for valor_opc_extensao in valor_lista_extensao:
             print(valor_opc_extensao)
 
+        if self.lista_ativa_imagem:
+            print('imagem')
+            self.lista_ativa_imagem = False
+        elif self.lista_ativa_videos:
+            print('videos')
+            self.lista_ativa_videos = False
+
+        elif self.lista_ativa_textos:
+            print('textos')
+            self.lista_ativa_textos = False
+
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
@@ -130,8 +146,10 @@ class ListagemPastas:
         self.frame_busca_01 = Label(self.janela_busca)
         self.frame_busca_01.pack(anchor='s')
 
+        # botao
         self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
         self.botao_busca_sair.pack()
+
         # Lista da busca
         self.var_busca = tk.Variable()
         self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
