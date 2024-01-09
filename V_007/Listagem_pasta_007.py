@@ -15,6 +15,9 @@ class ListagemPastas:
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
+        self.lista_extensao_videos = False
+        self.lista_extensao_imagens = False
+        self.lista_extensao_arq_txt = False
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -108,8 +111,8 @@ class ListagemPastas:
 
     def janela_inicio_busca(self):
         valor_lista_extensao = self.lista_extensao.curselection()
-        for valor_extensao_busca in valor_lista_extensao:
-            tk.messagebox.showinfo('Teste', valor_lista_extensao)
+        #for valor_extensao_busca in valor_lista_extensao:
+        tk.messagebox.showinfo('Teste', valor_lista_extensao)
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
