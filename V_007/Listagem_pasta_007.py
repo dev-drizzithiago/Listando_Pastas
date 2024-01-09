@@ -70,7 +70,6 @@ class ListagemPastas:
         if valor_categoria_busca == 'VÍDEOS':
             for valor_lista_video in self.extensoes_videos:
                 self.lista_extensao.insert('0', valor_lista_video)
-
         elif valor_categoria_busca == 'IMAGENS':
             for valor_lista_imgem in self.extensoes_imagem:
                 self.lista_extensao.insert('0', valor_lista_imgem)
