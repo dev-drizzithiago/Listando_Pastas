@@ -62,7 +62,6 @@ class ListagemPastas:
     def tipos_extensao(self, *args):
         valor_categoria_busca = self.var_combo.get()
         self.lista_extensao.delete('0', 'end')
-        #tk.messagebox.showinfo(valor_categoria_busca)
         if valor_categoria_busca == 'VÍDEOS':
             self.lista_extensao.insert('0', 'MP4', 'AVI')
         elif valor_categoria_busca == 'IMAGENS':
