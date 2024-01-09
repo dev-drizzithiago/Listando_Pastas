@@ -128,49 +128,52 @@ class ListagemPastas:
         print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
-        global valor_opc_extensao, valor_extensao_busca
-        valor_lista_extensao = self.lista_extensao.curselection()
-        for valor_opc_extensao in valor_lista_extensao:
-            print(valor_opc_extensao)
+        while True:
+            global valor_opc_extensao, valor_extensao_busca
+            valor_lista_extensao = self.lista_extensao.curselection()
+            for valor_opc_extensao in valor_lista_extensao:
+                print(valor_opc_extensao)
 
-        if self.lista_ativa_imagem:
-            valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
-            print(self.extensoes_imagem[valor_opc_extensao])
-            self.lista_ativa_imagem = False
-        elif self.lista_ativa_videos:
-            print('videos')
-            self.lista_ativa_videos = False
-        elif self.lista_ativa_textos:
-            print('textos')
-            self.lista_ativa_textos = False
+            if self.lista_ativa_imagem:
+                valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
+                print(valor_extensao_busca)
+                self.lista_ativa_imagem = False
+            elif self.lista_ativa_videos:
+                valor_extensao_busca = self.extensoes_videos[valor_opc_extensao]
+                print(valor_extensao_busca)
+                self.lista_ativa_videos = False
+            elif self.lista_ativa_textos:
+                valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
+                print(valor_extensao_busca)
+                self.lista_ativa_textos = False
 
-        # janela busca
-        self.janela_busca = tk.Tk()
-        self.janela_busca.geometry('600x300')
-        self.janela_busca.title('Buscando por arquivos')
+            # janela busca
+            self.janela_busca = tk.Tk()
+            self.janela_busca.geometry('600x300')
+            self.janela_busca.title('Buscando por arquivos')
 
-        # label frame busca
-        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca', )
-        self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
-        self.frame_busca_01 = Label(self.janela_busca)
-        self.frame_busca_01.pack(anchor='s')
+            # label frame busca
+            self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca', )
+            self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
+            self.frame_busca_01 = Label(self.janela_busca)
+            self.frame_busca_01.pack(anchor='s')
 
-        # botao
-        self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
-        self.botao_busca_sair.pack()
+            # botao
+            self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
+            self.botao_busca_sair.pack()
 
-        # Lista da busca
-        self.var_busca = tk.Variable()
-        self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
-        self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
+            # Lista da busca
+            self.var_busca = tk.Variable()
+            self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
+            self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
-        # valor_extensao = 'jpg'
-        pasta_destino_busca = Path(askdirectory())
-        for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
-            if valor_da_busca.is_file():
-                self.lista_da_busca.insert('0', valor_da_busca)
-            elif valor_da_busca.is_dir():
-                self.lista_da_busca.insert('0', valor_da_busca)
+            # valor_extensao = 'jpg'
+            pasta_destino_busca = Path(askdirectory())
+            for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
+                if valor_da_busca.is_file():
+                    self.lista_da_busca.insert('0', valor_da_busca)
+                elif valor_da_busca.is_dir():
+                    self.lista_da_busca.insert('0', valor_da_busca)
 
 
 obj_principal = ListagemPastas()
