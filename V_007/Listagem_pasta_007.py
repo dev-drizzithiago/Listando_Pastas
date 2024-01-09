@@ -113,7 +113,7 @@ class ListagemPastas:
         print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
-        self.valor_extensao = ''
+        self.valor_extensao = 'jpg'
         valor_lista_extensao = self.lista_extensao.curselection()
         print(valor_lista_extensao, self.lista_extensao_ativa_videos)
         if self.lista_extensao_ativa_videos:
