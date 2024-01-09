@@ -1,8 +1,8 @@
-from tkinter import *
+import tkinter as tk
 from tkinter.ttk import *
 from pathlib import Path
 from tkinter.filedialog import *
-from tkinter.messagebox import *
+from tkinter.messagebox import showinfo, showerror, showwarning
 from tkinter.simpledialog import *
 
 
@@ -17,7 +17,7 @@ class ListagemPastas:
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
 
         # Janela principa
-        self.janela_principal = Tk()
+        self.janela_principal = tk.Tk()
         self.janela_principal.geometry('300x390')
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
@@ -31,11 +31,11 @@ class ListagemPastas:
         self.label_frame_002.pack(anchor='center', fill='both')
         self.label_frame_003.pack()
 
-        self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center', bd=2)
+        self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
         self.label_titulo_principal.pack(side='top', fill='both')
 
         # Lista Combo principal
-        self.var_combo = StringVar()
+        self.var_combo = tk.StringVar()
         self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
                                                      justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
@@ -45,12 +45,13 @@ class ListagemPastas:
         self.var_combo.trace('w', self.tipos_extensao)
 
         # Lista de exntesão
-        self.lista_extensao = Listbox(self.label_frame_002, justify='center')
+        self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center')
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
-        self.botao_iniciar_busca = Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
-        self.botao_add_ext = Button(self.label_frame_003, text='Adicionar Extensões', command=self.janela_adicionar_registrar)
-        self.botao_sair_programa = Button(self.label_frame_003, text='Sair do programa')
+        # botões
+        self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
+        self.botao_add_ext = tk.Button(self.label_frame_003, text='Adicionar Extensões', command=self.janela_adicionar_registrar)
+        self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa')
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_add_ext.pack(fill='both', padx=3, pady=3)
         self.botao_sair_programa.pack(fill='both', ipady=3, ipadx=3)
@@ -60,10 +61,15 @@ class ListagemPastas:
 
     def tipos_extensao(self, *args):
         valor_categoria_busca = self.var_combo.get()
+        tk.messagebox.showinfo(valor_categoria_busca)
+        if valor_categoria_busca == 'VÍDEOS':
+            self.lista_extensao.insert('0', 'MP4', 'AVI')
+        elif valor_categoria_busca == 'IMAGENS':
+            self.lista_extensao.insert('0', 'JPG', 'PNG')
 
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-        self.janela_add_extensao = Tk()
+        self.janela_add_extensao = tk.Tk()
         self.janela_add_extensao.geometry('400x300')
         self.janela_add_extensao.title('Adicionando uma extensão')
 
@@ -77,7 +83,7 @@ class ListagemPastas:
         self.frame_opcao_02.pack(anchor='center')
 
         # RADIOS
-        self.var_radio = StringVar()
+        self.var_radio = tk.StringVar()
         self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1, bd=2)
         self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2, bd=2)
         self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3, bd=2)
@@ -86,7 +92,7 @@ class ListagemPastas:
         self.radio_opcao_03.pack(anchor='w')
 
         # Entrada
-        self.var_texto_ext = StringVar()
+        self.var_texto_ext = tk.StringVar()
         self.enter_txt_ext = Entry(self.label_frame_add_001, width=30, textvariable=self.var_texto_ext, justify='center')
         self.enter_txt_ext.pack(fill='both')
 
@@ -101,7 +107,7 @@ class ListagemPastas:
     def janela_inicio_busca(self):
 
         # janela busca
-        self.janela_busca = Tk()
+        self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
         self.janela_busca.title('Buscando por arquivos')
 
@@ -110,8 +116,8 @@ class ListagemPastas:
         self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
 
         # Lista da busca
-        self.var_busca = Variable()
-        self.lista_da_busca = Listbox(self.label_frame_busca, justify='left')
+        self.var_busca = tk.Variable()
+        self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
         valor_extensao = 'jpg'
