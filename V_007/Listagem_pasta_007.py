@@ -116,8 +116,7 @@ class ListagemPastas:
 
     def janela_inicio_busca(self):
         valor_lista_extensao = self.lista_extensao.curselection()
-        print(valor_lista_extensao)
-
+        for extensao in self.
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
