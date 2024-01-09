@@ -116,7 +116,9 @@ class ListagemPastas:
 
     def janela_inicio_busca(self):
         valor_lista_extensao = self.lista_extensao.curselection()
-        
+        for valor_opc_extensao in valor_lista_extensao:
+            print(valor_opc_extensao)
+
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
@@ -125,7 +127,11 @@ class ListagemPastas:
         # label frame busca
         self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca', )
         self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
+        self.frame_busca_01 = Label(self.janela_busca)
+        self.frame_busca_01.pack(anchor='s')
 
+        self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
+        self.botao_busca_sair.pack()
         # Lista da busca
         self.var_busca = tk.Variable()
         self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
