@@ -151,7 +151,7 @@ class ListagemPastas:
         self.var_busca = tk.Variable()
         self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
-                
+
         # proceddo da função
         while True:
             valor_lista_extensao = self.lista_extensao.curselection()
@@ -172,7 +172,6 @@ class ListagemPastas:
                 self.lista_ativa_textos = False
 
             # valor_extensao = 'jpg'
-            self.janela_principal.destroy()
             pasta_destino_busca = Path(askdirectory())
             for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
                 if valor_da_busca.is_file():
