@@ -17,9 +17,9 @@ class ListagemPastas:
         self.lista_ativa_textos = False
         
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-        self.extensoes_imagem = ['JPG', 'PNG', 'GIF']
-        self.extensoes_videos = ['MP4', 'AVI', 'MKV']
-        self.extensoes_arq_txt = ['TXT', 'PDF', 'DOCX']
+        self.extensoes_imagem = ('JPG', 'PNG', 'GIF')
+        self.extensoes_videos = ('MP4', 'AVI', 'MKV')
+        self.extensoes_arq_txt = ('TXT', 'PDF', 'DOCX')
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -119,12 +119,14 @@ class ListagemPastas:
         print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
+        global valor_opc_extensao, valor_extensao_busca
         valor_lista_extensao = self.lista_extensao.curselection()
         for valor_opc_extensao in valor_lista_extensao:
             print(valor_opc_extensao)
 
         if self.lista_ativa_imagem:
-            print('imagem')
+            valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
+            print(self.extensoes_imagem[valor_opc_extensao])
             self.lista_ativa_imagem = False
         elif self.lista_ativa_videos:
             print('videos')
@@ -155,7 +157,7 @@ class ListagemPastas:
 
         # valor_extensao = 'jpg'
         pasta_destino_busca = Path(askdirectory())
-        for valor_da_busca in pasta_destino_busca.glob('**/*' + self.valor_extensao):
+        for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
                 self.lista_da_busca.insert('0', valor_da_busca)
             elif valor_da_busca.is_dir():
