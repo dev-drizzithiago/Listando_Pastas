@@ -86,9 +86,9 @@ class ListagemPastas:
 
         # RADIOS
         self.var_radio = tk.StringVar()
-        self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1, bd=2)
-        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2, bd=2)
-        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3, bd=2)
+        self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1)
+        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2)
+        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
         self.radio_opcao_01.pack(anchor='w')
         self.radio_opcao_02.pack(anchor='w')
         self.radio_opcao_03.pack(anchor='w')
@@ -107,7 +107,9 @@ class ListagemPastas:
         print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
-
+        valor_lista_extensao = self.lista_extensao.curselection()
+        for valor_extensao_busca in valor_lista_extensao:
+            tk.messagebox.showinfo('Teste', valor_lista_extensao)
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
