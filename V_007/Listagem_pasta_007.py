@@ -72,11 +72,11 @@ class ListagemPastas:
                 self.lista_extensao.insert('0', valor_lista_video)
 
         elif valor_categoria_busca == 'IMAGENS':
-            self.lista_extensao.insert('0', 'JPG', 'PNG', 'BMP')
-            self.lista_extensao_ativa_imagem = True
+            for valor_lista_imgem in self.extensoes_imagem:
+                self.lista_extensao.insert('0', valor_lista_imgem)
         elif valor_categoria_busca == 'ARQUIVOS_LEITURA':
-            self.lista_extensao.insert('0', 'TXT', 'PDF', 'DOCX')
-            self.lista_extensao_ativa_txt = True
+            for valor_lista_texto in self.extensoes_arq_txt:
+                self.lista_extensao.insert('0', valor_lista_texto)
 
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
@@ -117,21 +117,9 @@ class ListagemPastas:
         print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
-        self.valor_extensao = 'jpg'
         valor_lista_extensao = self.lista_extensao.curselection()
-        print(valor_lista_extensao, self.lista_extensao_ativa_videos)
-        if self.lista_extensao_ativa_videos:
-            if valor_lista_extensao == 0:
-                self.valor_extensao = 'MP4'
-            elif valor_lista_extensao == 1:
-                self.valor_extensao = 'AVI'
-        elif self.lista_extensao_ativa_imagem:
-            if valor_lista_extensao == 0:
-                self.valor_extensao = 'JPG'
-            elif valor_lista_extensao == 1:
-                self.valor_extensao = 'PNG'
+        print(valor_lista_extensao)
 
-        print(self.valor_extensao)
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
