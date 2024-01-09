@@ -147,7 +147,7 @@ class ListagemPastas:
             if valor_da_busca.is_file():
                 self.lista_da_busca.insert('0', valor_da_busca)
             elif valor_da_busca.is_dir():
-                self.lista_extensao.insert('0', valor_da_busca)
+                self.lista_da_busca.insert('0', valor_da_busca)
 
 
 obj_principal = ListagemPastas()
