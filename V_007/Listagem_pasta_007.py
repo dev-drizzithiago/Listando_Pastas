@@ -17,8 +17,8 @@ class ListagemPastas:
         self.lista_ativa_textos = False
         
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-        self.extensoes_imagem = ('JPG', 'PNG', 'GIF')
-        self.extensoes_videos = ('MP4', 'AVI', 'MKV')
+        self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM')
+        self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5')
         self.extensoes_arq_txt = ('TXT', 'PDF', 'DOCX')
 
         # Janela principa
@@ -77,15 +77,15 @@ class ListagemPastas:
         self.lista_extensao.delete('0', 'end')
         if valor_categoria_busca == 'VÍDEOS':
             for valor_lista_video in self.extensoes_videos:
-                self.lista_extensao.insert('0', valor_lista_video)
+                self.lista_extensao.insert('end', valor_lista_video)
             self.lista_ativa_videos = True
         elif valor_categoria_busca == 'IMAGENS':
             for valor_lista_imgem in self.extensoes_imagem:
-                self.lista_extensao.insert('0', valor_lista_imgem)
+                self.lista_extensao.insert('end', valor_lista_imgem)
             self.lista_ativa_imagem = True
         elif valor_categoria_busca == 'ARQUIVOS_LEITURA':
             for valor_lista_texto in self.extensoes_arq_txt:
-                self.lista_extensao.insert('0', valor_lista_texto)
+                self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
 
     def janela_adicionar_registrar(self):
