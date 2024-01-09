@@ -15,9 +15,10 @@ class ListagemPastas:
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-        self.lista_extensao_ativa_videos = False
-        self.lista_extensao_ativa_imagem = False
-        self.lista_extensao_ativa_texto = False
+
+        self.extensoes_imagem = ['JPG', 'PNG' 'GIF']
+        self.extensoes_videos = ['MP4', 'AVI', 'MKV']
+        self.extensoes_arq_txt = ['TXT', 'PDF', 'DOCX']
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -54,10 +55,10 @@ class ListagemPastas:
 
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
-        self.botao_add_ext = tk.Button(self.label_frame_003, text='Adicionar Extensões', command=self.janela_adicionar_registrar)
-        self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa')
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
+        self.botao_add_ext = tk.Button(self.label_frame_003, text='Adicionar Extensões', command=self.janela_adicionar_registrar)
         self.botao_add_ext.pack(fill='both', padx=3, pady=3)
+        self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa')
         self.botao_sair_programa.pack(fill='both', ipady=3, ipadx=3)
 
         # Looping janela
@@ -67,8 +68,9 @@ class ListagemPastas:
         valor_categoria_busca = self.var_combo.get()
         self.lista_extensao.delete('0', 'end')
         if valor_categoria_busca == 'VÍDEOS':
-            self.lista_extensao.insert('0', 'MP4', 'AVI')
-            self.lista_extensao_ativa_videos = True
+            for valor_lista_video in self.extensoes_videos:
+                self.lista_extensao.insert('0', valor_lista_video)
+
         elif valor_categoria_busca == 'IMAGENS':
             self.lista_extensao.insert('0', 'JPG', 'PNG', 'BMP')
             self.lista_extensao_ativa_imagem = True
