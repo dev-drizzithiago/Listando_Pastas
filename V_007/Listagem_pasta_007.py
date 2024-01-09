@@ -68,7 +68,7 @@ class ListagemPastas:
             self.lista_extensao.insert('0', 'MP4', 'AVI')
             self.lista_extensao_ativa_videos = True
         elif valor_categoria_busca == 'IMAGENS':
-            self.lista_extensao.insert('0', 'JPG', 'PNG')
+            self.lista_extensao.insert('0', 'JPG', 'PNG', 'BMP')
             self.lista_extensao_ativa_imagem = True
         elif valor_categoria_busca == 'ARQUIVOS_LEITURA':
             self.lista_extensao.insert('0', 'TXT', 'PDF', 'DOCX')
