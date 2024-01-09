@@ -112,20 +112,21 @@ class ListagemPastas:
         print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
-        valor_extensao = ''
+        self.valor_extensao = ''
         valor_lista_extensao = self.lista_extensao.curselection()
         if self.lista_extensao_ativa_videos:
             if valor_lista_extensao == 0:
-                valor_extensao = 'MP4'
+                self.valor_extensao = 'MP4'
             elif valor_lista_extensao == 1:
-                valor_extensao = 'AVI'
-            # tk.messagebox.showinfo('videos', valor_lista_extensao)
+                self.valor_extensao = 'AVI'
+            print(self.valor_extensao)
         elif self.lista_extensao_ativa_imagem:
             if valor_lista_extensao == 0:
-                valor_extensao = 'JPG'
+                self.valor_extensao = 'JPG'
             elif valor_lista_extensao == 1:
-                valor_extensao = 'PNG'
-            # tk.messagebox.showinfo('imagem', valor_lista_extensao)
+                self.valor_extensao = 'PNG'
+            print(self.valor_extensao)
+
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
@@ -142,7 +143,7 @@ class ListagemPastas:
 
         # valor_extensao = 'jpg'
         pasta_destino_busca = Path(askdirectory())
-        for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao):
+        for valor_da_busca in pasta_destino_busca.glob('**/*' + self.valor_extensao):
             if valor_da_busca.is_file():
                 self.lista_da_busca.insert('0', valor_da_busca)
             elif valor_da_busca.is_dir():
