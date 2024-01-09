@@ -153,31 +153,31 @@ class ListagemPastas:
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
         # proceddo da função
-        while True:
-            valor_lista_extensao = self.lista_extensao.curselection()
-            for valor_opc_extensao in valor_lista_extensao:
-                print(valor_opc_extensao)
+        valor_lista_extensao = self.lista_extensao.curselection()
+        for valor_opc_extensao in valor_lista_extensao:
+            print(valor_opc_extensao)
 
-            if self.lista_ativa_imagem:
-                valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
-                print(valor_extensao_busca)
-                self.lista_ativa_imagem = False
-            elif self.lista_ativa_videos:
-                valor_extensao_busca = self.extensoes_videos[valor_opc_extensao]
-                print(valor_extensao_busca)
-                self.lista_ativa_videos = False
-            elif self.lista_ativa_textos:
-                valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
-                print(valor_extensao_busca)
-                self.lista_ativa_textos = False
+        if self.lista_ativa_imagem:
+            valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
+            print(valor_extensao_busca)
+            self.lista_ativa_imagem = False
+        elif self.lista_ativa_videos:
+            valor_extensao_busca = self.extensoes_videos[valor_opc_extensao]
+            print(valor_extensao_busca)
+            self.lista_ativa_videos = False
+        elif self.lista_ativa_textos:
+            valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
+            print(valor_extensao_busca)
+            self.lista_ativa_textos = False
 
-            # valor_extensao = 'jpg'
-            pasta_destino_busca = Path(askdirectory())
-            for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
-                if valor_da_busca.is_file():
-                    self.lista_da_busca.insert('0', valor_da_busca)
-                elif valor_da_busca.is_dir():
-                    self.lista_da_busca.insert('0', valor_da_busca)
+        # valor_extensao = 'jpg'
+        self.janela_principal.destroy()
+        pasta_destino_busca = Path(askdirectory())
+        for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
+            if valor_da_busca.is_file():
+                self.lista_da_busca.insert('0', valor_da_busca)
+            elif valor_da_busca.is_dir():
+                self.lista_da_busca.insert('0', valor_da_busca)
 
 
 obj_principal = ListagemPastas()
