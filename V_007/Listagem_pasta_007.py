@@ -17,6 +17,7 @@ class ListagemPastas:
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.lista_extensao_ativa_videos = False
         self.lista_extensao_ativa_imagem = False
+        self.lista_extensao_ativa_texto = False
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -114,19 +115,19 @@ class ListagemPastas:
     def janela_inicio_busca(self):
         self.valor_extensao = ''
         valor_lista_extensao = self.lista_extensao.curselection()
+        print(valor_lista_extensao, self.lista_extensao_ativa_videos)
         if self.lista_extensao_ativa_videos:
             if valor_lista_extensao == 0:
                 self.valor_extensao = 'MP4'
             elif valor_lista_extensao == 1:
                 self.valor_extensao = 'AVI'
-            print(self.valor_extensao)
         elif self.lista_extensao_ativa_imagem:
             if valor_lista_extensao == 0:
                 self.valor_extensao = 'JPG'
             elif valor_lista_extensao == 1:
                 self.valor_extensao = 'PNG'
-            print(self.valor_extensao)
 
+        print(self.valor_extensao)
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('600x300')
