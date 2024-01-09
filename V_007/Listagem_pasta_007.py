@@ -10,8 +10,6 @@ class ListagemPastas:
     def __init__(self):
 
         # Varias Global
-        self.valor_combo_add = None
-        self.valor_extensao = None
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_ativa_imagem = False
@@ -19,7 +17,7 @@ class ListagemPastas:
         self.lista_ativa_textos = False
         
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-        self.extensoes_imagem = ['JPG', 'PNG' 'GIF']
+        self.extensoes_imagem = ['JPG', 'PNG', 'GIF']
         self.extensoes_videos = ['MP4', 'AVI', 'MKV']
         self.extensoes_arq_txt = ['TXT', 'PDF', 'DOCX']
 
@@ -81,6 +79,7 @@ class ListagemPastas:
             for valor_lista_texto in self.extensoes_arq_txt:
                 self.lista_extensao.insert('0', valor_lista_texto)
             self.lista_ativa_textos = True
+            
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.janela_add_extensao = tk.Tk()
