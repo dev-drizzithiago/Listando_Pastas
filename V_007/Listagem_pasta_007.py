@@ -79,7 +79,7 @@ class ListagemPastas:
             for valor_lista_texto in self.extensoes_arq_txt:
                 self.lista_extensao.insert('0', valor_lista_texto)
             self.lista_ativa_textos = True
-            
+
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.janela_add_extensao = tk.Tk()
@@ -129,7 +129,6 @@ class ListagemPastas:
         elif self.lista_ativa_videos:
             print('videos')
             self.lista_ativa_videos = False
-
         elif self.lista_ativa_textos:
             print('textos')
             self.lista_ativa_textos = False
