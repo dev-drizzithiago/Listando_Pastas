@@ -65,6 +65,14 @@ class ListagemPastas:
         self.janela_principal.mainloop()
 
     def tipos_extensao(self, *args):
+        """
+        Essa função está sendo destinada para escolhar uma categoria de arquivos, que o programa ira buscar.
+        :param args: Quando se escolhe uma categoria, o programa vai listar as extensões dessa categoria em um ListBox
+        e mostrar ao usuário, quando escolha uma categoria, as várias ativas irão retornar o valor "Verdadeiro"
+        :return: self.lista_ativa_imagem
+        :return: self.lista_ativa_videos
+        :return: self.lista_ativa_textos
+        """
         valor_categoria_busca = self.var_combo.get()
         self.lista_extensao.delete('0', 'end')
         if valor_categoria_busca == 'VÍDEOS':
