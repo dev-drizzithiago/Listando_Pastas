@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import *
 from pathlib import Path
-from tkinter.filedialog import *
+from tkinter.filedialog import askdirectory, asksaveasfilename
 from tkinter.messagebox import showinfo, showerror, showwarning
 from tkinter.simpledialog import *
 
@@ -15,6 +15,8 @@ class ListagemPastas:
         self.lista_ativa_imagem = False
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
+
+        self.lista_salves_busca = list()
 
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
@@ -142,7 +144,7 @@ class ListagemPastas:
         self.frame_busca_01.pack(anchor='s')
 
         # botao
-        self.botao_voltar_menu = Button(self.frame_busca_01, text='Voltar ao menu principal')
+        self.botao_voltar_menu = Button(self.frame_busca_01, text='Salvar')
         self.botao_voltar_menu.pack(anchor='s')
         self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
         self.botao_busca_sair.pack(anchor='w')
@@ -175,8 +177,9 @@ class ListagemPastas:
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
                 self.lista_da_busca.insert('0', valor_da_busca)
+                self.lista_salves_busca.append(valor_da_busca)
             elif valor_da_busca.is_dir():
                 self.lista_da_busca.insert('0', valor_da_busca)
 
-
+        print(self.lista_salves_busca)
 obj_principal = ListagemPastas()
