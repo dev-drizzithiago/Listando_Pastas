@@ -148,6 +148,7 @@ class ListagemPastas:
         self.botao_busca_sair.pack(anchor='w')
 
         # Lista da busca
+
         self.var_busca = tk.Variable()
         self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
