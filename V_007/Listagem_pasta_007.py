@@ -158,19 +158,19 @@ class ListagemPastas:
         # proceddo da função
         valor_lista_extensao = self.lista_extensao.curselection()
         for valor_opc_extensao in valor_lista_extensao:
-            print(valor_opc_extensao)
+            pass
 
         if self.lista_ativa_imagem:
             valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
-            print(valor_extensao_busca)
+            print(f'{valor_extensao_busca}')
             # self.lista_ativa_imagem = False
         elif self.lista_ativa_videos:
             valor_extensao_busca = self.extensoes_videos[valor_opc_extensao]
-            print(valor_extensao_busca)
+            print(f'{valor_extensao_busca}')
             # self.lista_ativa_videos = False
         elif self.lista_ativa_textos:
             valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
-            print(valor_extensao_busca)
+            print(f'{valor_extensao_busca}')
             # self.lista_ativa_textos = False
 
         pasta_destino_busca = Path(askdirectory())
@@ -185,7 +185,7 @@ class ListagemPastas:
             print(valor_salve)
 
     def save_busca(self):
-        arquivos = [('Todos Arquivos' , '*.*'),
+        arquivos = [('Todos Arquivos', '*.*'),
                     ('Arquivo de texto', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos)
 
