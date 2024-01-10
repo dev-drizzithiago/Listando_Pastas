@@ -181,5 +181,7 @@ class ListagemPastas:
             elif valor_da_busca.is_dir():
                 self.lista_da_busca.insert('0', valor_da_busca)
 
-        print(self.lista_salves_busca)
+        for valor_salve in self.lista_salves_busca:
+            print(valor_salve)
+
 obj_principal = ListagemPastas()
