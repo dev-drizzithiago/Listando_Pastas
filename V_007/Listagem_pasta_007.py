@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import *
 from pathlib import Path
-from tkinter.filedialog import askdirectory, asksaveasfilename
+from tkinter.filedialog import askdirectory, asksaveasfile
 from tkinter.messagebox import showinfo, showerror, showwarning
 from tkinter.simpledialog import *
 
@@ -183,5 +183,9 @@ class ListagemPastas:
 
         for valor_salve in self.lista_salves_busca:
             print(valor_salve)
+
+    def save_busca(self):
+        asksaveasfile(self.lista_salves_busca)
+
 
 obj_principal = ListagemPastas()
