@@ -144,7 +144,7 @@ class ListagemPastas:
         self.frame_busca_01.pack(anchor='s')
 
         # botao
-        self.botao_voltar_menu = Button(self.frame_busca_01, text='Salvar', command=self.save_busca)
+        self.botao_voltar_menu = Button(self.frame_busca_01, text='Salvar', command=lambda: self.save_busca())
         self.botao_voltar_menu.pack(anchor='s')
         self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
         self.botao_busca_sair.pack(anchor='w')
@@ -184,7 +184,7 @@ class ListagemPastas:
         # for valor_salve in self.lista_salves_busca:
         #    print(valor_salve)
         print('\nBusca finalizada!')
-        
+
     def save_busca(self):
         arquivos = [('Todos Arquivos', '*.*'),
                     ('Arquivo de texto', '*.txt')]
