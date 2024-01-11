@@ -186,9 +186,10 @@ class ListagemPastas:
         print('\nBusca finalizada!')
 
     def save_busca(self):
+        pasta_save = Path(askdirectory())
         arquivos = [('Todos Arquivos', '*.*'),
                     ('Arquivo de texto', '*.txt')]
-        arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos)
+        arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos, initialdir=pasta_save, initialfile=)
 
 
 obj_principal = ListagemPastas()
