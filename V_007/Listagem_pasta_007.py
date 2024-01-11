@@ -186,8 +186,7 @@ class ListagemPastas:
         print('\nBusca finalizada!')
 
     def save_busca(self):
-        arquivos = [('Todos Arquivos', '*.*'),
-                    ('Arquivo de texto', '*.txt')]
+        arquivos = [('Arquivo de texto', '*.txt'), ('Adobe reader', '*.pdf')]
         arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos)
         for leitura_dados in self.lista_salves_busca:
             arquivo_save.write(f'{leitura_dados}\n')
