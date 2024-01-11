@@ -77,6 +77,7 @@ class ListagemPastas:
         :return: self.lista_ativa_textos
         """
         valor_categoria_busca = self.var_combo.get()
+        print(valor_categoria_busca)
         self.lista_extensao.delete('0', 'end')
         if valor_categoria_busca == 'VÍDEOS':
             for valor_lista_video in self.extensoes_videos:
@@ -186,7 +187,7 @@ class ListagemPastas:
         print('\nBusca finalizada!')
 
     def save_busca(self):
-        arquivos = [('Arquivo de texto', '*.txt'), ('Adobe reader', '*.pdf')]
+        arquivos = [('Arquivo de texto (.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos)
         for leitura_dados in self.lista_salves_busca:
             arquivo_save.write(f'{leitura_dados}\n')
