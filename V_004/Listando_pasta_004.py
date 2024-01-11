@@ -74,8 +74,8 @@ class ListandoPastas:
 
         for extensao_arq in tipo_arquivo:
             self.valor_extensao = str(self.extensoes_imagem[extensao_arq])
-        self.lista_arquivos.config(yscrollcommand=self.scroll_listagem.set)
-        self.scroll_listagem.config(command=self.janela_listagem)
+        self.lista_arquivos.config(yscrollcommand=self.scroll_listagem.set)  # SCROLL
+        self.scroll_listagem.config(command=self.janela_listagem)  # SCROLL
 
         # Listagem de pasta
         for listagem in pasta_destino_busca.glob('**/*' + self.valor_extensao):
