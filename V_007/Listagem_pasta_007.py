@@ -44,7 +44,7 @@ class ListagemPastas:
         self.label_titulo_principal.pack(side='top', fill='both')
 
         # Barra ralagem
-        self.rolagem_janela_principal = Scrollbar(self.fram)
+        self.rolagem_janela_principal = Scrollbar(self.janela_principal, )
 
 
         # Lista Combo principal
