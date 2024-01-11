@@ -189,7 +189,7 @@ class ListagemPastas:
         pasta_save = Path(askdirectory())
         arquivos = [('Todos Arquivos', '*.*'),
                     ('Arquivo de texto', '*.txt')]
-        arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos, initialdir=pasta_save, initialfile=)
+        arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos, initialfile=self.lista_salves_busca)
 
 
 obj_principal = ListagemPastas()
