@@ -40,9 +40,12 @@ class ListagemPastas:
         self.label_frame_003.pack()
         self.label_frame_004 = Frame(self.janela_principal)
         self.label_frame_004.pack()
-
         self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
         self.label_titulo_principal.pack(side='top', fill='both')
+
+        # Barra ralagem
+        self.rolagem_janela_principal = Scrollbar(self.fram)
+
 
         # Lista Combo principal
         self.var_combo = tk.StringVar()
