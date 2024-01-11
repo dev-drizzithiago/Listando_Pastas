@@ -12,6 +12,7 @@ class ListagemPastas:
         # Varias Global
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
+        self.lista_ativa_all = False
         self.lista_ativa_imagem = False
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
@@ -77,7 +78,6 @@ class ListagemPastas:
         :return: self.lista_ativa_textos
         """
         valor_categoria_busca = self.var_combo.get()
-        print(valor_categoria_busca)
         self.lista_extensao.delete('0', 'end')
         if valor_categoria_busca == 'VÍDEOS':
             for valor_lista_video in self.extensoes_videos:
@@ -173,6 +173,7 @@ class ListagemPastas:
             valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
             # self.lista_ativa_textos = False
+
 
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
