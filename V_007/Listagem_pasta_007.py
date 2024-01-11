@@ -188,7 +188,10 @@ class ListagemPastas:
     def save_busca(self):
         arquivos = [('Todos Arquivos', '*.*'),
                     ('Arquivo de texto', '*.txt')]
-        arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos, initialfile=self.lista_salves_busca)
+        arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos)
+        for leitura_dados in self.lista_salves_busca:
+            arquivo_save.write(f'{leitura_dados}\n')
+        arquivo_save.close()
 
 
 obj_principal = ListagemPastas()
