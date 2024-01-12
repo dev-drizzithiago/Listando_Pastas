@@ -71,7 +71,6 @@ class ListandoPastas:
 
         # Mesangem
         self.lista_arquivos = tk.Listbox(self.frame_label_listagem_001, selectmode=tk.EXTENDED, justify='left')
-
         for extensao_arq in tipo_arquivo:
             self.valor_extensao = str(self.extensoes_imagem[extensao_arq])
         self.lista_arquivos.config(yscrollcommand=self.scroll_listagem.set)  # SCROLL
