@@ -31,7 +31,6 @@ class ListagemPastas:
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
         self.janela_principal.config(border=3, borderwidth=3)
-        self.janela_principal.config(background='#f3f3f3f3')
 
         # Label Frame
         self.label_frame_001 = Frame(self.janela_principal)
