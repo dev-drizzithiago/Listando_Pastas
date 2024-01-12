@@ -58,6 +58,8 @@ class ListagemPastas:
 
         # Lista de exntesão
         self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center')
+        self.lista_extensao.config(yscrollcommand=self.rolagem_principal.set)
+        self.rolagem_principal.config(command=self.lista_extensao.yview)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         # botões
@@ -181,7 +183,6 @@ class ListagemPastas:
             valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
             # self.lista_ativa_textos = False
-
 
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
