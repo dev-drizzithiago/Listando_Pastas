@@ -53,13 +53,13 @@ class ListagemPastas:
         self.var_combo.trace('w', self.tipos_extensao)
 
         # Barra ralagem
-        self.rolagem_principal = tk.Scrollbar(self.label_frame_002)
-        self.rolagem_principal.pack(side='right', fill=tk.Y)
+        self.rolagem_principal_vertical = tk.Scrollbar(self.label_frame_002)
+        self.rolagem_principal_vertical.pack(side='right', fill=tk.Y)
 
         # Lista de exntesão
         self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center')
-        self.lista_extensao.config(yscrollcommand=self.rolagem_principal.set)
-        self.rolagem_principal.config(command=self.lista_extensao.yview)
+        self.lista_extensao.config(yscrollcommand=self.rolagem_principal_vertical.set)
+        self.rolagem_principal_vertical.config(command=self.lista_extensao.yview)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         # botões
@@ -156,14 +156,18 @@ class ListagemPastas:
         self.botao_busca_sair.pack(anchor='w')
 
         # Barra rolatem
-        self.rolagem_busca = tk.Scrollbar(self.label_frame_busca)
-        self.rolagem_busca.pack(side='right', fill=tk.Y)
+        self.rolagem_busca_vert = tk.Scrollbar(self.label_frame_busca)
+        self.rolagem_busca_vert .pack(side='right', fill=tk.Y)
+        self.rolagem_busca_orin = tk.Scrollbar(self.label_frame_busca)
+        self.rolagem_busca_orin.pack(side='bottom', fill=tk.S)
 
         # Lista da busca
         self.var_busca = tk.Variable()
         self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
-        self.lista_da_busca.config(yscrollcommand=self.rolagem_busca.set)
-        self.rolagem_busca.config(command=self.lista_da_busca.yview)
+        self.lista_da_busca.config(yscrollcommand=self.rolagem_busca_vert.set)
+        self.rolagem_busca_vert.config(command=self.lista_da_busca.yview)
+        self.lista_da_busca.config(xscrollcommand=self.rolagem_busca_orin.set)
+        self.rolagem_busca_orin.config(command=self.lista_da_busca.xview())
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
         # proceddo da função
