@@ -158,8 +158,8 @@ class ListagemPastas:
         # Barra rolatem
         self.rolagem_busca_vert = tk.Scrollbar(self.label_frame_busca)
         self.rolagem_busca_vert .pack(side='right', fill=tk.Y)
-        self.rolagem_busca_orin = tk.Scrollbar(self.label_frame_busca)
-        self.rolagem_busca_orin.pack(side='bottom', fill=tk.S)
+        self.rolagem_busca_orin = tk.Scrollbar(self.label_frame_busca, orient='horizontal')
+        self.rolagem_busca_orin.pack(side='bottom', fill=tk.X)
 
         # Lista da busca
         self.var_busca = tk.Variable()
@@ -167,7 +167,7 @@ class ListagemPastas:
         self.lista_da_busca.config(yscrollcommand=self.rolagem_busca_vert.set)
         self.rolagem_busca_vert.config(command=self.lista_da_busca.yview)
         self.lista_da_busca.config(xscrollcommand=self.rolagem_busca_orin.set)
-        self.rolagem_busca_orin.config(command=self.lista_da_busca.xview())
+        self.rolagem_busca_orin.config(command=self.lista_da_busca.xview)
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
         # proceddo da função
