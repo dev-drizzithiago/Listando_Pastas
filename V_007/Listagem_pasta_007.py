@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter.ttk import *
 from pathlib import Path
 from tkinter.filedialog import askdirectory, asksaveasfile
+from tkinter.font import Font
 from tkinter.messagebox import showinfo, showerror, showwarning
 
 
@@ -12,6 +13,7 @@ class ListagemPastas:
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_salves_busca = list()
+        self.fonte_padrao = Font(family='Helvetica', size=14)
 
         # Varias de confirmação
         self.lista_ativa_all = False
@@ -31,7 +33,6 @@ class ListagemPastas:
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
         self.janela_principal.config(border=3, borderwidth=3)
-        self.janela_principal.config(background='#A9A9A9')
 
         # Label Frame
         self.label_frame_001 = Frame(self.janela_principal)
@@ -66,10 +67,11 @@ class ListagemPastas:
 
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca,
-                                             bg='#00FFFF', border=3, borderwidth=2)
+                                             bg='#808080', border=3, borderwidth=2)
+        self.botao_iniciar_busca['font'] = self.fonte_padrao
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy,
-                                             border=3, borderwidth=3, bg='#FF8C00')
+                                             border=3, borderwidth=3, bg='#C0C0C0')
         self.botao_sair_programa.pack(anchor='s', ipady=3, ipadx=3)
 
         # Looping janela
