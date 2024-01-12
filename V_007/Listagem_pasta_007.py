@@ -65,8 +65,6 @@ class ListagemPastas:
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
-        self.botao_add_ext = tk.Button(self.label_frame_003, text='Adicionar Extensões', command=self.janela_adicionar_registrar)
-        self.botao_add_ext.pack(fill='both', padx=3, pady=3)
         self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy)
         self.botao_sair_programa.pack(fill='both', ipady=3, ipadx=3)
 
