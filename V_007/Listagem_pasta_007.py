@@ -18,7 +18,7 @@ class ListagemPastas:
         self.lista_ativa_imagem = False
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
-        
+
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
                                  'SVG', 'WebP', )
@@ -96,44 +96,6 @@ class ListagemPastas:
             for valor_lista_texto in self.extensoes_arq_txt:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
-
-    def janela_adicionar_registrar(self):
-        self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
-        self.janela_add_extensao = tk.Tk()
-        self.janela_add_extensao.geometry('400x300')
-        self.janela_add_extensao.title('Adicionando uma extensão')
-
-        self.label_frame_add_001 = LabelFrame(self.janela_add_extensao, text='Escolha uma categoria')
-        self.label_frame_add_001.pack(fill='both')
-        self.label_frame_add_002 = LabelFrame(self.janela_add_extensao)
-        self.label_frame_add_002.pack(fill='both')
-
-        self.frame_opcao_01 = Frame(self.label_frame_add_001)
-        self.frame_opcao_01.pack(anchor='w')
-        self.frame_opcao_02 = Frame(self.label_frame_add_001)
-        self.frame_opcao_02.pack(anchor='center')
-
-        # RADIOS
-        self.var_radio = tk.StringVar()
-        self.radio_opcao_01 = Radiobutton(self.frame_opcao_02, text='Vídeos', variable=self.var_radio, value=1)
-        self.radio_opcao_01.pack(anchor='w')
-        self.radio_opcao_02 = Radiobutton(self.frame_opcao_02, text='Imagens', variable=self.var_radio, value=2)
-        self.radio_opcao_02.pack(anchor='w')
-        self.radio_opcao_03 = Radiobutton(self.frame_opcao_02, text='Arq de Texto', variable=self.var_radio, value=3)
-        self.radio_opcao_03.pack(anchor='w')
-
-        # Entrada
-        self.var_texto_ext = tk.StringVar()
-        self.enter_txt_ext = Entry(self.label_frame_add_001, width=30, textvariable=self.var_texto_ext, justify='center')
-        self.enter_txt_ext.pack(fill='both')
-
-        # botoes
-        self.botao_adicionar = Button(self.label_frame_add_002, text='Adicionar', command=self.registro_extensao)
-        self.botao_adicionar.pack(anchor='center', ipady=3, ipadx=3)
-
-    def registro_extensao(self):
-        print(self.var_radio.get())
-        print(self.var_texto_ext.get())
 
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
