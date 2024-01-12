@@ -53,20 +53,21 @@ class ListagemPastas:
         self.var_combo.trace('w', self.tipos_extensao)
 
         # Barra ralagem
-        self.rolagem_principal_vertical = tk.Scrollbar(self.label_frame_002)
+        self.rolagem_principal_vertical = tk.Scrollbar(self.label_frame_002, border=3, borderwidth=3)
         self.rolagem_principal_vertical.pack(side='right', fill=tk.Y)
 
         # Lista de exntesão
-        self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center')
+        self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center', border=3, borderwidth=3)
         self.lista_extensao.config(yscrollcommand=self.rolagem_principal_vertical.set)
         self.rolagem_principal_vertical.config(command=self.lista_extensao.yview)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca,
-                                             bg='#fff000', border=5, borderwidth=2)
+                                             bg='#fff000', border=3, borderwidth=2)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
-        self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy)
+        self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy,
+                                             border=3, borderwidth=3, bg='#aaa000')
         self.botao_sair_programa.pack(anchor='s', ipady=3, ipadx=3)
 
         # Looping janela
