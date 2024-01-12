@@ -3,22 +3,22 @@ from tkinter.ttk import *
 from pathlib import Path
 from tkinter.filedialog import askdirectory, asksaveasfile
 from tkinter.messagebox import showinfo, showerror, showwarning
-from tkinter.simpledialog import *
 
 
 class ListagemPastas:
     def __init__(self):
 
-        # Varias Global
+        # Variaveis Global
         self.pasta_home = Path.home()
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
+        self.lista_salves_busca = list()
+
+        # Varias de confirmação
         self.lista_ativa_all = False
         self.lista_ativa_imagem = False
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
-
-        self.lista_salves_busca = list()
-
+        
         self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
                                  'SVG', 'WebP', )
