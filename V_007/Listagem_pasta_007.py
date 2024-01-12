@@ -27,7 +27,7 @@ class ListagemPastas:
 
         # Janela principa
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('300x390')
+        self.janela_principal.geometry('300x300')
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
 
