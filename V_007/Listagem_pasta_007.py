@@ -58,7 +58,7 @@ class ListagemPastas:
 
         # Lista de exntesão
         self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center')
-        self.lista_extensao.config(yscrollcommand=self.rolagem_janela_principal)
+        self.lista_extensao.config(yscrollcommand=self.rolagem_janela_principal.set)
         self.rolagem_janela_principal.config(command=self.janela_principal)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
