@@ -54,12 +54,12 @@ class ListagemPastas:
 
         # Barra ralagem
         self.rolagem_janela_principal = tk.Scrollbar(self.label_frame_002)
-        self.rolagem_janela_principal.pack(side='right', fill='both')
+        self.rolagem_janela_principal.pack(side='right', fill='y')
 
         # Lista de exntesão
         self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center')
         self.lista_extensao.config(yscrollcommand=self.rolagem_janela_principal.set)
-        self.rolagem_janela_principal.config(command=self.janela_principal)
+        self.rolagem_janela_principal.configure(command=self.janela_principal)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         # botões
