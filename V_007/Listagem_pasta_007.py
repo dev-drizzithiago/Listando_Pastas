@@ -61,8 +61,9 @@ class ListagemPastas:
 
         # Lista de exntesão
         self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center')
+        self.lista_extensao.config(yscrollcommand=self.rolagem_janela_principal)
+        self.rolagem_janela_principal.config(command=self.janela_principal)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
-
 
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
@@ -98,9 +99,7 @@ class ListagemPastas:
             for valor_lista_texto in self.extensoes_arq_txt:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
-        self.lista_extensao.config(yscrollcommand=self.rolagem_janela_principal)
-        self.rolagem_janela_principal.config(command=self.janela_principal)
-        
+
     def janela_adicionar_registrar(self):
         self.lista_tipos_extensoes_add = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
         self.janela_add_extensao = tk.Tk()
