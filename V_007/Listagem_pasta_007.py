@@ -168,7 +168,7 @@ class ListagemPastas:
         self.rolagem_busca_vert.config(command=self.lista_da_busca.yview)
         self.lista_da_busca.config(xscrollcommand=self.rolagem_busca_orin.set)
         self.rolagem_busca_orin.config(command=self.lista_da_busca.xview)
-        self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
+        self.lista_da_busca.pack(fill='both', ipadx=3, ipady=5)
 
         # proceddo da função
         valor_lista_extensao = self.lista_extensao.curselection()
