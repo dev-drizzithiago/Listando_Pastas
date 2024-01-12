@@ -37,7 +37,7 @@ class ListagemPastas:
         self.label_frame_002 = Frame(self.janela_principal)
         self.label_frame_002.pack(anchor='center', fill='both')
         self.label_frame_003 = Frame(self.janela_principal)
-        self.label_frame_003.pack()
+        self.label_frame_003.pack(fill=tk.BOTH)
         self.label_frame_004 = Frame(self.janela_principal)
         self.label_frame_004.pack()
         self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
@@ -66,7 +66,7 @@ class ListagemPastas:
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy)
-        self.botao_sair_programa.pack(fill='both', ipady=3, ipadx=3)
+        self.botao_sair_programa.pack(fill='y', ipady=3, ipadx=3)
 
         # Looping janela
         self.janela_principal.mainloop()
