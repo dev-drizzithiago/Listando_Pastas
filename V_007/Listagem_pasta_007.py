@@ -19,11 +19,12 @@ class ListagemPastas:
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
 
-        self.lista_tipos_extensoes = ('VÍDEOS', 'IMAGENS', 'ARQUIVOS_LEITURA')
+        self.lista_tipos_extensoes = ('Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura', 'Arquivos execução')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
                                  'SVG', 'WebP', )
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5')
         self.extensoes_arq_txt = ('TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
+        self.extensoes_execusao = ('exe', 'dll')
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -85,18 +86,21 @@ class ListagemPastas:
         """
         valor_categoria_busca = self.var_combo.get()
         self.lista_extensao.delete('0', 'end')
-        if valor_categoria_busca == 'VÍDEOS':
+        if valor_categoria_busca == 'Arquivos de Vídeo':
             for valor_lista_video in self.extensoes_videos:
                 self.lista_extensao.insert('end', valor_lista_video)
             self.lista_ativa_videos = True
-        elif valor_categoria_busca == 'IMAGENS':
+        elif valor_categoria_busca == 'Arquivo Imagem':
             for valor_lista_imgem in self.extensoes_imagem:
                 self.lista_extensao.insert('end', valor_lista_imgem)
             self.lista_ativa_imagem = True
-        elif valor_categoria_busca == 'ARQUIVOS_LEITURA':
+        elif valor_categoria_busca == 'Arquivos de Leitura':
             for valor_lista_texto in self.extensoes_arq_txt:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
+        elif valor_categoria_busca == 'Arquivos execução':
+            for valor_lista_texto in self.lista_extensao:
+                self.lista_extensao.insert('end', valor_lista_texto)
 
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
