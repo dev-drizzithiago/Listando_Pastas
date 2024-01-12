@@ -18,13 +18,14 @@ class ListagemPastas:
         self.lista_ativa_imagem = False
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
+        self.lista_ativa_execus = False
 
         self.lista_tipos_extensoes = ('Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura', 'Arquivos execução')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
                                  'SVG', 'WebP', )
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5')
         self.extensoes_arq_txt = ('TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
-        self.extensoes_execusao = ('exe', 'dll')
+        self.extensoes_execusao = ('EXE', 'DLL', 'IN', 'BAT')
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -99,7 +100,7 @@ class ListagemPastas:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
         elif valor_categoria_busca == 'Arquivos execução':
-            for valor_lista_texto in self.lista_extensao:
+            for valor_lista_texto in self.extensoes_execusao:
                 self.lista_extensao.insert('end', valor_lista_texto)
 
     def janela_inicio_busca(self):
