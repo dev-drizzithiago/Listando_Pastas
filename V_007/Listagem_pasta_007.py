@@ -155,10 +155,15 @@ class ListagemPastas:
         self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
         self.botao_busca_sair.pack(anchor='w')
 
-        # Lista da busca
+        # Barra rolatem
+        self.rolagem_busca = tk.Scrollbar(self.label_frame_busca)
+        self.rolagem_busca.pack(side='right', fill=tk.Y)
 
+        # Lista da busca
         self.var_busca = tk.Variable()
         self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
+        self.lista_da_busca.config(yscrollcommand=self.rolagem_busca.set)
+        self.rolagem_busca.config(command=self.lista_da_busca.yview)
         self.lista_da_busca.pack(fill='both', pady=3, padx=3, ipady=5)
 
         # proceddo da função
