@@ -43,9 +43,6 @@ class ListagemPastas:
         self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
         self.label_titulo_principal.pack(side='top', fill='both')
 
-
-
-
         # Lista Combo principal
         self.var_combo = tk.StringVar()
         self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo, justify='center')
@@ -56,7 +53,7 @@ class ListagemPastas:
         self.var_combo.trace('w', self.tipos_extensao)
 
         # Barra ralagem
-        self.rolagem_janela_principal = Scrollbar(self.label_frame_002)
+        self.rolagem_janela_principal = tk.Scrollbar(self.label_frame_002)
         self.rolagem_janela_principal.pack(side='right', fill='both')
 
         # Lista de exntesão
