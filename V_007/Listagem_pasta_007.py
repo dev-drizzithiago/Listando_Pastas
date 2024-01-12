@@ -100,7 +100,7 @@ class ListagemPastas:
 
         # janela busca
         self.janela_busca = tk.Tk()
-        self.janela_busca.geometry('600x300')
+        self.janela_busca.geometry('800x300')
         self.janela_busca.title('Buscando por arquivos')
 
         # label frame busca
