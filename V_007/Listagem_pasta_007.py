@@ -68,7 +68,7 @@ class ListagemPastas:
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca,
                                              bg='#808080', border=3, borderwidth=2)
-        self.botao_iniciar_busca['font'] = self.fonte_padrao
+        self.botao_iniciar_busca['bg'] = self.fonte_padrao
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy,
                                              border=3, borderwidth=3, bg='#C0C0C0')
