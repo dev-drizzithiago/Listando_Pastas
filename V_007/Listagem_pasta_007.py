@@ -63,7 +63,8 @@ class ListagemPastas:
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         # botões
-        self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca)
+        self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca,
+                                             bg='green')
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
         self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy)
         self.botao_sair_programa.pack(fill='y', ipady=3, ipadx=3)
