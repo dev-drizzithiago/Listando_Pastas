@@ -26,7 +26,8 @@ class ListagemPastas:
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
                                  'WEBM')
         self.extensoes_arq_txt = ('TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
-        self.extensoes_execusao = ('EXE', 'DLL', 'IN', 'BAT')
+        self.extensoes_de_app = ('EXE', 'DLL', 'IN', 'BAT')
+        self.extensoes_compreensao = ('WINRAR', 'ZIP')
 
         # Janela principa
         self.janela_principal = tk.Tk()
@@ -101,9 +102,12 @@ class ListagemPastas:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
         elif valor_categoria_busca == 'Arquivos execução':
-            for valor_lista_texto in self.extensoes_execusao:
+            for valor_lista_texto in self.extensoes_de_app:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_execus = True
+        elif valor_categoria_busca == 'Arquivos de Compreensão':
+            for valor_categoria_busca in self.extensoes_compreensao:
+                self.lista_extensao.insert('end', valo)
 
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
