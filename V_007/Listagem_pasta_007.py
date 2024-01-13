@@ -103,6 +103,7 @@ class ListagemPastas:
         elif valor_categoria_busca == 'Arquivos execução':
             for valor_lista_texto in self.extensoes_execusao:
                 self.lista_extensao.insert('end', valor_lista_texto)
+            self.lista_ativa_execus = True
 
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
