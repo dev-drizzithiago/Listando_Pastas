@@ -29,7 +29,7 @@ class ListagemPastas:
                                  'WEBM')
         self.extensoes_arq_txt = ('TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
         self.extensoes_de_app = ('EXE', 'DLL', 'IN', 'BAT')
-        self.extensoes_compreensao = ('WINRAR', 'ZIP')
+        self.extensoes_compreensao = 'ZIP'
 
         # Janela principa
         self.janela_principal = tk.Tk()
