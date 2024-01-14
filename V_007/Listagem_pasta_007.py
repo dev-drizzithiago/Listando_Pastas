@@ -19,6 +19,7 @@ class ListagemPastas:
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
         self.lista_ativa_execus = False
+        self.lista_ativa_compre = False
 
         self.lista_tipos_extensoes = ('Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura', 'Arquivos execução')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
@@ -102,13 +103,13 @@ class ListagemPastas:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
         elif valor_categoria_busca == 'Arquivos execução':
-            for valor_lista_texto in self.extensoes_de_app:
-                self.lista_extensao.insert('end', valor_lista_texto)
+            for valor_lista_app in self.extensoes_de_app:
+                self.lista_extensao.insert('end', valor_lista_app)
             self.lista_ativa_execus = True
         elif valor_categoria_busca == 'Arquivos de Compreensão':
-            for valor_categoria_busca in self.extensoes_compreensao:
-                self.lista_extensao.insert('end', valo)
-
+            for valor_lista_compreensao in self.extensoes_compreensao:
+                self.lista_extensao.insert('end', valor_lista_compreensao)
+            self.lista_ativa_compre = True
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
 
