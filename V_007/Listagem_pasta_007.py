@@ -181,6 +181,8 @@ class ListagemPastas:
             valor_extensao_busca = self.extensoes_compreensao[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
         elif self.lista_ativa_especi:
+            tk.messagebox.showinfo('AVISO', 'Basta deixar o campo em branco para realizar uma busca '
+                                            'completa!')
             valor_extensao_busca = askstring('Bem vindo', 'Digite uma extenão desejada')
 
         pasta_destino_busca = Path(askdirectory())
@@ -189,7 +191,6 @@ class ListagemPastas:
                 self.lista_da_busca.insert('0', valor_da_busca)
                 self.lista_salves_busca.append(valor_da_busca)
             elif valor_da_busca.is_dir():
-                print('/\n')
                 self.lista_da_busca.insert('0', valor_da_busca)
 
         # for valor_salve in self.lista_salves_busca:
