@@ -204,7 +204,7 @@ class ListagemPastas:
             for valor in self.lista_salves_busca:
                 lista = str(valor).split('\\')
                 arquivos = str(lista[-1])
-                print(arquivos[-4:])
+                print(arquivos[-3:])
 
     def save_busca(self):
         arquivos = [('Arquivo de texto (.txt)', '*.txt')]
