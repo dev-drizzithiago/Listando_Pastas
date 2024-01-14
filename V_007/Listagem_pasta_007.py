@@ -121,7 +121,8 @@ class ListagemPastas:
                 self.lista_extensao.insert('end', valor_lista_compre)
             self.lista_ativa_compre = True
         elif valor_categoria_busca == 'Todos':
-            self.lista_extensao.insert('end', 'Todos Arquivos')
+            tk.messagebox.showinfo('AVISO IMPORTANTE', 'Para buscar por todos os arquivos, aperte o botão'
+                                                       '\n[Busca especifica]')
             self.lista_ativa_all = True
 
     def janela_inicio_busca(self):
