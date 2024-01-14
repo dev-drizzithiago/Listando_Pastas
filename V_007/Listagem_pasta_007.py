@@ -21,7 +21,8 @@ class ListagemPastas:
         self.lista_ativa_execus = False
         self.lista_ativa_compre = False
 
-        self.lista_tipos_extensoes = ('Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura', 'Arquivos execução')
+        self.lista_tipos_extensoes = ('Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura', 'Arquivos execução',
+                                      'Arquivos compreesão')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
                                  'SVG', 'WebP', )
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
@@ -106,10 +107,11 @@ class ListagemPastas:
             for valor_lista_app in self.extensoes_de_app:
                 self.lista_extensao.insert('end', valor_lista_app)
             self.lista_ativa_execus = True
-        elif valor_categoria_busca == 'Arquivos de Compreensão':
-            for valor_lista_compreensao in self.extensoes_compreensao:
-                self.lista_extensao.insert('end', valor_lista_compreensao)
+        elif valor_categoria_busca == 'Arquivos compreesão':
+            for valor_lista_compre in self.extensoes_compreensao:
+                self.lista_extensao.insert('end', valor_lista_compre)
             self.lista_ativa_compre = True
+
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
 
@@ -158,6 +160,12 @@ class ListagemPastas:
             print(f'{valor_extensao_busca}')
         elif self.lista_ativa_textos:
             valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
+            print(f'{valor_extensao_busca}')
+        elif self.lista_ativa_execus:
+            valor_extensao_busca = self.extensoes_de_app[valor_opc_extensao]
+            print(f'{valor_extensao_busca}')
+        elif self.lista_ativa_compre:
+            valor_extensao_busca = self.extensoes_compreensao[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
 
         pasta_destino_busca = Path(askdirectory())
