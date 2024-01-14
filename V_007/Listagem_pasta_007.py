@@ -21,8 +21,8 @@ class ListagemPastas:
         self.lista_ativa_execus = False
         self.lista_ativa_compre = False
 
-        self.lista_tipos_extensoes = ('Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura', 'Arquivos execução',
-                                      'Arquivos compreesão')
+        self.lista_tipos_extensoes = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
+                                      'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
                                  'SVG', 'WebP', )
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
@@ -111,6 +111,9 @@ class ListagemPastas:
             for valor_lista_compre in self.extensoes_compreensao:
                 self.lista_extensao.insert('end', valor_lista_compre)
             self.lista_ativa_compre = True
+        elif valor_categoria_busca == 'Todos':
+            self.lista_extensao.insert('end', 'Todos Arquivos')
+            self.lista_ativa_all = True
 
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
@@ -167,7 +170,9 @@ class ListagemPastas:
         elif self.lista_ativa_compre:
             valor_extensao_busca = self.extensoes_compreensao[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
-
+        elif self.lista_ativa_all:
+            valor_extensao_busca = ''
+            
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
