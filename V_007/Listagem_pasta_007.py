@@ -172,18 +172,19 @@ class ListagemPastas:
             print(f'{valor_extensao_busca}')
         elif self.lista_ativa_all:
             valor_extensao_busca = ''
-            
+
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
                 self.lista_da_busca.insert('0', valor_da_busca)
                 self.lista_salves_busca.append(valor_da_busca)
             elif valor_da_busca.is_dir():
+                print('/\n')
                 self.lista_da_busca.insert('0', valor_da_busca)
 
         # for valor_salve in self.lista_salves_busca:
         #    print(valor_salve)
-        print('\nBusca finalizada!')
+        tk.messagebox.showinfo('AVISO!', 'Busca finalizada!')
 
     def save_busca(self):
         arquivos = [('Arquivo de texto (.txt)', '*.txt')]
