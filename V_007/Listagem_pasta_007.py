@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter.simpledialog import askstring
 from tkinter.ttk import *
 from pathlib import Path
 from tkinter.filedialog import askdirectory, asksaveasfile
@@ -33,7 +34,7 @@ class ListagemPastas:
 
         # Janela principa
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('300x300')
+        self.janela_principal.geometry('300x350')
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
         self.janela_principal.config(border=3, borderwidth=3)
@@ -73,12 +74,19 @@ class ListagemPastas:
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca,
                                              bg='#808080', border=3, borderwidth=2, font=13)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
+
+        self.botao_adicionar_extensao = tk.Button(self.label_frame_003, text='Buscar especifica', bg='lightblue',
+                                                  justify='center', command=self.add_extensao)
+        self.botao_adicionar_extensao.pack(anchor='s', ipadx=3, ipady=3)
         self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy,
                                              border=3, borderwidth=3, bg='#C0C0C0')
         self.botao_sair_programa.pack(anchor='s', ipady=3, ipadx=3)
 
         # Looping janela
         self.janela_principal.mainloop()
+
+    def add_extensao(self):
+        extensao_especifica = askstring('Bem vindo', 'Digite uma extenão desejada')
 
     def tipos_extensao(self, *args):
         """
