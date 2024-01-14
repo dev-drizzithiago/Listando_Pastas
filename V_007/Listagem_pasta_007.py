@@ -184,7 +184,11 @@ class ListagemPastas:
 
         # for valor_salve in self.lista_salves_busca:
         #    print(valor_salve)
-        tk.messagebox.showinfo('AVISO!', 'Busca finalizada!')
+        if len(self.lista_salves_busca) == 0:
+            tk.messagebox.showwarning('AVISO', f'Não foi encontrado nenhum item com a extensão '
+                                               f'\n[{valor_extensao_busca}]')
+        else:
+            tk.messagebox.showinfo('AVISO!', 'Busca finalizada!')
 
     def save_busca(self):
         arquivos = [('Arquivo de texto (.txt)', '*.txt')]
