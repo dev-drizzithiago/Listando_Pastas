@@ -15,7 +15,6 @@ class ListagemPastas:
         self.lista_salves_busca = list()
 
         # Varias de confirmação
-        self.lista_ativa_all = False
         self.lista_ativa_imagem = False
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
@@ -88,7 +87,8 @@ class ListagemPastas:
 
     def add_extensao(self):
         self.lista_ativa_especi = True
-        
+        self.janela_inicio_busca()
+
     def tipos_extensao(self, *args):
         """
         Essa função está sendo destinada para escolhar uma categoria de arquivos, que o programa ira buscar.
@@ -179,9 +179,7 @@ class ListagemPastas:
         elif self.lista_ativa_compre:
             valor_extensao_busca = self.extensoes_compreensao[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
-        elif self.lista_ativa_all:
-            valor_extensao_busca = ''
-        elif self.lista_ativa_especifica:
+        elif self.lista_ativa_especi:
             valor_extensao_busca = askstring('Bem vindo', 'Digite uma extenão desejada')
 
         pasta_destino_busca = Path(askdirectory())
