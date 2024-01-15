@@ -41,13 +41,13 @@ class ListagemPastas:
         self.janela_principal.config(bg='#87CEFA')
 
         # Label Frame
-        self.label_frame_001 = LabelFrame(self.janela_principal, border=2, text='Inicie sua busca!')
+        self.label_frame_001 = LabelFrame(self.janela_principal, border=2, text='Iniciando o programa')
         self.label_frame_001.pack(anchor='n', fill='both')
 
         self.label_frame_002 = Frame(self.janela_principal)
         self.label_frame_002.pack(anchor='center', fill='both')
 
-        self.label_frame_003 = Frame(self.janela_principal)
+        self.label_frame_003 = LabelFrame(self.janela_principal, text='Escolha uma opção!')
         self.label_frame_003.pack(fill=tk.BOTH)
 
         self.label_frame_004 = Frame(self.janela_principal)
@@ -57,7 +57,7 @@ class ListagemPastas:
         self.var_combo = tk.StringVar()
         self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo, justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
-        self.combo_tipo_arquivo_principal.set('Escolha um tipo de Mídia')
+        self.combo_tipo_arquivo_principal.set('Escolha uma categoria de arquivo')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both', ipady=3, ipadx=3)
         self.combo_tipo_arquivo_principal.current()
         self.var_combo.trace('w', self.tipos_extensao)
