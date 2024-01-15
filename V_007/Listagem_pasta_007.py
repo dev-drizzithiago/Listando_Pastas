@@ -45,6 +45,7 @@ class ListagemPastas:
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
         self.janela_principal.config(border=3, bg='#A9A9A9')
+        self.janela_principal.config(fill=tk.ROUND)
 
         # Label Frame
 
@@ -91,7 +92,7 @@ class ListagemPastas:
 
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', bg='#DAA520', border=3,
-                                             borderwidth=2, font=13, command=self.janela_inicio_busca)
+                                             borderwidth=2, font=13, relief='raised', command=self.janela_inicio_busca)
 
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
 
@@ -259,6 +260,7 @@ class ListagemPastas:
     def save_busca(self):
         arquivos = [('Arquivo de texto (.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=arquivos, defaultextension=arquivos)
+        arquivo_save.write(f'{data_certa} - {hora_certa}\n')
         for leitura_dados in self.lista_salves_busca:
             arquivo_save.write(f'{leitura_dados}\n')
         arquivo_save.close()
