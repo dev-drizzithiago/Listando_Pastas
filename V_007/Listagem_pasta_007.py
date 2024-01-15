@@ -157,27 +157,22 @@ class ListagemPastas:
         if self.lista_ativa_imagem:
             valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
-            # self.lista_extensao = None
 
         elif self.lista_ativa_videos:
             valor_extensao_busca = self.extensoes_videos[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
-            # self.lista_extensao = None
 
         elif self.lista_ativa_textos:
             valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
-            # self.lista_extensao = None
 
         elif self.lista_ativa_execus:
             valor_extensao_busca = self.extensoes_de_app[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
-            # self.lista_extensao = None
 
         elif self.lista_ativa_compre:
             valor_extensao_busca = self.extensoes_compreensao[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
-            # self.lista_extensao = None
 
         elif self.lista_ativa_especi:
             tk.messagebox.showinfo('AVISO', 'Basta deixar o campo em branco para realizar uma busca '
