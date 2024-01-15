@@ -169,7 +169,7 @@ class ListagemPastas:
             tk.messagebox.showinfo('AVISO', 'Basta deixar o campo em branco para realizar uma busca '
                                             'completa!')
             valor_extensao_busca = askstring('Bem vindo', 'Digite uma extenão desejada')
-            
+
         # janela busca
         self.janela_busca = tk.Tk()
         self.janela_busca.geometry('800x300')
@@ -202,8 +202,6 @@ class ListagemPastas:
         self.rolagem_busca_orin.config(command=self.lista_da_busca.xview)
         self.lista_da_busca.pack(fill='both', ipadx=3, ipady=5)
 
-
-
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
@@ -217,7 +215,8 @@ class ListagemPastas:
                                                f'\n[{valor_extensao_busca}]')
         else:
             tk.messagebox.showinfo('AVISO!', 'Busca finalizada!'
-                                             f'\nForam encontrados {len(self.lista_salves_busca)} arquivos')
+                                             f'\nForam encontrados {len(self.lista_salves_busca)} arquivos com a '
+                                             f'extensão [{valor_extensao_busca}]')
             for valor in self.lista_salves_busca:
                 lista = str(valor).split('\\')
                 arquivos = str(lista[-1])
