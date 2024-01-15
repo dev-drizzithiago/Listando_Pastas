@@ -70,15 +70,15 @@ class ListagemPastas:
         self.rolagem_principal_vertical.pack(side='right', fill=tk.Y)
 
         # Lista de exntesão
-        self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center', border=3, bg='#363636')
+        self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center', border=3, bg='#D3D3D3')
         self.lista_extensao.config(yscrollcommand=self.rolagem_principal_vertical.set)
         self.rolagem_principal_vertical.config(command=self.lista_extensao.yview)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         # botões
-        self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca',
-                                             command=self.janela_inicio_busca, bg='#00FFFF', border=3, borderwidth=2,
-                                             font=13)
+        self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', bg='#DAA520', border=3,
+                                             borderwidth=2, font=13, command=self.janela_inicio_busca)
+
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
 
         self.botao_adicionar_extensao = tk.Button(self.label_frame_003, text='Buscar especifica', bg='#A9A9A9',
