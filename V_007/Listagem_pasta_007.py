@@ -230,9 +230,7 @@ class ListagemPastas:
                     arquivos = str(lista[-1])
                     extensao = arquivos.split('.')
                     valor_var_ext = extensao[-1]
-                    print(extensao[-1])
-                    if valor_var_ext == extensao[-1]:
-                        print('certo')
+
                 tk.messagebox.showinfo('Finalizado!', f'\nForam encontrados {len(self.lista_salves_busca)}'
                                                       f' arquivos com as extensões [{valor_extensao_busca}]')
 
