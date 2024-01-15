@@ -1,9 +1,14 @@
 import tkinter as tk
-from tkinter.simpledialog import askstring
 from tkinter.ttk import *
 from pathlib import Path
+from datetime import datetime
+from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 from tkinter.messagebox import showinfo, showerror, showwarning
+
+valor_hora = datetime.now()
+data_certa = valor_hora.strftime('%d/%m%Y')
+hora_certa = valor_hora.strftime('%H:%M%')
 
 
 class ListagemPastas:
