@@ -107,6 +107,13 @@ class ListagemPastas:
         :return: self.lista_ativa_videos
         :return: self.lista_ativa_textos
         """
+        """
+        self.extensoes_videos = None
+        self.extensoes_imagem = None
+        self.extensoes_arq_txt = None
+        self.extensoes_de_app = None
+        self.extensoes_compreensao = None"""
+
         valor_categoria_busca = self.var_combo.get()
         self.lista_extensao.delete('0', 'end')
         if valor_categoria_busca == 'Arquivos de Vídeo':
@@ -150,22 +157,27 @@ class ListagemPastas:
         if self.lista_ativa_imagem:
             valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+            self.lista_extensao = None
 
         elif self.lista_ativa_videos:
             valor_extensao_busca = self.extensoes_videos[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+            self.lista_extensao = None
 
         elif self.lista_ativa_textos:
             valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+            self.lista_extensao = None
 
         elif self.lista_ativa_execus:
             valor_extensao_busca = self.extensoes_de_app[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+            self.lista_extensao = None
 
         elif self.lista_ativa_compre:
             valor_extensao_busca = self.extensoes_compreensao[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+            self.lista_extensao = None
 
         elif self.lista_ativa_especi:
             tk.messagebox.showinfo('AVISO', 'Basta deixar o campo em branco para realizar uma busca '
@@ -231,8 +243,9 @@ class ListagemPastas:
                     lista = str(valor).split('\\')
                     arquivos = str(lista[-1])
                     extensao = arquivos.split('.')
-                    valor_var_ext.add(extensao[-1])
-                    print(valor_var_ext[-1])
+                    tipo_arq = extensao[-1]
+                    valor_var_ext.add(tipo_arq)
+                    print(valor_var_ext)
 
                 tk.messagebox.showinfo('Finalizado!', f'\nForam encontrados {len(self.lista_salves_busca)}'
                                                       f' arquivos com as extensões [{valor_var_ext}]')
