@@ -24,11 +24,13 @@ class ListagemPastas:
 
         self.lista_tipos_extensoes = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
                                       'Arquivos execução', 'Arquivos compreesão')
-        self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
-                                 'SVG', 'WebP', )
+        self.extensoes_imagem = (
+        'JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
+        'SVG', 'WebP',)
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
                                  'WEBM')
-        self.extensoes_arq_txt = ('TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
+        self.extensoes_arq_txt = (
+        'TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
         self.extensoes_de_app = ('EXE', 'DLL', 'IN', 'BAT')
         self.extensoes_compreensao = ('ZIP', '')
 
@@ -38,7 +40,7 @@ class ListagemPastas:
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
         self.janela_principal.config(border=3, borderwidth=3)
-        self.janela_principal.config(bg='#87CEFA')
+        self.janela_principal.config(bg='#363636')
 
         # Label Frame
         self.label_frame_001 = LabelFrame(self.janela_principal, border=2, text='Iniciando o programa')
@@ -55,7 +57,8 @@ class ListagemPastas:
 
         # Lista Combo principal
         self.var_combo = tk.StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo, justify='center')
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
+                                                     justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha uma categoria de arquivo')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both', ipady=3, ipadx=3)
@@ -73,15 +76,19 @@ class ListagemPastas:
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
 
         # botões
-        self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca,
+        self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca',
+                                             command=self.janela_inicio_busca,
                                              bg='#00FFFF', border=3, borderwidth=2, font=13)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
 
         self.botao_adicionar_extensao = tk.Button(self.label_frame_003, text='Buscar especifica', bg='#A9A9A9',
-                                                  justify='center', command=self.add_extensao)
+                                                  width=20, height=1, justify='center',border=3, borderwidth=3,
+                                                  command=self.add_extensao)
         self.botao_adicionar_extensao.pack(anchor='s', ipadx=3, ipady=3)
-        self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy,
-                                             border=3, borderwidth=3, bg='#A9A9A9')
+
+        self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', width=20, height=1,
+                                             command=self.janela_principal.destroy, border=3, borderwidth=3,
+                                             bg='#A9A9A9')
         self.botao_sair_programa.pack(anchor='s', ipady=3, ipadx=3)
 
         # Looping janela
@@ -154,7 +161,7 @@ class ListagemPastas:
 
         # Barra rolatem
         self.rolagem_busca_vert = tk.Scrollbar(self.label_frame_busca)
-        self.rolagem_busca_vert .pack(side='right', fill=tk.Y)
+        self.rolagem_busca_vert.pack(side='right', fill=tk.Y)
         self.rolagem_busca_orin = tk.Scrollbar(self.label_frame_busca, orient='horizontal')
         self.rolagem_busca_orin.pack(side='bottom', fill=tk.X)
 
