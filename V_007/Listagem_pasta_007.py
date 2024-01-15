@@ -225,14 +225,15 @@ class ListagemPastas:
                                                  f'\nForam encontrados {len(self.lista_salves_busca)} arquivos com a '
                                                  f'extensão [{valor_extensao_busca}]')
             else:
+                valor_var_ext = set()
                 for valor in self.lista_salves_busca:
                     lista = str(valor).split('\\')
                     arquivos = str(lista[-1])
                     extensao = arquivos.split('.')
-                    valor_var_ext = extensao[-1]
+                    valor_var_ext.add(extensao[-1])
 
                 tk.messagebox.showinfo('Finalizado!', f'\nForam encontrados {len(self.lista_salves_busca)}'
-                                                      f' arquivos com as extensões [{valor_extensao_busca}]')
+                                                      f' arquivos com as extensões [{valor_var_ext}]')
 
     def save_busca(self):
         arquivos = [('Arquivo de texto (.txt)', '*.txt')]
