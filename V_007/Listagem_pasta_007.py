@@ -168,18 +168,23 @@ class ListagemPastas:
         if self.lista_ativa_imagem:
             valor_extensao_busca = self.extensoes_imagem[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+
         elif self.lista_ativa_videos:
             valor_extensao_busca = self.extensoes_videos[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+
         elif self.lista_ativa_textos:
             valor_extensao_busca = self.extensoes_arq_txt[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+
         elif self.lista_ativa_execus:
             valor_extensao_busca = self.extensoes_de_app[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+
         elif self.lista_ativa_compre:
             valor_extensao_busca = self.extensoes_compreensao[valor_opc_extensao]
             print(f'{valor_extensao_busca}')
+
         elif self.lista_ativa_especi:
             tk.messagebox.showinfo('AVISO', 'Basta deixar o campo em branco para realizar uma busca '
                                             'completa!')
@@ -193,8 +198,6 @@ class ListagemPastas:
             elif valor_da_busca.is_dir():
                 self.lista_da_busca.insert('0', valor_da_busca)
 
-        # for valor_salve in self.lista_salves_busca:
-        #    print(valor_salve)
         if len(self.lista_salves_busca) == 0:
             tk.messagebox.showwarning('AVISO', f'Não foi encontrado nenhum item com a extensão '
                                                f'\n[{valor_extensao_busca}]')
