@@ -214,11 +214,12 @@ class ListagemPastas:
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
-                self.lista_da_busca.insert('0', valor_da_busca)
+                self.lista_da_busca.insert('end', f'{contagem_geral}° - {valor_da_busca}')
                 self.lista_salves_busca.append(f'{contagem_geral} - {valor_da_busca}')
                 contagem_geral += 1
             elif valor_da_busca.is_dir():
-                self.lista_da_busca.insert('0', valor_da_busca)
+                self.lista_da_busca.insert('end', f'{contagem_geral}° - {valor_da_busca}')
+                contagem_geral += 1
         contagem_arquivos = len(self.lista_salves_busca)
         if len(self.lista_salves_busca) == 0:
             tk.messagebox.showwarning('AVISO', f'Não foi encontrado nenhum item com a extensão '
