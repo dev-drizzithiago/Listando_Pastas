@@ -72,14 +72,14 @@ class ListagemPastas:
 
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', command=self.janela_inicio_busca,
-                                             bg='#808080', border=3, borderwidth=2, font=13)
+                                             bg='#00FFFF', border=3, borderwidth=2, font=13)
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
 
-        self.botao_adicionar_extensao = tk.Button(self.label_frame_003, text='Buscar especifica', bg='lightblue',
+        self.botao_adicionar_extensao = tk.Button(self.label_frame_003, text='Buscar especifica', bg='#A9A9A9',
                                                   justify='center', command=self.add_extensao)
         self.botao_adicionar_extensao.pack(anchor='s', ipadx=3, ipady=3)
         self.botao_sair_programa = tk.Button(self.label_frame_003, text='Sair do programa', command=self.janela_principal.destroy,
-                                             border=3, borderwidth=3, bg='#C0C0C0')
+                                             border=3, borderwidth=3, bg='#A9A9A9')
         self.botao_sair_programa.pack(anchor='s', ipady=3, ipadx=3)
 
         # Looping janela
@@ -104,22 +104,27 @@ class ListagemPastas:
             for valor_lista_video in self.extensoes_videos:
                 self.lista_extensao.insert('end', valor_lista_video)
             self.lista_ativa_videos = True
+
         elif valor_categoria_busca == 'Arquivo Imagem':
             for valor_lista_imgem in self.extensoes_imagem:
                 self.lista_extensao.insert('end', valor_lista_imgem)
             self.lista_ativa_imagem = True
+
         elif valor_categoria_busca == 'Arquivos de Leitura':
             for valor_lista_texto in self.extensoes_arq_txt:
                 self.lista_extensao.insert('end', valor_lista_texto)
             self.lista_ativa_textos = True
+
         elif valor_categoria_busca == 'Arquivos execução':
             for valor_lista_app in self.extensoes_de_app:
                 self.lista_extensao.insert('end', valor_lista_app)
             self.lista_ativa_execus = True
+
         elif valor_categoria_busca == 'Arquivos compreesão':
             for valor_lista_compre in self.extensoes_compreensao:
                 self.lista_extensao.insert('end', valor_lista_compre)
             self.lista_ativa_compre = True
+
         elif valor_categoria_busca == 'Todos':
             tk.messagebox.showinfo('AVISO IMPORTANTE', 'Para buscar por todos os arquivos, aperte o botão'
                                                        '\n">> Busca especifica <<"')
