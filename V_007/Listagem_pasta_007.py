@@ -214,7 +214,7 @@ class ListagemPastas:
         self.lista_da_busca.config(xscrollcommand=self.rolagem_busca_orin.set)
         self.rolagem_busca_orin.config(command=self.lista_da_busca.xview)
         self.lista_da_busca.pack(fill='both', ipadx=3, ipady=5)
-
+        contagem_arquivos = 0
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
@@ -245,7 +245,6 @@ class ListagemPastas:
 
                 tk.messagebox.showinfo('Finalizado!', f'\nForam encontrados {contagem_arquivos}'
                                                       f' arquivos com as extensões [{valor_var_ext}]')
-            contagem_arquivos = 0
 
     def save_busca(self):
         arquivos = [('Arquivo de texto (.txt)', '*.txt')]
