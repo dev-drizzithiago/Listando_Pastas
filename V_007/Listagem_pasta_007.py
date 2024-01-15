@@ -41,16 +41,17 @@ class ListagemPastas:
         self.janela_principal.config(bg='#87CEFA')
 
         # Label Frame
-        self.label_frame_001 = Frame(self.janela_principal)
+        self.label_frame_001 = LabelFrame(self.janela_principal, border=2, text='Inicie sua busca!')
         self.label_frame_001.pack(anchor='n', fill='both')
+
         self.label_frame_002 = Frame(self.janela_principal)
         self.label_frame_002.pack(anchor='center', fill='both')
+
         self.label_frame_003 = Frame(self.janela_principal)
         self.label_frame_003.pack(fill=tk.BOTH)
+
         self.label_frame_004 = Frame(self.janela_principal)
         self.label_frame_004.pack()
-        self.label_titulo_principal = Label(self.label_frame_001, text='MERCURTY TI', justify='center')
-        self.label_titulo_principal.pack(side='top', fill='both')
 
         # Lista Combo principal
         self.var_combo = tk.StringVar()
