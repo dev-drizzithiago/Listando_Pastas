@@ -41,10 +41,10 @@ class ListagemPastas:
 
         # Janela principa
         self.janela_principal = tk.Tk()
-        self.janela_principal.geometry('300x350')
+        self.janela_principal.geometry('300x380')
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
-        self.janela_principal.config(border=3, bg='#363636')
+        self.janela_principal.config(border=3, bg='#4F4F4F')
 
         # Label Frame
 
