@@ -140,39 +140,7 @@ class ListagemPastas:
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
 
-        # janela busca
-        self.janela_busca = tk.Tk()
-        self.janela_busca.geometry('800x300')
-        self.janela_busca.title('Buscando por arquivos')
-
-        # label frame busca
-        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca', )
-        self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
-        self.frame_busca_01 = Label(self.janela_busca)
-        self.frame_busca_01.pack(anchor='s')
-
-        # botao
-        self.botao_voltar_menu = Button(self.frame_busca_01, text='Salvar', command=lambda: self.save_busca())
-        self.botao_voltar_menu.pack(anchor='s')
-        self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
-        self.botao_busca_sair.pack(anchor='w')
-
-        # Barra rolatem
-        self.rolagem_busca_vert = tk.Scrollbar(self.label_frame_busca)
-        self.rolagem_busca_vert.pack(side='right', fill=tk.Y)
-        self.rolagem_busca_orin = tk.Scrollbar(self.label_frame_busca, orient='horizontal')
-        self.rolagem_busca_orin.pack(side='bottom', fill=tk.X)
-
-        # Lista da busca
-        self.var_busca = tk.Variable()
-        self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
-        self.lista_da_busca.config(yscrollcommand=self.rolagem_busca_vert.set)
-        self.rolagem_busca_vert.config(command=self.lista_da_busca.yview)
-        self.lista_da_busca.config(xscrollcommand=self.rolagem_busca_orin.set)
-        self.rolagem_busca_orin.config(command=self.lista_da_busca.xview)
-        self.lista_da_busca.pack(fill='both', ipadx=3, ipady=5)
-
-        # proceddo da função
+        # Processo da função
         valor_lista_extensao = self.lista_extensao.curselection()
         for valor_opc_extensao in valor_lista_extensao:
             pass
@@ -201,6 +169,40 @@ class ListagemPastas:
             tk.messagebox.showinfo('AVISO', 'Basta deixar o campo em branco para realizar uma busca '
                                             'completa!')
             valor_extensao_busca = askstring('Bem vindo', 'Digite uma extenão desejada')
+            
+        # janela busca
+        self.janela_busca = tk.Tk()
+        self.janela_busca.geometry('800x300')
+        self.janela_busca.title(f'Buscando por arquivos [{valor_extensao_busca}]')
+
+        # label frame busca
+        self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca', )
+        self.label_frame_busca.pack(fill='both', ipady=5, ipadx=5)
+        self.frame_busca_01 = Label(self.janela_busca)
+        self.frame_busca_01.pack(anchor='s')
+
+        # botao
+        self.botao_voltar_menu = Button(self.frame_busca_01, text='Salvar', command=lambda: self.save_busca())
+        self.botao_voltar_menu.pack(anchor='s')
+        self.botao_busca_sair = Button(self.frame_busca_01, text='Fechar Janela', command=self.janela_busca.destroy)
+        self.botao_busca_sair.pack(anchor='w')
+
+        # Barra rolatem
+        self.rolagem_busca_vert = tk.Scrollbar(self.label_frame_busca)
+        self.rolagem_busca_vert.pack(side='right', fill=tk.Y)
+        self.rolagem_busca_orin = tk.Scrollbar(self.label_frame_busca, orient='horizontal')
+        self.rolagem_busca_orin.pack(side='bottom', fill=tk.X)
+
+        # Lista da busca
+        self.var_busca = tk.Variable()
+        self.lista_da_busca = tk.Listbox(self.label_frame_busca, justify='left')
+        self.lista_da_busca.config(yscrollcommand=self.rolagem_busca_vert.set)
+        self.rolagem_busca_vert.config(command=self.lista_da_busca.yview)
+        self.lista_da_busca.config(xscrollcommand=self.rolagem_busca_orin.set)
+        self.rolagem_busca_orin.config(command=self.lista_da_busca.xview)
+        self.lista_da_busca.pack(fill='both', ipadx=3, ipady=5)
+
+
 
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
