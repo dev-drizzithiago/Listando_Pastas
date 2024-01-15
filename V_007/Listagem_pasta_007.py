@@ -14,7 +14,7 @@ class ListagemPastas:
         self.pastas_arquivos_extensao = Path(self.pasta_home, 'AppData', 'LocalLow', 'extensoes')
         self.lista_salves_busca = list()
 
-        # Varias de confirmação
+        # Variaveis de confirmação
         self.lista_ativa_imagem = False
         self.lista_ativa_videos = False
         self.lista_ativa_textos = False
@@ -122,8 +122,8 @@ class ListagemPastas:
             self.lista_ativa_compre = True
         elif valor_categoria_busca == 'Todos':
             tk.messagebox.showinfo('AVISO IMPORTANTE', 'Para buscar por todos os arquivos, aperte o botão'
-                                                       '\n[Busca especifica]')
-            self.lista_ativa_all = True
+                                                       '\n">> Busca especifica <<"')
+            self.lista_ativa_especi = True
 
     def janela_inicio_busca(self):
         global valor_opc_extensao, valor_extensao_busca
