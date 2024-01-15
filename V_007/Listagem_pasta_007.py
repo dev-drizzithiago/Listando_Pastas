@@ -107,12 +107,6 @@ class ListagemPastas:
         :return: self.lista_ativa_videos
         :return: self.lista_ativa_textos
         """
-        """
-        self.extensoes_videos = None
-        self.extensoes_imagem = None
-        self.extensoes_arq_txt = None
-        self.extensoes_de_app = None
-        self.extensoes_compreensao = None"""
 
         valor_categoria_busca = self.var_combo.get()
         self.lista_extensao.delete('0', 'end')
@@ -234,7 +228,6 @@ class ListagemPastas:
                                                  f'extensão [{valor_extensao_busca}]')
             else:
                 valor_var_ext = set()
-                cont_arq = 0
                 for valor in self.lista_salves_busca:
                     lista = str(valor).split('\\')
                     arquivos = str(lista[-1])
