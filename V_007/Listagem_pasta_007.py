@@ -4,7 +4,7 @@ from pathlib import Path
 from datetime import datetime
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
-from tkinter.messagebox import showinfo, showerror, showwarning
+from tkinter.messagebox import showinfo
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m%Y')
@@ -44,7 +44,7 @@ class ListagemPastas:
         self.janela_principal.geometry('300x380')
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
-        self.janela_principal.config(border=3, bg='#4F4F4F')
+        self.janela_principal.config(border=3, bg='#A9A9A9')
 
         # Label Frame
 
