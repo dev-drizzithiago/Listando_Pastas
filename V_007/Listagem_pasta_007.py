@@ -8,7 +8,7 @@ from tkinter.messagebox import showinfo, showerror, showwarning
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m%Y')
-hora_certa = valor_hora.strftime('%H:%M%')
+hora_certa = valor_hora.strftime('%H:%M')
 
 
 class ListagemPastas:
@@ -47,6 +47,12 @@ class ListagemPastas:
         self.janela_principal.config(border=3, bg='#363636')
 
         # Label Frame
+
+        self.frame_hora = Frame(self.janela_principal)
+        self.frame_hora.pack(anchor='n')
+        self.label_data_hora = Label(self.frame_hora, text=f'{data_certa} - {hora_certa}')
+        self.label_data_hora.pack()
+
         self.label_frame_001 = LabelFrame(self.janela_principal, border=2, text='Iniciando o programa')
         self.label_frame_001.pack(anchor='n', fill='both')
 
@@ -58,6 +64,9 @@ class ListagemPastas:
 
         self.label_frame_004 = Frame(self.janela_principal)
         self.label_frame_004.pack()
+
+        self.frame_hora = Frame(self.janela_principal)
+        self.frame_hora.pack(anchor='n')
 
         # Lista Combo principal
         self.var_combo = tk.StringVar()
