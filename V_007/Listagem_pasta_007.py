@@ -25,12 +25,12 @@ class ListagemPastas:
         self.lista_tipos_extensoes = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
                                       'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = (
-        'JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
-        'SVG', 'WebP',)
+            'JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
+            'SVG', 'WebP',)
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
                                  'WEBM')
         self.extensoes_arq_txt = (
-        'TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
+            'TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
         self.extensoes_de_app = ('EXE', 'DLL', 'IN', 'BAT')
         self.extensoes_compreensao = ('ZIP', '')
 
@@ -56,7 +56,8 @@ class ListagemPastas:
 
         # Lista Combo principal
         self.var_combo = tk.StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo, justify='center')
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
+                                                     justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha uma categoria de arquivo')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both', ipady=3, ipadx=3)
@@ -68,7 +69,8 @@ class ListagemPastas:
         self.rolagem_principal_vertical.pack(side='right', fill=tk.Y)
 
         # Lista de exntesão
-        self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center', border=3, bg='#D3D3D3', relief='groove')
+        self.lista_extensao = tk.Listbox(self.label_frame_002, justify='center', border=3, bg='#D3D3D3',
+                                         relief='groove')
         self.lista_extensao.config(yscrollcommand=self.rolagem_principal_vertical.set)
         self.rolagem_principal_vertical.config(command=self.lista_extensao.yview)
         self.lista_extensao.pack(side='top', fill='both', padx=5, pady=5)
@@ -80,7 +82,7 @@ class ListagemPastas:
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
 
         self.botao_adicionar_extensao = tk.Button(self.label_frame_003, text='Buscar especifica', bg='#A9A9A9',
-                                                  width=20, height=1, justify='center',border=3, borderwidth=3,
+                                                  width=20, height=1, justify='center', border=3, borderwidth=3,
                                                   relief='groove', command=self.add_extensao)
         self.botao_adicionar_extensao.pack(anchor='s', ipadx=3, ipady=3)
 
@@ -172,8 +174,12 @@ class ListagemPastas:
 
         # janela busca
         self.janela_busca = tk.Tk()
+        self.janela_busca.grid()
         self.janela_busca.geometry('800x300')
-        self.janela_busca.title(f'Buscando por arquivos [{valor_extensao_busca}]')
+        if len(valor_extensao_busca) != 0:
+            self.janela_busca.title(f'Buscando por arquivos [{valor_extensao_busca}]')
+        else:
+            self.janela_busca.title('Buscando por QUAISQUER arquivo')
 
         # label frame busca
         self.label_frame_busca = LabelFrame(self.janela_busca, text='Resultado da busca', )
@@ -214,14 +220,18 @@ class ListagemPastas:
             tk.messagebox.showwarning('AVISO', f'Não foi encontrado nenhum item com a extensão '
                                                f'\n[{valor_extensao_busca}]')
         else:
-            tk.messagebox.showinfo('AVISO!', 'Busca finalizada!'
-                                             f'\nForam encontrados {len(self.lista_salves_busca)} arquivos com a '
-                                             f'extensão [{valor_extensao_busca}]')
-            for valor in self.lista_salves_busca:
-                lista = str(valor).split('\\')
-                arquivos = str(lista[-1])
-                extensao = arquivos.split('.')
-                print(extensao[-1])
+            if len(valor_extensao_busca) != 0:
+                tk.messagebox.showinfo('AVISO!', 'Busca finalizada!'
+                                                 f'\nForam encontrados {len(self.lista_salves_busca)} arquivos com a '
+                                                 f'extensão [{valor_extensao_busca}]')
+            else:
+                for valor in self.lista_salves_busca:
+                    lista = str(valor).split('\\')
+                    arquivos = str(lista[-1])
+                    extensao = arquivos.split('.')
+                    print(extensao[-1])
+                tk.messagebox.showinfo('Finalizado!', f'\nForam encontrados {len(self.lista_salves_busca)}'
+                                                      f' arquivos com a extensão [{valor_extensao_busca}]')
 
     def save_busca(self):
         arquivos = [('Arquivo de texto (.txt)', '*.txt')]
