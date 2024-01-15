@@ -147,7 +147,7 @@ class ListagemPastas:
             self.lista_ativa_especi = True
 
     def janela_inicio_busca(self):
-        global valor_opc_extensao, valor_extensao_busca
+        global valor_opc_extensao, valor_extensao_busca, contagem_arquivos
 
         # Processo da função
         valor_lista_extensao = self.lista_extensao.curselection()
@@ -225,6 +225,7 @@ class ListagemPastas:
             if valor_da_busca.is_file():
                 self.lista_da_busca.insert('0', valor_da_busca)
                 self.lista_salves_busca.append(valor_da_busca)
+                contagem_arquivos = len(self.lista_salves_busca)
             elif valor_da_busca.is_dir():
                 self.lista_da_busca.insert('0', valor_da_busca)
 
@@ -234,7 +235,7 @@ class ListagemPastas:
         else:
             if len(valor_extensao_busca) != 0:
                 tk.messagebox.showinfo('AVISO!', 'Busca finalizada!'
-                                                 f'\nForam encontrados {len(self.lista_salves_busca)} arquivos com a '
+                                                 f'\nForam encontrados {contagem_arquivos} arquivos com a '
                                                  f'extensão [{valor_extensao_busca}]')
             else:
                 valor_var_ext = set()
