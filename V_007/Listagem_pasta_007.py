@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter.ttk import *
 from pathlib import Path
 from datetime import datetime
+from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
-from tkinter.messagebox import showinfo
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m%Y')
