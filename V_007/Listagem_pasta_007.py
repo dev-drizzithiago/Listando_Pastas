@@ -45,10 +45,8 @@ class ListagemPastas:
         self.janela_principal.title('V_007')
         self.janela_principal.resizable(False, False)
         self.janela_principal.config(border=3, bg='#A9A9A9')
-        self.janela_principal.config(fill=tk.ROUND)
 
         # Label Frame
-
         self.frame_hora = Frame(self.janela_principal)
         self.frame_hora.pack(anchor='n')
         self.label_data_hora = Label(self.frame_hora, text=f'{data_certa} - {hora_certa}')
@@ -229,11 +227,11 @@ class ListagemPastas:
         pasta_destino_busca = Path(askdirectory())
         for valor_da_busca in pasta_destino_busca.glob('**/*' + valor_extensao_busca):
             if valor_da_busca.is_file():
-                self.lista_da_busca.insert('end', f'{contagem_geral}° - {valor_da_busca}')
+                self.lista_da_busca.insert('end', f'{contagem_geral} - {valor_da_busca}')
                 self.lista_salves_busca.append(f'{contagem_geral} - {valor_da_busca}')
                 contagem_geral += 1
             elif valor_da_busca.is_dir():
-                self.lista_da_busca.insert('end', f'{contagem_geral}° - {valor_da_busca}')
+                self.lista_da_busca.insert('end', f'{contagem_geral} - {valor_da_busca}')
                 contagem_geral += 1
         contagem_arquivos = len(self.lista_salves_busca)
         if len(self.lista_salves_busca) == 0:
