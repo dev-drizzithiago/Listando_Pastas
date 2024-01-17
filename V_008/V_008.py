@@ -26,6 +26,7 @@ class ListandoPastas:
 
         # Combo
         label_frame_combo = LabelFrame(janela_principal)
+        label_frame_combo.pack()
         combo_principal = Combobox()
 
         # lista principal
