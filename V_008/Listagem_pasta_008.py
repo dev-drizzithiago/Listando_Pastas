@@ -60,7 +60,8 @@ class ListandoPastas:
 
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
-        botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1)
+        botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1, 
+                                     command=self.janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca', width=20, height=1)
@@ -73,8 +74,17 @@ class ListandoPastas:
         botao_sair_programa = Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
-
         janela_principal.mainloop()
 
+    def janela_busca(self):
+        janela_busca = Tk()
+        janela_busca.config(padx=5, pady=5)
+        janela_busca.geometry('700x400')
+        janela_busca.title(f'Buscar por arquivos')
+
+        label_frame_hora = LabelFrame(janela_busca, text='Hora Certa')
+        label_frame_hora.pack(fill=BOTH)
+        label_hora_data = Label(janela_busca, text=f'{data_certa} - {hora_certa}', justify='center')
+        label_hora_data.pack(anchor=BOTH)
 
 obj_principal = ListandoPastas()
