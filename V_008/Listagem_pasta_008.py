@@ -38,7 +38,7 @@ class ListandoPastas:
 
         # Combo
         variavel_combo = StringVar()
-        label_frame_combo = LabelFrame(janela_principal)
+        label_frame_combo = LabelFrame(janela_principal, text='Categorias de arquivos')
         label_frame_combo.pack()
 
         combo_principal = Combobox(label_frame_combo, textvariable=variavel_combo)
@@ -46,7 +46,7 @@ class ListandoPastas:
         combo_principal.pack()
 
         # lista principal
-        label_frame_lista = LabelFrame(janela_principal, text='Categorias de busca')
+        label_frame_lista = LabelFrame(janela_principal, text='Escolha uma extensão')
         label_frame_lista.pack(side='top', fill=BOTH)
         lista_principal = Listbox(label_frame_lista)
         lista_principal.pack(fill=BOTH, pady=3, padx=3)
