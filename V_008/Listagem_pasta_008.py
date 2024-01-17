@@ -91,16 +91,16 @@ class ListandoPastas:
         label_frame_hora = LabelFrame(janela_busca, text='Hora Certa')
         label_frame_hora.pack(fill=BOTH)
         label_hora_data = Label(janela_busca, text=f'{data_certa} - {hora_certa}', justify='center')
-        label_hora_data.pack(anchor='center')
+        label_hora_data.pack(side='top')
 
         # Listagem da busca
         label_frame_lista_busca = LabelFrame(janela_busca, text='Resultado da Busca')
         label_frame_lista_busca.pack(fill=BOTH)
         label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados foram:')
-        label_lista_busca.pack(anchor='center', padx=5, pady=5)
+        label_lista_busca.pack(anchor='n', padx=5, pady=5)
         var_busca = IntVar()
         lista_busca = Listbox(label_lista_busca, listvariable=var_busca, selectmode=SINGLE)
-        lista_busca.pack(fill=BOTH, padx=5, pady=5)
+        lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
 
 
