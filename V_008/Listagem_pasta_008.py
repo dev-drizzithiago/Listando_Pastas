@@ -5,7 +5,6 @@ from datetime import datetime
 from tkinter.messagebox import *
 from tkinter.simpledialog import *
 
-
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
 hora_certa = valor_hora.strftime('%H:%M')
@@ -64,33 +63,45 @@ class ListandoPastas:
                                      command=self.janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
-        label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca', width=20, height=1)
+        label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
+                                               width=20, height=1)
         label_frame_botao_especif.pack(side='left')
         botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
-        label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20, height=1)
+        label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
+                                               height=1)
         label_frame_sair_programa.pack(side='right')
-        botao_sair_programa = Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1)
+        botao_sair_programa = Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1,
+                                     command=janela_principal.destroy)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
         janela_principal.mainloop()
 
-    # Funções secundarias
-    def fechar_janela(self):
-        
-
     # Janelas principais
     def janela_busca(self):
+
+        # janela busca
         janela_busca = Tk()
         janela_busca.config(padx=5, pady=5)
         janela_busca.geometry('700x400')
         janela_busca.title(f'Buscar por arquivos')
 
+        # Label Frame horario
         label_frame_hora = LabelFrame(janela_busca, text='Hora Certa')
         label_frame_hora.pack(fill=BOTH)
         label_hora_data = Label(janela_busca, text=f'{data_certa} - {hora_certa}', justify='center')
         label_hora_data.pack(anchor='center')
+
+        # Listagem da busca
+        label_frame_lista_busca = LabelFrame(janela_busca, text='Resultado da Busca')
+        label_frame_lista_busca.pack(fill=BOTH)
+        label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados foram:')
+        label_lista_busca.pack(anchor='center', padx=5, pady=5)
+        var_busca = IntVar()
+        lista_busca = Listbox(label_lista_busca, listvariable=var_busca, selectmode=SINGLE)
+        lista_busca.pack(fill=BOTH, padx=5, pady=5)
+
 
 
 obj_principal = ListandoPastas()
