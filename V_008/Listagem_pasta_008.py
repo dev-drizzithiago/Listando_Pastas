@@ -13,8 +13,8 @@ hora_certa = valor_hora.strftime('%H:%M')
 class ListandoPastas:
     def __init__(self):
         # Variaveis geral
-        self.lista_tipos_extensoes = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
-                                      'Arquivos execução', 'Arquivos compreesão')
+        self.categorias = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
+                           'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = (
             'JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
             'SVG', 'WebP',)
@@ -40,14 +40,16 @@ class ListandoPastas:
         variavel_combo = StringVar()
         label_frame_combo = LabelFrame(janela_principal)
         label_frame_combo.pack()
+
         combo_principal = Combobox(label_frame_combo, textvariable=variavel_combo)
+        combo_principal['values'] = self.categorias
         combo_principal.pack()
 
         # lista principal
-        label_frame_lista = LabelFrame(janela_principal, text='Escolha uma Extensão')
+        label_frame_lista = LabelFrame(janela_principal, text='Categorias de busca')
         label_frame_lista.pack(side='top', fill=BOTH)
         lista_principal = Listbox(label_frame_lista)
-        lista_principal.pack()
+        lista_principal.pack(fill=BOTH, pady=3, padx=3)
 
         janela_principal.mainloop()
 
