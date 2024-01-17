@@ -50,7 +50,7 @@ class ListandoPastas:
         # lista principal
         label_frame_lista = LabelFrame(janela_principal, text='Escolha uma extensão')
         label_frame_lista.pack(side='top', fill=BOTH)
-        lista_principal = Listbox(label_frame_lista)
+        lista_principal = Listbox(label_frame_lista, selectmode=SINGLE, justify='center')
         lista_principal.pack(fill=BOTH, pady=3, padx=3)
 
         # Botoes
@@ -90,16 +90,16 @@ class ListandoPastas:
         # Label Frame horario
         label_frame_hora = LabelFrame(janela_busca, text='Hora Certa')
         label_frame_hora.pack(fill=BOTH)
-        label_hora_data = Label(janela_busca, text=f'{data_certa} - {hora_certa}', justify='center')
-        label_hora_data.pack(side='top')
+        label_hora_data = Label(label_frame_hora, text=f'{data_certa} - {hora_certa}', justify='center')
+        label_hora_data.pack(anchor='center')
 
         # Listagem da busca
         label_frame_lista_busca = LabelFrame(janela_busca, text='Resultado da Busca')
         label_frame_lista_busca.pack(fill=BOTH)
-        label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados foram:')
-        label_lista_busca.pack(anchor='n', padx=5, pady=5)
+        label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados:')
+        label_lista_busca.pack(side='top', padx=5, pady=5)
         var_busca = IntVar()
-        lista_busca = Listbox(label_lista_busca, listvariable=var_busca, selectmode=SINGLE)
+        lista_busca = Listbox(label_frame_lista_busca, listvariable=var_busca, selectmode=SINGLE, justify='center')
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
 
