@@ -40,9 +40,10 @@ class ListandoPastas:
         label_hora.pack(anchor='center')
 
         # Combo
+        self.variavel_combo = StringVar()
         label_frame_combo = LabelFrame(janela_principal, text='Categorias de arquivos')
         label_frame_combo.pack(fill=BOTH)
-        self.combo_principal = Combobox(label_frame_combo, justify='center')
+        self.combo_principal = Combobox(label_frame_combo, textvariable=self.variavel_combo, justify='center')
         self.combo_principal['values'] = self.categorias
         self.combo_principal.set('Escolha uma categoria')
         self.combo_principal.pack(fill=BOTH, pady=5, padx=5)
@@ -107,7 +108,7 @@ class ListandoPastas:
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
     def combo_selecao_categoria(self):
-        valor_categoria = self.combo_principal.get()
+        valor_categoria = self.variavel_combo.get()
         print(valor_categoria)
 
 
