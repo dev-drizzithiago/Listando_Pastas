@@ -40,20 +40,20 @@ class ListandoPastas:
         label_hora.pack(anchor='center')
 
         # Combo
-        variavel_combo = StringVar()
+        self.variavel_combo = StringVar()
         label_frame_combo = LabelFrame(janela_principal, text='Categorias de arquivos')
         label_frame_combo.pack(fill=BOTH)
-
-        combo_principal = Combobox(label_frame_combo, textvariable=variavel_combo, justify='center')
+        combo_principal = Combobox(label_frame_combo, textvariable=self.variavel_combo, justify='center')
         combo_principal['values'] = self.categorias
         combo_principal.set('Escolha uma categoria')
         combo_principal.pack(fill=BOTH, pady=5, padx=5)
 
         # lista principal
+        self.variavel_lista_principal = IntVar()
         label_frame_lista = LabelFrame(janela_principal, text='Escolha uma extensão')
         label_frame_lista.pack(side='top', fill=BOTH)
-        lista_principal = Listbox(label_frame_lista, selectmode=SINGLE, justify='center')
-        lista_principal.pack(fill=BOTH, pady=3, padx=3)
+        self.lista_principal = Listbox(label_frame_lista, selectmode=SINGLE, justify='center')
+        self.lista_principal.pack(fill=BOTH, pady=3, padx=3)
 
         # Botoes
         label_frame_botao_princial = LabelFrame(janela_principal, text="Escolha uma Opcão")
@@ -82,6 +82,11 @@ class ListandoPastas:
 
     # Janelas principais
     def janela_busca(self):
+
+        # Funções da busca
+
+        valor_extensao_busca = self.lista_principal.curselection()
+
         # janela busca
         janela_busca = Tk()
         janela_busca.config(padx=5, pady=5)
@@ -99,9 +104,12 @@ class ListandoPastas:
         label_frame_lista_busca.pack(fill=BOTH)
         label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados:')
         label_lista_busca.pack(side='top', padx=5, pady=5)
-        var_busca = IntVar()
-        lista_busca = Listbox(label_frame_lista_busca, listvariable=var_busca, selectmode=SINGLE, justify='center')
+        self.variavel_lista_busca = IntVar()
+        lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
+                              justify='center')
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
+    def combo_selecao_categoria(self):
+        valor_categoria =
 
 obj_principal = ListandoPastas()
