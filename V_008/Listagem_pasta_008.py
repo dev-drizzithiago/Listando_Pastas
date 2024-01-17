@@ -41,10 +41,10 @@ class ListandoPastas:
         label_frame_combo = LabelFrame(janela_principal, text='Categorias de arquivos')
         label_frame_combo.pack(fill=BOTH)
 
-        combo_principal = Combobox(label_frame_combo, textvariable=variavel_combo)
+        combo_principal = Combobox(label_frame_combo, textvariable=variavel_combo, justify='center')
         combo_principal['values'] = self.categorias
         combo_principal.set('Escolha uma categoria')
-        combo_principal.pack()
+        combo_principal.pack(fill=BOTH, pady=5, padx=5)
 
         # lista principal
         label_frame_lista = LabelFrame(janela_principal, text='Escolha uma extensão')
