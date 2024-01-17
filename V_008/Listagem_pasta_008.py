@@ -47,6 +47,7 @@ class ListandoPastas:
                                         postcommand=self.combo_selecao_categoria)
         self.combo_principal['values'] = self.categorias
         self.combo_principal.set('Escolha uma categoria')
+        self.variavel_combo.trace('w', self.categorias)
         self.combo_principal.pack(fill=BOTH, pady=5, padx=5)
 
         # lista principal
