@@ -55,10 +55,11 @@ class ListandoPastas:
 
         # Botoes
         label_frame_botao_princial = LabelFrame(janela_principal, text="Escolha uma Opcão")
+        label_frame_botao_princial.pack(fill=BOTH)
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(side='top', fill=BOTH)
         botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca')
-        botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
+        botao_iniciar_busca.pack(anchor='center', pady=3, padx=3, fill=BOTH)
 
         janela_principal.mainloop()
 
