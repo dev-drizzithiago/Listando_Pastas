@@ -21,13 +21,14 @@ class ListandoPastas:
         # Relogio
         label_frame_relogio = LabelFrame(janela_principal, text='Hora Certa')
         label_frame_relogio.pack(anchor='center', fill=BOTH)
-        label_hora = Label(label_frame_relogio, text=f'{data_certa} - {hora_certa}')
+        label_hora = Label(label_frame_relogio, text=f'{data_certa} - {hora_certa}', justify='center')
         label_hora.pack(anchor='center')
 
         # Combo
+        variavel_combo = StringVar()
         label_frame_combo = LabelFrame(janela_principal)
         label_frame_combo.pack()
-        combo_principal = Combobox(label_frame_combo)
+        combo_principal = Combobox(label_frame_combo, textvariable=variavel_combo)
         combo_principal.pack()
 
         # lista principal
