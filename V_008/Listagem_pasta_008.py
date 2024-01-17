@@ -2,8 +2,9 @@ import tkinter
 from tkinter import *
 from tkinter.ttk import *
 from datetime import datetime
-from tkinter.simpledialog import *
 from tkinter.messagebox import *
+from tkinter.simpledialog import *
+
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
