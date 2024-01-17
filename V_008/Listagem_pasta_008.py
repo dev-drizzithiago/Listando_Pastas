@@ -6,7 +6,7 @@ from tkinter.simpledialog import *
 from tkinter.messagebox import *
 
 valor_hora = datetime.now()
-data_certa = valor_hora.strftime('%D/%M/%Y')
+data_certa = valor_hora.strftime('%d/%m/%Y')
 hora_certa = valor_hora.strftime('%H:%M')
 
 
@@ -66,7 +66,10 @@ class ListandoPastas:
         botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca')
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
-        botao_sair_programa = Button()
+        botao_sair_programa = Button(label_frame_sair_programa, text='Fechar Programa')
+        botao_sair_programa.pack(anchor='center', pady=3, padx=3)
+
+
         janela_principal.mainloop()
 
 
