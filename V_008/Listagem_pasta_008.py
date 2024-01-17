@@ -60,17 +60,17 @@ class ListandoPastas:
 
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
-        botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca')
+        botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca')
-        label_frame_botao_especif.pack(anchor='sw')
-        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos')
+        label_frame_botao_especif.pack(side='left')
+        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa')
-        label_frame_sair_programa.pack(anchor='se')
-        botao_sair_programa = Button(label_frame_sair_programa, text='Fechar Programa')
+        label_frame_sair_programa.pack(side='right')
+        botao_sair_programa = Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
 
