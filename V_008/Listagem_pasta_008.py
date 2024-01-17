@@ -82,9 +82,7 @@ class ListandoPastas:
 
     # Janelas principais
     def janela_busca(self):
-
         # Funções da busca
-
         valor_extensao_busca = self.lista_principal.curselection()
 
         # janela busca
@@ -110,6 +108,8 @@ class ListandoPastas:
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
     def combo_selecao_categoria(self):
-        valor_categoria =
+        valor_categoria = self.variavel_combo.get()
+        print(valor_categoria)
+
 
 obj_principal = ListandoPastas()
