@@ -20,7 +20,7 @@ class ListandoPastas:
 
         # Relogio
         label_frame_relogio = LabelFrame(janela_principal, text='Hora Certa')
-        label_frame_relogio.pack(anchor='center')
+        label_frame_relogio.pack(anchor='center', fill=BOTH)
         label_hora = Label(label_frame_relogio, text=f'{data_certa} - {hora_certa}')
         label_hora.pack(anchor='center')
 
@@ -33,7 +33,8 @@ class ListandoPastas:
         # lista principal
         label_frame_lista = LabelFrame(janela_principal, text='Escolha uma Extensão')
         label_frame_lista.pack(side='top', fill=BOTH)
-        lista_principal = Listbox()
+        lista_principal = Listbox(label_frame_lista)
+        lista_principal.pack()
 
         janela_principal.mainloop()
 
