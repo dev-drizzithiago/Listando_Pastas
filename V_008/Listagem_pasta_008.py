@@ -12,6 +12,18 @@ hora_certa = valor_hora.strftime('%H:%M')
 
 class ListandoPastas:
     def __init__(self):
+        # Variaveis geral
+        self.lista_tipos_extensoes = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
+                                      'Arquivos execução', 'Arquivos compreesão')
+        self.extensoes_imagem = (
+            'JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
+            'SVG', 'WebP',)
+        self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
+                                 'WEBM')
+        self.extensoes_arq_txt = (
+            'TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
+        self.extensoes_de_app = ('EXE', 'DLL', 'IN', 'BAT')
+        self.extensoes_compreensao = ('ZIP', '')
 
         # janela princpal
         janela_principal = Tk()
