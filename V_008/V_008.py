@@ -1,3 +1,4 @@
+import tkinter
 from tkinter import *
 from tkinter.ttk import *
 from datetime import datetime
@@ -22,6 +23,15 @@ class ListandoPastas:
         label_frame_relogio.pack(anchor='center')
         label_hora = Label(label_frame_relogio, text=f'{data_certa} - {hora_certa}')
         label_hora.pack(anchor='center')
+
+        # Combo
+        label_frame_combo = LabelFrame(janela_principal)
+        combo_principal = Combobox()
+
+        # lista principal
+        label_frame_lista = LabelFrame(janela_principal, text='Escolha uma Extensão')
+        label_frame_lista.pack(side='top', fill=BOTH)
+        lista_principal = Listbox()
 
         janela_principal.mainloop()
 
