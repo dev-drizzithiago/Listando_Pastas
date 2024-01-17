@@ -80,6 +80,8 @@ class ListandoPastas:
                                      command=janela_principal.destroy)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
+        # Barra de Progresso
+
         janela_principal.mainloop()
 
     # Janelas principais
