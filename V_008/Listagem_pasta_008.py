@@ -29,6 +29,7 @@ class ListandoPastas:
         janela_principal = Tk()
         janela_principal.geometry('350x390')
         janela_principal.config(padx=5, pady=5)
+        janela_principal.title('V_008')
 
         # Relogio
         label_frame_relogio = LabelFrame(janela_principal, text='Hora Certa')
@@ -51,6 +52,13 @@ class ListandoPastas:
         label_frame_lista.pack(side='top', fill=BOTH)
         lista_principal = Listbox(label_frame_lista)
         lista_principal.pack(fill=BOTH, pady=3, padx=3)
+
+        # Botoes
+        label_frame_botao_princial = LabelFrame(janela_principal, text="Escolha uma Opcão")
+        label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
+        label_frame_iniciar_busca.pack(side='top', fill=BOTH)
+        botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca')
+        botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         janela_principal.mainloop()
 
