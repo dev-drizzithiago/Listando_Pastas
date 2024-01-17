@@ -47,7 +47,7 @@ class ListandoPastas:
                                         postcommand=self.combo_selecao_categoria)
         self.combo_principal['values'] = self.categorias
         self.combo_principal.set('Escolha uma categoria')
-        self.variavel_combo.trace('w', self.categorias)
+        self.variavel_combo.trace('w', self.combo_selecao_categoria)
         self.combo_principal.pack(fill=BOTH, pady=5, padx=5)
 
         # lista principal
@@ -109,7 +109,7 @@ class ListandoPastas:
                               justify='center')
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
-    def combo_selecao_categoria(self):
+    def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
         print(valor_categoria)
 
