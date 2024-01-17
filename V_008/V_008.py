@@ -27,7 +27,8 @@ class ListandoPastas:
         # Combo
         label_frame_combo = LabelFrame(janela_principal)
         label_frame_combo.pack()
-        combo_principal = Combobox()
+        combo_principal = Combobox(label_frame_combo)
+        combo_principal.pack()
 
         # lista principal
         label_frame_lista = LabelFrame(janela_principal, text='Escolha uma Extensão')
