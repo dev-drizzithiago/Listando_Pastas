@@ -76,6 +76,11 @@ class ListandoPastas:
 
         janela_principal.mainloop()
 
+    # Funções secundarias
+    def fechar_janela(self):
+        
+
+    # Janelas principais
     def janela_busca(self):
         janela_busca = Tk()
         janela_busca.config(padx=5, pady=5)
