@@ -82,14 +82,6 @@ class ListandoPastas:
 
     # Janelas principais
     def janela_busca(self):
-
-        print('abrindo janela')
-        for i in range(10):
-            print(i)
-            sleep(1)
-
-        print('fechando programa')
-
         # janela busca
         janela_busca = Tk()
         janela_busca.config(padx=5, pady=5)
@@ -110,7 +102,6 @@ class ListandoPastas:
         var_busca = IntVar()
         lista_busca = Listbox(label_frame_lista_busca, listvariable=var_busca, selectmode=SINGLE, justify='center')
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
-
 
 
 obj_principal = ListandoPastas()
