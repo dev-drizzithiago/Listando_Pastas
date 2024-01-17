@@ -43,6 +43,7 @@ class ListandoPastas:
 
         combo_principal = Combobox(label_frame_combo, textvariable=variavel_combo)
         combo_principal['values'] = self.categorias
+        combo_principal.set('Escolha uma categoria')
         combo_principal.pack()
 
         # lista principal
