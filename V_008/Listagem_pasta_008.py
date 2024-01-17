@@ -43,8 +43,7 @@ class ListandoPastas:
         self.variavel_combo = StringVar()
         label_frame_combo = LabelFrame(janela_principal, text='Categorias de arquivos')
         label_frame_combo.pack(fill=BOTH)
-        self.combo_principal = Combobox(label_frame_combo, textvariable=self.variavel_combo, justify='center',
-                                        postcommand=self.combo_selecao_categoria)
+        self.combo_principal = Combobox(label_frame_combo, textvariable=self.variavel_combo, justify='center')
         self.combo_principal['values'] = self.categorias
         self.combo_principal.set('Escolha uma categoria')
         self.combo_principal.current()
