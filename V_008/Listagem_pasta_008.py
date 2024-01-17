@@ -107,7 +107,7 @@ class ListandoPastas:
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
     def combo_selecao_categoria(self):
-        valor_categoria = self.combo_selecao_categoria.get()
+        valor_categoria = self.combo_principal.get()
         print(valor_categoria)
 
 
