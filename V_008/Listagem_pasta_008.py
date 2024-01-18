@@ -64,7 +64,7 @@ class ListandoPastas:
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
         botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
-                                     command=Thread(target=self.janela_busca).start)
+                                     command=Thread(target=self.janela_busca).start())
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
@@ -82,15 +82,6 @@ class ListandoPastas:
 
         janela_principal.mainloop()
 
-    def janela_progresso(self):
-        # Barra de Progresso
-        self.janela_progresso = Tk()
-        self.janela_progresso.geometry('200x400')
-        label_frame_pross_bar = LabelFrame(self.janela_progresso, text='Processando busca, aguarde!')
-        label_frame_pross_bar.pack(fill=BOTH)
-        barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
-                                            length=100)
-        barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)
 
     # Janelas principais
     def janela_busca(self):
