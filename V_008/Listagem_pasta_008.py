@@ -2,10 +2,10 @@ import tkinter
 from time import sleep
 from tkinter import *
 from tkinter.ttk import *
+from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import *
 from tkinter.simpledialog import *
-from threading import Thread
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
@@ -70,7 +70,8 @@ class ListandoPastas:
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
                                                width=20, height=1)
         label_frame_botao_especif.pack(side='left')
-        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1)
+        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1,
+                                        command=Thread(target=self.janela_progresso))
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
@@ -82,9 +83,15 @@ class ListandoPastas:
 
         janela_principal.mainloop()
 
-
     # Janelas principais
     def janela_busca(self):
+        print('inicio')
+        for i in range(1, 20):
+            print(i)
+            sleep(1)
+        print('fim')
+
+
         # Funções da busca
         valor_extensao_busca = self.lista_principal.curselection()
 
@@ -109,6 +116,16 @@ class ListandoPastas:
         lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
                               justify='center')
         lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
+
+    def janela_progresso(self):
+        # Barra de Progresso
+        self.janela_progresso = Tk()
+        self.janela_progresso.geometry('200x400')
+        label_frame_pross_bar = LabelFrame(self.janela_progresso, text='Processando busca, aguarde!')
+        label_frame_pross_bar.pack(fill=BOTH)
+        barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
+                                            length=100)
+        barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)
 
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
