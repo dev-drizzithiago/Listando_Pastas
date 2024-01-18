@@ -64,7 +64,7 @@ class ListandoPastas:
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
         botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
-                                     command=Thread(target=self.janela_busca).start)
+                                     command=self.janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
@@ -85,11 +85,6 @@ class ListandoPastas:
 
     # Janelas principais
     def janela_busca(self):
-        print('inicio')
-        for i in range(1, 4):
-            print(i)
-            sleep(1)
-        print('fim')
 
         # Funções da busca
         valor_extensao_busca = self.lista_principal.curselection()
@@ -107,14 +102,24 @@ class ListandoPastas:
         label_hora_data.pack(anchor='center')
 
         # Listagem da busca
-        label_frame_lista_busca = LabelFrame(janela_busca, text='Resultado da Busca')
+        label_frame_lista_busca = LabelFrame(janela_busca, text='Resultado da Busca', border=2)
         label_frame_lista_busca.pack(fill=BOTH)
         label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados:')
         label_lista_busca.pack(side='top', padx=5, pady=5)
         self.variavel_lista_busca = IntVar()
-        lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
+        self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
                               justify='center')
-        lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
+        self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
+
+        # Label Frame botão iniciar
+        label_botao_iniciar = LabelFrame(janela_busca, border=2)
+        label_botao_iniciar.pack(anchor='center', fill='both')
+        botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar a busca', border=5, width=20, height=1,
+                                     command=self.processo_busca)
+        botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
+
+    def processo_busca(self):
+        self.lista_busca.insert('teste')
 
     def janela_progresso(self):
         # Barra de Progresso
