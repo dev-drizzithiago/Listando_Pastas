@@ -118,9 +118,9 @@ class ListandoPastas:
 
     def janela_progresso(self):
         # Barra de Progresso
-        self.janela_progresso = Tk()
-        self.janela_progresso.geometry('200x400')
-        label_frame_pross_bar = LabelFrame(self.janela_progresso, text='Processando busca, aguarde!')
+        janela_progresso = Tk()
+        janela_progresso.geometry('200x400')
+        label_frame_pross_bar = LabelFrame(janela_progresso, text='Processando busca, aguarde!')
         label_frame_pross_bar.pack(fill=BOTH)
         barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
                                             length=100)
