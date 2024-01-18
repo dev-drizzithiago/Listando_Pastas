@@ -90,9 +90,12 @@ class ListandoPastas:
         label_frame_pross_bar.pack(fill=BOTH)
         barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
                                             length=100)
+        barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)
 
     # Janelas principais
     def janela_busca(self):
+        Thread(target=self.janela_progresso).start()
+
         # Funções da busca
         valor_extensao_busca = self.lista_principal.curselection()
 
