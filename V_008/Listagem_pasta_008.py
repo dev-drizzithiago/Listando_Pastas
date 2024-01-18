@@ -70,8 +70,7 @@ class ListandoPastas:
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
                                                width=20, height=1)
         label_frame_botao_especif.pack(side='left')
-        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1,
-                                        command=Thread(target=self.janela_progresso).start)
+        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
@@ -95,8 +94,6 @@ class ListandoPastas:
 
     # Janelas principais
     def janela_busca(self):
-        Thread(target=self.janela_progresso).start()
-
         # Funções da busca
         valor_extensao_busca = self.lista_principal.curselection()
 
