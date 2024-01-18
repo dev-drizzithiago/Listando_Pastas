@@ -80,9 +80,15 @@ class ListandoPastas:
                                      command=janela_principal.destroy)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
-        # Barra de Progresso
-
         janela_principal.mainloop()
+
+    def janela_progresso(self):
+
+        # Barra de Progresso
+        self.janela_progresso = Tk()
+        self.janela_progresso.geometry('200x400')
+        barra_progresso_busca = Progressbar()
+
 
     # Janelas principais
     def janela_busca(self):
