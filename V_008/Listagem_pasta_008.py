@@ -87,7 +87,6 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def iniciar_processo_busca(self, *args):
-        Thread(target=self.janela_progresso()).start()
         Thread(target=self.step_progress()).start()
 
     # Janelas principais
@@ -125,11 +124,12 @@ class ListandoPastas:
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
         label_frame_progress_busca = LabelFrame(janela_busca, text='Progresso', border=1)
-        label_frame_progress_busca.pack(fill=BOTH, anchor='center', ipady=2, ipadx=2)
-        barra_progresso = Progressbar(label_frame_progress_busca, orient=HORIZONTAL, mode='indeterminate')
+        label_frame_progress_busca.pack(fill=BOTH, anchor='s', ipady=2, ipadx=2)
+        self.barra_progresso_busca = Progressbar(label_frame_progress_busca, orient=HORIZONTAL, mode='indeterminate')
+        self.barra_progresso_busca.pack(anchor='center', ipady=3, ipadx=3)
 
 
-    def janela_progresso(self, *args):
+    """def janela_progresso(self, *args):
         global janela_progresso
 
         # Barra de Progresso
@@ -138,7 +138,7 @@ class ListandoPastas:
         label_frame_pross_bar.pack(fill=BOTH)
         self.barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
                                                  length=500)
-        self.barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)
+        self.barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)"""
 
     def step_progress(self):
         for i in range(5):
