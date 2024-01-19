@@ -87,7 +87,7 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def iniciar_processo_busca(self):
-        Thread(target=self.janela_progresso()).start()
+        Thread(target=self.janela_progresso).start()
         Thread(target='teste').start()
 
     # Janelas principais
@@ -136,6 +136,8 @@ class ListandoPastas:
     def step_progress(self):
         for i in range(5):
             self.janela_progresso.update_idletasks()
+            self.barra_progresso_busca['value'] += 2
+            sleep(0.5)
 
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
