@@ -70,8 +70,7 @@ class ListandoPastas:
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
                                                width=20, height=1)
         label_frame_botao_especif.pack(side='left')
-        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1,
-                                        command=Thread(target=self.janela_progresso).start)
+        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por arquivos', width=20, height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
@@ -89,7 +88,6 @@ class ListandoPastas:
 
     # Janelas principais
     def janela_busca(self):
-
         # Funções da busca
         valor_extensao_busca = self.lista_principal.curselection()
 
@@ -112,7 +110,7 @@ class ListandoPastas:
         label_lista_busca.pack(side='top', padx=5, pady=5)
         self.variavel_lista_busca = IntVar()
         self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
-                              justify='center')
+                                   justify='center')
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
         # Label Frame botão iniciar
@@ -120,7 +118,6 @@ class ListandoPastas:
         label_botao_iniciar.pack(anchor='center', fill='both')
         botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar a busca', border=5, width=20, height=1)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
-
 
     def janela_progresso(self):
         # Barra de Progresso
