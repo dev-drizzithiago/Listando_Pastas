@@ -88,6 +88,7 @@ class ListandoPastas:
 
     def iniciar_processo_busca(self, *args):
         Thread(target=self.iniciar_barra_progresso()).start()
+        # Thread(target=self.step_progress()).start()
         Thread(target=self.teste()).start()
 
     # Janelas principais
@@ -131,6 +132,7 @@ class ListandoPastas:
         label_frame_progress_busca.pack(fill=BOTH, anchor='s', ipady=2, ipadx=2)
         self.barra_progresso_busca = Progressbar(label_frame_progress_busca, orient=HORIZONTAL, mode='indeterminate')
         self.barra_progresso_busca.pack(fill=BOTH, anchor='center', ipady=3, ipadx=3)
+        self.step_progress()
 
     def step_progress(self):
         for i in range(10):
