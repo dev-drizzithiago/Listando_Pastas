@@ -2,7 +2,7 @@ import tkinter
 from time import sleep
 from tkinter import *
 from tkinter.ttk import *
-from threading import Thread
+from threading import Thread, Timer
 from datetime import datetime
 from tkinter.messagebox import *
 from tkinter.simpledialog import *
@@ -88,6 +88,7 @@ class ListandoPastas:
 
     def iniciar_processo_busca(self, *args):
         Thread(target=self.step_progress()).start()
+        Thread(target=self.teste()).start()
 
     # Janelas principais
     def janela_busca(self):
@@ -117,34 +118,28 @@ class ListandoPastas:
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
         # Label Frame botão iniciar
-        label_botao_iniciar = LabelFrame(janela_busca, border=2)
+        label_botao_iniciar = LabelFrame(self.janela_busca, border=2)
         label_botao_iniciar.pack(anchor='center', fill='both')
         botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
                                      command=self.iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
-        label_frame_progress_busca = LabelFrame(janela_busca, text='Progresso', border=1)
+    def barra_progresso(self):
+
+        self.janela_progresso = Tk()
+        label_frame_progress_busca = LabelFrame(self.janela_busca, text='Progresso', border=1)
         label_frame_progress_busca.pack(fill=BOTH, anchor='s', ipady=2, ipadx=2)
         self.barra_progresso_busca = Progressbar(label_frame_progress_busca, orient=HORIZONTAL, mode='indeterminate')
         self.barra_progresso_busca.pack(anchor='center', ipady=3, ipadx=3)
 
-
-    """def janela_progresso(self, *args):
-        global janela_progresso
-
-        # Barra de Progresso
-        janela_progresso = Tk()
-        label_frame_pross_bar = LabelFrame(janela_progresso, text='Processando busca, aguarde!')
-        label_frame_pross_bar.pack(fill=BOTH)
-        self.barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
-                                                 length=500)
-        self.barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)"""
-
     def step_progress(self):
         for i in range(5):
-            self.janela_busca.update_idletasks()
+            self.janela_progresso.update_idletasks()
             self.barra_progresso_busca['value'] += 5
             sleep(0.5)
+
+    def teste(self):
+        print('teste')
 
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
