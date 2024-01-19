@@ -95,19 +95,19 @@ class ListandoPastas:
         valor_extensao_busca = self.lista_principal.curselection()
 
         # janela busca
-        janela_busca = Tk()
-        janela_busca.config(padx=5, pady=5)
-        janela_busca.geometry('700x400')
-        janela_busca.title(f'Buscar por arquivos')
+        self.janela_busca = Tk()
+        self.janela_busca.config(padx=5, pady=5)
+        self.janela_busca.geometry('700x400')
+        self.janela_busca.title(f'Buscar por arquivos')
 
         # Label Frame horario
-        label_frame_hora = LabelFrame(janela_busca, text='Hora Certa')
+        label_frame_hora = LabelFrame(self.janela_busca, text='Hora Certa')
         label_frame_hora.pack(fill=BOTH)
         label_hora_data = Label(label_frame_hora, text=f'{data_certa} - {hora_certa}', justify='center')
         label_hora_data.pack(anchor='center')
 
         # Listagem da busca
-        label_frame_lista_busca = LabelFrame(janela_busca, text='Resultado da Busca', border=2)
+        label_frame_lista_busca = LabelFrame(self.janela_busca, text='Resultado da Busca', border=2)
         label_frame_lista_busca.pack(fill=BOTH)
         label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados:')
         label_lista_busca.pack(side='top', padx=5, pady=5)
@@ -142,7 +142,7 @@ class ListandoPastas:
 
     def step_progress(self):
         for i in range(5):
-            janela_progresso.update_idletasks()
+            self.janela_busca.update_idletasks()
             self.barra_progresso_busca['value'] += 5
             sleep(0.5)
 
