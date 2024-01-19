@@ -83,10 +83,10 @@ class ListandoPastas:
         janela_principal.mainloop()
 
     # INICIO DAS THREADS
-    def iniciar_busca(self):
+    def iniciar_busca(self, *args):
         Thread(target=self.janela_busca()).start()
 
-    def iniciar_processo_busca(self):
+    def iniciar_processo_busca(self, *args):
         Thread(target=self.janela_progresso()).start()
         Thread(target='teste').start()
 
