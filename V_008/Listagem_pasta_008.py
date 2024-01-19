@@ -86,9 +86,9 @@ class ListandoPastas:
     def iniciar_busca(self, *args):
         Thread(target=self.janela_busca()).start()
 
-    """def iniciar_processo_busca(self, *args):
+    def iniciar_processo_busca(self, *args):
         Thread(target=self.barra_progresso()).start()
-        Thread(target=self.teste()).start()"""
+        Thread(target=self.teste()).start()
 
     # Janelas principais
     def janela_busca(self):
@@ -121,7 +121,7 @@ class ListandoPastas:
         label_botao_iniciar = LabelFrame(self.janela_busca, border=2)
         label_botao_iniciar.pack(anchor='center', fill='both')
         botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
-                                     command=Thread(target=barr))
+                                     command=self.iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
     def barra_progresso(self):
