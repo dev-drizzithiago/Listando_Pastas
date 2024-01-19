@@ -82,9 +82,13 @@ class ListandoPastas:
 
         janela_principal.mainloop()
 
+    # INICIO DAS THREADS
     def iniciar_busca(self):
         Thread(target=self.janela_busca()).start()
 
+    def iniciar_processo_busca(self):
+        Thread(target=self.janela_progresso()).start()
+        Thread(target='teste').start()
 
     # Janelas principais
     def janela_busca(self):
@@ -116,21 +120,22 @@ class ListandoPastas:
         # Label Frame botão iniciar
         label_botao_iniciar = LabelFrame(janela_busca, border=2)
         label_botao_iniciar.pack(anchor='center', fill='both')
-        botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar a busca', border=5, width=20, height=1)
+        botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
+                                     command=self.iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
-
-    def iniciar_processo_busca(self):
-        Thread(target=self.janela_progresso()).start()
-        Thread(target='teste').start()
 
     def janela_progresso(self):
         # Barra de Progresso
-        janela_progresso = Tk()
-        label_frame_pross_bar = LabelFrame(janela_progresso, text='Processando busca, aguarde!')
+        self.janela_progresso = Tk()
+        label_frame_pross_bar = LabelFrame(self.janela_progresso, text='Processando busca, aguarde!')
         label_frame_pross_bar.pack(fill=BOTH)
-        barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
-                                            length=100)
-        barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)
+        self.barra_progresso_busca = Progressbar(label_frame_pross_bar, orient='horizontal', mode='indeterminate',
+                                                 length=600)
+        self.barra_progresso_busca.pack(fill='both', anchor='center', ipady=5, ipadx=5)
+
+    def step_progress(self):
+        for i in range(5):
+            self.janela_progresso.update_idletasks()
 
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
