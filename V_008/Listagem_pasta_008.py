@@ -112,7 +112,6 @@ class ListandoPastas:
                                      command=self.thead_iniciar_processo_busca())
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
-
     # INICIO DAS THREADS
     def thread_iniciar_busca(self, *args):
         Thread(target=self.janela_busca()).start()
@@ -120,6 +119,7 @@ class ListandoPastas:
     def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.processo_busca()).start()
 
+    # ESCOLHA EXTENSÃO
     def combo_selecao_categoria(self, *args):
         self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
@@ -139,15 +139,13 @@ class ListandoPastas:
             for valor_lista in self.extensoes_compreensao:
                 self.lista_principal.insert('end', valor_lista)
 
-    def limpar_lista(self):
-        self.lista_principal.delete('0', 'end')
-
-    # Processos
-
     def opcao_de_busca(self):
         valor_extensao_busca = self.lista_principal.curselection()
         for opcao_busca in valor_extensao_busca:
             print(opcao_busca)
+
+    def limpar_lista(self):
+        self.lista_principal.delete('0', 'end')
 
     def processo_busca(self):
         print('ok')
