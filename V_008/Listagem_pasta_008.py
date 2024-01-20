@@ -157,8 +157,9 @@ class ListandoPastas:
     def opcao_de_busca(self):
         valor_extensao_busca = self.lista_principal.curselection()
 
-        for opcao_busca in valor_extensao_busca:
-            print(self.exte)
+        if self.ativo_Videos:
+            for opcao_busca in valor_extensao_busca:
+                print(self.extensoes_videos[opcao_busca])
 
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
