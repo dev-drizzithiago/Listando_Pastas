@@ -90,6 +90,7 @@ class ListandoPastas:
     def janela_busca(self):
         # Funções da busca
         # janela busca
+
         self.janela_busca = Tk()
         self.janela_busca.config(padx=5, pady=5)
         self.janela_busca.geometry('700x400')
