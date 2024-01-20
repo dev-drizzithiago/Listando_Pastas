@@ -2,7 +2,7 @@ import tkinter
 from time import sleep
 from tkinter import *
 from tkinter.ttk import *
-from threading import Thread, Timer
+from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import *
 from tkinter.simpledialog import *
@@ -87,7 +87,7 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def iniciar_processo_busca(self, *args):
-        Thread(target=self.teste()).start()
+        Thread(target=self.processo_busca()).start()
 
     # Janelas principais
     def janela_busca(self):
@@ -123,10 +123,13 @@ class ListandoPastas:
                                      command=self.iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
+    def processo_busca(self):
+        print('ok')
 
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
-        print(valor_categoria)
+        if valor_categoria == 'Arquivos de Vídeo':
+            self.lista_busca.insert('end', self.extensoes_videos)
 
 
 obj_principal = ListandoPastas()
