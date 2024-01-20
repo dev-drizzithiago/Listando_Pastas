@@ -92,7 +92,8 @@ class ListandoPastas:
     def janela_busca(self):
         # Funções da busca
         valor_extensao_busca = self.lista_principal.curselection()
-        print(valor_extensao_busca)
+        for opcao_busca in valor_extensao_busca:
+            print(opcao_busca)
 
         # janela busca
         self.janela_busca = Tk()
@@ -123,9 +124,6 @@ class ListandoPastas:
                                      command=self.iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
-    def processo_busca(self):
-        print('ok')
-
     def combo_selecao_categoria(self, *args):
         self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
@@ -147,6 +145,10 @@ class ListandoPastas:
 
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
+
+    # Processos
+    def processo_busca(self):
+        print('ok')
 
 
 obj_principal = ListandoPastas()
