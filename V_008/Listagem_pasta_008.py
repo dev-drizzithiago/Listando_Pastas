@@ -26,6 +26,12 @@ class ListandoPastas:
         self.extensoes_de_app = ('EXE', 'DLL', 'IN', 'BAT')
         self.extensoes_compreensao = ('ZIP', '')
 
+        self.ativo_imagem = False
+        self.ativo_Videos = False
+        self.ativo_textos = False
+        self.ativo_execul = False
+        self.ativo_arqzip = False
+
         # janela princpal
         janela_principal = Tk()
         janela_principal.geometry('450x450')
@@ -141,8 +147,9 @@ class ListandoPastas:
 
     def opcao_de_busca(self):
         valor_extensao_busca = self.lista_principal.curselection()
+
         for opcao_busca in valor_extensao_busca:
-            print(opcao_busca)
+            print(self.exte)
 
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
