@@ -116,7 +116,7 @@ class ListandoPastas:
         label_botao_iniciar = LabelFrame(self.janela_busca, border=2)
         label_botao_iniciar.pack(anchor='center', fill='both')
         botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
-                                     command=self.thead_iniciar_processo_busca())
+                                     command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
     # INICIO DAS THREADS
@@ -176,7 +176,7 @@ class ListandoPastas:
             for opcao_busca in valor_extensao_busca:
                 self.valor_extesao_busca = self.extensoes_compreensao
         print(f'Valor selecionado: {self.valor_extesao_busca}')
-        
+
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
