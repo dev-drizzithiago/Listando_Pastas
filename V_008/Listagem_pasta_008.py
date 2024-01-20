@@ -63,7 +63,7 @@ class ListandoPastas:
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
         botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
-                                     command=self.iniciar_busca)
+                                     command=self.thread_iniciar_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
@@ -92,6 +92,7 @@ class ListandoPastas:
     def janela_busca(self):
         # Funções da busca
         valor_extensao_busca = self.lista_principal.curselection()
+        print(valor_extensao_busca)
 
         # janela busca
         self.janela_busca = Tk()
@@ -126,7 +127,6 @@ class ListandoPastas:
         print('ok')
 
     def combo_selecao_categoria(self, *args):
-        valor_extesao_selecionada = self.lista_principal.get(s)
         self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
         if valor_categoria == 'Arquivos de Vídeo':
