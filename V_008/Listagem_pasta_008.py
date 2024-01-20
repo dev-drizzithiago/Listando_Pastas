@@ -125,8 +125,8 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def thead_iniciar_processo_busca(self, *args):
-        Thread(target=self.opcao_de_busca()).start()
-        Thread(target=self.processo_busca()).start()
+        self.opcao_de_busca()
+        Thread(target=self.iniciando_processo_busca()).start()
 
     # ESCOLHA EXTENSÃO
     def combo_selecao_categoria(self, *args):
@@ -164,11 +164,27 @@ class ListandoPastas:
             for opcao_busca in valor_extensao_busca:
                 self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
             print(self.valor_extesao_busca)
-
+        elif self.ativo_imagem:
+            for opcao_busca in valor_extensao_busca:
+                self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
+            print(self.valor_extesao_busca)
+        elif self.ativo_textos:
+            for opcao_busca in valor_extensao_busca:
+                self.valor_extesao_busca = self.extensoes_arq_txt[opcao_busca]
+            print(self.valor_extesao_busca)
+        elif self.ativo_execul:
+            for opcao_busca in valor_extensao_busca:
+                self.valor_extesao_busca = self.extensoes_de_app[opcao_busca]
+            print(self.valor_extesao_busca)
+        elif self.ativo_arqzip:
+            for opcao_busca in valor_extensao_busca:
+                self.valor_extesao_busca = self.extensoes_compreensao
+            print(self.valor_extesao_busca)
+            
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
-    def processo_busca(self):
+    def iniciando_processo_busca(self):
         print('ok')
 
 
