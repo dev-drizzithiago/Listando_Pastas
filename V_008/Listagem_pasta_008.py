@@ -91,9 +91,6 @@ class ListandoPastas:
     # Janelas principais
     def janela_busca(self):
         # Funções da busca
-        valor_extensao_busca = self.lista_principal.curselection()
-        for opcao_busca in valor_extensao_busca:
-            print(opcao_busca)
 
         # janela busca
         self.janela_busca = Tk()
@@ -147,6 +144,12 @@ class ListandoPastas:
         self.lista_principal.delete('0', 'end')
 
     # Processos
+
+    def opcao_de_busca(self):
+        valor_extensao_busca = self.lista_principal.curselection()
+        for opcao_busca in valor_extensao_busca:
+            print(opcao_busca)
+
     def processo_busca(self):
         print('ok')
 
