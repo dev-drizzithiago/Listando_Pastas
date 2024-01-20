@@ -163,24 +163,20 @@ class ListandoPastas:
         if self.ativo_Videos:
             for opcao_busca in valor_extensao_busca:
                 self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
-            print(f'Valor selecionado: {self.valor_extesao_busca}')
         elif self.ativo_imagem:
             for opcao_busca in valor_extensao_busca:
                 self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
-            print(f'Valor selecionado: {self.valor_extesao_busca}')
         elif self.ativo_textos:
             for opcao_busca in valor_extensao_busca:
                 self.valor_extesao_busca = self.extensoes_arq_txt[opcao_busca]
-            print(f'Valor selecionado: {self.valor_extesao_busca}')
         elif self.ativo_execul:
             for opcao_busca in valor_extensao_busca:
                 self.valor_extesao_busca = self.extensoes_de_app[opcao_busca]
-            print(f'Valor selecionado: {self.valor_extesao_busca}')
         elif self.ativo_arqzip:
             for opcao_busca in valor_extensao_busca:
                 self.valor_extesao_busca = self.extensoes_compreensao
-            print(f'Valor selecionado: {self.valor_extesao_busca}')
-
+        print(f'Valor selecionado: {self.valor_extesao_busca}')
+        
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
