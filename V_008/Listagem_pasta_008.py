@@ -17,9 +17,8 @@ class ListandoPastas:
         # Variaveis geral
         self.categorias = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
                            'Arquivos execução', 'Arquivos compreesão')
-        self.extensoes_imagem = (
-            'JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM',
-            'SVG', 'WebP',)
+        self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM'
+                                 , 'SVG', 'WebP',)
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
                                  'WEBM')
         self.extensoes_arq_txt = (
@@ -126,7 +125,8 @@ class ListandoPastas:
     def processo_busca(self):
         print('ok')
 
-    def combo_selecao_categoria(self, *args):
+    def combo_selecao_categoria(self):
+        print(self.extensoes_videos)
         valor_categoria = self.variavel_combo.get()
         if valor_categoria == 'Arquivos de Vídeo':
             for valor_lista in self.extensoes_videos:
