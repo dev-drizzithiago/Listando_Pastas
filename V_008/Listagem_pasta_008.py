@@ -15,7 +15,7 @@ hora_certa = valor_hora.strftime('%H:%M')
 class ListandoPastas:
     def __init__(self):
         # Variaveis geral
-        self.categorias = ('Todos', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
+        self.categorias = ('Limpar lista', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
                            'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM'
                                  , 'SVG', 'WebP',)
@@ -82,7 +82,7 @@ class ListandoPastas:
         janela_principal.mainloop()
 
     # INICIO DAS THREADS
-    def iniciar_busca(self, *args):
+    def thread_iniciar_busca(self, *args):
         Thread(target=self.janela_busca()).start()
 
     def iniciar_processo_busca(self, *args):
@@ -126,6 +126,7 @@ class ListandoPastas:
         print('ok')
 
     def combo_selecao_categoria(self, *args):
+        valor_extesao_selecionada = self.lista_principal.get(s)
         self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
         if valor_categoria == 'Arquivos de Vídeo':
@@ -140,7 +141,9 @@ class ListandoPastas:
         elif valor_categoria == 'Arquivos execução':
             for valor_lista in self.extensoes_de_app:
                 self.lista_principal.insert('end', valor_lista)
-                elif valor_categoria == ''
+        elif valor_categoria == 'Arquivos compreesão':
+            for valor_lista in self.extensoes_compreensao:
+                self.lista_principal.insert('end', valor_lista)
 
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
