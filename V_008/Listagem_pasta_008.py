@@ -182,8 +182,11 @@ class ListandoPastas:
         self.lista_principal.delete('0', 'end')
 
     def iniciando_processo_busca(self):
-
-        print('{self.valore}')
+        if len(self.valor_extesao_busca) == 0:            
+            print(f'{self.valor_extesao_busca}')
+            print('ok')
+        else:
+            print(self.valor_extesao_busca)
 
 
 obj_principal = ListandoPastas()
