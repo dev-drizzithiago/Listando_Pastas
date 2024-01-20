@@ -129,7 +129,8 @@ class ListandoPastas:
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
         if valor_categoria == 'Arquivos de Vídeo':
-            self.lista_busca.insert('end', self.extensoes_videos)
+            for valor_lista in self.extensoes_videos:
+                self.lista_busca.insert('end', valor_lista)
 
 
 obj_principal = ListandoPastas()
