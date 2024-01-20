@@ -125,7 +125,7 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def thead_iniciar_processo_busca(self, *args):
-        self.opcao_de_busca()
+        Thread(target=self.opcao_de_busca()).start()
         Thread(target=self.iniciando_processo_busca()).start()
 
     # ESCOLHA EXTENSÃO
