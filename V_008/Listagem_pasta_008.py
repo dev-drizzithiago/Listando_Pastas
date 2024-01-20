@@ -81,17 +81,8 @@ class ListandoPastas:
 
         janela_principal.mainloop()
 
-    # INICIO DAS THREADS
-    def thread_iniciar_busca(self, *args):
-        Thread(target=self.janela_busca()).start()
-
-    def thead_iniciar_processo_busca(self, *args):
-        Thread(target=self.processo_busca()).start()
-
-    # Janelas principais
     def janela_busca(self):
         # Funções da busca
-
         # janela busca
         self.janela_busca = Tk()
         self.janela_busca.config(padx=5, pady=5)
@@ -118,8 +109,16 @@ class ListandoPastas:
         label_botao_iniciar = LabelFrame(self.janela_busca, border=2)
         label_botao_iniciar.pack(anchor='center', fill='both')
         botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
-                                     command=self.iniciar_processo_busca)
+                                     command=self.thead_iniciar_processo_busca())
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
+
+
+    # INICIO DAS THREADS
+    def thread_iniciar_busca(self, *args):
+        Thread(target=self.janela_busca()).start()
+
+    def thead_iniciar_processo_busca(self, *args):
+        Thread(target=self.processo_busca()).start()
 
     def combo_selecao_categoria(self, *args):
         self.limpar_lista()
