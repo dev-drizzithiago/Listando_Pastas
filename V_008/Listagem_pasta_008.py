@@ -176,8 +176,7 @@ class ListandoPastas:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
         except:
-            print('23')
-            self.valor_extesao_busca = '123'
+            pass
 
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
