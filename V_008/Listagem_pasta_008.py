@@ -87,8 +87,6 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def iniciar_processo_busca(self, *args):
-        Thread(target=self.iniciar_barra_progresso()).start()
-        # Thread(target=self.step_progress()).start()
         Thread(target=self.teste()).start()
 
     # Janelas principais
@@ -125,23 +123,6 @@ class ListandoPastas:
                                      command=self.iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
-    def iniciar_barra_progresso(self):
-        self.janela_progresso = Tk()
-        self.janela_progresso.geometry('600x50')
-        label_frame_progress_busca = LabelFrame(self.janela_progresso, text='Progresso', border=1)
-        label_frame_progress_busca.pack(fill=BOTH, anchor='s', ipady=2, ipadx=2)
-        self.barra_progresso_busca = Progressbar(label_frame_progress_busca, orient=HORIZONTAL, mode='indeterminate')
-        self.barra_progresso_busca.pack(fill=BOTH, anchor='center', ipady=3, ipadx=3)
-        self.step_progress()
-
-    def step_progress(self):
-        for i in range(10):
-            self.janela_progresso.update_idletasks()
-            self.barra_progresso_busca['value'] += 10
-            sleep(0.5)
-
-    def teste(self):
-        print('teste')
 
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
