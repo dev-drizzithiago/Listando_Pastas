@@ -85,7 +85,7 @@ class ListandoPastas:
     def thread_iniciar_busca(self, *args):
         Thread(target=self.janela_busca()).start()
 
-    def iniciar_processo_busca(self, *args):
+    def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.processo_busca()).start()
 
     # Janelas principais
