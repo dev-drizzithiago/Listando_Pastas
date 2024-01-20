@@ -123,6 +123,7 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def thead_iniciar_processo_busca(self, *args):
+        Thread(target=self.opcao_de_busca()).start()
         Thread(target=self.processo_busca()).start()
 
     # ESCOLHA EXTENSÃO
@@ -159,12 +160,14 @@ class ListandoPastas:
 
         if self.ativo_Videos:
             for opcao_busca in valor_extensao_busca:
-                print(self.extensoes_videos[opcao_busca])
+                self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
+                print(self.valor_extesao_busca)
 
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
     def processo_busca(self):
+        print(self.valor_extesao_busca)
         print('ok')
 
 
