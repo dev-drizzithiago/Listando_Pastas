@@ -125,12 +125,12 @@ class ListandoPastas:
     def processo_busca(self):
         print('ok')
 
-    def combo_selecao_categoria(self):
+    def combo_selecao_categoria(self, *args):
         print(self.extensoes_videos)
         valor_categoria = self.variavel_combo.get()
         if valor_categoria == 'Arquivos de Vídeo':
             for valor_lista in self.extensoes_videos:
-                self.lista_busca.insert('end', valor_lista)
+                self.lista_principal.insert('end', valor_lista)
 
 
 obj_principal = ListandoPastas()
