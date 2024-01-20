@@ -126,11 +126,24 @@ class ListandoPastas:
         print('ok')
 
     def combo_selecao_categoria(self, *args):
-        print(self.extensoes_videos)
+        self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
         if valor_categoria == 'Arquivos de Vídeo':
             for valor_lista in self.extensoes_videos:
                 self.lista_principal.insert('end', valor_lista)
+        elif valor_categoria == 'Arquivo Imagem':
+            for valor_lista in self.extensoes_imagem:
+                self.lista_principal.insert('end', valor_lista)
+        elif valor_categoria == 'Arquivos de Leitura':
+            for valor_lista in self.extensoes_arq_txt:
+                self.lista_principal.insert('end', valor_lista)
+        elif valor_categoria == 'Arquivos execução':
+            for valor_lista in self.extensoes_de_app:
+                self.lista_principal.insert('end', valor_lista)
+                elif valor_categoria == ''
+
+    def limpar_lista(self):
+        self.lista_principal.delete('0', 'end')
 
 
 obj_principal = ListandoPastas()
