@@ -175,18 +175,15 @@ class ListandoPastas:
             elif self.ativo_arqzip:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
-        except TypeError:
+        except:
+            print('23')
             self.valor_extesao_busca = '123'
 
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
     def iniciando_processo_busca(self):
-        if len(self.valor_extesao_busca) == 0:            
-            print(f'{self.valor_extesao_busca}')
-            print('ok')
-        else:
-            print(self.valor_extesao_busca)
+        print(self.valor_extesao_busca)
 
 
 obj_principal = ListandoPastas()
