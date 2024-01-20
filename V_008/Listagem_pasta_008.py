@@ -132,18 +132,27 @@ class ListandoPastas:
         if valor_categoria == 'Arquivos de Vídeo':
             for valor_lista in self.extensoes_videos:
                 self.lista_principal.insert('end', valor_lista)
+            self.ativo_Videos = True
+
         elif valor_categoria == 'Arquivo Imagem':
             for valor_lista in self.extensoes_imagem:
                 self.lista_principal.insert('end', valor_lista)
+            self.ativo_imagem = True
+
         elif valor_categoria == 'Arquivos de Leitura':
             for valor_lista in self.extensoes_arq_txt:
                 self.lista_principal.insert('end', valor_lista)
+            self.ativo_textos = True
+
         elif valor_categoria == 'Arquivos execução':
             for valor_lista in self.extensoes_de_app:
                 self.lista_principal.insert('end', valor_lista)
+            self.ativo_execul = True
+
         elif valor_categoria == 'Arquivos compreesão':
             for valor_lista in self.extensoes_compreensao:
                 self.lista_principal.insert('end', valor_lista)
+            self.ativo_arqzip = True
 
     def opcao_de_busca(self):
         valor_extensao_busca = self.lista_principal.curselection()
