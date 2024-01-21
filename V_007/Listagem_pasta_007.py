@@ -107,6 +107,10 @@ class ListagemPastas:
         # Looping janela
         self.janela_principal.mainloop()
 
+    def add_extensao(self):
+        self.lista_ativa_especi = True
+        self.janela_inicio_busca()
+
     def tipos_extensao(self, *args):
         """
         Essa função está sendo destinada para escolhar uma categoria de arquivos, que o programa ira buscar.
