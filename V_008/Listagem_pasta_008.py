@@ -6,6 +6,7 @@ from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import *
 from tkinter.simpledialog import *
+from pathlib import Path
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
@@ -115,17 +116,22 @@ class ListandoPastas:
 
         # Label Frame botão iniciar
         label_botao_iniciar = LabelFrame(self.janela_busca, border=2)
-        label_botao_iniciar.pack(anchor='center', fill='both')
+        label_botao_iniciar.pack(anchor='w', fill='both')
         botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
                                      command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
-        # MENSAGEM EM GERAL
-        label_frame_msg_busca = LabelFrame(self.janela_busca, text='Extensão para ser processada!')
-        label_frame_msg_busca.pack(anchor='center')
+
+
+
+        # MENSAGEM EM GERAL        
+        label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
+        label_frame_msg_busca_geral.pack(anchor='center')
+        frame_msg_busca_local = Frame(label_frame_msg_busca_geral)
+        label_msg_busca_local = Label(label_frame_msg_busca_geral, text=destino_da_busca)
         self.var_msg_estatus = StringVar()
         self.var_msg_estatus.set(self.valor_status_msg)
-        label_msg_busca = Message(label_frame_msg_busca, text=self.var_msg_estatus.get(), relief='raised', justify='center')
+        label_msg_busca = Message(label_frame_msg_busca_geral, text=self.var_msg_estatus.get(), relief='raised', justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
@@ -197,6 +203,7 @@ class ListandoPastas:
 
     def iniciando_processo_busca(self):
         print(self.valor_extesao_busca)
+
 
 
 obj_principal = ListandoPastas()
