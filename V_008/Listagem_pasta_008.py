@@ -16,7 +16,8 @@ hora_certa = valor_hora.strftime('%H:%M')
 class ListandoPastas:
     def __init__(self):
         # Variaveis geral
-        pasta_destino_padrao = 
+        self.pasta_destino_padrao = Path.home()
+
         self.categorias = ('Limpar lista', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
                            'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM'
@@ -72,7 +73,7 @@ class ListandoPastas:
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
         botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
-                                     command=self.thread_iniciar_busca)
+                                     command=self.thread_iniciar_janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
@@ -137,17 +138,19 @@ class ListandoPastas:
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center')
         frame_msg_busca_local = Frame(label_frame_msg_busca_geral)
-        label_msg_busca_local = Label(label_frame_msg_busca_geral, text=self.destino_da_busca)
+        label_msg_busca_local = Label(label_frame_msg_busca_geral, text=self.conf.destino_da_busca)
         self.var_msg_estatus = StringVar()
         self.var_msg_estatus.set(self.valor_status_msg)
         label_msg_busca = Message(label_frame_msg_busca_geral, text=self.var_msg_estatus.get(), relief='raised', justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
-    def thread_iniciar_busca(self, *args):
+    def thread_iniciar_janela_busca(self, *args):
         Thread(target=self.opcao_de_busca()).start()
         Thread(target=self.janela_busca()).start()
 
+    def thead_iniciar_conf_destino(self):
+        Thread()
     def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.opcao_de_busca()).start()
         Thread(target=self.iniciando_processo_busca()).start()
@@ -207,9 +210,11 @@ class ListandoPastas:
         except:
             pass
 
+    # Funções simples
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
+    # Funções complexa
     def iniciando_processo_busca(self):
         print(self.valor_extesao_busca)
 
