@@ -122,7 +122,9 @@ class ListandoPastas:
         # MENSAGEM EM GERAL
         label_frame_msg_busca = LabelFrame(self.janela_busca, text='Extensão para ser processada!')
         label_frame_msg_busca.pack(anchor='center')
-        label_msg_busca = Message(label_frame_msg_busca, text=self.valor_extesao_busca, relief='raised', justify='center')
+        self.var_msg_estatus = Variable()
+        self.var_msg_estatus.set(self.valor_status_msg)
+        label_msg_busca = Message(label_frame_msg_busca, textvariable=self.var_msg_estatus, relief='raised', justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
@@ -173,15 +175,19 @@ class ListandoPastas:
             elif self.ativo_imagem:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
+                    self.valor_status_msg = self.extensoes_imagem[opcao_busca]
             elif self.ativo_textos:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_arq_txt[opcao_busca]
+                    self.valor_status_msg = self.extensoes_arq_txt[opcao_busca]
             elif self.ativo_execul:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_de_app[opcao_busca]
+                    self.valor_status_msg = self.extensoes_de_app[opcao_busca]
             elif self.ativo_arqzip:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
+                    self.valor_status_msg = self.extensoes_compreensao[opcao_busca]
         except:
             pass
 
