@@ -121,9 +121,7 @@ class ListandoPastas:
 
         # MENSAGEM EM GERAL
         label_frame_msg_busca = LabelFrame(self.janela_busca, text='Extensão para ser processada!')
-        label_frame_msg_busca.pack(fill=BOTH)
-        var_msg_busca = StringVar()
-        var_msg_busca.set('self.valor_extesao_busca')
+        label_frame_msg_busca.pack(anchor='center')
         label_msg_busca = Message(label_frame_msg_busca, text=self.valor_extesao_busca, relief='raised', justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
@@ -171,6 +169,7 @@ class ListandoPastas:
             if self.ativo_Videos:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
+                    self.valor_status_msg = self.extensoes_videos[opcao_busca]
             elif self.ativo_imagem:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
