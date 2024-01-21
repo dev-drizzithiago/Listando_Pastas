@@ -122,15 +122,16 @@ class ListandoPastas:
         # MENSAGEM EM GERAL
         label_frame_msg_busca = LabelFrame(self.janela_busca, text='Extensão para ser processada!')
         label_frame_msg_busca.pack(anchor='center')
-        self.var_msg_estatus = Variable()
+        self.var_msg_estatus = StringVar()
         self.var_msg_estatus.set(self.valor_status_msg)
-        label_msg_busca = Message(label_frame_msg_busca, textvariable=self.var_msg_estatus, relief='raised', justify='center')
+        label_msg_busca = Message(label_frame_msg_busca, textvariable=self.var_msg_estatus.get(), relief='raised', justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
     def thread_iniciar_busca(self, *args):
         Thread(target=self.opcao_de_busca()).start()
-        Thread(target=self.janela_busca()).start()
+
+        Thread(target=self.var_msg_estatus.get()).start()
 
     def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.opcao_de_busca()).start()
