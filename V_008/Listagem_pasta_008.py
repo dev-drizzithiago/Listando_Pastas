@@ -31,6 +31,7 @@ class ListandoPastas:
         self.ativo_textos = False
         self.ativo_execul = False
         self.ativo_arqzip = False
+        self.call_windows = False
 
         # janela princpal
         janela_principal = Tk()
