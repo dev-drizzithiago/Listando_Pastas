@@ -150,7 +150,8 @@ class ListandoPastas:
         Thread(target=self.janela_busca()).start()
 
     def thead_iniciar_conf_destino(self):
-        Thread()
+        Thread(target=self.conf.destino_da_busca()).start()
+
     def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.opcao_de_busca()).start()
         Thread(target=self.iniciando_processo_busca()).start()
@@ -215,6 +216,9 @@ class ListandoPastas:
         self.lista_principal.delete('0', 'end')
 
     # Funções complexa
+
+    def conf_destino_da_busca(self):
+
     def iniciando_processo_busca(self):
         print(self.valor_extesao_busca)
 
