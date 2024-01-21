@@ -119,9 +119,12 @@ class ListandoPastas:
                                      command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
+        # MENSAGEM EM GERAL
         label_frame_msg_busca = LabelFrame(self.janela_busca, text='Status da busca')
         label_frame_msg_busca.pack(fill=BOTH)
-        label_msg_busca = Message
+        var_msg_busca = StringVar()
+        label_msg_busca = Message(label_frame_msg_busca, textvariable=var_msg_busca, relief='raised')
+        label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
     def thread_iniciar_busca(self, *args):
