@@ -123,8 +123,8 @@ class ListandoPastas:
         label_frame_msg_busca = LabelFrame(self.janela_busca, text='Extensão para ser processada!')
         label_frame_msg_busca.pack(fill=BOTH)
         var_msg_busca = StringVar()
-        var_msg_busca.set(self.valor_extesao_busca)
-        label_msg_busca = Message(label_frame_msg_busca, textvariable=var_msg_busca, relief='raised', justify='center')
+        var_msg_busca.set('self.valor_extesao_busca')
+        label_msg_busca = Message(label_frame_msg_busca, text=self.valor_extesao_busca, relief='raised', justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
