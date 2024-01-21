@@ -1,11 +1,11 @@
-import tkinter
-from time import sleep
+
 from tkinter import *
 from tkinter.ttk import *
 from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import *
 from tkinter.simpledialog import *
+from tkinter.filedialog import askdirectory, asksaveasfile
 from pathlib import Path
 
 valor_hora = datetime.now()
@@ -217,6 +217,7 @@ class ListandoPastas:
 
     # Funções complexa
     def conf_destino_da_busca(self):
+        self.pasta_destino_padrao = ask
 
     def iniciando_processo_busca(self):
         print(self.valor_extesao_busca)
