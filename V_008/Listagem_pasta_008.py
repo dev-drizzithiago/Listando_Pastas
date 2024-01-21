@@ -115,20 +115,21 @@ class ListandoPastas:
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
         # Label Frame botão iniciar
-        label_botao_iniciar = LabelFrame(self.janela_busca, border=2)
-        label_botao_iniciar.pack(anchor='w', fill='both')
-        botao_iniciar_busca = Button(label_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
+        label_botao_geral = LabelFrame(self.janela_busca, border=2)
+        label_botao_geral.pack(anchor='center', fill='both')
+        frame_botao_iniciar = Frame(label_botao_geral)
+        botao_iniciar_busca = Button(label_botao_geral, text='Iniciar', border=5, width=20, height=1,
                                      command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
 
 
 
-        # MENSAGEM EM GERAL        
+        # MENSAGEM EM GERAL
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center')
         frame_msg_busca_local = Frame(label_frame_msg_busca_geral)
-        label_msg_busca_local = Label(label_frame_msg_busca_geral, text=destino_da_busca)
+        label_msg_busca_local = Label(label_frame_msg_busca_geral, text=self.destino_da_busca)
         self.var_msg_estatus = StringVar()
         self.var_msg_estatus.set(self.valor_status_msg)
         label_msg_busca = Message(label_frame_msg_busca_geral, text=self.var_msg_estatus.get(), relief='raised', justify='center')
