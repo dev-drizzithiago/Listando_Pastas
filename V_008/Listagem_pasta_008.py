@@ -117,10 +117,16 @@ class ListandoPastas:
         # Label Frame botão iniciar
         label_botao_geral = LabelFrame(self.janela_busca, border=2)
         label_botao_geral.pack(anchor='center', fill='both')
+
         frame_botao_iniciar = Frame(label_botao_geral)
-        botao_iniciar_busca = Button(label_botao_geral, text='Iniciar', border=5, width=20, height=1,
-                                     command=self.thead_iniciar_processo_busca)
+        frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
+        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1, command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
+
+        frame_botao_destino = Frame(label_botao_geral)
+        frame_botao_destino.pack(side='left', padx=5, pady=5)
+        botao_destino_busca = Button(frame_botao_destino, text='Escolher destino')
+        botao_destino_busca.pack(anchor='center')
 
 
 
