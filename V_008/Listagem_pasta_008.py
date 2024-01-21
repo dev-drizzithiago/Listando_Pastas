@@ -129,7 +129,9 @@ class ListandoPastas:
         self.var_destino = StringVar()
         frame_botao_destino = Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
-        label_info_destino = Label(frame_botao_destino, text='teste')
+        var_destino_da_busca = StringVar()
+        var_destino_da_busca.set(self.pasta_destino_padrao)
+        label_info_destino = Label(frame_botao_destino, text=var_destino_da_busca)
         label_info_destino.pack(anchor='n')
         botao_destino_busca = Button(frame_botao_destino, text='Escolher destino', border=2, command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
@@ -137,10 +139,6 @@ class ListandoPastas:
         # MENSAGEM EM GERAL
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center')
-        var_destino_busca = StringVar()
-        var_destino_busca.set(self.pasta_destino_padrao)
-        frame_msg_busca_local = Frame(label_frame_msg_busca_geral)
-        label_msg_busca_local = Label(label_frame_msg_busca_geral, text=var_destino_busca)
         self.var_msg_estatus = StringVar()
         self.var_msg_estatus.set(self.valor_status_msg)
         label_msg_busca = Message(label_frame_msg_busca_geral, text=self.var_msg_estatus.get(), relief='raised', justify='center')
@@ -217,12 +215,13 @@ class ListandoPastas:
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
-    # Funções complexas
+    # Funções complexa
     def conf_destino_da_busca(self):
         self.pasta_destino_padrao = Path(askdirectory())
 
     def iniciando_processo_busca(self):
         print(self.valor_extesao_busca)
+
 
 
 obj_principal = ListandoPastas()
