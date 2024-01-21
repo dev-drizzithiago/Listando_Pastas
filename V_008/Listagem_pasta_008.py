@@ -97,7 +97,7 @@ class ListandoPastas:
 
         self.janela_busca = Tk()
         self.janela_busca.config(padx=5, pady=5)
-        self.janela_busca.geometry('700x400')
+        self.janela_busca.geometry('700x500')
         self.janela_busca.title(f'Buscar por arquivos')
 
         # Label Frame horario
@@ -131,8 +131,8 @@ class ListandoPastas:
         frame_botao_destino.pack(side='left', padx=5, pady=5)
         self.var_destino_da_busca = StringVar()
         self.var_destino_da_busca.set(self.pasta_destino_padrao)
-        label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
-        label_info_destino.pack(anchor='n')
+        self.label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
+        self.label_info_destino.pack(anchor='n')
         botao_destino_busca = Button(frame_botao_destino, text='Escolher destino', border=2, command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
 
@@ -215,7 +215,7 @@ class ListandoPastas:
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
 
-    # Funções complexa
+    # Funções complexas
     def conf_destino_da_busca(self):
         self.pasta_destino_padrao = Path(askdirectory())
         self.var_destino_da_busca.set(self.pasta_destino_padrao)
