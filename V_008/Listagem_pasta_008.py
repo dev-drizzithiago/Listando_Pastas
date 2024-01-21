@@ -216,7 +216,6 @@ class ListandoPastas:
         self.lista_principal.delete('0', 'end')
 
     # Funções complexa
-
     def conf_destino_da_busca(self):
 
     def iniciando_processo_busca(self):
