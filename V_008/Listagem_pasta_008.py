@@ -16,6 +16,7 @@ hora_certa = valor_hora.strftime('%H:%M')
 class ListandoPastas:
     def __init__(self):
         # Variaveis geral
+        pasta_destino_padrao = 
         self.categorias = ('Limpar lista', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
                            'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM'
@@ -131,10 +132,6 @@ class ListandoPastas:
         label_info_destino.pack(anchor='n')
         botao_destino_busca = Button(frame_botao_destino, text='Escolher destino')
         botao_destino_busca.pack(anchor='center')
-
-
-
-
 
         # MENSAGEM EM GERAL
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
