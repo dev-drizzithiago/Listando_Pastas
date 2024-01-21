@@ -129,9 +129,9 @@ class ListandoPastas:
         self.var_destino = StringVar()
         frame_botao_destino = Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
-        var_destino_da_busca = StringVar()
-        var_destino_da_busca.set(self.pasta_destino_padrao)
-        label_info_destino = Label(frame_botao_destino, text=var_destino_da_busca)
+        self.var_destino_da_busca = StringVar()
+        self.var_destino_da_busca.set(self.pasta_destino_padrao)
+        label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
         label_info_destino.pack(anchor='n')
         botao_destino_busca = Button(frame_botao_destino, text='Escolher destino', border=2, command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
@@ -218,6 +218,7 @@ class ListandoPastas:
     # Funções complexa
     def conf_destino_da_busca(self):
         self.pasta_destino_padrao = Path(askdirectory())
+        self.var_destino_da_busca.set(self.pasta_destino_padrao)
 
     def iniciando_processo_busca(self):
         print(self.valor_extesao_busca)
