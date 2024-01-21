@@ -125,6 +125,7 @@ class ListandoPastas:
 
 
 
+
         # MENSAGEM EM GERAL
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center')
