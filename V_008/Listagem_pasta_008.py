@@ -210,8 +210,9 @@ class ListandoPastas:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
                     self.valor_status_msg = self.extensoes_compreensao[opcao_busca]
+            print(self.var_msg_estatus.get())
         except:
-            pass
+            self.valor_extesao_busca = 'ALL'
 
     # Funções simples
     def limpar_lista(self):
