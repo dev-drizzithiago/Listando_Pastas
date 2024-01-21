@@ -126,6 +126,7 @@ class ListandoPastas:
         botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1, command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
+        # INFORMAÇÃO SOBRE DESTINO
         self.var_destino = StringVar()
         frame_botao_destino = Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
@@ -133,7 +134,7 @@ class ListandoPastas:
         self.var_destino_da_busca.set(self.pasta_destino_padrao)
         self.label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
         self.label_info_destino.pack(anchor='n')
-        botao_destino_busca = Button(frame_botao_destino, text='Escolher destino', border=2, command=self.conf_destino_da_busca)
+        botao_destino_busca = Button(frame_botao_destino, text='Escolher destino ou destino', border=2, command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
 
         # MENSAGEM EM GERAL
@@ -141,7 +142,7 @@ class ListandoPastas:
         label_frame_msg_busca_geral.pack(anchor='center')
         self.var_msg_estatus = StringVar()
         self.var_msg_estatus.set(self.valor_status_msg)
-        label_msg_busca = Message(label_frame_msg_busca_geral, text=self.var_msg_estatus.get(), relief='raised', justify='center')
+        label_msg_busca = Message(label_frame_msg_busca_geral, textvariable=self.var_msg_estatus.get(), relief='raised', justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
