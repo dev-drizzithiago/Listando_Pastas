@@ -141,10 +141,10 @@ class ListandoPastas:
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center')
 
-        self.var_msg_estatus = StringVar()
-        self.var_msg_estatus.set(self.valor_extesao_busca)
-        label_msg_busca = Message(label_frame_msg_busca_geral, textvariable=self.var_msg_estatus.get(), relief='raised',
-                                  justify='center')
+        var_msg_estatus = StringVar()
+        var_msg_estatus.set(self.valor_extesao_busca)
+        print(self.valor_extesao_busca)
+        label_msg_busca = Label(label_frame_msg_busca_geral, textvariable=var_msg_estatus.get(), relief='raised')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
@@ -190,6 +190,7 @@ class ListandoPastas:
 
     def opcao_de_busca(self):
         valor_extensao_busca_lista = self.lista_principal.curselection()
+        
         if self.ativo_Videos:
             for opcao_busca in valor_extensao_busca_lista:
                 self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
