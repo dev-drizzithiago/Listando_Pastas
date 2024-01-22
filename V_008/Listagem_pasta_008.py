@@ -146,6 +146,7 @@ class ListandoPastas:
         label_msg_busca = Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
         label_msg_busca.config(text=self.valor_extesao_busca)
+        
     # INICIO DAS THREADS
     def thread_iniciar_janela_busca(self):
         Thread(target=self.janela_busca()).start()
