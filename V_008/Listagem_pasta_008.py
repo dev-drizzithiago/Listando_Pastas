@@ -122,7 +122,7 @@ class ListandoPastas:
         # BARRA ROLAGEM
         barra_rolagem_busca_Y = Scrollbar(label_frame_lista_busca)
         barra_rolagem_busca_Y.pack(fill=Y, side='right')
-        barra_ralagem_busta_X = Scrollbar(label_frame_lista_busca)
+        barra_ralagem_busta_X = Scrollbar(label_frame_lista_busca, orient=HORIZONTAL)
         barra_ralagem_busta_X.pack(fill=X, side='bottom')
 
         self.variavel_lista_busca = IntVar()
@@ -130,6 +130,8 @@ class ListandoPastas:
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
         barra_rolagem_busca_Y.config(command=self.lista_busca.yview)
         self.lista_busca.config(yscrollcommand=barra_rolagem_busca_Y.set)
+        barra_ralagem_busta_X.config(command=self.lista_busca.xview)
+        self.lista_busca.config(xscrollcommand=barra_ralagem_busta_X.set)
 
         # Label Frame botão
         label_botao_geral = LabelFrame(self.janela_busca, border=2)
@@ -138,8 +140,7 @@ class ListandoPastas:
         # botao iniciar
         frame_botao_iniciar = Frame(label_botao_geral)
         frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
-        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
-                                     command=self.thead_iniciar_processo_busca)
+        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1, command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
