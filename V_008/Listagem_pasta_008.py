@@ -154,7 +154,7 @@ class ListandoPastas:
         Thread(target=self.conf_destino_da_busca()).start()
 
     def thead_iniciar_processo_busca(self, *args):
-        self.opcao_de_busca()
+        Thread(target=self.opcao_de_busca())
         Thread(target=self.iniciando_processo_busca()).start()
 
     # ESCOLHA EXTENSÃO
@@ -225,8 +225,9 @@ class ListandoPastas:
                 valor_da_busca = ''
             else:
                 valor_da_busca = self.valor_extesao_busca
-            print(valor_da_busca)
-            print(self.pasta_destino_padrao)
+                pasta_destino = Path(self.pasta_destino_padrao)
+                for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
+                    print(resultado_da_busca)
         except:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
