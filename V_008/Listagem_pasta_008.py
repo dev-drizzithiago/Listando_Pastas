@@ -212,7 +212,6 @@ class ListandoPastas:
                 for opcao_busca in valor_extensao_busca_lista:
                     self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
                     self.valor_status_msg = self.extensoes_compreensao[opcao_busca]
-            print(self.var_msg_estatus.get())
         except:
             self.valor_extesao_busca = 'ALL'
 
@@ -226,12 +225,13 @@ class ListandoPastas:
         self.var_destino_da_busca.set(self.pasta_destino_padrao)
 
     def iniciando_processo_busca(self):
-        print(self.valor_extesao_busca)
+        # print(self.valor_extesao_busca)
         try:
-            if (self.valor_extesao_busca) == 0:
+            if len(self.valor_extesao_busca) == 0:
                 valor_da_busca = ''
             else:
-                valor_da_busca = ''
+                valor_da_busca = self.valor_extesao_busca
+            print(valor_da_busca)
         except:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
