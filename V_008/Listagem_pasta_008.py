@@ -119,14 +119,15 @@ class ListandoPastas:
         label_lista_busca = Label(self.janela_busca, text='Arquivos encontrados:')
         label_lista_busca.pack(side='top', padx=5, pady=5)
 
-        barra_rolagem_busca = Scrollbar(label_frame_lista_busca)
-        barra_rolagem_busca.pack(fill=Y, side='right')
+        # BARRA ROLAGEM
+        barra_rolagem_busca_Y = Scrollbar(label_frame_lista_busca)
+        barra_rolagem_busca_Y.pack(fill=Y, side='right')
+        barra_ralagem_busta_X = Scrollbar()
         self.variavel_lista_busca = IntVar()
         self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE, justify='left')
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
         barra_rolagem_busca.config(command=self.lista_busca.yview)
         self.lista_busca.config(yscrollcommand=barra_rolagem_busca.set)
-
 
         # Label Frame botão
         label_botao_geral = LabelFrame(self.janela_busca, border=2)
@@ -146,8 +147,7 @@ class ListandoPastas:
         self.var_destino_da_busca.set(f'Destino padrão - [{self.pasta_destino_padrao}]')
         self.label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
         self.label_info_destino.pack(anchor='n')
-        botao_destino_busca = Button(frame_botao_destino, text='Escolher outro destino', border=2,
-                                     command=self.conf_destino_da_busca)
+        botao_destino_busca = Button(frame_botao_destino, text='Escolher outro destino', border=2, command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
 
         # MENSAGEM EM GERAL
