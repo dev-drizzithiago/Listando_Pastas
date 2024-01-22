@@ -142,14 +142,13 @@ class ListandoPastas:
         label_frame_msg_busca_geral.pack(anchor='center')
 
         self.var_msg_estatus = StringVar()
-        self.var_msg_estatus.set(self.valor_status_msg)
+        self.var_msg_estatus.set(self.valor_extesao_busca)
         label_msg_busca = Message(label_frame_msg_busca_geral, textvariable=self.var_msg_estatus.get(), relief='raised',
                                   justify='center')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
-    def thread_iniciar_janela_busca(self, *args):
-
+    def thread_iniciar_janela_busca(self):
         Thread(target=self.janela_busca()).start()
         Thread(target=self.opcao_de_busca()).start()
 
@@ -191,29 +190,21 @@ class ListandoPastas:
 
     def opcao_de_busca(self):
         valor_extensao_busca_lista = self.lista_principal.curselection()
-        try:
-            if self.ativo_Videos:
-                for opcao_busca in valor_extensao_busca_lista:
-                    self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
-                    self.valor_status_msg = self.extensoes_videos[opcao_busca]
-            elif self.ativo_imagem:
-                for opcao_busca in valor_extensao_busca_lista:
-                    self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
-                    self.valor_status_msg = self.extensoes_imagem[opcao_busca]
-            elif self.ativo_textos:
-                for opcao_busca in valor_extensao_busca_lista:
-                    self.valor_extesao_busca = self.extensoes_arq_txt[opcao_busca]
-                    self.valor_status_msg = self.extensoes_arq_txt[opcao_busca]
-            elif self.ativo_execul:
-                for opcao_busca in valor_extensao_busca_lista:
-                    self.valor_extesao_busca = self.extensoes_de_app[opcao_busca]
-                    self.valor_status_msg = self.extensoes_de_app[opcao_busca]
-            elif self.ativo_arqzip:
-                for opcao_busca in valor_extensao_busca_lista:
-                    self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
-                    self.valor_status_msg = self.extensoes_compreensao[opcao_busca]
-        except:
-            self.valor_extesao_busca = 'ALL'
+        if self.ativo_Videos:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
+        elif self.ativo_imagem:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
+        elif self.ativo_textos:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_arq_txt[opcao_busca]
+        elif self.ativo_execul:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_de_app[opcao_busca]
+        elif self.ativo_arqzip:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
 
     # Funções simples
     def limpar_lista(self):
