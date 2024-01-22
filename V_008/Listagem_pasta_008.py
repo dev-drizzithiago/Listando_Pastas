@@ -127,7 +127,8 @@ class ListandoPastas:
         barra_ralagem_busta_X.pack(fill=X, side='bottom')
 
         self.variavel_lista_busca = IntVar()
-        self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE, justify='left')
+        self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
+                                   justify='left')
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
         barra_rolagem_busca_Y.config(command=self.lista_busca.yview)
@@ -142,7 +143,8 @@ class ListandoPastas:
         # botao iniciar
         frame_botao_iniciar = Frame(label_botao_geral)
         frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
-        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1, command=self.thead_iniciar_processo_busca)
+        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
+                                     command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
         # BOTAO SAIR
@@ -150,7 +152,7 @@ class ListandoPastas:
         frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
         botao_fechar_app = Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20, height=1,
                                   command=self.fechar_janela_busca)
-        botao_fechar_app.pack(anchor='center', ipady=5, ypadx=5)
+        botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = Frame(label_botao_geral)
@@ -159,7 +161,8 @@ class ListandoPastas:
         self.var_destino_da_busca.set(f'Destino padrão - [{self.pasta_destino_padrao}]')
         self.label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
         self.label_info_destino.pack(anchor='n')
-        botao_destino_busca = Button(frame_botao_destino, text='Escolher outro destino', border=2, command=self.conf_destino_da_busca)
+        botao_destino_busca = Button(frame_botao_destino, text='Escolher outro destino', border=2,
+                                     command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
 
         # MENSAGEM EM GERAL
@@ -180,7 +183,6 @@ class ListandoPastas:
     def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.opcao_de_busca())
         Thread(target=self.iniciando_processo_busca()).start()
-
 
     def fechar_janela_busca(self):
         try:
