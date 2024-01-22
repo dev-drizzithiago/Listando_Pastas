@@ -79,7 +79,7 @@ class ListandoPastas:
         label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
         botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
-                                     command=self.janela_busca)
+                                     command=self.thread_iniciar_janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
@@ -102,7 +102,6 @@ class ListandoPastas:
         # Funções da busca
         # janela busca
 
-        self.opcao_de_busca()
         self.janela_busca = Tk()
         self.janela_busca.config(padx=5, pady=5)
         self.janela_busca.geometry('900x500')
@@ -143,7 +142,7 @@ class ListandoPastas:
         # botao iniciar
         frame_botao_iniciar = Frame(label_botao_geral)
         frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
-        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1, command=self.iniciando_processo_busca)
+        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1, command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
@@ -162,6 +161,18 @@ class ListandoPastas:
         label_frame_msg_busca_geral.pack(anchor='center', fill=BOTH)
         self.label_msg_busca = Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
+
+    # INICIO DAS THREADS
+    def thread_iniciar_janela_busca(self):
+        Thread(target=self.janela_busca()).start()
+        Thread(target=self.opcao_de_busca()).start()
+
+    def thead_iniciar_conf_destino(self):
+        Thread(target=self.conf_destino_da_busca()).start()
+
+    def thead_iniciar_processo_busca(self, *args):
+        Thread(target=self.opcao_de_busca())
+        Thread(target=self.iniciando_processo_busca()).start()
 
     # ESCOLHA EXTENSÃO
     def combo_selecao_categoria(self, *args):
@@ -226,13 +237,14 @@ class ListandoPastas:
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
     def iniciando_processo_busca(self):
-        self.limpar_lista()
-        if len(self.valor_extesao_busca) == 0:
-            valor_da_busca = ''
-        else:
-            valor_da_busca = self.valor_extesao_busca
-            
+
         try:
+            self.limpar_lista()
+            if len(self.valor_extesao_busca) == 0:
+                valor_da_busca = ''
+            else:
+                valor_da_busca = self.valor_extesao_busca
+
             pasta_destino = Path(self.pasta_destino_padrao)
             for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
                 if resultado_da_busca.is_file():
