@@ -78,7 +78,8 @@ class ListandoPastas:
         label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
                                                width=20, height=1)
         label_frame_botao_especif.pack(side='left')
-        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=20, height=1)
+        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=20,
+                                        height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
@@ -138,14 +139,12 @@ class ListandoPastas:
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
 
         # MENSAGEM EM GERAL
-        '''
         var_msg_estatus = StringVar()
-        var_msg_estatus.set(self.valor_extesao_busca)
+        var_msg_estatus.set('teste')
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
-        label_frame_msg_busca_geral.pack(anchor='center')
-        label_msg_busca = Label(label_frame_msg_busca_geral, textvariable=var_msg_estatus.get(), relief='raised')
-        label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
-        '''
+        label_frame_msg_busca_geral.pack(anchor='center', fill=BOTH)
+        label_msg_busca = Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
+        label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
     def thread_iniciar_janela_busca(self):
