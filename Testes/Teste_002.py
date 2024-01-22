@@ -22,7 +22,7 @@ class Teste_002:
         self.janela_princial.mainloop()
 
     def atualizar(self):
-        self.var_label.set('teste1')
+        self.label_001.config(text='teste1')
 
 
 obj_iniciar = Teste_002()
