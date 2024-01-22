@@ -148,7 +148,9 @@ class ListandoPastas:
         # BOTAO SAIR
         frame_botao_fechar_app = Frame(label_botao_geral)
         frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
-        botao_fechar_app = Button(frame_botao_fechar_app, text='Voltar para o menu principal', command=fechar_janela busca)
+        botao_fechar_app = Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20, height=1,
+                                  command=self.fechar_janela_busca)
+        botao_fechar_app.pack(anchor='center', ipady=5, ypadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = Frame(label_botao_geral)
