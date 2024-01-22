@@ -130,7 +130,7 @@ class ListandoPastas:
         frame_botao_destino = Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
         self.var_destino_da_busca = StringVar()
-        self.var_destino_da_busca.set(self.pasta_destino_padrao)
+        self.var_destino_da_busca.set(f'Destino padrão - [{self.pasta_destino_padrao}]')
         self.label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
         self.label_info_destino.pack(anchor='n')
         botao_destino_busca = Button(frame_botao_destino, text='Escolher destino ou destino', border=2,
@@ -142,7 +142,6 @@ class ListandoPastas:
         var_msg_estatus.set(self.valor_extesao_busca)
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center')
-        print(self.valor_extesao_busca)
         label_msg_busca = Label(label_frame_msg_busca_geral, textvariable=var_msg_estatus.get(), relief='raised')
         label_msg_busca.pack(anchor='center', fill=BOTH, ipady=4, ipadx=4)
 
@@ -155,7 +154,7 @@ class ListandoPastas:
         Thread(target=self.conf_destino_da_busca()).start()
 
     def thead_iniciar_processo_busca(self, *args):
-        Thread(target=self.opcao_de_busca()).start()
+        self.opcao_de_busca()
         Thread(target=self.iniciando_processo_busca()).start()
 
     # ESCOLHA EXTENSÃO
@@ -212,8 +211,7 @@ class ListandoPastas:
     # Funções complexas
     def conf_destino_da_busca(self):
         self.pasta_destino_padrao = Path(askdirectory())
-        self.var_destino_da_busca.set(self.pasta_destino_padrao)
-        self.janela_busca.update()
+        showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
     def iniciando_processo_busca(self):
         # print(self.valor_extesao_busca)
