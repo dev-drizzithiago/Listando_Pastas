@@ -227,7 +227,7 @@ class ListandoPastas:
                 valor_da_busca = self.valor_extesao_busca
                 pasta_destino = Path(self.pasta_destino_padrao)
                 for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
-                    print(resultado_da_busca)
+                    Thread(self.lista_busca.insert('end', resultado_da_busca))
         except:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
