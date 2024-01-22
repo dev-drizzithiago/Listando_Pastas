@@ -206,7 +206,6 @@ class ListandoPastas:
         try:
             self.label_msg_busca.config(text=self.valor_extesao_busca)
         except AttributeError:
-            print(len(self.valor_extesao_busca))
             pass
 
     # Funções simples
