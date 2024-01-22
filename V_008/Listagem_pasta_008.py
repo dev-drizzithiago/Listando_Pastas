@@ -140,13 +140,12 @@ class ListandoPastas:
 
         # MENSAGEM EM GERAL
         var_msg_estatus = StringVar()
-
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center', fill=BOTH)
-        label_msg_busca = Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
-        label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
-        label_msg_busca.config(text=self.valor_extesao_busca)
-        
+        self.label_msg_busca = Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
+        self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
+
+
     # INICIO DAS THREADS
     def thread_iniciar_janela_busca(self):
         Thread(target=self.janela_busca()).start()
@@ -205,7 +204,8 @@ class ListandoPastas:
         elif self.ativo_arqzip:
             for opcao_busca in valor_extensao_busca_lista:
                 self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
-
+        self.label_msg_busca.config(text=self.valor_extesao_busca)
+        
     # Funções simples
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
