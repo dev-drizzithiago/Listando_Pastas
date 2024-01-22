@@ -58,6 +58,10 @@ class ListandoPastas:
         self.combo_principal.pack(fill=BOTH, pady=5, padx=5)
         self.variavel_combo.trace('w', self.combo_selecao_categoria)
 
+        # Barra rolagem principal
+
+        barra_rolagem = Scrollbar(janela_principal, orient=VERTICAL)
+
         # lista principal
         self.variavel_lista_principal = IntVar()
         label_frame_lista = LabelFrame(janela_principal, text='Escolha uma extensão')
@@ -112,7 +116,7 @@ class ListandoPastas:
         label_frame_lista_busca.pack(fill=BOTH)
         label_lista_busca = Label(self.janela_busca, text='Arquivos encontrados:')
         label_lista_busca.pack(side='top', padx=5, pady=5)
-        barra_rolagem_busca = Scrollbar(label_frame_lista_busca, orient=HORIZONTAL)
+        barra_rolagem_busca = Scrollbar(label_frame_lista_busca, orient=VERTICAL)
         self.variavel_lista_busca = IntVar()
         self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE, justify='left')
         self.lista_busca.config(yscrollcommand=barra_rolagem_busca.set)
