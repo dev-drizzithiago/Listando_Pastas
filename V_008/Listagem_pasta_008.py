@@ -223,6 +223,7 @@ class ListandoPastas:
     def conf_destino_da_busca(self):
         self.pasta_destino_padrao = Path(askdirectory())
         self.var_destino_da_busca.set(self.pasta_destino_padrao)
+        self.janela_busca.update()
 
     def iniciando_processo_busca(self):
         # print(self.valor_extesao_busca)
