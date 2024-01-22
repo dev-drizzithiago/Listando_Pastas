@@ -212,6 +212,7 @@ class ListandoPastas:
     # Funções complexas
     def conf_destino_da_busca(self):
         self.pasta_destino_padrao = Path(askdirectory())
+        self.label_info_destino['text'] = self.pasta_destino_padrao
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
     def iniciando_processo_busca(self):
