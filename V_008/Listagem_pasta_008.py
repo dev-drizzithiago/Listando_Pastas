@@ -234,16 +234,16 @@ class ListandoPastas:
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
     def iniciando_processo_busca(self):
-        # print(self.valor_extesao_busca)
         self.limpar_lista()
         try:
             if len(self.valor_extesao_busca) == 0:
                 valor_da_busca = ''
             else:
                 valor_da_busca = self.valor_extesao_busca
-                pasta_destino = Path(self.pasta_destino_padrao)
-                for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
-                    Thread(self.lista_busca.insert('end', resultado_da_busca))
+                
+            pasta_destino = Path(self.pasta_destino_padrao)
+            for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
+                Thread(self.lista_busca.insert('end', resultado_da_busca))
         except:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
