@@ -107,13 +107,17 @@ class ListandoPastas:
         label_hora_data.pack(anchor='center')
 
         # Listagem da busca
+        barra_rolagem_busca = Scrollbar(self.janela_busca, orient=VERTICAL)
+        barra_rolagem_busca.pack(fill=BOTH, side='right', pady=1, padx=1)
         label_frame_lista_busca = LabelFrame(self.janela_busca, text='Resultado da Busca', border=2)
         label_frame_lista_busca.pack(fill=BOTH)
         label_lista_busca = Label(label_frame_lista_busca, text='Arquivos encontrados:')
         label_lista_busca.pack(side='top', padx=5, pady=5)
         self.variavel_lista_busca = IntVar()
         self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
-                                   justify='center')
+                                   justify='left')
+        self.lista_busca.config(yscrollcommand=barra_rolagem_busca.set)
+        barra_rolagem_busca.config(command=self.lista_busca.yview)
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
 
         # Label Frame botão
