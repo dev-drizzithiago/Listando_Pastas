@@ -134,7 +134,7 @@ class ListandoPastas:
         self.var_destino_da_busca.set(f'Destino padrão - [{self.pasta_destino_padrao}]')
         self.label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
         self.label_info_destino.pack(anchor='n')
-        botao_destino_busca = Button(frame_botao_destino, text='Escolher destino ou destino', border=2,
+        botao_destino_busca = Button(frame_botao_destino, text='Escolher outro destino', border=2,
                                      command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
 
