@@ -57,7 +57,7 @@ class ListandoPastas:
         self.combo_principal.current()
         self.combo_principal.pack(fill=BOTH, pady=5, padx=5)
         self.variavel_combo.trace('w', self.combo_selecao_categoria)
-              
+
         # lista principal
         self.variavel_lista_principal = IntVar()
         label_frame_lista = LabelFrame(janela_principal, text='Escolha uma extensão')
@@ -65,9 +65,11 @@ class ListandoPastas:
         # Barra rolagem principal
         barra_rolagem = Scrollbar(label_frame_lista)
         barra_rolagem.pack(side=RIGHT, fill=Y)
-        self.lista_principal = Listbox(label_frame_lista, selectmode=SINGLE, justify='center')
 
+        self.lista_principal = Listbox(label_frame_lista, selectmode=SINGLE, justify='center')
         self.lista_principal.pack(fill=BOTH, pady=3, padx=3)
+        barra_rolagem.config(command=self.lista_principal.yview)
+        self.lista_principal.config(yscrollcommand=barra_rolagem.set)
 
 
         # Botoes
