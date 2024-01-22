@@ -145,6 +145,11 @@ class ListandoPastas:
         botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1, command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
+        # BOTAO SAIR
+        frame_botao_fechar_app = Frame(label_botao_geral)
+        frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
+        botao_fechar_app = Button(frame_botao_fechar_app, text='Voltar para o menu principal', command=fechar_janela busca)
+
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
@@ -173,6 +178,13 @@ class ListandoPastas:
     def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.opcao_de_busca())
         Thread(target=self.iniciando_processo_busca()).start()
+
+
+    def fechar_janela_busca(self):
+        try:
+            self.janela_busca.destroy()
+        except:
+            self.janela_busca.destroy()
 
     # ESCOLHA EXTENSÃO
     def combo_selecao_categoria(self, *args):
@@ -243,7 +255,7 @@ class ListandoPastas:
             valor_da_busca = ''
         else:
             valor_da_busca = self.valor_extesao_busca
-            
+
         try:
             pasta_destino = Path(self.pasta_destino_padrao)
             for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
