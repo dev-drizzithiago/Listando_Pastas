@@ -122,12 +122,14 @@ class ListandoPastas:
         # BARRA ROLAGEM
         barra_rolagem_busca_Y = Scrollbar(label_frame_lista_busca)
         barra_rolagem_busca_Y.pack(fill=Y, side='right')
-        barra_ralagem_busta_X = Scrollbar()
+        barra_ralagem_busta_X = Scrollbar(label_frame_lista_busca)
+        barra_ralagem_busta_X.pack(fill=X, side='bottom')
+
         self.variavel_lista_busca = IntVar()
         self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE, justify='left')
         self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
-        barra_rolagem_busca.config(command=self.lista_busca.yview)
-        self.lista_busca.config(yscrollcommand=barra_rolagem_busca.set)
+        barra_rolagem_busca_Y.config(command=self.lista_busca.yview)
+        self.lista_busca.config(yscrollcommand=barra_rolagem_busca_Y.set)
 
         # Label Frame botão
         label_botao_geral = LabelFrame(self.janela_busca, border=2)
