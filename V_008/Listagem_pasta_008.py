@@ -140,6 +140,7 @@ class ListandoPastas:
         # MENSAGEM EM GERAL
         label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
         label_frame_msg_busca_geral.pack(anchor='center')
+
         self.var_msg_estatus = StringVar()
         self.var_msg_estatus.set(self.valor_status_msg)
         label_msg_busca = Message(label_frame_msg_busca_geral, textvariable=self.var_msg_estatus.get(), relief='raised',
@@ -148,8 +149,9 @@ class ListandoPastas:
 
     # INICIO DAS THREADS
     def thread_iniciar_janela_busca(self, *args):
-        Thread(target=self.opcao_de_busca()).start()
+
         Thread(target=self.janela_busca()).start()
+        Thread(target=self.opcao_de_busca()).start()
 
     def thead_iniciar_conf_destino(self):
         Thread(target=self.conf_destino_da_busca()).start()
@@ -225,6 +227,13 @@ class ListandoPastas:
 
     def iniciando_processo_busca(self):
         print(self.valor_extesao_busca)
+        try:
+            if (self.valor_extesao_busca) == 0:
+                valor_da_busca = ''
+            else:
+                valor_da_busca = ''
+        except:
+            showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
 
 obj_principal = ListandoPastas()
