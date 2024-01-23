@@ -75,7 +75,7 @@ class CorpoPrincipal:
         label_frame_botao_princial.pack(fill=tk.BOTH)
         label_frame_iniciar_busca = tk.LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
-        
+
         botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
                                         command=self.janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
@@ -96,9 +96,9 @@ class CorpoPrincipal:
 
         janela_principal.mainloop()
 
-    def janela_busca(self):
+    def janela_busca(self):  # 1 PROCESSO
         # chamar função
-        self.thread_iniciar_opcao_de_busca()
+        self.thread_iniciar_opcao_de_busca()  # # 2 PROCESSO JANELA BUSCA
 
         # janela busca
         self.janela_busca = tk.Tk()
@@ -173,7 +173,7 @@ class CorpoPrincipal:
 
     # INICIO DAS THREADS
     def thread_iniciar_opcao_de_busca(self):
-        Thread(target=self.opcao_de_busca()).start()
+        Thread(target=self.opcao_de_busca()).start()  # 2 PROCESSO JANELA BUSCA
 
     def thead_iniciar_conf_destino(self):
         Thread(target=self.conf_destino_da_busca()).start()
@@ -210,7 +210,7 @@ class CorpoPrincipal:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_arqzip = True
 
-    def opcao_de_busca(self):
+    def opcao_de_busca(self):  # 2 PROCESSO JANELA BUSCA
         valor_extensao_busca_lista = self.lista_principal.curselection()
         if self.ativo_Videos:
             for opcao_busca in valor_extensao_busca_lista:
