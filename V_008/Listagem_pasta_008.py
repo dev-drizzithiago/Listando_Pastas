@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter.ttk import Combobox
 from threading import Thread
 from datetime import datetime
-from tkinter.messagebox import *
-from tkinter.simpledialog import *
-from tkinter.filedialog import askdirectory, asksaveasfile
+from tkinter.messagebox import showinfo, showerror
+# from tkinter.simpledialog import *
+from tkinter.filedialog import askdirectory
 from pathlib import Path
 
 valor_hora = datetime.now()
