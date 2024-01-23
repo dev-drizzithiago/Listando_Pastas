@@ -56,43 +56,43 @@ class CorpoPrincipal:
         self.combo_principal['values'] = self.categorias
         self.combo_principal.set('Escolha uma categoria')
         self.combo_principal.current()
-        self.combo_principal.pack(fill=BOTH, pady=5, padx=5)
+        self.combo_principal.pack(fill=tk.BOTH, pady=5, padx=5)
         self.variavel_combo.trace('w', self.combo_selecao_categoria)
 
         # lista principal
-        self.variavel_lista_principal = IntVar()
-        label_frame_lista = LabelFrame(janela_principal, text='Escolha uma extensão')
-        label_frame_lista.pack(side='top', fill=BOTH)
+        self.variavel_lista_principal = tk.IntVar()
+        label_frame_lista = tk.LabelFrame(janela_principal, text='Escolha uma extensão')
+        label_frame_lista.pack(side='top', fill=tk.BOTH)
         # Barra rolagem principal
-        barra_rolagem = Scrollbar(label_frame_lista)
-        barra_rolagem.pack(side=RIGHT, fill=Y)
+        barra_rolagem = tk.Scrollbar(label_frame_lista)
+        barra_rolagem.pack(side=tk.RIGHT, fill=Y)
 
-        self.lista_principal = Listbox(label_frame_lista, selectmode=SINGLE, justify='center')
-        self.lista_principal.pack(fill=BOTH, pady=3, padx=3)
+        self.lista_principal = tk.Listbox(label_frame_lista, selectmode=tk.SINGLE, justify='center')
+        self.lista_principal.pack(fill=tk.BOTH, pady=3, padx=3)
         barra_rolagem.config(command=self.lista_principal.yview)
         self.lista_principal.config(yscrollcommand=barra_rolagem.set)
 
         # Botoes
-        label_frame_botao_princial = LabelFrame(janela_principal, text="Escolha uma Opcão")
-        label_frame_botao_princial.pack(fill=BOTH)
+        label_frame_botao_princial = tk.LabelFrame(janela_principal, text="Escolha uma Opcão")
+        label_frame_botao_princial.pack(fill=tk.BOTH)
 
-        label_frame_iniciar_busca = LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
+        label_frame_iniciar_busca = tk.LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
-        botao_iniciar_busca = Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
+        botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
                                      command=self.thread_iniciar_janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
-        label_frame_botao_especif = LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
+        label_frame_botao_especif = tk.LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
                                                width=20, height=1)
         label_frame_botao_especif.pack(side='left')
-        botao_busca_especifica = Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=20,
+        botao_busca_especifica = tk.Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=20,
                                         height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
-        label_frame_sair_programa = LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
+        label_frame_sair_programa = tk.LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
                                                height=1)
         label_frame_sair_programa.pack(side='right')
-        botao_sair_programa = Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1,
+        botao_sair_programa = tk.Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1,
                                      command=janela_principal.destroy)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
@@ -102,34 +102,34 @@ class CorpoPrincipal:
         # Funções da busca
         # janela busca
 
-        self.janela_busca = Tk()
+        self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
         self.janela_busca.geometry('900x500')
         self.janela_busca.title(f'Buscar por arquivos')
 
         # Label Frame horario
-        label_frame_hora = LabelFrame(self.janela_busca, text='Hora Certa')
-        label_frame_hora.pack(fill=BOTH)
-        label_hora_data = Label(label_frame_hora, text=f'{data_certa} - {hora_certa}', justify='center')
+        label_frame_hora = tk.LabelFrame(self.janela_busca, text='Hora Certa')
+        label_frame_hora.pack(fill=tk.BOTH)
+        label_hora_data = tk.Label(label_frame_hora, text=f'{data_certa} - {hora_certa}', justify='center')
         label_hora_data.pack(anchor='center')
 
         # Listagem da busca
 
-        label_frame_lista_busca = LabelFrame(self.janela_busca, text='Resultado da Busca', border=2)
-        label_frame_lista_busca.pack(fill=BOTH)
-        label_lista_busca = Label(self.janela_busca, text='Arquivos encontrados:')
+        label_frame_lista_busca = tk.LabelFrame(self.janela_busca, text='Resultado da Busca', border=2)
+        label_frame_lista_busca.pack(fill=tk.BOTH)
+        label_lista_busca = tk.Label(self.janela_busca, text='Arquivos encontrados:')
         label_lista_busca.pack(side='top', padx=5, pady=5)
 
         # BARRA ROLAGEM
-        barra_rolagem_busca_Y = Scrollbar(label_frame_lista_busca)
+        barra_rolagem_busca_Y = tk.Scrollbar(label_frame_lista_busca)
         barra_rolagem_busca_Y.pack(fill=Y, side='right')
-        barra_ralagem_busta_X = Scrollbar(label_frame_lista_busca, orient=HORIZONTAL)
+        barra_ralagem_busta_X = tk.Scrollbar(label_frame_lista_busca, orient=tk.HORIZONTAL)
         barra_ralagem_busta_X.pack(fill=X, side='bottom')
 
-        self.variavel_lista_busca = IntVar()
-        self.lista_busca = Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
+        self.variavel_lista_busca = tk.IntVar()
+        self.lista_busca = tk.Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
                                    justify='left')
-        self.lista_busca.pack(fill=BOTH, anchor='center', padx=5, pady=5)
+        self.lista_busca.pack(fill=tk.BOTH, anchor='center', padx=5, pady=5)
 
         barra_rolagem_busca_Y.config(command=self.lista_busca.yview)
         self.lista_busca.config(yscrollcommand=barra_rolagem_busca_Y.set)
@@ -137,25 +137,25 @@ class CorpoPrincipal:
         self.lista_busca.config(xscrollcommand=barra_ralagem_busta_X.set)
 
         # Label Frame botão
-        label_botao_geral = LabelFrame(self.janela_busca, border=2)
+        label_botao_geral = tk.LabelFrame(self.janela_busca, border=2)
         label_botao_geral.pack(anchor='center', fill='both')
 
         # botao iniciar
-        frame_botao_iniciar = Frame(label_botao_geral)
+        frame_botao_iniciar = tk.Frame(label_botao_geral)
         frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
-        botao_iniciar_busca = Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
+        botao_iniciar_busca = tk.Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
                                      command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
         # BOTAO SAIR
-        frame_botao_fechar_app = Frame(label_botao_geral)
+        frame_botao_fechar_app = tk.Frame(label_botao_geral)
         frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
-        botao_fechar_app = Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20, height=1,
+        botao_fechar_app = tk.Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20, height=1,
                                   command=self.fechar_janela_busca)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
-        frame_botao_destino = Frame(label_botao_geral)
+        frame_botao_destino = tk.Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
         self.var_destino_da_busca = StringVar()
         self.var_destino_da_busca.set(f'Destino padrão - [{self.pasta_destino_padrao}]')
