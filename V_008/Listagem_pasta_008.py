@@ -1,5 +1,5 @@
-from tkinter import *
-from tkinter.ttk import *
+import tkinter as tk
+from tkinter.ttk import Combobox
 from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import *
@@ -12,7 +12,7 @@ data_certa = valor_hora.strftime('%d/%m/%Y')
 hora_certa = valor_hora.strftime('%H:%M')
 
 
-class ListandoPastas:
+class CorpoPrincipal:
     def __init__(self):
         # Variaveis geral
         self.pasta_destino_padrao = Path.home()
@@ -37,21 +37,21 @@ class ListandoPastas:
         self.destino_ativo = False
 
         # janela princpal
-        janela_principal = Tk()
+        janela_principal = tk.Tk()
         janela_principal.geometry('450x450')
         janela_principal.config(padx=5, pady=5)
         janela_principal.title('V_008')
 
         # Relogio
-        label_frame_relogio = LabelFrame(janela_principal, text='Hora Certa')
-        label_frame_relogio.pack(anchor='center', fill=BOTH)
-        label_hora = Label(label_frame_relogio, text=f'{data_certa} - {hora_certa}', justify='center')
+        label_frame_relogio = tk.LabelFrame(janela_principal, text='Hora Certa')
+        label_frame_relogio.pack(anchor='center', fill=tk.BOTH)
+        label_hora = tk.Label(label_frame_relogio, text=f'{data_certa} - {hora_certa}', justify='center')
         label_hora.pack(anchor='center')
 
         # Combo
-        self.variavel_combo = StringVar()
-        label_frame_combo = LabelFrame(janela_principal, text='Categorias de arquivos')
-        label_frame_combo.pack(fill=BOTH)
+        self.variavel_combo = tk.StringVar()
+        label_frame_combo = tk.LabelFrame(janela_principal, text='Categorias de arquivos')
+        label_frame_combo.pack(fill=tk.BOTH)
         self.combo_principal = Combobox(label_frame_combo, textvariable=self.variavel_combo, justify='center')
         self.combo_principal['values'] = self.categorias
         self.combo_principal.set('Escolha uma categoria')
