@@ -99,10 +99,7 @@ class CorpoPrincipal:
         janela_principal.mainloop()
 
     def janela_busca(self):
-        # Funções da busca
         # janela busca
-        # self.thread_iniciar_janela_busca()
-        self.janela_busca()
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
         self.janela_busca.geometry('900x500')
@@ -152,8 +149,7 @@ class CorpoPrincipal:
         frame_botao_fechar_app = tk.Frame(label_botao_geral)
         frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
         botao_fechar_app = tk.Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20,
-                                     height=1,
-                                     command=self.fechar_janela_busca)
+                                     height=1, command=self.janela_busca.destroy)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
@@ -175,9 +171,9 @@ class CorpoPrincipal:
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
-    # def thread_iniciar_janela_busca(self):
+    def thread_iniciar_janela_busca(self):
         # Thread(target=self.janela_busca()).start()
-    #    Thread(target=self.opcao_de_busca()).start()
+        Thread(target=self.opcao_de_busca()).start()
 
     def thead_iniciar_conf_destino(self):
         Thread(target=self.conf_destino_da_busca()).start()
@@ -185,12 +181,6 @@ class CorpoPrincipal:
     def thead_iniciar_processo_busca(self, *args):
         Thread(target=self.opcao_de_busca())
         Thread(target=self.iniciando_processo_busca()).start()
-
-    def fechar_janela_busca(self):
-        try:
-            self.janela_busca.destroy()
-        except:
-            self.janela_busca.destroy()
 
     # ESCOLHA EXTENSÃO
     def combo_selecao_categoria(self, *args):
