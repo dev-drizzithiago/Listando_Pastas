@@ -16,7 +16,6 @@ class CorpoPrincipal:
     def __init__(self):
         # Variaveis geral
         self.lista_busca_save = list()
-        self.valor_extensao_busca = None
         self.pasta_destino_padrao = Path.home()
 
         self.categorias = ('Limpar lista', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
@@ -237,11 +236,8 @@ class CorpoPrincipal:
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
     def iniciando_processo_busca(self):
-
-        if len(self.valor_extensao_busca) == 0:
-            valor_da_busca = ''
-        else:
-            valor_da_busca = self.valor_extensao_busca
+        print(self.valor_extensao_busca)
+        valor_da_busca = self.valor_extensao_busca
 
         try:
             pasta_destino = Path(self.pasta_destino_padrao)
