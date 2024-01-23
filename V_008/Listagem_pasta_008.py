@@ -174,6 +174,9 @@ class CorpoPrincipal:
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
+    def thread_iniciar_combo_selecao(self):
+        Thread(target=self.combo_selecao_categoria).start()
+
     def thread_iniciar_janela_busca(self):
         # Thread(target=self.janela_busca()).start()
         Thread(target=self.opcao_de_busca()).start()
