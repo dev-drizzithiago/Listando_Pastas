@@ -172,14 +172,13 @@ class CorpoPrincipal:
 
     # INICIO DAS THREADS
     def thread_iniciar_janela_busca(self):
-        Thread(target=self.opcao_de_busca()).start()
         Thread(target=self.janela_busca()).start()
+        Thread(target=self.opcao_de_busca()).start()
 
     def thead_iniciar_conf_destino(self):
         Thread(target=self.conf_destino_da_busca()).start()
 
     def thead_iniciar_processo_busca(self, *args):
-        Thread(target=self.opcao_de_busca())
         Thread(target=self.iniciando_processo_busca()).start()
 
     # ESCOLHA EXTENSÃO
@@ -243,6 +242,9 @@ class CorpoPrincipal:
         self.pasta_destino_padrao = Path(askdirectory())
         self.label_info_destino['text'] = self.pasta_destino_padrao
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
+
+    def busca_por_tudo(self):
+        self.valor_extesao_busca = ['']
 
     def iniciando_processo_busca(self):
 
