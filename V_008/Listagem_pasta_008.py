@@ -98,7 +98,27 @@ class CorpoPrincipal:
         janela_principal.mainloop()
 
     def janela_busca(self):
-        self.thead_iniciar_processo_busca()
+        global valor_selecao
+        valor_opcao_selecao = self.lista_principal.curselection()
+        print(valor_opcao_selecao)
+        for valor_selecao in valor_opcao_selecao:
+            pass
+
+        if self.ativo_Videos:
+            self.valor_extensao_busca = self.extensoes_videos[valor_selecao]
+
+        elif self.ativo_imagem:
+            self.valor_extensao_busca = self.extensoes_imagem[valor_selecao]
+
+        elif self.ativo_textos:
+            self.valor_extensao_busca = self.extensoes_arq_txt[valor_selecao]
+
+        elif self.ativo_execul:
+            self.valor_extensao_busca = self.extensoes_de_app[valor_selecao]
+
+        elif self.ativo_arqzip:
+            self.valor_extensao_busca = self.extensoes_compreensao[valor_selecao]
+        print(self.valor_extensao_busca)
 
         # Janela de busca
         self.janela_busca = tk.Tk()
@@ -171,12 +191,6 @@ class CorpoPrincipal:
         self.label_msg_busca = tk.Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
-    # THREADS
-    def thead_iniciar_processo_busca(self):
-        Thread(target=self.iniciando_processo_busca()).start()
-
-    def threa_iniciar_opcao_extensao(self):
-        Thread(target=self.iniciando_opcao_extensao()).start()
 
     # FUNCOES
     def combo_selecao_categoria(self, *args):
@@ -206,27 +220,7 @@ class CorpoPrincipal:
             for valor_lista in self.extensoes_compreensao:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_arqzip = True
-
-    def iniciando_opcao_extensao(self):
-        global valor_selecao
-        valor_opcao_selecao = self.lista_principal.curselection()
-        for valor_selecao in valor_opcao_selecao:
-            pass
-
-        if self.ativo_Videos:
-            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_videos[valor_selecao]
-
-        elif self.ativo_imagem:
-            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_imagem[valor_selecao]
-
-        elif self.ativo_textos:
-            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_arq_txt[valor_selecao]
-
-        elif self.ativo_execul:
-            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_de_app[valor_selecao]
-
-        elif self.ativo_arqzip:
-            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_compreensao[valor_selecao]
+        print(valor_categoria)
 
     # Funções complexas
     def conf_destino_da_busca(self):
@@ -234,6 +228,14 @@ class CorpoPrincipal:
         self.pasta_destino_padrao = Path(askdirectory())
         self.label_info_destino['text'] = self.pasta_destino_padrao
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
+
+        # THREADS
+
+    def thead_iniciar_processo_busca(self):
+        Thread(target=self.iniciando_processo_busca()).start()
+
+    def thread_save_busca(self):
+        pass
 
     def iniciando_processo_busca(self):
         print(self.valor_extensao_busca)
