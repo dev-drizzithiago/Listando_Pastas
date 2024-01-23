@@ -177,7 +177,7 @@ class CorpoPrincipal:
         Thread(target=self.iniciando_processo_busca()).start()
 
     def threa_iniciar_opcao_extensao(self):
-        pass
+        Thread(target=self.iniciando_opcao_extensao()).start()
 
     # FUNCOES
     def combo_selecao_categoria(self, *args):
