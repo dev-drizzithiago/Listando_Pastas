@@ -97,8 +97,8 @@ class CorpoPrincipal:
 
         janela_principal.mainloop()
 
-    def janela_busca(self):  # 1 PROCESSO
-        # selecionando a extensão
+    def janela_busca(self):
+        self.thead_iniciar_processo_busca()
 
         # Janela de busca
         self.janela_busca = tk.Tk()
