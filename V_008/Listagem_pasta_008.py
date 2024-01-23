@@ -62,7 +62,7 @@ class CorpoPrincipal:
         # lista principal
         self.variavel_lista_principal = tk.IntVar()
         label_frame_lista = tk.LabelFrame(janela_principal, text='Escolha uma extensão')  # label_frame_lista
-        label_frame_lista.pack(side='top', fill=tk.BOTH)   # label_frame_lista
+        label_frame_lista.pack(side='top', fill=tk.BOTH)  # label_frame_lista
         barra_rolagem = tk.Scrollbar(label_frame_lista)  # Barra rolagem principal
         barra_rolagem.pack(side=tk.RIGHT, fill=tk.Y)  # Barra rolagem principal
         self.lista_principal = tk.Listbox(label_frame_lista, selectmode=tk.SINGLE, justify='center')  # Lista Principal
@@ -97,10 +97,25 @@ class CorpoPrincipal:
         janela_principal.mainloop()
 
     def janela_busca(self):  # 1 PROCESSO
-        # chamar função
-        self.thread_iniciar_opcao_de_busca()  # # 2 PROCESSO JANELA BUSCA
-
         # janela busca
+
+        valor_extensao_busca_lista = self.lista_principal.curselection()
+        if self.ativo_Videos:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
+        elif self.ativo_imagem:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
+        elif self.ativo_textos:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_arq_txt[opcao_busca]
+        elif self.ativo_execul:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_de_app[opcao_busca]
+        elif self.ativo_arqzip:
+            for opcao_busca in valor_extensao_busca_lista:
+                self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
+        print(self.valor_extesao_busca)
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
         self.janela_busca.geometry('900x500')
@@ -171,17 +186,11 @@ class CorpoPrincipal:
         self.label_msg_busca = tk.Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
-    # INICIO DAS THREADS
-    def thread_iniciar_opcao_de_busca(self):
-        Thread(target=self.opcao_de_busca()).start()  # 2 PROCESSO JANELA BUSCA
+    # THREADS
 
-    def thead_iniciar_conf_destino(self):
-        Thread(target=self.conf_destino_da_busca()).start()
-
-    def thead_iniciar_processo_busca(self, *args):
+    def thead_iniciar_processo_busca(self):
         Thread(target=self.iniciando_processo_busca()).start()
 
-    # ESCOLHA EXTENSÃO
     def combo_selecao_categoria(self, *args):
         self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
@@ -210,28 +219,6 @@ class CorpoPrincipal:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_arqzip = True
 
-    def opcao_de_busca(self):  # 2 PROCESSO JANELA BUSCA
-        valor_extensao_busca_lista = self.lista_principal.curselection()
-        if self.ativo_Videos:
-            for opcao_busca in valor_extensao_busca_lista:
-                self.valor_extesao_busca = self.extensoes_videos[opcao_busca]
-        elif self.ativo_imagem:
-            for opcao_busca in valor_extensao_busca_lista:
-                self.valor_extesao_busca = self.extensoes_imagem[opcao_busca]
-        elif self.ativo_textos:
-            for opcao_busca in valor_extensao_busca_lista:
-                self.valor_extesao_busca = self.extensoes_arq_txt[opcao_busca]
-        elif self.ativo_execul:
-            for opcao_busca in valor_extensao_busca_lista:
-                self.valor_extesao_busca = self.extensoes_de_app[opcao_busca]
-        elif self.ativo_arqzip:
-            for opcao_busca in valor_extensao_busca_lista:
-                self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
-        try:
-            self.label_msg_busca.config(text=self.valor_extesao_busca)
-        except AttributeError:
-            pass
-
     # Funções simples
     def limpar_lista(self):
         self.lista_principal.delete('0', 'end')
@@ -242,9 +229,6 @@ class CorpoPrincipal:
         self.pasta_destino_padrao = Path(askdirectory())
         self.label_info_destino['text'] = self.pasta_destino_padrao
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
-
-    def busca_por_tudo(self):
-        self.valor_extesao_busca = ['']
 
     def iniciando_processo_busca(self):
 
