@@ -79,7 +79,7 @@ class CorpoPrincipal:
         label_frame_iniciar_busca = tk.LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
         botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
-                                        command=self.janela_busca)
+                                        command=self.thread_iniciar_janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = tk.LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
@@ -172,8 +172,8 @@ class CorpoPrincipal:
 
     # INICIO DAS THREADS
     def thread_iniciar_janela_busca(self):
-        # Thread(target=self.janela_busca()).start()
         Thread(target=self.opcao_de_busca()).start()
+        Thread(target=self.janela_busca()).start()
 
     def thead_iniciar_conf_destino(self):
         Thread(target=self.conf_destino_da_busca()).start()
