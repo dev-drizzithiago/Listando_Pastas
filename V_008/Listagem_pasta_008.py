@@ -207,7 +207,12 @@ class CorpoPrincipal:
             self.ativo_arqzip = True
 
     def iniciando_opcao_extensao(self):
-        
+        global valor_selecao
+        valor_opcao_selecao = self.lista_principal.curselection()
+        for valor_selecao in valor_opcao_selecao:
+            pass
+        if self.ativo_Videos:
+            self.valor_extensao_busca = self.extensoes_videos[valor_selecao]
 
     # Funções simples
     def limpar_lista(self):
