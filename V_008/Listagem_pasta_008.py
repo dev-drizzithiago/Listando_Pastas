@@ -101,7 +101,8 @@ class CorpoPrincipal:
     def janela_busca(self):
         # Funções da busca
         # janela busca
-        self.thread_iniciar_janela_busca()
+        # self.thread_iniciar_janela_busca()
+        self.janela_busca()
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
         self.janela_busca.geometry('900x500')
@@ -174,9 +175,9 @@ class CorpoPrincipal:
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
-    def thread_iniciar_janela_busca(self):
+    # def thread_iniciar_janela_busca(self):
         # Thread(target=self.janela_busca()).start()
-        Thread(target=self.opcao_de_busca()).start()
+    #    Thread(target=self.opcao_de_busca()).start()
 
     def thead_iniciar_conf_destino(self):
         Thread(target=self.conf_destino_da_busca()).start()
