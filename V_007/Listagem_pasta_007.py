@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter.ttk import *
 from pathlib import Path
 from datetime import datetime
+from threading import Thread
 from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
@@ -90,7 +91,7 @@ class ListagemPastas:
 
         # botões
         self.botao_iniciar_busca = tk.Button(self.label_frame_003, text='Iniciar Busca', bg='#DAA520', border=3,
-                                             borderwidth=2, font=13, relief='raised', command=self.janela_inicio_busca)
+                                             borderwidth=2, font=13, relief='raised', command=self.thread_inicio_busca)
 
         self.botao_iniciar_busca.pack(fill='both', padx=3, pady=3)
 
@@ -152,6 +153,9 @@ class ListagemPastas:
             tk.messagebox.showinfo('AVISO IMPORTANTE', 'Para buscar por todos os arquivos, aperte o botão'
                                                        '\n">> Busca especifica <<"')
             self.lista_ativa_especi = True
+
+    def thread_inicio_busca(self):
+        Thread(target=self.janela_inicio_busca()).start()
 
     def janela_inicio_busca(self):
         self.lista_salves_busca = list()
