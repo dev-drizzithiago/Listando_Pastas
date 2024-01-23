@@ -96,8 +96,36 @@ class CorpoPrincipal:
 
         janela_principal.mainloop()
 
+    def combo_selecao_categoria(self, *args):
+        self.limpar_lista()
+        valor_categoria = self.variavel_combo.get()
+        if valor_categoria == 'Arquivos de Vídeo':
+            for valor_lista in self.extensoes_videos:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_Videos = True
+
+        elif valor_categoria == 'Arquivo Imagem':
+            for valor_lista in self.extensoes_imagem:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_imagem = True
+
+        elif valor_categoria == 'Arquivos de Leitura':
+            for valor_lista in self.extensoes_arq_txt:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_textos = True
+
+        elif valor_categoria == 'Arquivos execução':
+            for valor_lista in self.extensoes_de_app:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_execul = True
+
+        elif valor_categoria == 'Arquivos compreesão':
+            for valor_lista in self.extensoes_compreensao:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_arqzip = True
+
     def janela_busca(self):  # 1 PROCESSO
-        # janela busca
+        # selecionando a extensão
 
         valor_extensao_busca_lista = self.lista_principal.curselection()
         if self.ativo_Videos:
@@ -115,7 +143,8 @@ class CorpoPrincipal:
         elif self.ativo_arqzip:
             for opcao_busca in valor_extensao_busca_lista:
                 self.valor_extesao_busca = self.extensoes_compreensao[opcao_busca]
-        print(self.valor_extesao_busca)
+
+        # Janela de busca
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
         self.janela_busca.geometry('900x500')
@@ -187,37 +216,8 @@ class CorpoPrincipal:
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
     # THREADS
-
     def thead_iniciar_processo_busca(self):
         Thread(target=self.iniciando_processo_busca()).start()
-
-    def combo_selecao_categoria(self, *args):
-        self.limpar_lista()
-        valor_categoria = self.variavel_combo.get()
-        if valor_categoria == 'Arquivos de Vídeo':
-            for valor_lista in self.extensoes_videos:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_Videos = True
-
-        elif valor_categoria == 'Arquivo Imagem':
-            for valor_lista in self.extensoes_imagem:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_imagem = True
-
-        elif valor_categoria == 'Arquivos de Leitura':
-            for valor_lista in self.extensoes_arq_txt:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_textos = True
-
-        elif valor_categoria == 'Arquivos execução':
-            for valor_lista in self.extensoes_de_app:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_execul = True
-
-        elif valor_categoria == 'Arquivos compreesão':
-            for valor_lista in self.extensoes_compreensao:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_arqzip = True
 
     # Funções simples
     def limpar_lista(self):
