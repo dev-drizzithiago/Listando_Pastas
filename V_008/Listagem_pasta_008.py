@@ -181,7 +181,7 @@ class CorpoPrincipal:
 
     # FUNCOES
     def combo_selecao_categoria(self, *args):
-        self.limpar_lista()
+        # self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
         if valor_categoria == 'Arquivos de Vídeo':
             for valor_lista in self.extensoes_videos:
