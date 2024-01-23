@@ -15,7 +15,7 @@ hora_certa = valor_hora.strftime('%H:%M')
 class CorpoPrincipal:
     def __init__(self):
         # Variaveis geral
-        self.lista_busca_save = None
+        self.lista_busca_save = list()
         self.valor_extensao_busca = None
         self.pasta_destino_padrao = Path.home()
 
@@ -213,8 +213,21 @@ class CorpoPrincipal:
         valor_opcao_selecao = self.lista_principal.curselection()
         for valor_selecao in valor_opcao_selecao:
             pass
+
         if self.ativo_Videos:
-            self.valor_extensao_busca = self.extensoes_videos[valor_selecao]
+            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_videos[valor_selecao]
+
+        elif self.ativo_imagem:
+            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_imagem[valor_selecao]
+
+        elif self.ativo_textos:
+            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_arq_txt[valor_selecao]
+
+        elif self.ativo_execul:
+            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_de_app[valor_selecao]
+
+        elif self.ativo_arqzip:
+            self.valor_extensao_busca, self.lista_busca_save = self.extensoes_compreensao[valor_selecao]
 
     # Funções simples
     def limpar_lista(self):
@@ -230,10 +243,10 @@ class CorpoPrincipal:
     def iniciando_processo_busca(self):
 
         self.limpar_lista()
-        if len(self.valor_extesao_busca) == 0:
+        if len(self.valor_extensao_busca) == 0:
             valor_da_busca = ''
         else:
-            valor_da_busca = self.valor_extesao_busca
+            valor_da_busca = self.valor_extensao_busca
 
         try:
             pasta_destino = Path(self.pasta_destino_padrao)
