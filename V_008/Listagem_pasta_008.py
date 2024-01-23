@@ -65,7 +65,7 @@ class CorpoPrincipal:
         label_frame_lista.pack(side='top', fill=tk.BOTH)
         # Barra rolagem principal
         barra_rolagem = tk.Scrollbar(label_frame_lista)
-        barra_rolagem.pack(side=tk.RIGHT, fill=Y)
+        barra_rolagem.pack(side=tk.RIGHT, fill=tk.Y)
 
         self.lista_principal = tk.Listbox(label_frame_lista, selectmode=tk.SINGLE, justify='center')
         self.lista_principal.pack(fill=tk.BOTH, pady=3, padx=3)
@@ -79,21 +79,21 @@ class CorpoPrincipal:
         label_frame_iniciar_busca = tk.LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
         botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
-                                     command=self.thread_iniciar_janela_busca)
+                                        command=self.thread_iniciar_janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = tk.LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
-                                               width=20, height=1)
+                                                  width=20, height=1)
         label_frame_botao_especif.pack(side='left')
         botao_busca_especifica = tk.Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=20,
-                                        height=1)
+                                           height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = tk.LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
-                                               height=1)
+                                                  height=1)
         label_frame_sair_programa.pack(side='right')
         botao_sair_programa = tk.Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1,
-                                     command=janela_principal.destroy)
+                                        command=janela_principal.destroy)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
         janela_principal.mainloop()
@@ -122,13 +122,13 @@ class CorpoPrincipal:
 
         # BARRA ROLAGEM
         barra_rolagem_busca_Y = tk.Scrollbar(label_frame_lista_busca)
-        barra_rolagem_busca_Y.pack(fill=Y, side='right')
+        barra_rolagem_busca_Y.pack(fill=tk.Y, side='right')
         barra_ralagem_busta_X = tk.Scrollbar(label_frame_lista_busca, orient=tk.HORIZONTAL)
-        barra_ralagem_busta_X.pack(fill=X, side='bottom')
+        barra_ralagem_busta_X.pack(fill=tk.X, side='bottom')
 
         self.variavel_lista_busca = tk.IntVar()
-        self.lista_busca = tk.Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca, selectmode=SINGLE,
-                                   justify='left')
+        self.lista_busca = tk.Listbox(label_frame_lista_busca, listvariable=self.variavel_lista_busca,
+                                      selectmode=tk.SINGLE, justify='left')
         self.lista_busca.pack(fill=tk.BOTH, anchor='center', padx=5, pady=5)
 
         barra_rolagem_busca_Y.config(command=self.lista_busca.yview)
@@ -144,32 +144,33 @@ class CorpoPrincipal:
         frame_botao_iniciar = tk.Frame(label_botao_geral)
         frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
         botao_iniciar_busca = tk.Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
-                                     command=self.thead_iniciar_processo_busca)
+                                        command=self.thead_iniciar_processo_busca)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
         # BOTAO SAIR
         frame_botao_fechar_app = tk.Frame(label_botao_geral)
         frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
-        botao_fechar_app = tk.Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20, height=1,
-                                  command=self.fechar_janela_busca)
+        botao_fechar_app = tk.Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20,
+                                     height=1,
+                                     command=self.fechar_janela_busca)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = tk.Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
-        self.var_destino_da_busca = StringVar()
+        self.var_destino_da_busca = tk.StringVar()
         self.var_destino_da_busca.set(f'Destino padrão - [{self.pasta_destino_padrao}]')
-        self.label_info_destino = Label(frame_botao_destino, text=self.var_destino_da_busca.get())
+        self.label_info_destino = tk.Label(frame_botao_destino, text=self.var_destino_da_busca.get())
         self.label_info_destino.pack(anchor='n')
-        botao_destino_busca = Button(frame_botao_destino, text='Escolher outro destino', border=2,
-                                     command=self.conf_destino_da_busca)
+        botao_destino_busca = tk.Button(frame_botao_destino, text='Escolher outro destino', border=2,
+                                        command=self.conf_destino_da_busca)
         botao_destino_busca.pack(anchor='center', padx=4, pady=4)
 
         # MENSAGEM EM GERAL
-        var_msg_estatus = StringVar()
-        label_frame_msg_busca_geral = LabelFrame(self.janela_busca, text='Valores do a serem processados!')
-        label_frame_msg_busca_geral.pack(anchor='center', fill=BOTH)
-        self.label_msg_busca = Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
+        var_msg_estatus = tk.StringVar()
+        label_frame_msg_busca_geral = tk.LabelFrame(self.janela_busca, text='Valores do a serem processados!')
+        label_frame_msg_busca_geral.pack(anchor='center', fill=tk.BOTH)
+        self.label_msg_busca = tk.Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
 
     # INICIO DAS THREADS
@@ -271,4 +272,4 @@ class CorpoPrincipal:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
 
-obj_principal = ListandoPastas()
+obj_principal = CorpoPrincipal()
