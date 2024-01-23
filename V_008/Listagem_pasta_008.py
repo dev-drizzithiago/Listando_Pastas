@@ -61,23 +61,21 @@ class CorpoPrincipal:
 
         # lista principal
         self.variavel_lista_principal = tk.IntVar()
-        label_frame_lista = tk.LabelFrame(janela_principal, text='Escolha uma extensão')
-        label_frame_lista.pack(side='top', fill=tk.BOTH)
-        # Barra rolagem principal
-        barra_rolagem = tk.Scrollbar(label_frame_lista)
-        barra_rolagem.pack(side=tk.RIGHT, fill=tk.Y)
-
-        self.lista_principal = tk.Listbox(label_frame_lista, selectmode=tk.SINGLE, justify='center')
-        self.lista_principal.pack(fill=tk.BOTH, pady=3, padx=3)
-        barra_rolagem.config(command=self.lista_principal.yview)
-        self.lista_principal.config(yscrollcommand=barra_rolagem.set)
+        label_frame_lista = tk.LabelFrame(janela_principal, text='Escolha uma extensão')  # label_frame_lista
+        label_frame_lista.pack(side='top', fill=tk.BOTH)   # label_frame_lista
+        barra_rolagem = tk.Scrollbar(label_frame_lista)  # Barra rolagem principal
+        barra_rolagem.pack(side=tk.RIGHT, fill=tk.Y)  # Barra rolagem principal
+        self.lista_principal = tk.Listbox(label_frame_lista, selectmode=tk.SINGLE, justify='center')  # Lista Principal
+        self.lista_principal.pack(fill=tk.BOTH, pady=3, padx=3)  # Lista Principal
+        barra_rolagem.config(command=self.lista_principal.yview)  # Barra rolagem principal
+        self.lista_principal.config(yscrollcommand=barra_rolagem.set)  # Barra rolagem principal
 
         # Botoes
         label_frame_botao_princial = tk.LabelFrame(janela_principal, text="Escolha uma Opcão")
         label_frame_botao_princial.pack(fill=tk.BOTH)
-
         label_frame_iniciar_busca = tk.LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
+        
         botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
                                         command=self.janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
