@@ -181,8 +181,8 @@ class CorpoPrincipal:
 
     # FUNCOES
     def combo_selecao_categoria(self, *args):
-        # self.limpar_lista()
         valor_categoria = self.variavel_combo.get()
+        self.lista_principal.delete('0', 'end')
         if valor_categoria == 'Arquivos de Vídeo':
             for valor_lista in self.extensoes_videos:
                 self.lista_principal.insert('end', valor_lista)
@@ -229,10 +229,6 @@ class CorpoPrincipal:
         elif self.ativo_arqzip:
             self.valor_extensao_busca, self.lista_busca_save = self.extensoes_compreensao[valor_selecao]
 
-    # Funções simples
-    def limpar_lista(self):
-        self.lista_principal.delete('0', 'end')
-
     # Funções complexas
     def conf_destino_da_busca(self):
         self.destino_ativo = True
@@ -242,7 +238,6 @@ class CorpoPrincipal:
 
     def iniciando_processo_busca(self):
 
-        self.limpar_lista()
         if len(self.valor_extensao_busca) == 0:
             valor_da_busca = ''
         else:
