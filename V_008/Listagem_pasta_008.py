@@ -15,6 +15,8 @@ hora_certa = valor_hora.strftime('%H:%M')
 class CorpoPrincipal:
     def __init__(self):
         # Variaveis geral
+        self.lista_busca_save = None
+        self.valor_extensao_busca = None
         self.pasta_destino_padrao = Path.home()
 
         self.categorias = ('Limpar lista', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
