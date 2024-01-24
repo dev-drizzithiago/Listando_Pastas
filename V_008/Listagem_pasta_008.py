@@ -132,6 +132,8 @@ class CorpoPrincipal:
 
     def fechar_janela_busca(self):
         self.janela_busca.destroy()
+        self.lista_principal.delete('0', 'end')
+        self.combo_principal.delete('0', 'end')
 
     def janela_busca(self):
         global valor_selecao
