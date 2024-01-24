@@ -4,9 +4,10 @@ from pathlib import Path
 from threading import Thread
 from datetime import datetime
 from tkinter.ttk import Combobox
+from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo, showerror
-# from tkinter.simpledialog import *
+
 
 
 
@@ -285,12 +286,20 @@ class CorpoPrincipal:
         # THREADS
 
     def thead_iniciar_processo_busca(self):
-        Thread(target=self.iniciando_processo_busca()).start()
+        Thread(target=self.iniciando_processo_busca_principal()).start()
 
     def thread_save_busca(self):
         pass
 
-    def iniciando_processo_busca(self):
+    def iniciando_processo_busca_especifico(self):
+        print('Processo de buscar especificando uma extensão')
+        self.valor_extensao_busca = askstring('AVISO', 'Digital o valor de uma extensao')
+        showinfo('AVISO IMPORTANTE', f'Você digitou a extensão {self.valor_extensao_busca}')
+        self.label_msg_busca(text=self.valor_extensao_busca)
+        self.iniciando_processo_busca_principal()
+        print('Iniciando busca...!!')
+
+    def iniciando_processo_busca_principal(self):
         try:
             valor_da_busca = self.valor_extensao_busca
         except AttributeError:
@@ -305,6 +314,7 @@ class CorpoPrincipal:
                     Thread(self.lista_busca.insert('end', resultado_da_busca))
         except:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
+
 
 
 obj_principal = CorpoPrincipal()
