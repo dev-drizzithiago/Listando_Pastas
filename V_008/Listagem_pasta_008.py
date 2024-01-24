@@ -22,7 +22,7 @@ class CorpoPrincipal:
         self.lista_busca_save = list()
         self.pasta_destino_padrao = Path.home()
 
-        self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura',
+        self.categorias = ('Escolha uma categoria', 'Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura',
                            'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM'
                                  , 'SVG', 'WebP',)
@@ -55,7 +55,7 @@ class CorpoPrincipal:
         self.variavel_combo = tk.StringVar()
         label_frame_combo = tk.LabelFrame(janela_principal, text='Categorias de arquivos')
         label_frame_combo.pack(fill=tk.BOTH)
-        self.combo_principal = Combobox(label_frame_combo, textvariable=self.variavel_combo, justify='center')
+        self.combo_principal = Combobox(label_frame_combo, textvariable=self.variavel_combo, justify='center', postcommand=self.combo_selecao_categoria)
         self.combo_principal['values'] = self.categorias
         self.combo_principal.set('Escolha uma categoria')
         self.combo_principal.current()
