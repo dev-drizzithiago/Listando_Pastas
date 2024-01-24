@@ -134,6 +134,12 @@ class CorpoPrincipal:
         self.janela_busca.destroy()
         self.lista_principal.delete('0', 'end')
         self.combo_principal.delete('0', 'end')
+        self.combo_principal.set('Encontrou o que queria, selecione para novas pesquisas')
+        print(f' IMAGEM {self.ativo_imagem}')
+        print(f' VIDEOS {self.ativo_Videos}')
+        print(f' TEXTO {self.ativo_textos}')
+        print(f' EXE {self.ativo_execul}')
+        print(f' ZIP {self.ativo_arqzip}')
 
     def janela_busca(self):
         global valor_selecao
