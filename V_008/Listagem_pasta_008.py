@@ -32,7 +32,7 @@ class CorpoPrincipal:
             'TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
         self.extensoes_execul = ('EXE', 'DLL', 'IN', 'BAT')
         self.extensoes_arqzip = ('ZIP', '')
-        
+
         self.ativo_imagem = False
         self.ativo_Videos = False
         self.ativo_textos = False
@@ -105,29 +105,30 @@ class CorpoPrincipal:
         self.lista_principal.delete('0', 'end')
 
         if valor_categoria == 'Arquivo Imagem':
+            self.ativo_imagem = True
             for valor_lista in self.extensoes_imagem:
                 self.lista_principal.insert('end', valor_lista)
-            self.ativo_imagem = True
 
         elif valor_categoria == 'Arquivos de Vídeo':
+            self.ativo_Videos = True
             for valor_lista in self.extensoes_videos:
                 self.lista_principal.insert('end', valor_lista)
-            self.ativo_Videos = True
 
         elif valor_categoria == 'Arquivos de Leitura':
+            self.ativo_textos = True
             for valor_lista in self.extensoes_textos:
                 self.lista_principal.insert('end', valor_lista)
-            self.ativo_textos = True
 
         elif valor_categoria == 'Arquivos execução':
+            self.ativo_execul = True
             for valor_lista in self.extensoes_execul:
                 self.lista_principal.insert('end', valor_lista)
-            self.ativo_execul = True
 
         elif valor_categoria == 'Arquivos compreesão':
+            self.ativo_arqzip = True
             for valor_lista in self.extensoes_arqzip:
                 self.lista_principal.insert('end', valor_lista)
-            self.ativo_arqzip = True
+
         print(f'Valor da Categoria da lista - [{valor_categoria}]')
 
     def fechar_janela_busca(self):
