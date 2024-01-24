@@ -32,14 +32,13 @@ class CorpoPrincipal:
             'TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
         self.extensoes_execul = ('EXE', 'DLL', 'IN', 'BAT')
         self.extensoes_arqzip = ('ZIP', '')
-
+        
         self.ativo_imagem = False
         self.ativo_Videos = False
         self.ativo_textos = False
         self.ativo_execul = False
         self.ativo_arqzip = False
         self.call_windows = False
-        self.destino_ativo = False
 
         # janela princpal
         janela_principal = tk.Tk()
@@ -130,7 +129,7 @@ class CorpoPrincipal:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_arqzip = True
         print(f'Valor da Categoria da lista - [{valor_categoria}]')
-        
+
     def fechar_janela_busca(self):
         self.janela_busca.destroy()
 
