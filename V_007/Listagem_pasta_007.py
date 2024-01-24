@@ -74,7 +74,6 @@ class ListagemPastas:
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha uma categoria de arquivo')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both', ipady=3, ipadx=3)
-        self.combo_tipo_arquivo_principal.current()
         self.var_combo.trace('w', self.tipos_extensao)
 
         # Barra ralagem
