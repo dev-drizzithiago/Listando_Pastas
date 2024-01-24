@@ -186,11 +186,11 @@ class CorpoPrincipal:
 
         # MENSAGEM EM GERAL
         var_msg_estatus = tk.StringVar()
-        label_frame_msg_busca_geral = tk.LabelFrame(self.janela_busca, text='Valores do a serem processados!')
-        label_frame_msg_busca_geral.pack(anchor='center', fill=tk.BOTH)
+        label_frame_msg_busca_geral = tk.LabelFrame(self.janela_busca, text='Extensão selecionada!')
+        label_frame_msg_busca_geral.pack(anchor='center')
         self.label_msg_busca = tk.Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
-
+        self.label_msg_busca['text'] = self.valor_extensao_busca
 
     # FUNCOES
     def combo_selecao_categoria(self, *args):
