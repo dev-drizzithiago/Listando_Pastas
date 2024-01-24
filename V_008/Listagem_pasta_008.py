@@ -38,7 +38,6 @@ class CorpoPrincipal:
         self.ativo_textos = False
         self.ativo_execul = False
         self.ativo_arqzip = False
-        self.call_windows = False
 
         # janela princpal
         janela_principal = tk.Tk()
@@ -140,6 +139,12 @@ class CorpoPrincipal:
         for valor_selecao in valor_opcao_selecao:
             print(f'Valor da seleção - [{valor_selecao}]')
             pass
+
+        print(f' IMAGEM {self.ativo_imagem}')
+        print(f' VIDEOS {self.ativo_Videos}')
+        print(f' TEXTO {self.ativo_textos}')
+        print(f' EXE {self.ativo_execul}')
+        print(f' ZIP {self.ativo_arqzip}')
 
         if self.ativo_imagem:
             self.valor_extensao_busca = self.extensoes_imagem[valor_selecao]
