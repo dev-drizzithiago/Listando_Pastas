@@ -14,6 +14,7 @@ hora_certa = valor_hora.strftime('%H:%M')
 
 class CorpoPrincipal:
     def __init__(self):
+
         # Variaveis geral
         self.lista_busca_save = list()
         self.pasta_destino_padrao = Path.home()
@@ -97,6 +98,9 @@ class CorpoPrincipal:
 
         janela_principal.mainloop()
 
+    def fechar_janela_busca(self):
+        self.janela_busca.destroy()
+
     def janela_busca(self):
         global valor_selecao
         valor_opcao_selecao = self.lista_principal.curselection()
@@ -170,7 +174,7 @@ class CorpoPrincipal:
         frame_botao_fechar_app = tk.Frame(label_botao_geral)
         frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
         botao_fechar_app = tk.Button(frame_botao_fechar_app, text='Voltar ao menu principal', border=5, width=20,
-                                     height=1, command=self.janela_busca.destroy)
+                                     height=1, command=self.fechar_janela_busca)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
@@ -207,20 +211,20 @@ class CorpoPrincipal:
             self.ativo_imagem = True
 
         elif valor_categoria == 'Arquivos de Leitura':
-            for valor_lista in self.extensoes_arq_txt:
+            for valor_lista in self.extensoes_textos:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_textos = True
 
         elif valor_categoria == 'Arquivos execução':
-            for valor_lista in self.extensoes_de_app:
+            for valor_lista in self.extensoes_execul:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_execul = True
 
         elif valor_categoria == 'Arquivos compreesão':
-            for valor_lista in self.extensoes_compreensao:
+            for valor_lista in self.extensoes_arqzip:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_arqzip = True
-        print(valor_categoria)
+        print(f'Valor da Categoria da lista - [{valor_categoria}]')
 
     # Funções complexas
     def conf_destino_da_busca(self):
