@@ -194,7 +194,10 @@ class CorpoPrincipal:
             print(f'Valor extensão ZIP {self.valor_extensao_busca}')
             self.ativo_arqzip = False
 
-        print(f'Valor da exntesão - [{self.valor_extensao_busca}]')
+        try:
+            print(f'Valor da exntesão - [{self.valor_extensao_busca}]')
+        except AttributeError:
+            pass
 
         sleep(2)
         # Janela de busca
@@ -267,7 +270,10 @@ class CorpoPrincipal:
         label_frame_msg_busca_geral.pack(anchor='center')
         self.label_msg_busca = tk.Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
-        self.label_msg_busca['text'] = self.valor_extensao_busca
+        try:
+            self.label_msg_busca['text'] = self.valor_extensao_busca
+        except AttributeError:
+            self.label_msg_busca['text'] = 'ALL'
 
     # Funções complexas
     def conf_destino_da_busca(self):
@@ -285,7 +291,10 @@ class CorpoPrincipal:
         pass
 
     def iniciando_processo_busca(self):
-        valor_da_busca = self.valor_extensao_busca
+        try:
+            valor_da_busca = self.valor_extensao_busca
+        except AttributeError:
+            valor_da_busca = ''
 
         try:
             pasta_destino = Path(self.pasta_destino_padrao)
