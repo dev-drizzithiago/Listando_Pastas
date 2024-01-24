@@ -20,7 +20,7 @@ class CorpoPrincipal:
     def __init__(self):
 
         # Variaveis geral
-        self.lista_busca_save = list()
+        self.lista_busca = list()
         self.pasta_destino_padrao = Path.home()
 
         self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura',
@@ -304,6 +304,7 @@ class CorpoPrincipal:
         print('Iniciando busca...!!')
 
     def iniciando_processo_busca_principal(self):
+        cont = 1
         try:
             valor_da_busca = self.valor_extensao_busca
         except AttributeError:
@@ -313,12 +314,15 @@ class CorpoPrincipal:
             pasta_destino = Path(self.pasta_destino_padrao)
             for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
                 if resultado_da_busca.is_file():
-                    Thread(self.lista_busca.insert('end', resultado_da_busca))
+                    Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
+                    self.lista_busca.append(resultado_da_busca)
+                    cont =+ 1
                 elif resultado_da_busca.is_dir():
-                    Thread(self.lista_busca.insert('end', resultado_da_busca))
+                    Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
+                    self.lista_busca.append(resultado_da_busca)
+                    cont = + 1
         except:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
-
 
 
 obj_principal = CorpoPrincipal()
