@@ -270,7 +270,6 @@ class CorpoPrincipal:
         pass
 
     def iniciando_processo_busca(self):
-        print(self.valor_extensao_busca)
         valor_da_busca = self.valor_extensao_busca
 
         try:
