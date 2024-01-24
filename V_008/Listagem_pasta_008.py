@@ -101,6 +101,36 @@ class CorpoPrincipal:
 
         janela_principal.mainloop()
 
+    def combo_selecao_categoria(self, *args):
+        valor_categoria = self.variavel_combo.get()
+        self.lista_principal.delete('0', 'end')
+
+        if valor_categoria == 'Arquivo Imagem':
+            for valor_lista in self.extensoes_imagem:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_imagem = True
+
+        elif valor_categoria == 'Arquivos de Vídeo':
+            for valor_lista in self.extensoes_videos:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_Videos = True
+
+        elif valor_categoria == 'Arquivos de Leitura':
+            for valor_lista in self.extensoes_textos:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_textos = True
+
+        elif valor_categoria == 'Arquivos execução':
+            for valor_lista in self.extensoes_execul:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_execul = True
+
+        elif valor_categoria == 'Arquivos compreesão':
+            for valor_lista in self.extensoes_arqzip:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_arqzip = True
+        print(f'Valor da Categoria da lista - [{valor_categoria}]')
+        
     def fechar_janela_busca(self):
         self.janela_busca.destroy()
 
@@ -205,37 +235,6 @@ class CorpoPrincipal:
         self.label_msg_busca = tk.Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
         self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
         self.label_msg_busca['text'] = self.valor_extensao_busca
-
-    # FUNCOES
-    def combo_selecao_categoria(self, *args):
-        valor_categoria = self.variavel_combo.get()
-        self.lista_principal.delete('0', 'end')
-
-        if valor_categoria == 'Arquivo Imagem':
-            for valor_lista in self.extensoes_imagem:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_imagem = True
-
-        elif valor_categoria == 'Arquivos de Vídeo':
-            for valor_lista in self.extensoes_videos:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_Videos = True
-
-        elif valor_categoria == 'Arquivos de Leitura':
-            for valor_lista in self.extensoes_textos:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_textos = True
-
-        elif valor_categoria == 'Arquivos execução':
-            for valor_lista in self.extensoes_execul:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_execul = True
-
-        elif valor_categoria == 'Arquivos compreesão':
-            for valor_lista in self.extensoes_arqzip:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_arqzip = True
-        print(f'Valor da Categoria da lista - [{valor_categoria}]')
 
     # Funções complexas
     def conf_destino_da_busca(self):
