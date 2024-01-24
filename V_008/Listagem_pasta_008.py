@@ -88,7 +88,7 @@ class CorpoPrincipal:
                                                   width=20, height=1)
         label_frame_botao_especif.pack(side='left')
         botao_busca_especifica = tk.Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=30,
-                                           height=1)
+                                           height=1, command=self.thread_iniciar_processo_busca_espef)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = tk.LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
@@ -244,7 +244,7 @@ class CorpoPrincipal:
         frame_botao_iniciar = tk.Frame(label_botao_geral)
         frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
         botao_iniciar_busca = tk.Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
-                                        command=self.thead_iniciar_processo_busca)
+                                        command=self.thead_iniciar_processo_busca_principal)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
         # BOTAO SAIR
@@ -285,8 +285,11 @@ class CorpoPrincipal:
 
         # THREADS
 
-    def thead_iniciar_processo_busca(self):
+    def thead_iniciar_processo_busca_principal(self):
         Thread(target=self.iniciando_processo_busca_principal()).start()
+
+    def thread_iniciar_processo_busca_espef(self):
+        Thread(target=self.iniciando_processo_busca_especifico()).start()
 
     def thread_save_busca(self):
         pass
