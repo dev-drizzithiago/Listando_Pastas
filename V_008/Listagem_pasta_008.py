@@ -296,10 +296,8 @@ class CorpoPrincipal:
 
     def iniciando_processo_busca_especifico(self):
         print('Processo de buscar especificando uma extensão')
-        self.valor_extensao_busca = askstring('AVISO', 'Digital o valor de uma extensao')
-        showinfo('AVISO IMPORTANTE', f'Você digitou a extensão {self.valor_extensao_busca}')
-        self.label_msg_busca(text=self.valor_extensao_busca)
-        self.iniciando_processo_busca_principal()
+        self.valor_extensao_busca = askstring('AVISO', 'Digital o valor de uma extensao').upper()
+        showinfo('AVISO IMPORTANTE', f'Você digitou a extensão [{self.valor_extensao_busca.upper()}]')
         print('Iniciando busca...!!')
 
     def iniciando_processo_busca_principal(self):
