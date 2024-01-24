@@ -24,10 +24,10 @@ class CorpoPrincipal:
                                  , 'SVG', 'WebP',)
         self.extensoes_videos = ('MP4', 'AVI', 'MKV', 'MOV', 'WMV', 'FLV', 'AVCHD', 'F4V', 'SWF', 'WEBM', 'HTML5',
                                  'WEBM')
-        self.extensoes_arq_txt = (
+        self.extensoes_textos = (
             'TXT', 'PDF', 'DOCX', 'DOC', 'HTML', 'HTM', 'ODT', 'XLS', 'XLSX', 'ODS', 'PPT', 'PPTX')
-        self.extensoes_de_app = ('EXE', 'DLL', 'IN', 'BAT')
-        self.extensoes_compreensao = ('ZIP', '')
+        self.extensoes_execul = ('EXE', 'DLL', 'IN', 'BAT')
+        self.extensoes_arqzip = ('ZIP', '')
 
         self.ativo_imagem = False
         self.ativo_Videos = False
@@ -100,8 +100,8 @@ class CorpoPrincipal:
     def janela_busca(self):
         global valor_selecao
         valor_opcao_selecao = self.lista_principal.curselection()
-        print(valor_opcao_selecao)
         for valor_selecao in valor_opcao_selecao:
+            print(f'Valor da seleção - [{valor_selecao}]')
             pass
 
         if self.ativo_Videos:
@@ -111,15 +111,15 @@ class CorpoPrincipal:
             self.valor_extensao_busca = self.extensoes_imagem[valor_selecao]
 
         elif self.ativo_textos:
-            self.valor_extensao_busca = self.extensoes_arq_txt[valor_selecao]
+            self.valor_extensao_busca = self.extensoes_textos[valor_selecao]
 
         elif self.ativo_execul:
-            self.valor_extensao_busca = self.extensoes_de_app[valor_selecao]
+            self.valor_extensao_busca = self.extensoes_execul[valor_selecao]
 
         elif self.ativo_arqzip:
-            self.valor_extensao_busca = self.extensoes_compreensao[valor_selecao]
-        print(self.valor_extensao_busca)
+            self.valor_extensao_busca = self.extensoes_arqzip[valor_selecao]
 
+        print(f'Valor da exntesão - [{self.valor_extensao_busca}]')
         # Janela de busca
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
