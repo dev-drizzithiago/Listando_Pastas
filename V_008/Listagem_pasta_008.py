@@ -1,11 +1,14 @@
 import tkinter as tk
-from tkinter.ttk import Combobox
+from time import sleep
+from pathlib import Path
 from threading import Thread
 from datetime import datetime
+from tkinter.ttk import Combobox
+from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo, showerror
 # from tkinter.simpledialog import *
-from tkinter.filedialog import askdirectory
-from pathlib import Path
+
+
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
@@ -19,7 +22,7 @@ class CorpoPrincipal:
         self.lista_busca_save = list()
         self.pasta_destino_padrao = Path.home()
 
-        self.categorias = ('Limpar lista', 'Arquivos de Vídeo', 'Arquivo Imagem', 'Arquivos de Leitura',
+        self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura',
                            'Arquivos execução', 'Arquivos compreesão')
         self.extensoes_imagem = ('JPG', 'PNG', 'GIF', 'BMP', 'Bitmap', 'TIFF', 'RAW', 'EXIF', 'PPM', 'PGM', 'PBM', 'PNM'
                                  , 'SVG', 'WebP',)
@@ -108,22 +111,29 @@ class CorpoPrincipal:
             print(f'Valor da seleção - [{valor_selecao}]')
             pass
 
-        if self.ativo_Videos:
-            self.valor_extensao_busca = self.extensoes_videos[valor_selecao]
-
-        elif self.ativo_imagem:
+        if self.ativo_imagem:
             self.valor_extensao_busca = self.extensoes_imagem[valor_selecao]
+            print(f'Valor extensão IMAGEM {self.valor_extensao_busca}')
+
+        elif self.ativo_Videos:
+            self.valor_extensao_busca = self.extensoes_videos[valor_selecao]
+            print(f'Valor extensão VIDEOS {self.valor_extensao_busca}')
 
         elif self.ativo_textos:
             self.valor_extensao_busca = self.extensoes_textos[valor_selecao]
+            print(f'Valor extensão TEXTO {self.valor_extensao_busca}')
 
         elif self.ativo_execul:
             self.valor_extensao_busca = self.extensoes_execul[valor_selecao]
+            print(f'Valor extensão EXE {self.valor_extensao_busca}')
 
         elif self.ativo_arqzip:
             self.valor_extensao_busca = self.extensoes_arqzip[valor_selecao]
+            print(f'Valor extensão ZIP {self.valor_extensao_busca}')
 
         print(f'Valor da exntesão - [{self.valor_extensao_busca}]')
+
+        sleep(2)
         # Janela de busca
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
@@ -200,15 +210,16 @@ class CorpoPrincipal:
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
         self.lista_principal.delete('0', 'end')
-        if valor_categoria == 'Arquivos de Vídeo':
-            for valor_lista in self.extensoes_videos:
-                self.lista_principal.insert('end', valor_lista)
-            self.ativo_Videos = True
 
-        elif valor_categoria == 'Arquivo Imagem':
+        if valor_categoria == 'Arquivo Imagem':
             for valor_lista in self.extensoes_imagem:
                 self.lista_principal.insert('end', valor_lista)
             self.ativo_imagem = True
+
+        elif valor_categoria == 'Arquivos de Vídeo':
+            for valor_lista in self.extensoes_videos:
+                self.lista_principal.insert('end', valor_lista)
+            self.ativo_Videos = True
 
         elif valor_categoria == 'Arquivos de Leitura':
             for valor_lista in self.extensoes_textos:
