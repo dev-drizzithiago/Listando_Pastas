@@ -79,21 +79,21 @@ class CorpoPrincipal:
         label_frame_iniciar_busca = tk.LabelFrame(label_frame_botao_princial, text='Buscando por arquivos')
         label_frame_iniciar_busca.pack(anchor='n')
 
-        botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=20, height=1,
+        botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=30, height=1,
                                         command=self.janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = tk.LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
                                                   width=20, height=1)
         label_frame_botao_especif.pack(side='left')
-        botao_busca_especifica = tk.Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=20,
+        botao_busca_especifica = tk.Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=30,
                                            height=1)
         botao_busca_especifica.pack(anchor='center', pady=3, padx=3)
 
         label_frame_sair_programa = tk.LabelFrame(label_frame_botao_princial, text='Saindo do programa', width=20,
                                                   height=1)
         label_frame_sair_programa.pack(side='right')
-        botao_sair_programa = tk.Button(label_frame_sair_programa, text='Fechar Programa', width=20, height=1,
+        botao_sair_programa = tk.Button(label_frame_sair_programa, text='Fechar Programa', width=30, height=1,
                                         command=janela_principal.destroy)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
