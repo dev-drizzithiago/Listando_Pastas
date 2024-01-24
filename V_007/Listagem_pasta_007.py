@@ -70,8 +70,7 @@ class ListagemPastas:
 
         # Lista Combo principal
         self.var_combo = tk.StringVar()
-        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo,
-                                                     justify='center')
+        self.combo_tipo_arquivo_principal = Combobox(self.label_frame_001, textvariable=self.var_combo, justify='center')
         self.combo_tipo_arquivo_principal['values'] = self.lista_tipos_extensoes
         self.combo_tipo_arquivo_principal.set('Escolha uma categoria de arquivo')
         self.combo_tipo_arquivo_principal.pack(side='top', fill='both', ipady=3, ipadx=3)
