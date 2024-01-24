@@ -98,7 +98,10 @@ class CorpoPrincipal:
                                         command=janela_principal.destroy)
         botao_sair_programa.pack(anchor='center', pady=3, padx=3)
 
-        janela_principal.mainloop()
+        try:
+            janela_principal.mainloop()
+        except KeyboardInterrupt:
+            pass
 
     def combo_selecao_categoria(self, *args):
         valor_categoria = self.variavel_combo.get()
