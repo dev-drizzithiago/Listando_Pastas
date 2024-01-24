@@ -149,22 +149,27 @@ class CorpoPrincipal:
         if self.ativo_imagem:
             self.valor_extensao_busca = self.extensoes_imagem[valor_selecao]
             print(f'Valor extensão IMAGEM {self.valor_extensao_busca}')
+            self.ativo_imagem = False
 
         elif self.ativo_Videos:
             self.valor_extensao_busca = self.extensoes_videos[valor_selecao]
             print(f'Valor extensão VIDEOS {self.valor_extensao_busca}')
+            self.ativo_Videos = False
 
         elif self.ativo_textos:
             self.valor_extensao_busca = self.extensoes_textos[valor_selecao]
             print(f'Valor extensão TEXTO {self.valor_extensao_busca}')
+            self.ativo_textos = False
 
         elif self.ativo_execul:
             self.valor_extensao_busca = self.extensoes_execul[valor_selecao]
             print(f'Valor extensão EXE {self.valor_extensao_busca}')
+            self.ativo_execul = False
 
         elif self.ativo_arqzip:
             self.valor_extensao_busca = self.extensoes_arqzip[valor_selecao]
             print(f'Valor extensão ZIP {self.valor_extensao_busca}')
+            self.ativo_arqzip = False
 
         print(f'Valor da exntesão - [{self.valor_extensao_busca}]')
 
