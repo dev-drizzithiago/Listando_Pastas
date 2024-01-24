@@ -105,26 +105,46 @@ class CorpoPrincipal:
 
         if valor_categoria == 'Arquivo Imagem':
             self.ativo_imagem = True
+            self.ativo_Videos = False
+            self.ativo_textos = False
+            self.ativo_execul = False
+            self.ativo_arqzip = False
             for valor_lista in self.extensoes_imagem:
                 self.lista_principal.insert('end', valor_lista)
 
         elif valor_categoria == 'Arquivos de Vídeo':
             self.ativo_Videos = True
+            self.ativo_imagem = False
+            self.ativo_textos = False
+            self.ativo_execul = False
+            self.ativo_arqzip = False
             for valor_lista in self.extensoes_videos:
                 self.lista_principal.insert('end', valor_lista)
 
         elif valor_categoria == 'Arquivos de Leitura':
             self.ativo_textos = True
+            self.ativo_imagem = False
+            self.ativo_Videos = False
+            self.ativo_execul = False
+            self.ativo_arqzip = False
             for valor_lista in self.extensoes_textos:
                 self.lista_principal.insert('end', valor_lista)
 
         elif valor_categoria == 'Arquivos execução':
             self.ativo_execul = True
+            self.ativo_imagem = False
+            self.ativo_Videos = False
+            self.ativo_textos = False
+            self.ativo_arqzip = False
             for valor_lista in self.extensoes_execul:
                 self.lista_principal.insert('end', valor_lista)
 
         elif valor_categoria == 'Arquivos compreesão':
             self.ativo_arqzip = True
+            self.ativo_imagem = False
+            self.ativo_Videos = False
+            self.ativo_textos = False
+            self.ativo_execul = False
             for valor_lista in self.extensoes_arqzip:
                 self.lista_principal.insert('end', valor_lista)
 
