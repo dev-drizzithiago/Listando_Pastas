@@ -280,7 +280,9 @@ class CorpoPrincipal:
         label_frame_barra_progresso = tk.LabelFrame(self.janela_busca, text='Status da busca')
         label_frame_barra_progresso.pack(anchor='s', fill=tk.BOTH)
         self.progressbar_busca = Progressbar(label_frame_barra_progresso, orient=tk.HORIZONTAL)
-
+        # self.progressbar_busca.place(x=30, y=60, width=200)
+        self.progressbar_busca.pack(anchor='center', fill='both', ipadx=3, ipady=3)
+        self.progressbar_busca.step(100)
 
     # Funções complexas
     def conf_destino_da_busca(self):
