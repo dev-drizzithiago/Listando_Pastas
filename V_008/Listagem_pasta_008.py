@@ -276,6 +276,10 @@ class CorpoPrincipal:
         except AttributeError:
             self.label_msg_busca['text'] = 'ALL'
 
+        # barra de progresso
+        label_frame_barra_progresso = tk.LabelFrame(self.janela_busca)
+        label_frame_barra_progresso.pack(anchor='s', fill=tk.BOTH)
+
     # Funções complexas
     def conf_destino_da_busca(self):
         self.destino_ativo = True
