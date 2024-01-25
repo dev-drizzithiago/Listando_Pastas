@@ -3,7 +3,7 @@ from time import sleep
 from pathlib import Path
 from threading import Thread
 from datetime import datetime
-from tkinter.ttk import Combobox
+from tkinter.ttk import Combobox, Progressbar
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo, showerror
@@ -277,8 +277,10 @@ class CorpoPrincipal:
             self.label_msg_busca['text'] = 'ALL'
 
         # barra de progresso
-        label_frame_barra_progresso = tk.LabelFrame(self.janela_busca)
+        label_frame_barra_progresso = tk.LabelFrame(self.janela_busca, text='Status da busca')
         label_frame_barra_progresso.pack(anchor='s', fill=tk.BOTH)
+        self.progressbar_busca = Progressbar(label_frame_barra_progresso, orient=tk.HORIZONTAL)
+
 
     # Funções complexas
     def conf_destino_da_busca(self):
