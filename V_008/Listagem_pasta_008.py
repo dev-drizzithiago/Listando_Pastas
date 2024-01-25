@@ -318,7 +318,7 @@ class CorpoPrincipal:
                     Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
                     self.lista_busca.append(resultado_da_busca)
                     cont += 1
-        except:
+        except FileExistsError:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
 
