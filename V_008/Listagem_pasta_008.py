@@ -277,7 +277,7 @@ class CorpoPrincipal:
             self.label_msg_busca['text'] = 'ALL'
 
         # barra de progresso
-        label_frame_barra_progresso = tk.LabelFrame(self.janela_busca, text='Status da busca')
+        label_frame_barra_progresso = tk.LabelFrame(self.janela_busca, text='Status da busca', height=5)
         label_frame_barra_progresso.pack(anchor='s', fill=tk.BOTH)
         self.progressbar_busca = Progressbar(label_frame_barra_progresso, orient=tk.HORIZONTAL)
         # self.progressbar_busca.place(x=30, y=60, width=200)
