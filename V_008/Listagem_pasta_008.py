@@ -17,7 +17,7 @@ class CorpoPrincipal:
     def __init__(self):
 
         # Variaveis geral
-        self.lista_busca = list()
+        self.lista_busca_save = list()
         self.pasta_destino_padrao = Path.home()
 
         self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura',
@@ -312,14 +312,15 @@ class CorpoPrincipal:
             for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
                 if resultado_da_busca.is_file():
                     Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
-                    self.lista_busca.append(resultado_da_busca)
+                    self.lista_busca_save.append(f' Arquivos - {resultado_da_busca}')
                     cont += 1
                 elif resultado_da_busca.is_dir():
                     Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
-                    self.lista_busca.append(resultado_da_busca)
+                    self.lista_busca_save.append(f'Dir - {resultado_da_busca}')
                     cont += 1
         except FileExistsError:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
-
+        for valor in self.lista_busca_save:
+            print(valor)
 
 obj_principal = CorpoPrincipal()
