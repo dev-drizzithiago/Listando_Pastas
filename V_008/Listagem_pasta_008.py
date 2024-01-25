@@ -8,9 +8,6 @@ from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory
 from tkinter.messagebox import showinfo, showerror
 
-
-
-
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
 hora_certa = valor_hora.strftime('%H:%M')
@@ -316,11 +313,11 @@ class CorpoPrincipal:
                 if resultado_da_busca.is_file():
                     Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
                     self.lista_busca.append(resultado_da_busca)
-                    cont =+ 1
+                    cont += 1
                 elif resultado_da_busca.is_dir():
                     Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
                     self.lista_busca.append(resultado_da_busca)
-                    cont = + 1
+                    cont += 1
         except:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
