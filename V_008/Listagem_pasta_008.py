@@ -204,7 +204,7 @@ class CorpoPrincipal:
         # Janela de busca
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
-        self.janela_busca.geometry('900x500')
+        self.janela_busca.geometry('900x600')
         self.janela_busca.title(f'Buscar por arquivos')
 
         # Label Frame horario
@@ -255,7 +255,7 @@ class CorpoPrincipal:
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
         frame_botao_limpar_lista = tk.Frame(label_botao_geral)
-        frame_botao_limpar_lista.pack(side='botton')
+        frame_botao_limpar_lista.pack(anchor='s', ipady=5, padx=5)
         self.botao_limpar_lista = tk.Button(frame_botao_limpar_lista, text='Limpar lista', border=5, width=20, height=1)
         self.botao_limpar_lista.pack(anchor='center', ipady=5, ipadx=5)
 
