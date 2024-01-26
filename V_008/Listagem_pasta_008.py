@@ -39,7 +39,7 @@ class CorpoPrincipal:
 
         # janela princpal
         janela_principal = tk.Tk()
-        janela_principal.geometry('450x450')
+        janela_principal.geometry('485x450')
         janela_principal.config(padx=5, pady=5)
         janela_principal.title('V_008')
 
@@ -82,7 +82,7 @@ class CorpoPrincipal:
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = tk.LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
-                                                  width=20, height=1)
+                                                  width=30, height=1)
         label_frame_botao_especif.pack(side='left')
         botao_busca_especifica = tk.Button(label_frame_botao_especif, text='Buscando por extensão especifica', width=30,
                                            height=1, command=self.thread_iniciar_processo_busca_espef)
@@ -242,7 +242,7 @@ class CorpoPrincipal:
 
         # botao iniciar
         frame_botao_iniciar = tk.Frame(label_botao_geral)
-        frame_botao_iniciar.pack(anchor='center', padx=5, pady=5)
+        frame_botao_iniciar.pack(anchor='center', ipadx=5, ipady=5)
         botao_iniciar_busca = tk.Button(frame_botao_iniciar, text='Iniciar', border=5, width=20, height=1,
                                         command=self.thead_iniciar_processo_busca_principal)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
@@ -255,7 +255,7 @@ class CorpoPrincipal:
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
         frame_botao_limpar_lista = tk.Frame(label_botao_geral)
-        frame_botao_limpar_lista.pack(anchor='s', ipady=5, padx=5)
+        frame_botao_limpar_lista.pack(anchor='center', ipady=5, padx=5)
         self.botao_limpar_lista = tk.Button(frame_botao_limpar_lista, text='Limpar lista', border=5, width=20, height=1)
         self.botao_limpar_lista.pack(anchor='center', ipady=5, ipadx=5)
 
