@@ -254,8 +254,10 @@ class CorpoPrincipal:
                                      height=1, command=self.fechar_janela_busca)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
-        frame_botao_limpar_lista = tk.Button(label_botao_geral, text='Limpar lista', border=5, width=20, height=20)
-        frame_botao_limpar_lista.pack(anchor='s', ipady=5, ipadx=5)
+        frame_botao_limpar_lista = tk.Frame(label_botao_geral)
+        frame_botao_limpar_lista.pack(side='botton')
+        self.botao_limpar_lista = tk.Button(frame_botao_limpar_lista, text='Limpar lista', border=5, width=20, height=1)
+        self.botao_limpar_lista.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = tk.Frame(label_botao_geral)
