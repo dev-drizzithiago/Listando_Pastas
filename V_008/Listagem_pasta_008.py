@@ -78,7 +78,7 @@ class CorpoPrincipal:
         label_frame_iniciar_busca.pack(anchor='n')
 
         botao_iniciar_busca = tk.Button(label_frame_iniciar_busca, text='Iniciar busca', width=30, height=1,
-                                        command=self.janela_busca)
+                                        command=self.thread_abrindo_janela_busca)
         botao_iniciar_busca.pack(anchor='center', pady=3, padx=3)
 
         label_frame_botao_especif = tk.LabelFrame(label_frame_botao_princial, text='Digite uma extensão para busca',
@@ -284,6 +284,9 @@ class CorpoPrincipal:
         self.progressbar_busca.pack(anchor='center', fill='both', ipadx=3, ipady=3)
         self.progressbar_busca.step(100)
 
+        self.janela_busca.focus()
+        self.janela_busca.grab_set()
+
     # Funções complexas
     def conf_destino_da_busca(self):
         self.destino_ativo = True
@@ -292,6 +295,9 @@ class CorpoPrincipal:
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
         # THREADS
+
+    def thread_abrindo_janela_busca(self):
+        Thread(target=self.janela_busca).start()
 
     def thead_iniciar_processo_busca_principal(self):
         Thread(target=self.iniciando_processo_busca_principal()).start()
