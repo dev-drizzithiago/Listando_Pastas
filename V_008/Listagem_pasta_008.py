@@ -254,6 +254,9 @@ class CorpoPrincipal:
                                      height=1, command=self.fechar_janela_busca)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
+        frame_botao_limpar_lista = tk.Button(label_botao_geral, text='Limpar lista', border=5, width=20, height=20)
+        frame_botao_limpar_lista.pack(anchor='s', ipady=5, ipadx=5)
+
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = tk.Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
@@ -280,12 +283,11 @@ class CorpoPrincipal:
         label_frame_barra_progresso = tk.LabelFrame(self.janela_busca, text='Status da busca', height=5)
         label_frame_barra_progresso.pack(anchor='s', fill=tk.BOTH)
         self.progressbar_busca = Progressbar(label_frame_barra_progresso, orient=tk.HORIZONTAL)
-        # self.progressbar_busca.place(x=30, y=60, width=200)
         self.progressbar_busca.pack(anchor='center', fill='both', ipadx=3, ipady=3)
         self.progressbar_busca.step(100)
 
         self.janela_busca.focus()
-        self.janela_busca.grab_set()
+        # self.janela_busca.grab_set()
 
     # Funções complexas
     def conf_destino_da_busca(self):
@@ -299,9 +301,10 @@ class CorpoPrincipal:
     def thead_iniciar_processo_busca_principal(self):
         print('Iniciando processo...!')
         sleep(2)
-        Thread(target=self.iniciando_processo_busca_principal()).run()
+        Thread(target=self.iniciando_processo_busca_principal()).start()
 
     def thread_iniciar_processo_busca_espef(self):
+        sleep(2)
         Thread(target=self.iniciando_processo_busca_especifico()).start()
 
     def thread_save_busca(self):
