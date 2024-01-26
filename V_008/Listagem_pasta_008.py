@@ -152,7 +152,7 @@ class CorpoPrincipal:
         print(f'Valor da Categoria da lista - [{valor_categoria}]')
 
     def fechar_janela_busca(self):
-        self.janela_busca.destroy()
+        Thread(target=self.janela_busca.destroy()).start()
         self.lista_principal.delete('0', 'end')
         self.combo_principal.delete('0', 'end')
         self.combo_principal.set('Encontrou o que queria, selecione para novas pesquisas')
