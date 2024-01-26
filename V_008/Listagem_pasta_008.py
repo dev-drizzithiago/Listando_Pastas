@@ -297,7 +297,9 @@ class CorpoPrincipal:
         # THREADS
 
     def thread_abrindo_janela_busca(self):
-        Thread(target=self.janela_busca).start()
+        self.inicio_janela_busca = Thread(target=self.janela_busca())
+        # self.inicio_janela_busca.start()
+        self.inicio_janela_busca.run()
 
     def thead_iniciar_processo_busca_principal(self):
         Thread(target=self.iniciando_processo_busca_principal()).start()
