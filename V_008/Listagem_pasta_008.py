@@ -329,7 +329,7 @@ class CorpoPrincipal:
 
     def iniciando_processo_busca_principal(self):
         if not self.destino_ativo:
-            showinfo()
+            showinfo('Cuidado!', 'A busca ')
         cont = 1
         try:
             valor_da_busca = self.valor_extensao_busca
