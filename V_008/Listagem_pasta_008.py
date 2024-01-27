@@ -256,7 +256,8 @@ class CorpoPrincipal:
 
         frame_botao_limpar_lista = tk.Frame(label_botao_geral)
         frame_botao_limpar_lista.pack(anchor='center', ipady=5, padx=5)
-        self.botao_limpar_lista = tk.Button(frame_botao_limpar_lista, text='Limpar lista', border=5, width=20, height=1)
+        self.botao_limpar_lista = tk.Button(frame_botao_limpar_lista, text='Limpar lista', border=5, width=20, height=1,
+                                            command=self.tread_limpar_lista_busca)
         self.botao_limpar_lista.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
@@ -312,9 +313,12 @@ class CorpoPrincipal:
         pass
 
     def tread_limpar_lista_busca(self):
-        self.lista_busca.delete('0', 'end')
-        
+         Thread(target=self.limpar_lista_de_busca()).start()
+
     # Processos gerais
+    def limpar_lista_de_busca(self):
+        self.lista_busca.delete('0', 'end')
+
     def iniciando_processo_busca_especifico(self):
         print('Processo de buscar especificando uma extensão')
         self.valor_extensao_busca = askstring('AVISO', 'Digital o valor de uma extensao').upper()
