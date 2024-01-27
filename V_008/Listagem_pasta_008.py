@@ -329,7 +329,8 @@ class CorpoPrincipal:
 
     def iniciando_processo_busca_principal(self):
         if not self.destino_ativo:
-            showinfo('Cuidado!', 'A busca ')
+            showinfo('Cuidado!', f'Você não selecionou nenhuma pasta\n'
+                                 f'A busca sera realizado na pasta [{self.pasta_destino_padrao}]')
         cont = 1
         try:
             valor_da_busca = self.valor_extensao_busca
