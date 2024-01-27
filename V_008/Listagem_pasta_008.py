@@ -6,7 +6,7 @@ from datetime import datetime
 from tkinter.ttk import Combobox, Progressbar
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory
-from tkinter.messagebox import showinfo, showerror
+from tkinter.messagebox import showinfo, showerror, showwarning
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
@@ -36,6 +36,7 @@ class CorpoPrincipal:
         self.ativo_textos = False
         self.ativo_execul = False
         self.ativo_arqzip = False
+        self.destino_ativo = False
 
         # janela princpal
         janela_principal = tk.Tk()
@@ -327,6 +328,8 @@ class CorpoPrincipal:
         print('Iniciando busca...!!')
 
     def iniciando_processo_busca_principal(self):
+        if not self.destino_ativo:
+            showinfo()
         cont = 1
         try:
             valor_da_busca = self.valor_extensao_busca
