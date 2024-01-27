@@ -318,6 +318,7 @@ class CorpoPrincipal:
     # Processos gerais
     def limpar_lista_de_busca(self):
         self.lista_busca.delete('0', 'end')
+        print('Lista de busca limpa')
 
     def iniciando_processo_busca_especifico(self):
         print('Processo de buscar especificando uma extensão')
