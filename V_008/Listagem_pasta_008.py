@@ -335,6 +335,7 @@ class CorpoPrincipal:
         print('Iniciando busca...!!')
 
     def iniciando_processo_busca_principal(self):
+        self.label_status['text'] = 'Buscar pelos arquivos'
         if not self.destino_ativo:
             showinfo('Cuidado!', f'Você não selecionou nenhuma pasta\n'
                                  f'A busca sera realizado na pasta [{self.pasta_destino_padrao}]')
