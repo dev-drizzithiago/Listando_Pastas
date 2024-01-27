@@ -287,7 +287,7 @@ class CorpoPrincipal:
         var_status_msg = tk.StringVar()
         label_frame_status = tk.LabelFrame(self.janela_busca, text='Informações sobre o progresso')
         label_frame_status.pack(side='bottom')
-        self.label_status = tk.Label(label_frame_status, text=var_status_msg, border=2)
+        self.label_status = tk.Label(label_frame_status, textvariable=var_status_msg, border=2)
         self.label_status.pack(anchor='center')
 
         # barra de progresso
@@ -309,6 +309,7 @@ class CorpoPrincipal:
 
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
+        self.label_status['text'] = 'Buscando pelos arquivos'
         print('Iniciando processo...!')
         sleep(2)
         Thread(target=self.iniciando_processo_busca_principal()).start()
@@ -335,7 +336,6 @@ class CorpoPrincipal:
         print('Iniciando busca...!!')
 
     def iniciando_processo_busca_principal(self):
-        self.label_status['text'] = 'Buscar pelos arquivos'
         if not self.destino_ativo:
             showinfo('AVISO!', f'Você não selecionou nenhuma pasta\n'
                                  f'A busca sera realizado na pasta [{self.pasta_destino_padrao}]')
