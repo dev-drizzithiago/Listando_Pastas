@@ -313,7 +313,7 @@ class CorpoPrincipal:
         pass
 
     def tread_limpar_lista_busca(self):
-         Thread(target=self.limpar_lista_de_busca()).start()
+        Thread(target=self.limpar_lista_de_busca()).start()
 
     # Processos gerais
     def limpar_lista_de_busca(self):
