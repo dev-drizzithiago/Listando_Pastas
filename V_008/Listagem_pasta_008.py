@@ -298,8 +298,7 @@ class CorpoPrincipal:
         self.label_info_destino['text'] = self.pasta_destino_padrao
         showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
-        # THREADS
-
+    # THREADS
     def thead_iniciar_processo_busca_principal(self):
         print('Iniciando processo...!')
         sleep(2)
@@ -312,6 +311,7 @@ class CorpoPrincipal:
     def thread_save_busca(self):
         pass
 
+    # Processos gerais
     def iniciando_processo_busca_especifico(self):
         print('Processo de buscar especificando uma extensão')
         self.valor_extensao_busca = askstring('AVISO', 'Digital o valor de uma extensao').upper()
