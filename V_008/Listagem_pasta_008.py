@@ -283,6 +283,13 @@ class CorpoPrincipal:
         except AttributeError:
             self.label_msg_busca['text'] = 'ALL'
 
+        # LAbel de progresso
+        var_status_msg = tk.StringVar()
+        label_frame_status = tk.LabelFrame(self.janela_busca, text='Informações sobre o progresso')
+        label_frame_status.pack(side='bottom')
+        self.label_status = tk.Label(label_frame_status, text=var_status_msg, border=2)
+        self.label_status.pack(anchor='center')
+
         # barra de progresso
         label_frame_barra_progresso = tk.LabelFrame(self.janela_busca, text='Status da busca', height=5)
         label_frame_barra_progresso.pack(anchor='s', fill=tk.BOTH)
