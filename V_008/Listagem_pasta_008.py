@@ -311,6 +311,9 @@ class CorpoPrincipal:
     def thread_save_busca(self):
         pass
 
+    def tread_limpar_lista_busca(self):
+        self.lista_busca.delete('0', 'end')
+        
     # Processos gerais
     def iniciando_processo_busca_especifico(self):
         print('Processo de buscar especificando uma extensão')
