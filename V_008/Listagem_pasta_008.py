@@ -309,7 +309,6 @@ class CorpoPrincipal:
 
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
-        print('Iniciando processo...!')
         sleep(2)
         Thread(target=self.iniciando_processo_busca_principal()).start()
 
