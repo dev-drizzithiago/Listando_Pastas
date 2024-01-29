@@ -306,9 +306,6 @@ class CorpoPrincipal:
         sleep(2)
         Thread(target=self.iniciando_processo_busca_especifico()).start()
 
-    def thread_save_busca(self):
-        pass
-
     def tread_limpar_lista_busca(self):
         Thread(target=self.limpar_lista_de_busca()).start()
 
