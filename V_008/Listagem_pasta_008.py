@@ -3,10 +3,10 @@ from time import sleep
 from pathlib import Path
 from threading import Thread
 from datetime import datetime
-from tkinter.ttk import Combobox, Progressbar
+from tkinter.ttk import Combobox
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory
-from tkinter.messagebox import showinfo, showerror, showwarning
+from tkinter.messagebox import showinfo, showerror
 
 valor_hora = datetime.now()
 data_certa = valor_hora.strftime('%d/%m/%Y')
