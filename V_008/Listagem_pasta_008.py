@@ -340,7 +340,7 @@ class CorpoPrincipal:
                     self.lista_busca_save.append(f' Arquivos - {resultado_da_busca}')
                     cont_arquivos += 1
                 elif resultado_da_busca.is_dir():
-                    Thread(self.lista_busca.insert('end', f'{cont_pastas} - {resultado_da_busca}'))
+                    Thread(self.lista_busca.insert('end', f'[PASTA] {cont_pastas} - {resultado_da_busca}'))
                     self.lista_busca_save.append(f'Dir - {resultado_da_busca}')
                     cont_pastas += 1
         except FileExistsError:
