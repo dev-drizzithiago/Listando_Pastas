@@ -311,9 +311,9 @@ class CorpoPrincipal:
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
 
-        # Thread(target=self.iniciando_processo_busca_principal()).start()
+        Thread(target=self.iniciando_processo_busca_principal()).start()
         # Thread(target=self.processo_da_busca()).start()
-        Thread(target=self.teste()).start()
+        # Thread(target=self.teste()).start()
 
     def thread_iniciar_processo_busca_espef(self):
         sleep(2)
@@ -381,5 +381,6 @@ class CorpoPrincipal:
             print(valor)
             sleep(0.5)
         print('teste 2')
+
 
 obj_principal = CorpoPrincipal()
