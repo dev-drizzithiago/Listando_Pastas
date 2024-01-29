@@ -157,6 +157,7 @@ class CorpoPrincipal:
         self.lista_principal.delete('0', 'end')
         self.combo_principal.delete('0', 'end')
         self.combo_principal.set('Encontrou o que queria? Selecione para novas pesquisas')
+        self.valor_extensao_busca = ''
 
     def janela_busca(self):
         global valor_selecao
