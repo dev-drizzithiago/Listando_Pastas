@@ -292,15 +292,7 @@ class CorpoPrincipal:
         self.label_status = tk.Label(label_frame_status, textvariable=var_status_msg.get(), border=2)
         self.label_status.pack(anchor='center')
 
-        # barra de progresso
-        label_frame_barra_progresso = tk.LabelFrame(self.janela_busca, text='Status da busca', height=5)
-        label_frame_barra_progresso.pack(anchor='s', fill=tk.BOTH)
-        self.progressbar_busca = Progressbar(label_frame_barra_progresso, orient=tk.HORIZONTAL)
-        self.progressbar_busca.pack(anchor='center', fill='both', ipadx=3, ipady=3)
-        self.progressbar_busca.step(100)
-
         self.janela_busca.focus()
-        # self.janela_busca.grab_set()
 
     # Funções complexas
     def conf_destino_da_busca(self):
@@ -310,7 +302,6 @@ class CorpoPrincipal:
 
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
-
         Thread(target=self.iniciando_processo_busca_principal()).start()
 
     def thread_iniciar_processo_busca_espef(self):
@@ -345,11 +336,11 @@ class CorpoPrincipal:
             pasta_destino = Path(self.pasta_destino_padrao)
             for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
                 if resultado_da_busca.is_file():
-                    Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
+                    Thread(self.lista_busca.insert('end', f'{cont_arquivos} - {resultado_da_busca}'))
                     self.lista_busca_save.append(f' Arquivos - {resultado_da_busca}')
                     cont_arquivos += 1
                 elif resultado_da_busca.is_dir():
-                    Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
+                    Thread(self.lista_busca.insert('end', f'{cont_pastas} - {resultado_da_busca}'))
                     self.lista_busca_save.append(f'Dir - {resultado_da_busca}')
                     cont_pastas += 1
         except FileExistsError:
