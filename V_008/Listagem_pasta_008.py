@@ -305,10 +305,10 @@ class CorpoPrincipal:
         self.destino_ativo = True
         self.pasta_destino_padrao = Path(askdirectory())
         self.label_info_destino['text'] = self.pasta_destino_padrao
-        # showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
+        self.label_status['text'] = 'Aguarde...!'
         sleep(2)
         Thread(target=self.iniciando_processo_busca_principal()).start()
 
@@ -334,11 +334,6 @@ class CorpoPrincipal:
         print('Iniciando busca...!!')
 
     def iniciando_processo_busca_principal(self):
-        if not self.destino_ativo:
-            showinfo('AVISO!', f'Você não selecionou nenhuma pasta\n'
-                               f'A busca sera realizado na pasta [{self.pasta_destino_padrao}]')
-        self.label_status['text'] = 'Buscando pelos arquivos'
-        sleep(2)
         cont = 1
         try:
             valor_da_busca = self.valor_extensao_busca
