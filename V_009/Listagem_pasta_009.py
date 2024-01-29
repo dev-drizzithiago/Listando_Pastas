@@ -32,12 +32,11 @@ class ListandoArquivos:
         Thread(target=self.iniciar_busca).start()
 
     def iniciar_busca(self):
-        soma = 0
         self.label_status['text'] = 'Iniciando busca'
+        valor_da_busca
         sleep(2)
         for conta in range(1, 10):
-            soma += 1
-            self.lista_result_busca.insert('end', soma)
+            self.lista_result_busca.insert('end', valor_da_busca)
             sleep(1)
         self.label_status['text'] = 'Busca Finalizada!'
 
