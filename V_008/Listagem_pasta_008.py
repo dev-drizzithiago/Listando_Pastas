@@ -314,7 +314,7 @@ class CorpoPrincipal:
         sleep(2)
         # Thread(target=self.iniciando_processo_busca_principal()).start()
         Thread(target=self.processo_da_busca()).start()
-        
+
     def thread_iniciar_processo_busca_espef(self):
         sleep(2)
         Thread(target=self.iniciando_processo_busca_especifico()).start()
@@ -361,7 +361,6 @@ class CorpoPrincipal:
 
         self.label_status['text'] = "Busca Finalizada!"
         print('Busca Finalizada!')
-
 
     def processo_da_busca(self):
         valor_da_busca = self.valor_extensao_busca
