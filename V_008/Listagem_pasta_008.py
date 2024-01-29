@@ -310,10 +310,11 @@ class CorpoPrincipal:
 
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
-        self.label_status['text'] = 'Aguarde...!'
-        sleep(2)
+
         # Thread(target=self.iniciando_processo_busca_principal()).start()
         Thread(target=self.processo_da_busca()).start()
+        self.label_status['text'] = 'Aguarde...!'
+        sleep(1)
 
     def thread_iniciar_processo_busca_espef(self):
         sleep(2)
@@ -363,11 +364,14 @@ class CorpoPrincipal:
         print('Busca Finalizada!')
 
     def processo_da_busca(self):
-        valor_da_busca = self.valor_extensao_busca
+        try:
+            valor_da_busca = self.valor_extensao_busca
+        except AttributeError:
+            valor_da_busca = ''
         destino_padrao = Path(self.pasta_destino_padrao)
         for valor in destino_padrao.glob("**/*" + valor_da_busca):
             if valor.is_file():
                 print(valor)
-
+        self.label_status['text'] = "Busca Finalizada!"
 
 obj_principal = CorpoPrincipal()
