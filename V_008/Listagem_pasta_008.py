@@ -248,6 +248,13 @@ class CorpoPrincipal:
                                         command=self.thead_iniciar_processo_busca_principal)
         botao_iniciar_busca.pack(anchor='center', ipady=5, ipadx=5)
 
+        # Botão limpar lista
+        frame_botao_limpar_lista = tk.Frame(label_botao_geral)
+        frame_botao_limpar_lista.pack(side='top', ipady=5, padx=5)
+        self.botao_limpar_lista = tk.Button(frame_botao_limpar_lista, text='Limpar lista', border=5, width=20, height=1,
+                                            command=self.tread_limpar_lista_busca)
+        self.botao_limpar_lista.pack(anchor='center', ipady=5, ipadx=5)
+
         # BOTAO SAIR
         frame_botao_fechar_app = tk.Frame(label_botao_geral)
         frame_botao_fechar_app.pack(side='right', ipady=5, padx=5)
@@ -255,11 +262,6 @@ class CorpoPrincipal:
                                      height=1, command=self.fechar_janela_busca)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
-        frame_botao_limpar_lista = tk.Frame(label_botao_geral)
-        frame_botao_limpar_lista.pack(side='top', ipady=5, padx=5)
-        self.botao_limpar_lista = tk.Button(frame_botao_limpar_lista, text='Limpar lista', border=5, width=20, height=1,
-                                            command=self.tread_limpar_lista_busca)
-        self.botao_limpar_lista.pack(anchor='center', ipady=5, ipadx=5)
 
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = tk.Frame(label_botao_geral)
@@ -358,6 +360,14 @@ class CorpoPrincipal:
 
         self.label_status['text'] = "Busca Finalizada!"
         print('Busca Finalizada!')
+
+    
+    def processo_da_busca(self):
+        valor_da_busca = self.valor_extensao_busca
+        destino_padrao = Path(self.pasta_destino_padrao)
+        for valor in destino_padrao.glob("**/*" + valor_da_busca):
+            if valor.is_file():
+                print(valor)
 
 
 obj_principal = CorpoPrincipal()
