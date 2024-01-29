@@ -41,10 +41,8 @@ class ListandoArquivos:
     def iniciar_busca(self):
         self.label_status['text'] = 'Iniciando busca'
         valor_da_busca = 'jpg'
-        sleep(2)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.lista_result_busca.insert('end', busca)
-            sleep(1)
         self.label_status['text'] = 'Busca Finalizada!'
 
 
