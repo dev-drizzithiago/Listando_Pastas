@@ -312,9 +312,8 @@ class CorpoPrincipal:
     def thead_iniciar_processo_busca_principal(self):
 
         # Thread(target=self.iniciando_processo_busca_principal()).start()
-        Thread(target=self.processo_da_busca()).start()
-        self.label_status['text'] = 'Aguarde...!'
-        sleep(1)
+        # Thread(target=self.processo_da_busca()).start()
+        Thread(target=self.teste()).start()
 
     def thread_iniciar_processo_busca_espef(self):
         sleep(2)
@@ -364,6 +363,8 @@ class CorpoPrincipal:
         print('Busca Finalizada!')
 
     def processo_da_busca(self):
+        self.label_status['text'] = 'Aguarde...!'
+        sleep(1)
         try:
             valor_da_busca = self.valor_extensao_busca
         except AttributeError:
@@ -373,5 +374,12 @@ class CorpoPrincipal:
             if valor.is_file():
                 print(valor)
         self.label_status['text'] = "Busca Finalizada!"
+
+    def teste(self):
+        print('teste 1')
+        for valor in range(1, 1000):
+            print(valor)
+            sleep(0.5)
+        print('teste 2')
 
 obj_principal = CorpoPrincipal()
