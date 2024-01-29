@@ -293,7 +293,6 @@ class CorpoPrincipal:
 
         self.janela_busca.focus()
 
-    # Funções complexas
     def conf_destino_da_busca(self):
         self.destino_ativo = True
         self.pasta_destino_padrao = Path(askdirectory())
