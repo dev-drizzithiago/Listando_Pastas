@@ -26,12 +26,12 @@ class ListandoArquivos:
         self.label_frame_lista_busca = LabelFrame(self.janela_principal, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center')
 
-        self.barra_rolagem_lista_busca = Scrollbar(self.label_frame_lista_busca)
+        self.barra_rolagem_lista_busca = Scrollbar(self.label_frame_lista_busca, orient=VERTICAL)
         self.barra_rolagem_lista_busca.pack(side='right')
         self.lista_result_busca = Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
         self.lista_result_busca.pack(anchor='center', fill=BOTH)
+        self.barra_rolagem_lista_busca.config(command=self.barra_rolagem_lista_busca.set)
         self.lista_result_busca.config(yscrollcommand=self.lista_result_busca.yview)
-        self.barra_rolagem_lista_busca.config(command=self.barra_rolagem_lista_busca.get)
 
         self.janela_principal.mainloop()
 
