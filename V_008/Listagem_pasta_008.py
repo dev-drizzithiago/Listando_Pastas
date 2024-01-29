@@ -156,7 +156,7 @@ class CorpoPrincipal:
         Thread(target=self.janela_busca.destroy()).start()
         self.lista_principal.delete('0', 'end')
         self.combo_principal.delete('0', 'end')
-        self.combo_principal.set('Encontrou o que queria, selecione para novas pesquisas')
+        self.combo_principal.set('Encontrou o que queria? Selecione para novas pesquisas')
 
     def janela_busca(self):
         global valor_selecao
