@@ -26,7 +26,7 @@ class ListandoArquivos:
 
         self.var_lista_busca = StringVar()
         self.label_frame_lista_busca = LabelFrame(self.janela_principal, text='Resultado da BUSCA')
-        self.label_frame_lista_busca.pack(anchor='center')
+        self.label_frame_lista_busca.pack(anchor='center', fill='both')
 
         self.barra_rolagem_lista_busca = Scrollbar(self.label_frame_lista_busca, orient=VERTICAL)
         self.barra_rolagem_lista_busca.pack(side='right', fill=Y)
@@ -37,7 +37,7 @@ class ListandoArquivos:
 
         self.label_frame_progresso = LabelFrame(self.janela_principal)
         self.label_frame_progresso.pack(side='bottom')
-        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL)
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL, mode='indeterminate')
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
         self.janela_principal.mainloop()
@@ -47,10 +47,13 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         self.label_status['text'] = 'Iniciando busca'
+        self.barra_progresso_busca.start()
         valor_da_busca = 'jpg'
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.lista_result_busca.insert('end', busca)
+        self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
+
 
 
 obj_start = ListandoArquivos()
