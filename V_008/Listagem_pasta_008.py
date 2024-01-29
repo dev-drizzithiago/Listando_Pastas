@@ -215,7 +215,6 @@ class CorpoPrincipal:
         label_hora_data.pack(anchor='center')
 
         # Listagem da busca
-
         label_frame_lista_busca = tk.LabelFrame(self.janela_busca, text='Resultado da Busca', border=2)
         label_frame_lista_busca.pack(fill=tk.BOTH)
         label_lista_busca = tk.Label(self.janela_busca, text='Arquivos encontrados:')
