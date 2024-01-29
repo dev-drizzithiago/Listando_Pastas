@@ -37,7 +37,8 @@ class ListandoArquivos:
         sleep(2)
         for conta in range(1, 10):
             soma += 1
-            self.lista_result_busca.insert(soma)
+            self.lista_result_busca.insert('end', soma)
+            sleep(1)
         self.label_status['text'] = 'Busca Finalizada!'
 
 
