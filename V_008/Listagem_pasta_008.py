@@ -344,7 +344,6 @@ class CorpoPrincipal:
             valor_da_busca = self.valor_extensao_busca
         except AttributeError:
             valor_da_busca = ''
-
         try:
             pasta_destino = Path(self.pasta_destino_padrao)
             for resultado_da_busca in pasta_destino.glob('**/*' + valor_da_busca):
