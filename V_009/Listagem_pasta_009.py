@@ -20,17 +20,24 @@ class ListandoArquivos:
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
         self.label_status.pack(side='bottom')
 
+        self.var_lista_busca = StringVar()
+        self.label_frame_lista_busca = LabelFrame(self.janela_principal, text='Resultado da BUSCA')
+        self.label_frame_lista_busca.pack(anchor='center')
+        self.lista_result_busca = Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
+        self.lista_result_busca.pack(anchor='center')
+
         self.janela_principal.mainloop()
 
     def thread_botao_iniciar(self):
         Thread(target=self.iniciar_busca).start()
 
     def iniciar_busca(self):
+        soma = 0
         self.label_status['text'] = 'Iniciando busca'
-        sleep(1)
-        for valor in range(1, 10):
-            self.label_status['text'] = valor
-            sleep(1)
+        sleep(2)
+        for conta in range(1, 10):
+            soma += 1
+            self.lista_result_busca.insert(soma)
         self.label_status['text'] = 'Busca Finalizada!'
 
 
