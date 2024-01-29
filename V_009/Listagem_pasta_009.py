@@ -6,6 +6,7 @@ from pathlib import Path
 
 pasta_destino = Path().home()
 
+
 class ListandoArquivos:
     def __init__(self):
         self.janela_principal = Tk()
@@ -15,7 +16,8 @@ class ListandoArquivos:
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
         self.label_frame_geral.pack(fill=BOTH, ipadx=5, ipady=5)
 
-        self.botao_iniciar_busca = Button(self.label_frame_geral, text='Iniciar Busca', command=self.thread_botao_iniciar)
+        self.botao_iniciar_busca = Button(self.label_frame_geral, text='Iniciar Busca',
+                                          command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center')
 
         self.var_label_status_geral = StringVar()
@@ -32,6 +34,11 @@ class ListandoArquivos:
         self.lista_result_busca.pack(anchor='center', fill=BOTH)
         self.barra_rolagem_lista_busca.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca.set)
+
+        self.label_frame_progresso = LabelFrame(self.janela_principal)
+        self.label_frame_progresso.pack(side='bottom')
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL)
+        self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
         self.janela_principal.mainloop()
 
