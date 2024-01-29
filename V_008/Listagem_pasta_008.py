@@ -40,7 +40,7 @@ class CorpoPrincipal:
 
         # janela princpal
         janela_principal = tk.Tk()
-        janela_principal.geometry('485x450')
+        janela_principal.geometry('485x430')
         janela_principal.config(padx=5, pady=5)
         janela_principal.title('V_008')
 
