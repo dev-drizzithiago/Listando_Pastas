@@ -277,7 +277,7 @@ class CorpoPrincipal:
         label_frame_msg_busca_geral = tk.LabelFrame(self.janela_busca, text='Extensão selecionada!')
         label_frame_msg_busca_geral.pack(anchor='center')
         self.label_msg_busca = tk.Label(label_frame_msg_busca_geral, text=var_msg_estatus.get(), relief='raised')
-        self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4)
+        self.label_msg_busca.pack(anchor='center', ipady=4, ipadx=4, fill='both')
         try:
             self.label_msg_busca['text'] = self.valor_extensao_busca
         except AttributeError:
@@ -305,12 +305,10 @@ class CorpoPrincipal:
         self.destino_ativo = True
         self.pasta_destino_padrao = Path(askdirectory())
         self.label_info_destino['text'] = self.pasta_destino_padrao
-        showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
+        # showinfo('AVISO', F'Buscar no diretorio [{self.pasta_destino_padrao}]')
 
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
-        self.label_status['text'] = 'Buscando pelos arquivos'
-        sleep(2)
         print('Iniciando processo...!')
         sleep(2)
         Thread(target=self.iniciando_processo_busca_principal()).start()
@@ -340,6 +338,8 @@ class CorpoPrincipal:
         if not self.destino_ativo:
             showinfo('AVISO!', f'Você não selecionou nenhuma pasta\n'
                                f'A busca sera realizado na pasta [{self.pasta_destino_padrao}]')
+        self.label_status['text'] = 'Buscando pelos arquivos'
+        sleep(2)
         cont = 1
         try:
             valor_da_busca = self.valor_extensao_busca
@@ -359,10 +359,11 @@ class CorpoPrincipal:
                     cont += 1
         except FileExistsError:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
+
         for valor in self.lista_busca_save:
             print(valor)
 
-        self.lista_busca['text'] = "Busca Finalizada!"
+        self.label_status['text'] = "Busca Finalizada!"
 
 
 obj_principal = CorpoPrincipal()
