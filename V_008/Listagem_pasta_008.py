@@ -321,7 +321,6 @@ class CorpoPrincipal:
         self.label_status['text'] = 'Iniciando busca...!!'
 
     def iniciando_processo_busca_principal(self):
-        self.label_status['text'] = 'Iniciando busca...!!'
         cont_arquivos = 1
         cont_pastas = 1
         try:
