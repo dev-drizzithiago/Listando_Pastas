@@ -206,7 +206,7 @@ class CorpoPrincipal:
         # Janela de busca
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
-        self.janela_busca.geometry('900x600')
+        self.janela_busca.geometry('900x580')
         self.janela_busca.title(f'Buscar por arquivos')
 
         # Label Frame horario
