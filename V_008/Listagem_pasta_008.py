@@ -172,6 +172,7 @@ class CorpoPrincipal:
         print(f' EXE {self.ativo_execul}')
         print(f' ZIP {self.ativo_arqzip}')
 
+        # Definindo extensão para busca
         if self.ativo_imagem:
             self.valor_extensao_busca = self.extensoes_imagem[valor_selecao]
             print(f'Valor extensão IMAGEM {self.valor_extensao_busca}')
@@ -202,7 +203,6 @@ class CorpoPrincipal:
         except AttributeError:
             pass
 
-        sleep(2)
         # Janela de busca
         self.janela_busca = tk.Tk()
         self.janela_busca.config(padx=5, pady=5)
