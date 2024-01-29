@@ -312,8 +312,6 @@ class CorpoPrincipal:
     def thead_iniciar_processo_busca_principal(self):
 
         Thread(target=self.iniciando_processo_busca_principal()).start()
-        # Thread(target=self.processo_da_busca()).start()
-        # Thread(target=self.teste()).start()
 
     def thread_iniciar_processo_busca_espef(self):
         sleep(2)
@@ -337,7 +335,8 @@ class CorpoPrincipal:
         print('Iniciando busca...!!')
 
     def iniciando_processo_busca_principal(self):
-        cont = 1
+        cont_arquivos = 1
+        cont_pastas = 1
         try:
             valor_da_busca = self.valor_extensao_busca
         except AttributeError:
@@ -348,11 +347,11 @@ class CorpoPrincipal:
                 if resultado_da_busca.is_file():
                     Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
                     self.lista_busca_save.append(f' Arquivos - {resultado_da_busca}')
-                    cont += 1
+                    cont_arquivos += 1
                 elif resultado_da_busca.is_dir():
                     Thread(self.lista_busca.insert('end', f'{cont} - {resultado_da_busca}'))
                     self.lista_busca_save.append(f'Dir - {resultado_da_busca}')
-                    cont += 1
+                    cont_pastas += 1
         except FileExistsError:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
 
@@ -361,26 +360,6 @@ class CorpoPrincipal:
 
         self.label_status['text'] = "Busca Finalizada!"
         print('Busca Finalizada!')
-
-    def processo_da_busca(self):
-        self.label_status['text'] = 'Aguarde...!'
-        sleep(1)
-        try:
-            valor_da_busca = self.valor_extensao_busca
-        except AttributeError:
-            valor_da_busca = ''
-        destino_padrao = Path(self.pasta_destino_padrao)
-        for valor in destino_padrao.glob("**/*" + valor_da_busca):
-            if valor.is_file():
-                print(valor)
-        self.label_status['text'] = "Busca Finalizada!"
-
-    def teste(self):
-        print('teste 1')
-        for valor in range(1, 1000):
-            print(valor)
-            sleep(0.5)
-        print('teste 2')
 
 
 obj_principal = CorpoPrincipal()
