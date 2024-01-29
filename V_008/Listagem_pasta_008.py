@@ -262,7 +262,6 @@ class CorpoPrincipal:
                                      height=1, command=self.fechar_janela_busca)
         botao_fechar_app.pack(anchor='center', ipady=5, ipadx=5)
 
-
         # INFORMAÇÃO SOBRE DESTINO
         frame_botao_destino = tk.Frame(label_botao_geral)
         frame_botao_destino.pack(side='left', padx=5, pady=5)
