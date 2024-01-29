@@ -2,7 +2,9 @@ from tkinter import *
 from tkinter.ttk import *
 from time import sleep
 from threading import Thread
+from pathlib import Path
 
+pasta_destino = Path().home()
 
 class ListandoArquivos:
     def __init__(self):
@@ -33,10 +35,10 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         self.label_status['text'] = 'Iniciando busca'
-        valor_da_busca
+        valor_da_busca = 'jpg'
         sleep(2)
-        for conta in range(1, 10):
-            self.lista_result_busca.insert('end', valor_da_busca)
+        for busca in pasta_destino.glob('**/*' + valor_da_busca):
+            self.lista_result_busca.insert('end', busca)
             sleep(1)
         self.label_status['text'] = 'Busca Finalizada!'
 
