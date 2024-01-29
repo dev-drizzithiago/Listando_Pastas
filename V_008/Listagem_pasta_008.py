@@ -287,7 +287,7 @@ class CorpoPrincipal:
         var_status_msg = tk.StringVar()
         label_frame_status = tk.LabelFrame(self.janela_busca, text='Informações sobre o progresso')
         label_frame_status.pack(side='bottom')
-        self.label_status = tk.Label(label_frame_status, textvariable=var_status_msg, border=2)
+        self.label_status = tk.Label(label_frame_status, textvariable=var_status_msg.get(), border=2)
         self.label_status.pack(anchor='center')
 
         # barra de progresso
@@ -310,6 +310,7 @@ class CorpoPrincipal:
     # THREADS
     def thead_iniciar_processo_busca_principal(self):
         self.label_status['text'] = 'Buscando pelos arquivos'
+        sleep(2)
         print('Iniciando processo...!')
         sleep(2)
         Thread(target=self.iniciando_processo_busca_principal()).start()
@@ -338,7 +339,7 @@ class CorpoPrincipal:
     def iniciando_processo_busca_principal(self):
         if not self.destino_ativo:
             showinfo('AVISO!', f'Você não selecionou nenhuma pasta\n'
-                                 f'A busca sera realizado na pasta [{self.pasta_destino_padrao}]')
+                               f'A busca sera realizado na pasta [{self.pasta_destino_padrao}]')
         cont = 1
         try:
             valor_da_busca = self.valor_extensao_busca
@@ -360,6 +361,8 @@ class CorpoPrincipal:
             showerror('AVISO', 'Não foi possível ler nenhuma extensão')
         for valor in self.lista_busca_save:
             print(valor)
+
+        self.lista_busca['text'] = "Busca Finalizada!"
 
 
 obj_principal = CorpoPrincipal()
