@@ -357,6 +357,7 @@ class CorpoPrincipal:
             print(valor)
 
         self.label_status['text'] = "Busca Finalizada!"
+        print('Busca Finalizada!')
 
 
 obj_principal = CorpoPrincipal()
