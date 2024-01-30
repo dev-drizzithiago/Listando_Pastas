@@ -26,10 +26,12 @@ class ListandoArquivos:
         self.label_frame_geral.pack(fill=BOTH, ipadx=5, ipady=5)
 
         # COMBO DE EXTENSÃO
+        self.var_combo_categoria = StringVar
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=BOTH)
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora)
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
+        self.var_combo_categoria.trace('w', self.combo_categoria_extensa)
 
         # INFORMAÇÕES SOBRE EXTENSÃO
         self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
@@ -40,10 +42,9 @@ class ListandoArquivos:
 
         self.lista_de_extensoes = Listbox(self.label_lista_extensao, selectmode=SINGLE, justify='center')
         self.lista_de_extensoes.pack(anchor='center', fill='both')
-        
+
         self.barra_rolagem_extensao.config(command=self.lista_de_extensoes.yview)
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
-
 
         # LABEL DE INFORMAÇÕES
         self.var_label_status_geral = StringVar()
@@ -105,6 +106,10 @@ class ListandoArquivos:
         Thread(target=self.digitar_extensao()).start()
 
     # INICIO DAS FUNÇÕES
+
+    def combo_categoria_extensao(self):
+        pass
+
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
         self.label_info_extensao.config(text=self.extensao_selecao)
