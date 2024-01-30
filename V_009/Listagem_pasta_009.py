@@ -92,6 +92,7 @@ class ListandoArquivos:
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
+        self.botao_adicionar_extensao.pack(anchor='sw', ipad=5, ipad5)
 
 
 
