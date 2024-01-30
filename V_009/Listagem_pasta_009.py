@@ -4,23 +4,27 @@ from time import sleep
 from threading import Thread
 from pathlib import Path
 from tkinter.simpledialog import askstring
+from tkinter.messagebox import showerror
 
 pasta_destino = Path().home()
 
 
 class ListandoArquivos:
     def __init__(self):
+
+        self.ativo_status_extensao = False
+
+        # Janela Principal
         self.janela_principal = Tk()
         self.janela_principal.title('Versão 009')
         self.janela_principal.geometry('1000x400')
+        # self.janel_principal.geometry('alturaXlargura')
 
+        # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
         self.label_frame_geral.pack(fill=BOTH, ipadx=5, ipady=5)
 
-        self.var_label_status_geral = StringVar()
-        self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
-        self.label_status.pack(side='bottom')
-
+        # COMBO DE EXTENSÃO
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=BOTH)
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora)
@@ -54,6 +58,17 @@ class ListandoArquivos:
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo', command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
+        # LABEL DE INFORMAÇÕES
+        self.var_label_status_geral = StringVar()
+        self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
+        self.label_status.pack(anchor='n')
+
+        self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Extensão escolhida..!')
+        self.label_frame_info_ext.pack(anchor='n')
+        self.var_label_info_extensao = StringVar()
+        self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
+        self.label_info_extensao.pack(anchor='center')
+
         # Barro de progresso
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
@@ -63,14 +78,17 @@ class ListandoArquivos:
         self.janela_principal.mainloop()
 
     def thread_botao_iniciar(self):
-        Thread(target=self.iniciar_busca).start()
+        if self.ativo_status_extensao:
+            Thread(target=self.iniciar_busca).start()
+        else:
+            showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
 
     def thread_botao_extensao(self):
         Thread(target=self.digitar_extensao()).start()
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
-        self.thread_botao_iniciar()
+        self.ativo_status_extensao = True
 
     def iniciar_busca(self):
         self.label_status['text'] = 'Iniciando busca'
