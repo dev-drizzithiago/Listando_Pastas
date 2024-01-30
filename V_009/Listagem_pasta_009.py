@@ -91,6 +91,7 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
+        self.label_info_extensao.config(text=self.extensao_selecao)
         self.ativo_status_extensao = True
 
     def iniciar_busca(self):
