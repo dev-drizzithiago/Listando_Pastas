@@ -57,7 +57,7 @@ class ListandoArquivos:
         # Barro de progresso
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
-        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL)
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL, mode='indeterminate')
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
         self.janela_principal.mainloop()
@@ -75,7 +75,7 @@ class ListandoArquivos:
     def iniciar_busca(self):
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
-        self.barra_progresso_busca.start()
+        self.barra_progresso_busca.start(50)
         valor_da_busca = self.extensao_selecao
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
