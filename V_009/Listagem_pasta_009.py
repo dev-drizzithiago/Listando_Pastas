@@ -20,31 +20,37 @@ class ListandoArquivos:
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
         self.label_status.pack(side='bottom')
 
-        self.label_frame_combo_categora = LabelFrame(self.janela_principal)
+        self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=BOTH)
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora)
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
 
         # Busca Geral
         self.var_lista_busca = StringVar()
-        self.label_frame_lista_busca = LabelFrame(self.janela_principal, text='Resultado da BUSCA')
+        self.label_frame_lista_busca = LabelFrame(self.label_frame_geral, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center', fill='both')
 
-        self.barra_rolagem_lista_busca = Scrollbar(self.label_frame_lista_busca, orient=VERTICAL)
-        self.barra_rolagem_lista_busca.pack(side='right', fill=Y)
+        self.barra_rolagem_lista_busca_Y = Scrollbar(self.label_frame_lista_busca, orient=VERTICAL)
+        self.barra_rolagem_lista_busca_Y.pack(side='right', fill=Y)
+        self.barra_rolagem_lista_busca_X = Scrollbar(self.label_frame_lista_busca, orient=HORIZONTAL)
+        self.barra_rolagem_lista_busca_X.pack(side='bottom', fill=X)
+
         self.lista_result_busca = Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
         self.lista_result_busca.pack(anchor='center', fill=BOTH)
-        self.barra_rolagem_lista_busca.config(command=self.lista_result_busca.yview)
-        self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca.set)
+        self.barra_rolagem_lista_busca_Y.config(command=self.lista_result_busca.yview)
+        self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_Y.set)
+        self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.yview)
+        self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
         # Botoes
-        self.label_frame_botoes_opcoes = LabelFrame(self.janela_principal, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.pack(side='bottom')
-        self.botao_iniciar_busca = Button(self.label_frame_geral, text='Iniciar Busca', command=self.thread_botao_iniciar)
+        self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
+        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
+        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca', command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center')
 
-        self.label_frame_progresso = LabelFrame(self.janela_principal)
-        self.label_frame_progresso.pack(side='bottom')
+        # Barro de progresso
+        self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
+        self.label_frame_progresso.pack(side='bottom', fill='both')
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL)
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
