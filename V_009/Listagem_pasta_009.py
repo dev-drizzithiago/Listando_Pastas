@@ -32,10 +32,10 @@ class ListandoArquivos:
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
 
         # INFORMAÇÕES SOBRE EXTENSÃO
-        self.label_lista_extensao = LabelFrame(self.janela_principal, text='Escolha uma extensão')
-        self.label_lista_extensao.pack(anchor='n', fill='both')
-        self.var_lista_extensao = IntVar
-        self.lista_de_extensoes = Listbox(self.label_lista_extensao, listvariable=self.var_lista_extensao)
+        self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
+        self.label_lista_extensao.pack(side='top', fill='both')
+        self.lista_de_extensoes = Listbox(self.label_lista_extensao, selectmode=SINGLE, justify='center')
+        self.lista_de_extensoes.pack(anchor='center', fill='both')
 
 
         # LABEL DE INFORMAÇÕES
@@ -79,7 +79,7 @@ class ListandoArquivos:
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
-        # Barra de progresso
+        # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL, mode='indeterminate')
