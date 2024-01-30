@@ -7,6 +7,7 @@ from tkinter.simpledialog import askstring
 from tkinter.messagebox import showerror
 
 pasta_destino = Path().home()
+pasta_arq_registro_extensao = Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes')
 
 
 class ListandoArquivos:
@@ -17,7 +18,7 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x800')
+        self.janela_principal.geometry('1000x700')
         # self.janel_principal.geometry('alturaXlargura')
 
         # Label FRAME PRINCIPAL
@@ -72,6 +73,14 @@ class ListandoArquivos:
         self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
+        self.var_label_status_geral = StringVar()
+        self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
+        self.label_status.pack(anchor='s')
+
+        self.var_label_info_qtd_arq = StringVar()
+        self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
+        self.label_qtd_arq_busca.pack(anchor='s')
+
         # Botoes
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
@@ -82,14 +91,9 @@ class ListandoArquivos:
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo',
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
+        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
 
-        self.var_label_status_geral = StringVar()
-        self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
-        self.label_status.pack(anchor='s')
 
-        self.var_label_info_qtd_arq = StringVar()
-        self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
-        self.label_qtd_arq_busca.pack(anchor='s')
 
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
@@ -110,7 +114,6 @@ class ListandoArquivos:
         Thread(target=self.digitar_extensao()).start()
 
     # INICIO DAS FUNÇÕES
-
     def combo_categoria_extensao(self):
         valor_categoria = self.combo_extensao_categoria.get()
 
@@ -134,6 +137,7 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca.upper()}]')
+
 
 
 obj_start = ListandoArquivos()
