@@ -38,6 +38,8 @@ class ListandoArquivos:
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca.set)
 
         # Botoes
+        self.label_frame_botoes_opcoes = LabelFrame(self.janela_principal, text='Escolha um opção')
+        self.label_frame_botoes_opcoes.pack(side='bottom')
         self.botao_iniciar_busca = Button(self.label_frame_geral, text='Iniciar Busca', command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center')
 
