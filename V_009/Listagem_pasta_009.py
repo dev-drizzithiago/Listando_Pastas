@@ -49,7 +49,7 @@ class ListandoArquivos:
         # LABEL DE INFORMAÇÕES
         self.var_label_status_geral = StringVar()
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
-        self.label_status.pack(anchor='n')
+        self.label_status.pack(anchor='s')
 
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
