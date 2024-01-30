@@ -16,18 +16,18 @@ class ListandoArquivos:
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
         self.label_frame_geral.pack(fill=BOTH, ipadx=5, ipady=5)
 
-        self.botao_iniciar_busca = Button(self.label_frame_geral, text='Iniciar Busca',
-                                          command=self.thread_botao_iniciar)
-        self.botao_iniciar_busca.pack(anchor='center')
-
         self.var_label_status_geral = StringVar()
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
         self.label_status.pack(side='bottom')
 
+        self.label_frame_combo_categora = LabelFrame(self.janela_principal)
+        self.label_frame_combo_categora.pack(side='top', fill=BOTH)
+        self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora)
+        self.combo_extensao_categoria.pack(anchor='center', fill='both')
+
         self.var_lista_busca = StringVar()
         self.label_frame_lista_busca = LabelFrame(self.janela_principal, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center', fill='both')
-
         self.barra_rolagem_lista_busca = Scrollbar(self.label_frame_lista_busca, orient=VERTICAL)
         self.barra_rolagem_lista_busca.pack(side='right', fill=Y)
         self.lista_result_busca = Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
@@ -35,9 +35,12 @@ class ListandoArquivos:
         self.barra_rolagem_lista_busca.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca.set)
 
+        self.botao_iniciar_busca = Button(self.label_frame_geral, text='Iniciar Busca', command=self.thread_botao_iniciar)
+        self.botao_iniciar_busca.pack(anchor='center')
+
         self.label_frame_progresso = LabelFrame(self.janela_principal)
         self.label_frame_progresso.pack(side='bottom')
-        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL, mode='indeterminate')
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL)
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
         self.janela_principal.mainloop()
@@ -53,7 +56,6 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', busca)
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
-
 
 
 obj_start = ListandoArquivos()
