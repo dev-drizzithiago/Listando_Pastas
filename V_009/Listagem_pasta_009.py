@@ -47,10 +47,6 @@ class ListandoArquivos:
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
         # LABEL DE INFORMAÇÕES
-        self.var_label_status_geral = StringVar()
-        self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
-        self.label_status.pack(anchor='s')
-
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
         self.var_label_info_extensao = StringVar()
@@ -86,6 +82,14 @@ class ListandoArquivos:
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo',
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
+
+        self.var_label_status_geral = StringVar()
+        self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
+        self.label_status.pack(anchor='s')
+
+        self.var_label_info_qtd_arq = StringVar()
+        self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
+        self.label_qtd_arq_busca.pack(anchor='s')
 
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
@@ -128,6 +132,7 @@ class ListandoArquivos:
             cont_arquivos += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
+        self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão {valor_da_busca}')
 
 
 obj_start = ListandoArquivos()
