@@ -25,9 +25,11 @@ class ListandoArquivos:
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora)
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
 
+        # Busca Geral
         self.var_lista_busca = StringVar()
         self.label_frame_lista_busca = LabelFrame(self.janela_principal, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center', fill='both')
+
         self.barra_rolagem_lista_busca = Scrollbar(self.label_frame_lista_busca, orient=VERTICAL)
         self.barra_rolagem_lista_busca.pack(side='right', fill=Y)
         self.lista_result_busca = Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
@@ -35,6 +37,7 @@ class ListandoArquivos:
         self.barra_rolagem_lista_busca.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca.set)
 
+        # Botoes
         self.botao_iniciar_busca = Button(self.label_frame_geral, text='Iniciar Busca', command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center')
 
