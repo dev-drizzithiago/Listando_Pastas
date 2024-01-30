@@ -31,14 +31,12 @@ class ListandoArquivos:
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora)
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
 
-        # Botoes
-        self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
+        # INFORMAÇÕES SOBRE EXTENSÃO
+        self.label_lista_extensao = LabelFrame(self.janela_principal, text='Escolha uma extensão')
+        self.label_lista_extensao.pack(anchor='n', fill='both')
+        self.var_lista_extensao = IntVar
+        self.lista_de_extensoes = Listbox(self.label_lista_extensao, listvariable=self.var_lista_extensao)
 
-        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca', command=self.thread_botao_iniciar)
-        self.botao_iniciar_busca.pack(anchor='center')
-        self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo', command=self.thread_botao_extensao)
-        self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
         # LABEL DE INFORMAÇÕES
         self.var_label_status_geral = StringVar()
@@ -69,6 +67,17 @@ class ListandoArquivos:
 
         self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
+
+        # Botoes
+        self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
+        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
+
+        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca',
+                                          command=self.thread_botao_iniciar)
+        self.botao_iniciar_busca.pack(anchor='center')
+        self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo',
+                                             command=self.thread_botao_extensao)
+        self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
         # Barra de progresso
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
@@ -101,6 +110,7 @@ class ListandoArquivos:
         valor_da_busca = self.extensao_selecao
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
+            sleep(0.5)
             self.lista_result_busca.insert('end', busca)
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
