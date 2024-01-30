@@ -124,7 +124,7 @@ class ListandoArquivos:
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
-        self.barra_progresso_busca.start(100)
+        self.barra_progresso_busca.start(1)
         valor_da_busca = self.extensao_selecao
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
@@ -132,7 +132,8 @@ class ListandoArquivos:
             cont_arquivos += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
-        self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão [{valor_da_busca}]')
+        self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
+                                             f' [{valor_da_busca.upper()}]')
 
 
 obj_start = ListandoArquivos()
