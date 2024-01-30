@@ -132,7 +132,7 @@ class ListandoArquivos:
             cont_arquivos += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
-        self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão {valor_da_busca}')
+        self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão [{valor_da_busca}]')
 
 
 obj_start = ListandoArquivos()
