@@ -34,8 +34,15 @@ class ListandoArquivos:
         # INFORMAÇÕES SOBRE EXTENSÃO
         self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
         self.label_lista_extensao.pack(side='top', fill='both')
+
+        self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=VERTICAL)
+        self.barra_rolagem_extensao.pack(side='right', fill=Y)
+
         self.lista_de_extensoes = Listbox(self.label_lista_extensao, selectmode=SINGLE, justify='center')
         self.lista_de_extensoes.pack(anchor='center', fill='both')
+        
+        self.barra_rolagem_extensao.config(command=self.lista_de_extensoes.yview)
+        self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
 
         # LABEL DE INFORMAÇÕES
