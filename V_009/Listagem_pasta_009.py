@@ -122,6 +122,8 @@ class ListandoArquivos:
                            'Arquivos compreesão')
         self.janela_add_extensao = Tk()
         self.janela_add_extensao.config(width=300, height=300)
+        self.label_frame_add_ext = LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão')
+        self.label_frame_add_ext.pack(fill='both')
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
