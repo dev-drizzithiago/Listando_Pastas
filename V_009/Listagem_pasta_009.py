@@ -18,7 +18,7 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x600')
+        self.janela_principal.geometry('1000x800')
         # self.janel_principal.geometry('alturaXlargura')
 
         # Label FRAME PRINCIPAL
