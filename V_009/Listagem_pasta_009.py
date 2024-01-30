@@ -10,8 +10,7 @@ pasta_destino = Path().home()
 
 
 class ListandoArquivos:
-    def __init__(self):
-
+    def __init__(self):      
         self.ativo_status_extensao = False
         self.ativo_info_escolha_ext = False
 
@@ -52,7 +51,7 @@ class ListandoArquivos:
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
         self.label_status.pack(anchor='n')
 
-        self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Extensão escolhida..!')
+        self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
         self.var_label_info_extensao = StringVar()
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
