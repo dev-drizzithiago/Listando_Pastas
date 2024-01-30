@@ -13,11 +13,12 @@ class ListandoArquivos:
     def __init__(self):
 
         self.ativo_status_extensao = False
+        self.ativo_info_escolha_ext = False
 
         # Janela Principal
         self.janela_principal = Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x400')
+        self.janela_principal.geometry('1000x600')
         # self.janel_principal.geometry('alturaXlargura')
 
         # Label FRAME PRINCIPAL
@@ -77,6 +78,7 @@ class ListandoArquivos:
 
         self.janela_principal.mainloop()
 
+    # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
@@ -86,6 +88,7 @@ class ListandoArquivos:
     def thread_botao_extensao(self):
         Thread(target=self.digitar_extensao()).start()
 
+    # INICIO DAS FUNÇÕES
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
         self.ativo_status_extensao = True
