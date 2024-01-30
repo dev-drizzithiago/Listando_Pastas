@@ -10,7 +10,7 @@ pasta_destino = Path().home()
 
 
 class ListandoArquivos:
-    def __init__(self):      
+    def __init__(self):
         self.ativo_status_extensao = False
         self.ativo_info_escolha_ext = False
 
