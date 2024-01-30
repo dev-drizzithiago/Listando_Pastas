@@ -116,13 +116,16 @@ class ListandoArquivos:
         self.ativo_status_extensao = True
 
     def iniciar_busca(self):
+        cont_arquivos = 1
+        cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
         self.barra_progresso_busca.start(50)
         valor_da_busca = self.extensao_selecao
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
-            self.lista_result_busca.insert('end', busca)
+            self.lista_result_busca.insert('end', f'{cont_arquivos} - {busca}')
+            cont_arquivos += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
 
