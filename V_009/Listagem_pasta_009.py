@@ -85,15 +85,14 @@ class ListandoArquivos:
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
 
-        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca',
+        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca', width=20,
                                           command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center')
-        self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo',
+        self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo', width=20,
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
-        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
-        self.botao_adicionar_extensao.pack(anchor='sw', ipad=5, ipad5)
-
+        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20)
+        self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
 
         # Barra de progresso da busca
