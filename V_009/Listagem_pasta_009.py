@@ -111,7 +111,6 @@ class ListandoArquivos:
     def combo_categoria_extensao(self):
         valor_categoria = self.combo_extensao_categoria.get()
 
-
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
         self.label_info_extensao.config(text=self.extensao_selecao)
@@ -124,7 +123,6 @@ class ListandoArquivos:
         valor_da_busca = self.extensao_selecao
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
-            sleep(0.5)
             self.lista_result_busca.insert('end', busca)
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
