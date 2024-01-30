@@ -29,8 +29,9 @@ class ListandoArquivos:
         self.var_combo_categoria = StringVar()
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=BOTH)
-        self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora)
+        self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, values='teste', justify='center')
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
+        self.combo_extensao_categoria.set('Escolha uma categoria de extensão')
         self.var_combo_categoria.trace('w', self.combo_categoria_extensao)
 
         # INFORMAÇÕES SOBRE EXTENSÃO
@@ -109,7 +110,7 @@ class ListandoArquivos:
 
     def combo_categoria_extensao(self):
         valor_categoria = self.combo_extensao_categoria.get()
-        
+
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
