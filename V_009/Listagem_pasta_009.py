@@ -124,7 +124,7 @@ class ListandoArquivos:
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
-        self.barra_progresso_busca.start(1)
+        self.barra_progresso_busca.start(100)
         valor_da_busca = self.extensao_selecao
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
