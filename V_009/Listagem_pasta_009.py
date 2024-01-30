@@ -91,9 +91,9 @@ class ListandoArquivos:
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Escolha um arquivo', width=20,
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
-        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20)
+        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20,
+                                               command=self.add_extensao)
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
-
 
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
@@ -117,6 +117,12 @@ class ListandoArquivos:
     def combo_categoria_extensao(self):
         valor_categoria = self.combo_extensao_categoria.get()
 
+    def add_extensao(self):
+        self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
+                           'Arquivos compreesão')
+        self.janela_add_extensao = Tk()
+        self.janela_add_extensao.config(width=300, height=300)
+
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
         self.label_info_extensao.config(text=self.extensao_selecao)
@@ -137,7 +143,6 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca.upper()}]')
-
 
 
 obj_start = ListandoArquivos()
