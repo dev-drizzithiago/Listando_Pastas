@@ -18,7 +18,7 @@ class ListandoArquivos:
 
         self.ativo_status_extensao = False
         self.ativo_info_escolha_ext = False
-        
+
         self.ativo_busca_imagem = False
         self.ativo_busca_videos = False
         self.ativo_busca_textos = False
@@ -127,7 +127,45 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
         valor_categoria_busca = self.var_combo_categoria.get()
-        print(valor_categoria_busca)
+        if valor_categoria_busca == 'Arquivo Imagem':
+            pass
+            self.ativo_busca_imagem = True
+            self.ativo_busca_videos = False
+            self.ativo_busca_textos = False
+            self.ativo_busca_execul = False
+            self.ativo_busca_arqzip = False
+
+        elif valor_categoria_busca == 'Arquivos de Vídeo':
+            pass
+            self.ativo_busca_imagem = False
+            self.ativo_busca_videos = True
+            self.ativo_busca_textos = False
+            self.ativo_busca_execul = False
+            self.ativo_busca_arqzip = False
+
+        elif valor_categoria_busca == 'Arquivos de Leitura':
+            pass
+            self.ativo_busca_imagem = False
+            self.ativo_busca_videos = False
+            self.ativo_busca_textos = True
+            self.ativo_busca_execul = False
+            self.ativo_busca_arqzip = False
+
+        elif valor_categoria_busca == 'Arquivos execução':
+            pass
+            self.ativo_busca_imagem = False
+            self.ativo_busca_videos = False
+            self.ativo_busca_textos = False
+            self.ativo_busca_execul = True
+            self.ativo_busca_arqzip = False
+
+        elif valor_categoria_busca == 'Arquivos compreesão':
+            pass
+            self.ativo_busca_imagem = False
+            self.ativo_busca_videos = False
+            self.ativo_busca_textos = False
+            self.ativo_busca_execul = False
+            self.ativo_busca_arqzip = True
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
