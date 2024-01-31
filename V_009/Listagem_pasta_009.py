@@ -148,7 +148,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
-            self.arq_extensao_add = pasta_arq_registro_extensao + arq_imagem
+            self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_imagem)
 
         elif valor_categoria_busca == 'Arquivos de Vídeo':
             self.ativo_busca_imagem = False
@@ -157,7 +157,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
-            self.arq_extensao_add = pasta_arq_registro_extensao + arq_videos
+            self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_videos)
 
         elif valor_categoria_busca == 'Arquivos de Leitura':
             self.ativo_busca_imagem = False
@@ -166,7 +166,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
-            self.arq_extensao_add = pasta_arq_registro_extensao + arq_textos
+            self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_textos)
 
         elif valor_categoria_busca == 'Arquivos execução':
             self.ativo_busca_imagem = False
@@ -175,7 +175,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = True
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
-            self.arq_extensao_add = pasta_arq_registro_extensao + arq_execul
+            self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_execul)
 
         elif valor_categoria_busca == 'Arquivos compreesão':
             self.ativo_busca_imagem = False
@@ -184,7 +184,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = True
             self.botao_adicionar_extensao['state'] = tk.NORMAL
-            self.arq_extensao_add = pasta_arq_registro_extensao + arq_arqzip
+            self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_arqzip)
 
     def janela_add_ext_arq_txt(self):
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
