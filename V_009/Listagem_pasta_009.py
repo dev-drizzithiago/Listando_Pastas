@@ -118,13 +118,19 @@ class ListandoArquivos:
 
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
+        print('Iniciando THREAD')
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
 
     def thread_botao_extensao(self):
+        print('Iniciando THREAD')
         Thread(target=self.digitar_extensao()).start()
+
+    def thread_adicionar_extensao(self):
+        print('Iniciando THREAD')
+        Thread(self.adicionando_informacao_arquivo_txt_extensao()).start()
 
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
@@ -181,14 +187,17 @@ class ListandoArquivos:
 
         label_frame_caixa_entrada = tk.LabelFrame(label_frame_add_ext_geral, text='Digite uma extensão no campo abaixo')
         label_frame_caixa_entrada.pack(side='top', fill='both', pady=5, padx=5)
-
         caixa_entrada_extensao = tk.Entry(label_frame_caixa_entrada, justify='center')
         caixa_entrada_extensao.pack(anchor='center', fill='both', pady=5, padx=5)
 
         label_frame_botao_add_ext = tk.LabelFrame(label_frame_add_ext_geral, text='Escolha uma opção')
         label_frame_botao_add_ext.pack(side='bottom', fill='both', pady=5, padx=5)
-
-        botao_adicionar_ext = tk.Button()
+        botao_adicionar_ext = tk.Button(label_frame_botao_add_ext, text='Adicionar', width=20, height=1)
+        botao_adicionar_ext.pack(anchor='center', pady=5, padx=5)
+        botao_corrigir_caixa_entrada = tk.Button(label_frame_botao_add_ext, text='Corrigir Entrada', width=20)
+        botao_corrigir_caixa_entrada.pack(side='left', pady=5, padx=5)
+        botao_voltar_janela_principal = tk.Button(label_frame_botao_add_ext, text='Janela Principal', width=20)
+        botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
 
     def adicionando_informacao_arquivo_txt_extensao(self):
         if self.ativo_busca_imagem:
