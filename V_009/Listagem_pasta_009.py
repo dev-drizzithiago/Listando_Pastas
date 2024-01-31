@@ -177,7 +177,6 @@ class ListandoArquivos:
         janela_add_extensao.geometry('400x400')
         janela_add_extensao.title('Janele para adicionar extensão')
 
-        
 
         if self.ativo_busca_imagem:
             pass
