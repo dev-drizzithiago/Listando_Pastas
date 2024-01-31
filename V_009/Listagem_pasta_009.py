@@ -7,7 +7,6 @@ from threading import Thread
 from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
 
-
 pasta_destino = Path().home()
 pasta_arq_registro_extensao = Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes')
 
@@ -15,7 +14,7 @@ pasta_arq_registro_extensao = Path(pasta_destino, 'AppData', 'LocalLow', 'extens
 class ListandoArquivos:
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
-                                   'Arquivos compreesão')
+                                 'Arquivos compreesão')
 
         self.ativo_status_extensao = False
         self.ativo_info_escolha_ext = False
@@ -41,6 +40,7 @@ class ListandoArquivos:
         self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH)
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, values='teste', justify='center')
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
+        self.combo_extensao_categoria['values'] = self.categorias_busca
         self.combo_extensao_categoria.set('Escolha uma categoria de extensão')
         self.var_combo_categoria.trace('w', self.combo_categoria_extensao)
 
@@ -133,19 +133,21 @@ class ListandoArquivos:
         self.ativo_add_arqzip = False
 
         self.categorias_add_ext = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
-                           'Arquivos compreesão')
+                                   'Arquivos compreesão')
         self.janela_add_extensao = tk.Tk()
         self.janela_add_extensao.geometry('500x240')
         self.label_frame_add_ext = tk.LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão',
                                                  border=5, bd=5)
         self.label_frame_add_ext.pack(side='top', fill='both', padx=5, pady=5)
-        self.label_add_ext_combo = tk.LabelFrame(self.label_frame_add_ext, text='Escolha uma Categora para adicionar a extensão',
+        self.label_add_ext_combo = tk.LabelFrame(self.label_frame_add_ext,
+                                                 text='Escolha uma Categora para adicionar a extensão',
                                                  border=5, bd=5)
         self.label_add_ext_combo.pack(side='top', fill='both', pady=5, padx=5)
 
         # COMBO
         self.var_combo_add_ext = tk.StringVar()
-        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext.get, justify='center')
+        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext.get,
+                                          justify='center')
         self.combo_add_ext_cat['values'] = self.categorias
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
         self.combo_add_ext_cat.current()
@@ -154,17 +156,17 @@ class ListandoArquivos:
 
         # CAIXA DE ENTRADA
         self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
-        self.label_add_ext.pack(anchor='center',  fill='both', pady=3, padx=3)
-        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext,  justify='center')
+        self.label_add_ext.pack(anchor='center', fill='both', pady=3, padx=3)
+        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, justify='center')
         self.caixa_entrada_ext.pack(anchor='center', fill='both', padx=5)
 
         # BOTOES
         self.botao_add_ext = tk.Button(self.label_frame_add_ext, text='Adicionar', border=2, bd=2,
                                        command=self.adicionando_ext_arq_txt)
-        self.botao_add_ext.pack(side='top', fill='both',  pady=10, padx=10)
+        self.botao_add_ext.pack(side='top', fill='both', pady=10, padx=10)
         self.botao_add_ext_voltar = tk.Button(self.label_frame_add_ext, text='Voltar', border=2, bd=2,
                                               command=self.janela_add_extensao.destroy)
-        self.botao_add_ext_voltar.pack(side='bottom', fill='both',  pady=10, padx=10)
+        self.botao_add_ext_voltar.pack(side='bottom', fill='both', pady=10, padx=10)
 
     # INICIO DAS FUNÇÕES
 
@@ -199,8 +201,6 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca.upper()}]')
-
-
 
 
 obj_start = ListandoArquivos()
