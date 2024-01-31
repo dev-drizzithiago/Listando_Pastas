@@ -140,7 +140,7 @@ class ListandoArquivos:
         self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
         self.label_add_ext.pack(anchor='center',  fill='both', pady=3, padx=3)
         self.var_caixa_entrada = tk.StringVar()
-        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(),
+        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get,
                                           justify='center')
         self.caixa_entrada_ext.pack(anchor='center', fill='both', padx=5)
 
