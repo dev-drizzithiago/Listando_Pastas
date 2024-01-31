@@ -117,6 +117,13 @@ class ListandoArquivos:
 
     # JANELAS SECUNDARIAS
     def janela_add_extensao(self):
+        # Variaveis de confirmação
+        self.ativo_add_imagem = False
+        self.ativo_add_videos = False
+        self.ativo_add_textos = False
+        self.ativo_add_execul = False
+        self.ativo_add_arqzip = False
+
         self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
                            'Arquivos compreesão')
         self.janela_add_extensao = tk.Tk()
@@ -139,9 +146,7 @@ class ListandoArquivos:
         # CAIXA DE ENTRADA
         self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
         self.label_add_ext.pack(anchor='center',  fill='both', pady=3, padx=3)
-        self.var_caixa_entrada = tk.StringVar()
-        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(),
-                                          justify='center')
+        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext,  justify='center')
         self.caixa_entrada_ext.pack(anchor='center', fill='both', padx=5)
 
         # BOTOES
