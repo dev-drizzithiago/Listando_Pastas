@@ -126,11 +126,21 @@ class ListandoArquivos:
         self.janela_add_extensao.config(width=400, height=400)
 
         self.label_frame_add_ext = LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão')
-        self.label_frame_add_ext.pack(fill='both', padx=5, pady=5)
+        self.label_frame_add_ext.pack(side='top', fill='both', padx=5, pady=5)
+
+        self.label_add_ext_combo = LabelFrame(self.janela_add_extensao, text='Escolha uma Categora para adicionar a extensão')
+        self.label_add_ext_combo.pack(side='top', fill='both')
+
+        self.var_combo_add_ext = tk.StringVar()
+        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext, justify='center')
+        self.combo_add_ext_cat.pack(anchor='center')
+
+        self.label_add_ext = tk.Label(self.janela_add_extensao, text="Digite uma extensão", border=2, bd=2)
+        self.label_add_ext.pack(anchor='center',  fill='both', pady=3, padx=3)
 
         self.var_caixa_entrada = tk.StringVar()
         self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(), bd=5)
-        self.caixa_entrada_ext.pack(side='top', fill='both')
+        self.caixa_entrada_ext.pack(anchor='center', fill='both')
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
