@@ -217,6 +217,8 @@ class ListandoArquivos:
         # informações
         label_frame_info_add = tk.LabelFrame(label_frame_add_ext_geral, text='Informação sobre status')
         label_frame_info_add.pack(side='bottom', pady=5, padx=5)
+        self.var_label_info_add_extensao = tk.StringVar()
+        label_info_add_extensao = tk.Label(label_frame_info_add)
 
     def adicionando_informacao_arquivo_txt_extensao(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get()
