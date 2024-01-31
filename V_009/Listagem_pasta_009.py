@@ -153,7 +153,7 @@ class ListandoArquivos:
         self.combo_add_ext_cat['textvariable'] = self.var_combo_add_ext
         self.combo_add_ext_cat['justify'] = 'center'
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
-        self.var_combo_add_ext.trace('w', self.combo_add_ext)
+        self.var_combo_add_ext.trace('w', self.combo_categoria_busca)
 
         # CAIXA DE ENTRADA
         self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
