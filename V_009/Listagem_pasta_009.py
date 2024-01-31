@@ -104,6 +104,7 @@ class ListandoArquivos:
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20)
+        self.botao_adicionar_extensao['state'] = tk.DISABLED
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
         # Barra de progresso da busca
@@ -133,52 +134,54 @@ class ListandoArquivos:
             self.ativo_busca_textos = False
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
 
         elif valor_categoria_busca == 'Arquivos de Vídeo':
-            pass
             self.ativo_busca_imagem = False
             self.ativo_busca_videos = True
             self.ativo_busca_textos = False
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
 
         elif valor_categoria_busca == 'Arquivos de Leitura':
-            pass
             self.ativo_busca_imagem = False
             self.ativo_busca_videos = False
             self.ativo_busca_textos = True
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
 
         elif valor_categoria_busca == 'Arquivos execução':
-            pass
             self.ativo_busca_imagem = False
             self.ativo_busca_videos = False
             self.ativo_busca_textos = False
             self.ativo_busca_execul = True
             self.ativo_busca_arqzip = False
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
 
         elif valor_categoria_busca == 'Arquivos compreesão':
-            pass
             self.ativo_busca_imagem = False
             self.ativo_busca_videos = False
             self.ativo_busca_textos = False
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = True
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
 
     def janela_add_ext_arq_txt(self):
         if self.ativo_busca_imagem:
             pass
         elif self.ativo_busca_videos:
-            pass
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
         elif self.ativo_busca_textos:
-            pass
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
         elif self.ativo_busca_execul:
-            pass
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
         elif self.ativo_busca_arqzip:
-            pass
+            self.botao_adicionar_extensao['state'] = tk.NORMAL
         else:
-            tk.messagebox.showerror()
+            tk.messagebox.showerror('AVISO IMPORTANTE', 'Voce precisa selecinar uma categoria '
+                                                        'para adicionar um extensão')
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
