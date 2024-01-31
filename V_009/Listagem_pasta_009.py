@@ -218,7 +218,7 @@ class ListandoArquivos:
         print(valor_entrada_extensao)
 
         if self.ativo_busca_imagem:
-            arq_txt = open(self.arq_extensao_add, 'r')
+            arq_txt = open(self.arq_extensao_add, 'a')
             arq_txt.write(f'{valor_entrada_extensao}\n')
         elif self.ativo_busca_videos:
             pass
