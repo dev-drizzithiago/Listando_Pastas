@@ -94,7 +94,7 @@ class ListandoArquivos:
                                              command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20,
-                                               command=self.add_extensao)
+                                               command=self.janela_add_extensao)
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
         # Barra de progresso da busca
@@ -120,23 +120,26 @@ class ListandoArquivos:
         self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
                            'Arquivos compreesão')
         self.janela_add_extensao = tk.Tk()
-        self.janela_add_extensao.geometry('500x200')
-        self.label_frame_add_ext = LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão')
+        self.janela_add_extensao.geometry('500x240')
+        self.label_frame_add_ext = tk.LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão',
+                                                 border=5, bd=5)
         self.label_frame_add_ext.pack(side='top', fill='both', padx=5, pady=5)
-        self.label_add_ext_combo = LabelFrame(self.label_frame_add_ext, text='Escolha uma Categora para adicionar a extensão')
-        self.label_add_ext_combo.pack(side='top', fill='both')
+        self.label_add_ext_combo = tk.LabelFrame(self.label_frame_add_ext, text='Escolha uma Categora para adicionar a extensão',
+                                                 border=5, bd=5)
+        self.label_add_ext_combo.pack(side='top', fill='both', pady=5, padx=5)
 
         # COMBO
         self.var_combo_add_ext = tk.StringVar()
         self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext, justify='center')
-        self.combo_add_ext_cat.pack(anchor='center', fill='both')
+        self.combo_add_ext_cat.pack(anchor='center', fill='both', pady=5, padx=5)
 
         # CAIXA DE ENTRADA
         self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
         self.label_add_ext.pack(anchor='center',  fill='both', pady=3, padx=3)
         self.var_caixa_entrada = tk.StringVar()
-        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(), bd=5)
-        self.caixa_entrada_ext.pack(anchor='center', fill='both')
+        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(),
+                                          justify='center')
+        self.caixa_entrada_ext.pack(anchor='center', fill='both', padx=5)
 
         # BOTOES
         self.botao_add_ext = tk.Button(self.label_frame_add_ext, text='Adicionar', border=2, bd=2)
