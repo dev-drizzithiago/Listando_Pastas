@@ -124,61 +124,7 @@ class ListandoArquivos:
     def thread_botao_extensao(self):
         Thread(target=self.digitar_extensao()).start()
 
-    # JANELAS SECUNDARIAS
-    def janela_add_extensao(self):
-        # Variaveis de confirmação
-        self.ativo_add_imagem = False
-        self.ativo_add_videos = False
-        self.ativo_add_textos = False
-        self.ativo_add_execul = False
-        self.ativo_add_arqzip = False
-
-        self.categorias_add_ext = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
-                                   'Arquivos compreesão')
-        self.janela_add_extensao = tk.Tk()
-        self.janela_add_extensao.geometry('500x240')
-        self.label_frame_add_ext = tk.LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão',
-                                                 border=5, bd=5)
-        self.label_frame_add_ext.pack(side='top', fill='both', padx=5, pady=5)
-        self.label_add_ext_combo = tk.LabelFrame(self.label_frame_add_ext,
-                                                 text='Escolha uma Categora para adicionar a extensão',
-                                                 border=5, bd=5)
-        self.label_add_ext_combo.pack(side='top', fill='both', pady=5, padx=5)
-
-        # COMBO
-        self.var_combo_add_ext = tk.StringVar()
-        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo)
-        self.combo_add_ext_cat.pack(anchor='center', fill='both', pady=5, padx=5)
-        self.combo_add_ext_cat['values'] = self.categorias_add_ext
-        self.combo_add_ext_cat['textvariable'] = self.var_combo_add_ext
-        self.combo_add_ext_cat['justify'] = 'center'
-        self.combo_add_ext_cat.set('Escolha aqui uma categoria')
-        self.var_combo_add_ext.trace('w', self.combo_categoria_busca)
-
-        # CAIXA DE ENTRADA
-        self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
-        self.label_add_ext.pack(anchor='center', fill='both', pady=3, padx=3)
-        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, justify='center')
-        self.caixa_entrada_ext.pack(anchor='center', fill='both', padx=5)
-
-        # BOTOES
-        self.botao_add_ext = tk.Button(self.label_frame_add_ext, text='Adicionar', border=2, bd=2)
-        self.botao_add_ext['command'] = self.adicionando_ext_arq_txt
-        self.botao_add_ext.pack(side='top', fill='both', pady=10, padx=10)
-
-        self.botao_add_ext_voltar = tk.Button(self.label_frame_add_ext, text='Voltar', border=2, bd=2)
-        self.botao_add_ext_voltar['command'] = self.janela_add_extensao.destroy
-        self.botao_add_ext_voltar.pack(side='bottom', fill='both', pady=10, padx=10)
-
     # INICIO DAS FUNÇÕES
-    def combo_add_ext(self, *args):
-        valor_categoria_add = self.combo_add_ext_cat.get()
-        print(valor_categoria_add)
-
-    def adicionando_ext_arq_txt(self):
-        valor_extensao = self.caixa_entrada_ext.get()
-        print(valor_extensao)
-
     def combo_categoria_busca(self, *args):
         valor_categoria_busca = self.var_combo_categoria.get()
         print(valor_categoria_busca)
