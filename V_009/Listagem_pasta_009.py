@@ -140,7 +140,8 @@ class ListandoArquivos:
         self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext, justify='center')
         self.combo_add_ext_cat['values'] = self.categorias
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
-        self.var_combo_add_ext.trace('w', self.combo_add_ext())
+        self.combo_add_ext_cat.current()
+        self.var_combo_add_ext.trace('w', self.combo_add_ext)
         self.combo_add_ext_cat.pack(anchor='center', fill='both', pady=5, padx=5)
 
         # CAIXA DE ENTRADA
