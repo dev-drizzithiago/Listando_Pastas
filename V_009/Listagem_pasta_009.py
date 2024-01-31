@@ -38,9 +38,10 @@ class ListandoArquivos:
         self.var_combo_categoria = tk.StringVar()
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH)
-        self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, values='teste', justify='center')
+        self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, justify='center')
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
         self.combo_extensao_categoria['values'] = self.categorias_busca
+        self.combo_extensao_categoria['textvariable'] = self.var_combo_categoria
         self.combo_extensao_categoria.set('Escolha uma categoria de extensão')
         self.var_combo_categoria.trace('w', self.combo_categoria_busca)
 
@@ -146,11 +147,11 @@ class ListandoArquivos:
 
         # COMBO
         self.var_combo_add_ext = tk.StringVar()
-        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext.get,
-                                          justify='center')
-        self.combo_add_ext_cat['values'] = self.categorias
+        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo)
+        self.combo_add_ext_cat['values'] = self.categorias_add_ext
+        self.combo_add_ext_cat['textvariable'] = self.var_combo_add_ext
+        self.combo_add_ext_cat['justify'] = 'center'
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
-        self.combo_add_ext_cat.current()
         self.var_combo_add_ext.trace('w', self.combo_add_ext)
         self.combo_add_ext_cat.pack(anchor='center', fill='both', pady=5, padx=5)
 
@@ -171,7 +172,7 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
 
     def combo_add_ext(self, *args):
-        valor_categoria_add = self.var_combo_categoria.get()
+        valor_categoria_add = self.var_combo_add_ext.get()
         print(valor_categoria_add)
 
     def adicionando_ext_arq_txt(self):
@@ -179,7 +180,7 @@ class ListandoArquivos:
         print(valor_extensao)
 
     def combo_categoria_busca(self, *args):
-        valor_categoria = self.combo_extensao_categoria.get()
+        valor_categoria = self.var_combo_categoria.get()
         print(valor_categoria)
 
     def digitar_extensao(self):
