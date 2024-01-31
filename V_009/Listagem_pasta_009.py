@@ -218,8 +218,13 @@ class ListandoArquivos:
         print(valor_entrada_extensao)
 
         if self.ativo_busca_imagem:
-            arq_txt = open(self.arq_extensao_add, 'a')
-            arq_txt.write(f'{valor_entrada_extensao}\n')
+            try:
+                arq_txt = open(self.arq_extensao_add, 'a')
+
+                arq_txt.write(f'{valor_entrada_extensao}\n')
+            except:
+                tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
+
         elif self.ativo_busca_videos:
             pass
         elif self.ativo_busca_textos:
