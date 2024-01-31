@@ -176,6 +176,10 @@ class ListandoArquivos:
         janela_add_extensao = tk.Tk()
         janela_add_extensao.geometry('400x400')
         janela_add_extensao.title('Janele para adicionar extensão')
+        label_frame_add_ext_geral = tk.LabelFrame(janela_add_extensao, text='Janele para adicionar extensão')
+        label_frame_add_ext_geral.pack(anchor='center', fill='both', pady=5, padx=5)
+        label_frame_caixa_entrada = tk.LabelFrame(label_frame_add_ext_geral, text='Digite uma extensão no campo abaixo')
+        label_frame_caixa_entrada.pack(side='top', pady=5, padx=5)
 
 
         if self.ativo_busca_imagem:
