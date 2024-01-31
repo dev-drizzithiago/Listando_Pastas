@@ -149,7 +149,7 @@ class ListandoArquivos:
         self.var_combo_add_ext = tk.StringVar()
         self.combo_add_ext_cat = Combobox(self.label_add_ext_combo)
         self.combo_add_ext_cat['values'] = self.categorias_add_ext
-        self.combo_add_ext_cat['textvariable'] = self.var_combo_add_ext
+        self.combo_add_ext_cat['textvariable'] = self.var_combo_add_ext.get()
         self.combo_add_ext_cat['justify'] = 'center'
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
         self.var_combo_add_ext.trace('w', self.combo_add_ext)
