@@ -119,18 +119,18 @@ class ListandoArquivos:
 
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
-        print('Iniciando THREAD')
+        print('Iniciando THREAD [INICIAR BUSCA]')
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
 
     def thread_botao_extensao(self):
-        print('Iniciando THREAD')
+        print('Iniciando THREAD [BUSCA ESPECIFICA POR EXTENSAO]')
         Thread(target=self.digitar_extensao()).start()
 
     def thread_adicionar_extensao(self):
-        print('Iniciando THREAD')
+        print('Iniciando THREAD [ADICIONAR EXTENSAO]')
         Thread(self.adicionando_informacao_arquivo_txt_extensao()).start()
 
     # INICIO DAS FUNÇÕES
@@ -186,6 +186,19 @@ class ListandoArquivos:
             self.ativo_busca_arqzip = True
             self.botao_adicionar_extensao['state'] = tk.NORMAL
             self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_arqzip)
+
+    def leitura_arq_extensao(self):
+
+        if self.ativo_busca_imagem:
+            pass
+        elif self.ativo_busca_videos:
+            pass
+        elif not self.ativo_busca_textos:
+            pass
+        elif not self.ativo_busca_execul:
+            pass
+        elif not self.ativo_busca_arqzip:
+            passds
 
     def janela_add_ext_arq_txt(self):
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
