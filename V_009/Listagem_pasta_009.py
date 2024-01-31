@@ -222,7 +222,6 @@ class ListandoArquivos:
                 arq_txt = open(self.arq_extensao_add, 'a')
                 arq_txt.write(f'{valor_entrada_extensao}\n')
                 arq_txt.close()
-                
             except:
                 tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
