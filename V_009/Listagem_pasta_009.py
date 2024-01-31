@@ -170,7 +170,6 @@ class ListandoArquivos:
         self.botao_add_ext_voltar.pack(side='bottom', fill='both', pady=10, padx=10)
 
     # INICIO DAS FUNÇÕES
-
     def combo_add_ext(self, *args):
         valor_categoria_add = self.var_combo_add_ext.get()
         print(valor_categoria_add)
@@ -180,8 +179,8 @@ class ListandoArquivos:
         print(valor_extensao)
 
     def combo_categoria_busca(self, *args):
-        valor_categoria = self.var_combo_categoria.get()
-        print(valor_categoria)
+        valor_categoria_busca = self.var_combo_categoria.get()
+        print(valor_categoria_busca)
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
