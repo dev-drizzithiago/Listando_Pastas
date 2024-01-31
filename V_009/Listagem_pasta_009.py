@@ -202,8 +202,9 @@ class ListandoArquivos:
         botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
 
     def adicionando_informacao_arquivo_txt_extensao(self):
-        valor_entrada_extensao = self.var_caixa_entrada_ext.get()
+        valor_entrada_extensao = self.caixa_entrada_extensao.get()
         print(valor_entrada_extensao)
+        
         if self.ativo_busca_imagem:
             pass
         elif self.ativo_busca_videos:
