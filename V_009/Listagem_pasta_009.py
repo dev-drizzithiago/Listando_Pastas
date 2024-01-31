@@ -135,6 +135,8 @@ class ListandoArquivos:
 
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
+        self.lista_de_extensoes.delete('0', 'end')
+        
         arq_imagem = '\\extensao_imagem.log'
         arq_videos = '\\extensao_videos.log'
         arq_textos = '\\extensao_textos.log'
@@ -186,12 +188,13 @@ class ListandoArquivos:
             self.ativo_busca_arqzip = True
             self.botao_adicionar_extensao['state'] = tk.NORMAL
             self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_arqzip)
+        self.leitura_arq_extensao()
 
     def leitura_arq_extensao(self):
-
         if self.ativo_busca_imagem:
             leitura_arq_imagem = open(self.arq_extensao_add, 'r')
-            
+            for valor_leitura in leitura_arq_imagem.readlines():
+                self.lista_de_extensoes.insert('end', valor_leitura)
         elif self.ativo_busca_videos:
             pass
         elif not self.ativo_busca_textos:
