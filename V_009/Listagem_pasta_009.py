@@ -148,12 +148,12 @@ class ListandoArquivos:
         # COMBO
         self.var_combo_add_ext = tk.StringVar()
         self.combo_add_ext_cat = Combobox(self.label_add_ext_combo)
+        self.combo_add_ext_cat.pack(anchor='center', fill='both', pady=5, padx=5)
         self.combo_add_ext_cat['values'] = self.categorias_add_ext
-        self.combo_add_ext_cat['textvariable'] = self.var_combo_add_ext.get()
+        self.combo_add_ext_cat['textvariable'] = self.var_combo_add_ext
         self.combo_add_ext_cat['justify'] = 'center'
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
         self.var_combo_add_ext.trace('w', self.combo_add_ext)
-        self.combo_add_ext_cat.pack(anchor='center', fill='both', pady=5, padx=5)
 
         # CAIXA DE ENTRADA
         self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
