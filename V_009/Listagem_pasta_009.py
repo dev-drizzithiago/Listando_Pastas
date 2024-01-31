@@ -131,7 +131,7 @@ class ListandoArquivos:
 
     def thread_adicionar_extensao(self):
         print('Iniciando THREAD [ADICIONAR EXTENSAO]')
-        Thread(self.adicionando_informacao_arquivo_txt_extensao()).start()
+        Thread(self.adicionado_extensao_arq_txt()).start()
 
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
@@ -210,7 +210,7 @@ class ListandoArquivos:
             leitura_arq_execul = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_execul.readlines():
                 self.lista_de_extensoes.insert('end', valor_leitura)
-                
+
         elif self.ativo_busca_arqzip:
             leitura_arq_arqzip = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_arqzip.readlines():
@@ -254,54 +254,57 @@ class ListandoArquivos:
         self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao.get())
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
-    def adicionando_informacao_arquivo_txt_extensao(self):
+    def adicionado_extensao_arq_txt(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
-        print(valor_entrada_extensao)
+        if len(valor_entrada_extensao) == 0:
+            tk.messagebox.showerror('ERROR', 'Você precisa digitar uma extensão')
+        else:
+            print(valor_entrada_extensao)
 
-        if self.ativo_busca_imagem:
-            try:
-                arq_txt = open(self.arq_extensao_add, 'a')
-                arq_txt.write(f'{valor_entrada_extensao}\n')
-                arq_txt.close()
-                self.label_info_add_extensao.config(text=valor_entrada_extensao)
-            except:
-                tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
+            if self.ativo_busca_imagem:
+                try:
+                    arq_txt = open(self.arq_extensao_add, 'a')
+                    arq_txt.write(f'{valor_entrada_extensao}\n')
+                    arq_txt.close()
+                    self.label_info_add_extensao.config(text=valor_entrada_extensao)
+                except:
+                    tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
-        elif self.ativo_busca_videos:
-            try:
-                arq_txt = open(self.arq_extensao_add, 'a')
-                arq_txt.write(f'{valor_entrada_extensao}\n')
-                arq_txt.close()
-                self.label_info_add_extensao.config(text=valor_entrada_extensao)
-            except:
-                tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
+            elif self.ativo_busca_videos:
+                try:
+                    arq_txt = open(self.arq_extensao_add, 'a')
+                    arq_txt.write(f'{valor_entrada_extensao}\n')
+                    arq_txt.close()
+                    self.label_info_add_extensao.config(text=valor_entrada_extensao)
+                except:
+                    tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
-        elif self.ativo_busca_textos:
-            try:
-                arq_txt = open(self.arq_extensao_add, 'a')
-                arq_txt.write(f'{valor_entrada_extensao}\n')
-                arq_txt.close()
-                self.label_info_add_extensao.config(text=valor_entrada_extensao)
-            except:
-                tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
+            elif self.ativo_busca_textos:
+                try:
+                    arq_txt = open(self.arq_extensao_add, 'a')
+                    arq_txt.write(f'{valor_entrada_extensao}\n')
+                    arq_txt.close()
+                    self.label_info_add_extensao.config(text=valor_entrada_extensao)
+                except:
+                    tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
-        elif self.ativo_busca_execul:
-            try:
-                arq_txt = open(self.arq_extensao_add, 'a')
-                arq_txt.write(f'{valor_entrada_extensao}\n')
-                arq_txt.close()
-                self.label_info_add_extensao.config(text=valor_entrada_extensao)
-            except:
-                tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
+            elif self.ativo_busca_execul:
+                try:
+                    arq_txt = open(self.arq_extensao_add, 'a')
+                    arq_txt.write(f'{valor_entrada_extensao}\n')
+                    arq_txt.close()
+                    self.label_info_add_extensao.config(text=valor_entrada_extensao)
+                except:
+                    tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
-        elif self.ativo_busca_arqzip:
-            try:
-                arq_txt = open(self.arq_extensao_add, 'a')
-                arq_txt.write(f'{valor_entrada_extensao}\n')
-                arq_txt.close()
-                self.label_info_add_extensao.config(text=valor_entrada_extensao)
-            except:
-                tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
+            elif self.ativo_busca_arqzip:
+                try:
+                    arq_txt = open(self.arq_extensao_add, 'a')
+                    arq_txt.write(f'{valor_entrada_extensao}\n')
+                    arq_txt.close()
+                    self.label_info_add_extensao.config(text=valor_entrada_extensao)
+                except:
+                    tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
