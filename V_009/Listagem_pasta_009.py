@@ -296,6 +296,12 @@ class ListandoArquivos:
                     tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
     def leitura_arq_extensao(self):
+        self.lista_ext_imagem = list()
+        self.lista_ext_videos = list()
+        self.lista_ext_textos = list()
+        self.lista_ext_execul = list()
+        self.lista_ext_arqzip = list()
+
         if self.ativo_busca_imagem:
             leitura_arq_imagem = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_imagem.readlines():
