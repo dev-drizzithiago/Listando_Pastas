@@ -207,7 +207,8 @@ class ListandoArquivos:
         arq_videos = 'extensao_videos.log'
         arq_textos = 'extensao_textos.log'
         arq_execul = 'extensao_execul.log'
-        
+        arq_arqzip = 'extensao_arqzip.log'
+
         valor_entrada_extensao = self.caixa_entrada_extensao.get()
         print(valor_entrada_extensao)
 
