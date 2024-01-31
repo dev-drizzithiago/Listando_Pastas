@@ -29,7 +29,8 @@ class ListandoArquivos:
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
         self.janela_principal.geometry('1000x700')
-        self.icone_busca = tk.PhotoImage(file=)
+        self.icone_busca = tk.PhotoImage(file='lupa.png')
+        self.janela_principal.iconphoto(True, self.icone_busca)
 
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
