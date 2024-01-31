@@ -128,7 +128,6 @@ class ListandoArquivos:
     def combo_categoria_busca(self, *args):
         valor_categoria_busca = self.var_combo_categoria.get()
         if valor_categoria_busca == 'Arquivo Imagem':
-            pass
             self.ativo_busca_imagem = True
             self.ativo_busca_videos = False
             self.ativo_busca_textos = False
@@ -167,6 +166,9 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = True
 
+    def janela_add_ext_arq_txt(self):
+        destino_arq = pasta_arq_registro_extensao
+        
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
         self.label_info_extensao.config(text=self.extensao_selecao)
