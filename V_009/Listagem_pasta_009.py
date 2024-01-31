@@ -179,9 +179,11 @@ class ListandoArquivos:
         label_frame_add_ext_geral = tk.LabelFrame(janela_add_extensao, text='Janele para adicionar extensão')
         label_frame_add_ext_geral.pack(anchor='center', fill='both', pady=5, padx=5)
         label_frame_caixa_entrada = tk.LabelFrame(label_frame_add_ext_geral, text='Digite uma extensão no campo abaixo')
-        label_frame_caixa_entrada.pack(side='top', pady=5, padx=5)
-
-
+        label_frame_caixa_entrada.pack(side='top', fill='both', pady=5, padx=5)
+        caixa_entrada_extensao = tk.Entry(label_frame_caixa_entrada, justify='center')
+        caixa_entrada_extensao.pack(anchor='center', fill='both', pady=5, padx=5)
+        
+    def adicionando_informacao_arquivo_txt_extensao(self):
         if self.ativo_busca_imagem:
             pass
         elif self.ativo_busca_videos:
