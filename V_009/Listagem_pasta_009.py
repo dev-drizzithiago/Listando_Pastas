@@ -177,16 +177,14 @@ class ListandoArquivos:
         if self.ativo_busca_imagem:
             pass
         elif self.ativo_busca_videos:
-            self.botao_adicionar_extensao['state'] = tk.NORMAL
+            pass
         elif self.ativo_busca_textos:
-            self.botao_adicionar_extensao['state'] = tk.NORMAL
+            pass
         elif self.ativo_busca_execul:
-            self.botao_adicionar_extensao['state'] = tk.NORMAL
+            pass
         elif self.ativo_busca_arqzip:
-            self.botao_adicionar_extensao['state'] = tk.NORMAL
-        else:
-            tk.messagebox.showerror('AVISO IMPORTANTE', 'Voce precisa selecinar uma categoria '
-                                                        'para adicionar um extensão')
+            pass
+
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
