@@ -162,16 +162,17 @@ class ListandoArquivos:
         self.caixa_entrada_ext.pack(anchor='center', fill='both', padx=5)
 
         # BOTOES
-        self.botao_add_ext = tk.Button(self.label_frame_add_ext, text='Adicionar', border=2, bd=2,
-                                       command=self.adicionando_ext_arq_txt)
+        self.botao_add_ext = tk.Button(self.label_frame_add_ext, text='Adicionar', border=2, bd=2)
+        self.botao_add_ext['command'] = self.adicionando_ext_arq_txt
         self.botao_add_ext.pack(side='top', fill='both', pady=10, padx=10)
-        self.botao_add_ext_voltar = tk.Button(self.label_frame_add_ext, text='Voltar', border=2, bd=2,
-                                              command=self.janela_add_extensao.destroy)
+        
+        self.botao_add_ext_voltar = tk.Button(self.label_frame_add_ext, text='Voltar', border=2, bd=2)
+        self.botao_add_ext_voltar['command'] = self.janela_add_extensao.destroy
         self.botao_add_ext_voltar.pack(side='bottom', fill='both', pady=10, padx=10)
 
     # INICIO DAS FUNÇÕES
     def combo_add_ext(self, *args):
-        valor_categoria_add = self.var_combo_add_ext.get()
+        valor_categoria_add = self.combo_add_ext_cat.get()
         print(valor_categoria_add)
 
     def adicionando_ext_arq_txt(self):
