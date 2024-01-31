@@ -167,8 +167,8 @@ class ListandoArquivos:
             self.ativo_busca_arqzip = True
 
     def janela_add_ext_arq_txt(self):
-        destino_arq = pasta_arq_registro_extensao
         
+
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
         self.label_info_extensao.config(text=self.extensao_selecao)
