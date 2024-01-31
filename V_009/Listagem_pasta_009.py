@@ -160,8 +160,8 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
 
     def combo_add_ext(self, *args):
-        valor_categoria = self.var_combo_add_ext.get()
-        print(valor_categoria)
+        valor_categoria_add = self.var_combo_categoria.get()
+        print(valor_categoria_add)
 
     def adicionando_ext_arq_txt(self):
         valor_extensao = self.caixa_entrada_ext.get()
