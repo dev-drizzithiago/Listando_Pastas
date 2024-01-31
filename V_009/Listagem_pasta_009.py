@@ -194,8 +194,8 @@ class ListandoArquivos:
         janela_add_extensao = tk.Tk()
         janela_add_extensao.geometry('400x400')
         janela_add_extensao.title('Janele para adicionar extensão')
-        janela_add_extensao.iconphoto(True, self.icone_busca)
-        
+        # janela_add_extensao.iconphoto(True, self.icone_busca)
+
         label_frame_add_ext_geral = tk.LabelFrame(janela_add_extensao, text='Janele para adicionar extensão')
         label_frame_add_ext_geral.pack(anchor='center', fill='both', pady=5, padx=5)
 
@@ -208,7 +208,7 @@ class ListandoArquivos:
 
         # Botões
         label_frame_botao_add_ext = tk.LabelFrame(label_frame_add_ext_geral, text='Escolha uma opção')
-        label_frame_botao_add_ext.pack(side='bottom', fill='both', pady=5, padx=5)
+        label_frame_botao_add_ext.pack(anchor='center', fill='both', pady=5, padx=5)
         botao_adicionar_ext = tk.Button(label_frame_botao_add_ext, text='Adicionar', width=20, height=1)
         botao_adicionar_ext['command'] = self.thread_adicionar_extensao
         botao_adicionar_ext.pack(anchor='center', pady=5, padx=5)
@@ -219,15 +219,14 @@ class ListandoArquivos:
         botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
 
         # informações
-        label_frame_info_add = tk.LabelFrame(label_frame_add_ext_geral, text='Informação sobre status')
+        label_frame_info_add = tk.LabelFrame(label_frame_add_ext_geral, text='Foi adicionado a extensão')
         label_frame_info_add.pack(side='bottom', pady=5, padx=5)
         self.var_label_info_add_extensao = tk.StringVar()
-        self.var_label_status_geral.set('teste')
         self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao.get())
-        self.label_info_add_extensao.pack(anchor='s', pady=5, padx=5)
+        self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
     def adicionando_informacao_arquivo_txt_extensao(self):
-        valor_entrada_extensao = self.caixa_entrada_extensao.get()
+        valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
         print(valor_entrada_extensao)
 
         if self.ativo_busca_imagem:
@@ -235,6 +234,7 @@ class ListandoArquivos:
                 arq_txt = open(self.arq_extensao_add, 'a')
                 arq_txt.write(f'{valor_entrada_extensao}\n')
                 arq_txt.close()
+                self.label_info_add_extensao.config(text=valor_entrada_extensao)
             except:
                 tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
@@ -243,6 +243,7 @@ class ListandoArquivos:
                 arq_txt = open(self.arq_extensao_add, 'a')
                 arq_txt.write(f'{valor_entrada_extensao}\n')
                 arq_txt.close()
+                self.label_info_add_extensao.config(text=valor_entrada_extensao)
             except:
                 tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
@@ -251,6 +252,7 @@ class ListandoArquivos:
                 arq_txt = open(self.arq_extensao_add, 'a')
                 arq_txt.write(f'{valor_entrada_extensao}\n')
                 arq_txt.close()
+                self.label_info_add_extensao.config(text=valor_entrada_extensao)
             except:
                 tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
@@ -259,6 +261,7 @@ class ListandoArquivos:
                 arq_txt = open(self.arq_extensao_add, 'a')
                 arq_txt.write(f'{valor_entrada_extensao}\n')
                 arq_txt.close()
+                self.label_info_add_extensao.config(text=valor_entrada_extensao)
             except:
                 tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
@@ -267,6 +270,7 @@ class ListandoArquivos:
                 arq_txt = open(self.arq_extensao_add, 'a')
                 arq_txt.write(f'{valor_entrada_extensao}\n')
                 arq_txt.close()
+                self.label_info_add_extensao.config(text=valor_entrada_extensao)
             except:
                 tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
