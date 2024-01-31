@@ -170,13 +170,14 @@ class ListandoArquivos:
             self.botao_adicionar_extensao['state'] = tk.NORMAL
 
     def janela_add_ext_arq_txt(self):
+        tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
+                                                   'de extensões, é aconselhavel que seja escolhido a '
+                                                   'categoria que corresponda com a extensão que ira adicionar')
         janela_add_extensao = tk.Tk()
         janela_add_extensao.geometry('400x400')
         janela_add_extensao.title('Janele para adicionar extensão')
 
-        tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
-                                                   'de extensões, é aconselhavel que seja escolhido a '
-                                                   'categoria que corresponda com a extensão que ira adicionar')
+        
 
         if self.ativo_busca_imagem:
             pass
@@ -188,7 +189,6 @@ class ListandoArquivos:
             pass
         elif self.ativo_busca_arqzip:
             pass
-
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
