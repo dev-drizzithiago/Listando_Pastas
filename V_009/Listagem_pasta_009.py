@@ -14,8 +14,16 @@ pasta_arq_registro_extensao = Path(pasta_destino, 'AppData', 'LocalLow', 'extens
 
 class ListandoArquivos:
     def __init__(self):
+        self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
+                                   'Arquivos compreesão')
+
         self.ativo_status_extensao = False
         self.ativo_info_escolha_ext = False
+        self.ativo_busca_imagem = False
+        self.ativo_busca_videos = False
+        self.ativo_busca_textos = False
+        self.ativo_busca_execul = False
+        self.ativo_busca_arqzip = False
 
         # Janela Principal
         self.janela_principal = tk.Tk()
@@ -124,7 +132,7 @@ class ListandoArquivos:
         self.ativo_add_execul = False
         self.ativo_add_arqzip = False
 
-        self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
+        self.categorias_add_ext = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
                            'Arquivos compreesão')
         self.janela_add_extensao = tk.Tk()
         self.janela_add_extensao.geometry('500x240')
@@ -137,7 +145,7 @@ class ListandoArquivos:
 
         # COMBO
         self.var_combo_add_ext = tk.StringVar()
-        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext, justify='center')
+        self.combo_add_ext_cat = Combobox(self.label_add_ext_combo, textvariable=self.var_combo_add_ext.get, justify='center')
         self.combo_add_ext_cat['values'] = self.categorias
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
         self.combo_add_ext_cat.current()
