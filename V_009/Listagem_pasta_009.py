@@ -115,15 +115,12 @@ class ListandoArquivos:
     def thread_botao_extensao(self):
         Thread(target=self.digitar_extensao()).start()
 
-    # INICIO DAS FUNÇÕES
-    def combo_categoria_extensao(self):
-        valor_categoria = self.combo_extensao_categoria.get()
-
-    def add_extensao(self):
+    # JANELAS SECUNDARIAS
+    def janela_add_extensao(self):
         self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
                            'Arquivos compreesão')
         self.janela_add_extensao = tk.Tk()
-        self.janela_add_extensao.geometry('400x400')
+        self.janela_add_extensao.geometry('500x200')
         self.label_frame_add_ext = LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão')
         self.label_frame_add_ext.pack(side='top', fill='both', padx=5, pady=5)
         self.label_add_ext_combo = LabelFrame(self.label_frame_add_ext, text='Escolha uma Categora para adicionar a extensão')
@@ -143,7 +140,14 @@ class ListandoArquivos:
 
         # BOTOES
         self.botao_add_ext = tk.Button(self.label_frame_add_ext, text='Adicionar', border=2, bd=2)
-        self.botao_add_ext.pack(side='bottom')
+        self.botao_add_ext.pack(side='top', fill='both',  pady=10, padx=10)
+        self.botao_add_ext_voltar = tk.Button(self.label_frame_add_ext, text='Voltar', border=2, bd=2,
+                                              command=self.janela_add_extensao.destroy)
+        self.botao_add_ext_voltar.pack(side='bottom', fill='both',  pady=10, padx=10)
+
+    # INICIO DAS FUNÇÕES
+    def combo_categoria_extensao(self):
+        valor_categoria = self.combo_extensao_categoria.get()
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
