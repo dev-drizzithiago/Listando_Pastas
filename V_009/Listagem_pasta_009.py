@@ -134,6 +134,12 @@ class ListandoArquivos:
 
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
+        arq_imagem = 'extensao_imagem.log'
+        arq_videos = 'extensao_videos.log'
+        arq_textos = 'extensao_textos.log'
+        arq_execul = 'extensao_execul.log'
+        arq_arqzip = 'extensao_arqzip.log'
+
         valor_categoria_busca = self.var_combo_categoria.get()
         if valor_categoria_busca == 'Arquivo Imagem':
             self.ativo_busca_imagem = True
@@ -142,6 +148,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
+            self.arq_extensao_add = pasta_arq_registro_extensao + arq_imagem
 
         elif valor_categoria_busca == 'Arquivos de Vídeo':
             self.ativo_busca_imagem = False
@@ -150,6 +157,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
+            self.arq_extensao_add = pasta_arq_registro_extensao + arq_videos
 
         elif valor_categoria_busca == 'Arquivos de Leitura':
             self.ativo_busca_imagem = False
@@ -158,6 +166,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
+            self.arq_extensao_add = pasta_arq_registro_extensao + arq_textos
 
         elif valor_categoria_busca == 'Arquivos execução':
             self.ativo_busca_imagem = False
@@ -166,6 +175,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = True
             self.ativo_busca_arqzip = False
             self.botao_adicionar_extensao['state'] = tk.NORMAL
+            self.arq_extensao_add = pasta_arq_registro_extensao + arq_execul
 
         elif valor_categoria_busca == 'Arquivos compreesão':
             self.ativo_busca_imagem = False
@@ -174,6 +184,7 @@ class ListandoArquivos:
             self.ativo_busca_execul = False
             self.ativo_busca_arqzip = True
             self.botao_adicionar_extensao['state'] = tk.NORMAL
+            self.arq_extensao_add = pasta_arq_registro_extensao + arq_arqzip
 
     def janela_add_ext_arq_txt(self):
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
@@ -203,17 +214,12 @@ class ListandoArquivos:
         botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
 
     def adicionando_informacao_arquivo_txt_extensao(self):
-        arq_imagem = 'extensao_imagem.log'
-        arq_videos = 'extensao_videos.log'
-        arq_textos = 'extensao_textos.log'
-        arq_execul = 'extensao_execul.log'
-        arq_arqzip = 'extensao_arqzip.log'
-
         valor_entrada_extensao = self.caixa_entrada_extensao.get()
         print(valor_entrada_extensao)
 
         if self.ativo_busca_imagem:
-            pass
+            arq_txt = open(self.arq_extensao_add, 'r')
+            arq_txt.write(f'{valor_entrada_extensao}\n')
         elif self.ativo_busca_videos:
             pass
         elif self.ativo_busca_textos:
