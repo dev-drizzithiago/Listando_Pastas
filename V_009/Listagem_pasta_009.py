@@ -8,7 +8,7 @@ from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
 
 pasta_destino = Path().home()
-pasta_arq_registro_extensao = Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes')
+pasta_arq_registro_extensao = str(Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
 
 
 class ListandoArquivos:
