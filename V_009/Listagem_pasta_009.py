@@ -169,6 +169,11 @@ class ListandoArquivos:
             self.botao_adicionar_extensao['state'] = tk.NORMAL
 
     def janela_add_ext_arq_txt(self):
+        janela_informativa = tk.Tk()
+        janela_informativa.geometry('300x200')
+        label_frame_informativo = tk.LabelFrame(janela_informativa, text='Leia com atenção')
+        label_frame_informativo.pack(side='top', pady=5, padx=5)
+
         if self.ativo_busca_imagem:
             pass
         elif self.ativo_busca_videos:
