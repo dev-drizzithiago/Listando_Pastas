@@ -190,7 +190,8 @@ class ListandoArquivos:
     def leitura_arq_extensao(self):
 
         if self.ativo_busca_imagem:
-            pass
+            leitura_arq_imagem = open(self.arq_extensao_add, 'r')
+            
         elif self.ativo_busca_videos:
             pass
         elif not self.ativo_busca_textos:
@@ -198,7 +199,7 @@ class ListandoArquivos:
         elif not self.ativo_busca_execul:
             pass
         elif not self.ativo_busca_arqzip:
-            passds
+            pass
 
     def janela_add_ext_arq_txt(self):
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
