@@ -134,11 +134,11 @@ class ListandoArquivos:
 
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
-        arq_imagem = 'extensao_imagem.log'
-        arq_videos = 'extensao_videos.log'
-        arq_textos = 'extensao_textos.log'
-        arq_execul = 'extensao_execul.log'
-        arq_arqzip = 'extensao_arqzip.log'
+        arq_imagem = '\\extensao_imagem.log'
+        arq_videos = '\\extensao_videos.log'
+        arq_textos = '\\extensao_textos.log'
+        arq_execul = '\\extensao_execul.log'
+        arq_arqzip = '\\extensao_arqzip.log'
 
         valor_categoria_busca = self.var_combo_categoria.get()
         if valor_categoria_busca == 'Arquivo Imagem':
