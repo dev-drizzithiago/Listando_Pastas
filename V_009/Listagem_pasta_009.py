@@ -195,6 +195,7 @@ class ListandoArquivos:
         label_frame_botao_add_ext = tk.LabelFrame(label_frame_add_ext_geral, text='Escolha uma opção')
         label_frame_botao_add_ext.pack(side='bottom', fill='both', pady=5, padx=5)
         botao_adicionar_ext = tk.Button(label_frame_botao_add_ext, text='Adicionar', width=20, height=1)
+        botao_adicionar_ext['command'] = self.thread_adicionar_extensao
         botao_adicionar_ext.pack(anchor='center', pady=5, padx=5)
         botao_corrigir_caixa_entrada = tk.Button(label_frame_botao_add_ext, text='Corrigir Entrada', width=20)
         botao_corrigir_caixa_entrada.pack(side='left', pady=5, padx=5)
@@ -204,7 +205,7 @@ class ListandoArquivos:
     def adicionando_informacao_arquivo_txt_extensao(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get()
         print(valor_entrada_extensao)
-        
+
         if self.ativo_busca_imagem:
             pass
         elif self.ativo_busca_videos:
