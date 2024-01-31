@@ -134,6 +134,7 @@ class ListandoArquivos:
         self.combo_add_ext_cat.pack(anchor='center', fill='both', pady=5, padx=5)
         self.combo_add_ext_cat['values'] = self.categorias
         self.combo_add_ext_cat.set('Escolha aqui uma categoria')
+        self.var_combo_add_ext.trace('w', self.adicionar_extensoes)
 
         # CAIXA DE ENTRADA
         self.label_add_ext = tk.Label(self.label_frame_add_ext, text="Digite uma extensão", border=2, bd=2)
@@ -151,6 +152,11 @@ class ListandoArquivos:
         self.botao_add_ext_voltar.pack(side='bottom', fill='both',  pady=10, padx=10)
 
     # INICIO DAS FUNÇÕES
+
+    def adicionar_extensoes(self):
+        valor_categoria = self.combo_add_ext_cat.get()
+        print(valor_categoria)
+
     def combo_categoria_extensao(self):
         valor_categoria = self.combo_extensao_categoria.get()
 
@@ -174,6 +180,8 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca.upper()}]')
+
+
 
 
 obj_start = ListandoArquivos()
