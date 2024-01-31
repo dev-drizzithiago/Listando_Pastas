@@ -203,6 +203,11 @@ class ListandoArquivos:
         botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
 
     def adicionando_informacao_arquivo_txt_extensao(self):
+        arq_imagem = 'extensao_imagem.log'
+        arq_videos = 'extensao_videos.log'
+        arq_textos = 'extensao_textos.log'
+        arq_execul = 'extensao_execul.log'
+        
         valor_entrada_extensao = self.caixa_entrada_extensao.get()
         print(valor_entrada_extensao)
 
