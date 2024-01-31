@@ -306,26 +306,31 @@ class ListandoArquivos:
             leitura_arq_imagem = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_imagem.readlines():
                 self.lista_de_extensoes.insert('end', valor_leitura)
+                self.lista_ext_imagem.append(valor_leitura)
 
         elif self.ativo_busca_videos:
             leitura_arq_videos = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_videos.readlines():
                 self.lista_de_extensoes.insert('end', valor_leitura)
+                self.lista_ext_videos.append(valor_leitura)
 
         elif self.ativo_busca_textos:
             leitura_arq_textos = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_textos.readlines():
                 self.lista_de_extensoes.insert('end', valor_leitura)
+                self.lista_ext_textos.append(valor_leitura)
 
         elif self.ativo_busca_execul:
             leitura_arq_execul = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_execul.readlines():
                 self.lista_de_extensoes.insert('end', valor_leitura)
+                self.lista_ext_execul.append(valor_leitura)
 
         elif self.ativo_busca_arqzip:
             leitura_arq_arqzip = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_arqzip.readlines():
                 self.lista_de_extensoes.insert('end', valor_leitura)
+                self.lista_ext_arqzip.append(valor_leitura)
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
