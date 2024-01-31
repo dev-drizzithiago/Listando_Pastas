@@ -167,7 +167,18 @@ class ListandoArquivos:
             self.ativo_busca_arqzip = True
 
     def janela_add_ext_arq_txt(self):
-        
+        if self.ativo_busca_imagem:
+            pass
+        elif self.ativo_busca_videos:
+            pass
+        elif self.ativo_busca_textos:
+            pass
+        elif self.ativo_busca_execul:
+            pass
+        elif self.ativo_busca_arqzip:
+            pass
+        else:
+            tk.messagebox.showerror()
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
