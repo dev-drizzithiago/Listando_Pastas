@@ -105,6 +105,7 @@ class ListandoArquivos:
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20)
         self.botao_adicionar_extensao['state'] = tk.DISABLED
+        self.botao_adicionar_extensao['command'] = self.janela_add_ext_arq_txt
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
         # Barra de progresso da busca
@@ -173,7 +174,7 @@ class ListandoArquivos:
         janela_informativa.geometry('300x200')
         label_frame_informativo = tk.LabelFrame(janela_informativa, text='Leia com atenção')
         label_frame_informativo.pack(side='top', pady=5, padx=5)
-        label_informativo = tk.Label(label_frame_informativo)
+        label_informativo = tk.Message(label_frame_informativo)
         label_informativo.pack(anchor='center', fill=tk.BOTH)
         label_informativo['text'] = ('Para deixar mais organizado a lista de extensões, é aconselhavel que seja '
                                      'escolhido a categoria que corresponda com a extensão que ira adicionar')
