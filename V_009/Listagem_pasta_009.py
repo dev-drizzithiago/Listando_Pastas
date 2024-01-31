@@ -159,7 +159,7 @@ class ListandoArquivos:
         print(valor_categoria)
 
     def adicionando_ext_arq_txt(self):
-        valor_extensao = self.var_caixa_entrada.get()
+        valor_extensao = self.caixa_entrada_ext.get()
         print(valor_extensao)
 
     def combo_categoria_extensao(self):
