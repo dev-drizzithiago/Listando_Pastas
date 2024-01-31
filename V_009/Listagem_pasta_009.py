@@ -153,7 +153,7 @@ class ListandoArquivos:
 
     # INICIO DAS FUNÇÕES
 
-    def adicionar_extensoes(self):
+    def adicionar_extensoes(self, *args):
         valor_categoria = self.var_combo_add_ext.get()
         print(valor_categoria)
 
