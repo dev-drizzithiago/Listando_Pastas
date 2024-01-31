@@ -18,6 +18,7 @@ class ListandoArquivos:
 
         self.ativo_status_extensao = False
         self.ativo_info_escolha_ext = False
+        
         self.ativo_busca_imagem = False
         self.ativo_busca_videos = False
         self.ativo_busca_textos = False
