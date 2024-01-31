@@ -172,11 +172,11 @@ class ListandoArquivos:
     def janela_add_ext_arq_txt(self):
         janela_add_extensao = tk.Tk()
         janela_add_extensao.geometry('400x400')
-        
+        janela_add_extensao.title('Janele para adicionar extensão')
+
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
                                                    'de extensões, é aconselhavel que seja escolhido a '
                                                    'categoria que corresponda com a extensão que ira adicionar')
-
 
         if self.ativo_busca_imagem:
             pass
