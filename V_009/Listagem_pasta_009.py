@@ -121,9 +121,15 @@ class ListandoArquivos:
         self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
                            'Arquivos compreesão')
         self.janela_add_extensao = Tk()
-        self.janela_add_extensao.config(width=300, height=300)
+        self.janela_add_extensao.config(width=400, height=400)
+
         self.label_frame_add_ext = LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão')
-        self.label_frame_add_ext.pack(fill='both')
+        self.label_frame_add_ext.pack(fill='both', padx=5, pady=5)
+
+        self.var_caixa_entrada = StringVar()
+        self.caixa_entrada_ext = Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(), width=100)
+        self.caixa_entrada_ext.place(x=20, y=20)
+
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
