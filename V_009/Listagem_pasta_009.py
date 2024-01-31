@@ -136,7 +136,7 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
-        
+
         arq_imagem = '\\extensao_imagem.log'
         arq_videos = '\\extensao_videos.log'
         arq_textos = '\\extensao_textos.log'
@@ -195,14 +195,26 @@ class ListandoArquivos:
             leitura_arq_imagem = open(self.arq_extensao_add, 'r')
             for valor_leitura in leitura_arq_imagem.readlines():
                 self.lista_de_extensoes.insert('end', valor_leitura)
+
         elif self.ativo_busca_videos:
-            pass
-        elif not self.ativo_busca_textos:
-            pass
-        elif not self.ativo_busca_execul:
-            pass
-        elif not self.ativo_busca_arqzip:
-            pass
+            leitura_arq_videos = open(self.arq_extensao_add, 'r')
+            for valor_leitura in leitura_arq_videos.readlines():
+                self.lista_de_extensoes.insert('end', valor_leitura)
+
+        elif self.ativo_busca_textos:
+            leitura_arq_textos = open(self.arq_extensao_add, 'r')
+            for valor_leitura in leitura_arq_textos.readlines():
+                self.lista_de_extensoes.insert('end', valor_leitura)
+
+        elif self.ativo_busca_execul:
+            leitura_arq_execul = open(self.arq_extensao_add, 'r')
+            for valor_leitura in leitura_arq_execul.readlines():
+                self.lista_de_extensoes.insert('end', valor_leitura)
+                
+        elif self.ativo_busca_arqzip:
+            leitura_arq_arqzip = open(self.arq_extensao_add, 'r')
+            for valor_leitura in leitura_arq_arqzip.readlines():
+                self.lista_de_extensoes.insert('end', valor_leitura)
 
     def janela_add_ext_arq_txt(self):
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
