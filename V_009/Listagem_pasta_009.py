@@ -173,6 +173,12 @@ class ListandoArquivos:
         janela_informativa.geometry('300x200')
         label_frame_informativo = tk.LabelFrame(janela_informativa, text='Leia com atenção')
         label_frame_informativo.pack(side='top', pady=5, padx=5)
+        label_informativo = tk.Label(label_frame_informativo)
+        label_informativo.pack(anchor='center', fill=tk.BOTH)
+        label_informativo['text'] = ('Para deixar mais organizado a lista de extensões, é aconselhavel que seja '
+                                     'escolhido a categoria que corresponda com a extensão que ira adicionar')
+        botao_sair = tk.Button(label_frame_informativo, text='Entendi', command=janela_informativa.destroy)
+        botao_sair.pack(side='bottom')
 
         if self.ativo_busca_imagem:
             pass
