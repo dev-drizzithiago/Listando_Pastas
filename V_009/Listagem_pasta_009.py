@@ -1,10 +1,12 @@
-from tkinter import *
+import tkinter as tk
 from tkinter.ttk import *
+
 from time import sleep
-from threading import Thread
 from pathlib import Path
-from tkinter.simpledialog import askstring
+from threading import Thread
 from tkinter.messagebox import showerror
+from tkinter.simpledialog import askstring
+
 
 pasta_destino = Path().home()
 pasta_arq_registro_extensao = Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes')
@@ -16,19 +18,19 @@ class ListandoArquivos:
         self.ativo_info_escolha_ext = False
 
         # Janela Principal
-        self.janela_principal = Tk()
+        self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
         self.janela_principal.geometry('1000x700')
         # self.janel_principal.geometry('alturaXlargura')
 
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
-        self.label_frame_geral.pack(fill=BOTH, ipadx=5, ipady=5)
+        self.label_frame_geral.pack(fill=tk.BOTH, ipadx=5, ipady=5)
 
         # COMBO DE EXTENSÃO
-        self.var_combo_categoria = StringVar()
+        self.var_combo_categoria = tk.StringVar()
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
-        self.label_frame_combo_categora.pack(side='top', fill=BOTH)
+        self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH)
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, values='teste', justify='center')
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
         self.combo_extensao_categoria.set('Escolha uma categoria de extensão')
@@ -38,10 +40,10 @@ class ListandoArquivos:
         self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
         self.label_lista_extensao.pack(side='top', fill='both')
 
-        self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=VERTICAL)
-        self.barra_rolagem_extensao.pack(side='right', fill=Y)
+        self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=tk.VERTICAL)
+        self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
 
-        self.lista_de_extensoes = Listbox(self.label_lista_extensao, selectmode=SINGLE, justify='center')
+        self.lista_de_extensoes = tk.Listbox(self.label_lista_extensao, selectmode=tk.SINGLE, justify='center')
         self.lista_de_extensoes.pack(anchor='center', fill='both')
 
         self.barra_rolagem_extensao.config(command=self.lista_de_extensoes.yview)
@@ -50,22 +52,22 @@ class ListandoArquivos:
         # LABEL DE INFORMAÇÕES
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
-        self.var_label_info_extensao = StringVar()
+        self.var_label_info_extensao = tk.StringVar()
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
 
         # Busca Geral
-        self.var_lista_busca = StringVar()
+        self.var_lista_busca = tk.StringVar()
         self.label_frame_lista_busca = LabelFrame(self.label_frame_geral, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center', fill='both')
 
-        self.barra_rolagem_lista_busca_Y = Scrollbar(self.label_frame_lista_busca, orient=VERTICAL)
-        self.barra_rolagem_lista_busca_Y.pack(side='right', fill=Y)
-        self.barra_rolagem_lista_busca_X = Scrollbar(self.label_frame_lista_busca, orient=HORIZONTAL)
-        self.barra_rolagem_lista_busca_X.pack(side='bottom', fill=X)
+        self.barra_rolagem_lista_busca_Y = Scrollbar(self.label_frame_lista_busca, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_busca_Y.pack(side='right', fill=tk.Y)
+        self.barra_rolagem_lista_busca_X = Scrollbar(self.label_frame_lista_busca, orient=tk.HORIZONTAL)
+        self.barra_rolagem_lista_busca_X.pack(side='bottom', fill=tk.X)
 
-        self.lista_result_busca = Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
-        self.lista_result_busca.pack(anchor='center', fill=BOTH)
+        self.lista_result_busca = tk.Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
+        self.lista_result_busca.pack(anchor='center', fill=tk.BOTH)
 
         self.barra_rolagem_lista_busca_Y.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_Y.set)
@@ -73,11 +75,11 @@ class ListandoArquivos:
         self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
-        self.var_label_status_geral = StringVar()
+        self.var_label_status_geral = tk.StringVar()
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
         self.label_status.pack(anchor='s')
 
-        self.var_label_info_qtd_arq = StringVar()
+        self.var_label_info_qtd_arq = tk.StringVar()
         self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
         self.label_qtd_arq_busca.pack(anchor='s')
 
@@ -98,7 +100,7 @@ class ListandoArquivos:
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
-        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=HORIZONTAL, mode='determinate')
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=tk.HORIZONTAL, mode='determinate')
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
         self.janela_principal.mainloop()
@@ -120,16 +122,15 @@ class ListandoArquivos:
     def add_extensao(self):
         self.categorias = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
                            'Arquivos compreesão')
-        self.janela_add_extensao = Tk()
+        self.janela_add_extensao = tk.Tk()
         self.janela_add_extensao.config(width=400, height=400)
 
         self.label_frame_add_ext = LabelFrame(self.janela_add_extensao, text='Janela Adicionar Extensão')
         self.label_frame_add_ext.pack(fill='both', padx=5, pady=5)
 
-        self.var_caixa_entrada = StringVar()
-        self.caixa_entrada_ext = Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(), width=100)
-        self.caixa_entrada_ext.place(x=20, y=20)
-
+        self.var_caixa_entrada = tk.StringVar()
+        self.caixa_entrada_ext = tk.Entry(self.label_frame_add_ext, textvariable=self.var_caixa_entrada.get(), bd=5)
+        self.caixa_entrada_ext.pack(side='top', fill='both')
 
     def digitar_extensao(self):
         self.extensao_selecao = askstring('AVISO', 'Digite um Extensão')
