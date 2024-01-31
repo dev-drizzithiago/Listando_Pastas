@@ -213,14 +213,16 @@ class ListandoArquivos:
         botao_corrigir_caixa_entrada = tk.Button(label_frame_botao_add_ext, text='Corrigir Entrada', width=20)
         botao_corrigir_caixa_entrada.pack(side='left', pady=5, padx=5)
         botao_voltar_janela_principal = tk.Button(label_frame_botao_add_ext, text='Janela Principal', width=20)
+        botao_voltar_janela_principal['command'] = janela_add_extensao.destroy
         botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
 
         # informações
         label_frame_info_add = tk.LabelFrame(label_frame_add_ext_geral, text='Informação sobre status')
         label_frame_info_add.pack(side='bottom', pady=5, padx=5)
         self.var_label_info_add_extensao = tk.StringVar()
-        self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao)
-        self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
+        self.var_label_status_geral.set('teste')
+        self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao.get())
+        self.label_info_add_extensao.pack(anchor='s', pady=5, padx=5)
 
     def adicionando_informacao_arquivo_txt_extensao(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get()
