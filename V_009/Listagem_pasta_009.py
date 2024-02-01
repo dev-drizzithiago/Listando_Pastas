@@ -370,6 +370,26 @@ class ListandoArquivos:
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
+            elif self.ativo_busca_videos:
+                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.label_info_extensao.config(text=self.extensao_selecao_busca)
+                self.ativo_status_extensao = True
+
+            elif self.ativo_busca_textos:
+                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.label_info_extensao.config(text=self.extensao_selecao_busca)
+                self.ativo_status_extensao = True
+
+            elif self.ativo_busca_execul:
+                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.label_info_extensao.config(text=self.extensao_selecao_busca)
+                self.ativo_status_extensao = True
+                
+            elif self.ativo_busca_arqzip:
+                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.label_info_extensao.config(text=self.extensao_selecao_busca)
+                self.ativo_status_extensao = True
+
     def iniciar_busca(self):
         self.lista_result_busca.delete('0', 'end')
         valor_da_busca = self.extensao_selecao_busca
