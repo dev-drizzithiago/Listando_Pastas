@@ -381,22 +381,22 @@ class ListandoArquivos:
                 self.ativo_status_extensao = True
 
             elif self.ativo_busca_videos:
-                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.extensao_selecao_busca = self.lista_ext_videos[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
             elif self.ativo_busca_textos:
-                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.extensao_selecao_busca = self.lista_ext_textos[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
             elif self.ativo_busca_execul:
-                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.extensao_selecao_busca = self.lista_ext_execul[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
             elif self.ativo_busca_arqzip:
-                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
+                self.extensao_selecao_busca = self.lista_ext_arqzip[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
