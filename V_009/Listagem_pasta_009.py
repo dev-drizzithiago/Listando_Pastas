@@ -356,6 +356,7 @@ class ListandoArquivos:
                 pass
             if self.ativo_busca_imagem:
                 self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao]
+                self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
     def iniciar_busca(self):
