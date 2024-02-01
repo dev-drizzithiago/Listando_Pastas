@@ -10,8 +10,8 @@ from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 
 
-pasta_destino = Path().home()
-pasta_arq_registro_extensao = str(Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
+valor_pasta_destino = Path().home()
+pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
 valor_datatime = datetime.now()
 data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%h:%m')
@@ -130,7 +130,7 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
         # DESTINO DA BUSCA
         self.botao_destino_busca = tk.Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
-        self.botao_destino_busca.config(command='')
+        self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
         self.botao_destino_busca.pack(anchor='se', pady=5, padx=5)
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
@@ -424,6 +424,10 @@ class ListandoArquivos:
         self.ativo_status_destinos = True
 
     def iniciar_busca(self):
+        if self.ativo_status_destinos:
+            pasta_destino = self.pasta_local_de_busca
+        else:
+            pasta_destino = valor_pasta_destino
         self.lista_result_busca.delete('0', 'end')
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
