@@ -78,6 +78,7 @@ class ListandoArquivos:
         self.barra_rolagem_lista_busca_X.pack(side='bottom', fill=tk.X)
 
         self.lista_result_busca = tk.Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
+        self.lista_result_busca.config(selectmode=tk.SINGLE)
         self.lista_result_busca.pack(anchor='center', fill=tk.BOTH)
 
         self.barra_rolagem_lista_busca_Y.config(command=self.lista_result_busca.yview)
@@ -158,6 +159,7 @@ class ListandoArquivos:
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
+        self.extensao_selecao = self.lista_de_extensoes.curselection()
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
         else:
