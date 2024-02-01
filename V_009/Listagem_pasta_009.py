@@ -425,9 +425,9 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         if self.ativo_status_destinos:
-            pasta_destino = self.pasta_local_de_busca
+            pasta_destino = Path(self.pasta_local_de_busca)
         else:
-            pasta_destino = valor_pasta_destino
+            pasta_destino = Path(valor_pasta_destino)
         self.lista_result_busca.delete('0', 'end')
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
@@ -440,7 +440,8 @@ class ListandoArquivos:
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
-            self.lista_result_busca.insert('end', f'{cont_arquivos} - {busca}')
+            if busca.is_file()
+                self.lista_result_busca.insert('end', f'{cont_arquivos} - {busca}')
             cont_arquivos += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
