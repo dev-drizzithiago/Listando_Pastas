@@ -57,17 +57,17 @@ class ListandoArquivos:
         # INFORMAÇÕES SOBRE EXTENSÃO
         self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
         self.label_lista_extensao.pack(side='top', fill='both')
-
+        # BARRA DE ROLAGEM
         self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=tk.VERTICAL)
         self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
-
+        # LISTA EXTENSAO
         self.lista_de_extensoes = tk.Listbox(self.label_lista_extensao, selectmode=tk.SINGLE, justify='center')
         self.lista_de_extensoes.config(height=3)
         self.lista_de_extensoes.config(selectforeground='#000000')
         self.lista_de_extensoes.config(selectbackground='#A9A9A9')
         self.lista_de_extensoes.config(selectborderwidth=5)
         self.lista_de_extensoes.pack(anchor='center', fill='both')
-
+        # BARRA ROLAGEM
         self.barra_rolagem_extensao.config(command=self.lista_de_extensoes.yview)
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
@@ -125,7 +125,8 @@ class ListandoArquivos:
         self.botao_adicionar_extensao['state'] = tk.DISABLED
         self.botao_adicionar_extensao['command'] = self.janela_add_ext_arq_txt
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
-
+        # DESTINO DA BUSCA
+        self.botao_destino_busca = tk.Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
