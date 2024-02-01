@@ -318,7 +318,9 @@ class ListandoArquivos:
                     self.lista_de_extensoes.insert('end', valor_leitura)
                     self.lista_ext_imagem.append(valor_leitura)
             except FileNotFoundError:
-                tk.messagebox.showerror('ERROR', 'Arquivo de IMAGEM não existe')
+                tk.messagebox.showerror('ERROR', 'Arquivo de IMAGEM não existe \n'
+                                                 'Você pode adicionar ou digitar uma extensão \n'
+                                                 'Basta clicar no botão "Selecioinar/Digitar uma extensão"')
 
         elif self.ativo_busca_videos:
             try:
@@ -327,7 +329,9 @@ class ListandoArquivos:
                     self.lista_de_extensoes.insert('end', valor_leitura)
                     self.lista_ext_videos.append(valor_leitura)
             except FileNotFoundError:
-                tk.messagebox.showerror('ERROR', 'Arquivo de VIDEOS não existe')
+                tk.messagebox.showerror('ERROR', 'Arquivo de VIDEOS não existe \n'
+                                                 'Você pode adicionar ou digitar uma extensão \n'
+                                                 'Basta clicar no botão "Selecioinar/Digitar uma extensão"')
 
         elif self.ativo_busca_textos:
             try:
@@ -336,7 +340,9 @@ class ListandoArquivos:
                     self.lista_de_extensoes.insert('end', valor_leitura)
                     self.lista_ext_textos.append(valor_leitura)
             except FileNotFoundError:
-                tk.messagebox.showerror('ERROR', 'Arquivo de Textos não existe')
+                tk.messagebox.showerror('ERROR', 'Arquivo de Textos não existe \n'
+                                                 'Você pode adicionar ou digitar uma extensão \n'
+                                                 'Basta clicar no botão "Selecioinar/Digitar uma extensão"')
 
         elif self.ativo_busca_execul:
             try:
@@ -345,7 +351,9 @@ class ListandoArquivos:
                     self.lista_de_extensoes.insert('end', valor_leitura)
                     self.lista_ext_execul.append(valor_leitura)
             except FileNotFoundError:
-                tk.messagebox.showerror('ERROR', 'Arquivo de EXE não existe')
+                tk.messagebox.showerror('ERROR', 'Arquivo de EXE não existe \n'
+                                                 'Você pode adicionar ou digitar uma extensão \n'
+                                                 'Basta clicar no botão "Selecioinar/Digitar uma extensão"')
 
         elif self.ativo_busca_arqzip:
             try:
@@ -354,7 +362,9 @@ class ListandoArquivos:
                     self.lista_de_extensoes.insert('end', valor_leitura)
                     self.lista_ext_arqzip.append(valor_leitura)
             except FileNotFoundError:
-                tk.messagebox.showerror('ERROR', 'Arquivo de ZIP não existe')
+                tk.messagebox.showerror('ERROR', 'Arquivo de ZIP não existe \n'
+                                                 'Você pode adicionar ou digitar uma extensão \n'
+                                                 'Basta clicar no botão "Selecioinar/Digitar uma extensão"')
 
     def digitar_extensao(self):
         valor_lista_extensao = self.lista_de_extensoes.curselection()
@@ -384,7 +394,7 @@ class ListandoArquivos:
                 self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
-                
+
             elif self.ativo_busca_arqzip:
                 self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
