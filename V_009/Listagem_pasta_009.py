@@ -17,7 +17,7 @@ class ListandoArquivos:
                                  'Arquivos compreesão')
 
         self.ativo_status_extensao = False
-        self.ativo_info_escolha_ext = False
+        # dwself.ativo_info_escolha_ext = False
 
         self.ativo_busca_imagem = False
         self.ativo_busca_videos = False
@@ -360,20 +360,22 @@ class ListandoArquivos:
                 self.ativo_status_extensao = True
 
     def iniciar_busca(self):
-        print(self.extensao_selecao_busca)
+        valor_da_busca = self.extensao_selecao_busca
+        print(f'Valor da extensão {valor_da_busca}')
+        print(f'Caminha do busca {pasta_destino}')
         cont_arquivos = 1
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
         self.barra_progresso_busca.start(100)
-        for busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
+        for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
             self.lista_result_busca.insert('end', f'{cont_arquivos} - {busca}')
             cont_arquivos += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
-                                             f' [{self.extensao_selecao_busca}]')
+                                             f' [{valor_da_busca}]')
 
 
 obj_start = ListandoArquivos()
