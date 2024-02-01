@@ -235,7 +235,7 @@ class ListandoArquivos:
             self.ativo_busca_arqzip = True
             self.botao_adicionar_extensao['state'] = tk.NORMAL
             self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_arqzip)
-        self.leitura_arq_extensao_add_lista_principal()
+        self.leitura_arq_extensao_add_lista_principal()  # CHAMA A FUNÇÃO
 
     def adicionado_extensao_arq_txt(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
@@ -312,34 +312,49 @@ class ListandoArquivos:
         self.lista_ext_arqzip = list()
 
         if self.ativo_busca_imagem:
-            leitura_arq_imagem = open(self.arq_extensao_add, 'r')
-            for valor_leitura in leitura_arq_imagem.readlines():
-                self.lista_de_extensoes.insert('end', valor_leitura)
-                self.lista_ext_imagem.append(valor_leitura)
+            try:
+                leitura_arq_imagem = open(self.arq_extensao_add, 'r')
+                for valor_leitura in leitura_arq_imagem.readlines():
+                    self.lista_de_extensoes.insert('end', valor_leitura)
+                    self.lista_ext_imagem.append(valor_leitura)
+            except FileNotFoundError:
+                tk.messagebox.showerror('ERROR', 'Arquivo de IMAGEM não existe')
 
         elif self.ativo_busca_videos:
-            leitura_arq_videos = open(self.arq_extensao_add, 'r')
-            for valor_leitura in leitura_arq_videos.readlines():
-                self.lista_de_extensoes.insert('end', valor_leitura)
-                self.lista_ext_videos.append(valor_leitura)
+            try:
+                leitura_arq_videos = open(self.arq_extensao_add, 'r')
+                for valor_leitura in leitura_arq_videos.readlines():
+                    self.lista_de_extensoes.insert('end', valor_leitura)
+                    self.lista_ext_videos.append(valor_leitura)
+            except FileNotFoundError:
+                tk.messagebox.showerror('ERROR', 'Arquivo de VIDEOS não existe')
 
         elif self.ativo_busca_textos:
-            leitura_arq_textos = open(self.arq_extensao_add, 'r')
-            for valor_leitura in leitura_arq_textos.readlines():
-                self.lista_de_extensoes.insert('end', valor_leitura)
-                self.lista_ext_textos.append(valor_leitura)
+            try:
+                leitura_arq_textos = open(self.arq_extensao_add, 'r')
+                for valor_leitura in leitura_arq_textos.readlines():
+                    self.lista_de_extensoes.insert('end', valor_leitura)
+                    self.lista_ext_textos.append(valor_leitura)
+            except FileNotFoundError:
+                tk.messagebox.showerror('ERROR', 'Arquivo de Textos não existe')
 
         elif self.ativo_busca_execul:
-            leitura_arq_execul = open(self.arq_extensao_add, 'r')
-            for valor_leitura in leitura_arq_execul.readlines():
-                self.lista_de_extensoes.insert('end', valor_leitura)
-                self.lista_ext_execul.append(valor_leitura)
+            try:
+                leitura_arq_execul = open(self.arq_extensao_add, 'r')
+                for valor_leitura in leitura_arq_execul.readlines():
+                    self.lista_de_extensoes.insert('end', valor_leitura)
+                    self.lista_ext_execul.append(valor_leitura)
+            except FileNotFoundError:
+                tk.messagebox.showerror('ERROR', 'Arquivo de EXE não existe')
 
         elif self.ativo_busca_arqzip:
-            leitura_arq_arqzip = open(self.arq_extensao_add, 'r')
-            for valor_leitura in leitura_arq_arqzip.readlines():
-                self.lista_de_extensoes.insert('end', valor_leitura)
-                self.lista_ext_arqzip.append(valor_leitura)
+            try:
+                leitura_arq_arqzip = open(self.arq_extensao_add, 'r')
+                for valor_leitura in leitura_arq_arqzip.readlines():
+                    self.lista_de_extensoes.insert('end', valor_leitura)
+                    self.lista_ext_arqzip.append(valor_leitura)
+            except FileNotFoundError:
+                tk.messagebox.showerror('ERROR', 'Arquivo de ZIP não existe')
 
     def digitar_extensao(self):
         valor_lista_extensao = self.lista_de_extensoes.curselection()
