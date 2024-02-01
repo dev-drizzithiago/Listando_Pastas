@@ -163,8 +163,8 @@ class ListandoArquivos:
             Thread(target=self.iniciar_busca).start()
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
-            
-    def thread_inicio_thread_botao_iniciar(self):
+
+    def thread_selecionar_extensao_busca(self):
         Thread(target=self.selecionar_extensao_busca()).start()
 
     def thread_botao_extensao(self):
@@ -239,6 +239,8 @@ class ListandoArquivos:
 
         if self.ativo_busca_imagem:
             self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].upper()
+
+        self.thread_botao_iniciar()
 
     def adicionado_extensao_arq_txt(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
