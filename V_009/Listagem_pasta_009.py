@@ -24,6 +24,7 @@ class ListandoArquivos:
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura', 'Arquivos execução',
                                  'Arquivos compreesão')
         self.ativo_status_extensao = False
+        self.ativo_status_destinos = False
         self.ativo_busca_imagem = False
         self.ativo_busca_videos = False
         self.ativo_busca_textos = False
@@ -195,7 +196,7 @@ class ListandoArquivos:
         Thread(self.adicionado_extensao_arq_txt()).start()
 
     def thread_selecionar_destino_busca(self):
-        self.pasta_local_de_busca =
+        Thread(target=self.pasta_destino_busca()).start()
 
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
@@ -417,6 +418,10 @@ class ListandoArquivos:
                 self.extensao_selecao_busca = self.lista_ext_arqzip[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
+
+    def pasta_destino_busca(self):
+        self.pasta_local_de_busca = tk.filedialog.askdirectory()
+        self.ativo_status_destinos = True
 
     def iniciar_busca(self):
         self.lista_result_busca.delete('0', 'end')
