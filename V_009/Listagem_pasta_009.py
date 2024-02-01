@@ -160,10 +160,12 @@ class ListandoArquivos:
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
         if self.ativo_status_extensao:
-            Thread(target=self.selecionar_extensao_busca()).start()
             Thread(target=self.iniciar_busca).start()
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
+            
+    def thread_inicio_thread_botao_iniciar(self):
+        Thread(target=self.selecionar_extensao_busca()).start()
 
     def thread_botao_extensao(self):
         print('Iniciando THREAD [BUSCA ESPECIFICA POR EXTENSAO]')
