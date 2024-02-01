@@ -127,6 +127,8 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
         # DESTINO DA BUSCA
         self.botao_destino_busca = tk.Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
+        self.botao_destino_busca.config(command='')
+        self.botao_destino_busca.pack(anchor='se', pady=5, padx=5)
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
