@@ -4,9 +4,11 @@ from tkinter.ttk import *
 from time import sleep
 from pathlib import Path
 from threading import Thread
+from datetime import datetime
 from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
-from datetime import datetime
+from tkinter.filedialog import askdirectory, asksaveasfile
+
 
 pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
@@ -191,6 +193,9 @@ class ListandoArquivos:
     def thread_adicionar_extensao(self):
         print('Iniciando THREAD [ADICIONAR EXTENSAO]')
         Thread(self.adicionado_extensao_arq_txt()).start()
+
+    def thread_selecionar_destino_busca(self):
+        self.pasta_local_de_busca =
 
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
