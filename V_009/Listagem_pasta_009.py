@@ -160,6 +160,7 @@ class ListandoArquivos:
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
         if self.ativo_status_extensao:
+            Thread(target=self.selecionar_extensao_busca()).start()
             Thread(target=self.iniciar_busca).start()
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
@@ -233,9 +234,9 @@ class ListandoArquivos:
         valor_extensao = self.lista_de_extensoes.curselection()
         for valor_extensao in valor_extensao:
             pass
-        
+
         if self.ativo_busca_imagem:
-            self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao]
+            self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].upper()
 
     def adicionado_extensao_arq_txt(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
@@ -359,7 +360,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
-                                             f' [{valor_da_busca.upper()}]')
+                                             f' [{self.extensao_selecao_busca}]')
 
 
 obj_start = ListandoArquivos()
