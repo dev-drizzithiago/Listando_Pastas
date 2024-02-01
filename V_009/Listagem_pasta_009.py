@@ -227,7 +227,14 @@ class ListandoArquivos:
             self.ativo_busca_arqzip = True
             self.botao_adicionar_extensao['state'] = tk.NORMAL
             self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_arqzip)
-        self.leitura_arq_extensao()
+        self.leitura_arq_extensao_add_lista_principal()
+
+    def selecionar_extensao_busca(self):
+        valor_extensao = self.lista_de_extensoes.curselection()
+        for valor_extensao in valor_extensao:
+            pass
+        if self.ativo_busca_imagem:
+            self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao]
 
     def adicionado_extensao_arq_txt(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
@@ -296,7 +303,7 @@ class ListandoArquivos:
                 except:
                     tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
 
-    def leitura_arq_extensao(self):
+    def leitura_arq_extensao_add_lista_principal(self):
         self.lista_ext_imagem = list()
         self.lista_ext_videos = list()
         self.lista_ext_textos = list()
