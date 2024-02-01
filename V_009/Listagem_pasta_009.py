@@ -16,7 +16,7 @@ hora_atual = valor_datatime.strftime('%h:%m')
 
 class ListandoArquivos:
     def __init__(self):
-        self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeo', 'Arquivos de Leitura', 'Arquivos execução',
+        self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura', 'Arquivos execução',
                                  'Arquivos compreesão')
 
         self.ativo_status_extensao = False
@@ -200,7 +200,7 @@ class ListandoArquivos:
             self.botao_adicionar_extensao['state'] = tk.NORMAL
             self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_imagem)
 
-        elif valor_categoria_busca == 'Arquivos de Vídeo':
+        elif valor_categoria_busca == 'Arquivos de Vídeos/Audios':
             self.ativo_busca_imagem = False
             self.ativo_busca_videos = True
             self.ativo_busca_textos = False
