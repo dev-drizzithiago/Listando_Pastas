@@ -238,7 +238,7 @@ class ListandoArquivos:
         for valor_extensao in valor_extensao:
             pass
         if self.ativo_busca_imagem:
-            self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].upper()
+            self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao]
             self.ativo_status_extensao = True
 
     def adicionado_extensao_arq_txt(self):
