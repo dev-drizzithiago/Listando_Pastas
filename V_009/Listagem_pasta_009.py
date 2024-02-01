@@ -159,7 +159,6 @@ class ListandoArquivos:
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
-        self.extensao_selecao = self.lista_de_extensoes.curselection()
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
         else:
@@ -345,8 +344,7 @@ class ListandoArquivos:
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
         self.barra_progresso_busca.start(100)
-        valor_da_busca = self.extensao_selecao
-        for busca in pasta_destino.glob('**/*' + valor_da_busca):
+        for busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
             self.label_status.config(text='Processando, aguarde...!')
             self.lista_result_busca.insert('end', f'{cont_arquivos} - {busca}')
             cont_arquivos += 1
