@@ -6,10 +6,13 @@ from pathlib import Path
 from threading import Thread
 from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
+from datetime import datetime
 
 pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
-
+valor_datatime = datetime.now()
+data_atual = valor_datatime.strftime('%d/%m/%Y')
+hora_atual = valor_datatime.strftime('%h:%m')
 
 class ListandoArquivos:
     def __init__(self):
@@ -344,11 +347,12 @@ class ListandoArquivos:
             for valor_extensao in valor_lista_extensao:
                 pass
             if self.ativo_busca_imagem:
-                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].lower().strip()
+                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
     def iniciar_busca(self):
+        self.lista_result_busca.delete('0', 'end')
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
         print(f'Valor da extensão [{valor_da_busca}]')
@@ -366,6 +370,8 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca}]')
+    def salvando_resultado(self, valor_resultado):
+
 
 
 obj_start = ListandoArquivos()
