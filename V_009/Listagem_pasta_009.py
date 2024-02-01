@@ -103,7 +103,7 @@ class ListandoArquivos:
                                           command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center')
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
-        self.botao_escolha_extensao.config(width=2)
+        self.botao_escolha_extensao.config(width=30)
         self.botao_escolha_extensao.config(command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20)
@@ -346,9 +346,17 @@ class ListandoArquivos:
                 self.lista_ext_arqzip.append(valor_leitura)
 
     def digitar_extensao(self):
-        self.extensao_selecao_busca = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
-        self.label_info_extensao.config(text=self.extensao_selecao_busca)
-        self.ativo_status_extensao = True
+        valor_lista_extensao = self.lista_de_extensoes.curselection()
+        if len(valor_lista_extensao) == 0:
+            self.extensao_selecao_busca = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
+            self.label_info_extensao.config(text=self.extensao_selecao_busca)
+            self.ativo_status_extensao = True
+        else:
+            for valor_extensao in valor_lista_extensao:
+                pass
+            if self.ativo_busca_imagem:
+                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao]
+                self.ativo_status_extensao = True
 
     def iniciar_busca(self):
         print(self.extensao_selecao_busca)
