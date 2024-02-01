@@ -58,8 +58,9 @@ class ListandoArquivos:
         self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
 
         self.lista_de_extensoes = tk.Listbox(self.label_lista_extensao, selectmode=tk.SINGLE, justify='center')
-        self.lista_de_extensoes.config(selectforeground='#00FFFF')
-        self.lista_de_extensoes.config(selectbackground='#00aa00')
+        self.lista_de_extensoes.config(height=3)
+        self.lista_de_extensoes.config(selectforeground='#000000')
+        self.lista_de_extensoes.config(selectbackground='#A9A9A9')
         self.lista_de_extensoes.config(selectborderwidth=5)
         self.lista_de_extensoes.pack(anchor='center', fill='both')
 
