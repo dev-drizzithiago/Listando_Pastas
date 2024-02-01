@@ -58,6 +58,9 @@ class ListandoArquivos:
         self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
 
         self.lista_de_extensoes = tk.Listbox(self.label_lista_extensao, selectmode=tk.SINGLE, justify='center')
+        self.lista_de_extensoes.config(selectforeground='#00FFFF')
+        self.lista_de_extensoes.config(selectbackground='#00aa00')
+        self.lista_de_extensoes.config(selectborderwidth=5)
         self.lista_de_extensoes.pack(anchor='center', fill='both')
 
         self.barra_rolagem_extensao.config(command=self.lista_de_extensoes.yview)
@@ -370,7 +373,7 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca}]')
-        
+
     def salvando_resultado(self, valor_resultado):
         arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
 
