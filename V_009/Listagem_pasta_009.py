@@ -370,8 +370,9 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca}]')
+        
     def salvando_resultado(self, valor_resultado):
-
+        arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
 
 
 obj_start = ListandoArquivos()
