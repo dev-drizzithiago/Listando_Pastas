@@ -229,6 +229,14 @@ class ListandoArquivos:
             self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_arqzip)
         self.leitura_arq_extensao_add_lista_principal()
 
+    def selecionar_extensao_busca(self):
+        valor_extensao = self.lista_de_extensoes.curselection()
+        for valor_extensao in valor_extensao:
+            pass
+        if self.ativo_busca_imagem:
+            self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].upper()
+            self.ativo_info_escolha_ext = True
+
     def adicionado_extensao_arq_txt(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
         if len(valor_entrada_extensao) == 0:
