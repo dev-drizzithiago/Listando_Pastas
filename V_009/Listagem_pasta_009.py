@@ -165,9 +165,6 @@ class ListandoArquivos:
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
 
-    def thread_selecionar_extensao(self):
-        Thread(target=self.selecionar_extensao_busca()).start()
-
     def thread_botao_extensao(self):
         print('Iniciando THREAD [BUSCA ESPECIFICA POR EXTENSAO]')
         Thread(target=self.digitar_extensao()).start()
@@ -232,14 +229,6 @@ class ListandoArquivos:
             self.botao_adicionar_extensao['state'] = tk.NORMAL
             self.arq_extensao_add = str(pasta_arq_registro_extensao + arq_arqzip)
         self.leitura_arq_extensao_add_lista_principal()
-
-    def selecionar_extensao_busca(self):
-        valor_extensao = self.lista_de_extensoes.curselection()
-        for valor_extensao in valor_extensao:
-            pass
-        if self.ativo_busca_imagem:
-            self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao]
-            self.ativo_status_extensao = True
 
     def adicionado_extensao_arq_txt(self):
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
@@ -355,14 +344,15 @@ class ListandoArquivos:
             for valor_extensao in valor_lista_extensao:
                 pass
             if self.ativo_busca_imagem:
-                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao]
+                self.extensao_selecao_busca = self.lista_ext_imagem[valor_extensao].lower().strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
 
     def iniciar_busca(self):
         valor_da_busca = self.extensao_selecao_busca
-        print(f'Valor da extensão {valor_da_busca}')
-        print(f'Caminha do busca {pasta_destino}')
+        print('Iniciando busca...')
+        print(f'Valor da extensão [{valor_da_busca}]')
+        print(f'Caminha do busca [{pasta_destino}]')
         cont_arquivos = 1
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
