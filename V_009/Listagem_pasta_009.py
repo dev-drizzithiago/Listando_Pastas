@@ -14,20 +14,21 @@ valor_datatime = datetime.now()
 data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%h:%m')
 
+
+# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+
 class ListandoArquivos:
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura', 'Arquivos execução',
                                  'Arquivos compreesão')
-
         self.ativo_status_extensao = False
-        # dwself.ativo_info_escolha_ext = False
-
         self.ativo_busca_imagem = False
         self.ativo_busca_videos = False
         self.ativo_busca_textos = False
         self.ativo_busca_execul = False
         self.ativo_busca_arqzip = False
 
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
@@ -35,10 +36,12 @@ class ListandoArquivos:
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
 
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
         self.label_frame_geral.pack(fill=tk.BOTH, ipadx=5, ipady=5)
 
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # COMBO DE EXTENSÃO
         self.var_combo_categoria = tk.StringVar()
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
@@ -50,6 +53,7 @@ class ListandoArquivos:
         self.combo_extensao_categoria.set('Escolha uma categoria de extensão')
         self.var_combo_categoria.trace('w', self.combo_categoria_busca)
 
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # INFORMAÇÕES SOBRE EXTENSÃO
         self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
         self.label_lista_extensao.pack(side='top', fill='both')
@@ -74,6 +78,7 @@ class ListandoArquivos:
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
 
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Busca Geral
         self.var_lista_busca = tk.StringVar()
         self.label_frame_lista_busca = LabelFrame(self.label_frame_geral, text='Resultado da BUSCA')
@@ -102,22 +107,26 @@ class ListandoArquivos:
         self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
         self.label_qtd_arq_busca.pack(anchor='s')
 
-        # Botoes
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+        # BOTÕES
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
-
-        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca', width=20,
-                                          command=self.thread_botao_iniciar)
+        # Iniciar Busca
+        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca', width=20)
+        self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center')
+        # Selecionar
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
         self.botao_escolha_extensao.config(width=30)
         self.botao_escolha_extensao.config(command=self.thread_botao_extensao)
         self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
+        # Adicionar extensão
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20)
         self.botao_adicionar_extensao['state'] = tk.DISABLED
         self.botao_adicionar_extensao['command'] = self.janela_add_ext_arq_txt
         self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
 
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
@@ -372,6 +381,7 @@ class ListandoArquivos:
             self.extensao_selecao_busca = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
             self.label_info_extensao.config(text=self.extensao_selecao_busca)
             self.ativo_status_extensao = True
+            valor_questao = tk.messagebox.askquestion('AVISO', 'Deseja adicionar a extensão no sistema?')
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
