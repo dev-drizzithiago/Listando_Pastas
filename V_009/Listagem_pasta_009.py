@@ -452,15 +452,18 @@ class ListandoArquivos:
             if busca.is_file():
                 self.lista_result_busca.insert('end', f'{cont_arquivos} - *{busca}')
                 self.lista_analise_arq_busca.append(f'{cont_arquivos} - {busca}')
+                self.label_status.config(text=f'Encontrado {cont_arquivos} arquivos... \n')
                 cont_arquivos += 1
             elif busca.is_dir():
                 self.lista_result_busca.insert('end', f'{cont_pastas} - \\{busca}')
                 self.lista_analise_pasta_busca.append(f'{cont_pastas} - {busca}')
+                self.label_status.config(text=f'Encontrado {cont_pastas} pastas...')
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
-                                             f' [{valor_da_busca}]')
+                                             f' [{valor_da_busca}] e... \n'
+                                             f' [ {cont_pastas} subpastas')
 
     def salvando_resultado(self, valor_resultado):
         arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
