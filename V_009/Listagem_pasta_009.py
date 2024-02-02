@@ -117,6 +117,7 @@ class ListandoArquivos:
 
         self.var_status_contagem_pastas = tk.StringVar()
         self.status_contagem_pastas = tk.Label(self.label_frame_geral, text=self.var_status_contagem_pastas.get())
+        self.status_contagem_pastas.pack(anchor='s')
 
         self.var_label_info_qtd_arq = tk.StringVar()
         self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
@@ -459,12 +460,12 @@ class ListandoArquivos:
             if busca.is_file():
                 self.lista_result_busca.insert('end', f'{cont_arquivos} - *{busca}')
                 self.lista_analise_arq_busca.append(f'{cont_arquivos} - {busca}')
-                self.label_status.config(text=f'Encontrado {cont_arquivos} arquivos... \n')
+                self.status_contagem_arquivos.config(text=f'Encontrado {cont_arquivos} arquivos... \n')
                 cont_arquivos += 1
             elif busca.is_dir():
                 self.lista_result_busca.insert('end', f'{cont_pastas} - \\{busca}')
                 self.lista_analise_pasta_busca.append(f'{cont_pastas} - {busca}')
-                self.label_status.config(text=f'Encontrado {cont_pastas} pastas...')
+                self.status_contagem_pastas.config(text=f'Encontrado {cont_pastas} pastas...')
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
