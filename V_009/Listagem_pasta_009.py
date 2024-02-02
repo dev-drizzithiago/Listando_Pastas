@@ -133,10 +133,9 @@ class ListandoArquivos:
         self.status_contagem_pastas.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
-        self.var_label_info_qtd_arq = tk.StringVar()
-        self.label_qtd_arq_busca = Label(self.label_frame_geral_info, text=self.var_label_info_qtd_arq.get())
-        self.label_qtd_arq_busca.config(justify='center')
-        self.label_qtd_arq_busca.pack(anchor='s', fill='both', pady=5, padx=5)
+        self.var_msg_tot_busca = tk.StringVar()
+        self.msg_tot_busca = tk.Message(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
+        self.msg_tot_busca.pack(anchor='s')
 
         # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
@@ -491,7 +490,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
         print('Busca finalizada!!')
-        self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
+        self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca}] e... \n'
                                              f' [ {cont_pastas} subpastas')
 
