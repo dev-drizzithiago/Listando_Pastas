@@ -98,6 +98,7 @@ class ListandoArquivos:
         self.barra_rolagem_lista_busca_X = Scrollbar(self.label_frame_lista_busca, orient=tk.HORIZONTAL)
         self.barra_rolagem_lista_busca_X.pack(side='bottom', fill=tk.X)
 
+        # LISTA DO RESULTADO DA BUSCA
         self.lista_result_busca = tk.Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
         self.lista_result_busca.config(height=5)
         self.lista_result_busca.config(selectmode=tk.SINGLE)
@@ -109,33 +110,36 @@ class ListandoArquivos:
         self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
+        # LABEM FRAME INFO BUSCA
+        self.label_frame_geral_info = tk.LabelFrame(self.label_frame_geral, text='Informações da busca...!')
+        self.label_frame_geral_info.pack(anchor='center')
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
-        self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
+        self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
         self.label_status.config(justify='center')
         self.label_status.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
-        self.status_contagem_arquivos = tk.Label(self.label_frame_geral, text=self.var_status_contagem_arquivos.get())
+        self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info, text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
         self.status_contagem_arquivos.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
-        self.status_contagem_pastas = tk.Label(self.label_frame_geral, text=self.var_status_contagem_pastas.get())
+        self.status_contagem_pastas = tk.Label(self.label_frame_geral_info, text=self.var_status_contagem_pastas.get())
         self.status_contagem_pastas.config(justify='center')
         self.status_contagem_pastas.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_label_info_qtd_arq = tk.StringVar()
-        self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
+        self.label_qtd_arq_busca = Label(self.label_frame_geral_info, text=self.var_label_info_qtd_arq.get())
         self.label_qtd_arq_busca.config(justify='center')
         self.label_qtd_arq_busca.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
-        self.label_time_busca = tk.Label(self.label_frame_geral, text=self.var_label_time_busca.get())
+        self.label_time_busca = tk.Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
         self.label_time_busca.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
