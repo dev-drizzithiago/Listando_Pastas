@@ -111,22 +111,27 @@ class ListandoArquivos:
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
-        self.label_status.pack(anchor='s')
+        self.label_status.pack(anchor='s', fill='both', ipady=5, ipadx=5)
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
         self.status_contagem_arquivos = tk.Label(self.label_frame_geral, text=self.var_status_contagem_arquivos.get())
-        self.status_contagem_arquivos.pack(anchor='s')
+        self.status_contagem_arquivos.pack(anchor='s', fill='both', ipady=5, ipadx=5)
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
         self.status_contagem_pastas = tk.Label(self.label_frame_geral, text=self.var_status_contagem_pastas.get())
-        self.status_contagem_pastas.pack(anchor='s')
+        self.status_contagem_pastas.pack(anchor='s', fill='both', ipady=5, ipadx=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_label_info_qtd_arq = tk.StringVar()
         self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
-        self.label_qtd_arq_busca.pack(anchor='s')
+        self.label_qtd_arq_busca.pack(anchor='s', fill='both', ipady=5, ipadx=5)
+
+        # LABEL TIME DA BUSCA
+        self.var_label_time_busca = tk.StringVar()
+        self.label_time_busca = tk.Label(self.label_frame_geral, text=self.var_label_time_busca.get())
+        self.label_time_busca.pack(anchor='s', fill='both', ipady=5, ipadx=5)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
@@ -154,6 +159,7 @@ class ListandoArquivos:
         self.botao_save_busca = tk.Button(self.label_frame_botoes_opcoes, text='Salvar Busca', width=20)
         self.botao_save_busca.config(command='')
         self.botao_save_busca.pack(anchor='se', pady=5, padx=5)
+
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
