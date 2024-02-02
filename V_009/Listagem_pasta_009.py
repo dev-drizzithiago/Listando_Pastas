@@ -444,7 +444,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
-            if busca.is_file()
+            if busca.is_file():
                 self.lista_result_busca.insert('end', f'{cont_arquivos} - {busca}')
             cont_arquivos += 1
         self.barra_progresso_busca.stop()
