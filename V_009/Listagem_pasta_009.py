@@ -151,7 +151,7 @@ class ListandoArquivos:
 
         # Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
-        self.botao_iniciar_busca.config(width=20)
+        self.botao_iniciar_busca.config(width=30)
         self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
 
@@ -163,19 +163,20 @@ class ListandoArquivos:
 
         # Adicionar extensão
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
-        self.botao_adicionar_extensao.config(width=20)
+        self.botao_adicionar_extensao.config(width=30)
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
         self.botao_adicionar_extensao.pack(anchor='sw', pady=2, padx=2)
 
         # DESTINO DA BUSCA
-        self.botao_destino_busca = tk.Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
-        self.botao_destino_busca.config(width=20)
+        self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
+        self.botao_destino_busca.config(width=30)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
         self.botao_destino_busca.pack(anchor='se', pady=2, padx=2)
 
         # BOTÃO SAVE BUSCA
-        self.botao_save_busca = tk.Button(self.label_frame_botoes_opcoes, text='Salvar Busca', width=20)
+        self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
+        self.botao_save_busca.config(width=20)
         self.botao_save_busca.config(command='')
         self.botao_save_busca.pack(anchor='se', pady=2, padx=2)
 
