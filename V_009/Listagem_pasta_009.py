@@ -148,28 +148,35 @@ class ListandoArquivos:
         # BOTÕES
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
+
         # Iniciar Busca
-        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca', width=20)
+        self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
+        self.botao_iniciar_busca.config(width=20)
         self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
-        self.botao_iniciar_busca.pack(anchor='center')
+        self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
+
         # Selecionar
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
         self.botao_escolha_extensao.config(width=30)
         self.botao_escolha_extensao.config(command=self.thread_botao_extensao)
-        self.botao_escolha_extensao.pack(anchor='sw', ipady=5, ipadx=5)
+        self.botao_escolha_extensao.pack(anchor='sw', pady=2, padx=2)
+
         # Adicionar extensão
-        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', width=20)
+        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
+        self.botao_adicionar_extensao.config(width=20)
         self.botao_adicionar_extensao['state'] = tk.DISABLED
         self.botao_adicionar_extensao['command'] = self.janela_add_ext_arq_txt
-        self.botao_adicionar_extensao.pack(anchor='sw', ipady=5, ipadx=5)
+        self.botao_adicionar_extensao.pack(anchor='sw', pady=2, padx=2)
+        
         # DESTINO DA BUSCA
         self.botao_destino_busca = tk.Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
-        self.botao_destino_busca.pack(anchor='se', pady=5, padx=5)
+        self.botao_destino_busca.pack(anchor='se', pady=2, padx=2)
+
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = tk.Button(self.label_frame_botoes_opcoes, text='Salvar Busca', width=20)
         self.botao_save_busca.config(command='')
-        self.botao_save_busca.pack(anchor='se', pady=5, padx=5)
+        self.botao_save_busca.pack(anchor='se', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
