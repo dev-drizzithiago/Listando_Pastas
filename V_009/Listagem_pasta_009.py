@@ -112,37 +112,37 @@ class ListandoArquivos:
         # LABEM FRAME INFO BUSCA
         self.label_frame_geral_info = tk.LabelFrame(self.label_frame_geral, text='Informações da busca...!')
         self.label_frame_geral_info.config(relief=tk.RIDGE)
-        self.label_frame_geral_info.pack(anchor='center', fill='both', pady=5, padx=5)
+        self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
 
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
         self.label_status = tk.Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
         self.label_status.config(justify='center', relief=tk.RIDGE)
-        self.label_status.pack(anchor='s', pady=5, padx=5)
+        self.label_status.pack(anchor='s', pady=2, padx=2)
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
         self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center', relief=tk.RIDGE)
-        self.status_contagem_arquivos.pack(anchor='s', pady=5, padx=5)
+        self.status_contagem_arquivos.pack(anchor='s', pady=2, padx=2)
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
         self.status_contagem_pastas = tk.Label(self.label_frame_geral_info, text=self.var_status_contagem_pastas.get())
         self.status_contagem_pastas.config(justify='center', relief=tk.RIDGE)
-        self.status_contagem_pastas.pack(anchor='s', pady=5, padx=5)
+        self.status_contagem_pastas.pack(anchor='s', pady=2, padx=2)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
         self.msg_tot_busca = tk.Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.msg_tot_busca.config(justify='center', relief=tk.RIDGE)
-        self.msg_tot_busca.pack(anchor='s', pady=5, padx=5)
+        self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
 
         # LABEL TIME DA BUSCA
-        # self.var_label_time_busca = tk.StringVar()
-        # self.label_time_busca = tk.Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
-        # self.label_time_busca.pack(anchor='s', fill='both', pady=5, padx=5)
+        self.var_label_time_busca = tk.StringVar()
+        self.label_time_busca = tk.Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
+        self.label_time_busca.pack(anchor='s', fill='both', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
@@ -180,6 +180,7 @@ class ListandoArquivos:
 
         self.janela_principal.mainloop()
 
+# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     def janela_add_ext_arq_txt(self):
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
                                                    'de extensões, é aconselhavel que seja escolhido a '
@@ -218,6 +219,7 @@ class ListandoArquivos:
         self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao.get())
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
+# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
@@ -237,6 +239,7 @@ class ListandoArquivos:
     def thread_selecionar_destino_busca(self):
         Thread(target=self.pasta_destino_busca()).start()
 
+# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
