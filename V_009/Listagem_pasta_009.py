@@ -132,6 +132,10 @@ class ListandoArquivos:
         self.botao_destino_busca = tk.Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
         self.botao_destino_busca.pack(anchor='se', pady=5, padx=5)
+        # BOTÃO SAVE BUSCA
+        self.botao_save_busca = tk.Button(self.label_frame_botoes_opcoes, text='Salvar Busca', width=20)
+        self.botao_save_busca.config(command='')
+        self.botao_save_busca.pack(anchor='se', pady=5, padx=5)
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
