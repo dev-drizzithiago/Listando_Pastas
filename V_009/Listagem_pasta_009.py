@@ -461,6 +461,7 @@ class ListandoArquivos:
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
+        print('Busca finalizada!!')
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                              f' [{valor_da_busca}] e... \n'
                                              f' [ {cont_pastas} subpastas')
