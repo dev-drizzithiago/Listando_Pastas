@@ -164,12 +164,13 @@ class ListandoArquivos:
         # Adicionar extensão
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
         self.botao_adicionar_extensao.config(width=20)
-        self.botao_adicionar_extensao['state'] = tk.DISABLED
-        self.botao_adicionar_extensao['command'] = self.janela_add_ext_arq_txt
+        self.botao_adicionar_extensao.config(state=tk.DISABLED)
+        self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
         self.botao_adicionar_extensao.pack(anchor='sw', pady=2, padx=2)
-        
+
         # DESTINO DA BUSCA
         self.botao_destino_busca = tk.Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
+        self.botao_destino_busca.config(width=20)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
         self.botao_destino_busca.pack(anchor='se', pady=2, padx=2)
 
