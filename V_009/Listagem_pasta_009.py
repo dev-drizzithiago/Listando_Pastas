@@ -112,7 +112,8 @@ class ListandoArquivos:
 
         # LABEM FRAME INFO BUSCA
         self.label_frame_geral_info = tk.LabelFrame(self.label_frame_geral, text='Informações da busca...!')
-        self.label_frame_geral_info.pack(anchor='center')
+        self.label_frame_geral_info.pack(anchor='center', fill='both', pady=5, padx=5)
+
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
         self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
