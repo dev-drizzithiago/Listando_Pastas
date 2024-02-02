@@ -147,7 +147,7 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.pack(side='bottom')
+        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
 
         # Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
@@ -159,7 +159,7 @@ class ListandoArquivos:
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
         self.botao_escolha_extensao.config(width=30)
         self.botao_escolha_extensao.config(command=self.thread_botao_extensao)
-        self.botao_escolha_extensao.pack(anchor='sw', pady=2, padx=2)
+        self.botao_escolha_extensao.pack(anchor='center', pady=2, padx=2)
 
         # Adicionar extensão
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
