@@ -9,7 +9,6 @@ from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 
-
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
 valor_datatime = datetime.now()
@@ -21,8 +20,8 @@ hora_atual = valor_datatime.strftime('%h:%m')
 
 class ListandoArquivos:
     def __init__(self):
-        self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura', 'Arquivos execução',
-                                 'Arquivos compreesão')
+        self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
+                                 'Arquivos execução', 'Arquivos compreesão')
 
         self.lista_analise_arq_busca = list()
         self.lista_analise_pasta_busca = list()
@@ -112,6 +111,7 @@ class ListandoArquivos:
 
         # LABEM FRAME INFO BUSCA
         self.label_frame_geral_info = tk.LabelFrame(self.label_frame_geral, text='Informações da busca...!')
+        self.label_frame_geral_info.config(border=2, bd=2)
         self.label_frame_geral_info.pack(anchor='center', fill='both', pady=5, padx=5)
 
         # LABEL STATUS GERAL
@@ -122,7 +122,8 @@ class ListandoArquivos:
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
-        self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info, text=self.var_status_contagem_arquivos.get())
+        self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info,
+                                                 text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
         self.status_contagem_arquivos.pack(anchor='s', fill='both', pady=5, padx=5)
 
@@ -135,7 +136,7 @@ class ListandoArquivos:
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
         self.msg_tot_busca = tk.Message(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
-        self.msg_tot_busca.pack(anchor='s')
+        self.msg_tot_busca.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
@@ -491,8 +492,8 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         print('Busca finalizada!!')
         self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
-                                             f' [{valor_da_busca}] e... \n'
-                                             f' [ {cont_pastas} subpastas')
+                                       f' [{valor_da_busca}] e... \n'
+                                       f' [ {cont_pastas} subpastas')
 
     def salvando_resultado(self, valor_resultado):
         arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
