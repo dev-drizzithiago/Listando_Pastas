@@ -39,7 +39,7 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x700')
+        self.janela_principal.geometry('1000x800')
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
 
@@ -116,26 +116,27 @@ class ListandoArquivos:
 
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
-        self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
-        self.label_status.config(justify='center')
+        self.label_status = tk.Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
+        self.label_status.config(justify='center', border=2, bd=2)
         self.label_status.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
-        self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info,
-                                                 text=self.var_status_contagem_arquivos.get())
-        self.status_contagem_arquivos.config(justify='center')
+        self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info)
+        self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
+        self.status_contagem_arquivos.config(justify='center', border=2, bd=2)
         self.status_contagem_arquivos.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
         self.status_contagem_pastas = tk.Label(self.label_frame_geral_info, text=self.var_status_contagem_pastas.get())
-        self.status_contagem_pastas.config(justify='center')
+        self.status_contagem_pastas.config(justify='center', border=2, bd=2)
         self.status_contagem_pastas.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
         self.msg_tot_busca = tk.Message(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
+        self.msg_tot_busca.config(justify='center', border=2, bd=2)
         self.msg_tot_busca.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL TIME DA BUSCA
