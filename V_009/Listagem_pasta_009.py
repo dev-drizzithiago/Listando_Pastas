@@ -23,6 +23,11 @@ class ListandoArquivos:
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura', 'Arquivos execução',
                                  'Arquivos compreesão')
+
+        self.lista_analise_arq_busca = list()
+        self.lista_analise_pasta_busca = list()
+
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         self.ativo_status_extensao = False
         self.ativo_status_destinos = False
         self.ativo_busca_imagem = False
@@ -445,8 +450,13 @@ class ListandoArquivos:
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
             if busca.is_file():
-                self.lista_result_busca.insert('end', f'{cont_arquivos} - {busca}')
-            cont_arquivos += 1
+                self.lista_result_busca.insert('end', f'*{cont_arquivos} - {busca}')
+                self.lista_analise_arq_busca.append(f'{cont_arquivos} - {busca}')
+                cont_arquivos += 1
+            elif busca.is_dir():
+                self.lista_result_busca.insert('end', f'\\{cont_pastas} - {busca}')
+                self.lista_analise_pasta_busca.append(f'{cont_pastas} - {busca}')
+                cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
         self.label_qtd_arq_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
