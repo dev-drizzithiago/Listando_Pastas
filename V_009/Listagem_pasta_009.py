@@ -92,6 +92,7 @@ class ListandoArquivos:
         self.label_frame_lista_busca = LabelFrame(self.label_frame_geral, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center', fill='both')
 
+        # BARRA ROLAGEM CONFIGURAÇÃO
         self.barra_rolagem_lista_busca_Y = Scrollbar(self.label_frame_lista_busca, orient=tk.VERTICAL)
         self.barra_rolagem_lista_busca_Y.pack(side='right', fill=tk.Y)
         self.barra_rolagem_lista_busca_X = Scrollbar(self.label_frame_lista_busca, orient=tk.HORIZONTAL)
@@ -101,24 +102,28 @@ class ListandoArquivos:
         self.lista_result_busca.config(selectmode=tk.SINGLE)
         self.lista_result_busca.pack(anchor='center', fill=tk.BOTH)
 
+        # BARRA ROLAGEM APLICAÇÃO
         self.barra_rolagem_lista_busca_Y.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_Y.set)
-
         self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
+        # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
         self.label_status.pack(anchor='s')
 
+        # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
         self.status_contagem_arquivos = tk.Label(self.label_frame_geral, text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.pack(anchor='s')
 
+        # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
         self.status_contagem_pastas = tk.Label(self.label_frame_geral, text=self.var_status_contagem_pastas.get())
         self.status_contagem_pastas.pack(anchor='s')
 
+        # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_label_info_qtd_arq = tk.StringVar()
         self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
         self.label_qtd_arq_busca.pack(anchor='s')
