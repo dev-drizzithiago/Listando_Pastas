@@ -111,32 +111,32 @@ class ListandoArquivos:
 
         # LABEM FRAME INFO BUSCA
         self.label_frame_geral_info = tk.LabelFrame(self.label_frame_geral, text='Informações da busca...!')
-        self.label_frame_geral_info.config(border=2, bd=2, relief='raised')
+        self.label_frame_geral_info.config(border=2, bd=2, relief=tk.RIDGE)
         self.label_frame_geral_info.pack(anchor='center', fill='both', pady=5, padx=5)
 
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
         self.label_status = tk.Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
-        self.label_status.config(justify='center', border=2, bd=2, relief='raised')
+        self.label_status.config(justify='center', border=2, bd=2, relief=tk.RIDGE)
         self.label_status.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
         self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
-        self.status_contagem_arquivos.config(justify='center', border=2, bd=2, relief='raised')
+        self.status_contagem_arquivos.config(justify='center', border=2, bd=2, relief=tk.RIDGE)
         self.status_contagem_arquivos.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
         self.status_contagem_pastas = tk.Label(self.label_frame_geral_info, text=self.var_status_contagem_pastas.get())
-        self.status_contagem_pastas.config(justify='center', border=2, bd=2, relief='raised')
+        self.status_contagem_pastas.config(justify='center', border=2, bd=2, relief=tk.RIDGE)
         self.status_contagem_pastas.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
         self.msg_tot_busca = tk.Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
-        self.msg_tot_busca.config(justify='center', border=2, bd=2, relief='raised')
+        self.msg_tot_busca.config(justify='center', border=2, bd=2, relief=tk.RIDGE)
         self.msg_tot_busca.pack(anchor='s', fill='both', pady=5, padx=5)
 
         # LABEL TIME DA BUSCA
