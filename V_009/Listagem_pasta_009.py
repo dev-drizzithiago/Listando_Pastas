@@ -34,6 +34,7 @@ class ListandoArquivos:
         self.ativo_busca_textos = False
         self.ativo_busca_execul = False
         self.ativo_busca_arqzip = False
+        self.ativo_time_busca = False
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Janela Principal
@@ -248,8 +249,17 @@ class ListandoArquivos:
     def thread_selecionar_destino_busca(self):
         Thread(target=self.pasta_destino_busca()).start()
 
+    def thread_time_busca(self):
+        Thread(target=self.iniciando_tima_busca()).start()
+
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
+    def iniciando_tima_busca(self):
+        if self.ativo_time_busca:
+            pass
+        else:
+            pass
+
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
 
