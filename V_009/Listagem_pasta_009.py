@@ -111,6 +111,13 @@ class ListandoArquivos:
         self.label_status = Label(self.label_frame_geral, text=self.var_label_status_geral.get())
         self.label_status.pack(anchor='s')
 
+        self.var_status_contagem_arquivos = tk.StringVar()
+        self.status_contagem_arquivos = tk.Label(self.label_frame_geral, text=self.var_status_contagem_arquivos.get())
+        self.status_contagem_arquivos.pack(anchor='s')
+
+        self.var_status_contagem_pastas = tk.StringVar()
+        self.status_contagem_pastas = tk.Label(self.label_frame_geral, text=self.var_status_contagem_pastas.get())
+
         self.var_label_info_qtd_arq = tk.StringVar()
         self.label_qtd_arq_busca = Label(self.label_frame_geral, text=self.var_label_info_qtd_arq.get())
         self.label_qtd_arq_busca.pack(anchor='s')
