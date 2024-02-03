@@ -49,7 +49,7 @@ class JanelaTeste:
         self.start_botao['state'] = 'normal'
         self.stop_botao['state'] = 'disabled'
         self.reset_botao['state'] = 'normal'
-        self.running = True
+        self.running = False
 
     def reset(self):
         self.contagem = -1
