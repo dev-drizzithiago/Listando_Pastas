@@ -1,69 +1,102 @@
 from tkinter import *
-from tkinter.ttk import *
 
-contagem = -1
+ws = Tk()
+ws.geometry('400x450+1000+300')
+ws.title('PythonGuides: Stopwatch')
+ws.config(bg='#299617')
+ws.resizable(0, 0)
+
+counter = -1
 running = False
 
 
-class JanelaTeste:
-    def __init__(self):
+def counter_label(lbl):
+    def count():
+        if running:
+            global counter
+            if counter == -1:
+                display = "00"
+            else:
+                display = str(counter)
 
-        self.janela_principal = Tk()
-        self.janela_principal.geometry('500x500+400+300')
-        self.janela_principal.title('Cronometro')
-        self.janela_principal.config(bg='#299617')
-        self.janela_principal.resizable(0, 0)
+            lbl['text'] = display
 
-        self.lbl = Label(self.janela_principal, text='00')
-        self.lbl.place(x=250, y=250)
+            lbl.after(1000, count)
+            counter += 1
 
-        self.start_botao = Button(self.janela_principal, text='Start', width=15, command=lambda: self.start)
-        self.start_botao.place(x=30, y=330)
-        self.stop_botao = Button(self.janela_principal, text='stop', width=15, command='')
-        self.stop_botao.place(x=30, y=360)
-        self.reset_botao = Button(self.janela_principal, text='Reset', width=15, command='')
-        self.reset_botao.place(x=30, y=390)
-
-        self.janela_principal.mainloop()
-
-    def contagem_label(self):
-        def contagem():
-            if running:
-                global contagem
-                if contagem == -1:
-                    display = '00'
-                else:
-                    display = str(contagem)
-                self.lbl['text'] = display
-                self.lbl.after(1000, contagem)
-                contagem += 1
-
-        contagem()
-
-    def start(self):
-        global running
-        running = True
-        self.contagem_label()
-        self.start_botao['state'] = 'disabled'
-        self.stop_botao['state'] = 'normal'
-        self.reset_botao['state'] = 'normal'
-
-    def stop(self):
-        global running
-        self.contagem_label()
-        self.start_botao['state'] = 'normal'
-        self.stop_botao['state'] = 'disabled'
-        self.reset_botao['state'] = 'normal'
-        running = True
-
-    def reset(self):
-        global contagem
-        contagem = -1
-        if not running:
-            self.reset_botao['state'] = 'disabled'
-            self.lbl['text'] = '00'
-        else:
-            self.lbl['text'] = ''
+    count()
 
 
-iniciando = JanelaTeste()
+def StartTimer(lbl):
+    global running
+    running = True
+    counter_label(lbl)
+    start_btn['state'] = 'disabled'
+    stop_btn['state'] = 'normal'
+    reset_btn['state'] = 'normal'
+
+
+def StopTimer():
+    global running
+    start_btn['state'] = 'normal'
+    stop_btn['state'] = 'disabled'
+    reset_btn['state'] = 'normal'
+    running = False
+
+
+def ResetTimer(lbl):
+    global counter
+    counter = -1
+    if running == False:
+        reset_btn['state'] = 'disabled'
+        lbl['text'] = '00'
+    else:
+        lbl['text'] = ''
+
+
+lbl = Label(
+    ws,
+    text="00",
+    fg="black",
+    bg='#299617',
+    font="Verdana 40 bold"
+)
+
+label_msg = Label(
+    ws, text="minutes",
+    fg="black",
+    bg='#299617',
+    font="Verdana 10 bold"
+)
+
+lbl.place(x=160, y=170)
+label_msg.place(x=170, y=250)
+
+start_btn = Button(
+    ws,
+    text='Start',
+    width=15,
+    command=lambda: StartTimer(lbl)
+)
+
+stop_btn = Button(
+    ws,
+    text='Stop',
+    width=15,
+    state='disabled',
+    command=StopTimer
+)
+
+reset_btn = Button(
+    ws,
+    text='Reset',
+    width=15,
+    state='disabled',
+    command=lambda: ResetTimer(lbl)
+)
+
+start_btn.place(x=30, y=390)
+stop_btn.place(x=150, y=390)
+reset_btn.place(x=270, y=390)
+
+ws.mainloop()
