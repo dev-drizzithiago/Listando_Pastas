@@ -8,19 +8,6 @@ running = False
 class JanelaTeste:
     def __init__(self):
 
-        def contagem_label():
-            def contagem():
-                if running:
-                    global contagem
-                    if contagem == -1:
-                        display = '00'
-                    else:
-                        display = str(contagem)
-                    self.lbl['text'] = display
-                    self.lbl.after(1000, contagem)
-                    contagem += 1
-            contagem()
-
         self.janela_principal = Tk()
         self.janela_principal.geometry('500x500+400+300')
         self.janela_principal.title('Cronometro')
@@ -38,6 +25,20 @@ class JanelaTeste:
         self.reset_botao.place(x=30, y=390)
 
         self.janela_principal.mainloop()
+
+    def contagem_label(self):
+        def contagem():
+            if running:
+                global contagem
+                if contagem == -1:
+                    display = '00'
+                else:
+                    display = str(contagem)
+                self.lbl['text'] = display
+                self.lbl.after(1000, contagem)
+                contagem += 1
+
+        contagem()
 
     def start(self):
         global running
