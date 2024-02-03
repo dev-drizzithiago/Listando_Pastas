@@ -59,7 +59,7 @@ class JanelaTeste:
     def reset(self):
         global contagem
         contagem = -1
-        if running == False:
+        if not running:
             self.reset_botao['state'] = 'disabled'
             self.lbl['text'] = '00'
         else:
