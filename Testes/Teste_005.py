@@ -19,14 +19,14 @@ class JanelaTeste:
 
         self.start_botao = Button(self.janela_principal, text='Start', width=15, command=lambda: self.start)
         self.start_botao.place(x=30, y=330)
-        self.stop_botao = Button(self.janela_principal, text='stop', width=15, command='')
+        self.stop_botao = Button(self.janela_principal, text='stop', width=15, command=self.stop)
         self.stop_botao.place(x=30, y=360)
-        self.reset_botao = Button(self.janela_principal, text='Reset', width=15, command='')
+        self.reset_botao = Button(self.janela_principal, text='Reset', width=15, command=self.reset)
         self.reset_botao.place(x=30, y=390)
 
         self.janela_principal.mainloop()
 
-    def contagem_label(self):
+    def contagem_label():
         def contagem():
             if running:
                 global contagem
