@@ -59,46 +59,19 @@ bg = PhotoImage(file='stopwatch.png')
 img = Label(ws, image=bg, bg='#299617')
 img.place(x=75, y=50)
 
-lbl = Label(
-    ws,
-    text="00",
-    fg="black",
-    bg='#299617',
-    font="Verdana 40 bold"
-)
+lbl = Label(ws, text="00", fg="black", bg='#299617', font="Verdana 40 bold")
 
-label_msg = Label(
-    ws, text="minutes",
-    fg="black",
-    bg='#299617',
-    font="Verdana 10 bold"
-)
+label_msg = Label(ws, text="minutes", fg="black", bg='#299617', font="Verdana 10 bold")
 
 lbl.place(x=160, y=170)
 label_msg.place(x=170, y=250)
 
-start_btn = Button(
-    ws,
-    text='Start',
-    width=15,
-    command=lambda: StartTimer(lbl)
-)
+start_btn = Button(ws, text='Start', width=15, command=lambda: StartTimer(lbl))
 
-stop_btn = Button(
-    ws,
-    text='Stop',
-    width=15,
-    state='disabled',
-    command=StopTimer
-)
+stop_btn = Button(ws, text='Stop', width=15, state='disabled', command=StopTimer
+                  )
 
-reset_btn = Button(
-    ws,
-    text='Reset',
-    width=15,
-    state='disabled',
-    command=lambda: ResetTimer(lbl)
-)
+reset_btn = Button(ws, text='Reset', width=15, state='disabled', command=lambda: ResetTimer(lbl))
 
 start_btn.place(x=30, y=390)
 stop_btn.place(x=150, y=390)
