@@ -1,13 +1,11 @@
 from tkinter import *
 from tkinter.ttk import *
 
-contagem = -1
-running = False
-
 
 class JanelaTeste:
     def __init__(self):
-
+        self.contagem = -1
+        self.running = False
         self.janela_principal = Tk()
         self.janela_principal.geometry('500x500+400+300')
         self.janela_principal.title('Cronometro')
@@ -26,9 +24,9 @@ class JanelaTeste:
 
         self.janela_principal.mainloop()
 
-    def contagem_label():
+    def contagem_label(self):
         def contagem():
-            if running:
+            if self.running:
                 global contagem
                 if contagem == -1:
                     display = '00'
@@ -41,25 +39,22 @@ class JanelaTeste:
         contagem()
 
     def start(self):
-        global running
-        running = True
+        self.running = True
         self.contagem_label()
         self.start_botao['state'] = 'disabled'
         self.stop_botao['state'] = 'normal'
         self.reset_botao['state'] = 'normal'
 
     def stop(self):
-        global running
         self.contagem_label()
         self.start_botao['state'] = 'normal'
         self.stop_botao['state'] = 'disabled'
         self.reset_botao['state'] = 'normal'
-        running = True
+        self.running = True
 
     def reset(self):
-        global contagem
-        contagem = -1
-        if not running:
+        self.contagem = -1
+        if not self.running:
             self.reset_botao['state'] = 'disabled'
             self.lbl['text'] = '00'
         else:
