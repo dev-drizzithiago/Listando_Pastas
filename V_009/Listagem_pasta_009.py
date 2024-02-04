@@ -144,7 +144,7 @@ class ListandoArquivos:
         # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
         self.label_time_busca = Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
-        self.label_time_busca.pack(anchor='s', fill='both', pady=2, padx=2)
+        self.label_time_busca.pack(anchor='s', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
@@ -254,15 +254,13 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
 
     def time_busca(self):
-        segundos = 0
-        minutos = 0
-        horas = 0
+        segundos = '00'
+        minutos = '00'
+        horas = '00'
         if self.ativo_time_busca:
             while self.ativo_time_busca:
                 self.label_time_busca['text'] = str(f'{horas}:{minutos}:{segundos}')
-                self.cont += 1
-                print(self.cont)
-                sleep(1)
+                segundos += 1
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
