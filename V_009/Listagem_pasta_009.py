@@ -253,6 +253,12 @@ class ListandoArquivos:
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
 
+    def time_busca(self):
+        contagem = 0
+        if self.ativo_time_busca:
+            self.label_time_busca['text'] = str(contagem)
+            contagem += 1
+    
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
 
