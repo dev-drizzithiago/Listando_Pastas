@@ -266,13 +266,14 @@ class ListandoArquivos:
                     if contagem_segundos < 10:
                         msg_info_time = str(f'00:00:0{contagem_segundos}')
                     elif contagem_segundos > 9:
-                        msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                        msg_info_time = str(f'00:00:{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos < 10:
                         msg_info_time = str(f'00:0{contagem_minutos}:{contagem_segundos}')
 
                     if contagem_segundos == 59:
                         contagem_segundos = 0
                         contagem_minutos += 1
+                        
                 self.label_time_busca['text'] = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
