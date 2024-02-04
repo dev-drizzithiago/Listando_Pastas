@@ -154,7 +154,7 @@ class ListandoArquivos:
         # Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
         self.botao_iniciar_busca.config(width=30)
-        self.botao_iniciar_busca.config(command=self.thread_time_busca)
+        self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
 
         # Selecionar
@@ -250,20 +250,8 @@ class ListandoArquivos:
     def thread_selecionar_destino_busca(self):
         Thread(target=self.pasta_destino_busca()).start()
 
-    def thread_time_busca(self):
-        Thread(target=self.iniciando_time_busca()).start()
-
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
-    def iniciando_time_busca(self):
-        self.contagem = 0
-
-        def contagem():
-            if self.ativo_time_busca:
-                self.label_time_busca['text'] = str(self.contagem)
-                self.contagem += 1
-
-        contagem()
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
@@ -504,8 +492,6 @@ class ListandoArquivos:
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
         self.barra_progresso_busca.start(100)
-        self.ativo_time_busca = True
-        self.thread_time_busca()
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_time_busca.after(1000, self.iniciando_time_busca())
             self.label_status.config(text='Processando, aguarde...!')
