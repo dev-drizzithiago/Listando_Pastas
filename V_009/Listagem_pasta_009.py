@@ -119,26 +119,26 @@ class ListandoArquivos:
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
         self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
-        self.label_status.config(justify='center', relief=tk.RIDGE)
+        self.label_status.config(justify='center')
         self.label_status.pack(anchor='s', pady=2, padx=2)
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
-        self.status_contagem_arquivos = tk.Label(self.label_frame_geral_info)
+        self.status_contagem_arquivos = Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
-        self.status_contagem_arquivos.config(justify='center', relief=tk.RIDGE)
+        self.status_contagem_arquivos.config(justify='center')
         self.status_contagem_arquivos.pack(anchor='s', pady=2, padx=2)
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
         self.status_contagem_pastas = Label(self.label_frame_geral_info, text=self.var_status_contagem_pastas.get())
-        self.status_contagem_pastas.config(justify='center', relief=tk.RIDGE)
+        self.status_contagem_pastas.config(justify='center')
         self.status_contagem_pastas.pack(anchor='s', pady=2, padx=2)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
         self.msg_tot_busca = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
-        self.msg_tot_busca.config(justify='center', relief=tk.RIDGE)
+        self.msg_tot_busca.config(justify='center')
         self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
 
         # LABEL TIME DA BUSCA
@@ -154,7 +154,7 @@ class ListandoArquivos:
         # Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
         self.botao_iniciar_busca.config(width=30)
-        self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
+        self.botao_iniciar_busca.config(command=self.thread_time_busca)
         self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
 
         # Selecionar
@@ -191,7 +191,7 @@ class ListandoArquivos:
 
         self.janela_principal.mainloop()
 
-# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+    # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     def janela_add_ext_arq_txt(self):
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
                                                    'de extensões, é aconselhavel que seja escolhido a '
@@ -230,7 +230,7 @@ class ListandoArquivos:
         self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao.get())
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
-# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+    # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
@@ -253,14 +253,17 @@ class ListandoArquivos:
     def thread_time_busca(self):
         Thread(target=self.iniciando_time_busca()).start()
 
-# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+    # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def iniciando_time_busca(self):
         self.contagem = 0
-        if self.ativo_time_busca:
-            self.label_time_busca.after(1000, self.iniciando_time_busca())
-            self.label_time_busca['text'] = self.contagem
-            self.contagem += 1
+
+        def contagem():
+            if self.ativo_time_busca:
+                self.label_time_busca['text'] = str(self.contagem)
+                self.contagem += 1
+
+        contagem()
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
@@ -501,9 +504,10 @@ class ListandoArquivos:
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
         self.barra_progresso_busca.start(100)
+        self.ativo_time_busca = True
+        self.thread_time_busca()
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
-            self.ativo_time_busca = True
-            self.thread_time_busca()
+            self.label_time_busca.after(1000, self.iniciando_time_busca())
             self.label_status.config(text='Processando, aguarde...!')
             if busca.is_file():
                 self.lista_result_busca.insert('end', f'[{cont_arquivos}] - *[{busca}]')
