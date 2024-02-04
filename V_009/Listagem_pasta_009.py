@@ -268,8 +268,9 @@ class ListandoArquivos:
                     elif contagem_segundos > 9:
                         msg_info_time = str(f'00:00:{contagem_segundos}')
                     elif contagem_segundos < 10 and contagem_minutos < 10:
+                        msg_info_time = str(f'00:0{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos < 10:
                         msg_info_time = str(f'00:0{contagem_minutos}:{contagem_segundos}')
-
                     if contagem_segundos == 59:
                         print('teste')
                         contagem_segundos = 0
