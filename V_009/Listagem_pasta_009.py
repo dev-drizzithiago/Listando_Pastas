@@ -25,6 +25,7 @@ class ListandoArquivos:
 
         self.lista_analise_arq_busca = list()
         self.lista_analise_pasta_busca = list()
+        self.funcionando = 'Funcionando!'
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         self.ativo_status_extensao = False
@@ -256,9 +257,7 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
     def iniciando_tima_busca(self):
         if self.ativo_time_busca:
-            pass
-        else:
-            pass
+            self.label_time_busca['text'] = self.funcionando
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
@@ -500,6 +499,7 @@ class ListandoArquivos:
         sleep(1)
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
+            self.ativo_time_busca = True
             self.label_status.config(text='Processando, aguarde...!')
             if busca.is_file():
                 self.lista_result_busca.insert('end', f'[{cont_arquivos}] - *[{busca}]')
