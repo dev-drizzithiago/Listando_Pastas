@@ -254,10 +254,12 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
 
     def time_busca(self):
-        contagem = 0
+        global cont
         if self.ativo_time_busca:
-            self.label_time_busca['text'] = str(contagem)
-            contagem += 1
+            def contagem():
+                self.label_time_busca['text'] = str(cont)
+                self.label_time_busca.after(1000, contagem())
+                cont += 1
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
@@ -496,7 +498,9 @@ class ListandoArquivos:
         cont_arquivos = 1
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
-        sleep(1)
+        sleep(5)
+        self.ativo_time_busca = True
+        Thread(target=self.time_busca()).start()
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
