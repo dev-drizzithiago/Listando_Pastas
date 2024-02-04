@@ -251,13 +251,14 @@ class ListandoArquivos:
         Thread(target=self.pasta_destino_busca()).start()
 
     def thread_time_busca(self):
-        Thread(target=self.iniciando_tima_busca()).start()
+        Thread(target=self.iniciando_time_busca()).start()
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
-    def iniciando_tima_busca(self):
+    def iniciando_time_busca(self):
         if self.ativo_time_busca:
             self.label_time_busca['text'] = self.funcionando
+            self.label_time_busca.after(1000, self.iniciando_time_busca())
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
@@ -500,6 +501,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.ativo_time_busca = True
+            self.thread_time_busca()
             self.label_status.config(text='Processando, aguarde...!')
             if busca.is_file():
                 self.lista_result_busca.insert('end', f'[{cont_arquivos}] - *[{busca}]')
