@@ -265,6 +265,8 @@ class ListandoArquivos:
                 else:
                     if contagem_segundos < 10:
                         msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:0{contagem_segundos}')
+                    else:
+                        msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
                     if contagem_segundos == 59:
                         contagem_segundos = 0
                         contagem_minutos += 1
