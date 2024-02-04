@@ -272,10 +272,10 @@ class ListandoArquivos:
                 if contagem_minutos == 59:
                     contagem_segundos = 0
                     horas = str(contagem_horas)
-                    contagem_horas =+ 1
+                    contagem_horas += 1
 
                 self.label_time_busca['text'] = str(f'{horas}:{minutos}:{segundos}')
-                contagem_hostas += 1
+                contagem_segundos += 1
 
 
     def combo_categoria_busca(self, *args):
