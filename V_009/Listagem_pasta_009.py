@@ -262,7 +262,8 @@ class ListandoArquivos:
             while self.ativo_time_busca:
                 if contagem_segundos != 0:
                     msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
-
+                else:
+                    msg_info_time = str(f'00:00:00')
                 self.label_time_busca['text'] = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
