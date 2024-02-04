@@ -265,6 +265,7 @@ class ListandoArquivos:
 
                 self.label_time_busca['text'] = msg_info_time
                 contagem_segundos += 1
+                sleep(1)
 
 
     def combo_categoria_busca(self, *args):
