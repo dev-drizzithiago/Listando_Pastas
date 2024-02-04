@@ -262,12 +262,12 @@ class ListandoArquivos:
                 if contagem_segundos == -1:
                     segundos = str('00')
                 else:
-                    segundos += str(contagem_segundos)
+                    segundos = str(contagem_segundos)
 
                 if contagem_segundos == 59:
                     contagem_segundos = 0
                     if contagem_minutos == 0:
-                        minutos = '00'
+                        minutos = str('00')
                     else:
                         minutos = str(contagem_minutos)
                     contagem_minutos += 1
@@ -275,7 +275,7 @@ class ListandoArquivos:
                 if contagem_minutos == 59:
                     contagem_segundos = 0
                     if contagem_horas == 0:
-                        horas = '00'
+                        horas = str('00')
                     else:
                         horas = str(contagem_horas)
                     contagem_horas += 1
