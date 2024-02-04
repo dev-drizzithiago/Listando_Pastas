@@ -264,16 +264,18 @@ class ListandoArquivos:
                     msg_info_time = str(f'00:00:00')
                 else:
                     if contagem_segundos < 10:
-                        msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:0{contagem_segundos}')
-                    else:
+                        msg_info_time = str(f'00:00:0{contagem_segundos}')
+                    elif contagem_segundos > 9:
                         msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos < 10:
+                        msg_info_time = str(f'00:0{contagem_minutos}:{contagem_segundos}')
+
                     if contagem_segundos == 59:
                         contagem_segundos = 0
                         contagem_minutos += 1
                 self.label_time_busca['text'] = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
-
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
