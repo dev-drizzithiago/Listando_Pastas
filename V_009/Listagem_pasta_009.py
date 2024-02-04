@@ -263,6 +263,7 @@ class ListandoArquivos:
                     segundos = str('00')
                 else:
                     segundos = str(contagem_segundos)
+                    sleep(1)
 
                 if contagem_segundos == 59:
                     contagem_segundos = 0
@@ -280,8 +281,9 @@ class ListandoArquivos:
                         horas = str(contagem_horas)
                     contagem_horas += 1
 
-                self.label_time_busca['text'] = str(f'{horas}:{minutos}:{segundos}')
+                self.label_time_busca['text'] = str(f'{segundos}')
                 contagem_segundos += 1
+
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
