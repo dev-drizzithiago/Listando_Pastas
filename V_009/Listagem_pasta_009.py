@@ -41,7 +41,7 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x800')
+        self.janela_principal.geometry('1000x800+150+100')
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
 
@@ -254,12 +254,18 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
 
     def time_busca(self):
-        global cont
+        self.cont = 0
+        print('teste')
         if self.ativo_time_busca:
+            print('teste')
+
             def contagem():
-                self.label_time_busca['text'] = str(cont)
+                self.label_time_busca['text'] = str(self.cont)
                 self.label_time_busca.after(1000, contagem())
-                cont += 1
+                self.cont += 1
+                print('teste')
+
+            contagem()
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
