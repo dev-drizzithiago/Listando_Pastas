@@ -3,7 +3,7 @@ from tkinter.ttk import *
 
 from time import sleep
 from pathlib import Path
-from threading import Thread
+from threading import Thread, Timer
 from datetime import datetime
 from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
@@ -255,17 +255,12 @@ class ListandoArquivos:
 
     def time_busca(self):
         self.cont = 0
-        print('teste')
         if self.ativo_time_busca:
-            print('teste')
-
-            def contagem():
-                self.label_time_busca['text'] = str(self.cont)
-                self.label_time_busca.after(1000, contagem())
+            while self.ativo_time_busca:
+                # self.label_time_busca['text'] = str(self.cont)
                 self.cont += 1
-                print('teste')
-
-            contagem()
+                print(self.cont)
+                sleep(1)
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
@@ -504,9 +499,9 @@ class ListandoArquivos:
         cont_arquivos = 1
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
-        sleep(5)
+        sleep(1)
         self.ativo_time_busca = True
-        Thread(target=self.time_busca()).start()
+        Thread(target=self.time_busca).start()
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
@@ -522,6 +517,7 @@ class ListandoArquivos:
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
+        self.ativo_time_busca = False
         print('Busca finalizada!!')
         self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                        f' [{valor_da_busca}] e... \n'
