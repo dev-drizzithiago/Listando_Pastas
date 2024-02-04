@@ -264,6 +264,8 @@ class ListandoArquivos:
                     msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
                 else:
                     msg_info_time = str(f'00:00:00')
+                    if contagem_segundos == 59:
+                        contagem_minutos += 1
                 self.label_time_busca['text'] = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
