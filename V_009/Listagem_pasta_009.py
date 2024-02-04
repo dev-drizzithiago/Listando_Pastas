@@ -254,10 +254,12 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
 
     def time_busca(self):
-        self.cont = 0
+        segundos = 0
+        minutos = 0
+        horas = 0
         if self.ativo_time_busca:
             while self.ativo_time_busca:
-                # self.label_time_busca['text'] = str(self.cont)
+                self.label_time_busca['text'] = str(f'{horas}:{minutos}:{segundos}')
                 self.cont += 1
                 print(self.cont)
                 sleep(1)
