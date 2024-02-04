@@ -256,11 +256,11 @@ class ListandoArquivos:
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def iniciando_time_busca(self):
+        self.contagem = 0
         if self.ativo_time_busca:
-            self.label_time_busca['text'] = 'self.funcionando'
             self.label_time_busca.after(1000, self.iniciando_time_busca())
-        else:
-            self.label_time_busca['text'] = 'Finalizado'
+            self.label_time_busca['text'] = self.contagem
+            self.contagem += 1
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
