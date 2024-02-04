@@ -254,29 +254,34 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
 
     def time_busca(self):
-        contagem_segundos = 0
-        contagem_minutos = 1
+        contagem_segundos = -2
+        contagem_minutos = 0
         contagem_horas = 0
         if self.ativo_time_busca:
             while self.ativo_time_busca:
-                if segundos == 0:
+                if contagem_segundos == -1:
                     segundos = str('00')
                 else:
                     segundos += str(contagem_segundos)
 
                 if contagem_segundos == 59:
                     contagem_segundos = 0
-                    minutos = str(contagem_minutos)
+                    if contagem_minutos == 0:
+                        minutos = '00'
+                    else:
+                        minutos = str(contagem_minutos)
                     contagem_minutos += 1
 
                 if contagem_minutos == 59:
                     contagem_segundos = 0
-                    horas = str(contagem_horas)
+                    if contagem_horas == 0:
+                        horas = '00'
+                    else:
+                        horas = str(contagem_horas)
                     contagem_horas += 1
 
                 self.label_time_busca['text'] = str(f'{horas}:{minutos}:{segundos}')
                 contagem_segundos += 1
-
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
