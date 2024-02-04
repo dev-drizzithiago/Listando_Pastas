@@ -257,8 +257,10 @@ class ListandoArquivos:
     # INICIO DAS FUNÇÕES
     def iniciando_time_busca(self):
         if self.ativo_time_busca:
-            self.label_time_busca['text'] = self.funcionando
+            self.label_time_busca['text'] = 'self.funcionando'
             self.label_time_busca.after(1000, self.iniciando_time_busca())
+        else:
+            self.label_time_busca['text'] = 'Finalizado'
 
     def combo_categoria_busca(self, *args):
         self.lista_de_extensoes.delete('0', 'end')
