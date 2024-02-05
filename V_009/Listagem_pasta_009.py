@@ -544,7 +544,7 @@ class ListandoArquivos:
                 pass
             else:
                 self.lista_result_busca.delete('0', 'end')
-                print('Lista de resultado, limpa!')
+                print('Lista de resultado foi limpa!')
 
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
