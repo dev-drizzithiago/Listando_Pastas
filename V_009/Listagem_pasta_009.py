@@ -557,7 +557,6 @@ class ListandoArquivos:
         sleep(1)
 
         # Desativando botoes
-
         self.botao_save_busca['state'] = 'disabled'
         self.botao_iniciar_busca['state'] = 'disabled'
         self.botao_destino_busca['state'] = 'disabled'
@@ -584,6 +583,7 @@ class ListandoArquivos:
         self.ativo_time_busca = False
         print('Busca finalizada!!')
 
+        # ATIVANDO OS BOTÕES DEPOIS DA BUSCA
         self.botao_save_busca['state'] = 'normal'
         self.botao_iniciar_busca['state'] = 'normal'
         self.botao_destino_busca['state'] = 'normal'
