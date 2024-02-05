@@ -286,6 +286,12 @@ class ListandoArquivos:
                         msg_info_time(f'0{contagem_horas}:{contagem_minutos}:0{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas < 10:
                         msg_info_time(f'0{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas > 9:
+                        msg_info_time(f'{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas > 9:
+                        msg_info_time(f'{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas > 9:
+                        msg_info_time(f'0contagem_horas}:{contagem_minutos}:{contagem_segundos}')
 
                     if contagem_segundos == 59:
                         contagem_segundos = 0
