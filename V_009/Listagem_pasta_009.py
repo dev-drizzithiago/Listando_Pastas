@@ -545,7 +545,12 @@ class ListandoArquivos:
         sleep(1)
 
         # Desativando botoes
-        self.botao_iniciar_busca['state'] = tk.DISABLED
+
+        self.botao_save_busca['state'] = 'desabled'
+        self.botao_iniciar_busca['state'] = 'disabled'
+        self.botao_destino_busca['state'] = 'desabled'
+        self.botao_escolha_extensao['state'] = 'desabled'
+
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
         self.barra_progresso_busca.start(100)
@@ -565,6 +570,12 @@ class ListandoArquivos:
         self.label_status['text'] = 'Busca Finalizada!'
         self.ativo_time_busca = False
         print('Busca finalizada!!')
+
+        self.botao_save_busca['state'] = 'normal'
+        self.botao_iniciar_busca['state'] = 'normal'
+        self.botao_destino_busca['state'] = 'normal'
+        self.botao_escolha_extensao['state'] = 'normal'
+
         self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                        f' [{valor_da_busca}] e... \n'
                                        f' [{cont_pastas}] Pasta/s ')
