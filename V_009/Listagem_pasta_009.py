@@ -297,7 +297,7 @@ class ListandoArquivos:
                         contagem_segundos = 0
                         contagem_minutos += 1
                         print('teste')
-                    if contagem_minutos == 59 and contagem_minutos == 59:
+                    if contagem_minutos == 59:
                         contagem_minutos = 0
                         contagem_horas += 1
 
