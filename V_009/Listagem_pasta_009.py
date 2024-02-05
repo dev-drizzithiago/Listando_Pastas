@@ -255,9 +255,9 @@ class ListandoArquivos:
 
     def time_busca(self):
         msg_info_time = str
-        contagem_segundos = 50
+        contagem_segundos = 0
         contagem_minutos = 0
-        contagem_horas = 0
+        contagem_horas = 1
         if self.ativo_time_busca:
             while self.ativo_time_busca:
                 if contagem_segundos == 0:
@@ -278,20 +278,20 @@ class ListandoArquivos:
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas == 0:
                         msg_info_time = str(f'00:{contagem_minutos}:{contagem_segundos}')
 
-                    elif contagem_segundos < 10 and contagem_minutos < 10 > 1 and contagem_horas < 10 > 1:
-                        msg_info_time(f'0{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos < 10 and contagem_minutos < 10  and contagem_horas < 10:
+                        msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas < 10:
-                        msg_info_time(f'0{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                        msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
                     elif contagem_segundos < 10 and contagem_minutos > 9 and contagem_horas < 10:
-                        msg_info_time(f'0{contagem_horas}:{contagem_minutos}:0{contagem_segundos}')
+                        msg_info_time = str(f'0{contagem_horas}:{contagem_minutos}:0{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas < 10:
-                        msg_info_time(f'0{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                        msg_info_time = str(f'0{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
                     elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas > 9:
-                        msg_info_time(f'{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                        msg_info_time = str(f'{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas > 9:
-                        msg_info_time(f'{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                        msg_info_time = str(f'{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas > 9:
-                        msg_info_time(f'0contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                        msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
 
                     if contagem_segundos == 59:
                         contagem_segundos = 0
@@ -543,6 +543,9 @@ class ListandoArquivos:
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
         sleep(1)
+
+        # Desativando botoes
+        self.botao_iniciar_busca['state'] = tk.DISABLED
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
         self.barra_progresso_busca.start(100)
