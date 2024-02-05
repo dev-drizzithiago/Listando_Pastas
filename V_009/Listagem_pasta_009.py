@@ -255,8 +255,8 @@ class ListandoArquivos:
 
     def time_busca(self):
         msg_info_time = str
-        contagem_segundos = 0
-        contagem_minutos = 59
+        contagem_segundos = 50
+        contagem_minutos = 0
         contagem_horas = 0
         if self.ativo_time_busca:
             while self.ativo_time_busca:
@@ -296,7 +296,8 @@ class ListandoArquivos:
                     if contagem_segundos == 59:
                         contagem_segundos = 0
                         contagem_minutos += 1
-                    elif contagem_segundos == 59 and contagem_minutos == 59:
+                        print('teste')
+                    if contagem_minutos == 59 and contagem_segundos == 59:
                         contagem_segundos = 0
                         contagem_minutos = 0
                         contagem_horas += 1
