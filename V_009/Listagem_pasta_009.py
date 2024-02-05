@@ -262,6 +262,7 @@ class ListandoArquivos:
             while self.ativo_time_busca:
                 if contagem_segundos == 0:
                     msg_info_time = str(f'00:00:00')
+                    self.label_time_busca['text'] = msg_info_time
                 else:
                     if contagem_segundos < 10 and contagem_minutos == 0 and contagem_horas == 0:
                         msg_info_time = str(f'00:00:0{contagem_segundos}')
@@ -278,7 +279,13 @@ class ListandoArquivos:
                         msg_info_time = str(f'00:{contagem_minutos}:{contagem_segundos}')
 
                     elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas < 10:
-                        pass
+                        msg_info_time(f'0{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas < 10:
+                        msg_info_time(f'0{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos < 10 and contagem_minutos > 9 and contagem_horas < 10:
+                        msg_info_time(f'{}:{}:{}')
+
+
                     if contagem_segundos == 59:
                         print('teste')
                         contagem_segundos = 0
