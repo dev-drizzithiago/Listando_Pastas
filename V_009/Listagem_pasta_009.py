@@ -269,7 +269,7 @@ class ListandoArquivos:
                     elif contagem_segundos > 9 and contagem_minutos == 0 and contagem_horas == 0:
                         msg_info_time = str(f'00:00:{contagem_segundos}')
 
-                    elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas == 0:
+                    elif contagem_segundos < 10 and contagem_minutos < 10 > 1 and contagem_horas == 0:
                         msg_info_time = str(f'00:0{contagem_minutos}:0{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas == 0:
                         msg_info_time = str(f'00:0{contagem_minutos}:{contagem_segundos}')
@@ -278,7 +278,7 @@ class ListandoArquivos:
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas == 0:
                         msg_info_time = str(f'00:{contagem_minutos}:{contagem_segundos}')
 
-                    elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas < 10:
+                    elif contagem_segundos < 10 and contagem_minutos < 10 > 1 and contagem_horas < 10 > 1:
                         msg_info_time(f'0{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas < 10:
                         msg_info_time(f'0{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
@@ -287,11 +287,13 @@ class ListandoArquivos:
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas < 10:
                         msg_info_time(f'0{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
 
-
                     if contagem_segundos == 59:
-                        print('teste')
                         contagem_segundos = 0
                         contagem_minutos += 1
+                    elif contagem_segundos == 59 and contagem_minutos == 59:
+                        contagem_segundos = 0
+                        contagem_minutos = 0
+                        contagem_horas += 1
 
                 self.label_time_busca['text'] = msg_info_time
                 contagem_segundos += 1
