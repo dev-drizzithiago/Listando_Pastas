@@ -278,7 +278,7 @@ class ListandoArquivos:
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas == 0:
                         msg_info_time = str(f'00:{contagem_minutos}:{contagem_segundos}')
 
-                    elif contagem_segundos < 10 and contagem_minutos < 10  and contagem_horas < 10:
+                    elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas < 10:
                         msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas < 10:
                         msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
@@ -547,10 +547,10 @@ class ListandoArquivos:
 
         # Desativando botoes
 
-        self.botao_save_busca['state'] = 'desabled'
+        self.botao_save_busca['state'] = 'disabled'
         self.botao_iniciar_busca['state'] = 'disabled'
-        self.botao_destino_busca['state'] = 'desabled'
-        self.botao_escolha_extensao['state'] = 'desabled'
+        self.botao_destino_busca['state'] = 'disabled'
+        self.botao_escolha_extensao['state'] = 'disabled'
 
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
