@@ -28,6 +28,7 @@ class ListandoArquivos:
         self.funcionando = 'Funcionando!'
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+        self.ativo_finalizacao_busca = False
         self.ativo_status_extensao = False
         self.ativo_status_destinos = False
         self.ativo_busca_imagem = False
@@ -531,11 +532,18 @@ class ListandoArquivos:
         self.ativo_status_destinos = True
 
     def iniciar_busca(self):
+
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
         else:
             pasta_destino = Path(valor_pasta_destino)
         self.lista_result_busca.delete('0', 'end')
+        if self.ativo_finalizacao_busca:
+            valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
+            if valor_resposta:
+                pass
+            else:
+                self.lista_result_busca.delete('0', 'end')
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
         print(f'Valor da extensão [{valor_da_busca}]')
@@ -569,6 +577,7 @@ class ListandoArquivos:
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
+        self.ativo_finalizacao_busca = True
         self.ativo_time_busca = False
         print('Busca finalizada!!')
 
