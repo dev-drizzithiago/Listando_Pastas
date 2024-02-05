@@ -593,13 +593,13 @@ class ListandoArquivos:
                                        f' [{valor_da_busca}] e... \n'
                                        f' [{cont_pastas}] Pasta/s ')
         self.analise_dados_busca()
+        
     def analise_dados_busca(self):
         for valor_lista_busca in self.lista_analise_arq_busca:
-            
-
-
-
-            print(valor_lista_busca)
+            divisao_valor = str(valor_lista_busca).split('.')
+            valor_extensao = divisao_valor[-1]
+            if valor_extensao == 'jpg':
+                print(valor_extensao)
 
     def salvando_resultado(self, valor_resultado):
         arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
