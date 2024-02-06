@@ -611,21 +611,9 @@ class ListandoArquivos:
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor = str(valor_lista_busca).split('.')
             valor_extensao = str(divisao_valor[-1]).lower().strip()
+            lista_analise_extensoes.append(valor_extensao)
             print(f'{valor_lista_busca} - {divisao_valor} - {valor_extensao}')
-            if valor_extensao == 'jpg':
-                valor_jpg = valor_extensao
-                cont_jpg += 1
-            if valor_extensao == 'png':
-                valor_png = valor_extensao
-                cont_png += 1
-        try:
-            print(f'Foram encontrados {cont_jpg} {valor_jpg}')
-        except:
-            pass
-        try:
-            print(f'Foram encontrados {cont_png} {valor_png}')
-        except:
-            pass
+                  
 
         del self.lista_analise_arq_busca[:]
 
