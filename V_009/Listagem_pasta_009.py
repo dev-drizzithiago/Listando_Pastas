@@ -28,7 +28,7 @@ class ListandoArquivos:
         self.funcionando = 'Funcionando!'
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-
+        self.ativo_add_ext_especifica = False
         self.ativo_finalizacao_busca = False
         self.ativo_status_extensao = False
         self.ativo_status_destinos = False
@@ -511,7 +511,7 @@ class ListandoArquivos:
             if len(self.extensao_selecao_busca) != 0:
                 valor_questao = tk.messagebox.askquestion('AVISO', 'Deseja adicionar a extensão no sistema?')
                 if valor_questao:
-                    pass
+                    self.ativo_add_ext_especifica = True
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
