@@ -437,6 +437,8 @@ class ListandoArquivos:
                     self.caixa_entrada_extensao.delete('0', 'end')
                 except:
                     tk.messagebox.showerror('ERROR', 'Não foi possível adicionar a extensão')
+            else:
+                tk.messagebox.showwarning('AVISO IMPORTANTE', 'Você precisa selecionar uma categoria')
 
     def leitura_arq_extensao_add_lista_principal(self):
         self.lista_ext_imagem = list()
