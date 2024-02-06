@@ -187,7 +187,7 @@ class ListandoArquivos:
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
-        self.botao_save_busca.config(command=lambda: self.salvando_resultado)
+        self.botao_save_busca.config(command=lambda: self.salvando_resultado())
         self.botao_save_busca.pack(anchor='e', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -618,8 +618,9 @@ class ListandoArquivos:
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(TXT)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
-
-        arquivo_save.write(f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}')
+        for valor_busca in self.lista_analise_arq_busca:
+            arquivo_save.write(f'{valor_busca} - {data_atual} - {hora_atual} \n')
+        arquivo_save.close()
 
 
 obj_start = ListandoArquivos()
