@@ -185,9 +185,13 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
+        estilo = Style()
+        estilo.theme_use('default')
+        estilo.configure('red.Horizontal.TProgressbar', background='red')
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
-        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=tk.HORIZONTAL, mode='determinate')
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=tk.HORIZONTAL, mode='determinate',
+                                                 style='red.Horizontal.TProgressbar')
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
         self.janela_principal.mainloop()
