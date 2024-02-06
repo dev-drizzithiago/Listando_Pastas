@@ -261,7 +261,6 @@ class ListandoArquivos:
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
-
     def time_busca(self):
         msg_info_time = str
         contagem_segundos = 0
@@ -508,7 +507,7 @@ class ListandoArquivos:
             self.extensao_selecao_busca = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
             self.label_info_extensao.config(text=self.extensao_selecao_busca)
             self.ativo_status_extensao = True
-            
+
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
