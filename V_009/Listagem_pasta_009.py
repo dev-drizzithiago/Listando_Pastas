@@ -511,7 +511,7 @@ class ListandoArquivos:
             if len(self.extensao_selecao_busca) != 0:
                 valor_questao = tk.messagebox.askquestion('AVISO', 'Deseja adicionar a extensão no sistema?')
                 if valor_questao:
-                    if self.
+                    pass
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
