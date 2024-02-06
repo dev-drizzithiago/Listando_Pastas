@@ -615,6 +615,9 @@ class ListandoArquivos:
             print(f'{valor_lista_busca} - {divisao_valor} - {valor_extensao}')
         # del self.lista_analise_arq_busca[:]
 
+    def criando_arq_pdf(self):
+        from reportlab.pdfgen import canvas
+
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
