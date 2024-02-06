@@ -47,6 +47,12 @@ class ListandoArquivos:
         self.janela_principal.iconphoto(True, self.icone_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+        # Estilos
+        estilo = Style()
+        estilo.theme_use('default')
+        estilo.configure('red.Horizontal.TProgressbar', background='red')
+
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
         self.label_frame_geral.pack(fill=tk.BOTH, ipadx=5, ipady=5)
@@ -185,9 +191,6 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
-        estilo = Style()
-        estilo.theme_use('default')
-        estilo.configure('red.Horizontal.TProgressbar', background='red')
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=tk.HORIZONTAL, mode='determinate',
@@ -502,7 +505,8 @@ class ListandoArquivos:
             self.extensao_selecao_busca = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
             self.label_info_extensao.config(text=self.extensao_selecao_busca)
             self.ativo_status_extensao = True
-            valor_questao = tk.messagebox.askquestion('AVISO', 'Deseja adicionar a extensão no sistema?')
+            if len(self.extensao_selecao_busca) != 0:
+                valor_questao = tk.messagebox.askquestion('AVISO', 'Deseja adicionar a extensão no sistema?')
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
