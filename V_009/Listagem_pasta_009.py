@@ -187,7 +187,7 @@ class ListandoArquivos:
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
-        self.botao_save_busca.config(command='')
+        self.botao_save_busca.config(command=lambda: self.salvando_resultado)
         self.botao_save_busca.pack(anchor='e', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -613,11 +613,13 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor[-1]).lower().strip()
             lista_analise_extensoes.append(valor_extensao)
             print(f'{valor_lista_busca} - {divisao_valor} - {valor_extensao}')
-
         del self.lista_analise_arq_busca[:]
 
-    def salvando_resultado(self, valor_resultado):
-        arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
+    def salvando_resultado(self):
+        tipo_de_arquivo = [('Texto(TXT)', '*.log')]
+        arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
+
+        arquivo_save.write(f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}')
 
 
 obj_start = ListandoArquivos()
