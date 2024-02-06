@@ -508,10 +508,7 @@ class ListandoArquivos:
             self.extensao_selecao_busca = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
             self.label_info_extensao.config(text=self.extensao_selecao_busca)
             self.ativo_status_extensao = True
-            if len(self.extensao_selecao_busca) != 0:
-                valor_questao = tk.messagebox.askquestion('AVISO', 'Deseja adicionar a extensão no sistema?')
-                if valor_questao:
-                    self.ativo_add_ext_especifica = True
+            
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
