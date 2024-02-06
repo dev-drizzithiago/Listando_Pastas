@@ -50,7 +50,7 @@ class ListandoArquivos:
         # Estilos
         estilo = Style()
         estilo.theme_use('default')
-        estilo.configure('red.Horizontal.TProgressbar', background='red')
+        estilo.configure('red.Horizontal.TProgressbar', background='#FFFF00')
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
@@ -604,6 +604,8 @@ class ListandoArquivos:
         self.analise_dados_busca()
 
     def analise_dados_busca(self):
+        # Declarações de variaveis
+        lista_analise_extensoes = list()
         cont_jpg = 0
         cont_png = 0
         for valor_lista_busca in self.lista_analise_arq_busca:
@@ -616,9 +618,15 @@ class ListandoArquivos:
             if valor_extensao == 'png':
                 valor_png = valor_extensao
                 cont_png += 1
+        try:
+            print(f'Foram encontrados {cont_jpg} {valor_jpg}')
+        except:
+            pass
+        try:
+            print(f'Foram encontrados {cont_png} {valor_png}')
+        except:
+            pass
 
-        print(f'Foram encontrados {cont_jpg} {valor_jpg}')
-        print(f'Foram encontrados {cont_png} {valor_png}')
         del self.lista_analise_arq_busca[:]
 
     def salvando_resultado(self, valor_resultado):
