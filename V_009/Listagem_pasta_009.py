@@ -569,9 +569,9 @@ class ListandoArquivos:
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
             if busca.is_file():
-                self.lista_result_busca.insert('end', f'[{cont_arquivos}] - *[{busca}]')
+                self.lista_result_busca.insert('end', f'[ {cont_arquivos} ] - *[ {busca} ]')
                 self.lista_analise_arq_busca.append(f'{cont_arquivos} - {busca}')
-                self.status_contagem_arquivos.config(text=f'Encontrado [{cont_arquivos}] arquivos... \n')
+                self.status_contagem_arquivos.config(text=f'Encontrado [ {cont_arquivos} ] arquivos... \n')
                 cont_arquivos += 1
             elif busca.is_dir():
                 self.lista_result_busca.insert('end', f'[{cont_pastas}] - \\[{busca}]')
