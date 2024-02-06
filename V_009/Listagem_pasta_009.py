@@ -542,6 +542,7 @@ class ListandoArquivos:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
             if valor_resposta:
                 pass
+                self.lista_result_busca.delete('0', 'end')
             else:
                 self.lista_result_busca.delete('0', 'end')
                 print('Lista de resultado foi limpa!')
@@ -590,16 +591,23 @@ class ListandoArquivos:
         self.botao_escolha_extensao['state'] = 'normal'
 
         self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
-                                       f' [{valor_da_busca}] e... \n'
-                                       f' [{cont_pastas}] Pasta/s ')
+                                       f' [ {valor_da_busca} ] e... \n'
+                                       f' [ {cont_pastas} ] Pasta/s ')
         self.analise_dados_busca()
-        
+
     def analise_dados_busca(self):
+        cont_jpg = 0
+        cont_png = 0
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor = str(valor_lista_busca).split('.')
-            valor_extensao = divisao_valor[-1]
+            valor_extensao = divisao_valor[-1].lower().strip()
             if valor_extensao == 'jpg':
-                print(valor_extensao)
+                cont_jpg += 1
+            if valor_extensao == 'png':
+                cont_png += 1
+
+        print(f'Foram encontrados {cont_jpg} {valor_extensao}')
+        print(f'Foram encontrados {cont_png} {valor_extensao}')
 
     def salvando_resultado(self, valor_resultado):
         arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
