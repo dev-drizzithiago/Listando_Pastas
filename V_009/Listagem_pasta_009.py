@@ -3,7 +3,7 @@ from tkinter.ttk import *
 
 from time import sleep
 from pathlib import Path
-from threading import Thread, Timer
+from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
