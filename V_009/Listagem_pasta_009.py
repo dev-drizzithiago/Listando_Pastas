@@ -600,14 +600,18 @@ class ListandoArquivos:
         cont_png = 0
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor = str(valor_lista_busca).split('.')
-            valor_extensao = divisao_valor[-1].lower().strip()
+            valor_extensao = str(divisao_valor[-1]).lower().strip()
+            print(f'{valor_lista_busca} - {divisao_valor} - {valor_extensao}')
             if valor_extensao == 'jpg':
+                valor_jpg = valor_extensao
                 cont_jpg += 1
             if valor_extensao == 'png':
+                valor_png = valor_extensao
                 cont_png += 1
 
-        print(f'Foram encontrados {cont_jpg} {valor_extensao}')
-        print(f'Foram encontrados {cont_png} {valor_extensao}')
+        print(f'Foram encontrados {cont_jpg} {valor_jpg}')
+        print(f'Foram encontrados {cont_png} {valor_png}')
+        del self.lista_analise_arq_busca[:]
 
     def salvando_resultado(self, valor_resultado):
         arquivo_save = f'{pasta_arq_registro_extensao} - {data_atual} - {hora_atual}.log'
