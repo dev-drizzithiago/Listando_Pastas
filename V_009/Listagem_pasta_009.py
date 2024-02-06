@@ -616,7 +616,7 @@ class ListandoArquivos:
         del self.lista_analise_arq_busca[:]
 
     def salvando_resultado(self):
-        tipo_de_arquivo = [('Texto(TXT)', '*.log')]
+        tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         for valor_busca in self.lista_analise_arq_busca:
             arquivo_save.write(f'{valor_busca} - {data_atual} - {hora_atual} \n')
