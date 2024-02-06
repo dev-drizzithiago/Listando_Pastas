@@ -28,6 +28,7 @@ class ListandoArquivos:
         self.funcionando = 'Funcionando!'
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+
         self.ativo_finalizacao_busca = False
         self.ativo_status_extensao = False
         self.ativo_status_destinos = False
@@ -507,6 +508,8 @@ class ListandoArquivos:
             self.ativo_status_extensao = True
             if len(self.extensao_selecao_busca) != 0:
                 valor_questao = tk.messagebox.askquestion('AVISO', 'Deseja adicionar a extensão no sistema?')
+                if valor_questao:
+                    if self.
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
@@ -606,14 +609,11 @@ class ListandoArquivos:
     def analise_dados_busca(self):
         # Declarações de variaveis
         lista_analise_extensoes = list()
-        cont_jpg = 0
-        cont_png = 0
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor = str(valor_lista_busca).split('.')
             valor_extensao = str(divisao_valor[-1]).lower().strip()
             lista_analise_extensoes.append(valor_extensao)
             print(f'{valor_lista_busca} - {divisao_valor} - {valor_extensao}')
-                  
 
         del self.lista_analise_arq_busca[:]
 
