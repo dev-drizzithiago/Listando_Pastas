@@ -613,7 +613,7 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor[-1]).lower().strip()
             lista_analise_extensoes.append(valor_extensao)
             print(f'{valor_lista_busca} - {divisao_valor} - {valor_extensao}')
-            
+
         del self.lista_analise_arq_busca[:]
 
     def salvando_resultado(self, valor_resultado):
