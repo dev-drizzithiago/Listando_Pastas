@@ -606,6 +606,7 @@ class ListandoArquivos:
 
     def analise_dados_busca(self):
         # Declarações de variaveis
+        contador_extensoes = 0
         lista_analise_extensoes = list()
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor = str(valor_lista_busca).split('.')
