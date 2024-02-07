@@ -620,9 +620,9 @@ class ListandoArquivos:
             if indice_busca == 1:
                 dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
             else:
-                if valor_extensao == dicionario_busca_extensao:
+                if valor_extensao == dicionario_busca_extensao.values():
                     contador_extensoes += 1
-                    valor_ext_busca = valor_extensao
+                    dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
 
             ultima_pasta = str(divisao_valor_pastas[-2]).strip().lower()
             lista_analise_busca.append(f'{indice_busca}|{ultima_pasta}|{valor_extensao}')
