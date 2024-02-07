@@ -34,8 +34,12 @@ c.circle(y, x, raio)
 # Por último, para elipses os argumentos são semelhantes aos das linhas.
 c.ellipse(50, h - 50, 150, y - 50)'''
 
-# Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
-c.showPage()
+'''# Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
+c.showPage()'''
+
+c.setFillColorRGB(1, 0, 0)
+c.drawString(50, h-50, 'ola mundo!')
+c.rect(50, h-150, 50, 50, fill=True)
 
 # salvar o documento
 c.save()
