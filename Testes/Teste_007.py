@@ -9,13 +9,15 @@ c.drawString(10, 800, 'ola mundo!')
 
 # linha
 x = 10
-y = h - 50
+y = h - 50  # O 'H' inverte o valor
 c.line(x, y, x + 580, y)  # linha reta horizontal
 
 # retangulo
 x = 50
 y = h - 50
-c.rect(50, h - 300, 300, 300)
+c.rect(100, 300, 300, 300)
+
+# Retangulos com curvas nas pontas
 
 # Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
 c.showPage()
