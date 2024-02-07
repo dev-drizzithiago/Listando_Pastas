@@ -10,9 +10,9 @@ c.drawString(10, 800, 'ola mundo!')
 # linha
 x = 10
 y = h - 50
-c.line(x, y, x + 590, y)  # linha reta horizontal
+c.line(x, y, x + 580, y)  # linha reta horizontal
 
-# mostra pagina
+# Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
 c.showPage()
 
 # salvar o documento
