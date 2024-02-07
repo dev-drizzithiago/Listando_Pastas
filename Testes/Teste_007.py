@@ -60,10 +60,10 @@ c.rect(50, h-150, 50, 50, fill=True)'''
 c.setFont('Helvetica', 16)
 c.drawString(10, h-50, 'ola mundo')'''
 
+# Grade
 xlista = [50, 100, 150, 200]
 ylista = [h-10, h-60, h-110, h-160]
 c.grid(xlista, ylista)
-
 
 # salvar o documento
 c.save()
