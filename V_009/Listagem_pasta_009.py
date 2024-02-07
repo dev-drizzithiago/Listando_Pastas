@@ -608,7 +608,7 @@ class ListandoArquivos:
         # Declarações de variaveis
         indice_busca = 1
         indice_busca_extensao = 1
-        valor_busca_anterior = ''
+        valor_busca_anterior = str
         contador_extensoes = 0
         contador_pastas = 0
         lista_analise_busca = list()
@@ -620,15 +620,16 @@ class ListandoArquivos:
 
             if indice_busca == 1:
                 dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
-                print(f'valor indice 1 {dicionario_busca_extensao}')
+                valor_busca_anterior = valor_extensao
             else:
-                if valor_extensao == dicionario_busca_extensao.values():
+                if valor_extensao == valor_busca_anterior:
                     dicionario_busca_extensao[f'{valor_extensao}'] = valor_extensao
                     print(f'indice {indice_busca}')
                     print(f'indice extensao {indice_busca_extensao}')
                 else:
+                    valor_busca_anterior = valor_extensao
                     dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
-                    print(dicionario_busca_extensao.values())
+                    print(dicionario_busca_extensao.items())
                     print(indice_busca)
 
             contador_extensoes += 1
