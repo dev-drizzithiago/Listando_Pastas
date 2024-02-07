@@ -26,10 +26,13 @@ y = 50  # Vertical
 c.roundRect(x, 300, 300, 200, 50)
 
 # No caso de círculos, a posição do centro é indicada seguida do raio.
-x = 100
+x = 40
 y = 500
 raio = 10
 c.circle(y, x, raio)
+
+# Por último, para elipses os argumentos são semelhantes aos das linhas.
+c.ellipse(50, h - 50, 150, y - 50)
 
 # Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
 c.showPage()
