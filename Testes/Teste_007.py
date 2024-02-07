@@ -7,7 +7,7 @@ w, h = A4
 c = canvas.Canvas('ola mundo.pdf', pagesize=A4)
 c.drawString(10, 800, 'ola mundo!')
 
-# linha
+'''# linha
 x = 10
 y = h - 50  # O 'H' inverte o valor
 c.line(x, y, x + 580, y)  # linha reta horizontal
@@ -32,7 +32,7 @@ raio = 10
 c.circle(y, x, raio)
 
 # Por último, para elipses os argumentos são semelhantes aos das linhas.
-c.ellipse(50, h - 50, 150, y - 50)
+c.ellipse(50, h - 50, 150, y - 50)'''
 
 # Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
 c.showPage()
