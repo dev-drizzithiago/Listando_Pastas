@@ -619,15 +619,16 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
 
             if indice_busca == 1:
-                valor_chave = valor_extensao
-                dicionario_busca_extensao = {f'{valor_chave}': valor_extensao}
+                valor_primeira_chave = valor_extensao
+                dicionario_busca_extensao = {f'{valor_primeira_chave}': valor_extensao}
                 valor_busca_anterior = valor_extensao
             else:
                 if valor_extensao == valor_busca_anterior:
                     dicionario_busca_extensao.update(f'{valor_extensao}')
                 elif valor_extensao != valor_busca_anterior:
+                    valor_segunda_chave = valor_extensao
                     valor_busca_anterior = valor_extensao
-                    dicionario_busca_extensao = {f'{valor_busca_anterior}': valor_extensao}
+                    dicionario_busca_extensao = {f'{valor_segunda_chave}': valor_extensao}
 
             contador_extensoes += 1
             ultima_pasta = str(divisao_valor_pastas[-2]).strip().lower()
