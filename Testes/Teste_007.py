@@ -12,15 +12,24 @@ x = 10
 y = h - 50  # O 'H' inverte o valor
 c.line(x, y, x + 580, y)  # linha reta horizontal
 
+
 # retangulo
 x = 20
 y = h - 50
 c.rect(100, 300, 300, 300)
 
+
 # Retangulos com curvas nas pontas
 x = 30  # Horizontal
-y = 50  # Vertical 
+y = 50  # Vertical
+# opera de forma semelhante, mas um quinto argumento indica o raio pelo qual as extremidades são curvadas.
 c.roundRect(x, 300, 300, 200, 50)
+
+# No caso de círculos, a posição do centro é indicada seguida do raio.
+y = 40
+x = 100
+raio = 100
+c.circle(y, x, raio)
 
 # Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
 c.showPage()
