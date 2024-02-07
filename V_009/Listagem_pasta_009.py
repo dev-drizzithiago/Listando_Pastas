@@ -608,8 +608,8 @@ class ListandoArquivos:
         # Declarações de variaveis
         indice_busca = 0
         contador_extensoes = 0
-        lista_pastas_result = list()
-        lista_analise_extensoes = list()
+        contador_pastas = 0
+        lista_analise_busca = list()
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
@@ -617,7 +617,7 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             ultima_pasta = str(divisao_valor_pastas[-2]).strip().lower()
 
-            lista_analise_extensoes.append(valor_extensao)
+            lista_analise_busca.append(f'{indice_busca}|{ultima_pasta}|{valor_extensao}')
 
             print(f'{ultima_pasta} - {valor_extensao}')
         # del self.lista_analise_arq_busca[:]
