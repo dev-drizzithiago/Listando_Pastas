@@ -15,7 +15,7 @@ c.line(x, y, x + 580, y)  # linha reta horizontal
 # retangulo
 x = 50
 y = h - 50
-c.line(50, h - 300, 300, 300)
+c.rect(50, h - 300, 300, 300)
 
 # Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
 c.showPage()
