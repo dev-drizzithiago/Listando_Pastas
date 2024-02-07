@@ -618,9 +618,9 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
 
             if len(indice_busca) == 1:
-                valor_busca_anterior = valor_extensao
+                dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
             else:
-                if valor_extensao == valor_busca_anterior:
+                if valor_extensao == dicionario_busca_extensao:
                     contador_extensoes += 1
                     valor_ext_busca = valor_extensao
 
