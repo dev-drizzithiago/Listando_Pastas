@@ -621,14 +621,16 @@ class ListandoArquivos:
                 dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
             else:
                 if valor_extensao == dicionario_busca_extensao.values():
-                    contador_extensoes += 1
+                    dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
+                else:
                     dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
 
+            contador_extensoes += 1
             ultima_pasta = str(divisao_valor_pastas[-2]).strip().lower()
             lista_analise_busca.append(f'{indice_busca}|{ultima_pasta}|{valor_extensao}')
             indice_busca += 1
 
-        print(dicionario_busca_extensao.keys())
+        print(dicionario_busca_extensao)
         # del self.lista_analise_arq_busca[:]
 
     def criando_arq_pdf(self):
