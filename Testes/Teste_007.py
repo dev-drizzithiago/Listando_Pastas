@@ -9,7 +9,7 @@ c.drawString(10, 800, 'ola mundo!')
 
 # linha
 x = 10
-y = 50  # O 'H' inverte o valor
+y = 800  # O 'H' inverte o valor
 c.line(x, y, x + 580, y)  # linha reta horizontal
 
 
@@ -28,7 +28,7 @@ c.roundRect(x, 300, 300, 200, 50)
 # No caso de círculos, a posição do centro é indicada seguida do raio.
 y = 100
 x = 100
-raio = 100
+raio = 500
 c.circle(y, x, raio)
 
 # Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
