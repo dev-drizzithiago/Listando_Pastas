@@ -5,15 +5,15 @@ from reportlab.lib.pagesizes import A4
 
 w, h = A4
 x = 50
-y = 800
+y = h - 50
 c = canvas.Canvas('ola mundo.pdf', pagesize=A4)
-text = c.beginText()
+text = c.beginText(x, y)
 text.setFont('Times-Roman', 15)
 text.textLine('Ola mundo!')
 text.textLine('Tudo bem?')
 c.drawText(text)
 
-# c.drawString(10, 800, 'ola mundo!') # o metodo "drawString" desenha a folha
+# c.drawString(10, 800, 'ola mundo!') # o metodo "draw..." desenha a folha
 
 '''# linha
 x = 10
