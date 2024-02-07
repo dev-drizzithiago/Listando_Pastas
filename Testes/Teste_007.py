@@ -60,7 +60,7 @@ c.rect(50, h-150, 50, 50, fill=True)'''
 c.setFont('Helvetica', 16)
 c.drawString(10, h-50, 'ola mundo')'''
 
-xlista = [10, 60, 110, 160]
+xlista = [50, 60, 110, 160]
 ylista = [h-10, h-60, h-110, h-160]
 c.grid(xlista, ylista)
 
