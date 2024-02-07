@@ -621,9 +621,9 @@ class ListandoArquivos:
                 dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
             else:
                 if valor_extensao == dicionario_busca_extensao.values():
-                    dicionario_busca_extensao = {f'{valor_extensao}': [valor_extensao]}
+                    dicionario_busca_extensao[f'{valor_extensao}'] = valor_extensao
                 else:
-                    dicionario_busca_extensao = {f'{valor_extensao}': valor_extensao}
+                    dicionario_busca_extensao = {f'{valor_extensao}': [valor_extensao]}
 
             contador_extensoes += 1
             ultima_pasta = str(divisao_valor_pastas[-2]).strip().lower()
