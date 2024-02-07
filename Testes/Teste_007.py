@@ -5,7 +5,7 @@ from reportlab.lib.pagesizes import A4
 
 w, h = A4
 x = 50
-y = h - 50
+y = 800
 c = canvas.Canvas('ola mundo.pdf', pagesize=A4)
 text = c.beginText()
 text.setFont('Times-Roman', 15)
