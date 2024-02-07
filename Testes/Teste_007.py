@@ -10,16 +10,16 @@ w, h = A4
 x = 50
 y = h - 50
 c = canvas.Canvas('ola mundo.pdf', pagesize=A4)
-text = c.beginText(x, y)
-text.setFont('Times-Roman', 15)
+'''text = c.beginText(x, y)
+text.setFont('Times-Roman', 15)'''
 '''text.textLine('Ola mundo!')
 text.textLine('Tudo bem?')
 
 '''
 '''text.textLines(f'{valor_01} \n{valor_02}')'''
 
-c.drawText(text)
-
+'''c.drawText(text)
+'''
 # c.drawString(10, 800, 'ola mundo!') # o metodo "draw..." desenha a folha
 
 '''# linha
@@ -59,6 +59,11 @@ c.rect(50, h-150, 50, 50, fill=True)'''
 '''c.setFillColor('#FFD700')
 c.setFont('Helvetica', 16)
 c.drawString(10, h-50, 'ola mundo')'''
+
+xlista = [10, 60, 110, 160]
+ylista = [h-10, h-60, h-110, h-160]
+c.grid(xlista, ylista)
+
 
 # salvar o documento
 c.save()
