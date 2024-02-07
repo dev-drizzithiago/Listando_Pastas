@@ -611,6 +611,7 @@ class ListandoArquivos:
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor = str(valor_lista_busca).split('.')
             valor_extensao = str(divisao_valor[-1]).lower().strip()
+            ultima_pasta = str(divisao_valor[-2]).strip().lower()
             lista_analise_extensoes.append(valor_extensao)
             print(f'{valor_lista_busca} - {divisao_valor} - {valor_extensao}')
         # del self.lista_analise_arq_busca[:]
