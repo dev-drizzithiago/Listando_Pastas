@@ -14,9 +14,10 @@ text = c.beginText(x, y)
 text.setFont('Times-Roman', 15)
 '''text.textLine('Ola mundo!')
 text.textLine('Tudo bem?')
-c.drawText(text)
+
 '''
 text.textLines(f'{valor_01} \n{valor_02}')
+c.drawText(text)
 
 # c.drawString(10, 800, 'ola mundo!') # o metodo "draw..." desenha a folha
 
