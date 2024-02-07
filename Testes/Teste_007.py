@@ -41,6 +41,7 @@ c.showPage()'''
 c.drawString(50, h-50, 'ola mundo!')
 c.rect(50, h-150, 50, 50, fill=True)'''
 
+c.setFillColorRGB(10,10,5)
 c.setFont('Helvetica', 16)
 c.drawString(10, h-50, 'ola mundo')
 
