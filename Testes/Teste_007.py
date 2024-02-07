@@ -4,12 +4,16 @@ from reportlab.lib.pagesizes import A4
 """Uma folha A4 é composta por 595,2 pontos de largura ( largura ) e 841,8 pontos de altura ( altura )."""
 
 w, h = A4
+x = 50
+y = h - 50
 c = canvas.Canvas('ola mundo.pdf', pagesize=A4)
-text = c.beginText(50, h-50)
+text = c.beginText()
 text.setFont('Times-Roman', 15)
 text.textLine('Ola mundo!')
 text.textLine('Tudo bem?')
-# c.drawString(10, 800, 'ola mundo!')
+c.drawText(text)
+
+# c.drawString(10, 800, 'ola mundo!') # o metodo "drawString" desenha a folha
 
 '''# linha
 x = 10
