@@ -18,6 +18,9 @@ y = h - 50
 c.rect(100, 300, 300, 300)
 
 # Retangulos com curvas nas pontas
+x = 10
+y = 50
+c.roundRect(x, 300, 300, 200, 10)
 
 # Este método informa ao ReportLab que terminamos de trabalhar na planilha atual e queremos passar para a próxima.
 c.showPage()
