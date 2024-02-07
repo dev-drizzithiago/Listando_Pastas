@@ -5,7 +5,11 @@ from reportlab.lib.pagesizes import A4
 
 w, h = A4
 c = canvas.Canvas('ola mundo.pdf', pagesize=A4)
-c.drawString(10, 800, 'ola mundo!')
+text = c.beginText(50, h-50)
+text.setFont('Times-Roman', 15)
+text.textLine('Ola mundo!')
+text.textLine('Tudo bem?')
+# c.drawString(10, 800, 'ola mundo!')
 
 '''# linha
 x = 10
@@ -41,9 +45,9 @@ c.showPage()'''
 c.drawString(50, h-50, 'ola mundo!')
 c.rect(50, h-150, 50, 50, fill=True)'''
 
-c.setFillColor('#FFD700')
+'''c.setFillColor('#FFD700')
 c.setFont('Helvetica', 16)
-c.drawString(10, h-50, 'ola mundo')
+c.drawString(10, h-50, 'ola mundo')'''
 
 # salvar o documento
 c.save()
