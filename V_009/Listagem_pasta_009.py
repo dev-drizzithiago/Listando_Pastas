@@ -619,24 +619,11 @@ class ListandoArquivos:
             set_extensoes_encontradas.add(valor_extensao)
             lista_extensoes_encontradas.append(valor_extensao)
 
-            if indice_busca == 1:
-                chave_primaria = valor_extensao
-                dict_busca_ext = {f'{chave_primaria}': [valor_extensao]}
-                valor_busca_anterior = valor_extensao
-            elif indice_busca > 1:
-                if valor_extensao == valor_busca_anterior:
-                    pass
-                else:
-                    pass
-            indice_busca += 1
-
         print(f'{len(set_extensoes_encontradas)} : {set_extensoes_encontradas}')
         for valor in set_extensoes_encontradas:
             lista_extensoes.append(valor)
 
-
-
-        # del self.lista_analise_arq_busca[:]
+            # del self.lista_analise_arq_busca[:]
 
     def criando_arq_pdf(self):
         from reportlab.pdfgen import canvas
