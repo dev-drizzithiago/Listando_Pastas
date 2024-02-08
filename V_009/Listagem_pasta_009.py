@@ -610,17 +610,24 @@ class ListandoArquivos:
         # Declarações de variaveis
 
         indice_busca = 1
+        cont_encontrou = 0
+        cont_nao_encontrou = 0
         set_extensoes_encontradas = set()
         lista_extensoes_encontradas = list()
         lista_extensoes = list()
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
+            divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             set_extensoes_encontradas.add(valor_extensao)
+            lista_extensoes_encontradas.append(valor_extensao)
 
-
-
+            if indice_busca == 1:
+                cont_encontrou += 1
+            else:
+                cont_nao_encontrou += 1
+        print(cont_encontrou, cont_nao_encontrou)
             # del self.lista_analise_arq_busca[:]
 
     def criando_arq_pdf(self):
