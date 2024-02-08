@@ -625,7 +625,7 @@ class ListandoArquivos:
             elif indice_busca > 1:
                 chave_secundaria = valor_extensao
                 if valor_extensao == valor_busca_anterior:
-                    dict_busca_ext[f'{chave_primaria}'].extend([f'{valor_extensao}'])
+                    dict_busca_ext[f'{chave_primaria}'].append([f'{valor_extensao}'])
                 else:
                     # dict_busca_ext_nova = {**dict_busca_ext, **{f'{chave_secundaria}': f'{valor_extensao}'}}
                     dict_busca_ext = {f'{chave_secundaria}': f'{valor_extensao}'}
@@ -634,7 +634,7 @@ class ListandoArquivos:
 
             indice_busca += 1
 
-        print(dict_busca_ext)
+        print(dict_busca_ext_nova)
         # del self.lista_analise_arq_busca[:]
 
     def criando_arq_pdf(self):
