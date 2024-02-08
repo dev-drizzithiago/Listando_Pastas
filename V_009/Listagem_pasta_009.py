@@ -187,6 +187,7 @@ class ListandoArquivos:
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
+        self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
         self.botao_save_busca.pack(anchor='e', pady=2, padx=2)
 
@@ -589,6 +590,7 @@ class ListandoArquivos:
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
+        self.botao_save_busca.config(state=tk.NORMAL)
         self.ativo_finalizacao_busca = True
         self.ativo_time_busca = False
         print('Busca finalizada!!')
@@ -619,9 +621,13 @@ class ListandoArquivos:
             set_extensoes_encontradas.add(valor_extensao)
             lista_extensoes_encontradas.append(valor_extensao)
 
-        print(f'{len(set_extensoes_encontradas)} : {set_extensoes_encontradas}')
+        print(f'{len(set_extensoes_encontradas)}')
         for valor in set_extensoes_encontradas:
             lista_extensoes.append(valor)
+
+        for valor in lista_extensoes:
+            print(f'extensao = {valor}')
+
 
             # del self.lista_analise_arq_busca[:]
 
