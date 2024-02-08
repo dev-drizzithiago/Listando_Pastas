@@ -618,9 +618,9 @@ class ListandoArquivos:
 
             if indice_busca == 1:
                 chave_primaria = valor_extensao
-                valor_busca_anterior = valor_extensao
                 dict_busca_ext = {f'{chave_primaria}': [valor_extensao]}
-            else:
+                valor_busca_anterior = valor_extensao
+            elif indice_busca > 1:
                 if valor_extensao == valor_busca_anterior:
                     print(f'Resultado igual = {True}')
                     dict_busca_ext[f'{chave_primaria}'].extend([f'{valor_extensao}'])
@@ -628,7 +628,8 @@ class ListandoArquivos:
                 elif valor_extensao != valor_busca_anterior:
                     pass
 
-        indice_busca += 1
+            indice_busca += 1
+
         print(dict_busca_ext)
         # del self.lista_analise_arq_busca[:]
 
