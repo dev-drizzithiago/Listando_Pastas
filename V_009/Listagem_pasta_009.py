@@ -606,23 +606,28 @@ class ListandoArquivos:
 
     def analise_dados_busca(self):
         # Declarações de variaveis
+        chave_primaria = None
+        valor_extensao = None
         indice_busca = 1
         valor_busca_anterior = str
-        dict_busca_ext = {}
+        dict_busca_ext = {f'{chave_primaria}': valor_extensao}
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
 
             if indice_busca == 1:
-                chave_primaria, valor_busca_anterior = valor_extensao
-                dict_busca_ext = {f'{chave_primaria}': valor_extensao}
+                chave_primaria, valor_busca_anterior = valor_extensao, valor_extensao
+                dict_busca_ext = {f'{chave_primaria}': [valor_extensao]}
             else:
                 if valor_extensao == valor_busca_anterior:
-                    dict_busca_ext.update({f'{chave_primaria}': valor_extensao})
+                    dict_busca_ext[f'{chave_primaria}'].extend([f'{valor_extensao}'])
+                    # dict_busca_ext[f'{chave_primaria}'] = valor_extensao
                 elif valor_extensao != valor_busca_anterior:
                     pass
+
         indice_busca += 1
+        print(dict_busca_ext)
         # del self.lista_analise_arq_busca[:]
 
     def criando_arq_pdf(self):
