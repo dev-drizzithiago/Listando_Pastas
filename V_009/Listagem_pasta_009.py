@@ -625,10 +625,12 @@ class ListandoArquivos:
             lista_extensoes_encontradas.append(valor_extensao)
 
             if indice_busca == 1:
-                if valor_extensao == 'jpg':
-                    cont_encontrou += 1
+                extensao_primaria = valor_extensao
             else:
-                cont_nao_encontrou += 1
+                if extensao_primaria == valor_extensao:
+                    cont_encontrou += 1
+                else:
+                    cont_nao_encontrou += 1
 
         print(f'{cont_encontrou} - {cont_nao_encontrou}')
 
