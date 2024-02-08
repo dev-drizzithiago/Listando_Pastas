@@ -116,7 +116,7 @@ class ListandoArquivos:
         # BARRA ROLAGEM APLICAÇÃO
         self.barra_rolagem_lista_busca_Y.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_Y.set)
-        self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.yview)
+        self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.xview)
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
         # LABEM FRAME INFO BUSCA
