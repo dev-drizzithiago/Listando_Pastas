@@ -622,12 +622,13 @@ class ListandoArquivos:
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             set_extensoes_encontradas.add(valor_extensao)
-            lista_extensoes_encontradas.append(valor_extensao)
 
             if indice_busca == 1:
                 extensao_primaria = valor_extensao
-
+                lista_extensoes_encontradas.append(f'{indice_busca} - {valor_extensao}')
+                cont_encontrou += 1
             else:
+                extensao_primaria = valor_extensao
                 print(f'Add na variavel {extensao_primaria} \n'
                       f'valor do indice {indice_busca}')
                 if valor_extensao == extensao_primaria:
