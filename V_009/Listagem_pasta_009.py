@@ -617,10 +617,12 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
 
             if indice_busca == 1:
-                chave_primaria, valor_busca_anterior = valor_extensao, valor_extensao
+                chave_primaria = valor_extensao
+                valor_busca_anterior = valor_extensao
                 dict_busca_ext = {f'{chave_primaria}': [valor_extensao]}
             else:
                 if valor_extensao == valor_busca_anterior:
+                    print(f'Resultado igual = {True}')
                     dict_busca_ext[f'{chave_primaria}'].extend([f'{valor_extensao}'])
                     # dict_busca_ext[f'{chave_primaria}'] = valor_extensao
                 elif valor_extensao != valor_busca_anterior:
