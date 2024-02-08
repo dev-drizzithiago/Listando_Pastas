@@ -616,17 +616,9 @@ class ListandoArquivos:
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
-            divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             set_extensoes_encontradas.add(valor_extensao)
-            lista_extensoes_encontradas.append(valor_extensao)
 
-        # print(f'{len(set_extensoes_encontradas)}')
-        for valor in set_extensoes_encontradas:
-            lista_extensoes.append(valor)
-
-        for valor in lista_extensoes:
-            print(f'extensao = {valor}')
 
 
             # del self.lista_analise_arq_busca[:]
