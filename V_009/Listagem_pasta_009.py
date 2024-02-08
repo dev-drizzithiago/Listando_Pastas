@@ -621,7 +621,7 @@ class ListandoArquivos:
             set_extensoes_encontradas.add(valor_extensao)
             lista_extensoes_encontradas.append(valor_extensao)
 
-        print(f'{len(set_extensoes_encontradas)}')
+        # print(f'{len(set_extensoes_encontradas)}')
         for valor in set_extensoes_encontradas:
             lista_extensoes.append(valor)
 
