@@ -608,6 +608,7 @@ class ListandoArquivos:
 
     def analise_dados_busca(self):
         # Declarações de variaveis
+        # del self.lista_analise_arq_busca[:]
 
         indice_busca = 1
         cont_encontrou = 0
@@ -628,8 +629,9 @@ class ListandoArquivos:
                     cont_encontrou += 1
             else:
                 cont_nao_encontrou += 1
-        print(cont_encontrou, cont_nao_encontrou)
-            # del self.lista_analise_arq_busca[:]
+
+        print(f'{cont_encontrou} - {cont_nao_encontrou}')
+
 
     def criando_arq_pdf(self):
         from reportlab.pdfgen import canvas
