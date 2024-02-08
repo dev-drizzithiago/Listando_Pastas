@@ -625,13 +625,10 @@ class ListandoArquivos:
                 print(f'valor_busca_anterior [{valor_busca_anterior}]')
                 print(f'valor_extensao [{valor_extensao}]')
             elif indice_busca > 1:
-                chave_mudanca = valor_extensao
+                chave_secundaria = valor_extensao
                 if valor_extensao == valor_busca_anterior:
-                    print(f'Resultado igual')
                     dict_busca_ext[f'{chave_primaria}'].extend([f'{valor_extensao}'])
-                    # dict_busca_ext[f'{chave_primaria}'] = valor_extensao
                 elif valor_extensao != valor_busca_anterior:
-                    print(f'Resultado diferente')
                     dict_busca_ext = {f'{chave_secundaria}': f'{valor_extensao}'}
 
             indice_busca += 1
