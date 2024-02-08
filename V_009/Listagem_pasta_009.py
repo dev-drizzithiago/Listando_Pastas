@@ -606,9 +606,10 @@ class ListandoArquivos:
 
     def analise_dados_busca(self):
         # Declarações de variaveis
+        chave = ''
+        valor_extensao = ''
         indice_busca = 1
-        valor_busca_anterior = str
-        dict_busca_ext = {f'{str}': str}
+        valor_busca_anterior = ''
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
@@ -624,9 +625,10 @@ class ListandoArquivos:
                     dict_busca_ext[f'{chave}'].extend([f'{valor_extensao}'])
                 else:
                     # dict_busca_ext_nova = {**dict_busca_ext, **{f'{chave_secundaria}': f'{valor_extensao}'}}
+                    chave = valor_extensao
                     dict_busca_ext = {f'{chave}': f'{valor_extensao}'}
                     valor_busca_anterior = valor_extensao
-                    chave = valor_extensao
+
 
             indice_busca += 1
 
