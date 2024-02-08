@@ -606,11 +606,13 @@ class ListandoArquivos:
 
     def analise_dados_busca(self):
         # Declarações de variaveis
-        chave_primaria = None
-        valor_extensao = None
+        chave_primaria = ''
+        chave_secundaria = ''
+        valor_extensao = ''
         indice_busca = 1
         valor_busca_anterior = str
         dict_busca_ext = {f'{chave_primaria}': valor_extensao}
+
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
@@ -620,13 +622,17 @@ class ListandoArquivos:
                 chave_primaria = valor_extensao
                 dict_busca_ext = {f'{chave_primaria}': [valor_extensao]}
                 valor_busca_anterior = valor_extensao
+                print(f'valor_busca_anterior [{valor_busca_anterior}]')
+                print(f'valor_extensao [{valor_extensao}]')
             elif indice_busca > 1:
+                chave_mudanca = valor_extensao
                 if valor_extensao == valor_busca_anterior:
-                    print(f'Resultado igual = {True}')
+                    print(f'Resultado igual')
                     dict_busca_ext[f'{chave_primaria}'].extend([f'{valor_extensao}'])
                     # dict_busca_ext[f'{chave_primaria}'] = valor_extensao
                 elif valor_extensao != valor_busca_anterior:
-                    pass
+                    print(f'Resultado diferente')
+                    dict_busca_ext = {f'{chave_secundaria}': f'{valor_extensao}'}
 
             indice_busca += 1
 
