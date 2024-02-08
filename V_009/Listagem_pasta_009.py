@@ -612,6 +612,7 @@ class ListandoArquivos:
 
         indice_busca = 1
         cont_encontrou = 0
+        codigo_extensao = 0
         cont_nao_encontrou = 0
         set_extensoes_encontradas = set()
         lista_extensoes_encontradas = list()
@@ -625,11 +626,12 @@ class ListandoArquivos:
 
             if indice_busca == 1:
                 extensao_primaria = valor_extensao
-                lista_extensoes_encontradas.append(f'{indice_busca} - {valor_extensao}')
+                lista_extensoes_encontradas.append(f'{codigo_extensao} - {valor_extensao}')
                 cont_encontrou += 1
             else:
                 if valor_extensao != extensao_primaria:
                     extensao_primaria = valor_extensao
+
 
                 if valor_extensao == extensao_primaria:
                     lista_extensoes_encontradas.append(f'{indice_busca} - {valor_extensao} | {cont_encontrou}')
