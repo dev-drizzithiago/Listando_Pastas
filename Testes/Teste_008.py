@@ -7,4 +7,3 @@ if valor_extensao in lista_extenoes_valores:
     print(True)
 else:
     print(False)
-    
