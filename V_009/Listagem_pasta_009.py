@@ -622,10 +622,6 @@ class ListandoArquivos:
         for extensao, quantidade in contagem_extensao.items():
             print(f'extensão {extensao}:{quantidade} aquivos')
 
-
-
-
-
     def criando_arq_pdf(self):
         from reportlab.pdfgen import canvas
 
