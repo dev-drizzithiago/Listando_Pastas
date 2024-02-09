@@ -617,21 +617,21 @@ class ListandoArquivos:
         set_extensoes_encontradas = set()
         lista_extensoes_encontradas = list()
         lista_extensoes = list()
+        contagem_extensao = {}
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             set_extensoes_encontradas.add(valor_extensao)
-        for valor_lista in set_extensoes_encontradas:
-            lista_extensoes_encontradas = valor_lista
-
-        for valor in valor_extensao:
-            if indice_busca == 1:
-                primeiro_valor = valor
+            if valor_extensao in contagem_extensao:
+                contagem_extensao[valor_extensao] += 1
             else:
-                if primeiro_valor == lista_extensoes_encontradas[indice_busca]:
-                    pass
+                contagem_extensao[valor_extensao] = 1
+        
+
+
+
 
 
     def criando_arq_pdf(self):
