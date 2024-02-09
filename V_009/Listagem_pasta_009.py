@@ -609,26 +609,18 @@ class ListandoArquivos:
     def analise_dados_busca(self):
         # Declarações de variaveis
         # del self.lista_analise_arq_busca[:]
-
-        indice_busca = 1
-        cont_encontrou = 0
-        codigo_extensao = 0
-        cont_nao_encontrou = 0
-        set_extensoes_encontradas = set()
-        lista_extensoes_encontradas = list()
-        lista_extensoes = list()
         contagem_extensao = {}
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
-            set_extensoes_encontradas.add(valor_extensao)
             if valor_extensao in contagem_extensao:
                 contagem_extensao[valor_extensao] += 1
             else:
                 contagem_extensao[valor_extensao] = 1
-        
+        for extensao, quantidade in contagem_extensao.items():
+            print(f'extensão {extensao}:{quantidade} aquivos')
 
 
 
