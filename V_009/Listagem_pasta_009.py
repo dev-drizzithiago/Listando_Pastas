@@ -624,6 +624,11 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             set_extensoes_encontradas.add(valor_extensao)
 
+        for valor in set_extensoes_encontradas:
+            if indice_busca == 1:
+                extensao = valor
+                primeiro = valor
+            else:
 
 
     def criando_arq_pdf(self):
