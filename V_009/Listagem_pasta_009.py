@@ -610,7 +610,7 @@ class ListandoArquivos:
         # Declarações de variaveis
         # del self.lista_analise_arq_busca[:]
 
-        indice_busca = 0
+        indice_busca = 1
         cont_encontrou = 0
         codigo_extensao = 0
         cont_nao_encontrou = 0
@@ -627,10 +627,10 @@ class ListandoArquivos:
             lista_extensoes_encontradas = valor_lista
 
         for valor in valor_extensao:
-            if indice_busca == 0:
-                primeiro = valor
+            if indice_busca == 1:
+                primeiro_valor = valor
             else:
-                if valor == lista_extensoes_encontradas[indice_busca]:
+                if primeiro_valor == lista_extensoes_encontradas[indice_busca]:
                     pass
 
 
