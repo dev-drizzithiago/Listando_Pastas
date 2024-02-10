@@ -551,8 +551,9 @@ class ListandoArquivos:
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
             if valor_resposta:
-                pass
+                self.salvando_resultado()
                 self.lista_result_busca.delete('0', 'end')
+                self.contagem_extensao.update()
             else:
                 self.lista_result_busca.delete('0', 'end')
                 print('Lista de resultado foi limpa!')
@@ -609,18 +610,18 @@ class ListandoArquivos:
     def analise_dados_busca(self):
         # Declarações de variaveis
         # del self.lista_analise_arq_busca[:]
-        contagem_extensao = {}
+        self.contagem_extensao = {}
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
-            if valor_extensao in contagem_extensao:
-                contagem_extensao[valor_extensao] += 1
+            if valor_extensao in self.contagem_extensao:
+                self.contagem_extensao[valor_extensao] += 1
             else:
-                contagem_extensao[valor_extensao] = 1
+                self.contagem_extensao[valor_extensao] = 1
         print('-=-' * 40)
-        for extensao, quantidade in contagem_extensao.items():
+        for extensao, quantidade in self.contagem_extensao.items():
             print('Tipos de extensão - Quantidade Arquivos')
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
 
