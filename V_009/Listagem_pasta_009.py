@@ -619,9 +619,10 @@ class ListandoArquivos:
                 contagem_extensao[valor_extensao] += 1
             else:
                 contagem_extensao[valor_extensao] = 1
+        print('-=-' * 40)
         for extensao, quantidade in contagem_extensao.items():
             print('Tipos de extensão - Quantidade Arquivos')
-            print(f'        {extensao} ------- : ------- [{quantidade}] ')
+            print(f'       {extensao} ------ : ------ [{quantidade}] ')
 
     def criando_arq_pdf(self):
         from reportlab.pdfgen import canvas
