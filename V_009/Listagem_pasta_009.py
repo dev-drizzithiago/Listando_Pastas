@@ -558,7 +558,6 @@ class ListandoArquivos:
                 self.lista_result_busca.delete('0', 'end')
                 self.contagem_extensao.clear()
                 self.ativo_finalizacao_busca = False
-                valor_resposta = False
             else:
                 self.lista_result_busca.delete('0', 'end')
                 print('Lista de resultado foi limpa!')
