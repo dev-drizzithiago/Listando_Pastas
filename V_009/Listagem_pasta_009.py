@@ -43,7 +43,8 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x665+150+100')
+        self.janela_principal.geometry('1000x685+150+100')
+        self.janela_principal.config(pady=10)
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
 
@@ -56,7 +57,7 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
-        self.label_frame_geral.pack(fill=tk.BOTH, ipadx=5, ipady=5)
+        self.label_frame_geral.pack(fill=tk.BOTH, padx=5, pady=5)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # COMBO DE EXTENSÃO
@@ -555,7 +556,7 @@ class ListandoArquivos:
             if valor_resposta:
                 self.salvando_resultado()
                 self.lista_result_busca.delete('0', 'end')
-                self.contagem_extensao.update()
+                self.contagem_extensao.clear()
             else:
                 self.lista_result_busca.delete('0', 'end')
                 print('Lista de resultado foi limpa!')
