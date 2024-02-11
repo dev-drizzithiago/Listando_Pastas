@@ -195,7 +195,9 @@ class ListandoArquivos:
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(side='bottom', fill='both')
-        self.barra_progresso_busca = Progressbar(self.label_frame_progresso, orient=tk.HORIZONTAL, mode='determinate')
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
+        self.barra_progresso_busca.config(orient=tk.HORIZONTAL)
+        self.barra_progresso_busca.config(mode='determinate')
         self.barra_progresso_busca.config(style='red.Horizontal.TProgressbar')
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
 
