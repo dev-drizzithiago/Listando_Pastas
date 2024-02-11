@@ -209,7 +209,7 @@ class ListandoArquivos:
                                                    'de extensões, é aconselhavel que seja escolhido a '
                                                    'categoria que corresponda com a extensão que ira adicionar')
         janela_add_extensao = tk.Tk()
-        janela_add_extensao.geometry('400x400')
+        janela_add_extensao.geometry('400x400+150+100')
         janela_add_extensao.title('Janele para adicionar extensão')
         # janela_add_extensao.iconphoto(True, self.icone_busca)
 
