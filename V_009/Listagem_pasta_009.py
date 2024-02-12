@@ -579,6 +579,7 @@ class ListandoArquivos:
 
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
+        
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
