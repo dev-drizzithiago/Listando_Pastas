@@ -178,21 +178,21 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.config(width=30)
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
-        # self.botao_adicionar_extensao.pack(anchor='w')
-        self.botao_adicionar_extensao.place(x=1, y=10)
+        self.botao_adicionar_extensao.pack(anchor='w')
+        # self.botao_adicionar_extensao.place(x=1, y=10)
 
         # BOTÃO DESTINO DA BUSCA
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         self.botao_destino_busca.config(width=30)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
-        self.botao_destino_busca.place(y=1, x=770)
+        self.botao_destino_busca.place(y=1, x=795)
 
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
-        self.botao_save_busca.place(y=30, x=770)
+        self.botao_save_busca.place(y=30, x=795)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
