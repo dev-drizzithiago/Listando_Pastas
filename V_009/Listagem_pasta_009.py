@@ -160,35 +160,35 @@ class ListandoArquivos:
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
 
-        # Iniciar Busca
+        # BOTÃO Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
         self.botao_iniciar_busca.config(width=30)
         self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
 
-        # Selecionar
+        # BOTÃO Selecionar
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
         self.botao_escolha_extensao.config(width=30)
         self.botao_escolha_extensao.config(command=self.thread_botao_extensao)
         # self.botao_escolha_extensao.pack(anchor='center', pady=2, padx=2)
         self.botao_escolha_extensao.place(x=1)
 
-        # Adicionar extensão
+        # BOTÃO Adicionar extensão
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
         self.botao_adicionar_extensao.config(width=30)
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
-        self.botao_adicionar_extensao.pack(anchor='w', pady=2, padx=2)
+        self.botao_adicionar_extensao.pack(anchor='w')
 
-        # DESTINO DA BUSCA
+        # BOTÃO DESTINO DA BUSCA
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
-        self.botao_destino_busca.config(width=30, pady=2, padx=2)
+        self.botao_destino_busca.config(width=30)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
         self.botao_destino_busca.place(y=1, x=780)
 
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
-        self.botao_save_busca.config(width=30, pady=2, padx=2)
+        self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
         self.botao_save_busca.place(y=30, x=780)
