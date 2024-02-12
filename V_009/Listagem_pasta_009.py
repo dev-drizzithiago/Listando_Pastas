@@ -555,7 +555,8 @@ class ListandoArquivos:
 
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
-            if valor_resposta:
+            print(f'valor "valor_resposta" {valor_resposta}')
+            if not valor_resposta:
                 self.salvando_resultado()
                 self.lista_result_busca.delete('0', 'end')
                 self.ativo_finalizacao_busca = False
