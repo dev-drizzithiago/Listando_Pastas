@@ -556,12 +556,11 @@ class ListandoArquivos:
             if valor_resposta:
                 self.salvando_resultado()
                 self.lista_result_busca.delete('0', 'end')
-                self.contagem_extensao.clear()
                 self.ativo_finalizacao_busca = False
-            elif not valor_resposta:
+            else:
                 self.lista_result_busca.delete('0', 'end')
+                self.contagem_extensao.clear()
                 print('Lista de resultado foi limpa!')
-                self.ativo_finalizacao_busca = False
 
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
