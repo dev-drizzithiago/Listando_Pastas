@@ -25,7 +25,6 @@ class ListandoArquivos:
 
         self.lista_analise_arq_busca = list()
         self.lista_analise_pasta_busca = list()
-        self.funcionando = 'Funcionando!'
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         self.ativo_add_ext_especifica = False
