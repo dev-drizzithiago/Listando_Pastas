@@ -160,7 +160,7 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=5, padx=5)
+        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=2, padx=2)
 
         # BOTÃO Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
@@ -180,7 +180,7 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
         # self.botao_adicionar_extensao.pack(anchor='w')
-        self.botao_adicionar_extensao.place(x=1)
+        self.botao_adicionar_extensao.place(x=1, y=10)
 
         # BOTÃO DESTINO DA BUSCA
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
@@ -198,12 +198,12 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
-        self.label_frame_progresso.pack(side='bottom', fill='both')
+        self.label_frame_progresso.pack(side='bottom', fill='both', pady=2, padx=2)
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
         self.barra_progresso_busca.config(orient=tk.HORIZONTAL)
         self.barra_progresso_busca.config(mode='determinate')
         self.barra_progresso_busca.config(style='red.Horizontal.TProgressbar')
-        self.barra_progresso_busca.pack(anchor='center', fill='both', pady=3, padx=3)
+        self.barra_progresso_busca.pack(anchor='center', fill='both', pady=2, padx=2)
 
         self.janela_principal.mainloop()
 
