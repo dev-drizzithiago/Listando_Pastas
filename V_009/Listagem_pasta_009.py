@@ -164,7 +164,8 @@ class ListandoArquivos:
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
         self.botao_iniciar_busca.config(width=30)
         self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
-        self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
+        # self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
+        
 
         # Selecionar
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
@@ -183,14 +184,16 @@ class ListandoArquivos:
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         self.botao_destino_busca.config(width=30)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
-        self.botao_destino_busca.pack(anchor='e', pady=2, padx=2)
+        # self.botao_destino_busca.pack(anchor='e', pady=2, padx=2)
+        self.botao_destino_busca.place(y=1, x=780)
 
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
-        self.botao_save_busca.pack(anchor='e', pady=2, padx=2)
+        # self.botao_save_busca.pack(anchor='e', pady=2, padx=2)
+        self.botao_save_busca.place(y=30, x=780)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
@@ -632,6 +635,7 @@ class ListandoArquivos:
             print('Tipos de extensão - Quantidade Arquivos')
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
         del self.lista_analise_arq_busca[:]
+
     def criando_arq_pdf(self):
         from reportlab.pdfgen import canvas
 
