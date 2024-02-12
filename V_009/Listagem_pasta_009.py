@@ -550,7 +550,9 @@ class ListandoArquivos:
             pasta_destino = Path(self.pasta_local_de_busca)
         else:
             pasta_destino = Path(valor_pasta_destino)
+
         print(f'Valor "ativo_finalizacao_busca" {self.ativo_finalizacao_busca}')
+
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
             if valor_resposta:
@@ -579,7 +581,7 @@ class ListandoArquivos:
 
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
-        
+
         self.barra_progresso_busca.start(100)
         for busca in pasta_destino.glob('**/*' + valor_da_busca):
             self.label_status.config(text='Processando, aguarde...!')
