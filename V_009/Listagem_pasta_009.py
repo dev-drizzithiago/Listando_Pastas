@@ -44,7 +44,6 @@ class ListandoArquivos:
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
         self.janela_principal.geometry('1000x580+150+100')
-        self.janela_principal.config(pady=1, padx=1)
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
@@ -58,7 +57,8 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
-        self.label_frame_geral.pack(fill=tk.BOTH, padx=10, pady=10)
+        self.label_frame_geral.config(height=300)
+        self.label_frame_geral.pack(fill=tk.BOTH)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # COMBO DE EXTENSÃO
@@ -160,7 +160,7 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both')
+        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=5, padx=5)
 
         # BOTÃO Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
@@ -179,7 +179,8 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.config(width=30)
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
-        self.botao_adicionar_extensao.pack(anchor='w')
+        # self.botao_adicionar_extensao.pack(anchor='w')
+        self.botao_adicionar_extensao.place(y=30)
 
         # BOTÃO DESTINO DA BUSCA
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
