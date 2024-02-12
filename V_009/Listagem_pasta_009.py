@@ -550,7 +550,7 @@ class ListandoArquivos:
             pasta_destino = Path(self.pasta_local_de_busca)
         else:
             pasta_destino = Path(valor_pasta_destino)
-
+        print(f'Valor "ativo_finalizacao_busca" {self.ativo_finalizacao_busca}')
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
             if valor_resposta:
@@ -558,7 +558,7 @@ class ListandoArquivos:
                 self.lista_result_busca.delete('0', 'end')
                 self.contagem_extensao.clear()
                 self.ativo_finalizacao_busca = False
-            else:
+            elif not valor_resposta:
                 self.lista_result_busca.delete('0', 'end')
                 print('Lista de resultado foi limpa!')
                 self.ativo_finalizacao_busca = False
