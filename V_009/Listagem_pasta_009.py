@@ -43,7 +43,7 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x570+150+100')
+        self.janela_principal.geometry('1000x580+150+100')
         self.janela_principal.config(pady=1, padx=1)
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
@@ -58,7 +58,6 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
-        self.label_frame_geral.config(padding=2)
         self.label_frame_geral.pack(fill=tk.BOTH, padx=10, pady=10)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
