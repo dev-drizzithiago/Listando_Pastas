@@ -5,7 +5,7 @@ from time import sleep
 from pathlib import Path
 from threading import Thread
 from datetime import datetime
-from tkinter.messagebox import showerror
+from tkinter.messagebox import showerror, showinfo, showwarning, askquestion
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 
@@ -556,14 +556,15 @@ class ListandoArquivos:
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
             print(f'valor "valor_resposta" {valor_resposta}')
-            if not valor_resposta:
-                self.salvando_resultado()
-                self.lista_result_busca.delete('0', 'end')
-                self.ativo_finalizacao_busca = False
-            else:
+            if valor_resposta == 'no':
+                tk.messagebox.showwarning('AVISO', "Você optou em não salvar a busca")
                 self.lista_result_busca.delete('0', 'end')
                 self.contagem_extensao.clear()
                 print('Lista de resultado foi limpa!')
+            else:
+                self.salvando_resultado()
+                self.lista_result_busca.delete('0', 'end')
+                self.ativo_finalizacao_busca = False
 
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
@@ -638,9 +639,13 @@ class ListandoArquivos:
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
-        for valor_busca in self.lista_analise_arq_busca:
-            arquivo_save.write(f'{valor_busca} - {data_atual} - {hora_atual} \n')
-        arquivo_save.close()
+        try:
+            for valor_busca in self.lista_analise_arq_busca:
+                arquivo_save.write(f'{valor_busca} - {data_atual} - {hora_atual} \n')
+            arquivo_save.close()
+            tk.messagebox.showinfo('AVISO', 'Sua busca foi salva com sucesso')
+        except:
+            tk.messagebox.showwarning('AVISO', 'Busca não pode ser salva no sistema!')
 
 
 obj_start = ListandoArquivos()
