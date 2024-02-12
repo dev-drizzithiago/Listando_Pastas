@@ -58,7 +58,8 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
-        self.label_frame_geral.pack(fill=tk.BOTH, padx=5, pady=5)
+        self.label_frame_geral.config(padding=2)
+        self.label_frame_geral.pack(fill=tk.BOTH, padx=10, pady=10)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # COMBO DE EXTENSÃO
@@ -176,7 +177,7 @@ class ListandoArquivos:
         self.botao_escolha_extensao.place(x=1)
 
         # BOTÃO Adicionar extensão
-        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
+        self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões', pady=2, padx=2)
         self.botao_adicionar_extensao.config(width=30)
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
@@ -186,14 +187,14 @@ class ListandoArquivos:
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         self.botao_destino_busca.config(width=30)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
-        self.botao_destino_busca.place(y=1, x=780)
+        self.botao_destino_busca.place(y=1, x=770)
 
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
-        self.botao_save_busca.place(y=30, x=780)
+        self.botao_save_busca.place(y=25, x=770)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
