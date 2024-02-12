@@ -617,7 +617,6 @@ class ListandoArquivos:
 
     def analise_dados_busca(self):
         # Declarações de variaveis
-        # del self.lista_analise_arq_busca[:]
         self.contagem_extensao = {}
 
         for valor_lista_busca in self.lista_analise_arq_busca:
@@ -632,7 +631,7 @@ class ListandoArquivos:
         for extensao, quantidade in self.contagem_extensao.items():
             print('Tipos de extensão - Quantidade Arquivos')
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
-
+        del self.lista_analise_arq_busca[:]
     def criando_arq_pdf(self):
         from reportlab.pdfgen import canvas
 
