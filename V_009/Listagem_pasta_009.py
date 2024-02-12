@@ -44,7 +44,8 @@ class ListandoArquivos:
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
         self.janela_principal.geometry('1000x685+150+100')
-        self.janela_principal.config(pady=10)
+        self.janela_principal.config(pady=20, padx=20)
+
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
 
@@ -93,6 +94,7 @@ class ListandoArquivos:
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
         self.var_label_info_extensao = tk.StringVar()
+        self.var_label_info_extensao.set('VAZIO')
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
 
