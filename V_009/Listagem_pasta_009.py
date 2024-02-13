@@ -514,9 +514,9 @@ class ListandoArquivos:
         valor_lista_extensao = self.lista_de_extensoes.curselection()
         if len(valor_lista_extensao) == 0:
             extensao_digitada = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
-            
+
             if len(extensao_digitada) == 0:
-                extensao_digitada = "Busca por tudo"
+                extensao_digitada = "Busca por vários arquivos"
                 self.extensao_selecao_busca = ''
             else:
                 self.extensao_selecao_busca = extensao_digitada
