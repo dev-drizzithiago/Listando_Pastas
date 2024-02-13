@@ -57,7 +57,6 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
-        self.label_frame_geral.config(height=300)
         self.label_frame_geral.pack(fill=tk.BOTH, pady=5, padx=5)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -159,8 +158,7 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
-        self.label_frame_botoes_opcoes = tk.LabelFrame(self.label_frame_geral, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.config(border=2)
+        self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=2, padx=2)
 
         # BOTÃO Iniciar Busca
