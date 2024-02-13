@@ -43,7 +43,7 @@ class ListandoArquivos:
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
         self.janela_principal.geometry('1000x640+150+100')
-        self.janela_principal.resizable(0,0)
+        self.janela_principal.resizable(0, 0)
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
@@ -226,7 +226,7 @@ class ListandoArquivos:
                                                    'categoria que corresponda com a extensão que ira adicionar')
         janela_add_extensao = tk.Tk()
         janela_add_extensao.geometry('400x400+150+100')
-        janela_add_extensao.resizable(0,0)
+        janela_add_extensao.resizable(0, 0)
         janela_add_extensao.title('Janele para adicionar extensão')
         # janela_add_extensao.iconphoto(True, self.icone_busca)
 
