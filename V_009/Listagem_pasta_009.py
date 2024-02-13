@@ -513,13 +513,13 @@ class ListandoArquivos:
     def digitar_extensao(self):
         valor_lista_extensao = self.lista_de_extensoes.curselection()
         if len(valor_lista_extensao) == 0:
-            extensao_digitada = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
+            extensao_digitada = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca').
             if len(extensao_digitada) == 0:
                 extensao_digitada = "Busca por tudo"
                 self.extensao_selecao_busca = ''
             else:
                 self.extensao_selecao_busca = extensao_digitada
-            self.label_info_extensao.config(text=extensao_digitada)
+            self.label_info_extensao.config(text=extensao_digitada.upper())
             self.ativo_status_extensao = True
 
 
