@@ -42,16 +42,16 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x630+150+100')
+        self.janela_principal.geometry('1000x640+150+100')
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Estilos
-        # estilo = Style()
+        estilo = Style()
         # estilo.theme_use('default')
-        # estilo.configure('red.Horizontal.TProgressbar', background='#FFFF00')
+        estilo.configure('red.Horizontal.TProgressbar', background='#FFFF00')
         # estilo.configure('TButton', background='#FFFF00', padding=1)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
