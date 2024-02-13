@@ -158,7 +158,8 @@ class ListandoArquivos:
         self.var_msg_tot_busca.set('Aguardando informações')
         self.msg_tot_busca = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.msg_tot_busca.config(justify='center')
-        self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
+        # self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
+        self.msg_tot_busca.place(y=0, x=420)
 
         # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
