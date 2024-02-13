@@ -206,6 +206,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.config(style='red.Horizontal.TProgressbar')
         self.barra_progresso_busca.pack(anchor='center', fill='both', pady=2, padx=2)
 
+        # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
