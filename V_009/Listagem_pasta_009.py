@@ -537,6 +537,7 @@ class ListandoArquivos:
                 self.extensao_selecao_busca = extensao_digitada
             self.label_info_extensao.config(text=extensao_digitada.upper())
             self.ativo_status_extensao = True
+            extensao_digitada = 0
 
         else:
             for valor_extensao in valor_lista_extensao:
@@ -622,8 +623,8 @@ class ListandoArquivos:
                 cont_arquivos += 1
             elif busca.is_dir():
                 self.lista_result_busca.insert('end', f'[ {cont_pastas} ] - \\[ {busca} ]')
-                self.lista_analise_pasta_busca.append(f'{ cont_pastas } - {busca}')
-                self.status_contagem_pastas.config(text=f'Encontrado [ { cont_pastas } ] pastas...')
+                self.lista_analise_pasta_busca.append(f'{cont_pastas} - {busca}')
+                self.status_contagem_pastas.config(text=f'Encontrado [ {cont_pastas} ] pastas...')
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
@@ -660,7 +661,6 @@ class ListandoArquivos:
             print('Tipos de extensão - Quantidade Arquivos')
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
         del self.lista_analise_arq_busca[:]
-
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
