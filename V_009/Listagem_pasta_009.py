@@ -95,7 +95,7 @@ class ListandoArquivos:
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
         self.var_label_info_extensao = tk.StringVar()
-        self.var_label_info_extensao.set('VAZIO')
+        self.var_label_info_extensao.set(' VAZIO ')
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
 
