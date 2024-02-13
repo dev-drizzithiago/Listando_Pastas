@@ -137,6 +137,7 @@ class ListandoArquivos:
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
+        self.var_status_contagem_arquivos.set('Aguardando informações')
         self.status_contagem_arquivos = Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
@@ -144,7 +145,9 @@ class ListandoArquivos:
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
-        self.status_contagem_pastas = Label(self.label_frame_geral_info, text=self.var_status_contagem_pastas.get())
+        self.var_status_contagem_pastas.set('Aguardando informações')
+        self.status_contagem_pastas = Label(self.label_frame_geral_info)
+        self.status_contagem_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_contagem_pastas.config(justify='center')
         self.status_contagem_pastas.pack(anchor='s', pady=2, padx=2)
 
