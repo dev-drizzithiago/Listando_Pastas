@@ -158,7 +158,7 @@ class ListandoArquivos:
         self.msg_tot_busca.config(justify='center')
         self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
 
-        # LABEL TIME DA BUSCA
+        # LABEL TIME DA BUSCAb
         self.var_label_time_busca = tk.StringVar()
         self.var_label_time_busca.set('00:00:00')
         self.label_time_busca = Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
@@ -576,7 +576,7 @@ class ListandoArquivos:
 
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
-            self.msg_tot_busca.config(text="Aguardando por informações")
+            self.msg_tot_busca.config(text="Aguardando a finalização da busca")
             if valor_resposta == 'no':
                 tk.messagebox.showwarning('AVISO', "Você optou em não salvar a busca")
                 self.lista_result_busca.delete('0', 'end')
