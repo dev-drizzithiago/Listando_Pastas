@@ -42,17 +42,17 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x593+150+100')
+        self.janela_principal.geometry('1000x630+150+100')
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Estilos
-        estilo = Style()
-        estilo.theme_use('default')
-        estilo.configure('red.Horizontal.TProgressbar', background='#FFFF00')
-        estilo.configure('TButton', background='#FFFF00')
+        # estilo = Style()
+        # estilo.theme_use('default')
+        # estilo.configure('red.Horizontal.TProgressbar', background='#FFFF00')
+        # estilo.configure('TButton', background='#FFFF00', padding=1)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
@@ -168,11 +168,11 @@ class ListandoArquivos:
         self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
 
-        # BOTÃO Selecionar
+        # BOTÃO Selecionar extensão
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
         self.botao_escolha_extensao.config(width=30)
         self.botao_escolha_extensao.config(command=self.thread_botao_extensao)
-        self.botao_escolha_extensao.place(x=1)
+        self.botao_escolha_extensao.place(y=1)
 
         # BOTÃO Adicionar extensão
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
@@ -185,14 +185,15 @@ class ListandoArquivos:
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         self.botao_destino_busca.config(width=30)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
-        self.botao_destino_busca.place(y=1, x=795)
+        self.botao_destino_busca.place(y=1, x=790)
 
         # BOTÃO SAVE BUSCA
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
-        self.botao_save_busca.place(y=30, x=795)
+        self.botao_save_busca.place(y=30, x=790)
+        # self.botao_save_busca.pack(anchor='e')
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
