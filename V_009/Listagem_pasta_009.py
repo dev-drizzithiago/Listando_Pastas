@@ -57,7 +57,7 @@ class ListandoArquivos:
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
         self.label_frame_geral.config(height=300)
-        self.label_frame_geral.pack(fill=tk.BOTH, anchor=tk.CENTER)
+        self.label_frame_geral.pack(fill=tk.BOTH, pady=5, padx=5)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # COMBO DE EXTENSÃO
@@ -74,7 +74,7 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # INFORMAÇÕES SOBRE EXTENSÃO
         self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
-        self.label_lista_extensao.pack(side='top', fill='both')
+        self.label_lista_extensao.pack(side='top', fill='both', pady=2, padx=2)
         # BARRA DE ROLAGEM
         self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=tk.VERTICAL)
         self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
@@ -101,7 +101,7 @@ class ListandoArquivos:
         # Busca Geral
         self.var_lista_busca = tk.StringVar()
         self.label_frame_lista_busca = LabelFrame(self.label_frame_geral, text='Resultado da BUSCA')
-        self.label_frame_lista_busca.pack(anchor='center', fill='both')
+        self.label_frame_lista_busca.pack(anchor='center', fill='both', pady=2, padx=2)
 
         # BARRA ROLAGEM CONFIGURAÇÃO
         self.barra_rolagem_lista_busca_Y = Scrollbar(self.label_frame_lista_busca, orient=tk.VERTICAL)
@@ -113,7 +113,7 @@ class ListandoArquivos:
         self.lista_result_busca = tk.Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
         self.lista_result_busca.config(height=5)
         self.lista_result_busca.config(selectmode=tk.SINGLE)
-        self.lista_result_busca.pack(anchor='center', fill=tk.BOTH)
+        self.lista_result_busca.pack(anchor='center', fill=tk.BOTH, padx=2, pady=2)
 
         # BARRA ROLAGEM APLICAÇÃO
         self.barra_rolagem_lista_busca_Y.config(command=self.lista_result_busca.yview)
@@ -179,7 +179,6 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
         self.botao_adicionar_extensao.pack(anchor='w')
-        # self.botao_adicionar_extensao.place(x=1, y=10)
 
         # BOTÃO DESTINO DA BUSCA
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
