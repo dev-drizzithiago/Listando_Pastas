@@ -5,7 +5,7 @@ from time import sleep
 from pathlib import Path
 from threading import Thread
 from datetime import datetime
-from tkinter.messagebox import showerror, showinfo, showwarning, askquestion
+from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 
@@ -661,8 +661,6 @@ class ListandoArquivos:
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
         del self.lista_analise_arq_busca[:]
 
-    def criando_arq_pdf(self):
-        from reportlab.pdfgen import canvas
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
