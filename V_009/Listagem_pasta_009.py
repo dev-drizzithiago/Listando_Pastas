@@ -516,6 +516,8 @@ class ListandoArquivos:
             self.extensao_selecao_busca = askstring('AVISO', 'Selecionar/Digitar uma Extensão para busca')
             self.label_info_extensao.config(text=self.extensao_selecao_busca)
             self.ativo_status_extensao = True
+            if len(self.extensao_selecao_busca) == 0:
+                self.label_status.config(text='*.*')
 
         else:
             for valor_extensao in valor_lista_extensao:
