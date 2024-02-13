@@ -52,6 +52,7 @@ class ListandoArquivos:
         estilo = Style()
         estilo.theme_use('default')
         estilo.configure('red.Horizontal.TProgressbar', background='#FFFF00')
+        estilo.configure('TButton', background='#FFFF00')
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
