@@ -141,7 +141,8 @@ class ListandoArquivos:
         self.status_contagem_arquivos = Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.pack(anchor='s', pady=2, padx=2)
+        # self.status_contagem_arquivos.pack(anchor='s', pady=2, padx=2)
+        self.status_contagem_arquivos.place(y=0, x=5)
 
         # LABEL CONTAGEM PASTAS
         self.var_status_contagem_pastas = tk.StringVar()
@@ -149,7 +150,8 @@ class ListandoArquivos:
         self.status_contagem_pastas = Label(self.label_frame_geral_info)
         self.status_contagem_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_contagem_pastas.config(justify='center')
-        self.status_contagem_pastas.pack(anchor='s', pady=2, padx=2)
+        # self.status_contagem_pastas.pack(anchor='s', pady=2, padx=2)
+        self.status_contagem_pastas.place(y=20, x=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
@@ -158,7 +160,7 @@ class ListandoArquivos:
         self.msg_tot_busca.config(justify='center')
         self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
 
-        # LABEL TIME DA BUSCAb
+        # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
         self.var_label_time_busca.set('00:00:00')
         self.label_time_busca = Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
@@ -594,7 +596,7 @@ class ListandoArquivos:
         valor_da_busca = self.extensao_selecao_busca
         print('Iniciando busca...')
         print(f'Valor da extensão [{valor_da_busca}]')
-        print(f'Caminha do busca [{pasta_destino}]')
+        print(f'Caminho do busca [{pasta_destino}]')
         cont_arquivos = 1
         cont_pastas = 1
         self.label_status['text'] = 'Iniciando busca'
