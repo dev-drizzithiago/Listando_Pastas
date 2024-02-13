@@ -52,7 +52,9 @@ class ListandoArquivos:
         estilo = Style()
         # estilo.theme_use('default')
         estilo.configure('red.Horizontal.TProgressbar', background='#FFFF00')
-        estilo.configure('TButton', background='#FFFF00', padding=1)
+        estilo.configure('TButton', background='#4682B4', padding=1)
+        estilo.configure('TLabelFrame', background='#4682B4', border=5)
+        estilo.configure('TListBox', background='#4682B4')
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
@@ -179,6 +181,7 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
         self.botao_adicionar_extensao.config(command=self.janela_add_ext_arq_txt)
         self.botao_adicionar_extensao.place(y=50)
+        self.botao_adicionar_extensao.pack(anchor='w')
 
         # BOTÃO DESTINO DA BUSCA
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
@@ -191,8 +194,7 @@ class ListandoArquivos:
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
-        self.botao_save_busca.place(y=80, x=788)
-        # self.botao_save_busca.pack(anchor='e')
+        self.botao_save_busca.place(y=30, x=788)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
