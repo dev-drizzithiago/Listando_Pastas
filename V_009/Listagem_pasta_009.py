@@ -537,7 +537,6 @@ class ListandoArquivos:
                 self.extensao_selecao_busca = extensao_digitada
             self.label_info_extensao.config(text=extensao_digitada.upper())
             self.ativo_status_extensao = True
-            extensao_digitada = 0
 
         else:
             for valor_extensao in valor_lista_extensao:
@@ -566,6 +565,8 @@ class ListandoArquivos:
                 self.extensao_selecao_busca = self.lista_ext_arqzip[valor_extensao].strip()
                 self.label_info_extensao.config(text=self.extensao_selecao_busca)
                 self.ativo_status_extensao = True
+        self.lista_de_extensoes.delete('0', 'end')
+        valor_lista_extensao = 0
 
     def pasta_destino_busca(self):
         self.pasta_local_de_busca = tk.filedialog.askdirectory()
