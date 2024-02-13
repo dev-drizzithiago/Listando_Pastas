@@ -153,12 +153,14 @@ class ListandoArquivos:
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
+        self.var_msg_tot_busca.set('Aguardando informações')
         self.msg_tot_busca = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.msg_tot_busca.config(justify='center')
         self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
 
         # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
+        self.var_label_time_busca.set('00:00:00')
         self.label_time_busca = Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
         self.label_time_busca.pack(anchor='s', pady=2, padx=2)
 
@@ -574,8 +576,7 @@ class ListandoArquivos:
 
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
-            self.status_contagem_arquivos.config(text='')
-            self.status_contagem_pastas.config(text='')
+            self.msg_tot_busca.config(text="Aguardando por informações")
             if valor_resposta == 'no':
                 tk.messagebox.showwarning('AVISO', "Você optou em não salvar a busca")
                 self.lista_result_busca.delete('0', 'end')
@@ -613,9 +614,9 @@ class ListandoArquivos:
                 self.status_contagem_arquivos.config(text=f'Encontrado [ {cont_arquivos} ] arquivos... \n')
                 cont_arquivos += 1
             elif busca.is_dir():
-                self.lista_result_busca.insert('end', f'[{cont_pastas}] - \\[{busca}]')
-                self.lista_analise_pasta_busca.append(f'{cont_pastas} - {busca}')
-                self.status_contagem_pastas.config(text=f'Encontrado [{cont_pastas}] pastas...')
+                self.lista_result_busca.insert('end', f'[ {cont_pastas} ] - \\[ {busca} ]')
+                self.lista_analise_pasta_busca.append(f'{ cont_pastas } - {busca}')
+                self.status_contagem_pastas.config(text=f'Encontrado [ { cont_pastas } ] pastas...')
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
