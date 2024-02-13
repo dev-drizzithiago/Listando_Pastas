@@ -571,7 +571,8 @@ class ListandoArquivos:
 
         if self.ativo_finalizacao_busca:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
-            print(f'valor "valor_resposta" {valor_resposta}')
+            self.status_contagem_arquivos.config(text='')
+            self.status_contagem_pastas.config(text='')
             if valor_resposta == 'no':
                 tk.messagebox.showwarning('AVISO', "Você optou em não salvar a busca")
                 self.lista_result_busca.delete('0', 'end')
