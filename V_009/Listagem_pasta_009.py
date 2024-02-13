@@ -212,6 +212,7 @@ class ListandoArquivos:
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     def janela_add_ext_arq_txt(self):
+        print('Iniciando janela para add extensões')
         tk.messagebox.showinfo("AVISO IMPORTANTE", 'Para deixar mais organizado a lista '
                                                    'de extensões, é aconselhavel que seja escolhido a '
                                                    'categoria que corresponda com a extensão que ira adicionar')
@@ -273,6 +274,7 @@ class ListandoArquivos:
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def time_busca(self):
+        print('Iniciando time da busca')
         msg_info_time = str
         contagem_segundos = 0
         contagem_minutos = 0
@@ -326,6 +328,7 @@ class ListandoArquivos:
                 sleep(1)
 
     def combo_categoria_busca(self, *args):
+        print('Processando o Combo')
         self.lista_de_extensoes.delete('0', 'end')
 
         arq_imagem = '\\extensao_imagem.log'
