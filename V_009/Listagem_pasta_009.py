@@ -42,7 +42,7 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x580+150+100')
+        self.janela_principal.geometry('1000x593+150+100')
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
@@ -63,7 +63,7 @@ class ListandoArquivos:
         # COMBO DE EXTENSÃO
         self.var_combo_categoria = tk.StringVar()
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
-        self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH)
+        self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH, pady=2, padx=2)
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, justify='center')
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
         self.combo_extensao_categoria['values'] = self.categorias_busca
