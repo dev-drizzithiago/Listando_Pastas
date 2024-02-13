@@ -159,7 +159,8 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
-        self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
+        self.label_frame_botoes_opcoes = tk.LabelFrame(self.label_frame_geral, text='Escolha um opção')
+        self.label_frame_botoes_opcoes.config(border=2)
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=2, padx=2)
 
         # BOTÃO Iniciar Busca
