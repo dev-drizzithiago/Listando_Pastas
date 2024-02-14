@@ -648,6 +648,7 @@ class ListandoArquivos:
         self.analise_dados_busca()
 
     def analise_dados_busca(self):
+        criando_relatorio_pdf(self.lista_analise_arq_busca, data_atual, hora_atual)
         # Declarações de variaveis
         self.contagem_extensao = {}
 
