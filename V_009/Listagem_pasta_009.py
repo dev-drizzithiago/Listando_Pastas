@@ -666,6 +666,13 @@ class ListandoArquivos:
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
         del self.lista_analise_arq_busca[:]
 
+
+    def criando_relatorio_pdf(self):
+        from reportlab.pdfgen import canvas
+        relatorio_pdf = canvas.Canvas(f'Relatorio-{data_atual}-{hora_atual}.pdf')
+        relatorio_pdf.drawString(10, 200, "Relatorios")
+        relatorio_pdf.save()
+
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
