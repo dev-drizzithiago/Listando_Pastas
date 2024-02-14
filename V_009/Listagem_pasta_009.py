@@ -1,8 +1,6 @@
 import tkinter as tk
 from tkinter.ttk import *
 
-from relatorio_pdf import criando_relatorio_pdf
-
 from time import sleep
 from pathlib import Path
 from threading import Thread
@@ -648,7 +646,7 @@ class ListandoArquivos:
         self.analise_dados_busca()
 
     def analise_dados_busca(self):
-        criando_relatorio_pdf(self.lista_analise_arq_busca, pasta_arq_registro_extensao, data_atual, hora_atual)
+        self.criando_relatorio_pdf()
         # Declarações de variaveis
         self.contagem_extensao = {}
 
@@ -666,10 +664,10 @@ class ListandoArquivos:
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
         del self.lista_analise_arq_busca[:]
 
-
     def criando_relatorio_pdf(self):
         from reportlab.pdfgen import canvas
-        relatorio_pdf = canvas.Canvas(f'Relatorio-{data_atual}-{hora_atual}.pdf')
+        arquivo_pdf = str(f'Relatorio {data_atual}.pdf')
+        relatorio_pdf = canvas.Canvas(f'{arquivo_pdf}')
         relatorio_pdf.drawString(10, 200, "Relatorios")
         relatorio_pdf.save()
 
