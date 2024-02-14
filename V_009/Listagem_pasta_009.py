@@ -15,7 +15,7 @@ valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
 valor_datatime = datetime.now()
 data_atual = valor_datatime.strftime('%d/%m/%Y')
-hora_atual = valor_datatime.strftime('%h:%m')
+hora_atual = valor_datatime.strftime('%H:%M')
 
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
