@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import *
 
-from relatorio_pdf import
+from relatorio_pdf import criando_relatorio_pdf
 
 from time import sleep
 from pathlib import Path
