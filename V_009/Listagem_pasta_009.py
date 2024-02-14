@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter.ttk import *
 
+from relatorio_pdf import
+
 from time import sleep
 from pathlib import Path
 from threading import Thread
