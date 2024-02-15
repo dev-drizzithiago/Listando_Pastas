@@ -89,8 +89,10 @@ relatorio_pdf.line(x_linha, y_linha - 730, x_linha + 500, y_linha - 730)  # Últ
 texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
 texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
 
-relatorio_pdf.drawText(categorias_busca)
+texto_string.textLines(categorias_busca)
 
-relatorio_pdf.drawText(texto_indice)
+relatorio_pdf.drawText(texto_string)
+
+relatorio_pdf.showPage()
 
 relatorio_pdf.save()
