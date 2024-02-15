@@ -670,14 +670,41 @@ class ListandoArquivos:
         from reportlab.lib.pagesizes import A4
 
         # Declaração de variaveis
+        # Declaração de variaveis
         data = data_atual.replace('/', '')
         hora = hora_atual.replace(':', '')
+        w, h = A4
+
+        # Declaração de linha
+        x_linha = 50
+        y_linha = h - 50
+
+        # DECLARAÇÃO TEXTO
+        x_txt = 50
+        y_txt = h - 70
 
         # CORPO RELATORIO
         arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
-        relatorio_pdf = canvas.Canvas(arquivo_pdf, pagesize=A4)
-        relatorio_pdf.line(5, 2, 5, 790)
-        relatorio_pdf.drawString(10, 800, "Relatorios")
+
+        relatorio_pdf = canvas.Canvas('arquivo_pdf.pdf', pagesize=A4)
+        relatorio_pdf.drawCentredString(300, 800, f"Relatorio {data_atual}")
+        relatorio_pdf.line(x_linha, y_linha, x_linha + 500, y_linha)  # Primeira linha
+        relatorio_pdf.line(x_linha, y_linha - 730, x_linha + 500, y_linha - 730)  # Última linha
+
+        texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
+        texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
+
+        for cont in range(1, 51):
+            texto_indice.textLines(f'{cont}')
+
+        for cont in self.lista_analise_arq_busca:
+            texto_string.textLines(cont)
+
+        relatorio_pdf.drawText(texto_indice)
+        relatorio_pdf.drawText(texto_string)
+
+        relatorio_pdf.showPage()
+
         relatorio_pdf.save()
 
     def salvando_resultado(self):
