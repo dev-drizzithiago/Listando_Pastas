@@ -24,5 +24,5 @@ y = h - 50
 arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
 relatorio_pdf = canvas.Canvas('arquivo_pdf.pdf', pagesize=A4)
 relatorio_pdf.line(x, y, x + 500, y)
-relatorio_pdf.drawString(x + 450, 800, "Relatorios")
+relatorio_pdf.drawString(x + 380, 800, f"Relatorio {data_atual}")
 relatorio_pdf.save()
