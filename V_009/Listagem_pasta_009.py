@@ -666,7 +666,9 @@ class ListandoArquivos:
 
     def criando_relatorio_pdf(self):
         from reportlab.pdfgen import canvas
-        arquivo_pdf = str('Relatorio' + hora_atual + '.pdf')
+        data = data_atual.replace('/', '')
+        hora = hora_atual.replace(':', '')
+        arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
         relatorio_pdf = canvas.Canvas(arquivo_pdf)
         relatorio_pdf.drawString(10, 200, "Relatorios")
         relatorio_pdf.save()
