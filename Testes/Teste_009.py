@@ -32,7 +32,7 @@ relatorio_pdf.drawString(420, 800, f"Relatorio {data_atual}")
 relatorio_pdf.line(x_linha, y_linha, x_linha + 500, y_linha)
 
 texto = relatorio_pdf.beginText(x_txt, y_txt)
-texto.textLine('Testando')
+texto.textLines('Testando \n teste')
 relatorio_pdf.drawText(texto)
 
 
