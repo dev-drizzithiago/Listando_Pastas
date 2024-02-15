@@ -3,6 +3,8 @@ from reportlab.lib.pagesizes import A4
 from datetime import datetime
 from pathlib import Path
 
+categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura', 'Arquivos execução',
+                    'Arquivos compreesão')
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
@@ -37,7 +39,7 @@ texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
 for cont in range(1, 51):
     texto_indice.textLines(f'{cont}')
 for cont in range(1, 51):
-    texto_string.textLines('º')
+    texto_string.textLines()
 
 relatorio_pdf.drawText(texto_indice)
 relatorio_pdf.drawText(texto_string)
