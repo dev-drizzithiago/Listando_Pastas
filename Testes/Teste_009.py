@@ -39,16 +39,15 @@ texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
 texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
 
 for cont in range(1, 70):
-    texto_indice.textLines(f'{cont}')
+    texto_indice.textLines(f'{contador}')
     contador += 1
-
     if contador == 50:
         relatorio_pdf.showPage()
+    relatorio_pdf.drawText(texto_indice)
+    relatorio_pdf.drawText(texto_string)
 
 for cont in categorias_busca:
     texto_string.textLines(cont)
 
-relatorio_pdf.drawText(texto_indice)
-relatorio_pdf.drawText(texto_string)
 
 relatorio_pdf.save()
