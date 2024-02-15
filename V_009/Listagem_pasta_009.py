@@ -670,9 +670,9 @@ class ListandoArquivos:
         from reportlab.lib.pagesizes import A4
 
         # Declaração de variaveis
-        # Declaração de variaveis
         data = data_atual.replace('/', '')
         hora = hora_atual.replace(':', '')
+        contador = 1
         w, h = A4
 
         # Declaração de linha
@@ -699,11 +699,12 @@ class ListandoArquivos:
 
         for cont in self.lista_analise_arq_busca:
             texto_string.textLines(cont)
+            if contador == 50:
+                relatorio_pdf.showPage()
+            contador += 1
 
         relatorio_pdf.drawText(texto_indice)
         relatorio_pdf.drawText(texto_string)
-
-        relatorio_pdf.showPage()
 
         relatorio_pdf.save()
 
