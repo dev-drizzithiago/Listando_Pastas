@@ -672,9 +672,12 @@ class ListandoArquivos:
         # Declaração de variaveis
         data = data_atual.replace('/', '')
         hora = hora_atual.replace(':', '')
+
+        # CORPO RELATORIO
         arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
         relatorio_pdf = canvas.Canvas(arquivo_pdf, pagesize=A4)
-        relatorio_pdf.drawString(10, 200, "Relatorios")
+        relatorio_pdf.line(5, 2, 5, 790)
+        relatorio_pdf.drawString(10, 800, "Relatorios")
         relatorio_pdf.save()
 
     def salvando_resultado(self):
