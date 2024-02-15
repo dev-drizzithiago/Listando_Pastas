@@ -16,6 +16,7 @@ hora_atual = valor_datatime.strftime('%H:%M')
 # Declaração de variaveis
 data = data_atual.replace('/', '')
 hora = hora_atual.replace(':', '')
+contador = 1
 w, h = A4
 
 # Declaração de linha
@@ -37,15 +38,17 @@ relatorio_pdf.line(x_linha, y_linha - 730, x_linha + 500, y_linha - 730)  # Últ
 texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
 texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
 
-for cont in range(1, 51):
+for cont in range(1, 70):
     texto_indice.textLines(f'{cont}')
+    contador += 1
+
+    if contador == 50:
+        relatorio_pdf.showPage()
 
 for cont in categorias_busca:
     texto_string.textLines(cont)
 
 relatorio_pdf.drawText(texto_indice)
 relatorio_pdf.drawText(texto_string)
-
-relatorio_pdf.showPage()
 
 relatorio_pdf.save()
