@@ -30,7 +30,7 @@ y_txt = h - 70
 arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
 
 relatorio_pdf = canvas.Canvas('arquivo_pdf.pdf', pagesize=A4)
-relatorio_pdf.drawString(420, 800, f"Relatorio {data_atual}")
+relatorio_pdf.drawCentredString(300, 800, f"Relatorio {data_atual}")
 relatorio_pdf.line(x_linha, y_linha, x_linha + 500, y_linha)  # Primeira linha
 relatorio_pdf.line(x_linha, y_linha - 730, x_linha + 500, y_linha - 730)  # Última linha
 
