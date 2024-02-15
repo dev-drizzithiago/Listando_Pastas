@@ -32,10 +32,14 @@ relatorio_pdf.drawString(420, 800, f"Relatorio {data_atual}")
 relatorio_pdf.line(x_linha, y_linha, x_linha + 500, y_linha)  # Primeira linha
 relatorio_pdf.line(x_linha, y_linha - 730, x_linha + 500, y_linha - 730)  # Última linha
 
-texto = relatorio_pdf.beginText(x_txt, y_txt)
+texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
+texto_string = relatorio_pdf.beginText(x_txt + 10, y_txt)
 for cont in range(1, 51):
-    texto.textLines(f'{cont}')
-relatorio_pdf.drawText(texto)
+    texto_indice.textLines(f'{cont}')
+for cont in range(1, 51):
+    texto_string.textLines('º')
+
+relatorio_pdf.drawText(texto_indice)
 
 
 relatorio_pdf.save()
