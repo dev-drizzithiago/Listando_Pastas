@@ -28,6 +28,7 @@ y_txt = h - 45
 arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
 
 relatorio_pdf = canvas.Canvas('arquivo_pdf.pdf', pagesize=A4)
+relatorio_pdf.drawString(420, 800, f"Relatorio {data_atual}")
 relatorio_pdf.line(x_linha, y_linha, x_linha + 500, y_linha)
 
 texto = relatorio_pdf.beginText(x_txt, y_txt + 100)
@@ -35,5 +36,5 @@ texto.setFont('Helvetica', 12)
 texto.textLine('Testando')
 relatorio_pdf.drawText(texto)
 
-relatorio_pdf.drawString(420, 800, f"Relatorio {data_atual}")
+
 relatorio_pdf.save()
