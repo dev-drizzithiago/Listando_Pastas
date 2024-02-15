@@ -41,9 +41,7 @@ for cont in range(1, 51):
     texto_indice.textLines(f'{cont}')
 
 for cont in categorias_busca:
-    texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
     texto_string.textLines(cont)
-    x_txt += 5
 
 relatorio_pdf.drawText(texto_indice)
 relatorio_pdf.drawText(texto_string)
