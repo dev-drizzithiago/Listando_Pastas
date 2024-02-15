@@ -665,11 +665,15 @@ class ListandoArquivos:
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
+        # Chamandos os modulos
         from reportlab.pdfgen import canvas
+        from reportlab.lib.pagesizes import A4
+
+        # Declaração de variaveis
         data = data_atual.replace('/', '')
         hora = hora_atual.replace(':', '')
         arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
-        relatorio_pdf = canvas.Canvas(arquivo_pdf)
+        relatorio_pdf = canvas.Canvas(arquivo_pdf, pagesize=A4)
         relatorio_pdf.drawString(10, 200, "Relatorios")
         relatorio_pdf.save()
 
