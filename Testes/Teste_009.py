@@ -89,10 +89,10 @@ relatorio_pdf.getPageNumber()
 texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
 texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
 
-texto_string.textLine(categorias_busca)
+for valor in categorias_busca:
+    texto_string.textLine(valor)
 
 relatorio_pdf.drawText(texto_string)
-
 relatorio_pdf.showPage()
 
 relatorio_pdf.save()
