@@ -694,15 +694,7 @@ class ListandoArquivos:
         texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
         texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
 
-        for cont in range(1, 51):
-            texto_indice.textLines(f'{cont}')
-
-        for cont in self.lista_analise_arq_busca:
-            texto_string.textLines(cont)
-            if contador == 50:
-                relatorio_pdf.showPage()
-            contador += 1
-
+        texto_string.textLines(self.lista_analise_arq_busca)
         relatorio_pdf.drawText(texto_indice)
         relatorio_pdf.drawText(texto_string)
 
