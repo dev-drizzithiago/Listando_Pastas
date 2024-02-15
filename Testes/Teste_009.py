@@ -21,8 +21,8 @@ x_linha = 50
 y_linha = h - 50
 
 # DECLARAÇÃO TEXTO
-x_txt = 52
-y_txt = h - 50
+x_txt = 45
+y_txt = h - 45
 
 # CORPO RELATORIO
 arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
