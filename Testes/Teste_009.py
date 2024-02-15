@@ -85,11 +85,11 @@ relatorio_pdf = canvas.Canvas('arquivo_pdf.pdf', pagesize=A4)
 relatorio_pdf.drawCentredString(300, 800, f"Relatorio {data_atual}")
 relatorio_pdf.line(x_linha, y_linha, x_linha + 500, y_linha)  # Primeira linha
 relatorio_pdf.line(x_linha, y_linha - 730, x_linha + 500, y_linha - 730)  # Última linha
-
+relatorio_pdf.getPageNumber()
 texto_indice = relatorio_pdf.beginText(x_txt, y_txt)
 texto_string = relatorio_pdf.beginText(x_txt + 15, y_txt)
 
-texto_string.textLines(categorias_busca)
+texto_string.textLine(categorias_busca)
 
 relatorio_pdf.drawText(texto_string)
 
