@@ -46,5 +46,6 @@ for cont in categorias_busca:
 relatorio_pdf.drawText(texto_indice)
 relatorio_pdf.drawText(texto_string)
 
+relatorio_pdf.showPage()
 
 relatorio_pdf.save()
