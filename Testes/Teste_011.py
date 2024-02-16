@@ -21,3 +21,12 @@ def criando_multi_paginas():
     doc = SimpleDocTemplate('doc_pag_num.pdf', pagesize=A4,
                             rightMargin=72, leftMargin=72,
                             topMargin=72, bottomMargin=18)
+    estilo = getSampleStyleSheet()
+    estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+
+    Story = []
+
+    margem_nome = 'Teste'
+    emitir_numero = 12
+    preco = '12.00'
+    data_limite = '03/05/2024'
