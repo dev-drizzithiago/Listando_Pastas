@@ -48,4 +48,8 @@ def criandoMultiPaginas():
     """Criando diversas paginas"""
     documento = SimpleDocTemplate("documento_v2.pdf", pagesize=A4,
                                   rightMargin=50, leftMargin=50, topMargin=50, bottomMargin=15)
+    Estilo = getSampleStyleSheet()
+    Estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+
+    Story = list()
     
