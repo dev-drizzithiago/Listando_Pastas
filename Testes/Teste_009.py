@@ -83,15 +83,15 @@ y_txt = h - 70
 class DocumentoPDF:
     def __init__(self):
         self.arquivo_pdf = str('Relatorio_' + data + '_' + hora + '.pdf')
-
         self.relatorio_pdf = canvas.Canvas('arquivo_pdf.pdf', pagesize=A4)
+
+    def criando_documento(self):
         self.relatorio_pdf.drawCentredString(300, 800, f"Relatorio {data_atual}")
         self.relatorio_pdf.line(x_linha, y_linha, x_linha + 500, y_linha)  # Primeira linha
         self.relatorio_pdf.line(x_linha, y_linha - 730, x_linha + 500, y_linha - 730)  # Última linha
         self.relatorio_pdf.getPageNumber()
         self.texto_indice = self.relatorio_pdf.beginText(x_txt, y_txt)
         self.texto_string = self.relatorio_pdf.beginText(x_txt + 15, y_txt)
-
         self.relatorio_pdf.drawText(self.texto_string)
         self.relatorio_pdf.showPage()
 
@@ -99,6 +99,6 @@ class DocumentoPDF:
         for valor in categorias_busca:
             self.texto_string.textLine(valor)
 
-    
+
 obj_inicio = DocumentoPDF()
 obj_inicio.relatorio_pdf.save()
