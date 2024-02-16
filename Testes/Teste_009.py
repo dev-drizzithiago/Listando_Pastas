@@ -97,11 +97,13 @@ class DocumentoPDF:
         self.add_dados()
 
     def add_dados(self):
+        contador = 1
         for valor in categorias_busca:
             self.texto_string.textLine(valor)
+            if contador == 50:
+                PageBreak()
         self.relatorio_pdf.drawText(self.texto_string)
         self.relatorio_pdf.showPage()
-        PageBreak()
 
 
 obj_inicio = DocumentoPDF()
