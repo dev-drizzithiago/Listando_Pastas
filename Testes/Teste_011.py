@@ -41,7 +41,7 @@ def criando_multi_paginas():
             ptexto = '<font size="12">%s</font>' % parte.strip()
             Story.append(Paragraph(ptexto, estilo["Normal"]))
         Story.append(Spacer(1, 12))
-        ptexto = '<font size"12">Sr. %s </font>' & nome_completo.split()[0].strip()
+        ptexto = '<font size"12">Sr. %s </font>' % nome_completo.split()[0].strip()
         Story.append(Paragraph(ptexto, estilo['"Normal']))
         Story.append(Spacer(1, 12))
 
