@@ -52,4 +52,21 @@ def criandoMultiPaginas():
     Estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
     Story = list()
-    
+
+    margem_nome = 'Teste'
+    emitir_numero = 12
+    preco = '12.00'
+    data_limite = '03/05/2024'
+    presente = 'Chapeu de palha'
+    nome_completo = "Drizz't Do'Urden"
+    endereco = ['Mg Pinheiros', 'São Paulo']
+
+    for pagina in range(5):
+        # Criar endereço de retorno
+        p_texto = '<font size="12">%s</font>' % nome_completo
+        Story.append(Paragraph(p_texto, Estilo['Normal']))
+        for end in endereco:
+            p_texto = '<font size="12">%s</font>' % end.strip()
+            Story.append(Paragraph(p_texto, Estilo['Normal']))
+
+        Story.append(Spacer(1, 12))
