@@ -11,3 +11,8 @@ class PageNumCanvas(canvas.Canvas):
     http://code.activestate.com/recipes/546511-page-x-of-y-with-reportlab/
     http://code.activestate.com/recipes/576832/
     """
+
+    def __init__(self, *args, **kwargs):
+        """Construção"""
+        canvas.Canvas.__init__(self, *args, **kwargs)
+        self.paginas = []
