@@ -33,3 +33,8 @@ def criando_multi_paginas():
     presente = 'Chave de palha'
     nome_completo = "Drizz't Do'Urden"
     endereco = 'Mg Pinheiros'
+
+    for pagina in range(5):
+        ptexto = '<font size="12">%s</font>' % nome_completo
+        Story.append(Paragraph(ptexto, estilo["Normal"]))
+
