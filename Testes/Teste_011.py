@@ -30,3 +30,7 @@ def criando_multi_paginas():
     emitir_numero = 12
     preco = '12.00'
     data_limite = '03/05/2024'
+    presente = 'Chave de palha'
+    nome_completo = "Drizz't Do'Urden"
+    endereco = 'Mg Pinheiros'
+    
