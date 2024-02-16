@@ -46,3 +46,6 @@ class PageNumCanvas(canvas.Canvas):
 # ----------------------------------------------------------------------------------------------------------------------
 def criandoMultiPaginas():
     """Criando diversas paginas"""
+    documento = SimpleDocTemplate("documento_v2.pdf", pagesize=A4,
+                                  rightMargin=50, leftMargin=50, topMargin=50, bottomMargin=15)
+    
