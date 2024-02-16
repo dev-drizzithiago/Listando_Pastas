@@ -16,3 +16,9 @@ class PageNumCanvas(canvas.Canvas):
         """Construção"""
         canvas.Canvas.__init__(self, *args, **kwargs)
         self.paginas = []
+
+    def showPagina(self):
+        """ Em uma quebra de página, adicione informações à lista """
+        self.paginas.append(dict(self.__dict__))
+        self._startPagina()
+        
