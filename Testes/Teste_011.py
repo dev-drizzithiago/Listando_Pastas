@@ -35,13 +35,13 @@ def criando_multi_paginas():
     endereco = ['Mg Pinheiros', 'São Paulo']
 
     for pagina in range(5):
-        ptexto = '<font size="12">%s</font>' % nome_completo
+        ptexto = nome_completo
         Story.append(Paragraph(ptexto, estilo["Normal"]))
         for parte in endereco:
-            ptexto = '<font size="12">%s</font>' % parte.strip()
+            ptexto = parte.strip()
             Story.append(Paragraph(ptexto, estilo["Normal"]))
         Story.append(Spacer(1, 12))
-        ptexto = '<font size"12">Sr. %s </font>' % nome_completo.split()[0].strip()
+        ptexto = f' Sr. {nome_completo.split()[0].strip()}'
         Story.append(Paragraph(ptexto, estilo['Normal']))
         Story.append(Spacer(1, 12))
 
