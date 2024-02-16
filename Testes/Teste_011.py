@@ -40,10 +40,10 @@ def criando_multi_paginas():
         for parte in endereco:
             ptexto = parte.strip()
             Story.append(Paragraph(ptexto, estilo["Normal"]))
-        Story.append(Spacer(1, 12))
+        Story.append(Spacer(1, 25))
         ptexto = f' Sr. {nome_completo.split()[0].strip()}'
         Story.append(Paragraph(ptexto, estilo['Normal']))
-        Story.append(Spacer(1, 12))
+        Story.append(Spacer(1, 25))
 
     doc.build(Story, onFirstPage=addNumeroPaginas, onLaterPages=addNumeroPaginas)
 
