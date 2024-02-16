@@ -42,9 +42,9 @@ def criando_multi_paginas():
             Story.append(Paragraph(ptexto, estilo["Normal"]))
         Story.append(Spacer(1, 12))
 
-        ptexto = f' Sr. {nome_completo.split()[0].strip()}'
+        ptexto = f'     Sr. {nome_completo.split()[0].strip()}'
         Story.append(Paragraph(ptexto, estilo['Normal']))
-        Story.append(Spacer(1, 12))
+        Story.append(Spacer(1, 1))
 
         ptexto = """<font size="12">Gostaríamos de lhe dar as boas-vindas à nossa base de assinantes para a revista %s! 
         Você receberá %s edições na excelente introdução preço de $%s. Por favor, 
