@@ -64,7 +64,7 @@ def criando_multi_paginas():
         ptexto = '<font size="12"> Seu otário </font>'
         Story.append(Paragraph(ptexto, estilo['Normal']))
         Story.append(Spacer(1, 12))
-        # Story.append(PageBreak())
+        Story.append(PageBreak())
 
     doc.build(Story, onFirstPage=addNumeroPaginas, onLaterPages=addNumeroPaginas)
 
