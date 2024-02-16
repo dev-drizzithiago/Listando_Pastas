@@ -32,9 +32,12 @@ def criando_multi_paginas():
     data_limite = '03/05/2024'
     presente = 'Chave de palha'
     nome_completo = "Drizz't Do'Urden"
-    endereco = 'Mg Pinheiros'
+    endereco = ['Mg Pinheiros', 'São Paulo']
 
     for pagina in range(5):
         ptexto = '<font size="12">%s</font>' % nome_completo
         Story.append(Paragraph(ptexto, estilo["Normal"]))
+        for parte in endereco:
+            ptexto = '<font size="12">%s</font>' % parte.strip()
+            Story.append(Paragraph(ptexto, estilo["Normal"]))
 
