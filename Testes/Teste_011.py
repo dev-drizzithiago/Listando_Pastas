@@ -33,4 +33,3 @@ def criando_multi_paginas():
     presente = 'Chave de palha'
     nome_completo = "Drizz't Do'Urden"
     endereco = 'Mg Pinheiros'
-    
