@@ -42,6 +42,7 @@ class PageNumCanvas(canvas.Canvas):
         self.setFont("Helvetica", 9)
         self.drawRightString(195 * mm, 272 * mm, pagina)
 
+
 # ----------------------------------------------------------------------------------------------------------------------
 def criandoMultiPaginas():
     """Criando diversas paginas"""
