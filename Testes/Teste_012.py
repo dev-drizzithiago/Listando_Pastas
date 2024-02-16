@@ -24,15 +24,16 @@ class PageNumCanvas(canvas.Canvas):
 
     def save(self):
         """ Adicione o número da página a cada página (página x de y) """
-        contagem_pagina = len(self.paginas)
+        contagem_paginas = len(self.paginas)
         for pagina in self.paginas:
             self.__dict__.update(pagina)
-            self.draw_page_number(contagem_pagina)
+            self.draw_page_number(contagem_paginas)
             canvas.Canvas.showPage()
         canvas.Canvas.save()
 
-    def draw_page_number(self):
-
+    def draw_page_number(self, contagem_paginas):
+        """Adicione o número da página"""
+        pagina = f'Pagina {self._pageNumber, contagem_paginas}'
 
 
 
