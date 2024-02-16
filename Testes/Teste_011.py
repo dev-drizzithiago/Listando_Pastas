@@ -34,28 +34,37 @@ def criando_multi_paginas():
     nome_completo = "Drizz't Do'Urden"
     endereco = ['Mg Pinheiros', 'São Paulo']
 
-    for pagina in range(100):
+    for pagina in range(5):
         ptexto = nome_completo
         Story.append(Paragraph(ptexto, estilo["Normal"]))
         for parte in endereco:
             ptexto = parte.strip()
             Story.append(Paragraph(ptexto, estilo["Normal"]))
-        Story.append(Spacer(1, 5))
+        Story.append(Spacer(1, 12))
 
         ptexto = f' Sr. {nome_completo.split()[0].strip()}'
         Story.append(Paragraph(ptexto, estilo['Normal']))
-        Story.append(Spacer(1, 5))
+        Story.append(Spacer(1, 12))
 
         ptexto = """<font size="12">Gostaríamos de lhe dar as boas-vindas à nossa base de assinantes para a revista %s! 
         Você receberá %s edições na excelente introdução preço de $%s. Por favor, 
         responda até %s para começar a receber sua assinatura e ganhe o seguinte presente grátis: %s.</font>"""
         ptexto = ptexto % (margem_nome, emitir_numero, preco, data_limite, presente)
         Story.append(Paragraph(ptexto, estilo["Normal"]))
-        Story.append(Spacer(1, 25))
+        Story.append(Spacer(1, 12))
 
         ptexto = '<font size="12">Muito obrigado e estamos ansiosos para atendê-lo.</font>'
         Story.append(Paragraph(ptexto, estilo['Justify']))
-        Story.append(Spacer(1, 5))
+        Story.append(Spacer(1, 12))
+
+        ptexto = '<font size="12">Atenciosamente,</font>'
+        Story.append(Paragraph(ptexto, estilo['Normal']))
+        Story.append(Spacer(1, 12))
+
+        ptexto = '<font size="12"> Seu otário </font>'
+        Story.append(Paragraph(ptexto, estilo['Normal']))
+        Story.append(Spacer(1, 12))
+        # Story.append(PageBreak())
 
     doc.build(Story, onFirstPage=addNumeroPaginas, onLaterPages=addNumeroPaginas)
 
