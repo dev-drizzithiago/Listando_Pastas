@@ -12,7 +12,7 @@ def addNumeroPaginas(canvas, doc):
     """ Adicionando número de páginas """
     num_pag = canvas.getPageNumber()
     texto = "Pagina #%s" % num_pag
-    canvas.drawRightString(200*mm, 208*mm, texto)
+    canvas.drawRightString(200 * mm, 208 * mm, texto)
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -40,6 +40,14 @@ def criando_multi_paginas():
         for parte in endereco:
             ptexto = '<font size="12">%s</font>' % parte.strip()
             Story.append(Paragraph(ptexto, estilo["Normal"]))
-        Story.append(Paragraph(1, 12))
+        Story.append(Spacer(1, 12))
         ptexto = '<font size"12">Sr. %s </font>' & nome_completo.split()[0].strip()
+        Story.append(Paragraph(ptexto, estilo['"Normal']))
+        Story.append(Spacer(1, 12))
 
+    doc.build(Story, onFirstPage=addNumeroPaginas, onLaterPages=addNumeroPaginas)
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+if __name__ == "__main__":
+    criando_multi_paginas()
