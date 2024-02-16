@@ -48,6 +48,8 @@ def criando_multi_paginas():
         Você receberá %s edições na excelente introdução preço de $%s. Por favor, 
         responda até %s para começar a receber sua assinatura e ganhe o seguinte presente grátis: %s</font>"""
         ptexto = ptexto % (margem_nome, emitir_numero, preco, data_limite, presente)
+        Story.append(Paragraph(ptexto, estilo["Normal"]))
+        Story.append(Spacer(1, 25))
 
     doc.build(Story, onFirstPage=addNumeroPaginas, onLaterPages=addNumeroPaginas)
 
