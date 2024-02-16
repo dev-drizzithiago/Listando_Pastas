@@ -18,4 +18,6 @@ def addNumeroPaginas(canvas, doc):
 # ----------------------------------------------------------------------------------------------------------------------
 def criando_multi_paginas():
     """Criando diversas paginas"""
-
+    doc = SimpleDocTemplate('doc_pag_num.pdf', pagesize=A4,
+                            rightMargin=72, leftMargin=72,
+                            topMargin=72, bottomMargin=18)
