@@ -40,4 +40,6 @@ def criando_multi_paginas():
         for parte in endereco:
             ptexto = '<font size="12">%s</font>' % parte.strip()
             Story.append(Paragraph(ptexto, estilo["Normal"]))
+        Story.append(Paragraph(1, 12))
+        ptexto = '<font size"12">Sr. %s </font>' & nome_completo.split()[0].strip()
 
