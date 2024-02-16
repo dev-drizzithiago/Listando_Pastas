@@ -21,4 +21,20 @@ class PageNumCanvas(canvas.Canvas):
         """ Em uma quebra de página, adicione informações à lista """
         self.paginas.append(dict(self.__dict__))
         self._startPagina()
-        
+
+    def save(self):
+        """ Adicione o número da página a cada página (página x de y) """
+        contagem_pagina = len(self.paginas)
+        for pagina in self.paginas:
+            self.__dict__.update(pagina)
+            self.draw_page_number(contagem_pagina)
+            canvas.Canvas.showPage()
+        canvas.Canvas.save()
+
+    def draw_page_number(self):
+
+
+
+
+
+
