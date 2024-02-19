@@ -675,15 +675,15 @@ class ListandoArquivos:
                 self.contagem_extensao[valor_extensao] = 1
 
         print('-=-' * 40)
-        for pastas, quantidade in self.contagem_pastas:
+        for pastas, quantidade in self.contagem_pastas.items():
             print()
             print(f'{pastas} - {quantidade}')
 
-        print('Tipos de extensão - Quantidade Arquivos')
-        for extensao, quantidade in self.contagem_extensao.items():
-            print()
-            print(f'       {extensao} ------ : ------ [{quantidade}] ')
-        print(self.contagem_pastas)
+            print('-=-' * 40)
+            print('Tipos de extensão - Quantidade Arquivos')
+            for extensao, quantidade in self.contagem_extensao.items():
+                print()
+                print(f'       {extensao} ------ : ------ [{quantidade}] ')
 
         del self.lista_analise_arq_busca[:]
 
