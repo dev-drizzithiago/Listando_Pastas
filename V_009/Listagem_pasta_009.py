@@ -676,6 +676,10 @@ class ListandoArquivos:
         for extensao, quantidade in self.contagem_extensao.items():
             print('Tipos de extensão - Quantidade Arquivos')
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
+
+        for pastas, quantidade in self.contagem_pastas.items():
+            print(f'{pastas} ----- : ----- {quantidade} ')
+
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
