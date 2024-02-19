@@ -89,5 +89,7 @@ def criandoMultiPaginas():
         Story.append(Paragraph(p_texto, Estilo['Normal']))
         Story.append(Spacer(1, 12))
 
-        '<font size="12">Eu sou otário</font>'
+        p_texto = '<font size="12">Grato!! o</font>'
+        Story.append(Paragraph(p_texto, Estilo['Normal']))
+
 
