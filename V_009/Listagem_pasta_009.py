@@ -679,7 +679,7 @@ class ListandoArquivos:
             print(f'{chave}')
 
         for chave, valor_encontrado in extensao_encontradas.items():
-            print(f'{chave}')
+            self.lista_result_busca.insert('end', chave)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
