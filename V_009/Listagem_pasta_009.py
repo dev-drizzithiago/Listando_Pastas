@@ -655,7 +655,6 @@ class ListandoArquivos:
     def iniciar_busca(self):
         pastas_encontradas = {}
         extensao_encontradas = {}
-        lista_extensao_encontradas = []
 
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
@@ -663,9 +662,6 @@ class ListandoArquivos:
             pasta_destino = Path(valor_pasta_destino)
 
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
-            divisao_busca_extensao = str(valor_busca).split('.')
-            valor_extensao = divisao_busca_extensao[-1]
-            lista_extensao_encontradas.append(valor_extensao)
 
             if valor_busca.is_dir():
                 if valor_busca in pastas_encontradas:
@@ -678,8 +674,6 @@ class ListandoArquivos:
                     extensao_encontradas[valor_busca] += 1
                 else:
                     extensao_encontradas[valor_busca] = 1
-                    
-        print(lista_extensao_encontradas)
 
         for chave, valor_encontrado in pastas_encontradas.items():
             if valor_encontrado == 2:
