@@ -650,7 +650,7 @@ class ListandoArquivos:
         self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                        f' [ {valor_da_busca} ] e... \n'
                                        f' [ {cont_pastas} ] Pasta/s ')
-        self.analise_dados_busca()  ##
+        self.analise_dados_busca()
 
     def iniciar_busca(self):
         if self.ativo_status_destinos:
