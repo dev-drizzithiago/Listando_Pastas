@@ -657,14 +657,11 @@ class ListandoArquivos:
         # Declarações de variaveis
         self.contagem_extensao = {}
         self.contagem_pastas = {}
-        self.pasta_extensao = {}
-
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             valor_pastas = str(divisao_valor_pastas[-2].lower()).strip()
-            self.pasta_extensao['Pasta'] = valor_pastas
 
             if valor_pastas in self.contagem_pastas:
                 self.contagem_pastas[valor_pastas] += 1
@@ -686,7 +683,6 @@ class ListandoArquivos:
             for extensao, quantidade in self.contagem_extensao.items():
                 print()
                 print(f'       {extensao} ------ : ------ [{quantidade}] ')
-        print(self.pasta_extensao)
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
