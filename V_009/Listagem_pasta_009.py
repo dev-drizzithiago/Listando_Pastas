@@ -653,11 +653,14 @@ class ListandoArquivos:
         self.analise_dados_busca()
 
     def iniciar_busca(self):
+        pastas_encontradas = {}
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
         else:
             pasta_destino = Path(valor_pasta_destino)
 
+        for valor_busca in pasta_destino.glob('**/*', self.extensao_selecao_busca):
+            if valor_busca.is_dir():
 
 
 
