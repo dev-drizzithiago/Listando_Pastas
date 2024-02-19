@@ -33,7 +33,7 @@ class PageNumCanvas(canvas.Canvas):
             self.__dict__.update(pagina)
             self.draw_page_number(contagem_paginas)
             canvas.Canvas.showPage()
-        canvas.Canvas.save()
+        canvas.Canvas.save(self)
 
     # ------------------------------------------------------------------------------------------------------------------
     def draw_page_number(self, contagem_paginas):
