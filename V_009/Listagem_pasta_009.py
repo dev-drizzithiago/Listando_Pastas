@@ -667,28 +667,27 @@ class ListandoArquivos:
             valor_extensao = divisao_busca_extensao[-1]
             lista_extensao_encontradas.append(valor_extensao)
 
-
             if valor_busca.is_dir():
                 if valor_busca in pastas_encontradas:
                     pastas_encontradas[valor_busca] += 1
                 else:
                     pastas_encontradas[valor_busca] = 1
+
             elif valor_busca.is_file():
                 if valor_busca in extensao_encontradas:
                     extensao_encontradas[valor_busca] += 1
                 else:
                     extensao_encontradas[valor_busca] = 1
+                    
         print(lista_extensao_encontradas)
+
         for chave, valor_encontrado in pastas_encontradas.items():
             if valor_encontrado == 2:
                 print(chave)
             else:
                 print(valor_encontrado)
         for chave, valor_encontrado in extensao_encontradas.items():
-            if valor_encontrado == 1:
-                print(valor_encontrado)
-            else:
-                print(chave)
+            print(f'{chave}:{valor_encontrado}')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
