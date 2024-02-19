@@ -662,7 +662,8 @@ class ListandoArquivos:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
-            valor_pastas = str(divisao_valor_pastas[-1].lower()).strip()
+            valor_pastas = str(divisao_valor_pastas[-2].lower()).strip()
+            print(valor_pastas)
             if valor_pastas in self.contagem_pastas:
                 self.contagem_pastas[valor_pastas] += 1
             else:
@@ -676,9 +677,7 @@ class ListandoArquivos:
         for extensao, quantidade in self.contagem_extensao.items():
             print('Tipos de extensão - Quantidade Arquivos')
             print(f'       {extensao} ------ : ------ [{quantidade}] ')
-
-        for pastas, quantidade in self.contagem_pastas.items():
-            print(f'{pastas} ----- : ----- {quantidade} ')
+        print(self.contagem_pastas)
 
         del self.lista_analise_arq_busca[:]
 
