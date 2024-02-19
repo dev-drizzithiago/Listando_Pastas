@@ -69,12 +69,19 @@ def criandoMultiPaginas():
             p_texto = '<font size="12">%s</font>' % end.strip()
             Story.append(Paragraph(p_texto, Estilo['Normal']))
         Story.append(Spacer(1, 12))
+        
         p_texto = '<font size="12">%s</font>' % nome_completo.split()[0].strip()
         Story.append(Paragraph(p_texto, Estilo['Normal']))
         Story.append(Spacer(1, 12))
+
         p_texto = """<font size="12">Gostaríamos de lhe dar as boas-vindas à nossa base de assinantes para a revista %s! 
         Você receberá %s edições na excelente introdução preço de $%s. Por favor, responda até %s para começar a receber 
         sua assinatura e ganhe o seguinte presente grátis: %s.</font>"""
+        p_texto = p_texto % (margem_nome, emitir_numero, preco, data_limite, presente)
+        Story.append(Paragraph(p_texto, Estilo['Justify']))
+        Story.append(Spacer(1, 12))
+
+        p_texto = '<font size="12">Muito obrigado e estamos ansiosos para atendê-lo.</font>'
 
 
         Story.append(Spacer(1, 12))
