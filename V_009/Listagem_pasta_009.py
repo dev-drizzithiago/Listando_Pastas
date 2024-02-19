@@ -653,7 +653,8 @@ class ListandoArquivos:
         self.analise_dados_busca()  ##
 
     def iniciar_busca(self):
-        
+        if self.ativo_status_destinos:
+            pasta_destino = Path(self.pasta_local_de_busca)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
