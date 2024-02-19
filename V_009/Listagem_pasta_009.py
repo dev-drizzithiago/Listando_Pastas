@@ -15,6 +15,13 @@ valor_datatime = datetime.now()
 data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%H:%M')
 
+"""
+mostrar as busca conforme os arquivos em pastas
+
+Fotos:
+arquivos...
+"""
+
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
@@ -644,14 +651,6 @@ class ListandoArquivos:
                                        f' [ {valor_da_busca} ] e... \n'
                                        f' [ {cont_pastas} ] Pasta/s ')
         self.analise_dados_busca()
-
-
-"""
-mostrar as busca conforme os arquivos em pastas
-
-Fotos:
-arquivos...
-"""
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
