@@ -656,11 +656,14 @@ class ListandoArquivos:
         self.criando_relatorio_pdf()
         # Declarações de variaveis
         self.contagem_extensao = {}
+        self.contagem_pastas = {}
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
+            if
+
             if valor_extensao in self.contagem_extensao:
                 self.contagem_extensao[valor_extensao] += 1
             else:
