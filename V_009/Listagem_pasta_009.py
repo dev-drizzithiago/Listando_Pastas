@@ -678,8 +678,8 @@ class ListandoArquivos:
             else:
                 print(valor_encontrado)
         for chave, valor_encontrado in extensao_encontradas.items():
-            if valor_encontrado > 2:
-                print(chave, valor_encontrado)
+            if valor_encontrado == 1:
+                print(valor_encontrado)
             else:
                 print(chave)
 
