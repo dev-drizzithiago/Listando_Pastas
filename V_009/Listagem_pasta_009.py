@@ -671,12 +671,17 @@ class ListandoArquivos:
                     extensao_encontradas[valor_busca] += 1
                 else:
                     extensao_encontradas[valor_busca] = 1
-                    
+
         for chave, valor_encontrado in pastas_encontradas.items():
             if valor_encontrado == 2:
                 print(chave)
             else:
                 print(valor_encontrado)
+        for chave, valor_encontrado in extensao_encontradas.items():
+            if valor_encontrado > 2:
+                print(chave, valor_encontrado)
+            else:
+                print(chave)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
