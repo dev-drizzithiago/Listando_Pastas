@@ -659,8 +659,12 @@ class ListandoArquivos:
         else:
             pasta_destino = Path(valor_pasta_destino)
 
-        for valor_busca in pasta_destino.glob('**/*', self.extensao_selecao_busca):
+        for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
             if valor_busca.is_dir():
+                if valor_busca in pastas_encontradas:
+                    pastas_encontradas[valor_busca] += 1
+                else:
+                    pastas_encontradas[valor_busca] = 1
 
 
 
