@@ -677,9 +677,12 @@ class ListandoArquivos:
 
         for chave, valor_encontrado in pastas_encontradas.items():
             print(f'{chave}')
-
+            self.lista_result_busca.insert('end', chave)
+            print(f'Valor da busca {chave} : {valor_encontrado}')
+        self.lista_result_busca.insert('end', '-=-' * 60)
         for chave, valor_encontrado in extensao_encontradas.items():
             self.lista_result_busca.insert('end', chave)
+            print(f'Valor da busca {chave} : {valor_encontrado}')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
