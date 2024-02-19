@@ -662,7 +662,11 @@ class ListandoArquivos:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
-            if
+            valor_pastas = str(divisao_valor_pastas[-1].lower()).strip()
+            if valor_pastas in self.contagem_pastas:
+                self.contagem_pastas[valor_pastas] += 1
+            else:
+                self.contagem_pastas[valor_pastas] = 1
 
             if valor_extensao in self.contagem_extensao:
                 self.contagem_extensao[valor_extensao] += 1
