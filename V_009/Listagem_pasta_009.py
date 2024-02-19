@@ -666,7 +666,10 @@ class ListandoArquivos:
                 else:
                     pastas_encontradas[valor_busca] = 1
         for chave, valor_encontrado in pastas_encontradas.items():
-            print(chave)
+            if valor_encontrado == 2:
+                print(chave)
+            else:
+                print(valor_encontrado)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
