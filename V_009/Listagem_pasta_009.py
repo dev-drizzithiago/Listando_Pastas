@@ -579,7 +579,7 @@ class ListandoArquivos:
         self.pasta_local_de_busca = tk.filedialog.askdirectory()
         self.ativo_status_destinos = True
 
-    def iniciar_busca(self):
+    def iniciar_busca_desativado(self):  ## Desativado
 
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
@@ -650,7 +650,10 @@ class ListandoArquivos:
         self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                        f' [ {valor_da_busca} ] e... \n'
                                        f' [ {cont_pastas} ] Pasta/s ')
-        self.analise_dados_busca()
+        self.analise_dados_busca()  ##
+
+    def iniciar_busca(self):
+        
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
