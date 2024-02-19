@@ -93,4 +93,9 @@ def criandoMultiPaginas():
         Story.append(Paragraph(p_texto, Estilo['Normal']))
         Story.append(Spacer(1, 12))
 
+    documento.build(Story, canvasmaker=PageNumCanvas)
 
+
+# ----------------------------------------------------------------------------------------------------------------------
+if __name__ == "__main__":
+    criandoMultiPaginas()
