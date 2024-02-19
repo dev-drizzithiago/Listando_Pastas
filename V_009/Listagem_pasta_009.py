@@ -645,6 +645,14 @@ class ListandoArquivos:
                                        f' [ {cont_pastas} ] Pasta/s ')
         self.analise_dados_busca()
 
+
+"""
+mostrar as busca conforme os arquivos em pastas
+
+Fotos:
+arquivos...
+"""
+
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
         # Declarações de variaveis
