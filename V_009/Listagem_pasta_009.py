@@ -579,7 +579,7 @@ class ListandoArquivos:
         self.pasta_local_de_busca = tk.filedialog.askdirectory()
         self.ativo_status_destinos = True
 
-    def iniciar_busca_desativado(self):  ## Desativado
+    def iniciar_busca_desativado(self):  # Desativado
 
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
@@ -655,6 +655,11 @@ class ListandoArquivos:
     def iniciar_busca(self):
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
+        else:
+            pasta_destino = Path(valor_pasta_destino)
+
+
+
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
