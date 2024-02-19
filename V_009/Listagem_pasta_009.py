@@ -654,6 +654,7 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         pastas_encontradas = {}
+        extensao_encontradas = {}
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
         else:
@@ -665,6 +666,12 @@ class ListandoArquivos:
                     pastas_encontradas[valor_busca] += 1
                 else:
                     pastas_encontradas[valor_busca] = 1
+            elif valor_busca.is_file():
+                if valor_busca in extensao_encontradas:
+                    extensao_encontradas[valor_busca] += 1
+                else:
+                    extensao_encontradas[valor_busca] = 1
+                    
         for chave, valor_encontrado in pastas_encontradas.items():
             if valor_encontrado == 2:
                 print(chave)
