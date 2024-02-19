@@ -676,10 +676,10 @@ class ListandoArquivos:
                     extensao_encontradas[valor_busca] = 1
 
         for chave, valor_encontrado in pastas_encontradas.items():
-            print(f'{chave}:{valor_encontrado}')
-            
+            print(f'{chave}')
+
         for chave, valor_encontrado in extensao_encontradas.items():
-            print(f'{chave}:{valor_encontrado}')
+            print(f'{chave}')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
