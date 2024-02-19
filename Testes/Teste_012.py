@@ -69,7 +69,7 @@ def criandoMultiPaginas():
             p_texto = '<font size="12">%s</font>' % end.strip()
             Story.append(Paragraph(p_texto, Estilo['Normal']))
         Story.append(Spacer(1, 12))
-        
+
         p_texto = '<font size="12">%s</font>' % nome_completo.split()[0].strip()
         Story.append(Paragraph(p_texto, Estilo['Normal']))
         Story.append(Spacer(1, 12))
@@ -82,6 +82,12 @@ def criandoMultiPaginas():
         Story.append(Spacer(1, 12))
 
         p_texto = '<font size="12">Muito obrigado e estamos ansiosos para atendê-lo.</font>'
-
-
+        Story.append(Paragraph(p_texto, Estilo['Justify']))
         Story.append(Spacer(1, 12))
+
+        p_texto = '<font size="12">Atenciosamente,</font>'
+        Story.append(Paragraph(p_texto, Estilo['Normal']))
+        Story.append(Spacer(1, 12))
+
+        '<font size="12">Eu sou otário</font>'
+
