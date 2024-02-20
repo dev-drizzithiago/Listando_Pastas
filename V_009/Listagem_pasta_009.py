@@ -655,6 +655,8 @@ class ListandoArquivos:
     def iniciar_busca(self):
         pastas_encontradas = {}
         extensao_encontradas = {}
+        contador_arquivos = 1
+        contador_pastas = 1
 
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
@@ -666,21 +668,25 @@ class ListandoArquivos:
             if valor_busca.is_dir():
                 if valor_busca in pastas_encontradas:
                     pastas_encontradas[valor_busca] += 1
+
                 else:
                     pastas_encontradas[valor_busca] = 1
-
+                contador_pastas += 1
             elif valor_busca.is_file():
                 if valor_busca in extensao_encontradas:
                     extensao_encontradas[valor_busca] += 1
                 else:
                     extensao_encontradas[valor_busca] = 1
+                contador_arquivos += 1
 
         self.lista_result_busca.insert('end', f'{data_atual} - {hora_atual}')
-        self.lista_result_busca.insert('end', '-=-' * 48)
+        self.lista_result_busca.insert('end', '')
+        self.lista_result_busca.insert('end', '\nPastas', '-=-' * 48)
         for chave, valor_encontrado in pastas_encontradas.items():
             self.lista_result_busca.insert('end', chave)
             print(f'Valor da busca {chave} : {valor_encontrado}')
-        self.lista_result_busca.insert('end', '-=-' * 48)
+        self.lista_result_busca.insert('end', '')
+        self.lista_result_busca.insert('end', '\nArquivos',  '-=-' * 48)
         for chave, valor_encontrado in extensao_encontradas.items():
             self.lista_result_busca.insert('end', chave)
             print(f'Valor da busca {chave} : {valor_encontrado}')
