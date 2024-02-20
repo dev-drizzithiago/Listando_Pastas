@@ -677,16 +677,19 @@ class ListandoArquivos:
                     extensao_encontradas[valor_busca] += 1
                 else:
                     extensao_encontradas[valor_busca] = 1
-                contador_arquivos += 1
 
         self.lista_result_busca.insert('end', f'{data_atual} - {hora_atual}')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nPastas', '-=-' * 48)
+
+        # Busca Pastas
         for chave, valor_encontrado in pastas_encontradas.items():
             self.lista_result_busca.insert('end', f'{contador_pastas}-{chave}')
             print(f'Valor da busca {chave} : {valor_encontrado}')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nArquivos',  '-=-' * 48)
+
+        # Busca Arquivos
         for chave, valor_encontrado in extensao_encontradas.items():
             self.lista_result_busca.insert('end', f'{contador_arquivos}-{chave}')
             print(f'Valor da busca {chave} : {valor_encontrado}')
