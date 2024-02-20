@@ -674,7 +674,8 @@ class ListandoArquivos:
                     extensao_encontradas[valor_busca] += 1
                 else:
                     extensao_encontradas[valor_busca] = 1
-
+                    
+        self.lista_result_busca.insert('end', '-=-' * 50)
         self.lista_result_busca.insert('end', f'{data_atual} - {hora_atual}')
         for chave, valor_encontrado in pastas_encontradas.items():
             self.lista_result_busca.insert('end', chave)
