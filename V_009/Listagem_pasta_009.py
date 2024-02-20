@@ -683,12 +683,12 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nPastas', '-=-' * 48)
         for chave, valor_encontrado in pastas_encontradas.items():
-            self.lista_result_busca.insert('end', chave)
+            self.lista_result_busca.insert('end', f'{contador_pastas}-{chave}')
             print(f'Valor da busca {chave} : {valor_encontrado}')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nArquivos',  '-=-' * 48)
         for chave, valor_encontrado in extensao_encontradas.items():
-            self.lista_result_busca.insert('end', chave)
+            self.lista_result_busca.insert('end', f'{contador_arquivos}-{chave}')
             print(f'Valor da busca {chave} : {valor_encontrado}')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Busca finalizada!')
