@@ -668,10 +668,8 @@ class ListandoArquivos:
             if valor_busca.is_dir():
                 if valor_busca in pastas_encontradas:
                     pastas_encontradas[valor_busca] += 1
-
                 else:
                     pastas_encontradas[valor_busca] = 1
-                contador_pastas += 1
             elif valor_busca.is_file():
                 if valor_busca in extensao_encontradas:
                     extensao_encontradas[valor_busca] += 1
@@ -686,6 +684,7 @@ class ListandoArquivos:
         for chave, valor_encontrado in pastas_encontradas.items():
             self.lista_result_busca.insert('end', f'{contador_pastas}-{chave}')
             print(f'Valor da busca {chave} : {valor_encontrado}')
+            contador_pastas += 1
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nArquivos',  '-=-' * 48)
 
@@ -693,6 +692,7 @@ class ListandoArquivos:
         for chave, valor_encontrado in extensao_encontradas.items():
             self.lista_result_busca.insert('end', f'{contador_arquivos}-{chave}')
             print(f'Valor da busca {chave} : {valor_encontrado}')
+            contador_arquivos += 1
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Busca finalizada!')
         self.lista_result_busca.insert('end', '-=-' * 50)
