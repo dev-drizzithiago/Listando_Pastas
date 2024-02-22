@@ -660,6 +660,7 @@ class ListandoArquivos:
         self.analise_dados_busca()
 
     def iniciar_busca(self):
+        contagem_extensao = dict()
         pastas_encontradas = dict()
         extensao_encontradas = dict()
         lista_extensoes = list()
@@ -686,8 +687,8 @@ class ListandoArquivos:
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
             dividindo_arquivos_extensao = str(valor_busca).split('.')
             dividindo_arquivos_pastas = str(valor_busca).split('\\')
-            lista_extensoes.append(dividindo_arquivos_extensao)
-            lista_pastas.append(dividindo_arquivos_pastas)
+            lista_extensoes.append(dividindo_arquivos_extensao[-1])
+            lista_pastas.append(dividindo_arquivos_pastas[-2])
 
             if valor_busca.is_dir():
                 if valor_busca in pastas_encontradas:
@@ -740,8 +741,13 @@ class ListandoArquivos:
 
         self.linha_aparencia()
         for valor in lista_extensoes:
-            print(valor)
-
+            if valor in contagem_extensao:
+                contagem_extensao[valor] += 1
+            else:
+                contagem_extensao = 1
+        for ext, contagem in contagem_extensao.items():
+            print(f'{ext}:{contagem}')
+            
         self.linha_aparencia()
         for valor in lista_pastas:
             print(valor)
