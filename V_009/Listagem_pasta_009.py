@@ -769,7 +769,9 @@ class ListandoArquivos:
 
         for valor_da_busca in valor_path_busca.iterdir():
             if valor_da_busca.is_dir():
-                print(valor_da_busca)
+                valor_pasta_busca = Path(valor_da_busca)
+                for valor_busca_file in valor_pasta_busca.is_file():
+                    
             else:
                 print(valor_da_busca)
 
