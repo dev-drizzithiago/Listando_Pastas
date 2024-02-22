@@ -696,6 +696,7 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', f'{contador_pastas}-\\{chave}')
             print(f'Valor da busca {contador_pastas} - \\{chave} : {valor_encontrado}')
             contador_pastas += 1
+            self.lab
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nArquivos',  '-=-' * 48)
 
