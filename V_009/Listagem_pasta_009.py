@@ -677,6 +677,10 @@ class ListandoArquivos:
         # Ativando BARRA DE PROGRESSO
         self.barra_progresso_busca.start()
 
+        # Informação da busca
+        self.label_status.config(text='Iniciando a busca, aguarde!')
+        sleep(1)
+        
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
 
             if valor_busca.is_dir():
