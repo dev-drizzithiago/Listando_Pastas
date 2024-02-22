@@ -266,6 +266,9 @@ class ListandoArquivos:
         self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao.get())
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
+    def linha_aparencia(self):
+        print('-=-' * 48)
+
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
@@ -706,7 +709,8 @@ class ListandoArquivos:
             print(f'Valor da busca {contador_arquivos} - **{chave} : {valor_encontrado}')
             contador_arquivos += 1
             self.status_contagem_arquivos.config(text=f'Arquivos encontrados [{contador_arquivos}]')
-        print()
+            
+        self.linha_aparencia()
         print('Busca Finalizada!')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Busca finalizada!')
