@@ -760,25 +760,14 @@ class ListandoArquivos:
             print(f'{pasta}:{contagem}')
 
     def iniciar_busca(self):
-
+        from os import walk
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
             valor_path_busca = Path(self.pasta_local_de_busca)
         else:
             valor_path_busca = Path(valor_pasta_destino)
 
-        for valor_da_busca in valor_path_busca.iterdir():
-            if valor_da_busca.is_dir():
-                valor_pasta_busca = Path(valor_da_busca)
-                print()
-                print(f'Valor diretorio {valor_da_busca}')
-                self.linha_aparencia()
-                for valor_busca_file in valor_pasta_busca.glob('**/*' + self.extensao_selecao_busca):
-                    if valor_busca_file.is_file():
-                        valor_arquivo = str(valor_busca_file).split('\\')[-1]
-                        print(valor_arquivo)
-            else:
-                print(str(valor_da_busca).split('\\')[-1])
+
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
@@ -841,4 +830,25 @@ obj_start = ListandoArquivos()
              if valor.is_dir():
                  print(valor)
      elif PurePath('**/*' + self.extensao_selecao_busca).parts:
-         print(valor_da_busca)'''
+         print(valor_da_busca)
+         
+         
+                 for valor_da_busca in valor_path_busca.iterdir():
+            if valor_da_busca.is_dir():
+                valor_pasta_busca = Path(valor_da_busca)
+                print()
+                print(f'Valor diretorio {valor_da_busca}')
+                self.linha_aparencia()
+                for valor_busca_file in valor_pasta_busca.glob('**/*' + self.extensao_selecao_busca):
+                    if valor_busca_file.is_file():
+                        valor_arquivo = str(valor_busca_file).split('\\')[-1]
+                        print(valor_arquivo)
+            else:
+                print(str(valor_da_busca).split('\\')[-1])
+         
+                 for root, diretory, files in walk(str(valor_path_busca)):
+            print(f'\n Raiz: {root}')
+            print(f'   Sub     {diretory}')
+            print(f'      Arquivos {files}')
+         
+         '''
