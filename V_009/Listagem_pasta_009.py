@@ -761,7 +761,7 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
 
-        # VErifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
+        # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
             valor_path_busca = Path(self.pasta_local_de_busca)
         else:
