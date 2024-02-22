@@ -678,7 +678,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.start()
 
         # Informação da busca
-        self.label_status.config(text='Iniciando a busca, aguarde!')
+        self.label_status.config(text='Iniciando processo de busca, aguarde!')
         sleep(1)
         
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
@@ -699,6 +699,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '\nPastas', '-=-' * 48)
 
         # Busca Pastas
+        self.label_status.config(text='Mostrando as informações da busca no lista acima!')
         for chave, valor_encontrado in pastas_encontradas.items():
             self.lista_result_busca.insert('end', f'{contador_pastas}-\\{chave}')
             print(f'Valor da busca {contador_pastas} - \\{chave} : {valor_encontrado}')
@@ -716,6 +717,7 @@ class ListandoArquivos:
 
         self.linha_aparencia()
         print('Busca Finalizada!')
+        self.label_status.config(text='Busca Finalizada!')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Busca finalizada!')
         self.lista_result_busca.insert('end', '-=-' * 50)
