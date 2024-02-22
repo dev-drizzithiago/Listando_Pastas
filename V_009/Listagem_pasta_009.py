@@ -770,8 +770,12 @@ class ListandoArquivos:
         for valor_da_busca in valor_path_busca.iterdir():
             if valor_da_busca.is_dir():
                 valor_pasta_busca = Path(valor_da_busca)
+                print()
+                print(f'Valor diretorio {valor_da_busca}')
+                self.linha_aparencia()
                 for valor_busca_file in valor_pasta_busca.glob('**/*' + self.extensao_selecao_busca):
-                    print(valor_busca_file)
+                    if valor_busca_file.is_file():
+                        print(valor_busca_file)
             else:
                 print(valor_da_busca)
 
