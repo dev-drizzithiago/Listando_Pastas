@@ -660,8 +660,9 @@ class ListandoArquivos:
         self.analise_dados_busca()
 
     def iniciar_busca(self):
-        pastas_encontradas = {}
-        extensao_encontradas = {}
+        pastas_encontradas = dict()
+        extensao_encontradas = dict()
+        lista_extensoes = list()
         contador_arquivos = 1
         contador_pastas = 1
 
@@ -682,6 +683,7 @@ class ListandoArquivos:
         sleep(1)
         
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
+            dividindo_arquivos = str(valor_busca).split('.')
 
             if valor_busca.is_dir():
                 if valor_busca in pastas_encontradas:
@@ -730,6 +732,8 @@ class ListandoArquivos:
 
         # Desativando BARRA DE PROGRESSO
         self.barra_progresso_busca.stop()
+
+        print(dividindo_arquivos)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
