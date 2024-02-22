@@ -671,6 +671,9 @@ class ListandoArquivos:
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
 
+        # Ativando BARRA DE PROGRESSO
+        self.barra_progresso_busca.start()
+
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
 
             if valor_busca.is_dir():
@@ -709,6 +712,9 @@ class ListandoArquivos:
 
         # Desativando o TIME
         self.ativo_time_busca = False
+
+        # Desativando BARRA DE PROGRESSO
+        self.barra_progresso_busca.stop()
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
