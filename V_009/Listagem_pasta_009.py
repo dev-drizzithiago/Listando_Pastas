@@ -699,7 +699,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '\nPastas', '-=-' * 48)
 
         # Busca Pastas
-        self.label_status.config(text='Mostrando as informações da busca no lista acima!')
+        self.label_status.config(text='Carregando as informações da busca na lista!')
         for chave, valor_encontrado in pastas_encontradas.items():
             self.lista_result_busca.insert('end', f'{contador_pastas}-\\{chave}')
             print(f'Valor da busca {contador_pastas} - \\{chave} : {valor_encontrado}')
