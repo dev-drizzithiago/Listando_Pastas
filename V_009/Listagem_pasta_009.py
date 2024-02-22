@@ -760,15 +760,18 @@ class ListandoArquivos:
             print(f'{pasta}:{contagem}')
 
     def iniciar_busca(self):
+
+        # VErifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
             valor_path_busca = Path(self.pasta_local_de_busca)
         else:
             valor_path_busca = Path(valor_pasta_destino)
 
+        # Realiza a busca
         for valor_da_busca in valor_path_busca.glob('**/*' + self.extensao_selecao_busca):
             if valor_da_busca.is_dir():
                 pasta_busca = Path(str(valor_da_busca))
-
+                print(f'Busca realizada na pasta [{pasta_busca}]')
                 for valor in pasta_busca.glob('**/*'):
                     if valor.is_file():
                         print(valor)
