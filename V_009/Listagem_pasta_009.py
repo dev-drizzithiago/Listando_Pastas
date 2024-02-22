@@ -586,7 +586,7 @@ class ListandoArquivos:
         self.pasta_local_de_busca = tk.filedialog.askdirectory()
         self.ativo_status_destinos = True
 
-    def iniciar_busca_desativado(self):  # Desativado
+    def iniciar_busca_V1_desativado(self):  # Desativado
 
         if self.ativo_status_destinos:
             pasta_destino = Path(self.pasta_local_de_busca)
@@ -659,7 +659,7 @@ class ListandoArquivos:
                                        f' [ {cont_pastas} ] Pasta/s ')
         self.analise_dados_busca()
 
-    def iniciar_busca(self):
+    def iniciar_busca_V2_desativado(self):
         contagem_extensao = dict()
         contagem_pastas = dict()
         pastas_encontradas = dict()
@@ -758,6 +758,13 @@ class ListandoArquivos:
                 contagem_pastas[valor] = 1
         for pasta, contagem in contagem_pastas.items():
             print(f'{pasta}:{contagem}')
+
+    def iniciar_busca(self):
+        if self.ativo_status_destinos:
+            valor_busca = Path(self.pasta_local_de_busca)
+        else:
+            valor_busca = Path(valor_pasta_destino)
+    
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
