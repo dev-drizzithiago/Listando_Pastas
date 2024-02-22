@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter.ttk import *
 
 from time import sleep
-from pathlib import Path
+from pathlib import Path, PurePath
 from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import showerror
@@ -684,7 +684,7 @@ class ListandoArquivos:
         # Informação da busca
         self.label_status.config(text='Iniciando processo de busca, aguarde!')
         sleep(1)
-        
+
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
             dividindo_arquivos_extensao = str(valor_busca).split('.')
             dividindo_arquivos_pastas = str(valor_busca).split('\\')
@@ -715,7 +715,7 @@ class ListandoArquivos:
             contador_pastas += 1
             self.status_contagem_pastas.config(text=f'Pastas encontradas [{contador_pastas}]')
         self.lista_result_busca.insert('end', '')
-        self.lista_result_busca.insert('end', '\nArquivos',  '-=-' * 48)
+        self.lista_result_busca.insert('end', '\nArquivos', '-=-' * 48)
 
         # Busca Arquivos
         for chave, valor_encontrado in extensao_encontradas.items():
@@ -732,7 +732,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '-=-' * 50)
 
         self.msg_tot_busca.config(text=f'Fora encontrados {contador_arquivos} Arquivos e \n'
-                                  f'{contador_pastas} pastas')
+                                       f'{contador_pastas} pastas')
 
         # Desativando o TIME
         self.ativo_time_busca = False
@@ -767,18 +767,12 @@ class ListandoArquivos:
         else:
             valor_path_busca = Path(valor_pasta_destino)
 
-        # Realiza a busca
-        for valor_da_busca in valor_path_busca.glob('**/*' + self.extensao_selecao_busca):
+        for valor_da_busca in valor_path_busca.iterdir():
             if valor_da_busca.is_dir():
-                pasta_busca = Path(str(valor_da_busca))
-                self.linha_aparencia()
-                print(f'Busca realizada na pasta [{pasta_busca}]')
-                for valor in pasta_busca.glob('**/*' + self.extensao_selecao_busca):
-                    if valor.is_dir():
-                        print(valor)
+                print(valor_da_busca)
             else:
                 print(valor_da_busca)
-                
+
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
         # Declarações de variaveis
@@ -829,3 +823,15 @@ class ListandoArquivos:
 
 
 obj_start = ListandoArquivos()
+
+''' # Realiza a busca
+ for valor_da_busca in valor_path_busca.glob('**/*' + self.extensao_selecao_busca):
+     if valor_da_busca.is_dir():
+         pasta_busca = Path(str(valor_da_busca))
+         self.linha_aparencia()
+         print(f'Busca realizada na pasta [{pasta_busca}]')
+         for valor in pasta_busca.glob('**/*' + self.extensao_selecao_busca):
+             if valor.is_dir():
+                 print(valor)
+     elif PurePath('**/*' + self.extensao_selecao_busca).parts:
+         print(valor_da_busca)'''
