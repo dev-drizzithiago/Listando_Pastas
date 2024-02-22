@@ -747,7 +747,7 @@ class ListandoArquivos:
                 contagem_extensao = 1
         for ext, contagem in contagem_extensao.items():
             print(f'{ext}:{contagem}')
-            
+
         self.linha_aparencia()
         for valor in lista_pastas:
             print(valor)
