@@ -775,7 +775,8 @@ class ListandoArquivos:
                 self.linha_aparencia()
                 for valor_busca_file in valor_pasta_busca.glob('**/*' + self.extensao_selecao_busca):
                     if valor_busca_file.is_file():
-                        print(valor_busca_file)
+                        valor_arquivo = str(valor_busca_file).split('\\')[-1]
+                        print(valor_arquivo)
             else:
                 print(valor_da_busca)
 
