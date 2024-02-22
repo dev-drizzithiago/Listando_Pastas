@@ -709,7 +709,7 @@ class ListandoArquivos:
             print(f'Valor da busca {contador_arquivos} - **{chave} : {valor_encontrado}')
             contador_arquivos += 1
             self.status_contagem_arquivos.config(text=f'Arquivos encontrados [{contador_arquivos}]')
-            
+
         self.linha_aparencia()
         print('Busca Finalizada!')
         self.lista_result_busca.insert('end', '')
