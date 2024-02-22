@@ -773,10 +773,12 @@ class ListandoArquivos:
                 pasta_busca = Path(str(valor_da_busca))
                 self.linha_aparencia()
                 print(f'Busca realizada na pasta [{pasta_busca}]')
-                for valor in pasta_busca.glob('**/*'):
-                    if valor.is_file():
+                for valor in pasta_busca.glob('**/*' + self.extensao_selecao_busca):
+                    if valor.is_dir():
                         print(valor)
-                        
+            else:
+                print(valor_da_busca)
+                
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
         # Declarações de variaveis
