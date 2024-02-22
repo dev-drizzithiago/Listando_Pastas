@@ -286,6 +286,10 @@ class ListandoArquivos:
     def thread_selecionar_destino_busca(self):
         Thread(target=self.pasta_destino_busca()).start()
 
+    def thread_time_busca(self):
+        print('Iniciando THREAD de time')
+        Thread(target=self.time_busca()).start()
+
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def time_busca(self):
@@ -663,6 +667,10 @@ class ListandoArquivos:
         else:
             pasta_destino = Path(valor_pasta_destino)
 
+        # Ativando o time
+        self.ativo_time_busca = True
+
+
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
 
             if valor_busca.is_dir():
@@ -682,17 +690,19 @@ class ListandoArquivos:
 
         # Busca Pastas
         for chave, valor_encontrado in pastas_encontradas.items():
-            self.lista_result_busca.insert('end', f'{contador_pastas}-{chave}')
-            print(f'Valor da busca {chave} : {valor_encontrado}')
+            self.lista_result_busca.insert('end', f'{contador_pastas}-\\{chave}')
+            print(f'Valor da busca {contador_pastas} - \\{chave} : {valor_encontrado}')
             contador_pastas += 1
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nArquivos',  '-=-' * 48)
 
         # Busca Arquivos
         for chave, valor_encontrado in extensao_encontradas.items():
-            self.lista_result_busca.insert('end', f'{contador_arquivos}-{chave}')
-            print(f'Valor da busca {chave} : {valor_encontrado}')
+            self.lista_result_busca.insert('end', f'{contador_arquivos}-**{chave}')
+            print(f'Valor da busca {contador_arquivos} - **{chave} : {valor_encontrado}')
             contador_arquivos += 1
+        print()
+        print('Busca Finalizada!')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Busca finalizada!')
         self.lista_result_busca.insert('end', '-=-' * 50)
