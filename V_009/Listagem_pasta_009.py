@@ -661,6 +661,7 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         contagem_extensao = dict()
+        contagem_pastas = dict()
         pastas_encontradas = dict()
         extensao_encontradas = dict()
         lista_extensoes = list()
@@ -744,13 +745,19 @@ class ListandoArquivos:
             if valor in contagem_extensao:
                 contagem_extensao[valor] += 1
             else:
-                contagem_extensao = 1
+                contagem_extensao[valor] = 1
+
         for ext, contagem in contagem_extensao.items():
             print(f'{ext}:{contagem}')
 
         self.linha_aparencia()
         for valor in lista_pastas:
-            print(valor)
+            if valor in contagem_pastas:
+                contagem_pastas[valor] += 1
+            else:
+                contagem_pastas[valor] = 1
+        for pasta, contagem in contagem_pastas.items():
+            print(f'{pasta}:{contagem}')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
