@@ -761,10 +761,13 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         if self.ativo_status_destinos:
-            valor_busca = Path(self.pasta_local_de_busca)
+            valor_path_busca = Path(self.pasta_local_de_busca)
         else:
-            valor_busca = Path(valor_pasta_destino)
-    
+            valor_path_busca = Path(valor_pasta_destino)
+
+        for valor_da_busca in valor_path_busca.glob('**/*' + self.extensao_selecao_busca):
+            if valor_da_busca.is_dir():
+                print(valor_da_busca)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
