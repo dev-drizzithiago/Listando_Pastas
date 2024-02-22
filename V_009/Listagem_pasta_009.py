@@ -669,7 +669,7 @@ class ListandoArquivos:
 
         # Ativando o time
         self.ativo_time_busca = True
-
+        self.thread_time_busca()
 
         for valor_busca in pasta_destino.glob('**/*' + self.extensao_selecao_busca):
 
