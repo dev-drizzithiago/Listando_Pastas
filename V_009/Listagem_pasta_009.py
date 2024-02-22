@@ -776,7 +776,7 @@ class ListandoArquivos:
                 for valor in pasta_busca.glob('**/*'):
                     if valor.is_file():
                         print(valor)
-
+                        
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
         # Declarações de variaveis
