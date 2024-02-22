@@ -740,13 +740,13 @@ class ListandoArquivos:
         # Desativando BARRA DE PROGRESSO
         self.barra_progresso_busca.stop()
 
+        print('Quantidade de arquivos')
         self.linha_aparencia()
         for valor in lista_extensoes:
             if valor in contagem_extensao:
                 contagem_extensao[valor] += 1
             else:
                 contagem_extensao[valor] = 1
-
         for ext, contagem in contagem_extensao.items():
             print(f'{ext}:{contagem}')
 
