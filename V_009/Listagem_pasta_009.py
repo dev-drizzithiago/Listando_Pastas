@@ -707,6 +707,8 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Busca finalizada!')
         self.lista_result_busca.insert('end', '-=-' * 50)
 
+        # Desativando o TIME
+        self.ativo_time_busca = False
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
