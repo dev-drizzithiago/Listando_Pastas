@@ -720,7 +720,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Busca finalizada!')
         self.lista_result_busca.insert('end', '-=-' * 50)
 
-        self.msg_tot_busca.config(f'Fora encontrados {contador_arquivos} Arquivos e \n'
+        self.msg_tot_busca.config(text=f'Fora encontrados {contador_arquivos} Arquivos e \n'
                                   f'{contador_pastas} pastas')
 
         # Desativando o TIME
