@@ -706,7 +706,9 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Busca finalizada!')
         self.lista_result_busca.insert('end', '-=-' * 50)
-
+        self.ativo_time_busca = False
+        Thread(target=self.time_busca).start()
+        
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
         # Declarações de variaveis
