@@ -778,7 +778,7 @@ class ListandoArquivos:
                         valor_arquivo = str(valor_busca_file).split('\\')[-1]
                         print(valor_arquivo)
             else:
-                print(valor_da_busca)
+                print(str(valor_da_busca).split('\\')[-1])
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
