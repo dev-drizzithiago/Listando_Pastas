@@ -776,7 +776,7 @@ class ListandoArquivos:
                 print(f'[{valor_da_busca}]')
                 self.linha_aparencia()
                 valor_pasta = Path(valor_da_busca)
-
+                for valo_subpasta in valor_pasta.glob(valo_subpasta)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
