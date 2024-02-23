@@ -769,7 +769,7 @@ class ListandoArquivos:
         valor_pasta = "*/*"
         valor_subpasta = "**/*"
 
-        for valor_da_busca in valor_path_busca.glob('*/*'):
+        for valor_da_busca in valor_path_busca.glob(valor_pasta + self.extensao_selecao_busca):
             if valor_da_busca.is_dir():
                 print()
                 print(f'[{valor_da_busca}]')
