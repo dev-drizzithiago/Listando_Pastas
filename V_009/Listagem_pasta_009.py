@@ -766,6 +766,7 @@ class ListandoArquivos:
             valor_path_busca = Path(self.pasta_local_de_busca)
         else:
             valor_path_busca = Path(valor_pasta_destino)
+
         valor_pasta = "*/*"
         valor_subpasta = "**/*"
 
@@ -775,7 +776,7 @@ class ListandoArquivos:
                 print(f'[{valor_da_busca}]')
                 self.linha_aparencia()
                 valor_pasta = Path(valor_da_busca)
-            else:
+            elif PurePath(valor_pasta).parts:
                 print(valor_da_busca)
 
 
