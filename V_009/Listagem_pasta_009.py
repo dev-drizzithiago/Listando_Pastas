@@ -776,8 +776,6 @@ class ListandoArquivos:
                 print(f'[{valor_da_busca}]')
                 self.linha_aparencia()
                 valor_pasta = Path(valor_da_busca)
-            elif PurePath(valor_pasta).parts:
-                print(valor_da_busca)
 
 
     def analise_dados_busca(self):
