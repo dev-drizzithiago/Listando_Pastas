@@ -767,17 +767,17 @@ class ListandoArquivos:
         else:
             valor_path_busca = Path(valor_pasta_destino)
 
-        valor_pasta = "*/*"
-        valor_subpasta = "**/*"
+        valor_pasta_raiz = '*/*'
+        valor_raiz_subpasta = '**/*'
+        busca_raiz = valor_pasta_raiz
+        busca_raiz_subpasta = valor_raiz_subpasta
 
-        for valor_da_busca in valor_path_busca.glob(valor_pasta + self.extensao_selecao_busca):
+        for valor_da_busca in valor_path_busca.glob(valor_pasta_raiz + self.extensao_selecao_busca):
             if valor_da_busca.is_dir():
-                print()
                 print(f'[{valor_da_busca}]')
-                self.linha_aparencia()
                 valor_pasta = Path(valor_da_busca)
-                for valor_file in valor_pasta.glob(valor_subpasta):
-                    print(valor_file)
+
+
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
