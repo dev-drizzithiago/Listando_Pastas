@@ -760,33 +760,16 @@ class ListandoArquivos:
             print(f'{pasta}:{contagem}')
 
     def iniciar_busca(self):
-        from os import walk
+        from os import listdir
+        from re import search
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
-            valor_path_busca = Path(self.pasta_local_de_busca)
+            valor_path_busca = str(Path(self.pasta_local_de_busca))
         else:
-            valor_path_busca = Path(valor_pasta_destino)
+            valor_path_busca = str(Path(valor_pasta_destino))
 
-        valor_pasta_raiz = '*/*'
-        valor_raiz_subpasta = '**/*'
-        busca_raiz = valor_pasta_raiz
-        busca_raiz_subpasta = valor_raiz_subpasta
-
-        for valor_01 in valor_path_busca.iterdir():
-            if valor_01.is_dir():
-                print()
-                print(f'[{valor_01}]')
-                subpasta = Path(valor_01)
-                for valor_02 in subpasta.rglob(valor_raiz_subpasta + self.extensao_selecao_busca):
-                    ultima_pasta = str(valor_02).split('\\')[-2]
-                    print(ultima_pasta)
-                    if valor_02.is_file():
-                        print(valor_02)
-            else:
-                for valor_files in valor_01.rglob(valor_pasta_raiz + self.extensao_selecao_busca):
-                    if valor_files.is_file():
-                        print(valor_files)
-
+        for valor_da_busca in listdir(valor_path_busca):
+            pass
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
@@ -865,9 +848,6 @@ obj_start = ListandoArquivos()
             else:
                 print(str(valor_da_busca).split('\\')[-1])
          
-                 for root, diretory, files in walk(str(valor_path_busca)):
-            print(f'\n Raiz: {root}')
-            print(f'   Sub     {diretory}')
-            print(f'      Arquivos {files}')
+                 
          
          '''
