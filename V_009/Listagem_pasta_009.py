@@ -767,13 +767,10 @@ class ListandoArquivos:
         else:
             valor_path_busca = Path(valor_pasta_destino)
 
-        for raiz, subs, itens in os.walk(valor_path_busca):
-            for valor_raiz in raiz:
-                valor_diretorio_raiz = os.path.join(raiz, subs, itens)
-            print(valor_diretorio_raiz)
-            for valor_subs in subs:
-                caminho_diretorio_subs = os.path.join(raiz, itens)
-                print(f'---{caminho_diretorio_subs}')
+        for valor in valor_path_busca.iterdir():
+            if valor.is_dir():
+                print(valor)
+
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
