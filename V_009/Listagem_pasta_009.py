@@ -768,9 +768,9 @@ class ListandoArquivos:
         else:
             valor_path_busca = Path(valor_pasta_destino)
 
-        for valor in valor_path_busca.iterdir():
-            if valor.is_dir():
-                pass
+        for valor_pasta_raiz in valor_path_busca.iterdir():
+            if valor_pasta_raiz.is_dir():
+                print(valor_pasta_raiz)
         else:
             for valor_files in valor_path_busca.glob('**/*' + self.extensao_selecao_busca):
                 if valor_files.is_file():
