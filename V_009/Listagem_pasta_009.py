@@ -778,6 +778,8 @@ class ListandoArquivos:
                 print(f'[{valor_01}]')
                 subpasta = Path(valor_01)
                 for valor_02 in subpasta.rglob(valor_raiz_subpasta + self.extensao_selecao_busca):
+                    ultima_pasta = str(valor_02).split('\\')[-2]
+                    print(ultima_pasta)
                     if valor_02.is_file():
                         print(valor_02)
             else:
