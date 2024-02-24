@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Relatório de Pastas</title>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'></head>
+<body>
+<div class='container'>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h4>Atalho para visualização da pasta no explorer</h4>
+        <p>
+        Dentro do Explorer do Windows, você pode exibir o documento 
+        referenciado em um relatório utilizando a opção 'Copiar Caminho'. 
+        Com essa opção, você pode facilmente copiar o caminho do arquivo e, 
+        em seguida, utilizar os atalhos Win + R e Ctrl + V para colar o caminho.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class='material-icons'>close</i> Fechar</a>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+            var modalInstance = M.Modal.getInstance(elems[0]);
+            modalInstance.open();
+        }, 0800);
+    });
+</script>
+</div><script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script></body>
+</html>
+<script>
+function copyToClipboard(text) {
+    var tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('Caminho copiado para o clipboard!');
+}
+</script>
