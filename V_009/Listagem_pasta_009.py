@@ -782,7 +782,8 @@ class ListandoArquivos:
                         print(valor_02)
             else:
                 for valor_files in valor_01.rglob(valor_pasta_raiz + self.extensao_selecao_busca):
-                    print(valor_files)
+                    if valor_files.is_file():
+                        print(valor_files)
 
 
     def analise_dados_busca(self):
