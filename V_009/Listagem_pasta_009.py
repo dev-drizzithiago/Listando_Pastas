@@ -760,16 +760,18 @@ class ListandoArquivos:
             print(f'{pasta}:{contagem}')
 
     def iniciar_busca(self):
-        from os import listdir
-        from re import search
+        import os
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
-            valor_path_busca = str(Path(self.pasta_local_de_busca))
+            valor_path_busca = Path(self.pasta_local_de_busca)
         else:
-            valor_path_busca = str(Path(valor_pasta_destino))
+            valor_path_busca = Path(valor_pasta_destino)
 
-        for valor_da_busca in listdir(valor_path_busca):
-            pass
+        for raiz, subs, itens in os.walk(valor_path_busca):
+            for valor_subs in subs:
+                caminho_diretorio = os.path.join(raiz, valor_subs)
+                print(itens)
+                print(caminho_diretorio)
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
