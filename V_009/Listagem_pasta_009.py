@@ -761,6 +761,7 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         import os
+        import re
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
             valor_path_busca = Path(self.pasta_local_de_busca)
@@ -769,7 +770,7 @@ class ListandoArquivos:
 
         for valor in valor_path_busca.iterdir():
             if valor.is_dir():
-                print(valor)
+                if re.search(self.)
 
 
     def analise_dados_busca(self):
