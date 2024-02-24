@@ -770,7 +770,12 @@ class ListandoArquivos:
 
         for valor in valor_path_busca.iterdir():
             if valor.is_dir():
-                if re.search(self.)
+                pass
+        else:
+            for valor_files in valor_path_busca.glob('**/*' + self.extensao_selecao_busca):
+                if valor_files.is_file():
+                    print(valor_files)
+        print('Busca finalizada!')
 
 
     def analise_dados_busca(self):
