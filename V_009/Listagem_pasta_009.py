@@ -769,9 +769,8 @@ class ListandoArquivos:
 
         for raiz, subs, itens in os.walk(valor_path_busca):
             for valor_subs in subs:
-                caminho_diretorio = os.path.join(raiz, valor_subs)
-                print(itens)
-                print(caminho_diretorio)
+                caminho_diretorio_subs = os.path.join(raiz, valor_subs)
+                print(f'---{caminho_diretorio_subs}')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
