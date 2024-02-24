@@ -774,12 +774,14 @@ class ListandoArquivos:
 
         for valor_01 in valor_path_busca.iterdir():
             if valor_01.is_dir():
+                print()
                 print(f'[{valor_01}]')
                 subpasta = Path(valor_01)
                 for valor_02 in subpasta.glob(valor_raiz_subpasta + self.extensao_selecao_busca):
                     print(valor_02)
             else:
-                print(f'{valor_01}')
+                for valor_files in valor_01.glob(valor_pasta_raiz + self.extensao_selecao_busca):
+                    print(valor_files)
 
 
 
