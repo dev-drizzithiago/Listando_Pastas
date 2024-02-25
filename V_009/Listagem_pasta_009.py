@@ -769,8 +769,9 @@ class ListandoArquivos:
             valor_path_busca = Path(valor_pasta_destino)
 
         for raiz, subs, itens in os.walk(str(valor_path_busca)):
-            for valor_itens in itens:
-                print(valor_itens)
+            if re.search(str(self.extensao_selecao_busca), itens):
+                print(itens)
+
 
 
     def analise_dados_busca(self):
