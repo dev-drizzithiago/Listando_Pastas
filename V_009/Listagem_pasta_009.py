@@ -144,13 +144,13 @@ class ListandoArquivos:
         self.status_contagem_arquivos.place(y=0, x=5)
 
         # LABEL CONTAGEM PASTAS
-        self.var_status_contagem_pastas = tk.StringVar()
-        self.var_status_contagem_pastas.set('Aguardando informações')
-        self.status_contagem_pastas = Label(self.label_frame_geral_info)
-        self.status_contagem_pastas.config(text=self.var_status_contagem_pastas.get())
-        self.status_contagem_pastas.config(justify='center')
+        # self.var_status_contagem_pastas = tk.StringVar()
+        # self.var_status_contagem_pastas.set('Aguardando informações')
+        # self.status_contagem_pastas = Label(self.label_frame_geral_info)
+        # self.status_contagem_pastas.config(text=self.var_status_contagem_pastas.get())
+        # self.status_contagem_pastas.config(justify='center')
         # self.status_contagem_pastas.pack(anchor='s', pady=2, padx=2)
-        self.status_contagem_pastas.place(y=20, x=5)
+        # self.status_contagem_pastas.place(y=20, x=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
