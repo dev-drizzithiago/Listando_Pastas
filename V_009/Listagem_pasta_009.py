@@ -755,6 +755,7 @@ class ListandoArquivos:
     def iniciar_busca(self):
         from os import walk, path, stat
         from re import search
+
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
             valor_path_busca = Path(self.pasta_local_de_busca)
@@ -764,6 +765,13 @@ class ListandoArquivos:
         # HORARIO DA BUSCAR
         self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
         self.lista_result_busca.insert('end', self.linha_aparencia())
+
+        # INICIANDO TIME DA BUSCA
+        self.ativo_time_busca = True
+        self.time_busca()
+
+        # INICIANDO BARRA DE PROGRESSO
+        self.barra_progresso_busca.start()
 
         # INICIO DA BUSCA
         for raiz, subs, itens in walk(str(valor_path_busca)):
@@ -779,7 +787,13 @@ class ListandoArquivos:
                     print(f'{caminho_files}')
                     self.lista_result_busca.insert('end', f'{valor_itens}')
                     self.lista_analise_arq_busca.append(f'{caminho_files}')
-        self.analise_dados_busca()
+            self.analise_dados_busca()
+
+        # Finalizando TIME BUSCA
+        self.ativo_time_busca = False
+
+        # FINALIZNANDO BARRA PROGRESSO
+        self.barra_progresso_busca.start()
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
