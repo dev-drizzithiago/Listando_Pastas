@@ -767,15 +767,16 @@ class ListandoArquivos:
             valor_path_busca = Path(self.pasta_local_de_busca)
         else:
             valor_path_busca = Path(valor_pasta_destino)
-
         for raiz, subs, itens in walk(str(valor_path_busca)):
-
             print()
             print(raiz)
             self.linha_aparencia()
             for valor_itens in itens:
                 if search(self.extensao_selecao_busca, valor_itens):
-                    print(valor_itens)
+                    if len(valor_itens) == 0:
+                        print(f'Não foram encontrados nenhum item com o valor {valor_itens}')
+                    else:
+                        print(valor_itens)
 
 
     def analise_dados_busca(self):
