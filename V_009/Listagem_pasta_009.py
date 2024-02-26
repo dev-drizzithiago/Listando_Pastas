@@ -781,7 +781,7 @@ class ListandoArquivos:
                     self.lista_analise_arq_busca.append(f'{caminho_files}')
 
     def analise_dados_busca(self):
-        self.criando_relatorio_pdf()
+        # self.criando_relatorio_pdf()
         # Declarações de variaveis
         self.contagem_extensao = {}
         self.contagem_pastas = {}
