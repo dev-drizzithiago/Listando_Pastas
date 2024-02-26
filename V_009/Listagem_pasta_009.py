@@ -776,9 +776,10 @@ class ListandoArquivos:
                 caminho_files = path.join(raiz, valor_itens)
                 itens_bytes = stat(caminho_files).st_size
                 if search(self.extensao_selecao_busca, valor_itens):
-                    print(f'{valor_itens}')
+                    print(f'{caminho_files}')
                     self.lista_result_busca.insert('end', f'{valor_itens}')
                     self.lista_analise_arq_busca.append(f'{caminho_files}')
+        self.analise_dados_busca()
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
