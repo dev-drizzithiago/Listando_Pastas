@@ -15,16 +15,7 @@ valor_datatime = datetime.now()
 data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%H:%M')
 
-"""
-mostrar as busca conforme os arquivos em pastas
-
-Fotos:
-arquivos...
-"""
-
-
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-
 class ListandoArquivos:
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
@@ -774,10 +765,7 @@ class ListandoArquivos:
             for valor_itens in itens:
                 size_item = path.join(raiz, valor_itens)
                 if search(self.extensao_selecao_busca, valor_itens):
-                    if len(valor_itens) == 0:
-                        print(f'Não foram encontrados nenhum item com o valor {valor_itens}')
-                    else:
-                        print(f'{valor_itens} - {stat(size_item).st_size} bytes')
+                    print(f'{valor_itens} - {stat(size_item).st_size} bytes')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
