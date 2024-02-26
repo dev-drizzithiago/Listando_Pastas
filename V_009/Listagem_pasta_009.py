@@ -778,7 +778,6 @@ class ListandoArquivos:
                     else:
                         print(valor_itens)
 
-
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
         # Declarações de variaveis
