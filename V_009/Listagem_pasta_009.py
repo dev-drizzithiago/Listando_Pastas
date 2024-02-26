@@ -829,33 +829,3 @@ class ListandoArquivos:
 
 
 obj_start = ListandoArquivos()
-
-''' # Realiza a busca
- for valor_da_busca in valor_path_busca.glob('**/*' + self.extensao_selecao_busca):
-     if valor_da_busca.is_dir():
-         pasta_busca = Path(str(valor_da_busca))
-         self.linha_aparencia()
-         print(f'Busca realizada na pasta [{pasta_busca}]')
-         for valor in pasta_busca.glob('**/*' + self.extensao_selecao_busca):
-             if valor.is_dir():
-                 print(valor)
-     elif PurePath('**/*' + self.extensao_selecao_busca).parts:
-         print(valor_da_busca)
-         
-         
-                 for valor_da_busca in valor_path_busca.iterdir():
-            if valor_da_busca.is_dir():
-                valor_pasta_busca = Path(valor_da_busca)
-                print()
-                print(f'Valor diretorio {valor_da_busca}')
-                self.linha_aparencia()
-                for valor_busca_file in valor_pasta_busca.glob('**/*' + self.extensao_selecao_busca):
-                    if valor_busca_file.is_file():
-                        valor_arquivo = str(valor_busca_file).split('\\')[-1]
-                        print(valor_arquivo)
-            else:
-                print(str(valor_da_busca).split('\\')[-1])
-         
-                 
-         
-         '''
