@@ -793,7 +793,7 @@ class ListandoArquivos:
         self.ativo_time_busca = False
 
         # FINALIZNANDO BARRA PROGRESSO
-        self.barra_progresso_busca.start()
+        self.barra_progresso_busca.stop()
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
