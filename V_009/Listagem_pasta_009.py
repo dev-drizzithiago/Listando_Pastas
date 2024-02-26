@@ -794,6 +794,7 @@ class ListandoArquivos:
 
         # FINALIZNANDO BARRA PROGRESSO
         self.barra_progresso_busca.stop()
+        self.barra_progresso_busca.config(value=100)
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
@@ -818,9 +819,9 @@ class ListandoArquivos:
                 self.contagem_extensao[valor_extensao] = 1
 
         print('-=-' * 40)
-        print('Tipos de extensão - Quantidade Arquivos')
+        print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
-            print(f'       {extensao} ------ : ------ [{quantidade}] ')
+            print(f'   {extensao} ------ : ------ [{quantidade}] ')
 
         print('-=-' * 40)
         print('Pastas --- Quantidade de arquivos')
