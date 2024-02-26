@@ -768,7 +768,7 @@ class ListandoArquivos:
 
         # INICIANDO TIME DA BUSCA
         self.ativo_time_busca = True
-        self.time_busca()
+        Thread(target=self.time_busca()).start()
 
         # INICIANDO BARRA DE PROGRESSO
         self.barra_progresso_busca.start()
