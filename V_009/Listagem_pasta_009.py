@@ -760,6 +760,7 @@ class ListandoArquivos:
             print(f'{pasta}:{contagem}')
 
     def iniciar_busca(self):
+        from glob import glob
         from os import walk
         from re import search
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
