@@ -777,7 +777,7 @@ class ListandoArquivos:
                     if len(valor_itens) == 0:
                         print(f'Não foram encontrados nenhum item com o valor {valor_itens}')
                     else:
-                        print(f'{valor_itens} - {stat(size_item)} bytes')
+                        print(f'{valor_itens} - {stat(size_item).st_size} bytes')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
