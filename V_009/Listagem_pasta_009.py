@@ -758,6 +758,7 @@ class ListandoArquivos:
         from re import search
 
         # DECLARAÇÃO DE VARIAVEIS
+        contador_arquivos = 1
 
 
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
@@ -791,6 +792,8 @@ class ListandoArquivos:
                     print(f'{caminho_files}')
                     self.lista_result_busca.insert('end', f'{valor_itens}')
                     self.lista_analise_arq_busca.append(f'{caminho_files}')
+                    self.status_contagem_arquivos.config(text=contador_arquivos)
+                    contador_arquivos += 1
             self.analise_dados_busca()
 
         # Finalizando TIME BUSCA
