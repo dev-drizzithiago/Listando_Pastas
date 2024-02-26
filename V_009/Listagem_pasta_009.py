@@ -768,7 +768,7 @@ class ListandoArquivos:
         # INICIO DA BUSCA
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
-            print()
+            print(raiz)
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
