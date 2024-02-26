@@ -760,8 +760,7 @@ class ListandoArquivos:
             print(f'{pasta}:{contagem}')
 
     def iniciar_busca(self):
-        from glob import glob
-        from os import walk
+        from os import walk, path, stat
         from re import search
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
@@ -773,11 +772,12 @@ class ListandoArquivos:
             print(raiz)
             self.linha_aparencia()
             for valor_itens in itens:
+                size_item = path.join(raiz, valor_itens)
                 if search(self.extensao_selecao_busca, valor_itens):
                     if len(valor_itens) == 0:
                         print(f'Não foram encontrados nenhum item com o valor {valor_itens}')
                     else:
-                        print(valor_itens)
+                        print(f'{valor_itens} - {stat(size_item)} bytes')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
