@@ -753,8 +753,12 @@ class ListandoArquivos:
             print(f'{pasta}:{contagem}')
 
     def iniciar_busca(self):
+        # MODULOS RESPONSAVEL PELA BUSCA
         from os import walk, path, stat
         from re import search
+
+        # DECLARAÇÃO DE VARIAVEIS
+
 
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
