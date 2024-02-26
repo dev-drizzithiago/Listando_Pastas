@@ -15,6 +15,7 @@ valor_datatime = datetime.now()
 data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%H:%M')
 
+
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
     def __init__(self):
@@ -258,6 +259,7 @@ class ListandoArquivos:
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
     def linha_aparencia(self):
+        self.lista_result_busca.insert('end', '-=-' * 52)
         print('-=-' * 48)
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -768,7 +770,7 @@ class ListandoArquivos:
             print()
             print()
             self.lista_result_busca.insert('end', '')
-            self.lista_result_busca.insert('end', f'Pasta busca RAIZ {raiz}')
+            self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
             for valor_itens in itens:
                 size_item = path.join(raiz, valor_itens)
