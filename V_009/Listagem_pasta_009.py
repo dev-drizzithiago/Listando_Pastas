@@ -792,7 +792,7 @@ class ListandoArquivos:
                     print(f'{caminho_files}')
                     self.lista_result_busca.insert('end', f'{valor_itens}')
                     self.lista_analise_arq_busca.append(f'{caminho_files}')
-                    self.status_contagem_arquivos.config(text=contador_arquivos)
+                    self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                     contador_arquivos += 1
             self.analise_dados_busca()
 
