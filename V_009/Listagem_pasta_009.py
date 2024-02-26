@@ -761,11 +761,12 @@ class ListandoArquivos:
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
             print(raiz)
-            self.linha_aparencia()
+            self.lista_result_busca.insert('end', f'{raiz}')
+            self.lista_result_busca.insert('end', self.linha_aparencia())
             for valor_itens in itens:
                 size_item = path.join(raiz, valor_itens)
                 if search(self.extensao_selecao_busca, valor_itens):
-                    print(f'{valor_itens} - {stat(size_item).st_size} bytes')
+                    self.lista_result_busca.insert('end', f'{valor_itens}-{size_item}(bytes)')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
