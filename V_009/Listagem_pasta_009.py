@@ -777,7 +777,7 @@ class ListandoArquivos:
                 itens_bytes = stat(size_item).st_size
                 if search(self.extensao_selecao_busca, valor_itens):
                     print(f'{valor_itens}-{itens_bytes}')
-                    self.lista_result_busca.insert('end', f'{valor_itens}          {itens_bytes}(bytes)')
+                    self.lista_result_busca.insert('end', f'{valor_itens}')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
