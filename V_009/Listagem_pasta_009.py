@@ -758,6 +758,12 @@ class ListandoArquivos:
             valor_path_busca = Path(self.pasta_local_de_busca)
         else:
             valor_path_busca = Path(valor_pasta_destino)
+
+        # HORARIO DA BUSCAR
+        self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
+        self.lista_result_busca.insert('end', self.linha_aparencia())
+        
+        # INICIO DA BUSCA
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
             print(raiz)
