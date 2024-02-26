@@ -762,20 +762,20 @@ class ListandoArquivos:
         # HORARIO DA BUSCAR
         self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
         self.lista_result_busca.insert('end', self.linha_aparencia())
-        
+
         # INICIO DA BUSCA
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
-            print(raiz)
+            print()
             self.lista_result_busca.insert('end', '')
-            self.lista_result_busca.insert('end', f'{raiz}')
+            self.lista_result_busca.insert('end', f'Pasta busca RAIZ {raiz}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
             for valor_itens in itens:
                 size_item = path.join(raiz, valor_itens)
                 itens_bytes = stat(size_item).st_size
                 if search(self.extensao_selecao_busca, valor_itens):
                     print(f'{valor_itens}-{itens_bytes}')
-                    self.lista_result_busca.insert('end', f'{valor_itens}-{itens_bytes}(bytes)')
+                    self.lista_result_busca.insert('end', f'{valor_itens}          {itens_bytes}(bytes)')
 
     def analise_dados_busca(self):
         self.criando_relatorio_pdf()
