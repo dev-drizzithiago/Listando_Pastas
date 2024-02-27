@@ -828,14 +828,14 @@ class ListandoArquivos:
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
-            print(f'   {extensao} ------ : ------ [{quantidade}] ')
-            self.lista_result_busca.insert('end', f'   {extensao} ------ : ------ [{quantidade}] ')
+            print(f'   {extensao.upper()} ------ : ------ [{quantidade}] ')
+            self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
         print('-=-' * 40)
         print('Arquivos dentro das pastas...')
         for pastas, quantidade in self.contagem_pastas.items():
-            print(f'{pastas} - {quantidade}')
-            self.lista_result_busca.insert('end', f'{pastas} - {quantidade}')
+            print(f'[\\{pastas.upper()}] - {quantidade}')
+            self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - {quantidade}')
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
