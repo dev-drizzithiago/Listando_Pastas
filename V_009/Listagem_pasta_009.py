@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import *
 
+import winsound
 from time import sleep
 from pathlib import Path, PurePath
 from threading import Thread
@@ -803,6 +804,7 @@ class ListandoArquivos:
         # FINALIZNANDO BARRA PROGRESSO
         self.barra_progresso_busca.stop()
         self.barra_progresso_busca.config(value=100)
+        winsound.PlaySound('SystemExit', winsound.SND_ASYNC)
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
