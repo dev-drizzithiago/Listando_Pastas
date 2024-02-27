@@ -831,8 +831,8 @@ class ListandoArquivos:
             print(f'   {extensao.upper()} ------ : ------ [{quantidade}] ')
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
-        print('-=-' * 40)
         print('Total de arquivos encontrados...')
+        self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         for pastas, quantidade in self.contagem_pastas.items():
             print(f'[\\{pastas.upper()}] - {quantidade}')
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
