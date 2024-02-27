@@ -30,12 +30,14 @@ class ListandoArquivos:
         self.ativo_finalizacao_busca = False
         self.ativo_status_extensao = False
         self.ativo_status_destinos = False
+        self.ativo_analise_dados = False
         self.ativo_busca_imagem = False
         self.ativo_busca_videos = False
         self.ativo_busca_textos = False
         self.ativo_busca_execul = False
         self.ativo_busca_arqzip = False
         self.ativo_time_busca = False
+
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Janela Principal
@@ -794,7 +796,7 @@ class ListandoArquivos:
                     self.lista_analise_arq_busca.append(f'{caminho_files}')
                     self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                     contador_arquivos += 1
-            self.analise_dados_busca()
+        self.analise_dados_busca()
 
         # Finalizando TIME BUSCA
         self.ativo_time_busca = False
@@ -836,6 +838,8 @@ class ListandoArquivos:
         for pastas, quantidade in self.contagem_pastas.items():
             print(f'[\\{pastas.upper()}] - {quantidade}')
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
+
+
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
