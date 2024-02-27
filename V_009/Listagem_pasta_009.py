@@ -832,10 +832,10 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
         print('-=-' * 40)
-        print('Arquivos dentro das pastas...')
+        print('Total de arquivos encontrados...')
         for pastas, quantidade in self.contagem_pastas.items():
             print(f'[\\{pastas.upper()}] - {quantidade}')
-            self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - {quantidade}')
+            self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
