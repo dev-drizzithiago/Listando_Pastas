@@ -38,7 +38,6 @@ class ListandoArquivos:
         self.ativo_busca_arqzip = False
         self.ativo_time_busca = False
 
-
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Janela Principal
         self.janela_principal = tk.Tk()
@@ -595,7 +594,7 @@ class ListandoArquivos:
             valor_resposta = tk.messagebox.askquestion('AVISO', 'Deseja salvar a busca anterior?')
             self.msg_tot_busca.config(text="Idenficamos nova busca, aguarde!!")
             self.status_contagem_arquivos.config(text='Idenficamos nova busca, aguarde!!')
-            self.status_contagem_pastas.config(text='Identicamos nova busca, aguarde!!')
+            # self.status_contagem_pastas.config(text='Identicamos nova busca, aguarde!!')
             if valor_resposta == 'no':
                 tk.messagebox.showwarning('AVISO', "Você optou em não salvar a busca")
                 self.lista_result_busca.delete('0', 'end')
@@ -635,7 +634,7 @@ class ListandoArquivos:
             elif busca.is_dir():
                 self.lista_result_busca.insert('end', f'[ {cont_pastas} ] - \\[ {busca} ]')
                 self.lista_analise_pasta_busca.append(f'{cont_pastas} - {busca}')
-                self.status_contagem_pastas.config(text=f'Encontrado [ {cont_pastas} ] pastas...')
+                # self.status_contagem_pastas.config(text=f'Encontrado [ {cont_pastas} ] pastas...')
                 cont_pastas += 1
         self.barra_progresso_busca.stop()
         self.label_status['text'] = 'Busca Finalizada!'
@@ -709,7 +708,7 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', f'{contador_pastas}-\\{chave}')
             print(f'Valor da busca {contador_pastas} - \\{chave} : {valor_encontrado}')
             contador_pastas += 1
-            self.status_contagem_pastas.config(text=f'Pastas encontradas [{contador_pastas}]')
+            # self.status_contagem_pastas.config(text=f'Pastas encontradas [{contador_pastas}]')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '\nArquivos', '-=-' * 48)
 
