@@ -804,7 +804,7 @@ class ListandoArquivos:
         # FINALIZNANDO BARRA PROGRESSO
         self.barra_progresso_busca.stop()
         self.barra_progresso_busca.config(value=100)
-        winsound.PlaySound('SystemExit', winsound.SND_ASYNC)
+        winsound.PlaySound('SystemExit', winsound.SND_NOSTOP)
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
