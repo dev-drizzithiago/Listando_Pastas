@@ -838,7 +838,6 @@ class ListandoArquivos:
         self.botao_iniciar_busca['state'] = 'normal'
         self.botao_save_busca['state'] = 'normal'
         self.botao_destino_busca['state'] = 'normal'
-        self.botao_adicionar_extensao['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
         self.label_status.config(text='Processo finalizado')
 
