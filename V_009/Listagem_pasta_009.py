@@ -22,8 +22,10 @@ valor_som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\apertand
 valor_som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\inicio_busca.wav'
 valor_som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_busca.wav'
 
+
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
+    winsound.PlaySound(valor_som_abrindo_programa, winsound.SND_ASYNC)
 
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
@@ -34,7 +36,6 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # CONFIGURAÇÃO DE SONS
-        self.som_abrindo_programa_principal = winsound.PlaySound(valor_som_abrindo_programa, winsound.SND_ASYNC)
         self.som_botoes = winsound.PlaySound(valor_som_botao, winsound.SND_ASYNC)
         self.som_iniciando_busca = winsound.PlaySound(valor_som_inicio_busca, winsound.SND_ASYNC)
         self.som_finalizando_busca = winsound.PlaySound(valor_som_fim_processo, winsound.SND_ASYNC)
