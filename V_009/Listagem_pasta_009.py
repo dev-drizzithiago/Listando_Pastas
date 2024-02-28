@@ -51,7 +51,7 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x640+150+100')
+        self.janela_principal.geometry('1000x640+150+10')
         self.janela_principal.resizable(0, 0)
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
@@ -783,6 +783,9 @@ class ListandoArquivos:
         self.botao_destino_busca['state'] = 'disabled'
         self.botao_adicionar_extensao['state'] = 'disabled'
         self.botao_escolha_extensao['state'] = 'disabled'
+
+        # LIMPANDO LISTA DE BUSCA
+        self.lista_result_busca.delete('end', '0')
 
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
