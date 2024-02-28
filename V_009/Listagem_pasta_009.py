@@ -811,6 +811,7 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
+            print(len(itens))
             for valor_itens in itens:
                 caminho_files = path.join(raiz, valor_itens)
                 itens_bytes = stat(caminho_files).st_size
