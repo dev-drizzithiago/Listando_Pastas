@@ -346,7 +346,7 @@ class ListandoArquivos:
                 sleep(1)
 
     def combo_categoria_busca(self, *args):
-        print('Processando o Combo')
+        print('Processando função combo_categoria_busca')
         self.lista_de_extensoes.delete('0', 'end')
 
         arq_imagem = '\\extensao_imagem.log'
@@ -779,6 +779,13 @@ class ListandoArquivos:
 
         # INICIANDO BARRA DE PROGRESSO
         self.barra_progresso_busca.start()
+
+        # Desativando os botões para o processo da busca
+        self.botao_iniciar_busca.config(state=tk.DISABLED)
+        self.botao_save_busca.config(state=tk.DISABLED)
+        self.botao_destino_busca.config(state=tk.DISABLED)
+        self.botao_adicionar_extensao.config(state=tk.DISABLED)
+        self.botao_escolha_extensao.config(state=tk.DISABLED)
 
         # INICIO DA BUSCA
         for raiz, subs, itens in walk(str(valor_path_busca)):
