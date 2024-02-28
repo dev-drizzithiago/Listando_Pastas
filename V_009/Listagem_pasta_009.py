@@ -17,11 +17,15 @@ data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%H:%M')
 
 # SONS
+som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\abrindo_programa.wav'
 som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\apertando_botao.wav'
+som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\inicio_busca.wav'
 som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\MessageICQ.wav'
+
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
+    winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
                                  'Arquivos execução', 'Arquivos compreesão')
@@ -790,6 +794,7 @@ class ListandoArquivos:
         Thread(target=self.time_busca).start()
 
         # INICIANDO BARRA DE PROGRESSO
+        winsound.PlaySound(som_inicio_busca, winsound.SND_ASYNC)
         self.barra_progresso_busca.start()
 
         # INICIO DA BUSCA
