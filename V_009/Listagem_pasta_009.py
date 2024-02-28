@@ -17,15 +17,16 @@ data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%H:%M')
 
 # SONS
-som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\abrindo_programa.wav'
-som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\apertando_botao.wav'
-som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\inicio_busca.wav'
-som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\final_busca.wav'
+valor_som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\abrindo_programa.wav'
+valor_som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\apertando_botao.wav'
+valor_som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\inicio_busca.wav'
+valor_som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_busca.wav'
 
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
     winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
+
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
                                  'Arquivos execução', 'Arquivos compreesão')
@@ -831,7 +832,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.config(value=100)
 
         # Emitindo som de finalização
-        winsound.PlaySound(som_fim_processo, winsound.SND_ASYNC)
+        winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
 
         # REATIVANDO BOTÕES
         self.botao_iniciar_busca['state'] = 'normal'
