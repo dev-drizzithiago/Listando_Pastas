@@ -811,18 +811,17 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
-            if 'ini' in itens:
-                itens = ''
-                                
-            for valor_itens in itens:
-                caminho_files = path.join(raiz, valor_itens)
-                itens_bytes = stat(caminho_files).st_size
-                if search(self.extensao_selecao_busca, valor_itens):
-                    print(f'{caminho_files}')
-                    self.lista_result_busca.insert('end', f'{valor_itens}')
-                    self.lista_analise_arq_busca.append(f'{caminho_files}')
-                    self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
-                    contador_arquivos += 1
+
+            if len(itens) > 1:
+                for valor_itens in itens:
+                    caminho_files = path.join(raiz, valor_itens)
+                    itens_bytes = stat(caminho_files).st_size
+                    if search(self.extensao_selecao_busca, valor_itens):
+                        print(f'{caminho_files}')
+                        self.lista_result_busca.insert('end', f'{valor_itens}')
+                        self.lista_analise_arq_busca.append(f'{caminho_files}')
+                        self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
+                        contador_arquivos += 1
 
         self.analise_dados_busca()
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
