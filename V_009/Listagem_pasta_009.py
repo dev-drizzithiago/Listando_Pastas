@@ -812,9 +812,8 @@ class ListandoArquivos:
             print()
             print(raiz)
             self.lista_result_busca.insert('end', '')
-            self.lista_result_busca.insert('end', f'{raiz}')
+            self.lista_result_busca.config(background='#fff000').insert('end', f'{raiz}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
-
             if len(itens) > 1:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
