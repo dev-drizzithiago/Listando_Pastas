@@ -277,6 +277,7 @@ class ListandoArquivos:
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
+        self.botao_iniciar_busca['state'] = 'disabled'
         winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
@@ -778,7 +779,6 @@ class ListandoArquivos:
         # Desativando os botões para o processo da busca
         self.label_status.config(text='Desativando os botões')
         sleep(1)
-        self.botao_iniciar_busca['state'] = 'disabled'
         self.botao_save_busca['state'] = 'disabled'
         self.botao_destino_busca['state'] = 'disabled'
         self.botao_adicionar_extensao['state'] = 'disabled'
