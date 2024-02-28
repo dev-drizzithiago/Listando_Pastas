@@ -811,7 +811,18 @@ class ListandoArquivos:
         # FINALIZNANDO BARRA PROGRESSO
         self.barra_progresso_busca.stop()
         self.barra_progresso_busca.config(value=100)
+
+        # Emitindo som de finalização
         winsound.PlaySound('SystemExit', winsound.SND_NOSTOP)
+
+        # REATIVANDO BOTÕES
+        self.label_status.config(text='Aguardando')
+        sleep(2)
+        self.botao_iniciar_busca.config(state=tk.NORMAL)
+        self.botao_save_busca.config(state=tk.NORMAL)
+        self.botao_destino_busca.config(state=tk.NORMAL)
+        self.botao_adicionar_extensao.config(state=tk.NORMAL)
+        self.botao_escolha_extensao.config(state=tk.NORMAL)
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
