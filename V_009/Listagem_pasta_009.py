@@ -820,7 +820,7 @@ class ListandoArquivos:
                     caminho_files = path.join(raiz, valor_itens)
                     itens_bytes = stat(caminho_files).st_size
                     if search(self.extensao_selecao_busca, valor_itens):
-                        print(f'{caminho_files}')
+                        # print(f'{caminho_files}')
                         self.lista_result_busca.insert('end', f'{valor_itens}')
                         self.lista_analise_arq_busca.append(f'{caminho_files}')
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
@@ -853,11 +853,15 @@ class ListandoArquivos:
         self.contagem_pastas = {}
 
         for valor_lista_busca in self.lista_analise_arq_busca:
+            print(valor_lista_busca)
             divisao_valor_extensao = str(valor_lista_busca).split('.')
+            print(divisao_valor_extensao)
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
+            print(divisao_valor_pastas)
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
+            print(valor_extensao)
             valor_pastas = str(divisao_valor_pastas[-2].lower()).strip()
-
+            print(valor_pastas)
             if valor_pastas in self.contagem_pastas:
                 self.contagem_pastas[valor_pastas] += 1
             else:
