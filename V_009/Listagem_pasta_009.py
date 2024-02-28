@@ -17,15 +17,15 @@ data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%H:%M')
 
 # SONS
-valor_som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\abrindo_programa.wav'
-valor_som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\apertando_botao.wav'
-valor_som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\inicio_busca.wav'
-valor_som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_busca.wav'
+som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\abrindo_programa.wav'
+som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\apertando_botao.wav'
+som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\inicio_busca.wav'
+som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_busca.wav'
 
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
-    winsound.PlaySound(valor_som_abrindo_programa, winsound.SND_ASYNC)
+    winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
 
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
@@ -34,13 +34,6 @@ class ListandoArquivos:
         self.lista_analise_arq_busca = list()
         self.lista_analise_pasta_busca = list()
 
-        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # CONFIGURAÇÃO DE SONS
-        self.som_botoes = winsound.PlaySound(valor_som_botao, winsound.SND_ASYNC)
-        self.som_iniciando_busca = winsound.PlaySound(valor_som_inicio_busca, winsound.SND_ASYNC)
-        self.som_finalizando_busca = winsound.PlaySound(valor_som_fim_processo, winsound.SND_ASYNC)
-
-        # VARIAVEIS DE ATIVAÇÃO
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         self.ativo_add_ext_especifica = False
         self.ativo_finalizacao_busca = False
@@ -283,25 +276,25 @@ class ListandoArquivos:
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
-        self.som_botoes
         print('Iniciando THREAD [INICIAR BUSCA]')
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
 
     def thread_botao_extensao(self):
-        self.som_botoes
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         print('Iniciando THREAD [BUSCA ESPECIFICA POR EXTENSAO]')
         Thread(target=self.digitar_extensao()).start()
 
     def thread_adicionar_extensao(self):
-        self.som_botoes
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         print('Iniciando THREAD [ADICIONAR EXTENSAO]')
         Thread(self.adicionado_extensao_arq_txt()).start()
 
     def thread_selecionar_destino_busca(self):
-        self.som_botoes
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         Thread(target=self.pasta_destino_busca()).start()
 
     def thread_time_busca(self):
@@ -806,7 +799,7 @@ class ListandoArquivos:
         Thread(target=self.time_busca).start()
 
         # INICIANDO BARRA DE PROGRESSO
-        self.som_iniciando_busca
+        winsound.PlaySound(som_inicio_busca, winsound.SND_ASYNC)
         sleep(2)
         self.barra_progresso_busca.start()
 
