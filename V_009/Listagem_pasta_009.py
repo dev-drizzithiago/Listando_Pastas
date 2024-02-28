@@ -16,6 +16,9 @@ valor_datatime = datetime.now()
 data_atual = valor_datatime.strftime('%d/%m/%Y')
 hora_atual = valor_datatime.strftime('%H:%M')
 
+# SONS
+som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\apertando_botao.wav'
+som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\MessageICQ.wav'
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
@@ -818,7 +821,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.config(value=100)
 
         # Emitindo som de finalização
-        winsound.PlaySound('D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\MessageICQ.wav', winsound.SND_NOSTOP)
+        winsound.PlaySound(som_fim_processo, winsound.SND_NOSTOP)
 
         # REATIVANDO BOTÕES
         self.botao_iniciar_busca['state'] = 'normal'
@@ -861,7 +864,6 @@ class ListandoArquivos:
         for pastas, quantidade in self.contagem_pastas.items():
             print(f'[\\{pastas.upper()}] - {quantidade}')
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
-
 
         del self.lista_analise_arq_busca[:]
 
