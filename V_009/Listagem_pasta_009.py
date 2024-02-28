@@ -20,7 +20,7 @@ hora_atual = valor_datatime.strftime('%H:%M')
 som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\abrindo_programa.wav'
 som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\apertando_botao.wav'
 som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\inicio_busca.wav'
-som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\MessageICQ.wav'
+som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\\final_busca.wav'
 
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -276,20 +276,24 @@ class ListandoArquivos:
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
         else:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
 
     def thread_botao_extensao(self):
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         print('Iniciando THREAD [BUSCA ESPECIFICA POR EXTENSAO]')
         Thread(target=self.digitar_extensao()).start()
 
     def thread_adicionar_extensao(self):
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         print('Iniciando THREAD [ADICIONAR EXTENSAO]')
         Thread(self.adicionado_extensao_arq_txt()).start()
 
     def thread_selecionar_destino_busca(self):
+        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         Thread(target=self.pasta_destino_busca()).start()
 
     def thread_time_busca(self):
@@ -795,6 +799,7 @@ class ListandoArquivos:
 
         # INICIANDO BARRA DE PROGRESSO
         winsound.PlaySound(som_inicio_busca, winsound.SND_ASYNC)
+        sleep(2)
         self.barra_progresso_busca.start()
 
         # INICIO DA BUSCA
@@ -826,7 +831,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.config(value=100)
 
         # Emitindo som de finalização
-        winsound.PlaySound(som_fim_processo, winsound.SND_NOSTOP)
+        winsound.PlaySound(som_fim_processo, winsound.SND_ASYNC)
 
         # REATIVANDO BOTÕES
         self.botao_iniciar_busca['state'] = 'normal'
