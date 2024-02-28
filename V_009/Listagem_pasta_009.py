@@ -856,12 +856,13 @@ class ListandoArquivos:
             print(valor_lista_busca)
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             print(divisao_valor_extensao)
-            divisao_valor_pastas = str(valor_lista_busca).split('\\')
+            divisao_valor_pastas = str(valor_lista_busca).split('\\')[:-2]
             print(divisao_valor_pastas)
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             print(valor_extensao)
-            valor_pastas = str(divisao_valor_pastas[-2].lower()).strip()
+            valor_pastas = str(divisao_valor_pastas[-1].lower()).strip()
             print(valor_pastas)
+            self.linha_aparencia()
             if valor_pastas in self.contagem_pastas:
                 self.contagem_pastas[valor_pastas] += 1
             else:
