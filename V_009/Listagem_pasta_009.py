@@ -763,6 +763,15 @@ class ListandoArquivos:
         # DECLARAÇÃO DE VARIAVEIS
         contador_arquivos = 1
 
+        # Desativando os botões para o processo da busca
+        self.label_status.config(text='Desativando os botões')
+        sleep(1)
+        self.botao_iniciar_busca['state'] = 'disabled'
+        self.botao_save_busca['state'] = 'disabled'
+        self.botao_destino_busca['state'] = 'disabled'
+        self.botao_adicionar_extensao['state'] = 'disabled'
+        self.botao_escolha_extensao['state'] = 'disabled'
+
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
             valor_path_busca = Path(self.pasta_local_de_busca)
@@ -780,14 +789,8 @@ class ListandoArquivos:
         # INICIANDO BARRA DE PROGRESSO
         self.barra_progresso_busca.start()
 
-        # Desativando os botões para o processo da busca
-        self.botao_iniciar_busca.config(state=tk.DISABLED)
-        self.botao_save_busca.config(state=tk.DISABLED)
-        self.botao_destino_busca.config(state=tk.DISABLED)
-        self.botao_adicionar_extensao.config(state=tk.DISABLED)
-        self.botao_escolha_extensao.config(state=tk.DISABLED)
-
         # INICIO DA BUSCA
+        self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
             print(raiz)
@@ -803,7 +806,9 @@ class ListandoArquivos:
                     self.lista_analise_arq_busca.append(f'{caminho_files}')
                     self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                     contador_arquivos += 1
+
         self.analise_dados_busca()
+        self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
         # Finalizando TIME BUSCA
         self.ativo_time_busca = False
@@ -816,13 +821,11 @@ class ListandoArquivos:
         winsound.PlaySound('SystemExit', winsound.SND_NOSTOP)
 
         # REATIVANDO BOTÕES
-        self.label_status.config(text='Aguardando')
-        sleep(2)
-        self.botao_iniciar_busca.config(state=tk.NORMAL)
-        self.botao_save_busca.config(state=tk.NORMAL)
-        self.botao_destino_busca.config(state=tk.NORMAL)
-        self.botao_adicionar_extensao.config(state=tk.NORMAL)
-        self.botao_escolha_extensao.config(state=tk.NORMAL)
+        self.botao_iniciar_busca['state'] = 'normal'
+        self.botao_save_busca['state'] = 'normal'
+        self.botao_destino_busca['state'] = 'normal'
+        self.botao_adicionar_extensao['state'] = 'normal'
+        self.botao_escolha_extensao['state'] = 'normal'
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
