@@ -785,7 +785,7 @@ class ListandoArquivos:
         self.botao_escolha_extensao['state'] = 'disabled'
 
         # LIMPANDO LISTA DE BUSCA
-        self.lista_result_busca.delete('end', '0')
+        self.lista_result_busca.delete('0', 'end')
 
         # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
         if self.ativo_status_destinos:
