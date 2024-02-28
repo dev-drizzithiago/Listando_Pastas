@@ -3,7 +3,7 @@ from tkinter.ttk import *
 
 import winsound
 from time import sleep
-from pathlib import Path, PurePath
+from pathlib import Path
 from threading import Thread
 from datetime import datetime
 from tkinter.messagebox import showerror
