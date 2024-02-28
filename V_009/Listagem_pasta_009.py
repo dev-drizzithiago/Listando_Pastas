@@ -818,7 +818,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.config(value=100)
 
         # Emitindo som de finalização
-        winsound.PlaySound('SystemExit', winsound.SND_NOSTOP)
+        winsound.PlaySound('D:\Estudos\Python\GitHub\Listando_Pastas\Arquivos\MessageICQ.wav', winsound.SND_NOSTOP)
 
         # REATIVANDO BOTÕES
         self.botao_iniciar_busca['state'] = 'normal'
@@ -826,6 +826,7 @@ class ListandoArquivos:
         self.botao_destino_busca['state'] = 'normal'
         self.botao_adicionar_extensao['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
+        self.label_status.config(text='Processo finalizado')
 
     def analise_dados_busca(self):
         # self.criando_relatorio_pdf()
