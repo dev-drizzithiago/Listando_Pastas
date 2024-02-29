@@ -858,10 +858,7 @@ class ListandoArquivos:
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
 
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
-            print(valor_extensao)
-
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
-            print(valor_pasta)
 
             self.linha_aparencia()
             if valor_pasta in self.contagem_pastas:
@@ -887,15 +884,14 @@ class ListandoArquivos:
         for pastas, quantidade in self.contagem_pastas.items():
             print(f'[\\{pastas.upper()}] - {quantidade}')
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
-        print(self.dicionario_analise_extensao)
 
+        self.salvando_resultado()
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
         pass
 
     def salvando_resultado(self):
-
         for valor_variavel_dicionario_analise_ext_qtd in self.dicionario_analise_extensao:
             print(valor_variavel_dicionario_analise_ext_qtd)
 
