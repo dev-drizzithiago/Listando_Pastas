@@ -851,22 +851,23 @@ class ListandoArquivos:
         # Declarações de variaveis
         self.contagem_extensao = {}
         self.contagem_pastas = {}
+        self.dicionario_analise_extensao = []
 
         for valor_lista_busca in self.lista_analise_arq_busca:
-            print(valor_lista_busca)
             divisao_valor_extensao = str(valor_lista_busca).split('.')
-            print(divisao_valor_extensao)
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
-            print(divisao_valor_pastas)
+
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             print(valor_extensao)
-            valor_pastas = str(divisao_valor_pastas[-2]).strip()
-            print(valor_pastas)
+
+            valor_pasta = str(divisao_valor_pastas[-2]).strip()
+            print(valor_pasta)
+
             self.linha_aparencia()
-            if valor_pastas in self.contagem_pastas:
-                self.contagem_pastas[valor_pastas] += 1
+            if valor_pasta in self.contagem_pastas:
+                self.contagem_pastas[valor_pasta] += 1
             else:
-                self.contagem_pastas[valor_pastas] = 1
+                self.contagem_pastas[valor_pasta] = 1
 
             if valor_extensao in self.contagem_extensao:
                 self.contagem_extensao[valor_extensao] += 1
@@ -876,7 +877,9 @@ class ListandoArquivos:
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
-            print(f'   {extensao.upper()} ------ : ------ [{quantidade}] ')
+            valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}] '
+            print(valor_extensao_qtd)
+            self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
         print('Total de arquivos encontrados...')
@@ -884,6 +887,7 @@ class ListandoArquivos:
         for pastas, quantidade in self.contagem_pastas.items():
             print(f'[\\{pastas.upper()}] - {quantidade}')
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
+        print(self.dicionario_analise_extensao)
 
         del self.lista_analise_arq_busca[:]
 
@@ -891,6 +895,10 @@ class ListandoArquivos:
         pass
 
     def salvando_resultado(self):
+
+        for valor_variavel_dicionario_analise_ext_qtd in self.dicionario_analise_extensao:
+            print(valor_variavel_dicionario_analise_ext_qtd)
+
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         try:
