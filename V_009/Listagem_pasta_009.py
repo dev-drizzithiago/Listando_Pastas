@@ -892,8 +892,9 @@ class ListandoArquivos:
         pass
 
     def salvando_resultado(self):
+        valor_dicionario_qtd_ext = list()
         for valor_variavel_dicionario_analise_ext_qtd in self.dicionario_analise_extensao:
-            print(valor_variavel_dicionario_analise_ext_qtd)
+            valor_dicionario_qtd_ext.append(valor_variavel_dicionario_analise_ext_qtd)
 
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
