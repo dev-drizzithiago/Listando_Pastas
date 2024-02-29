@@ -892,15 +892,15 @@ class ListandoArquivos:
         pass
 
     def salvando_resultado(self):
-        valor_dicionario_qtd_ext = list()
-        for valor_variavel_dicionario_analise_ext_qtd in self.dicionario_analise_extensao:
-            valor_dicionario_qtd_ext.append(valor_variavel_dicionario_analise_ext_qtd)
-
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         try:
+            arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}')
             for valor_busca in self.lista_analise_arq_busca:
-                arquivo_save.write(f'{valor_busca} - {data_atual} - {hora_atual} \n')
+                arquivo_save.write(f'{valor_busca}\n')
+            arquivo_save.write(self.linha_aparencia())
+            for valor_dicionario_qtd_ext in self.dicionario_analise_extensao:
+                arquivo_save.write(f'{valor_dicionario_qtd_ext}')
             arquivo_save.close()
             tk.messagebox.showinfo('AVISO', 'Sua busca foi salva com sucesso')
         except:
