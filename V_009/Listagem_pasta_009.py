@@ -874,15 +874,15 @@ class ListandoArquivos:
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
-            valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}] '
-            print(valor_extensao_qtd)
+            valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}]'
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
         print('Total de arquivos encontrados...')
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         for pastas, quantidade in self.contagem_pastas.items():
-            print(f'[\\{pastas.upper()}] - {quantidade}')
+            qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
+            print(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
 
         self.salvando_resultado()
