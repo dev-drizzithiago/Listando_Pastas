@@ -666,7 +666,7 @@ class ListandoArquivos:
         self.msg_tot_busca.config(text=f'Foram encontrados {cont_arquivos} arquivos com a extensão'
                                        f' [ {valor_da_busca} ] e... \n'
                                        f' [ {cont_pastas} ] Pasta/s ')
-        self.analise_dados_busca()
+        self.analise_e_processo_de_dados_da_busca()
 
     def iniciar_busca_V2_desativado(self):
         contagem_extensao = dict()
@@ -826,7 +826,7 @@ class ListandoArquivos:
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
-        self.analise_dados_busca()
+        self.analise_e_processo_de_dados_da_busca()
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
         # Finalizando TIME BUSCA
@@ -846,7 +846,7 @@ class ListandoArquivos:
         self.botao_escolha_extensao['state'] = 'normal'
         self.label_status.config(text='Processo finalizado')
 
-    def analise_dados_busca(self):
+    def analise_e_processo_de_dados_da_busca(self):
         # self.criando_relatorio_pdf()
         # Declarações de variaveis
         self.contagem_extensao = {}
