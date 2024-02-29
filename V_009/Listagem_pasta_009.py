@@ -809,8 +809,9 @@ class ListandoArquivos:
         # INICIO DA BUSCA
         self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
         for raiz, subs, itens in walk(str(valor_path_busca)):
+            ultima_pasta = raiz.split('\\')[-2]
             print()
-            print(raiz)
+            print(ultima_pasta)
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.config()
@@ -820,7 +821,7 @@ class ListandoArquivos:
                     caminho_files = path.join(raiz, valor_itens)
                     itens_bytes = stat(caminho_files).st_size
                     if search(self.extensao_selecao_busca, valor_itens):
-                        # print(f'{caminho_files}')
+                        print(f'{caminho_files}')
                         self.lista_result_busca.insert('end', f'{valor_itens}')
                         self.lista_analise_arq_busca.append(f'{caminho_files}')
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
