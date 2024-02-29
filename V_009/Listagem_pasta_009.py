@@ -897,7 +897,7 @@ class ListandoArquivos:
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             for valor_busca in self.lista_analise_arq_busca:
                 arquivo_save.write(f'{valor_busca}\n')
-            arquivo_save.write(self.linha_aparencia())
+            arquivo_save.write(f'{self.linha_aparencia()}\n')
             for valor_dicionario_qtd_ext in self.dicionario_analise_extensao:
                 arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
             arquivo_save.close()
