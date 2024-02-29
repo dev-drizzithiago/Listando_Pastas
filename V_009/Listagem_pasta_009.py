@@ -826,7 +826,6 @@ class ListandoArquivos:
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
-
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
         # Finalizando TIME BUSCA
@@ -875,6 +874,7 @@ class ListandoArquivos:
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}]'
+            print(valor_extensao_qtd)
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
