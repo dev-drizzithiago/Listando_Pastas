@@ -775,6 +775,7 @@ class ListandoArquivos:
 
         # DECLARAÇÃO DE VARIAVEIS
         contador_arquivos = 1
+        self.lista_busca_arquivos = list()
 
         # Desativando os botões para o processo da busca
         self.label_status.config(text='Desativando os botões')
