@@ -895,12 +895,12 @@ class ListandoArquivos:
         tipo_de_arquivo = [('Texto(.log)', '*.log')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         try:
-            arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}')
+            arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             for valor_busca in self.lista_analise_arq_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write(self.linha_aparencia())
             for valor_dicionario_qtd_ext in self.dicionario_analise_extensao:
-                arquivo_save.write(f'{valor_dicionario_qtd_ext}')
+                arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
             arquivo_save.close()
             tk.messagebox.showinfo('AVISO', 'Sua busca foi salva com sucesso')
         except:
