@@ -860,7 +860,6 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
-            self.linha_aparencia()
             if valor_pasta in self.contagem_pastas:
                 self.contagem_pastas[valor_pasta] += 1
             else:
