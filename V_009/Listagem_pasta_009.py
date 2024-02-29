@@ -885,7 +885,6 @@ class ListandoArquivos:
             print(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
 
-        self.salvando_resultado()
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
