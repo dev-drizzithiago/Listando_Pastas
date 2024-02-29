@@ -826,7 +826,7 @@ class ListandoArquivos:
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
-        self.analise_e_processo_de_dados_da_busca()
+
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
         # Finalizando TIME BUSCA
@@ -835,6 +835,7 @@ class ListandoArquivos:
         # FINALIZNANDO BARRA PROGRESSO
         self.barra_progresso_busca.stop()
         self.barra_progresso_busca.config(value=100)
+        self.analise_e_processo_de_dados_da_busca()
 
         # Emitindo som de finalização
         winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
