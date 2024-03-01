@@ -812,6 +812,7 @@ class ListandoArquivos:
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
             print(raiz)
+            self.lista_busca_arquivos.append(f'{raiz}\n')
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.config()
@@ -819,6 +820,7 @@ class ListandoArquivos:
             if len(itens) > 1:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
+                    self.lista_busca_arquivos.append(f'{caminho_files}\n')
                     itens_bytes = stat(caminho_files).st_size
                     if search(self.extensao_selecao_busca, valor_itens):
                         # print(f'{caminho_files}')
