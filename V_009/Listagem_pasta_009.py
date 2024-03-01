@@ -812,7 +812,7 @@ class ListandoArquivos:
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
             print(raiz)
-            self.lista_busca_arquivos.append(f'{raiz}\n')
+            self.lista_busca_arquivos.append(f'\n\n{raiz}\n{'==='*40}')
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.config()
@@ -820,7 +820,7 @@ class ListandoArquivos:
             if len(itens) > 1:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
-                    self.lista_busca_arquivos.append(f'{caminho_files}\n')
+                    self.lista_busca_arquivos.append(f'{caminho_files}')
                     itens_bytes = stat(caminho_files).st_size
                     if search(self.extensao_selecao_busca, valor_itens):
                         # print(f'{caminho_files}')
@@ -848,7 +848,8 @@ class ListandoArquivos:
         self.botao_destino_busca['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
         self.label_status.config(text='Processo finalizado')
-
+        for valor_teste in self.lista_busca_arquivos:
+            print(valor_teste)
     def analise_e_processo_de_dados_da_busca(self):
         # self.criando_relatorio_pdf()
         # Declarações de variaveis
