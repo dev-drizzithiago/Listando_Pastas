@@ -814,7 +814,7 @@ class ListandoArquivos:
             print()
             print(ultima_pasta)
             print(raiz)
-            self.lista_busca_arquivos.append(f'\n\n{raiz}\n{'==='*40}')
+            self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.config()
@@ -850,14 +850,16 @@ class ListandoArquivos:
         self.botao_destino_busca['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
         self.label_status.config(text='Processo finalizado')
-        for valor_teste in self.lista_busca_arquivos:
-            print(valor_teste)
+
     def analise_e_processo_de_dados_da_busca(self):
         # self.criando_relatorio_pdf()
         # Declarações de variaveis
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.dicionario_analise_extensao = []
+        
+        for valor_teste in self.lista_busca_arquivos:
+            print(valor_teste)
 
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
