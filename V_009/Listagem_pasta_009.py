@@ -775,6 +775,7 @@ class ListandoArquivos:
 
         # DECLARAÇÃO DE VARIAVEIS
         contador_arquivos = 1
+        self.lista_busca_arquivos = list()
 
         # Desativando os botões para o processo da busca
         self.label_status.config(text='Desativando os botões')
@@ -812,6 +813,8 @@ class ListandoArquivos:
             ultima_pasta = raiz.split('\\')[-2]
             print()
             print(ultima_pasta)
+            print(raiz)
+            self.lista_busca_arquivos.append(f'\n\n{raiz}\n{'==='*40}')
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.config()
@@ -819,6 +822,7 @@ class ListandoArquivos:
             if len(itens) > 1:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
+                    self.lista_busca_arquivos.append(f'{caminho_files}')
                     itens_bytes = stat(caminho_files).st_size
                     if search(self.extensao_selecao_busca, valor_itens):
                         print(f'{caminho_files}')
@@ -827,7 +831,6 @@ class ListandoArquivos:
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
-        self.analise_e_processo_de_dados_da_busca()
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
         # Finalizando TIME BUSCA
@@ -836,6 +839,7 @@ class ListandoArquivos:
         # FINALIZNANDO BARRA PROGRESSO
         self.barra_progresso_busca.stop()
         self.barra_progresso_busca.config(value=100)
+        self.analise_e_processo_de_dados_da_busca()
 
         # Emitindo som de finalização
         winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
@@ -846,7 +850,8 @@ class ListandoArquivos:
         self.botao_destino_busca['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
         self.label_status.config(text='Processo finalizado')
-
+        for valor_teste in self.lista_busca_arquivos:
+            print(valor_teste)
     def analise_e_processo_de_dados_da_busca(self):
         # self.criando_relatorio_pdf()
         # Declarações de variaveis
@@ -875,6 +880,7 @@ class ListandoArquivos:
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}]'
+            print(valor_extensao_qtd)
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
@@ -885,7 +891,6 @@ class ListandoArquivos:
             print(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
 
-        self.salvando_resultado()
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
