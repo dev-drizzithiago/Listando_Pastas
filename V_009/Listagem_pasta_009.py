@@ -825,8 +825,7 @@ class ListandoArquivos:
                     self.lista_busca_arquivos.append(f'{caminho_files}')
                     itens_bytes = stat(caminho_files).st_size
                     if search(self.extensao_selecao_busca, valor_itens):
-                        print(f'{caminho_files}')
-                        self.lista_result_busca.insert('end', f'{valor_itens}')
+                        self.lista_result_busca.insert('end', f'{caminho_files}')
                         self.lista_analise_arq_busca.append(f'{caminho_files}')
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
@@ -857,7 +856,7 @@ class ListandoArquivos:
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.dicionario_analise_extensao = []
-        
+
         for valor_teste in self.lista_busca_arquivos:
             print(valor_teste)
 
