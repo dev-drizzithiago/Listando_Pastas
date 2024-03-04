@@ -823,8 +823,7 @@ class ListandoArquivos:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
                     valor_arquivo = caminho_files.split('\\')[-1]
-                    destaque_arquivos_pasta = f'{raiz.lower()}\\[{valor_arquivo.upper()}]'
-                    print(destaque_arquivos_pasta)
+                    destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
 
                     self.lista_busca_arquivos.append(f'{caminho_files}')
                     itens_bytes = stat(caminho_files).st_size
