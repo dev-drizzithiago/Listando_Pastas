@@ -842,6 +842,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.stop()
         self.barra_progresso_busca.config(value=100)
         self.analise_e_processo_de_dados_da_busca()
+        sleep(2)
 
         # Emitindo som de finalização
         winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
