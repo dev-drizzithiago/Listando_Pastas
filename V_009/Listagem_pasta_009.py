@@ -899,7 +899,7 @@ class ListandoArquivos:
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
-            self.msg_tot_busca.config(text=qtd_arq_pastas)
+            self.msg_tot_busca.config(text=f'{qtd_arq_pastas}\n')
 
         # LIMPEZA DA LISTA DE BUSCA
         del self.lista_analise_arq_busca[:]
