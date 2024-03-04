@@ -104,8 +104,10 @@ class ListandoArquivos:
         # LABEL DE INFORMAÇÕES
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
+
         self.var_label_info_extensao = tk.StringVar()
         self.var_label_info_extensao.set(' Aguardando escolher uma extensão ')
+
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
 
@@ -147,7 +149,7 @@ class ListandoArquivos:
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
-        self.var_status_contagem_arquivos.set('Aguardando informações')
+        self.var_status_contagem_arquivos.set('Total de arquivos encontrados')
         self.status_contagem_arquivos = Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
@@ -165,10 +167,9 @@ class ListandoArquivos:
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
-        self.var_msg_tot_busca.set('Aguardando informações')
+        self.var_msg_tot_busca.set('Informações total da busca')
         self.msg_tot_busca = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.msg_tot_busca.config(justify='center')
-        # self.msg_tot_busca.pack(anchor='s', pady=2, padx=2)
         self.msg_tot_busca.place(y=0, x=650)
 
         # LABEL TIME DA BUSCA
