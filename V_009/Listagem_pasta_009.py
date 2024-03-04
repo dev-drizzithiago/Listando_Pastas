@@ -822,14 +822,10 @@ class ListandoArquivos:
             if len(itens) > 1:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
-
-                    valor_caminho = caminho_files.split('\\')[:-1]
                     valor_arquivo = caminho_files.split('\\')[-1]
-                    for x in valor_caminho:
-                        pasta_caminho = f'\\{x}'
-                    destaque_arquivos_pasta = f'{pasta_caminho}\\{valor_arquivo.upper()}'
-                    print(pasta_caminho)
-                    
+                    destaque_arquivos_pasta = f'{raiz.lower()}\\[{valor_arquivo.upper()}]'
+                    print(destaque_arquivos_pasta)
+
                     self.lista_busca_arquivos.append(f'{caminho_files}')
                     itens_bytes = stat(caminho_files).st_size
                     if search(self.extensao_selecao_busca, valor_itens):
