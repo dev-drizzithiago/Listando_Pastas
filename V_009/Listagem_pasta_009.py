@@ -105,7 +105,7 @@ class ListandoArquivos:
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
         self.var_label_info_extensao = tk.StringVar()
-        self.var_label_info_extensao.set(' VAZIO ')
+        self.var_label_info_extensao.set(' Aguardando escolher uma extensão ')
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
 
@@ -881,6 +881,7 @@ class ListandoArquivos:
             else:
                 self.contagem_extensao[valor_extensao] = 1
 
+        # QUANTIDADE DE EXTENSAO QUE POSSUI
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
@@ -889,13 +890,16 @@ class ListandoArquivos:
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
 
+        # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
         print('Total de arquivos encontrados...')
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
+            self.var_label_status_geral.config()
 
+        # LIMPEZA DA LISTA DE BUSCA
         del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
