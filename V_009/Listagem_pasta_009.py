@@ -165,12 +165,12 @@ class ListandoArquivos:
         self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
         self.status_DISTINO_pastas.place(y=20, x=5)
 
-        # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
+        # LABEL ARQUIVOS ENCONTRADOS
         self.var_msg_tot_busca = tk.StringVar()
-        self.var_msg_tot_busca.set('Informações total da busca')
-        self.msg_tot_busca = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
-        self.msg_tot_busca.config(justify='center')
-        self.msg_tot_busca.place(y=0, x=650)
+        self.var_msg_tot_busca.set('Aguardando arquivos')
+        self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
+        self.status_arquivos.config(justify='center')
+        self.status_arquivos.place(y=0, x=650)
 
         # LABEL TIME DA BUSCA
         self.var_label_time_busca = tk.StringVar()
