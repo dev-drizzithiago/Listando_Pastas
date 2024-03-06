@@ -183,9 +183,19 @@ class ListandoArquivos:
         self.label_pasta_principal.place(y=20, x=650)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+        # Barra de progresso da busca
+        self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
+        self.label_frame_progresso.pack(anchor='s', fill='both', pady=2, padx=2)
+        self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
+        self.barra_progresso_busca.config(orient=tk.HORIZONTAL)
+        self.barra_progresso_busca.config(mode='determinate')
+        self.barra_progresso_busca.config(style='red.Horizontal.TProgressbar')
+        self.barra_progresso_busca.pack(anchor='s', fill='both', pady=2, padx=2)
+
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=2, padx=2)
+        self.label_frame_botoes_opcoes.pack(anchor='s', fill='both', pady=2, padx=2)
 
         # BOTÃO Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
@@ -219,16 +229,6 @@ class ListandoArquivos:
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.salvando_resultado())
         self.botao_save_busca.place(y=30, x=788)
-
-        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # Barra de progresso da busca
-        self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
-        self.label_frame_progresso.pack(anchor='s', fill='both', pady=2, padx=2)
-        self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
-        self.barra_progresso_busca.config(orient=tk.HORIZONTAL)
-        self.barra_progresso_busca.config(mode='determinate')
-        self.barra_progresso_busca.config(style='red.Horizontal.TProgressbar')
-        self.barra_progresso_busca.pack(anchor='s', fill='both', pady=2, padx=2)
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
