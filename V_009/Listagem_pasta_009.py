@@ -130,7 +130,7 @@ class ListandoArquivos:
 
         # LISTA DO RESULTADO DA BUSCA
         self.lista_result_busca = tk.Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
-        self.lista_result_busca.config(height=5)
+        self.lista_result_busca.config(height=8)
         self.lista_result_busca.config(selectmode=tk.SINGLE)
         self.lista_result_busca.pack(anchor='center', fill=tk.BOTH, padx=2, pady=2)
 
