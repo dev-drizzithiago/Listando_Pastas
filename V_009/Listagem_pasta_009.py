@@ -178,6 +178,11 @@ class ListandoArquivos:
         self.label_time_busca = Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
         self.label_time_busca.pack(anchor='s', pady=2, padx=2)
 
+        # LABEL PASTA PRINCIPAL DE BUSCA
+        self.var_label_pasta_principal = tk.StringVar()
+        self.var_label_pasta_principal.set(valor_pasta_destino)
+        self.label_pasta_principal = Label(self.label_frame_geral_info, text=self.var_label_pasta_principal.get())
+
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
