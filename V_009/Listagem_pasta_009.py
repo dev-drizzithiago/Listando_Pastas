@@ -138,7 +138,7 @@ class ListandoArquivos:
         # LABEM FRAME INFO BUSCA
         self.label_frame_geral_info = tk.LabelFrame(self.label_frame_geral, text='Informações da busca...!')
         self.label_frame_geral_info.config(relief=tk.RIDGE)
-        self.label_frame_geral_info.config(height=8)
+        self.label_frame_geral_info.config(height=100)
         self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
 
         # LABEL STATUS GERAL
@@ -167,7 +167,7 @@ class ListandoArquivos:
 
         # LABEL ARQUIVOS ENCONTRADOS
         self.var_msg_tot_busca = tk.StringVar()
-        self.var_msg_tot_busca.set('Aguardando arquivos')
+        self.var_msg_tot_busca.set('Aguardando pela busca de arquivos')
         self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
         self.status_arquivos.place(y=0, x=650)
@@ -182,6 +182,7 @@ class ListandoArquivos:
         self.var_label_pasta_principal = tk.StringVar()
         self.var_label_pasta_principal.set(valor_pasta_destino)
         self.label_pasta_principal = Label(self.label_frame_geral_info, text=self.var_label_pasta_principal.get())
+        self.label_pasta_principal.place(y=20, x=650)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
