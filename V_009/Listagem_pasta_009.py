@@ -106,7 +106,7 @@ class ListandoArquivos:
         self.label_frame_info_ext.pack(anchor='n')
 
         self.var_label_info_extensao = tk.StringVar()
-        self.var_label_info_extensao.set(' Aguardando escolher uma extensão ')
+        self.var_label_info_extensao.set(' Aguardando escolha da extensão ')
 
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
@@ -136,9 +136,8 @@ class ListandoArquivos:
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
         # LABEM FRAME INFO BUSCA
-        self.label_frame_geral_info = tk.LabelFrame(self.label_frame_geral, text='Informações da busca...!')
+        self.label_frame_geral_info = LabelFrame(self.label_frame_geral, text='Informações da busca...!')
         self.label_frame_geral_info.config(relief=tk.RIDGE)
-        self.label_frame_geral_info.config(height=100)
         self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
 
         # LABEL STATUS GERAL
