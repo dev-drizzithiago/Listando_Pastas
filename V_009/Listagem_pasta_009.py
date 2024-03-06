@@ -69,12 +69,12 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Label FRAME PRINCIPAL
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
-        # self.label_frame_geral.pack(fill=tk.BOTH, pady=5, padx=5)
+        self.label_frame_geral.pack(fill=tk.BOTH, pady=5, padx=5)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # COMBO DE EXTENSÃO
         self.var_combo_categoria = tk.StringVar()
-        self.label_frame_combo_categora = LabelFrame(self.janela_principal)
+        self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH, pady=2, padx=2)
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, justify='center')
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
@@ -85,7 +85,7 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # INFORMAÇÕES SOBRE EXTENSÃO
-        self.label_lista_extensao = LabelFrame(self.janela_principal, text='Escolha uma extensão')
+        self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
         self.label_lista_extensao.pack(side='top', fill='both', pady=2, padx=2)
         # BARRA DE ROLAGEM
         self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=tk.VERTICAL)
@@ -102,7 +102,7 @@ class ListandoArquivos:
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
         # LABEL DE INFORMAÇÕES
-        self.label_frame_info_ext = LabelFrame(self.janela_principal, text='Você escolheu a extensão..!')
+        self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
 
         self.var_label_info_extensao = tk.StringVar()
@@ -119,7 +119,7 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Busca Geral
         self.var_lista_busca = tk.StringVar()
-        self.label_frame_lista_busca = LabelFrame(self.janela_principal, text='Resultado da BUSCA')
+        self.label_frame_lista_busca = LabelFrame(self.label_frame_geral, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center', fill='both', pady=2, padx=2)
 
         # BARRA ROLAGEM CONFIGURAÇÃO
@@ -142,7 +142,7 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # LABEM FRAME INFO BUSCA
-        self.label_frame_geral_info = LabelFrame(self.janela_principal, text='Informações da busca...!')
+        self.label_frame_geral_info = LabelFrame(self.label_frame_geral, text='Informações da busca...!')
         self.label_frame_geral_info.config(relief=tk.RIDGE)
         self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
 
@@ -150,7 +150,7 @@ class ListandoArquivos:
         self.var_label_status_geral = tk.StringVar()
         self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
         self.label_status.config(justify='center')
-        self.label_status.pack(anchor='s', pady=2, padx=2)
+        self.label_status.pack(side='top', pady=2, padx=2)
 
         # LABEL CONTAGEM ARQUIVOS
         self.var_status_contagem_arquivos = tk.StringVar()
@@ -158,7 +158,7 @@ class ListandoArquivos:
         self.status_contagem_arquivos = Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.place(y=0, x=5)
+        self.status_contagem_arquivos.pack(side='left', pady=2, padx=2)
 
         # LABEL PASTAS DISTINO DA BUSCA
         self.var_status_contagem_pastas = tk.StringVar()
@@ -167,24 +167,24 @@ class ListandoArquivos:
         self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_DISTINO_pastas.config(justify='center')
         self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
-        self.status_DISTINO_pastas.place(y=20, x=5)
+        self.status_DISTINO_pastas.pack(side='right', pady=2, padx=2)
 
         # LABEL ARQUIVOS ENCONTRADOS
         self.var_msg_tot_busca = tk.StringVar()
         self.var_msg_tot_busca.set('Aguardando pela busca de arquivos')
         self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
-        self.status_arquivos.place(y=0, x=650)
+        self.status_arquivos.pack(side='top', pady=2, padx=2)
 
         # LABEL PASTA PRINCIPAL DE BUSCA
         self.var_label_pasta_principal = tk.StringVar()
         self.var_label_pasta_principal.set(valor_pasta_destino)
         self.label_pasta_principal = Label(self.label_frame_geral_info, text=self.var_label_pasta_principal.get())
-        self.label_pasta_principal.place(y=20, x=650)
+        self.label_pasta_principal.place(y=10, x=350)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
-        self.label_frame_progresso = LabelFrame(self.janela_principal, text='Progresso da busca...!')
+        self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(anchor='s', fill='both', pady=2, padx=2)
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
         self.barra_progresso_busca.config(orient=tk.HORIZONTAL)
@@ -194,8 +194,8 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # BOTÕES
-        self.label_frame_botoes_opcoes = LabelFrame(self.janela_principal, text='Escolha um opção')
-        self.label_frame_botoes_opcoes.pack(anchor='s', fill='both', pady=2, padx=2)
+        self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
+        self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=2, padx=2)
 
         # BOTÃO Iniciar Busca
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
