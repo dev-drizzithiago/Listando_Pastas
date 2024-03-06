@@ -174,13 +174,13 @@ class ListandoArquivos:
         self.var_msg_tot_busca.set('Aguardando pela busca de arquivos')
         self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
-        self.status_arquivos.pack(side='top', pady=2, padx=2)
+        self.status_arquivos.pack(anchor='n', pady=2, padx=2)
 
         # LABEL PASTA PRINCIPAL DE BUSCA
-        self.var_label_pasta_principal = tk.StringVar()
-        self.var_label_pasta_principal.set(valor_pasta_destino)
-        self.label_pasta_principal = Label(self.label_frame_geral_info, text=self.var_label_pasta_principal.get())
-        self.label_pasta_principal.place(y=10, x=350)
+        # self.var_label_pasta_principal = tk.StringVar()
+        # self.var_label_pasta_principal.set(valor_pasta_destino)
+        # self.label_pasta_principal = Label(self.label_frame_geral_info, text=self.var_label_pasta_principal.get())
+        # self.label_pasta_principal.place(y=10, x=350)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
