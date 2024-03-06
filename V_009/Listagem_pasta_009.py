@@ -156,14 +156,14 @@ class ListandoArquivos:
         # self.status_contagem_arquivos.pack(anchor='s', pady=2, padx=2)
         self.status_contagem_arquivos.place(y=0, x=5)
 
-        # LABEL CONTAGEM PASTAS
-        # self.var_status_contagem_pastas = tk.StringVar()
-        # self.var_status_contagem_pastas.set('Aguardando informações')
-        # self.status_contagem_pastas = Label(self.label_frame_geral_info)
-        # self.status_contagem_pastas.config(text=self.var_status_contagem_pastas.get())
-        # self.status_contagem_pastas.config(justify='center')
-        # self.status_contagem_pastas.pack(anchor='s', pady=2, padx=2)
-        # self.status_contagem_pastas.place(y=20, x=5)
+        # LABEL PASTAS DISTINO DA BUSCA
+        self.var_status_contagem_pastas = tk.StringVar()
+        self.var_status_contagem_pastas.set('Nunhuma Pasta selecionada')
+        self.status_DISTINO_pastas = Label(self.label_frame_geral_info)
+        self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
+        self.status_DISTINO_pastas.config(justify='center')
+        self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
+        self.status_DISTINO_pastas.place(y=20, x=5)
 
         # LABEL CONTAGEM GERAL ARQUIVOS E PASTAS
         self.var_msg_tot_busca = tk.StringVar()
@@ -815,6 +815,7 @@ class ListandoArquivos:
             print()
             print(ultima_pasta)
             print(raiz)
+            self.status_DISTINO_pastas.config(text=raiz)
             self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
