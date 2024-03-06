@@ -107,9 +107,14 @@ class ListandoArquivos:
 
         self.var_label_info_extensao = tk.StringVar()
         self.var_label_info_extensao.set(' Aguardando escolha da extensão ')
-
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
+
+        # LABEL TIME DA BUSCA
+        self.var_label_time_busca = tk.StringVar()
+        self.var_label_time_busca.set('00:00:00')
+        self.label_time_busca = Label(self.label_frame_geral, text=self.var_label_time_busca.get())
+        self.label_time_busca.pack(anchor='center', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Busca Geral
@@ -169,12 +174,6 @@ class ListandoArquivos:
         self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
         self.status_arquivos.place(y=0, x=650)
-
-        # LABEL TIME DA BUSCA
-        self.var_label_time_busca = tk.StringVar()
-        self.var_label_time_busca.set('00:00:00')
-        self.label_time_busca = Label(self.label_frame_geral_info, text=self.var_label_time_busca.get())
-        self.label_time_busca.pack(anchor='s', pady=2, padx=2)
 
         # LABEL PASTA PRINCIPAL DE BUSCA
         self.var_label_pasta_principal = tk.StringVar()
