@@ -175,6 +175,7 @@ class ListandoArquivos:
         self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
         self.status_arquivos.pack(anchor='n', pady=2, padx=2)
+        self.status_arquivos.place(y=2, x=380)
 
         # LABEL PASTA PRINCIPAL DE BUSCA
         # self.var_label_pasta_principal = tk.StringVar()
