@@ -102,7 +102,7 @@ class ListandoArquivos:
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
         # LABEL DE INFORMAÇÕES
-        self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
+        self.label_frame_info_ext = tk.LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!', height=100)
         self.label_frame_info_ext.pack(anchor='n')
 
         self.var_label_info_extensao = tk.StringVar()
