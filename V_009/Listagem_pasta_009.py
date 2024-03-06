@@ -823,6 +823,7 @@ class ListandoArquivos:
             if len(itens) > 1:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
+
                     valor_arquivo = caminho_files.split('\\')[-1]
                     destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
 
@@ -891,7 +892,7 @@ class ListandoArquivos:
             self.lista_final_busca.append(valor_extensao_qtd)
             print(valor_extensao_qtd)
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
-            self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
+            self.lista_result_busca.insert('end', valor_extensao_qtd)
 
         # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
         print('Total de arquivos encontrados...')
@@ -899,7 +900,7 @@ class ListandoArquivos:
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(qtd_arq_pastas)
-            self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
+            self.lista_result_busca.insert('end', qtd_arq_pastas)
 
         # LIMPEZA DA LISTA DE BUSCA
         del self.lista_analise_arq_busca[:]
