@@ -92,7 +92,7 @@ class ListandoArquivos:
         self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
         # LISTA EXTENSAO
         self.lista_de_extensoes = tk.Listbox(self.label_lista_extensao, selectmode=tk.SINGLE, justify='center')
-        self.lista_de_extensoes.config(height=3)
+        self.lista_de_extensoes.config(height=2)
         self.lista_de_extensoes.config(selectforeground='#000000')
         self.lista_de_extensoes.config(selectbackground='#A9A9A9')
         self.lista_de_extensoes.config(selectborderwidth=5)
@@ -130,7 +130,7 @@ class ListandoArquivos:
 
         # LISTA DO RESULTADO DA BUSCA
         self.lista_result_busca = tk.Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
-        self.lista_result_busca.config(height=2)
+        self.lista_result_busca.config(height=5)
         self.lista_result_busca.config(selectmode=tk.SINGLE)
         self.lista_result_busca.pack(anchor='center', fill=tk.BOTH, padx=2, pady=2)
 
@@ -223,12 +223,12 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Barra de progresso da busca
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
-        self.label_frame_progresso.pack(side='bottom', fill='both', pady=2, padx=2)
+        self.label_frame_progresso.pack(anchor='s', fill='both', pady=2, padx=2)
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
         self.barra_progresso_busca.config(orient=tk.HORIZONTAL)
         self.barra_progresso_busca.config(mode='determinate')
         self.barra_progresso_busca.config(style='red.Horizontal.TProgressbar')
-        self.barra_progresso_busca.pack(anchor='center', fill='both', pady=2, padx=2)
+        self.barra_progresso_busca.pack(anchor='s', fill='both', pady=2, padx=2)
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
