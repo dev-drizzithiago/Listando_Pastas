@@ -892,7 +892,6 @@ class ListandoArquivos:
             print(valor_extensao_qtd)
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', f'   [{extensao.upper()}] ------ : ------ [{quantidade}] ')
-        self.status_contagem_arquivos.config(text=f'   [{extensao.upper()}] ------ : ------ [{quantidade}] \n')
 
         # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
         print('Total de arquivos encontrados...')
@@ -901,7 +900,6 @@ class ListandoArquivos:
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'[\\{pastas.upper()}] - [{quantidade}]')
-        self.msg_tot_busca.config(text=f'{self.lista_final_busca}\n')
 
         # LIMPEZA DA LISTA DE BUSCA
         del self.lista_analise_arq_busca[:]
