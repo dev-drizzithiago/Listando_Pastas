@@ -158,7 +158,7 @@ class ListandoArquivos:
         self.status_contagem_arquivos = Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.pack(side='bottom', pady=2, padx=2)
+        self.status_contagem_arquivos.pack(anchor='e', pady=2, padx=2)
 
         # LABEL PASTAS DISTINO DA BUSCA
         self.var_status_contagem_pastas = tk.StringVar()
@@ -167,7 +167,7 @@ class ListandoArquivos:
         self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_DISTINO_pastas.config(justify='center')
         self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
-        self.status_DISTINO_pastas.pack(side='right', pady=2, padx=2)
+        self.status_DISTINO_pastas.place(y=2, x=10)
 
         # LABEL ARQUIVOS ENCONTRADOS
         self.var_msg_tot_busca = tk.StringVar()
@@ -175,7 +175,7 @@ class ListandoArquivos:
         self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
         self.status_arquivos.pack(anchor='n', pady=2, padx=2)
-        self.status_arquivos.place(y=2, x=10)
+        self.status_arquivos.place(y=20, x=10)
 
         # LABEL PASTA PRINCIPAL DE BUSCA
         # self.var_label_pasta_principal = tk.StringVar()
