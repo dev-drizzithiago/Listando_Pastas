@@ -736,21 +736,29 @@ class ListandoArquivos:
 
         self.lista_result_busca.insert('end', 'Extensão      -      Quantidade')
         print('Extensão      -      Quantidade')
+
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
-            print(valor_extensao_qtd)
+            print(f'>> {valor_extensao_qtd} <<')
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
+        self.lista_result_busca.insert('end', '-=-' * 40)
+        self.lista_result_busca.insert('end', '')
 
         # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
+        self.lista_result_busca.insert('end', '-=-' * 40)
         print('-=-' * 40)
+        self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         print('Total de arquivos encontrados...')
+
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
-            print(qtd_arq_pastas)
+            print(f'>> {qtd_arq_pastas} <<')
             self.lista_result_busca.insert('end', qtd_arq_pastas)
+        self.lista_result_busca.insert('end', '-=-' * 40)
+        self.lista_result_busca.insert('end', '')
 
         # LIMPEZA DA LISTA DE BUSCA
         del self.lista_analise_arq_busca[:]
