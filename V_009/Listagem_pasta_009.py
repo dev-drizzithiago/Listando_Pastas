@@ -742,15 +742,12 @@ class ListandoArquivos:
         print()
         print('Total de arquivos encontrados...')
         print('-=-' * 40)
-
-        self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
-
+        self.lista_result_busca.insert('end', '-=-' * 40)
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(f'>> {qtd_arq_pastas} <<')
             self.lista_result_busca.insert('end', qtd_arq_pastas)
-        self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', '')
 
         # LIMPEZA DA LISTA DE BUSCA
