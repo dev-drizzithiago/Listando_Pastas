@@ -739,13 +739,13 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '')
 
         # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
-        self.lista_result_busca.insert('end', '-=-' * 40)
         print()
-        self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         print('Total de arquivos encontrados...')
         print('-=-' * 40)
 
+        self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
+
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(f'>> {qtd_arq_pastas} <<')
