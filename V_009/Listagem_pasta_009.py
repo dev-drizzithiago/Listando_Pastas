@@ -661,6 +661,7 @@ class ListandoArquivos:
 
                     self.lista_busca_arquivos.append(f'{caminho_files}')
                     itens_bytes = stat(caminho_files).st_size
+
                     if search(self.extensao_selecao_busca, valor_itens):
                         self.status_arquivos.config(text=valor_itens)
                         self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
@@ -718,6 +719,10 @@ class ListandoArquivos:
                 self.contagem_extensao[valor_extensao] = 1
 
         # QUANTIDADE DE EXTENSAO QUE POSSUI
+        print()
+        print('-=-' * 40)
+        print('Total de extenões encontrados...')
+        print()
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
@@ -728,6 +733,7 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', valor_extensao_qtd)
 
         # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
+        print('-=-' * 40)
         print('Total de arquivos encontrados...')
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         for pastas, quantidade in self.contagem_pastas.items():
