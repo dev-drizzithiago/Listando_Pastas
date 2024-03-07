@@ -727,8 +727,6 @@ class ListandoArquivos:
         print('Total de extenões encontrados...')
         self.lista_result_busca.insert('end', '')
         print()
-        self.lista_result_busca.insert('end', '-=-' * 40)
-        print('-=-' * 40)
         self.lista_result_busca.insert('end', 'Extensão      -      Quantidade')
         print('Extensão      -      Quantidade')
 
