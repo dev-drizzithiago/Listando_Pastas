@@ -665,7 +665,7 @@ class ListandoArquivos:
                     self.lista_busca_arquivos.append(f'{caminho_files}')
                     itens_bytes = stat(caminho_files).st_size
 
-                    if search(self.extensao_selecao_busca, valor_itens):
+                    if search(self.extensao_selecao_busca.lower(), valor_itens):
                         self.status_arquivos.config(text=valor_itens)
                         self.lista_result_busca.insert('end', f'{valor_itens}')
                         self.lista_analise_arq_busca.append(f'{caminho_files}')
