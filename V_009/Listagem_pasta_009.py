@@ -730,9 +730,9 @@ class ListandoArquivos:
         print('Extensão      -      Quantidade')
 
         for extensao, quantidade in self.contagem_extensao.items():
-            valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}]'
+            valor_extensao_qtd = f' {extensao.upper()} {"":=^17} [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
-            print(f'>> {valor_extensao_qtd} <<')
+            print(f'>>{valor_extensao_qtd} <<')
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
         self.lista_result_busca.insert('end', '-=-' * 40)
