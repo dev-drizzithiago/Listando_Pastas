@@ -645,7 +645,6 @@ class ListandoArquivos:
         for raiz, subs, itens in walk(str(valor_path_busca)):
             ultima_pasta = raiz.split('\\')[-2]
             print()
-            print(ultima_pasta)
             print(raiz)
             self.status_DISTINO_pastas.config(text=raiz)
             self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
