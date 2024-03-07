@@ -148,6 +148,7 @@ class ListandoArquivos:
 
         # LABEL STATUS GERAL
         self.var_label_status_geral = tk.StringVar()
+        self.var_label_status_geral.set('Bem vindo!')
         self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
         self.label_status.config(justify='center')
         self.label_status.pack(side='bottom', pady=2, padx=2)
@@ -162,7 +163,7 @@ class ListandoArquivos:
 
         # LABEL PASTAS DISTINO DA BUSCA
         self.var_status_contagem_pastas = tk.StringVar()
-        self.var_status_contagem_pastas.set('Nunhuma Pasta selecionada')
+        self.var_status_contagem_pastas.set('Buscando na pasta => Aguardando busca!')
         self.status_DISTINO_pastas = Label(self.label_frame_geral_info)
         self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_DISTINO_pastas.config(justify='center')
@@ -649,7 +650,7 @@ class ListandoArquivos:
             ultima_pasta = raiz.split('\\')[-2]
             print()
             print(raiz)
-            self.status_DISTINO_pastas.config(text=raiz)
+            self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
             self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', f'{raiz}')
@@ -745,7 +746,7 @@ class ListandoArquivos:
         print()
         print('Total de arquivos encontrados...')
         print('-=-' * 40)
-        self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
+        self.lista_result_busca.insert('end', 'Total de arquivos...')
         self.lista_result_busca.insert('end', '-=-' * 40)
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
