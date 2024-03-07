@@ -606,6 +606,9 @@ class ListandoArquivos:
         from os import walk, path, stat
         from re import search
 
+        print(f'Extensão {self.extensao_selecao_busca}')
+        sleep(1)
+
         # DECLARAÇÃO DE VARIAVEIS
         contador_arquivos = 1
         self.lista_busca_arquivos = list()
