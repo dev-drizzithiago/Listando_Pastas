@@ -720,14 +720,13 @@ class ListandoArquivos:
 
         # QUANTIDADE DE EXTENSAO QUE POSSUI
         self.lista_result_busca.insert('end', '')
-        print()
         self.lista_result_busca.insert('end', '-=-' * 40)
-        print('-=-' * 40)
         self.lista_result_busca.insert('end', 'Total de extenões encontrados...')
-        print('Total de extenões encontrados...')
         self.lista_result_busca.insert('end', '')
-        print()
         self.lista_result_busca.insert('end', 'Extensão      -      Quantidade')
+        print()
+        print('Total de extenões encontrados...')
+        print('-=-' * 40)
         print('Extensão      -      Quantidade')
 
         for extensao, quantidade in self.contagem_extensao.items():
@@ -742,9 +741,9 @@ class ListandoArquivos:
         # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
         self.lista_result_busca.insert('end', '-=-' * 40)
         print()
-        print('-=-' * 40)
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         print('Total de arquivos encontrados...')
+        print('-=-' * 40)
 
         self.lista_result_busca.insert('end', 'Total de arquivos encontrados...')
         for pastas, quantidade in self.contagem_pastas.items():
