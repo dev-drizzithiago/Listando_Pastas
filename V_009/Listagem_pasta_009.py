@@ -719,11 +719,22 @@ class ListandoArquivos:
                 self.contagem_extensao[valor_extensao] = 1
 
         # QUANTIDADE DE EXTENSAO QUE POSSUI
+        self.lista_result_busca.insert('end', '')
         print()
+
+        self.lista_result_busca.insert('end', '-=-' * 40)
         print('-=-' * 40)
+
+        self.lista_result_busca.insert('end', 'Total de extenões encontrados...')
         print('Total de extenões encontrados...')
+
+        self.lista_result_busca.insert('end', '')
         print()
+
+        self.lista_result_busca.insert('end', '-=-' * 40)
         print('-=-' * 40)
+
+        self.lista_result_busca.insert('end', 'Extensão      -      Quantidade')
         print('Extensão      -      Quantidade')
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f'   {extensao.upper()} ------ : ------ [{quantidade}]'
