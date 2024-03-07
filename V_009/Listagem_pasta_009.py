@@ -159,7 +159,7 @@ class ListandoArquivos:
         self.status_contagem_arquivos = Label(self.label_frame_geral_info)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.pack(anchor='e', pady=2, padx=2)
+        self.status_contagem_arquivos.pack(anchor='se', pady=2, padx=2)
 
         # LABEL PASTAS DISTINO DA BUSCA
         self.var_status_contagem_pastas = tk.StringVar()
