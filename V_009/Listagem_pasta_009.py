@@ -706,8 +706,8 @@ class ListandoArquivos:
         self.label_status.config(text='Processo finalizado')
 
     def analise_e_processo_de_dados_da_busca(self):
-        # self.criando_relatorio_pdf()
-        # Declarações de variaveis
+
+        """ Declarações de variaveis"""
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.dicionario_analise_extensao = []
@@ -716,13 +716,16 @@ class ListandoArquivos:
         for valor_teste in self.lista_busca_arquivos:
             print(f'{valor_teste}')
 
+        """# Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
+
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
 
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
+            """Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor"""
             if valor_pasta in self.contagem_pastas:
                 self.contagem_pastas[valor_pasta] += 1
             else:
@@ -733,36 +736,42 @@ class ListandoArquivos:
             else:
                 self.contagem_extensao[valor_extensao] = 1
 
-        # QUANTIDADE DE EXTENSAO QUE POSSUI
+        """# QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', 'Total de extenões encontrados...')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Extensão      -      Quantidade')
+
         print()
         print('Total de extenões encontrados...')
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
 
+        # Calcula a quantidade de extensões encontradas.
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f' {extensao.upper()} {"":=^17} [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
             print(f'>>{valor_extensao_qtd} <<')
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
+
         self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', '')
 
-        # QUANTIDADE DE ARQUIVOS DENTRO DAS PASTAS
+        # Calcula a quantidade de arquivos dentro das pastas.
         print()
         print('Total de arquivos encontrados...')
         print('-=-' * 40)
+
         self.lista_result_busca.insert('end', 'Total de arquivos...')
         self.lista_result_busca.insert('end', '-=-' * 40)
+
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(f'>> {qtd_arq_pastas} <<')
             self.lista_result_busca.insert('end', qtd_arq_pastas)
+
         self.lista_result_busca.insert('end', '')
 
     def criando_relatorio_pdf(self):
