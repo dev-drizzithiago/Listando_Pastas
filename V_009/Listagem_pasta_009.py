@@ -660,7 +660,7 @@ class ListandoArquivos:
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
             print(raiz)
-
+            print(len(itens))
             self.lista_save_busca.append('')
             self.lista_save_busca.append('')
             self.lista_save_busca.append(f'{raiz}')
@@ -672,26 +672,26 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', f'{raiz}')
             self.lista_result_busca.config()
             self.lista_result_busca.insert('end', self.linha_aparencia())
-            if len(itens) > 1:
-                for valor_itens in itens:
-                    caminho_files = path.join(raiz, valor_itens)
 
-                    """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
-                    e as pasta em minusculos."""
-                    valor_arquivo = caminho_files.split('\\')[-1]
-                    destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
+            for valor_itens in itens:
+                caminho_files = path.join(raiz, valor_itens)
 
-                    self.lista_busca_arquivos.append(f'{caminho_files}')
+                """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
+                e as pasta em minusculos."""
+                valor_arquivo = caminho_files.split('\\')[-1]
+                destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
 
-                    """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
-                    Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
-                    if search(self.extensao_selecao_busca.lower(), valor_itens):
-                        self.status_arquivos.config(text=valor_itens)
-                        self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
-                        self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
-                        self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
-                        self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
-                        contador_arquivos += 1
+                self.lista_busca_arquivos.append(f'{caminho_files}')
+
+                """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
+                Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
+                if search(self.extensao_selecao_busca.lower(), valor_itens):
+                    self.status_arquivos.config(text=valor_itens)
+                    self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
+                    self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
+                    self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
+                    self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
+                    contador_arquivos += 1
 
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
