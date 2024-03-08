@@ -761,8 +761,8 @@ class ListandoArquivos:
 
         self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', '')
-
-        """# Calcula a quantidade de arquivos dentro das pastas."""
+        
+        """# Quantidade de arquivos dentro das pastas """
         print()
         print('Total de arquivos encontrados...')
         print('-=-' * 40)
@@ -771,7 +771,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Total de arquivos...')
         self.lista_result_busca.insert('end', '-=-' * 40)
 
-        """ Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
+        """# Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(f'>> {qtd_arq_pastas} <<')
