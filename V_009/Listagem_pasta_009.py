@@ -37,6 +37,7 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         self.ativo_add_ext_especifica = False
         self.ativo_finalizacao_busca = False
+        self.ativo_itens_encontrados = False
         self.ativo_status_extensao = False
         self.ativo_status_destinos = False
         self.ativo_analise_dados = False
@@ -691,8 +692,6 @@ class ListandoArquivos:
                         self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
-                    else:
-                        print(f'Vazia!!')
 
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
