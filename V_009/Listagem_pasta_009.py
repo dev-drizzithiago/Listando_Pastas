@@ -604,8 +604,9 @@ class ListandoArquivos:
 
     def iniciar_busca(self):
         """
+        :param: contador_arquivos = 1 = Reponsavel pela contagem todos dos arquivos encontrados.
         :param: self.lista_busca_arquivos = list() = fica alocado os valores da busca
-        :param: self.lista_save_busca = list() = fica alocado as informações para salver em arquivo de texto. 
+        :param: self.lista_save_busca = list() = fica alocado as informações para salver em arquivo de texto.
         :return:
         """
         # MODULOS RESPONSAVEL PELA BUSCA
