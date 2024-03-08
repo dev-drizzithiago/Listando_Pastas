@@ -720,7 +720,7 @@ class ListandoArquivos:
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.lista_qtd_arq_pastas = []
-        self.lista_qtd_extensao = []        
+        self.lista_qtd_extensao = []
         self.lista_final_busca = []
 
         for valor_teste in self.lista_busca_arquivos:
@@ -785,6 +785,7 @@ class ListandoArquivos:
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(f'>> {qtd_arq_pastas} <<')
+            self.lista_qtd_arq_pastas.append(qtd_arq_pastas)
             self.lista_result_busca.insert('end', qtd_arq_pastas)
 
         self.lista_result_busca.insert('end', '')
@@ -804,6 +805,8 @@ class ListandoArquivos:
             arquivo_save.write(f"{'-=-' * 20}\n")
             for valor_dicionario_qtd_ext in self.lista_qtd_extensao:
                 arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
+            for valor_lista_qtd_arq_pasta in self.lista_qtd_arq_pastas:
+                arquivo_save.write(valor_lista_qtd_arq_pasta)
             arquivo_save.close()
             tk.messagebox.showinfo('AVISO', 'Sua busca foi salva com sucesso')
         except:
