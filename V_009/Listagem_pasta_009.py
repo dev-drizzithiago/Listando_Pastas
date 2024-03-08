@@ -748,7 +748,7 @@ class ListandoArquivos:
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
 
-        # Calcula a quantidade de extensões encontradas.
+        """# Calcula a quantidade de extensões encontradas."""
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f' {extensao.upper()} {"":=^17} [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
@@ -759,7 +759,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', '')
 
-        # Calcula a quantidade de arquivos dentro das pastas.
+        """# Calcula a quantidade de arquivos dentro das pastas."""
         print()
         print('Total de arquivos encontrados...')
         print('-=-' * 40)
