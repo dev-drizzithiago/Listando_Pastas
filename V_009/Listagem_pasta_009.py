@@ -656,6 +656,7 @@ class ListandoArquivos:
             print(raiz)
 
             self.lista_save_busca.append('')
+            self.lista_save_busca.append('')
             self.lista_save_busca.append(f'{raiz}')
             self.lista_save_busca.append(f'{"===" * 40}')
 
