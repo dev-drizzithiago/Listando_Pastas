@@ -722,8 +722,8 @@ class ListandoArquivos:
         self.dicionario_analise_extensao = []
         self.lista_final_busca = []
 
-        """for valor_teste in self.lista_busca_arquivos:
-            print(f'{valor_teste}')"""
+        for valor_teste in self.lista_busca_arquivos:
+            print(f'{valor_teste}')
 
         """# Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
@@ -764,7 +764,7 @@ class ListandoArquivos:
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f' {extensao.upper()} {"":=^17} [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
-            print(f'>>{valor_extensao_qtd} <<')
+            print(f'>> {valor_extensao_qtd} <<')
             self.dicionario_analise_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
 
