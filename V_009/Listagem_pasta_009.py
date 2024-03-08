@@ -654,10 +654,10 @@ class ListandoArquivos:
             ultima_pasta = raiz.split('\\')[-2]
             print()
             print(raiz)
-            
+
+            self.lista_save_busca.append('')
             self.lista_save_busca.append(f'{raiz}')
             self.lista_save_busca.append(f'{"===" * 40}')
-            self.lista_save_busca.append('')
 
             self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
             self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
@@ -774,7 +774,7 @@ class ListandoArquivos:
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 20}\n')
             arquivo_save.write(f'')
-            for valor_busca in self.lista_analise_arq_busca:
+            for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write(f"{'-=-' * 20}\n")
             for valor_dicionario_qtd_ext in self.dicionario_analise_extensao:
