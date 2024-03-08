@@ -607,6 +607,9 @@ class ListandoArquivos:
         from os import walk, path, stat
         from re import search
 
+        # LIMPEZA DA LISTA DE BUSCA
+        del self.lista_analise_arq_busca[:]
+
         print(f'Extensão {self.extensao_selecao_busca}')
         sleep(1)
 
@@ -753,9 +756,6 @@ class ListandoArquivos:
             print(f'>> {qtd_arq_pastas} <<')
             self.lista_result_busca.insert('end', qtd_arq_pastas)
         self.lista_result_busca.insert('end', '')
-
-        # LIMPEZA DA LISTA DE BUSCA
-        del self.lista_analise_arq_busca[:]
 
     def criando_relatorio_pdf(self):
         pass
