@@ -719,7 +719,8 @@ class ListandoArquivos:
         """ Declarações de variaveis"""
         self.contagem_extensao = {}
         self.contagem_pastas = {}
-        self.dicionario_analise_extensao = []
+        self.lista_qtd_arq_pastas = []
+        self.lista_qtd_extensao = []        
         self.lista_final_busca = []
 
         for valor_teste in self.lista_busca_arquivos:
@@ -765,7 +766,7 @@ class ListandoArquivos:
             valor_extensao_qtd = f' {extensao.upper()} {"":=^17} [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
             print(f'>> {valor_extensao_qtd} <<')
-            self.dicionario_analise_extensao.append(valor_extensao_qtd)
+            self.lista_qtd_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
 
         self.lista_result_busca.insert('end', '-=-' * 40)
@@ -801,7 +802,7 @@ class ListandoArquivos:
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write(f"{'-=-' * 20}\n")
-            for valor_dicionario_qtd_ext in self.dicionario_analise_extensao:
+            for valor_dicionario_qtd_ext in self.lista_qtd_extensao:
                 arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
             arquivo_save.close()
             tk.messagebox.showinfo('AVISO', 'Sua busca foi salva com sucesso')
