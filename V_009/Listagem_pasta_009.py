@@ -653,6 +653,7 @@ class ListandoArquivos:
             ultima_pasta = raiz.split('\\')[-2]
             print()
             print(raiz)
+            self.lista_analise_arq_busca.append(f'{raiz}')
             self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
             self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
             self.lista_result_busca.insert('end', '')
