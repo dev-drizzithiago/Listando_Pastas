@@ -672,7 +672,7 @@ class ListandoArquivos:
                     if search(self.extensao_selecao_busca.lower(), valor_itens):
                         self.status_arquivos.config(text=valor_itens)
                         self.lista_result_busca.insert('end', f'{valor_itens}')
-                        self.lista_analise_arq_busca.append(f'{caminho_files}')
+                        self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
@@ -765,11 +765,11 @@ class ListandoArquivos:
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         try:
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
-            arquivo_save.write(f'{"===" * 40}\n')
+            arquivo_save.write(f'{"===" * 20}\n')
             arquivo_save.write(f'')
             for valor_busca in self.lista_analise_arq_busca:
                 arquivo_save.write(f'{valor_busca}\n')
-            arquivo_save.write(f"{'-=-' * 52}\n")
+            arquivo_save.write(f"{'-=-' * 20}\n")
             for valor_dicionario_qtd_ext in self.dicionario_analise_extensao:
                 arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
             arquivo_save.close()
