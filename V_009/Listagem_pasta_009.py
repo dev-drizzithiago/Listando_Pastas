@@ -616,6 +616,7 @@ class ListandoArquivos:
         # DECLARAÇÃO DE VARIAVEIS
         contador_arquivos = 1
         self.lista_busca_arquivos = list()
+        self.lista_save_busca = list()
 
         # Desativando os botões para o processo da busca
         self.label_status.config(text='Desativando os botões')
@@ -653,7 +654,11 @@ class ListandoArquivos:
             ultima_pasta = raiz.split('\\')[-2]
             print()
             print(raiz)
-            self.lista_analise_arq_busca.append(f'{raiz}')
+            
+            self.lista_save_busca.append(f'{raiz}')
+            self.lista_save_busca.append(f'{"===" * 40}')
+            self.lista_save_busca.append('')
+
             self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
             self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
             self.lista_result_busca.insert('end', '')
@@ -674,6 +679,7 @@ class ListandoArquivos:
                         self.status_arquivos.config(text=valor_itens)
                         self.lista_result_busca.insert('end', f'{valor_itens}')
                         self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
+                        self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
