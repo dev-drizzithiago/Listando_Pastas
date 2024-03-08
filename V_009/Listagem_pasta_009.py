@@ -765,6 +765,7 @@ class ListandoArquivos:
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         try:
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
+            arquivo_save.write(f'{"===" * 40}')
             for valor_busca in self.lista_analise_arq_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write(f"{'-=-' * 52}\n")
