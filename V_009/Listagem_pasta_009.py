@@ -645,7 +645,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
         self.lista_result_busca.insert('end', self.linha_aparencia())
 
-        """# INICIANDO TIME DA BUSCA"""
+        """# INICIANDO O CONTATO"""
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
 
@@ -675,11 +675,12 @@ class ListandoArquivos:
                 for valor_itens in itens:
                     caminho_files = path.join(raiz, valor_itens)
 
+                    """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
+                    e as pasta em minusculos."""
                     valor_arquivo = caminho_files.split('\\')[-1]
                     destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
 
                     self.lista_busca_arquivos.append(f'{caminho_files}')
-                    itens_bytes = stat(caminho_files).st_size
 
                     if search(self.extensao_selecao_busca.lower(), valor_itens):
                         self.status_arquivos.config(text=valor_itens)
