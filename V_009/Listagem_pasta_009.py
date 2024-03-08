@@ -725,12 +725,15 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
-            """Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor"""
+            """Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
+            de arquivos dentro de cada pasta"""
             if valor_pasta in self.contagem_pastas:
                 self.contagem_pastas[valor_pasta] += 1
             else:
                 self.contagem_pastas[valor_pasta] = 1
 
+            """# Ocorre o mesmo problema com as extensões. Nessa caso ele somas a quantidade de extensão que foi 
+            encontrado no total."""
             if valor_extensao in self.contagem_extensao:
                 self.contagem_extensao[valor_extensao] += 1
             else:
@@ -748,7 +751,7 @@ class ListandoArquivos:
         print('-=-' * 40)
         print('Extensão      -      Quantidade')
 
-        """# Calcula a quantidade de extensões encontradas."""
+        """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f' {extensao.upper()} {"":=^17} [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
@@ -764,9 +767,11 @@ class ListandoArquivos:
         print('Total de arquivos encontrados...')
         print('-=-' * 40)
 
+        self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Total de arquivos...')
         self.lista_result_busca.insert('end', '-=-' * 40)
 
+        """ Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'[\\{pastas.upper()}] - [{quantidade}]'
             print(f'>> {qtd_arq_pastas} <<')
