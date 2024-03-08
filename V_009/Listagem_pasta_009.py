@@ -603,6 +603,11 @@ class ListandoArquivos:
         self.ativo_status_destinos = True
 
     def iniciar_busca(self):
+        """
+        :param: self.lista_busca_arquivos = list() = fica alocado os valores da busca
+        :param: self.lista_save_busca = list() = fica alocado as informações para salver em arquivo de texto. 
+        :return:
+        """
         # MODULOS RESPONSAVEL PELA BUSCA
         from os import walk, path, stat
         from re import search
@@ -618,7 +623,7 @@ class ListandoArquivos:
         self.lista_busca_arquivos = list()
         self.lista_save_busca = list()
 
-        # Desativando os botões para o processo da busca
+        """# Desativando os botões para o processo da busca"""
         self.label_status.config(text='Desativando os botões')
         sleep(1)
         self.botao_save_busca['state'] = 'disabled'
@@ -626,32 +631,31 @@ class ListandoArquivos:
         self.botao_adicionar_extensao['state'] = 'disabled'
         self.botao_escolha_extensao['state'] = 'disabled'
 
-        # LIMPANDO LISTA DE BUSCA
+        """# LIMPANDO LISTA DE BUSCA"""
         self.lista_result_busca.delete('0', 'end')
 
-        # Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário
+        """# Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário"""
         if self.ativo_status_destinos:
             valor_path_busca = Path(self.pasta_local_de_busca)
         else:
             valor_path_busca = Path(valor_pasta_destino)
 
-        # HORARIO DA BUSCAR
+        """# HORARIO DA BUSCAR"""
         self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
         self.lista_result_busca.insert('end', self.linha_aparencia())
 
-        # INICIANDO TIME DA BUSCA
+        """# INICIANDO TIME DA BUSCA"""
         self.ativo_time_busca = True
         Thread(target=self.time_busca).start()
 
-        # INICIANDO BARRA DE PROGRESSO
+        """# INICIANDO BARRA DE PROGRESSO"""
         winsound.PlaySound(som_inicio_busca, winsound.SND_ASYNC)
         sleep(2)
         self.barra_progresso_busca.start()
 
-        # INICIO DA BUSCA
+        """# INICIO PROCESSO DA BUSCA"""
         self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
         for raiz, subs, itens in walk(str(valor_path_busca)):
-            ultima_pasta = raiz.split('\\')[-2]
             print()
             print(raiz)
 
@@ -678,7 +682,7 @@ class ListandoArquivos:
 
                     if search(self.extensao_selecao_busca.lower(), valor_itens):
                         self.status_arquivos.config(text=valor_itens)
-                        self.lista_result_busca.insert('end', f'{valor_itens}')
+                        self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
                         self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
                         self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
@@ -713,8 +717,8 @@ class ListandoArquivos:
         self.dicionario_analise_extensao = []
         self.lista_final_busca = []
 
-        for valor_teste in self.lista_busca_arquivos:
-            print(f'{valor_teste}')
+        """for valor_teste in self.lista_busca_arquivos:
+            print(f'{valor_teste}')"""
 
         """# Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
@@ -761,7 +765,7 @@ class ListandoArquivos:
 
         self.lista_result_busca.insert('end', '-=-' * 40)
         self.lista_result_busca.insert('end', '')
-        
+
         """# Quantidade de arquivos dentro das pastas """
         print()
         print('Total de arquivos encontrados...')
