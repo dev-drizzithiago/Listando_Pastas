@@ -691,7 +691,8 @@ class ListandoArquivos:
                     self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
                     self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                     contador_arquivos += 1
-
+        self.lista_result_busca.insert('end', '')
+        self.lista_result_busca.insert('end', 'Busca finalizada!!')
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
         # Finalizando TIME BUSCA
