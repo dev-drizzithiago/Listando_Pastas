@@ -660,7 +660,6 @@ class ListandoArquivos:
         for raiz, subs, itens in walk(str(valor_path_busca)):
             print()
             print(raiz)
-            print(len(itens))
             self.lista_save_busca.append('')
             self.lista_save_busca.append('')
             self.lista_save_busca.append(f'{raiz}')
@@ -794,7 +793,7 @@ class ListandoArquivos:
         pass
 
     def salvando_resultado(self):
-        tipo_de_arquivo = [('Texto(.log)', '*.log')]
+        tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         try:
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
