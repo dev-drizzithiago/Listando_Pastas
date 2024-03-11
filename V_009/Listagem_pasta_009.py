@@ -789,6 +789,8 @@ class ListandoArquivos:
             self.lista_result_busca.insert('end', qtd_arq_pastas)
 
         self.lista_result_busca.insert('end', '')
+        self.lista_result_busca.insert('end', '')
+        self.lista_result_busca.insert('end', 'Analise finalizada!!')
 
     def criando_relatorio_pdf(self):
         pass
