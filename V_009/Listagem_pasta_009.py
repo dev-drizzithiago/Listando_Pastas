@@ -794,7 +794,7 @@ class ListandoArquivos:
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
-        arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
+        arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo, title='Tudo')
         try:
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 20}\n')
