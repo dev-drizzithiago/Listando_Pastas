@@ -803,8 +803,10 @@ class ListandoArquivos:
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 15}\n')
             arquivo_save.write(f'')
+
+            arquivo_save.write(f'Caminho principal da busca')
             arquivo_save.write(f'{"===" * 15}\n')
-            arquivo_save.write(f'Caminho principal da busca [{self.pasta_local_de_busca}]')
+            arquivo_save.write(f'[{self.pasta_local_de_busca}]')
 
             """Arquivos da busca"""
             for valor_busca in self.lista_save_busca:
