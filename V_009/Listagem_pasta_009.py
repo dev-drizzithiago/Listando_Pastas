@@ -813,9 +813,9 @@ class ListandoArquivos:
             arquivo_save.write(f'[{self.pasta_local_de_busca}]\n')
 
             """Arquivos da busca"""
-            arquivo_save.write(f'Dados da busca\n')
-            arquivo_save.write(f'{"===" * 15}\n')
             arquivo_save.write(f'\n\n')
+            arquivo_save.write(f'Dados da busca\n')
+            arquivo_save.write(f'{"===" * 15}\n')            
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write(f"{'-=-' * 15}\n")
