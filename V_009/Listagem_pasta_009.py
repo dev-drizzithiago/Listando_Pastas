@@ -724,6 +724,7 @@ class ListandoArquivos:
         self.lista_qtd_extensao = []
         self.lista_final_busca = []
 
+        self.label_status.config(text='Aguarde!! Analisando os dados de busca')
         for valor_teste in self.lista_busca_arquivos:
             print(f'{valor_teste}')
 
@@ -792,6 +793,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
+        self.label_status.config(text='Analise finalizada!!')
 
     def criando_relatorio_pdf(self):
         pass
@@ -800,6 +802,7 @@ class ListandoArquivos:
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo, title='Tudo')
         try:
+            self.label_status.config(text='Aguarda, salvando os dados em arquivo de texto!!')
             """# Cabeçalho do salvamento"""
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 15}\n')
@@ -826,6 +829,7 @@ class ListandoArquivos:
             arquivo_save.write('')
             arquivo_save.close()
             tk.messagebox.showinfo('AVISO', 'Sua busca foi salva com sucesso')
+            self.label_status.config(text='Arquivo salvo com sucesso!')
         except:
             tk.messagebox.showwarning('AVISO', 'Busca não pode ser salva no sistema!')
 
