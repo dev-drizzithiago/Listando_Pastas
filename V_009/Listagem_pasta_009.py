@@ -717,7 +717,7 @@ class ListandoArquivos:
 
     def analise_e_processo_de_dados_da_busca(self):
 
-        """ Declarações de variaveis"""
+        """# Declarações de variaveis"""
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.lista_qtd_arq_pastas = []
