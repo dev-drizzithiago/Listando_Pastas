@@ -801,17 +801,22 @@ class ListandoArquivos:
         try:
             """# Cabeçalho do salvamento"""
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
-            arquivo_save.write(f'{"===" * 20}\n')
+            arquivo_save.write(f'{"===" * 15}\n')
             arquivo_save.write(f'')
+            arquivo_save.write(f'{"===" * 15}\n')
+            arquivo_save.write(f'Caminho principal da busca [{self.pasta_local_de_busca}]')
 
+            """Arquivos da busca"""
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
-            arquivo_save.write(f"{'-=-' * 20}\n")
+            arquivo_save.write(f"{'-=-' * 15}\n")
 
+            """Quantidade da extensão"""
             for valor_dicionario_qtd_ext in self.lista_qtd_extensao:
                 arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
-            arquivo_save.write(f"{'-=-' * 20}\n")
+            arquivo_save.write(f"{'-=-' * 15}\n")
 
+            """Quantidade de arquivos dentro de cada pasta"""
             for valor_lista_qtd_arq_pasta in self.lista_qtd_arq_pastas:
                 arquivo_save.write(f'{valor_lista_qtd_arq_pasta}\n')
             arquivo_save.write('')
