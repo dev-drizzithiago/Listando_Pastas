@@ -363,6 +363,7 @@ class ListandoArquivos:
                             contagem_minutos += 1
 
                 self.label_time_busca['text'] = msg_info_time
+                self.tempo_da_busca = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
 
@@ -802,6 +803,7 @@ class ListandoArquivos:
             """# Cabeçalho do salvamento"""
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 15}\n')
+            arquivo_save.write(f'Tempo da busca {self.tempo_da_busca}')
             arquivo_save.write(f'')
 
             arquivo_save.write(f'Caminho principal da busca')
