@@ -806,12 +806,11 @@ class ListandoArquivos:
             """# Cabeçalho do salvamento"""
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 15}\n')
-            arquivo_save.write(f'Tempo da busca {self.tempo_da_busca}')
-            arquivo_save.write(f'')
+            arquivo_save.write(f'Tempo da busca {self.tempo_da_busca}\n\n')
 
-            arquivo_save.write(f'Caminho principal da busca')
+            arquivo_save.write(f'Pasta da busca\n')
             arquivo_save.write(f'{"===" * 15}\n')
-            arquivo_save.write(f'[{self.pasta_local_de_busca}]')
+            arquivo_save.write(f'[{self.pasta_local_de_busca}]\n')
 
             """Arquivos da busca"""
             for valor_busca in self.lista_save_busca:
