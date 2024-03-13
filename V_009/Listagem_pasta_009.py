@@ -819,7 +819,7 @@ class ListandoArquivos:
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write('\n\n')
-            arquivo_save.write(f"{'@@@' * 40}\n")
+            arquivo_save.write(f"{'@@@@' * 40}\n")
 
             """Quantidade da extensão"""
             arquivo_save.write('\n\n')
@@ -830,7 +830,7 @@ class ListandoArquivos:
             """Quantidade de arquivos dentro de cada pasta"""
             arquivo_save.write('\n\n')
             arquivo_save.write('Quantidades de arquivo dentro de cada pasta\n')
-            arquivo_save.write(f"{'<<>>' * 15}\n")
+            arquivo_save.write(f"{'______' * 15}\n")
             for valor_lista_qtd_arq_pasta in self.lista_qtd_arq_pastas:
                 arquivo_save.write(f'{valor_lista_qtd_arq_pasta}\n')
             arquivo_save.write('\n\n')
