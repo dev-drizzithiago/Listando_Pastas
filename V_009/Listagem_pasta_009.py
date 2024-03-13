@@ -613,7 +613,7 @@ class ListandoArquivos:
         :return:
         """
         # MODULOS RESPONSAVEL PELA BUSCA
-        from os import walk, path, stat
+        from os import walk, path
         from re import search
 
         # LIMPEZA DA LISTA DE BUSCA
@@ -797,7 +797,11 @@ class ListandoArquivos:
         self.label_status.config(text='Analise finalizada!!')
 
     def criando_relatorio_pdf(self):
-        criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
+        teste_1 = 'thiago'
+        teste_2 = 'zenilda'
+        teste_3 = 'enzo'
+        criando_documento_pdf(teste_1, teste_2, teste_3)
+        # criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
