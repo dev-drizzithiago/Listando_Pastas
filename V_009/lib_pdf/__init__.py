@@ -31,7 +31,7 @@ def numero_paginas(janela, documento):
 def documento_PDF():
     """Salvando as informações no documento"""
     doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
-                            topMarfin=72, bottomMargin=18)
+                            topMargin=72, bottomMargin=18)
     estilo = getSampleStyleSheet()
     estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
@@ -43,5 +43,7 @@ def documento_PDF():
         dados_save.append(Spacer(1, 10))
 
     print(dados_save)
+
+
 if __name__ == '__main__':
     documento_PDF()
