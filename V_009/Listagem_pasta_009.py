@@ -804,7 +804,7 @@ class ListandoArquivos:
         from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
         from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
         from reportlab.lib.units import mm
-
+        
         """Escolhendo as informações para salvar o arquivo"""
         showinfo('AVISA!', 'Escolha o direto para salvar o documento')
         local_save = str(Path(askdirectory()))
