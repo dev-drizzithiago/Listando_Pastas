@@ -9,7 +9,7 @@ from tkinter.messagebox import showinfo
 from pathlib import Path
 
 
-def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada):
+def criando_documento_pdf(busca_caletada):
     """Escolhendo as informações para salvar o arquivo"""
     showinfo('AVISA!', 'Escolha o direto para salvar o documento')
     local_save = str(Path(askdirectory()))
