@@ -57,8 +57,8 @@ class ListandoArquivos:
         self.janela_principal.geometry('1000x640+150+10')
         self.janela_principal.resizable(0, 0)
 
-        self.icone_busca = tk.PhotoImage(file='lupa.png')
-        self.janela_principal.iconphoto(True, self.icone_busca)
+        # self.icone_busca = tk.PhotoImage(file='lupa.png')
+        # self.janela_principal.iconphoto(True, self.icone_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Estilos
