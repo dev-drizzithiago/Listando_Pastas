@@ -33,6 +33,5 @@ def documento_PDF():
     estilo = getSampleStyleSheet()
     estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
+    dados_save = []
 
-
-    
