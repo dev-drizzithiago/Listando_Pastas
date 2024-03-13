@@ -29,6 +29,7 @@ class ListandoArquivos:
     winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
 
     def __init__(self):
+        self.criando_relatorio_pdf()
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
                                  'Arquivos execução', 'Arquivos compreesão')
 
@@ -795,7 +796,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
-        criando_documento_pdf()
+
 
     def criando_relatorio_pdf(self):
         teste_1 = 'thiago'
