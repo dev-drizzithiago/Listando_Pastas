@@ -797,7 +797,7 @@ class ListandoArquivos:
         self.label_status.config(text='Analise finalizada!!')
 
     def criando_relatorio_pdf(self):
-        pass
+        criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
