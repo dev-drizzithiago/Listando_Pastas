@@ -32,3 +32,7 @@ def documento_PDF():
                             topMarfin=72, bottomMargin=18)
     estilo = getSampleStyleSheet()
     estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+
+
+
+    
