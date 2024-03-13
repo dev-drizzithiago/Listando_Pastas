@@ -27,6 +27,7 @@ som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_b
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
     winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
+    # criando_documento_pdf(1, 2, 3)
 
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
@@ -56,8 +57,8 @@ class ListandoArquivos:
         self.janela_principal.geometry('1000x640+150+10')
         self.janela_principal.resizable(0, 0)
 
-        self.icone_busca = tk.PhotoImage(file='lupa.png')
-        self.janela_principal.iconphoto(True, self.icone_busca)
+        # self.icone_busca = tk.PhotoImage(file='lupa.png')
+        # self.janela_principal.iconphoto(True, self.icone_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Estilos
@@ -795,6 +796,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
+        self.criando_relatorio_pdf()
 
     def criando_relatorio_pdf(self):
         criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
