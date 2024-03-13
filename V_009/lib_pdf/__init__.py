@@ -42,7 +42,7 @@ def documento_PDF():
         dados_save.append(Paragraph(texto, estilo["Justify"]))
         dados_save.append(Spacer(1, 10))
 
-    doc.build(dados_save, onFirstPage=numero_paginas(), onLaterPages=numero_paginas())
+    doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
 
 if __name__ == '__main__':
