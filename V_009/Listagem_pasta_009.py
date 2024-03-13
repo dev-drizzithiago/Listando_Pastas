@@ -6,10 +6,10 @@ from time import sleep
 from pathlib import Path
 from threading import Thread
 from datetime import datetime
-from tkinter.messagebox import showerror
+from tkinter.messagebox import showerror, showinfo
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
-from lib_pdf import criando_documento_pdf
+
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
@@ -29,6 +29,7 @@ class ListandoArquivos:
     winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
 
     def __init__(self):
+
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
                                  'Arquivos execução', 'Arquivos compreesão')
 
@@ -56,8 +57,8 @@ class ListandoArquivos:
         self.janela_principal.geometry('1000x640+150+10')
         self.janela_principal.resizable(0, 0)
 
-        self.icone_busca = tk.PhotoImage(file='lupa.png')
-        self.janela_principal.iconphoto(True, self.icone_busca)
+        # self.icone_busca = tk.PhotoImage(file='lupa.png')
+        # self.janela_principal.iconphoto(True, self.icone_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Estilos
@@ -613,7 +614,7 @@ class ListandoArquivos:
         :return:
         """
         # MODULOS RESPONSAVEL PELA BUSCA
-        from os import walk, path, stat
+        from os import walk, path
         from re import search
 
         # LIMPEZA DA LISTA DE BUSCA
@@ -715,6 +716,7 @@ class ListandoArquivos:
         self.botao_destino_busca['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
         self.label_status.config(text='Processo finalizado')
+        self.criando_relatorio_pdf()
 
     def analise_e_processo_de_dados_da_busca(self):
 
@@ -797,7 +799,47 @@ class ListandoArquivos:
         self.label_status.config(text='Analise finalizada!!')
 
     def criando_relatorio_pdf(self):
-        criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
+        from reportlab.lib.enums import TA_JUSTIFY
+        from reportlab.lib.pagesizes import A4
+        from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+        from reportlab.lib.units import mm
+
+        """Escolhendo as informações para salvar o arquivo"""
+        showinfo('AVISA!', 'Escolha o direto para salvar o documento')
+        local_save = str(Path(askdirectory()))
+        nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
+        pdf_diretorio_save = str(local_save + '\\' + nome_arquivo_pdf + '.pdf')
+
+        """ Criando o Arquivos PDF"""
+        lista_teste = ['Thiago', 'Zenny', 'Enzo', 'teste']
+
+        # ----------------------------------------------------------------------
+        def numero_paginas(janela, documento):
+            """Adicionao número de paginas"""
+            num_pag = janela.getPageNumber()
+            pagina = f'Pagina {num_pag}'
+            janela.drawRightString(200 * mm, 20 * mm, pagina)
+
+        # ----------------------------------------------------------------------
+        def documento_PDF():
+            """Salvando as informações no documento"""
+            doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
+                                    topMargin=72, bottomMargin=18)
+            estilo = getSampleStyleSheet()
+            estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+
+            dados_save = []
+
+            for dados in lista_teste:
+                texto = f'<font size="12">%s</font>' % dados
+                dados_save.append(Paragraph(texto, estilo["Justify"]))
+                dados_save.append(Spacer(1, 10))
+
+            doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
+
+        if __name__ == '__main__':
+            documento_PDF()
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
