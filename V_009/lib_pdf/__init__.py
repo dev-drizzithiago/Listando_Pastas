@@ -39,9 +39,9 @@ def documento_PDF():
 
     for dados in lista_teste:
         texto = f"<font size='12'{dados}</font>"
+        dados_save.append(Paragraph(texto, estilo['Normal']))
+        dados_save.append(Spacer(1, 10))
 
-        print(texto)
-
-
+    print(dados_save)
 if __name__ == '__main__':
     documento_PDF()
