@@ -765,7 +765,7 @@ class ListandoArquivos:
 
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
-            valor_extensao_qtd = f' [{extensao.upper()} {"":=^17} [{quantidade}]'
+            valor_extensao_qtd = f' [{extensao.upper()}] {"":=^17} [{quantidade}]'
             self.lista_final_busca.append(valor_extensao_qtd)
             print(f'>> {valor_extensao_qtd} <<')
             self.lista_qtd_extensao.append(valor_extensao_qtd)
@@ -818,7 +818,8 @@ class ListandoArquivos:
             arquivo_save.write(f'{"===" * 15}\n')
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
-            arquivo_save.write(f"{'-=-' * 15}\n")
+            arquivo_save.write('\n\n')
+            arquivo_save.write(f"{'@@@' * 15}\n")
 
             """Quantidade da extensão"""
             arquivo_save.write('\n\n')
