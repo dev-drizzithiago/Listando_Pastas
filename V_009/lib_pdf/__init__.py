@@ -38,11 +38,11 @@ def documento_PDF():
     dados_save = []
 
     for dados in lista_teste:
-        texto = f'<font size="12" %s </font>' % dados
+        texto = f'<font size="12">%s</font>' % dados
         dados_save.append(Paragraph(texto, estilo["Justify"]))
         dados_save.append(Spacer(1, 10))
 
-    print(dados_save)
+    doc.build(dados_save, onFirstPage=numero_paginas(), onLaterPages=numero_paginas())
 
 
 if __name__ == '__main__':
