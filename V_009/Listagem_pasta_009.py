@@ -10,6 +10,7 @@ from tkinter.messagebox import showerror, showinfo
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 
+
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
 valor_datatime = datetime.now()
@@ -803,10 +804,6 @@ class ListandoArquivos:
         from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
         from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
         from reportlab.lib.units import mm
-
-        teste_1 = 'thiago'
-        teste_2 = 'zenilda'
-        teste_3 = 'enzo'
 
         """Escolhendo as informações para salvar o arquivo"""
         showinfo('AVISA!', 'Escolha o direto para salvar o documento')
