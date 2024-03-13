@@ -815,12 +815,14 @@ class ListandoArquivos:
             """Arquivos da busca"""
             arquivo_save.write(f'\n\n')
             arquivo_save.write(f'Dados da busca\n')
-            arquivo_save.write(f'{"===" * 15}\n')            
+            arquivo_save.write(f'{"===" * 15}\n')
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write(f"{'-=-' * 15}\n")
 
             """Quantidade da extensão"""
+            arquivo_save.write('\n\n')
+            arquivo_save.write(f'Extensão      -      Quantidade')
             for valor_dicionario_qtd_ext in self.lista_qtd_extensao:
                 arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
             arquivo_save.write(f"{'-=-' * 15}\n")
