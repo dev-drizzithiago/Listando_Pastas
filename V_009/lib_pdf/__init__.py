@@ -8,10 +8,11 @@ from pathlib import Path
 
 """Escolhendo as informações para salvar o arquivo"""
 showinfo('AVISA!', 'Escolha o direto para salvar o documento')
-local_save = Path(askdirectory())
+local_save = str(Path(askdirectory()))
 nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
-pdf_diretorio_save = local_save + '\\' + nome_arquivo_pdf + '.pdf'
+pdf_diretorio_save = str(local_save + '\\' + nome_arquivo_pdf + '.pdf')
 print(pdf_diretorio_save)
+
 """ Criando o Arquivos PDF"""
 pdf = canvas.Canvas(pdf_diretorio_save, pagesize=A4)
 pdf.save()
