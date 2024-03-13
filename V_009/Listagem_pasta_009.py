@@ -822,13 +822,14 @@ class ListandoArquivos:
 
             """Quantidade da extensão"""
             arquivo_save.write('\n\n')
-            arquivo_save.write(f'Extensão      -      Quantidade')
+            arquivo_save.write(f'Extensão      -      Quantidade\n')
             for valor_dicionario_qtd_ext in self.lista_qtd_extensao:
                 arquivo_save.write(f'{valor_dicionario_qtd_ext}\n')
-            arquivo_save.write(f"{'<<>>' * 15}\n")
 
             """Quantidade de arquivos dentro de cada pasta"""
+            arquivo_save.write('\n\n')
             arquivo_save.write('Quantidades de arquivo dentro de cada pasta')
+            arquivo_save.write(f"{'<<>>' * 15}\n")
             for valor_lista_qtd_arq_pasta in self.lista_qtd_arq_pastas:
                 arquivo_save.write(f'{valor_lista_qtd_arq_pasta}\n')
             arquivo_save.write('')
