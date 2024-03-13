@@ -18,6 +18,8 @@ print(pdf_diretorio_save)
 
 """ Criando o Arquivos PDF"""
 
+lista_teste = ['Thiago', 'Zenny', 'Enzo']
+
 
 def numero_paginas(janela, documento):
     """Adicionao número de paginas"""
@@ -35,3 +37,11 @@ def documento_PDF():
 
     dados_save = []
 
+    for dados in lista_teste:
+        texto = f"<font size='12'{dados}</font>"
+
+        print(texto)
+
+
+if __name__ == '__main__':
+    documento_PDF()
