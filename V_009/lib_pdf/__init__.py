@@ -19,10 +19,9 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
     pdf_diretorio_save = str(local_save + '\\' + nome_arquivo_pdf + '.pdf')
     print(pdf_diretorio_save)
 
-    dados_da_busca = busca_caletada
-    dados_da_extensao = extensao_coletado
-    dados_da_quantidade = quantidade_coletada
-    print(dados_da_quantidade, dados_da_extensao, dados_da_busca)
+    dados_da_busca = [busca_caletada, extensao_coletado, quantidade_coletada]
+    print(dados_da_busca)
+
     """ Criando o Arquivos PDF"""
     lista_teste = ['Thiago', 'Zenny', 'Enzo']
 
