@@ -49,6 +49,3 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
 
     if __name__ == '__main__':
         documento_PDF()
-
-
-criando_documento_pdf(1, 2, 3)
