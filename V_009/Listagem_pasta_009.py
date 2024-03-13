@@ -797,7 +797,6 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
 
-
     def criando_relatorio_pdf(self):
         teste_1 = 'thiago'
         teste_2 = 'zenilda'
