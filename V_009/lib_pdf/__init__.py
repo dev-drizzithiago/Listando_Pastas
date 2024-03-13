@@ -16,8 +16,9 @@ nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
 pdf_diretorio_save = str(local_save + '\\' + nome_arquivo_pdf + '.pdf')
 print(pdf_diretorio_save)
 
-""" Criando o Arquivos PDF"""
+dados_da_busca = 
 
+""" Criando o Arquivos PDF"""
 lista_teste = ['Thiago', 'Zenny', 'Enzo']
 
 
