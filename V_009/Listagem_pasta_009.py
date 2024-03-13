@@ -803,21 +803,19 @@ class ListandoArquivos:
         from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
         from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
         from reportlab.lib.units import mm
-        
+
         teste_1 = 'thiago'
         teste_2 = 'zenilda'
         teste_3 = 'enzo'
-        
+
         """Escolhendo as informações para salvar o arquivo"""
         showinfo('AVISA!', 'Escolha o direto para salvar o documento')
         local_save = str(Path(askdirectory()))
         nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
         pdf_diretorio_save = str(local_save + '\\' + nome_arquivo_pdf + '.pdf')
-        print(pdf_diretorio_save)
-
 
         """ Criando o Arquivos PDF"""
-        lista_teste = ['Thiago', 'Zenny', 'Enzo']
+        lista_teste = ['Thiago', 'Zenny', 'Enzo', 'teste']
 
         # ----------------------------------------------------------------------
         def numero_paginas(janela, documento):
@@ -836,7 +834,7 @@ class ListandoArquivos:
 
             dados_save = []
 
-            for dados in dados_da_busca:
+            for dados in lista_teste:
                 texto = f'<font size="12">%s</font>' % dados
                 dados_save.append(Paragraph(texto, estilo["Justify"]))
                 dados_save.append(Spacer(1, 10))
