@@ -21,8 +21,8 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
 
     dados_da_busca = busca_caletada
     dados_da_extensao = extensao_coletado
-    dados_quantidade = quantidade_coletada
-
+    dados_da_quantidade = quantidade_coletada
+    print(dados_da_quantidade, dados_da_extensao, dados_da_busca)
     """ Criando o Arquivos PDF"""
     lista_teste = ['Thiago', 'Zenny', 'Enzo']
 
