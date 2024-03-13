@@ -27,7 +27,6 @@ som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_b
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
     winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
-    # criando_documento_pdf(1, 2, 3)
 
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
@@ -799,9 +798,9 @@ class ListandoArquivos:
         self.criando_relatorio_pdf()
 
     def criando_relatorio_pdf(self):
-        criando_documento_pdf(self.lista_result_busca,
-                              self.lista_qtd_extensao,
-                              self.lista_qtd_arq_pastas)
+        criando_documento_pdf(str(self.lista_result_busca),
+                              str(self.lista_qtd_extensao),
+                              str(self.lista_qtd_arq_pastas))
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
