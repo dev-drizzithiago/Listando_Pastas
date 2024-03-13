@@ -49,7 +49,9 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
 
         doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
         print('Finalizado!')
+
     if __name__ == '__main__':
         documento_PDF()
+
 
 criando_documento_pdf(1, 2, 3)
