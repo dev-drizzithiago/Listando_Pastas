@@ -819,7 +819,7 @@ class ListandoArquivos:
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write('\n\n')
-            arquivo_save.write(f"{'@@@' * 15}\n")
+            arquivo_save.write(f"{'@@@' * 40}\n")
 
             """Quantidade da extensão"""
             arquivo_save.write('\n\n')
