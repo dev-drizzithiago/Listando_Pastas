@@ -799,7 +799,9 @@ class ListandoArquivos:
         self.criando_relatorio_pdf()
 
     def criando_relatorio_pdf(self):
-        criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
+        criando_documento_pdf(self.lista_result_busca,
+                              self.lista_qtd_extensao,
+                              self.lista_qtd_arq_pastas)
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
