@@ -35,7 +35,7 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
     # ----------------------------------------------------------------------
     def documento_PDF():
         """Salvando as informações no documento"""
-        doc = SimpleDocTemplate(dados_da_busca, pagezsize=A4, rightMargin=72, leftMargin=72,
+        doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
                                 topMargin=72, bottomMargin=18)
         estilo = getSampleStyleSheet()
         estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
