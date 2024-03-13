@@ -23,12 +23,14 @@ def criando_documento_pdf(dados_coletados=''):
     """ Criando o Arquivos PDF"""
     lista_teste = ['Thiago', 'Zenny', 'Enzo']
 
+    # ----------------------------------------------------------------------
     def numero_paginas(janela, documento):
         """Adicionao número de paginas"""
         num_pag = janela.getPageNumber()
         pagina = f'Pagina {num_pag}'
         janela.drawRightString(200 * mm, 20 * mm, pagina)
 
+    # ----------------------------------------------------------------------
     def documento_PDF():
         """Salvando as informações no documento"""
         doc = SimpleDocTemplate(dados_da_busca, pagezsize=A4, rightMargin=72, leftMargin=72,
