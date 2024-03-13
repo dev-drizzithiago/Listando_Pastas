@@ -29,7 +29,7 @@ class ListandoArquivos:
     winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
 
     def __init__(self):
-        self.criando_relatorio_pdf()
+
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
                                  'Arquivos execução', 'Arquivos compreesão')
 
@@ -716,6 +716,7 @@ class ListandoArquivos:
         self.botao_destino_busca['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
         self.label_status.config(text='Processo finalizado')
+        self.criando_relatorio_pdf()
 
     def analise_e_processo_de_dados_da_busca(self):
 
@@ -801,8 +802,8 @@ class ListandoArquivos:
         teste_1 = 'thiago'
         teste_2 = 'zenilda'
         teste_3 = 'enzo'
-        criando_documento_pdf(teste_1, teste_2, teste_3)
-        # criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
+        # criando_documento_pdf(teste_1, teste_2, teste_3)
+        criando_documento_pdf(self.lista_result_busca, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
