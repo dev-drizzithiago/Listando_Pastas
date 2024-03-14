@@ -8,26 +8,30 @@ from tkinter.simpledialog import askstring
 from tkinter.messagebox import showinfo
 from pathlib import Path
 
+home = Path.home()
+diretorio_arquivo_save = Path(home, 'Downloads')
+
 
 def descompactado_dados(dados_1):
     print('ºººº' * 20)
     for valor in dados_1:
         print(valor)
+    input('digite')
     criando_documento_pdf(dados_1)
 
 
 def criando_documento_pdf(busca_caletada):
     """Escolhendo as informações para salvar o arquivo"""
     showinfo('AVISA!', 'Escolha o direto para salvar o documento')
-    local_save = str(Path(askdirectory()))
     nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
-    pdf_diretorio_save = str(local_save + '\\' + nome_arquivo_pdf + '.pdf')
+    pdf_diretorio_save = str(diretorio_arquivo_save + nome_arquivo_pdf + '.pdf')
     print(pdf_diretorio_save)
 
     print(busca_caletada)
 
     """ Criando o Arquivos PDF"""
     lista_teste = [busca_caletada]
+
     # ----------------------------------------------------------------------
     def numero_paginas(janela, documento):
         """Adicionao número de paginas"""
@@ -55,6 +59,5 @@ def criando_documento_pdf(busca_caletada):
 
     if __name__ == '__main__':
         documento_PDF()
-
 
 # criando_documento_pdf(['Thiago', 'alves'], 'Zenny', 'Enzo')
