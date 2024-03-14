@@ -57,4 +57,4 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
         documento_PDF()
 
 
-criando_documento_pdf(['Thiago', 'alves'], 'Zenny', 'Enzo')
+# criando_documento_pdf(['Thiago', 'alves'], 'Zenny', 'Enzo')
