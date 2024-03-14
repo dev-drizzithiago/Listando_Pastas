@@ -15,7 +15,7 @@ def descompactado_dados(dados_1, dados_2, dados_3):
         print(valor)
     print(dados_2)
     print(dados_3)
-
+    criando_documento_pdf(dados_1, dados_2, dados_3)
 
 def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada):
     """Escolhendo as informações para salvar o arquivo"""
