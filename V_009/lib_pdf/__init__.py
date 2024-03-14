@@ -9,6 +9,12 @@ from tkinter.messagebox import showinfo
 from pathlib import Path
 
 
+def descompactado_dados(dados_1, dados_2, dados_3):
+    print(dados_1)
+    print(dados_2)
+    print(dados_3)
+
+
 def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada):
     """Escolhendo as informações para salvar o arquivo"""
     showinfo('AVISA!', 'Escolha o direto para salvar o documento')
