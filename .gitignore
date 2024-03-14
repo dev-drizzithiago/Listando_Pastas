@@ -5,3 +5,4 @@ Testes/lista_de_arquivos.txt
 Testes/relatorio-581.html
 *.pyc
 V_009/lib_pdf/__pycache__/__init__.cpython-38.pyc
+*.pyc
