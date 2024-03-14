@@ -10,7 +10,8 @@ from pathlib import Path
 
 
 def descompactado_dados(dados_1, dados_2, dados_3):
-    print(dados_1)
+    for valor in dados_1:
+        print(valor)
     print(dados_2)
     print(dados_3)
 
