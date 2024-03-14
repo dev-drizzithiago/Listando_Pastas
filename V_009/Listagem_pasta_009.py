@@ -798,8 +798,6 @@ class ListandoArquivos:
         self.criando_relatorio_pdf()
 
     def criando_relatorio_pdf(self):
-        for valor in self.lista_save_busca:
-            print('teste', valor)
         input('teste')
         descompactado_dados(self.lista_save_busca)
 
