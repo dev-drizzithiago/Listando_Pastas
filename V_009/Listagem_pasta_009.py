@@ -798,7 +798,7 @@ class ListandoArquivos:
         self.criando_relatorio_pdf()
 
     def criando_relatorio_pdf(self):
-        descompactado_dados(1, 2, 3)
+        descompactado_dados(self.lista_result_busca, 2, 3)
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
