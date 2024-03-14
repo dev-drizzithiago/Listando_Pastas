@@ -9,16 +9,14 @@ from tkinter.messagebox import showinfo
 from pathlib import Path
 
 
-def descompactado_dados(dados_1, dados_2, dados_3):
+def descompactado_dados(dados_1):
     print('ºººº' * 20)
     for valor in dados_1:
         print(valor)
-    print(dados_2)
-    print(dados_3)
-    criando_documento_pdf(dados_1, dados_2, dados_3)
+    criando_documento_pdf(dados_1)
 
 
-def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada):
+def criando_documento_pdf(busca_caletada):
     """Escolhendo as informações para salvar o arquivo"""
     showinfo('AVISA!', 'Escolha o direto para salvar o documento')
     local_save = str(Path(askdirectory()))
@@ -26,11 +24,10 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
     pdf_diretorio_save = str(local_save + '\\' + nome_arquivo_pdf + '.pdf')
     print(pdf_diretorio_save)
 
-    print(busca_caletada, extensao_coletado, quantidade_coletada)
+    print(busca_caletada)
 
     """ Criando o Arquivos PDF"""
-    lista_teste = [busca_caletada, extensao_coletado, quantidade_coletada]
-
+    lista_teste = [busca_caletada]
     # ----------------------------------------------------------------------
     def numero_paginas(janela, documento):
         """Adicionao número de paginas"""
