@@ -20,7 +20,10 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
     print(busca_caletada, extensao_coletado, quantidade_coletada)
 
     """ Criando o Arquivos PDF"""
-    lista_teste = ['Thiago', 'Zenny', 'Enzo']
+    lista_teste = []
+    lista_teste.append(busca_caletada)
+    lista_teste.append(extensao_coletado)
+    lista_teste.append(quantidade_coletada)
 
     # ----------------------------------------------------------------------
     def numero_paginas(janela, documento):
@@ -49,3 +52,5 @@ def criando_documento_pdf(busca_caletada, extensao_coletado, quantidade_coletada
 
     if __name__ == '__main__':
         documento_PDF()
+
+criando_documento_pdf('Thiago', 'Zenny', 'Enzo')
