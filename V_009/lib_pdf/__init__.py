@@ -15,7 +15,7 @@ diretorio_arquivo_save = Path(home, 'Downloads')
 def descompactado_dados(dados_1):
     print('ºººº' * 20)
     for valor in dados_1:
-        print(valor)
+        print('teste', valor)
     input('digite')
     criando_documento_pdf(dados_1)
 
