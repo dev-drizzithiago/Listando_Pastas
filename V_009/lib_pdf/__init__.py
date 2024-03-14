@@ -22,7 +22,6 @@ def descompactado_dados(dados_1):
 
 def criando_documento_pdf(busca_caletada):
     """Escolhendo as informações para salvar o arquivo"""
-    showinfo('AVISA!', 'Escolha o direto para salvar o documento')
     nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
     pdf_diretorio_save = str(diretorio_arquivo_save + nome_arquivo_pdf + '.pdf')
     print(pdf_diretorio_save)
