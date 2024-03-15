@@ -3,7 +3,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import mm
-from tkinter.simpledialog import askstring
+from tkinter.simpledialog import *
 from pathlib import Path
 
 home = Path.home()
@@ -16,7 +16,7 @@ def descompactado_dados(dados_1):
 
 def criando_documento_pdf(busca_caletada):
     """Escolhendo as informações para salvar o arquivo"""
-    nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
+    nome_arquivo_pdf = str(askstring('Importante!', 'Digite o nome do arquivo'))
     print(nome_arquivo_pdf)
 
     pdf_diretorio_save = diretorio_arquivo_save + nome_arquivo_pdf + '.pdf'
@@ -56,4 +56,5 @@ def criando_documento_pdf(busca_caletada):
     if __name__ == '__main__':
         documento_PDF()
 
-# criando_documento_pdf(['Thiago', 'alves'], 'Zenny', 'Enzo')
+
+criando_documento_pdf(['Thiago', 'alves'])
