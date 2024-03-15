@@ -9,22 +9,19 @@ from tkinter.messagebox import showinfo
 from pathlib import Path
 
 home = Path.home()
-diretorio_arquivo_save = Path(home, 'Downloads')
+diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 
 def descompactado_dados(dados_1):
-    print('ºººº' * 20)
-    for valor in dados_1:
-        print('teste', valor)
-    input('digite')
     criando_documento_pdf(dados_1)
 
 
 def criando_documento_pdf(busca_caletada):
     """Escolhendo as informações para salvar o arquivo"""
     nome_arquivo_pdf = askstring('Imprestante!', 'Digite o nome do arquivo')
-    pdf_diretorio_save = str(diretorio_arquivo_save + nome_arquivo_pdf + '.pdf')
+    pdf_diretorio_save = diretorio_arquivo_save + nome_arquivo_pdf + '.pdf'
     print(pdf_diretorio_save)
+    input('teste')
 
     print(busca_caletada)
 
