@@ -21,7 +21,8 @@ def criando_documento_pdf(busca_caletada):
     print(pdf_diretorio_save)
     input('teste')
 
-    print(busca_caletada)
+    for valor in busca_caletada:
+        print(valor)
 
     """ Criando o Arquivos PDF"""
     lista_teste = [busca_caletada]
