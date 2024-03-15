@@ -19,7 +19,7 @@ def criando_documento_pdf(busca_caletada):
     nome_arquivo_pdf = str(askstring('Importante!', 'Digite o nome do arquivo'))
     print(nome_arquivo_pdf)
 
-    pdf_diretorio_save = diretorio_arquivo_save + nome_arquivo_pdf + '.pdf'
+    pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
     print(pdf_diretorio_save)
     input('teste')
 
