@@ -804,7 +804,6 @@ class ListandoArquivos:
         # descompactado_dados(self.lista_save_busca, nome_PDF)
 
     def salvando_resultado(self):
-        self.criando_relatorio_pdf()
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         try:
@@ -825,7 +824,7 @@ class ListandoArquivos:
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write('\n\n')
-            arquivo_save.write(f"{'@@@' * 40}\n")
+            arquivo_save.write(f"{'@@@' * 20}\n")
 
             """Quantidade da extensão"""
             arquivo_save.write('\n\n')
