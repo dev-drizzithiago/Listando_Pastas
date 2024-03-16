@@ -9,13 +9,13 @@ home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 
-def descompactado_dados(dados_1):
-    criando_documento_pdf(dados_1)
+def descompactado_dados(dados_1, nome_pdf):
+    criando_documento_pdf(dados_1, nome_pdf)
 
 
-def criando_documento_pdf(busca_caletada):
+def criando_documento_pdf(busca_caletada, nome_arquivo_PDF):
     """Escolhendo as informações para salvar o arquivo"""
-    nome_arquivo_pdf = 'inicio'
+    nome_arquivo_pdf = nome_arquivo_PDF
 
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
 
