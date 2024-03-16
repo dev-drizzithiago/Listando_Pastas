@@ -797,12 +797,6 @@ class ListandoArquivos:
         self.label_status.config(text='Analise finalizada!!')
         self.criando_relatorio_pdf()
 
-    def criando_relatorio_pdf(self):
-        valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF} {data_atual}-{hora_atual}'
-        sleep(1)
-        descompactado_dados(self.lista_save_busca, nome_PDF)
-
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo, title='Tudo')
