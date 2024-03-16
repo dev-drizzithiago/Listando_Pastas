@@ -15,11 +15,9 @@ def descompactado_dados(dados_1):
 
 def criando_documento_pdf(busca_caletada):
     """Escolhendo as informações para salvar o arquivo"""
-    nome_arquivo_pdf = 'teste'
+    nome_arquivo_pdf = 'inicio'
 
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
-    print(pdf_diretorio_save)
-    input('teste')
 
     for valor in busca_caletada:
         print(valor)
@@ -38,6 +36,8 @@ def numero_paginas(janela, documento):
 
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados, diretorio_save):
+    print(valor_dados_coletados)
+    print(diretorio_save)
     """Salvando as informações no documento"""
     doc = SimpleDocTemplate(diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
                             topMargin=72, bottomMargin=18)
@@ -52,6 +52,7 @@ def documento_PDF(valor_dados_coletados, diretorio_save):
         dados_save.append(Spacer(1, 10))
 
     doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
+
     print('Finalizado!')
 
 
