@@ -25,7 +25,7 @@ def criando_documento_pdf(busca_caletada):
         print(valor)
 
     """ Criando o Arquivos PDF"""
-    lista_teste = [busca_caletada]
+    documento_PDF(busca_caletada, pdf_diretorio_save)
 
 
 # ----------------------------------------------------------------------
@@ -37,16 +37,16 @@ def numero_paginas(janela, documento):
 
 
 # ----------------------------------------------------------------------
-def documento_PDF(valor_dados_coletados):
+def documento_PDF(valor_dados_coletados, diretorio_save):
     """Salvando as informações no documento"""
-    doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
+    doc = SimpleDocTemplate(diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
                             topMargin=72, bottomMargin=18)
     estilo = getSampleStyleSheet()
     estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
     dados_save = []
 
-    for dados in lista_teste:
+    for dados in valor_dados_coletados:
         texto = f'<font size="12">%s</font>' % dados
         dados_save.append(Paragraph(texto, estilo["Justify"]))
         dados_save.append(Spacer(1, 10))
