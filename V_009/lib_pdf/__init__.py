@@ -27,33 +27,33 @@ def criando_documento_pdf(busca_caletada):
     """ Criando o Arquivos PDF"""
     lista_teste = [busca_caletada]
 
-    # ----------------------------------------------------------------------
-    def numero_paginas(janela, documento):
-        """Adicionao número de paginas"""
-        num_pag = janela.getPageNumber()
-        pagina = f'Pagina {num_pag}'
-        janela.drawRightString(200 * mm, 20 * mm, pagina)
+# ----------------------------------------------------------------------
+def numero_paginas(janela, documento):
+    """Adicionao número de paginas"""
+    num_pag = janela.getPageNumber()
+    pagina = f'Pagina {num_pag}'
+    janela.drawRightString(200 * mm, 20 * mm, pagina)
 
-    # ----------------------------------------------------------------------
-    def documento_PDF():
-        """Salvando as informações no documento"""
-        doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
-                                topMargin=72, bottomMargin=18)
-        estilo = getSampleStyleSheet()
-        estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+# ----------------------------------------------------------------------
+def documento_PDF():
+    """Salvando as informações no documento"""
+    doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
+                            topMargin=72, bottomMargin=18)
+    estilo = getSampleStyleSheet()
+    estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
-        dados_save = []
+    dados_save = []
 
-        for dados in lista_teste:
-            texto = f'<font size="12">%s</font>' % dados
-            dados_save.append(Paragraph(texto, estilo["Justify"]))
-            dados_save.append(Spacer(1, 10))
+    for dados in lista_teste:
+        texto = f'<font size="12">%s</font>' % dados
+        dados_save.append(Paragraph(texto, estilo["Justify"]))
+        dados_save.append(Spacer(1, 10))
 
-        doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
-        print('Finalizado!')
+    doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
+    print('Finalizado!')
 
-    if __name__ == '__main__':
-        documento_PDF()
+if __name__ == '__main__':
+    documento_PDF()
 
 
 # criando_documento_pdf(['Thiago', 'alves'])
