@@ -56,7 +56,7 @@ def documento_PDF(valor_dados_coletados, diretorio_save):
     print('Finalizado!')
 
 
-if __name__ == '__main__':
-    documento_PDF()
+'''if __name__ == '__main__':
+    documento_PDF()'''
 
 # criando_documento_pdf(['Thiago', 'alves'])
