@@ -27,6 +27,7 @@ def criando_documento_pdf(busca_caletada):
     """ Criando o Arquivos PDF"""
     lista_teste = [busca_caletada]
 
+
 # ----------------------------------------------------------------------
 def numero_paginas(janela, documento):
     """Adicionao número de paginas"""
@@ -34,8 +35,9 @@ def numero_paginas(janela, documento):
     pagina = f'Pagina {num_pag}'
     janela.drawRightString(200 * mm, 20 * mm, pagina)
 
+
 # ----------------------------------------------------------------------
-def documento_PDF():
+def documento_PDF(valor_dados_coletados):
     """Salvando as informações no documento"""
     doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
                             topMargin=72, bottomMargin=18)
@@ -52,8 +54,8 @@ def documento_PDF():
     doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
     print('Finalizado!')
 
+
 if __name__ == '__main__':
     documento_PDF()
-
 
 # criando_documento_pdf(['Thiago', 'alves'])
