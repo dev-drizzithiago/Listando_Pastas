@@ -798,7 +798,8 @@ class ListandoArquivos:
         self.criando_relatorio_pdf()
 
     def criando_relatorio_pdf(self):
-        input('teste')
+        print('Salvando em PDF')
+        sleep(1)
         descompactado_dados(self.lista_save_busca)
 
     def salvando_resultado(self):
