@@ -314,7 +314,7 @@ class ListandoArquivos:
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def time_busca(self):
-        print('Iniciando time da busca')
+        print('\nIniciando time da busca')
         msg_info_time = str
         contagem_segundos = 0
         contagem_minutos = 0
@@ -796,6 +796,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
+        self.criando_relatorio_pdf()
 
     def criando_relatorio_pdf(self):
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
