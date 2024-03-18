@@ -9,23 +9,6 @@ home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 
-def descompactado_dados(dados_1, nome_pdf):
-    criando_documento_pdf(dados_1, nome_pdf)
-
-
-def criando_documento_pdf(busca_caletada, nome_arquivo_PDF):
-    """Escolhendo as informações para salvar o arquivo"""
-    nome_arquivo_pdf = nome_arquivo_PDF
-
-    pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
-
-    for valor in busca_caletada:
-        print(valor)
-
-    """ Criando o Arquivos PDF"""
-    documento_PDF(busca_caletada, pdf_diretorio_save)
-
-
 # ----------------------------------------------------------------------
 def numero_paginas(janela, documento):
     """Adicionao número de paginas"""
@@ -35,8 +18,15 @@ def numero_paginas(janela, documento):
 
 
 # ----------------------------------------------------------------------
-def documento_PDF(valor_dados_coletados, diretorio_save):
-    print(valor_dados_coletados)
+def documento_PDF(valor_dados_coletados, nome_documento):
+    """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
+    nome_arquivo_pdf = str(nome_documento)
+    pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
+
+    """Nas duas linhas abaixo, vai mostrar, nos testes, se esta tudo correto"""
+    for valor in valor_dados_coletados:
+        print(valor)
+
     print(diretorio_save)
     """Salvando as informações no documento"""
     doc = SimpleDocTemplate(diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
@@ -54,9 +44,3 @@ def documento_PDF(valor_dados_coletados, diretorio_save):
     doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
     print('Finalizado!')
-
-
-'''if __name__ == '__main__':
-    documento_PDF()'''
-
-# criando_documento_pdf(['Thiago', 'alves'])
