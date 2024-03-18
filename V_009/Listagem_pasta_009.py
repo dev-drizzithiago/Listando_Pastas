@@ -661,8 +661,7 @@ class ListandoArquivos:
         """# INICIO PROCESSO DA BUSCA"""
         self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
         for raiz, subs, itens in walk(str(valor_path_busca)):
-            print()
-            print(raiz)
+
             self.lista_save_busca.append('')
             self.lista_save_busca.append('')
             self.lista_save_busca.append(f'{raiz}')
@@ -683,7 +682,7 @@ class ListandoArquivos:
                 valor_arquivo = caminho_files.split('\\')[-1]
                 destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
 
-                self.lista_busca_arquivos.append(f'{caminho_files}')
+                self.lista_busca_arquivos.append(f'{destaque_arquivos_pasta}')
 
                 """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
                 Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
@@ -694,6 +693,7 @@ class ListandoArquivos:
                     self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
                     self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                     contador_arquivos += 1
+
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Busca finalizada!!')
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
@@ -728,8 +728,8 @@ class ListandoArquivos:
         self.lista_final_busca = []
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
-        for valor_teste in self.lista_busca_arquivos:
-            print(f'{valor_teste}')
+        '''for valor_teste in self.lista_busca_arquivos:
+            print(f'{valor_teste}')'''
 
         """# Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
