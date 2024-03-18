@@ -612,17 +612,18 @@ class ListandoArquivos:
         :param: self.lista_save_busca = list() = fica alocado as informações para salver em arquivo de texto.
         :return:
         """
-        # MODULOS RESPONSAVEL PELA BUSCA
+
+        """# MODULOS RESPONSAVEL PELA BUSCA"""
         from os import walk, path
         from re import search
 
-        # LIMPEZA DA LISTA DE BUSCA
+        """# LIMPEZA DA LISTA DE BUSCA"""
         del self.lista_analise_arq_busca[:]
 
-        print(f'Extensão {self.extensao_selecao_busca}')
+        print(f'\nExtensão {self.extensao_selecao_busca}')
         sleep(1)
 
-        # DECLARAÇÃO DE VARIAVEIS
+        """# DECLARAÇÃO DE VARIAVEIS"""
         contador_arquivos = 1
         self.lista_busca_arquivos = list()
         self.lista_save_busca = list()
@@ -697,19 +698,20 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Busca finalizada!!')
         self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
 
-        # Finalizando TIME BUSCA
+        """# Finalizando TIME BUSCA"""
         self.ativo_time_busca = False
 
-        # FINALIZNANDO BARRA PROGRESSO
+        """# FINALIZNANDO BARRA PROGRESSO"""
         self.barra_progresso_busca.stop()
         self.barra_progresso_busca.config(value=100)
-        self.analise_e_processo_de_dados_da_busca()
-        sleep(2)
 
-        # Emitindo som de finalização
+        """# Abrindo função de analise de dados"""
+        self.analise_e_processo_de_dados_da_busca()
+
+        """# Emitindo som de finalização"""
         winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
 
-        # REATIVANDO BOTÕES
+        """# REATIVANDO BOTÕES"""
         self.botao_iniciar_busca['state'] = 'normal'
         self.botao_save_busca['state'] = 'normal'
         self.botao_destino_busca['state'] = 'normal'
