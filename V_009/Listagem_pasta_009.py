@@ -9,7 +9,7 @@ from datetime import datetime
 from tkinter.messagebox import showerror
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
-from lib_pdf import descompactado_dados
+from lib_pdf import documento_PDF
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
@@ -801,7 +801,7 @@ class ListandoArquivos:
         nome_PDF = f'{valor_nome_PDF} - {data_atual}-{hora_atual}'
         sleep(1)
         print(nome_PDF)
-        # descompactado_dados(self.lista_save_busca, nome_PDF)
+        documento_PDF(self.lista_save_busca, nome_PDF)
 
     def salvando_resultado(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
