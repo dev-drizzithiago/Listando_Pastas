@@ -22,12 +22,13 @@ def documento_PDF(valor_dados_coletados, nome_documento):
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
+    print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
 
     """Nas duas linhas abaixo, vai mostrar, nos testes, se esta tudo correto"""
     for valor in valor_dados_coletados:
         print(valor)
 
-    print(diretorio_save)
+
     """Salvando as informações no documento"""
     doc = SimpleDocTemplate(diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
                             topMargin=72, bottomMargin=18)
