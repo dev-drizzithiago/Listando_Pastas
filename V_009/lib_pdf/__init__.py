@@ -28,9 +28,8 @@ def documento_PDF(valor_dados_coletados, nome_documento):
     for valor in valor_dados_coletados:
         print(valor)
 
-
     """Salvando as informações no documento"""
-    doc = SimpleDocTemplate(diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
+    doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
                             topMargin=72, bottomMargin=18)
     estilo = getSampleStyleSheet()
     estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
