@@ -18,13 +18,13 @@ def numero_paginas(janela, documento):
 
 
 # ----------------------------------------------------------------------
-def documento_PDF(valor_dados_coletados, nome_documento):
+def documento_PDF(valor_dados_coletados=['<desconhecido>'], nome_documento=['<desconhecido>']):
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
     print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
 
-    """Nas duas linhas abaixo, vai mostrar, nos testes, se esta tudo correto"""
+    """Nas duas linhas abaixo, vai mostrar os testes estão tudo correto"""
     for valor in valor_dados_coletados:
         print(valor)
 
