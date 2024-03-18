@@ -47,7 +47,7 @@ def documento_PDF(valor_dados_coletados, diretorio_save):
     dados_save = []
 
     for dados in valor_dados_coletados:
-        texto = f'<font size="12">%s</font>' % dados
+        texto = f'<font size="8">%s</font>' % dados
         dados_save.append(Paragraph(texto, estilo["Justify"]))
         dados_save.append(Spacer(1, 10))
 
