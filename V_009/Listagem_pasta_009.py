@@ -682,13 +682,11 @@ class ListandoArquivos:
                 valor_arquivo = caminho_files.split('\\')[-1]
                 destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
 
-                s
-
                 """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
                 Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
                 if search(self.extensao_selecao_busca.lower(), valor_itens):
                     self.status_arquivos.config(text=valor_itens)
-                    elf.lista_busca_arquivos.append(f'{destaque_arquivos_pasta}')
+                    self.lista_busca_arquivos.append(f'{destaque_arquivos_pasta}')
                     self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
                     self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
                     self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
