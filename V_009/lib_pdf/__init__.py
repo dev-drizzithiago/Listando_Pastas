@@ -18,7 +18,7 @@ def numero_paginas(janela, documento):
 
 
 # ----------------------------------------------------------------------
-def documento_PDF(valor_dados_coletados=['<desconhecido>'], nome_documento=['<desconhecido>']):
+def documento_PDF(valor_dados_coletados=['<desconhecido>'], nome_documento='desconhecido'):
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
@@ -44,3 +44,7 @@ def documento_PDF(valor_dados_coletados=['<desconhecido>'], nome_documento=['<de
     doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
     print('Finalizado!')
+
+
+if __name__ == '__main__':
+    documento_PDF()
