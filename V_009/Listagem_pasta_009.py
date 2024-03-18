@@ -369,7 +369,6 @@ class ListandoArquivos:
                 sleep(1)
 
     def combo_categoria_busca(self, *args):
-        print('Processando função combo_categoria_busca')
         self.lista_de_extensoes.delete('0', 'end')
 
         arq_imagem = '\\extensao_imagem.log'
@@ -379,6 +378,7 @@ class ListandoArquivos:
         arq_arqzip = '\\extensao_arqzip.log'
 
         valor_categoria_busca = self.var_combo_categoria.get()
+        print(f'\nProcessando função combo_categoria_busca [{valor_categoria_busca}]')
         if valor_categoria_busca == 'Arquivo Imagem':
             self.ativo_busca_imagem = True
             self.ativo_busca_videos = False
