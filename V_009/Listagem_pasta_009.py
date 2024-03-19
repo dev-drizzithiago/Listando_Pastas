@@ -807,7 +807,7 @@ class ListandoArquivos:
     def salvando_resultado(self):
         self.criando_relatorio_pdf()
 
-        tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
+        tipo_de_arquivo = [('Texto(.txt)', '*.txt'), ('Adobe Reader', '.PDF')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension='Selecionar')
         print(arquivo_save)
         try:
