@@ -811,12 +811,15 @@ class ListandoArquivos:
 
         self.var_radio = tk.IntVar()
         self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", variable=self.var_radio, value=1)
+        self.radio_txt.config(command=self.opcao_radio)
         self.radio_txt.pack(anchor='center')
         self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', variable=self.var_radio, value=2)
+        self.radio_pdf.config(command=self.opcao_radio)
         self.radio_pdf.pack(anchor='center')
 
     def opcao_radio(self):
-        pass
+        valor_opcao_radio = self.var_radio.get()
+        print(valor_opcao_radio)
 
     def save_PDF(self):
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
