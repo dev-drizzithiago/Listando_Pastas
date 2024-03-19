@@ -25,8 +25,8 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', nome_documento='descon
     print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
 
     """Nas duas linhas abaixo, vai mostrar os testes estão tudo correto"""
-    for valor in valor_dados_coletados:
-        print(valor)
+    """for valor in valor_dados_coletados:
+        print(valor)"""
 
     """Salvando as informações no documento"""
     doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
