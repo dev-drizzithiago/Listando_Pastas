@@ -805,11 +805,11 @@ class ListandoArquivos:
         documento_PDF(self.lista_save_busca, nome_PDF)
 
     def salvando_resultado(self):
-
         self.criando_relatorio_pdf()
 
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
-        arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
+        arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension='Selecionar')
+        print(arquivo_save)
         try:
             self.label_status.config(text='Aguarda, salvando os dados em arquivo de texto!!')
             """# Cabeçalho do salvamento"""
