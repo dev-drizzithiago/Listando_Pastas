@@ -311,6 +311,10 @@ class ListandoArquivos:
         print('Iniciando THREAD de time')
         Thread(target=self.time_busca()).start()
 
+    def thread_save_opc(self):
+        print('Iniciando THREAD de save')
+        Thread(target=opcao_radio()).start()
+
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def time_busca(self):
@@ -797,19 +801,21 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
 
-    def salvando_resultado(self):
+    def janela_save_resultado(self):
         janela_radio = tk.Tk()
         janela_radio.geometry('100x200')
         janela_radio.resizable(0,0)
 
-        label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
-        label_frame_radio.pack(fill=tk.BOTH)
+        self.label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
+        self.label_frame_radio.pack(fill=tk.BOTH)
 
-        var_radio = tk.IntVar()
-        radio_txt = Radiobutton(label_frame_radio, text="TXT", variable=var_radio, value=1)
-        radio_txt.pack(anchor='center')
-        radio_pdf = Radiobutton(label_frame_radio, text='PDF', variable=var_radio, value=2)
-        radio_pdf.pack(anchor='center')
+        self.var_radio = tk.IntVar()
+        self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", variable=self.var_radio, value=1)
+        self.radio_txt.pack(anchor='center')
+        self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', variable=self.var_radio, value=2)
+        self.radio_pdf.pack(anchor='center')
+
+    def opcao_radio(self):
 
 
     def save_PDF(self):
