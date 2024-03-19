@@ -231,7 +231,7 @@ class ListandoArquivos:
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
-        self.botao_save_busca.config(command=lambda: self.salvando_resultado())
+        self.botao_save_busca.config(command=lambda: self.janela_save_resultado())
         self.botao_save_busca.place(y=30, x=788)
 
         # LOOP DA JANELA PRINCIPAL
@@ -313,7 +313,7 @@ class ListandoArquivos:
 
     def thread_save_opc(self):
         print('Iniciando THREAD de save')
-        Thread(target=opcao_radio()).start()
+        Thread(target=self.opcao_radio()).start()
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
@@ -804,7 +804,7 @@ class ListandoArquivos:
     def janela_save_resultado(self):
         janela_radio = tk.Tk()
         janela_radio.geometry('100x200')
-        janela_radio.resizable(0,0)
+        janela_radio.resizable(0, 0)
 
         self.label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
         self.label_frame_radio.pack(fill=tk.BOTH)
@@ -816,10 +816,9 @@ class ListandoArquivos:
         self.radio_pdf.pack(anchor='center')
 
     def opcao_radio(self):
-
+        pass
 
     def save_PDF(self):
-
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
         nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual}'
         sleep(1)
