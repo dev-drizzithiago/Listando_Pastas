@@ -805,14 +805,22 @@ class ListandoArquivos:
         documento_PDF(self.lista_save_busca, nome_PDF)
 
     def salvando_resultado(self):
+        janela_radio = tk.Tk()
+        janela_radio.geometry('100x200')
+        janela_radio.resizable(0,0)
+
+        label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
+        label_frame_radio.pack(fill=tk.BOTH)
+        
+
         self.criando_relatorio_pdf()
 
-        tipo_de_arquivo = [('Texto(.txt)', '*.txt'), ('Adobe Reader', '.PDF')]
+        tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         print(arquivo_save)
         try:
             self.label_status.config(text='Aguarda, salvando os dados em arquivo de texto!!')
-            
+
             """# Cabeçalho do salvamento"""
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 15}\n')
