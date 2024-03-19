@@ -799,7 +799,7 @@ class ListandoArquivos:
 
     def criando_relatorio_pdf(self):
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF} - {data_atual}-{hora_atual}'
+        nome_PDF = f'{valor_nome_PDF}-{data_atual}-{hora_atual}'
         sleep(1)
         print(nome_PDF)
         documento_PDF(self.lista_save_busca, nome_PDF)
