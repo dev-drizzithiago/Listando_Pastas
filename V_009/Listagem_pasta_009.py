@@ -803,7 +803,7 @@ class ListandoArquivos:
 
     def janela_save_resultado(self):
         janela_radio = tk.Tk()
-        janela_radio.geometry('100x200')
+        janela_radio.geometry('200x100')
         janela_radio.resizable(0, 0)
 
         self.label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
