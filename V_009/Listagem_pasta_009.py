@@ -812,6 +812,7 @@ class ListandoArquivos:
         print(arquivo_save)
         try:
             self.label_status.config(text='Aguarda, salvando os dados em arquivo de texto!!')
+            
             """# Cabeçalho do salvamento"""
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
             arquivo_save.write(f'{"===" * 15}\n')
