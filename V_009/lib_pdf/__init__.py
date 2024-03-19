@@ -26,8 +26,9 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', nome_documento='descon
     print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
 
     """Nas duas linhas abaixo, vai mostrar os testes estão tudo correto"""
-    for valor in valor_dados_coletados:
-        print(valor)
+    '''for valor in valor_dados_coletados:
+        print(valor)'''
+
     print('Aguarde! Documento esta sendo criado!')
     try:
         """Salvando as informações no documento"""
