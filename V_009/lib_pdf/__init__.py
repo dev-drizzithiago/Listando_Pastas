@@ -25,8 +25,8 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', nome_documento='descon
     print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
 
     """Nas duas linhas abaixo, vai mostrar os testes estão tudo correto"""
-    """for valor in valor_dados_coletados:
-        print(valor)"""
+    for valor in valor_dados_coletados:
+        print(valor)
 
     """Salvando as informações no documento"""
     doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
@@ -37,10 +37,14 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', nome_documento='descon
     dados_save = []
 
     for dados in valor_dados_coletados:
-        texto = f'<font size="8">%s</font>' % dados
+        texto = f'<font size="12">%s</font>' % dados
         dados_save.append(Paragraph(texto, estilo["Justify"]))
         dados_save.append(Spacer(1, 10))
 
     doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
     print('Finalizado!')
+
+
+if __name__ == '__main__':
+    documento_PDF()
