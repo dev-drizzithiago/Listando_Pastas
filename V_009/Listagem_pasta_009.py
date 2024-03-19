@@ -808,7 +808,7 @@ class ListandoArquivos:
         self.criando_relatorio_pdf()
 
         tipo_de_arquivo = [('Texto(.txt)', '*.txt'), ('Adobe Reader', '.PDF')]
-        arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension='Selecionar')
+        arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         print(arquivo_save)
         try:
             self.label_status.config(text='Aguarda, salvando os dados em arquivo de texto!!')
