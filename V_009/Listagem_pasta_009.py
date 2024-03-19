@@ -805,12 +805,15 @@ class ListandoArquivos:
         label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
         label_frame_radio.pack(fill=tk.BOTH)
 
-        radio_txt = Radiobutton(label_frame_radio, text="TXT", value=1)
+        var_radio = tk.IntVar()
+        radio_txt = Radiobutton(label_frame_radio, text="TXT", variable=var_radio, value=1)
         radio_txt.pack(anchor='center')
-        radio_pdf = Radiobutton(label_frame_radio, text='PDF', value=2)
+        radio_pdf = Radiobutton(label_frame_radio, text='PDF', variable=var_radio, value=2)
         radio_pdf.pack(anchor='center')
 
+
     def save_PDF(self):
+
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
         nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual}'
         sleep(1)
