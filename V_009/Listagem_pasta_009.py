@@ -797,13 +797,6 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
 
-    def criando_relatorio_pdf(self):
-        valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual}'
-        sleep(1)
-        print(nome_PDF)
-        documento_PDF(self.lista_save_busca, nome_PDF)
-
     def salvando_resultado(self):
         janela_radio = tk.Tk()
         janela_radio.geometry('100x200')
@@ -811,9 +804,20 @@ class ListandoArquivos:
 
         label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
         label_frame_radio.pack(fill=tk.BOTH)
-        
 
-        self.criando_relatorio_pdf()
+        radio_txt = Radiobutton(label_frame_radio, text="TXT", value=1)
+        radio_txt.pack(anchor='center')
+        radio_pdf = Radiobutton(label_frame_radio, text='PDF', value=2)
+        radio_pdf.pack(anchor='center')
+
+    def save_PDF(self):
+        valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
+        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual}'
+        sleep(1)
+        print(nome_PDF)
+        documento_PDF(self.lista_save_busca, nome_PDF)
+
+    def save_TXT(self):
 
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
