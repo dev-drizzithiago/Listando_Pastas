@@ -810,10 +810,10 @@ class ListandoArquivos:
         self.label_frame_radio.pack(fill=tk.BOTH)
 
         self.var_radio = tk.IntVar()
-        self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", variable=self.var_radio, value=1)
+        self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value=1, variable=self.var_radio)
         self.radio_txt.config(command=self.opcao_radio)
         self.radio_txt.pack(anchor='center')
-        self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', variable=self.var_radio, value=2)
+        self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value=2, variable=self.var_radio)
         self.radio_pdf.config(command=self.opcao_radio)
         self.radio_pdf.pack(anchor='center')
 
