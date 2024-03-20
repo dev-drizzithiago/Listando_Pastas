@@ -6,7 +6,7 @@ from time import sleep
 from pathlib import Path
 from threading import Thread
 from datetime import datetime
-from tkinter.messagebox import showerror
+from tkinter.messagebox import showerror, showwarning
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 from lib_pdf import documento_PDF
@@ -42,6 +42,7 @@ class ListandoArquivos:
         self.ativo_status_extensao = False
         self.ativo_status_destinos = False
         self.ativo_analise_dados = False
+        self.ativo_inicio_busca = False
         self.ativo_busca_imagem = False
         self.ativo_busca_videos = False
         self.ativo_busca_textos = False
@@ -228,7 +229,7 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """# Radio Botão"""
-        self.label_frame_radio = LabelFrame(self.label_frame_geral, text='Selecione uma opção')
+        self.label_frame_radio = LabelFrame(self.label_frame_geral, text='Selecione uma opção para Salvar da busca')
         self.label_frame_radio.pack(fill=tk.BOTH, side='top')
         self.var_radio = tk.StringVar()
         self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
@@ -298,6 +299,7 @@ class ListandoArquivos:
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
         self.botao_iniciar_busca['state'] = 'disabled'
+        self.ativo_inicio_busca = True
         winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
@@ -629,111 +631,114 @@ class ListandoArquivos:
         :param: self.lista_save_busca = list() = fica alocado as informações para salver em arquivo de texto.
         :return:
         """
+        if self.ativo_inicio_busca:
+            """# MODULOS RESPONSAVEL PELA BUSCA"""
+            from os import walk, path
+            from re import search
 
-        """# MODULOS RESPONSAVEL PELA BUSCA"""
-        from os import walk, path
-        from re import search
+            """# LIMPEZA DA LISTA DE BUSCA"""
+            del self.lista_analise_arq_busca[:]
 
-        """# LIMPEZA DA LISTA DE BUSCA"""
-        del self.lista_analise_arq_busca[:]
+            print(f'\nExtensão {self.extensao_selecao_busca}')
+            sleep(1)
 
-        print(f'\nExtensão {self.extensao_selecao_busca}')
-        sleep(1)
+            """# DECLARAÇÃO DE VARIAVEIS"""
+            contador_arquivos = 1
+            self.lista_busca_arquivos = list()
+            self.lista_save_busca = list()
 
-        """# DECLARAÇÃO DE VARIAVEIS"""
-        contador_arquivos = 1
-        self.lista_busca_arquivos = list()
-        self.lista_save_busca = list()
+            """# Desativando os botões para o processo da busca"""
+            self.label_status.config(text='Desativando os botões')
+            sleep(1)
+            self.botao_save_busca['state'] = 'disabled'
+            self.botao_destino_busca['state'] = 'disabled'
+            self.botao_adicionar_extensao['state'] = 'disabled'
+            self.botao_escolha_extensao['state'] = 'disabled'
 
-        """# Desativando os botões para o processo da busca"""
-        self.label_status.config(text='Desativando os botões')
-        sleep(1)
-        self.botao_save_busca['state'] = 'disabled'
-        self.botao_destino_busca['state'] = 'disabled'
-        self.botao_adicionar_extensao['state'] = 'disabled'
-        self.botao_escolha_extensao['state'] = 'disabled'
+            """# LIMPANDO LISTA DE BUSCA"""
+            self.lista_result_busca.delete('0', 'end')
 
-        """# LIMPANDO LISTA DE BUSCA"""
-        self.lista_result_busca.delete('0', 'end')
+            """# Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário"""
+            if self.ativo_status_destinos:
+                valor_path_busca = Path(self.pasta_local_de_busca)
+            else:
+                valor_path_busca = Path(valor_pasta_destino)
 
-        """# Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário"""
-        if self.ativo_status_destinos:
-            valor_path_busca = Path(self.pasta_local_de_busca)
-        else:
-            valor_path_busca = Path(valor_pasta_destino)
-
-        """# HORARIO DA BUSCAR"""
-        self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
-        self.lista_result_busca.insert('end', self.linha_aparencia())
-
-        """# INICIANDO O CONTATO"""
-        self.ativo_time_busca = True
-        Thread(target=self.time_busca).start()
-
-        """# INICIANDO BARRA DE PROGRESSO"""
-        winsound.PlaySound(som_inicio_busca, winsound.SND_ASYNC)
-        sleep(2)
-        self.barra_progresso_busca.start()
-
-        """# INICIO PROCESSO DA BUSCA"""
-        self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
-        for raiz, subs, itens in walk(str(valor_path_busca)):
-
-            self.lista_save_busca.append('')
-            self.lista_save_busca.append('')
-            self.lista_save_busca.append(f'{raiz}')
-            self.lista_save_busca.append(f'{"===" * 40}')
-
-            self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
-            self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
-            self.lista_result_busca.insert('end', '')
-            self.lista_result_busca.insert('end', f'{raiz}')
-            self.lista_result_busca.config()
+            """# HORARIO DA BUSCAR"""
+            self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
 
-            for valor_itens in itens:
-                caminho_files = path.join(raiz, valor_itens)
+            """# INICIANDO O CONTATO"""
+            self.ativo_time_busca = True
+            Thread(target=self.time_busca).start()
 
-                """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
-                e as pasta em minusculos."""
-                valor_arquivo = caminho_files.split('\\')[-1]
-                destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
+            """# INICIANDO BARRA DE PROGRESSO"""
+            winsound.PlaySound(som_inicio_busca, winsound.SND_ASYNC)
+            sleep(2)
+            self.barra_progresso_busca.start()
 
-                """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
-                Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
-                if search(self.extensao_selecao_busca.lower(), valor_itens):
-                    self.status_arquivos.config(text=valor_itens)
-                    self.lista_busca_arquivos.append(f'{destaque_arquivos_pasta}')
-                    self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
-                    self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
-                    self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
-                    self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
-                    contador_arquivos += 1
+            """# INICIO PROCESSO DA BUSCA"""
+            self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
+            for raiz, subs, itens in walk(str(valor_path_busca)):
 
-        self.lista_result_busca.insert('end', '')
-        self.lista_result_busca.insert('end', 'Busca finalizada!!')
-        self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
+                self.lista_save_busca.append('')
+                self.lista_save_busca.append('')
+                self.lista_save_busca.append(f'{raiz}')
+                self.lista_save_busca.append(f'{"===" * 40}')
 
-        """# Finalizando TIME BUSCA"""
-        self.ativo_time_busca = False
+                self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
+                self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
+                self.lista_result_busca.insert('end', '')
+                self.lista_result_busca.insert('end', f'{raiz}')
+                self.lista_result_busca.config()
+                self.lista_result_busca.insert('end', self.linha_aparencia())
 
-        """# FINALIZNANDO BARRA PROGRESSO"""
-        self.barra_progresso_busca.stop()
-        self.barra_progresso_busca.config(value=100)
+                for valor_itens in itens:
+                    caminho_files = path.join(raiz, valor_itens)
 
-        """# Abrindo função de analise de dados"""
-        self.analise_e_processo_de_dados_da_busca()
+                    """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
+                    e as pasta em minusculos."""
+                    valor_arquivo = caminho_files.split('\\')[-1]
+                    destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
 
-        """# Emitindo som de finalização"""
-        winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
+                    """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
+                    Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
+                    if search(self.extensao_selecao_busca.lower(), valor_itens):
+                        self.status_arquivos.config(text=valor_itens)
+                        self.lista_busca_arquivos.append(f'{destaque_arquivos_pasta}')
+                        self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
+                        self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
+                        self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
+                        self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
+                        contador_arquivos += 1
 
-        """# REATIVANDO BOTÕES"""
-        self.botao_iniciar_busca['state'] = 'normal'
-        self.botao_save_busca['state'] = 'normal'
-        self.botao_destino_busca['state'] = 'normal'
-        self.botao_escolha_extensao['state'] = 'normal'
-        self.radio_txt.config(state=tk.NORMAL)
-        self.label_status.config(text='Processo finalizado')
+            self.lista_result_busca.insert('end', '')
+            self.lista_result_busca.insert('end', 'Busca finalizada!!')
+            self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
+
+            """# Finalizando TIME BUSCA"""
+            self.ativo_time_busca = False
+
+            """# FINALIZNANDO BARRA PROGRESSO"""
+            self.barra_progresso_busca.stop()
+            self.barra_progresso_busca.config(value=100)
+
+            """# Abrindo função de analise de dados"""
+            self.analise_e_processo_de_dados_da_busca()
+
+            """# Emitindo som de finalização"""
+            winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
+
+            """# REATIVANDO BOTÕES"""
+            self.botao_iniciar_busca['state'] = 'normal'
+            self.botao_save_busca['state'] = 'normal'
+            self.botao_destino_busca['state'] = 'normal'
+            self.botao_escolha_extensao['state'] = 'normal'
+            self.radio_txt.config(state=tk.NORMAL)
+            self.radio_pdf.config(state=tk.NORMAL)
+            self.label_status.config(text='Processo finalizado')
+        else:
+            showwarning('ATENÇAO', 'Sua busca foi cancelada')
 
     def analise_e_processo_de_dados_da_busca(self):
 
