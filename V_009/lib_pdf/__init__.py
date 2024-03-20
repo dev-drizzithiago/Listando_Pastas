@@ -46,7 +46,7 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', nome_documento='descon
 
         doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
-        showinfo('Parabens!', f'O documento foi salvo com sucesso na pasta {'Downloads'}')
+        showinfo('Parabens!', f'O documento foi salvo com sucesso na pasta {"Downloads"}')
         print('\nFinalizado!')
     except:
         print(f'ERROR: Não foi possível gravar o documento {pdf_diretorio_save}')
