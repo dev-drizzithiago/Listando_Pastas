@@ -119,31 +119,31 @@ class ListandoArquivos:
         self.label_time_busca.pack(anchor='center', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # Busca Geral
+        """# Busca Geral"""
         self.var_lista_busca = tk.StringVar()
         self.label_frame_lista_busca = LabelFrame(self.label_frame_geral, text='Resultado da BUSCA')
         self.label_frame_lista_busca.pack(anchor='center', fill='both', pady=2, padx=2)
 
-        # BARRA ROLAGEM CONFIGURAÇÃO
+        """# BARRA ROLAGEM CONFIGURAÇÃO"""
         self.barra_rolagem_lista_busca_Y = Scrollbar(self.label_frame_lista_busca, orient=tk.VERTICAL)
         self.barra_rolagem_lista_busca_Y.pack(side='right', fill=tk.Y)
         self.barra_rolagem_lista_busca_X = Scrollbar(self.label_frame_lista_busca, orient=tk.HORIZONTAL)
         self.barra_rolagem_lista_busca_X.pack(side='bottom', fill=tk.X)
 
-        # LISTA DO RESULTADO DA BUSCA
+        """# LISTA DO RESULTADO DA BUSCA"""
         self.lista_result_busca = tk.Listbox(self.label_frame_lista_busca, listvariable=self.var_lista_busca.get())
         self.lista_result_busca.config(height=8)
         self.lista_result_busca.config(selectmode=tk.SINGLE)
         self.lista_result_busca.pack(anchor='center', fill=tk.BOTH, padx=2, pady=2)
 
-        # BARRA ROLAGEM APLICAÇÃO
+        """# BARRA ROLAGEM APLICAÇÃO"""
         self.barra_rolagem_lista_busca_Y.config(command=self.lista_result_busca.yview)
         self.lista_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_Y.set)
         self.barra_rolagem_lista_busca_X.config(command=self.lista_result_busca.xview)
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # LABEM FRAME INFO BUSCA
+        """# LABEM FRAME INFO BUSCA"""
         self.label_frame_geral_info = LabelFrame(self.label_frame_geral, text='Informações da busca...!')
         self.label_frame_geral_info.config(relief=tk.RIDGE)
         self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
@@ -197,23 +197,23 @@ class ListandoArquivos:
         self.barra_progresso_busca.pack(anchor='s', fill='both', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # BOTÕES
+        """# BOTÕES"""
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=2, padx=2)
 
-        # BOTÃO Iniciar Busca
+        """# BOTÃO Iniciar Busca"""
         self.botao_iniciar_busca = Button(self.label_frame_botoes_opcoes, text='Iniciar Busca')
         self.botao_iniciar_busca.config(width=30)
         self.botao_iniciar_busca.config(command=self.thread_botao_iniciar)
         self.botao_iniciar_busca.pack(anchor='center', pady=2, padx=2)
 
-        # BOTÃO Selecionar extensão
+        """# BOTÃO Selecionar extensão"""
         self.botao_escolha_extensao = Button(self.label_frame_botoes_opcoes, text='Selecione/Digite uma extensão')
         self.botao_escolha_extensao.config(width=30)
         self.botao_escolha_extensao.config(command=self.thread_botao_extensao)
         self.botao_escolha_extensao.place(y=1)
 
-        # BOTÃO Adicionar extensão
+        """# BOTÃO Adicionar extensão"""
         self.botao_adicionar_extensao = Button(self.label_frame_botoes_opcoes, text='Adicionar Extensões')
         self.botao_adicionar_extensao.config(width=30)
         self.botao_adicionar_extensao.config(state=tk.DISABLED)
@@ -221,7 +221,7 @@ class ListandoArquivos:
         self.botao_adicionar_extensao.place(y=50)
         self.botao_adicionar_extensao.pack(anchor='w')
 
-        # BOTÃO DESTINO DA BUSCA
+        """# BOTÃO DESTINO DA BUSCA"""
         self.botao_destino_busca = Button(self.label_frame_botoes_opcoes, text='Selecionar Pasta para Busca')
         self.botao_destino_busca.config(width=30)
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
@@ -236,8 +236,7 @@ class ListandoArquivos:
 
         """# Radio Botão"""
         self.label_frame_radio = LabelFrame(self.janela_principal, text='Selecione uma opção')
-        self.label_frame_radio.pack(fill=tk.BOTH, side='bottom')
-
+        self.label_frame_radio.pack(fill=tk.BOTH, side='top')
         self.var_radio = tk.StringVar()
         self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
         self.radio_txt.config(command=self.opcao_radio)
@@ -261,11 +260,9 @@ class ListandoArquivos:
         janela_add_extensao.title('Janele para adicionar extensão')
         # janela_add_extensao.iconphoto(True, self.icone_busca)
 
-
         """# Caixa de entrada"""
         label_frame_add_ext_geral = tk.LabelFrame(janela_add_extensao, text='Janele para adicionar extensão')
         label_frame_add_ext_geral.pack(anchor='center', fill='both', pady=5, padx=5)
-
         self.var_caixa_entrada_ext = tk.StringVar
         label_frame_caixa_entrada = tk.LabelFrame(label_frame_add_ext_geral, text='Digite uma extensão no campo abaixo')
         label_frame_caixa_entrada.pack(side='top', fill='both', pady=5, padx=5)
@@ -273,7 +270,7 @@ class ListandoArquivos:
         self.caixa_entrada_extensao['textvariable'] = self.var_caixa_entrada_ext
         self.caixa_entrada_extensao.pack(anchor='center', fill='both', pady=5, padx=5)
 
-        # Botões
+        """# Botões"""
         label_frame_botao_add_ext = tk.LabelFrame(label_frame_add_ext_geral, text='Escolha uma opção')
         label_frame_botao_add_ext.pack(anchor='center', fill='both', pady=5, padx=5)
         botao_adicionar_ext = tk.Button(label_frame_botao_add_ext, text='Adicionar', width=20, height=1)
@@ -285,7 +282,7 @@ class ListandoArquivos:
         botao_voltar_janela_principal['command'] = janela_add_extensao.destroy
         botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
 
-        # informações
+        """# informações"""
         label_frame_info_add = tk.LabelFrame(label_frame_add_ext_geral, text='Foi adicionado a extensão')
         label_frame_info_add.pack(side='bottom', pady=5, padx=5)
         self.var_label_info_add_extensao = tk.StringVar()
