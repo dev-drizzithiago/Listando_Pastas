@@ -832,7 +832,7 @@ class ListandoArquivos:
         nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(':', '')}'
         sleep(1)
         print(nome_PDF)
-        documento_PDF(self.lista_save_busca, nome_PDF)
+        documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)
 
     def save_TXT(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
