@@ -227,12 +227,24 @@ class ListandoArquivos:
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
         self.botao_destino_busca.place(y=1, x=788)
 
-        # BOTÃO SAVE BUSCA
+        '''# BOTÃO SAVE BUSCA'''
         self.botao_save_busca = Button(self.label_frame_botoes_opcoes, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=lambda: self.janela_save_resultado())
         self.botao_save_busca.place(y=30, x=788)
+
+        """# Radio Botão"""
+        self.label_frame_radio = LabelFrame(self.janela_principal, text='Selecione uma opção')
+        self.label_frame_radio.pack(fill=tk.BOTH, side='bottom')
+
+        self.var_radio = tk.StringVar()
+        self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
+        self.radio_txt.config(command=self.opcao_radio)
+        self.radio_txt.pack(anchor='center')
+        self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
+        self.radio_pdf.config(command=self.opcao_radio)
+        self.radio_pdf.pack(anchor='center')
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
