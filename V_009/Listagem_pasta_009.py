@@ -261,6 +261,8 @@ class ListandoArquivos:
         janela_add_extensao.title('Janele para adicionar extensão')
         # janela_add_extensao.iconphoto(True, self.icone_busca)
 
+
+        """# Caixa de entrada"""
         label_frame_add_ext_geral = tk.LabelFrame(janela_add_extensao, text='Janele para adicionar extensão')
         label_frame_add_ext_geral.pack(anchor='center', fill='both', pady=5, padx=5)
 
@@ -325,6 +327,9 @@ class ListandoArquivos:
 
     def thread_opcao_save_txt(self):
         Thread(target=self.save_TXT()).start()
+
+    def thread_opca_save_PDF(self):
+        Thread(target=self.save_PDF()).start()
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
