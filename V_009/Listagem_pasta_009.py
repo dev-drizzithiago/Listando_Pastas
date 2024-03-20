@@ -809,11 +809,11 @@ class ListandoArquivos:
         self.label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
         self.label_frame_radio.pack(fill=tk.BOTH)
 
-        self.var_radio = tk.IntVar()
-        self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value=1, variable=self.var_radio)
+        self.var_radio = tk.StringVar()
+        self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
         self.radio_txt.config(command=self.opcao_radio)
         self.radio_txt.pack(anchor='center')
-        self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value=2, variable=self.var_radio)
+        self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
         self.radio_pdf.config(command=self.opcao_radio)
         self.radio_pdf.pack(anchor='center')
 
