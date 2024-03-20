@@ -229,7 +229,7 @@ class ListandoArquivos:
         """# Botão cancelar busca"""
         self.botao_cancelar_busca = Button(self.label_frame_botoes_opcoes, text='Cancelar Busca')
         self.botao_cancelar_busca.config(width=30)
-        self.botao_cancelar_busca.config(command='teste')
+        self.botao_cancelar_busca.config(command='')
         self.botao_cancelar_busca.place(y=30, x=785)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -238,17 +238,17 @@ class ListandoArquivos:
         self.label_frame_radio.pack(fill=tk.BOTH, side='top')
         self.var_radio = tk.StringVar()
         self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
-        self.radio_txt.config(command=self.opcao_radio)
+        # self.radio_txt.config(command=self.opcao_radio)
         self.radio_txt.pack(anchor='center')
         self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
-        self.radio_pdf.config(command=self.opcao_radio)
+        # self.radio_pdf.config(command=self.opcao_radio)
         self.radio_pdf.pack(anchor='center')
 
         '''# BOTÃO SAVE BUSCA'''
         self.botao_save_busca = Button(self.label_frame_radio, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
         self.botao_save_busca.config(state=tk.DISABLED)
-        self.botao_save_busca.config(command=lambda: self.janela_save_resultado())
+        self.botao_save_busca.config(command=self.opcao_radio)
         self.botao_save_busca.place(y=1, x=785)
 
         # LOOP DA JANELA PRINCIPAL
@@ -331,7 +331,7 @@ class ListandoArquivos:
     def thread_opcao_save_txt(self):
         Thread(target=self.save_TXT()).start()
 
-    def thread_opca_save_PDF(self):
+    def thread_opcao_save_PDF(self):
         Thread(target=self.save_PDF()).start()
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -820,7 +820,7 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
 
-    def janela_save_resultado(self):
+    """def janela_save_resultado(self):
         janela_radio = tk.Tk()
         janela_radio.geometry('200x100')
         janela_radio.resizable(0, 0)
@@ -834,11 +834,14 @@ class ListandoArquivos:
         self.radio_txt.pack(anchor='center')
         self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
         self.radio_pdf.config(command=self.opcao_radio)
-        self.radio_pdf.pack(anchor='center')
+        self.radio_pdf.pack(anchor='center')"""
 
     def opcao_radio(self):
         valor_opcao_radio = self.var_radio.get()
-        print(valor_opcao_radio)
+        if valor_opcao_radio == 'TXT':
+            self.thread_opcao_save_txt()
+        else:
+            self.thread_opcao_save_PDF()
 
     def save_PDF(self):
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
@@ -848,7 +851,6 @@ class ListandoArquivos:
         documento_PDF(self.lista_save_busca, nome_PDF)
 
     def save_TXT(self):
-
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
         print(arquivo_save)
