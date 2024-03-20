@@ -323,9 +323,8 @@ class ListandoArquivos:
         print('Iniciando THREAD de time')
         Thread(target=self.time_busca()).start()
 
-    def thread_save_opc(self):
-        print('Iniciando THREAD de save')
-        Thread(target=self.opcao_radio()).start()
+    def thread_opcao_save_txt(self):
+        Thread(target=self.save_TXT()).start()
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
