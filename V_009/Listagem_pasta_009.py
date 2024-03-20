@@ -179,12 +179,6 @@ class ListandoArquivos:
         self.status_arquivos.pack(anchor='n', pady=2, padx=2)
         self.status_arquivos.place(y=20, x=10)
 
-        # LABEL PASTA PRINCIPAL DE BUSCA
-        # self.var_label_pasta_principal = tk.StringVar()
-        # self.var_label_pasta_principal.set(valor_pasta_destino)
-        # self.label_pasta_principal = Label(self.label_frame_geral_info, text=self.var_label_pasta_principal.get())
-        # self.label_pasta_principal.place(y=10, x=350)
-
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """# Barra de progresso da busca"""
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
@@ -238,10 +232,10 @@ class ListandoArquivos:
         self.label_frame_radio.pack(fill=tk.BOTH, side='top')
         self.var_radio = tk.StringVar()
         self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
-        # self.radio_txt.config(command=self.opcao_radio)
+        self.radio_txt.config(state=tk.DISABLED)
         self.radio_txt.pack(anchor='center')
         self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
-        # self.radio_pdf.config(command=self.opcao_radio)
+        self.radio_pdf.config(state=tk.DISABLED)
         self.radio_pdf.pack(anchor='center')
 
         '''# BOTÃO SAVE BUSCA'''
@@ -738,6 +732,7 @@ class ListandoArquivos:
         self.botao_save_busca['state'] = 'normal'
         self.botao_destino_busca['state'] = 'normal'
         self.botao_escolha_extensao['state'] = 'normal'
+        self.radio_txt.config(state=tk.NORMAL)
         self.label_status.config(text='Processo finalizado')
 
     def analise_e_processo_de_dados_da_busca(self):
@@ -845,7 +840,7 @@ class ListandoArquivos:
 
     def save_PDF(self):
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual}'
+        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(':', '-')}'
         sleep(1)
         print(nome_PDF)
         documento_PDF(self.lista_save_busca, nome_PDF)
