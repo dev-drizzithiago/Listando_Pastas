@@ -56,8 +56,8 @@ class ListandoArquivos:
         self.janela_principal.geometry('1000x640+150+10')
         self.janela_principal.resizable(0, 0)
 
-        # self.icone_busca = tk.PhotoImage(file='lupa.png')
-        # self.janela_principal.iconphoto(True, self.icone_busca)
+        self.icone_busca = tk.PhotoImage(file='lupa.png')
+        self.janela_principal.iconphoto(True, self.icone_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Estilos
@@ -69,12 +69,12 @@ class ListandoArquivos:
         estilo.configure('TListBox', background='#4682B4')
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # Label FRAME PRINCIPAL
+        """# Label FRAME PRINCIPAL"""
         self.label_frame_geral = LabelFrame(self.janela_principal, text='Janela Principal')
         self.label_frame_geral.pack(fill=tk.BOTH, pady=5, padx=5)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # COMBO DE EXTENSÃO
+        """# COMBO DE EXTENSÃO"""
         self.var_combo_categoria = tk.StringVar()
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH, pady=2, padx=2)
@@ -86,7 +86,7 @@ class ListandoArquivos:
         self.var_combo_categoria.trace('w', self.combo_categoria_busca)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # INFORMAÇÕES SOBRE EXTENSÃO
+        """# INFORMAÇÕES SOBRE EXTENSÃO"""
         self.label_lista_extensao = LabelFrame(self.label_frame_geral, text='Escolha uma extensão')
         self.label_lista_extensao.pack(side='top', fill='both', pady=2, padx=2)
         # BARRA DE ROLAGEM
@@ -103,16 +103,15 @@ class ListandoArquivos:
         self.barra_rolagem_extensao.config(command=self.lista_de_extensoes.yview)
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
-        # LABEL DE INFORMAÇÕES
+        """# LABEL DE INFORMAÇÕES"""
         self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
         self.label_frame_info_ext.pack(anchor='n')
-
         self.var_label_info_extensao = tk.StringVar()
         self.var_label_info_extensao.set(' Aguardando escolha da extensão ')
         self.label_info_extensao = Label(self.label_frame_info_ext, text=f'[{self.var_label_info_extensao.get()}]')
         self.label_info_extensao.pack(anchor='center')
 
-        # LABEL TIME DA BUSCA
+        """# LABEL TIME DA BUSCA"""
         self.var_label_time_busca = tk.StringVar()
         self.var_label_time_busca.set('00:00:00')
         self.label_time_busca = Label(self.label_frame_geral, text=self.var_label_time_busca.get())
@@ -148,14 +147,14 @@ class ListandoArquivos:
         self.label_frame_geral_info.config(relief=tk.RIDGE)
         self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
 
-        # LABEL STATUS GERAL
+        """# LABEL STATUS GERAL"""
         self.var_label_status_geral = tk.StringVar()
         self.var_label_status_geral.set('Bem vindo!')
         self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
         self.label_status.config(justify='center')
         self.label_status.pack(side='bottom', pady=2, padx=2)
 
-        # LABEL CONTAGEM ARQUIVOS
+        """# LABEL CONTAGEM ARQUIVOS"""
         self.var_status_contagem_arquivos = tk.StringVar()
         self.var_status_contagem_arquivos.set('Total de arquivos encontrados')
         self.status_contagem_arquivos = Label(self.label_frame_geral_info)
@@ -163,7 +162,7 @@ class ListandoArquivos:
         self.status_contagem_arquivos.config(justify='center')
         self.status_contagem_arquivos.pack(anchor='se', pady=2, padx=2)
 
-        # LABEL PASTAS DISTINO DA BUSCA
+        """# LABEL PASTAS DISTINO DA BUSCA"""
         self.var_status_contagem_pastas = tk.StringVar()
         self.var_status_contagem_pastas.set('Buscando na pasta => Aguardando busca!')
         self.status_DISTINO_pastas = Label(self.label_frame_geral_info)
@@ -172,7 +171,7 @@ class ListandoArquivos:
         self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
         self.status_DISTINO_pastas.place(y=2, x=10)
 
-        # LABEL ARQUIVOS ENCONTRADOS
+        """# LABEL ARQUIVOS ENCONTRADOS"""
         self.var_msg_tot_busca = tk.StringVar()
         self.var_msg_tot_busca.set('Aguardando pela busca de arquivos')
         self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
@@ -187,7 +186,7 @@ class ListandoArquivos:
         # self.label_pasta_principal.place(y=10, x=350)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        # Barra de progresso da busca
+        """# Barra de progresso da busca"""
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(anchor='s', fill='both', pady=2, padx=2)
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
