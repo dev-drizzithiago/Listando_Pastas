@@ -820,22 +820,6 @@ class ListandoArquivos:
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
         self.label_status.config(text='Analise finalizada!!')
 
-    """def janela_save_resultado(self):
-        janela_radio = tk.Tk()
-        janela_radio.geometry('200x100')
-        janela_radio.resizable(0, 0)
-
-        self.label_frame_radio = LabelFrame(janela_radio, text='Selecione uma opção')
-        self.label_frame_radio.pack(fill=tk.BOTH)
-
-        self.var_radio = tk.StringVar()
-        self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
-        self.radio_txt.config(command=self.opcao_radio)
-        self.radio_txt.pack(anchor='center')
-        self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
-        self.radio_pdf.config(command=self.opcao_radio)
-        self.radio_pdf.pack(anchor='center')"""
-
     def opcao_radio(self):
         valor_opcao_radio = self.var_radio.get()
         if valor_opcao_radio == 'TXT':
@@ -845,7 +829,7 @@ class ListandoArquivos:
 
     def save_PDF(self):
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(':', '-')}'
+        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(':', '')}'
         sleep(1)
         print(nome_PDF)
         documento_PDF(self.lista_save_busca, nome_PDF)
