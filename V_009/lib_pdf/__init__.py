@@ -41,11 +41,6 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', valor_nome_documento='
         dados_save = []
 
         """# Abaixo, são adicionado os dados da busca no documento"""
-        dados_save.append('<html>')
-        dados_save.append('<head>')
-        dados_save.append('<title> relatório da busca </title>')
-        dados_save.append('</html>')
-
         for dados_busca in valor_dados_coletados:
             texto = f'<font size="12">%s</font>' % dados_busca
             dados_save.append(Paragraph(texto, estilo["Justify"]))
