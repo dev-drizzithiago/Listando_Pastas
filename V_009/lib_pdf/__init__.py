@@ -37,7 +37,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
 
         """# Abaixo, são adicionado os dados da busca no documento"""
         for dados_busca in valor_dados_coletados:
-            texto = f'<font size="12">%s</font>' % dados_busca
+            texto = f'<font size="12" textCalor="grenn">%s</font>' % dados_busca
             dados_save.append(Paragraph(texto, estilo["Justify"]))
             dados_save.append(Spacer(1, 10))
 
