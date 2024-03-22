@@ -684,10 +684,10 @@ class ListandoArquivos:
                 self.lista_save_busca.append('')
                 self.lista_save_busca.append('')
                 self.lista_save_busca.append(f'{raiz}')
-                self.lista_save_busca.append(f'{"===" * 40}')
+                self.lista_save_busca.append(f'{"===" * 10}')
 
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
-                self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 40}')
+                self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 10}')
                 self.lista_result_busca.insert('end', '')
                 self.lista_result_busca.insert('end', f'{raiz}')
                 self.lista_result_busca.config()
@@ -778,7 +778,7 @@ class ListandoArquivos:
 
         """# QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
-        self.lista_result_busca.insert('end', '-=-' * 40)
+        self.lista_result_busca.insert('end', '-=-' * 10)
         self.lista_result_busca.insert('end', 'Total de extenões encontrados...')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Extensão      -      Quantidade')
@@ -796,7 +796,7 @@ class ListandoArquivos:
             self.lista_qtd_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
 
-        self.lista_result_busca.insert('end', '-=-' * 40)
+        self.lista_result_busca.insert('end', '-=-' * 10)
         self.lista_result_busca.insert('end', '')
 
         """# Quantidade de arquivos dentro das pastas """
@@ -806,7 +806,7 @@ class ListandoArquivos:
 
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Total de arquivos...')
-        self.lista_result_busca.insert('end', '-=-' * 40)
+        self.lista_result_busca.insert('end', '-=-' * 10)
 
         """# Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
@@ -843,21 +843,21 @@ class ListandoArquivos:
 
             """# Cabeçalho do salvamento"""
             arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
-            arquivo_save.write(f'{"===" * 15}\n')
+            arquivo_save.write(f'{"===" * 10}\n')
             arquivo_save.write(f'Tempo da busca {self.tempo_da_busca}\n\n')
 
             arquivo_save.write(f'Pasta da busca\n')
-            arquivo_save.write(f'{"===" * 15}\n')
+            arquivo_save.write(f'{"===" * 10}\n')
             arquivo_save.write(f'[{self.pasta_local_de_busca}]\n')
 
             """Arquivos da busca"""
             arquivo_save.write(f'\n\n')
             arquivo_save.write(f'Dados da busca\n')
-            arquivo_save.write(f'{"===" * 15}\n')
+            arquivo_save.write(f'{"===" * 10}\n')
             for valor_busca in self.lista_save_busca:
                 arquivo_save.write(f'{valor_busca}\n')
             arquivo_save.write('\n\n')
-            arquivo_save.write(f"{'@@@' * 20}\n")
+            arquivo_save.write(f"{'@@@' * 10}\n")
 
             """Quantidade da extensão"""
             arquivo_save.write('\n\n')
@@ -868,7 +868,7 @@ class ListandoArquivos:
             """Quantidade de arquivos dentro de cada pasta"""
             arquivo_save.write('\n\n')
             arquivo_save.write('Quantidades de arquivo dentro de cada pasta\n')
-            arquivo_save.write(f"{'______' * 15}\n")
+            arquivo_save.write(f"{'______' * 10}\n")
             for valor_lista_qtd_arq_pasta in self.lista_qtd_arq_pastas:
                 arquivo_save.write(f'{valor_lista_qtd_arq_pasta}\n')
             arquivo_save.write('\n\n')
