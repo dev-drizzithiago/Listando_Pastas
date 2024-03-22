@@ -53,7 +53,7 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', valor_nome_documento='
         html = '</html>'
         dados_save.append(Paragraph(html, estilo["normal"]))
         dados_save.append(Spacer(1, 10))
-        
+
         for dados_busca in valor_dados_coletados:
             texto = f'<font size="12">%s</font>' % dados_busca
             dados_save.append(Paragraph(texto, estilo["Justify"]))
@@ -61,6 +61,10 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', valor_nome_documento='
 
         for dados_extensao in valor_qtd_extensao:
             texto = f'<font size="12">%s</font>' % dados_extensao
+            dados_save.append(Paragraph(texto, estilo["Normal"]))
+            dados_save.append(Spacer(1, 10))
+        for dados_qtd_ext in valor_qtd_arq_pasta:
+            texto = f'<font size="12">%s</font>' % dados_qtd_ext
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
 
