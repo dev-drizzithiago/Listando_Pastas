@@ -649,6 +649,7 @@ class ListandoArquivos:
             """# Desativando os botões para o processo da busca"""
             self.label_status.config(text='Desativando os botões')
             sleep(1)
+            self.botao_iniciar_busca.config(state=tk.DISABLED)
             self.botao_save_busca['state'] = 'disabled'
             self.botao_destino_busca['state'] = 'disabled'
             self.botao_adicionar_extensao['state'] = 'disabled'
