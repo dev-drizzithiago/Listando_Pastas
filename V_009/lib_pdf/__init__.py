@@ -46,12 +46,15 @@ def documento_PDF(valor_dados_coletados='<desconhecido>', valor_nome_documento='
             dados_save.append(Paragraph(texto, estilo["Justify"]))
             dados_save.append(Spacer(1, 10))
 
+        """# Abaixo são contabilizados a quantidade de extensões encontradas"""
         for dados_extensao in valor_qtd_extensao:
-            texto = f'<font size="12">%s</font>' % dados_extensao
+            texto = f'<font size="8">%s</font>' % dados_extensao
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
+
+        """# Abaixo são contabilizados a quantidade de arquivos encontrado em cada pasta"""
         for dados_qtd_ext in valor_qtd_arq_pasta:
-            texto = f'<font size="12">%s</font>' % dados_qtd_ext
+            texto = f'<font size="8">%s</font>' % dados_qtd_ext
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
 
