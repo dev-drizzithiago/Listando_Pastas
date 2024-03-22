@@ -687,7 +687,7 @@ class ListandoArquivos:
                 self.lista_save_busca.append(f'{"===" * 20}')
 
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
-                self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 20}')
+                self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 22}')
                 self.lista_result_busca.insert('end', '')
                 self.lista_result_busca.insert('end', f'{raiz}')
                 self.lista_result_busca.config()
@@ -778,14 +778,14 @@ class ListandoArquivos:
 
         """# QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
-        self.lista_result_busca.insert('end', '-=-' * 20)
+        self.lista_result_busca.insert('end', '-=-' * 22)
         self.lista_result_busca.insert('end', 'Total de extenões encontrados...')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Extensão      -      Quantidade')
 
         print()
         print('Total de extenões encontrados...')
-        print('-=-' * 20)
+        print('-=-' * 22)
         print('Extensão      -      Quantidade')
 
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
@@ -796,17 +796,17 @@ class ListandoArquivos:
             self.lista_qtd_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
 
-        self.lista_result_busca.insert('end', '-=-' * 20)
+        self.lista_result_busca.insert('end', '-=-' * 22)
         self.lista_result_busca.insert('end', '')
 
         """# Quantidade de arquivos dentro das pastas """
         print()
         print('Total de arquivos encontrados...')
-        print('-=-' * 20)
+        print('-=-' * 22)
 
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Total de arquivos...')
-        self.lista_result_busca.insert('end', '-=-' * 20)
+        self.lista_result_busca.insert('end', '-=-' * 22)
 
         """# Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
