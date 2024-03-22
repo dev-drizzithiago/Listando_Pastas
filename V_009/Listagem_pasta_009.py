@@ -298,7 +298,6 @@ class ListandoArquivos:
     # INICIANDO AS THREADS
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
-        self.botao_iniciar_busca['state'] = 'disabled'
         self.ativo_inicio_busca = True
         winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         if self.ativo_status_extensao:
