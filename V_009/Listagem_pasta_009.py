@@ -230,14 +230,14 @@ class ListandoArquivos:
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """# Radio Botão"""
         self.label_frame_radio = LabelFrame(self.label_frame_geral, text='Selecione uma opção para Salvar da busca')
-        self.label_frame_radio.pack(fill=tk.BOTH, side='top', pady=5, padx=5)
+        self.label_frame_radio.pack(fill=tk.BOTH, side='top')
         self.var_radio = tk.StringVar()
         self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
         self.radio_txt.config(state=tk.DISABLED)
-        self.radio_txt.pack(anchor='center', pady=5, padx=5)
+        self.radio_txt.pack(anchor='center')
         self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
         self.radio_pdf.config(state=tk.DISABLED)
-        self.radio_pdf.pack(anchor='center', pady=5, padx=5)
+        self.radio_pdf.pack(anchor='center')
 
         '''# BOTÃO SAVE BUSCA'''
         self.botao_save_busca = Button(self.label_frame_radio, text='Salvar Busca')
