@@ -33,7 +33,12 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         estilo = getSampleStyleSheet()
         estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
+        separado = '-=-' * 35
         dados_save = []
+
+        """# Separação"""
+        dados_save.append(Paragraph(separado, estilo['Normal']))
+        dados_save.append(Spacer(1, 20))
 
         """# Abaixo, são adicionado os dados da busca no documento"""
         for dados_busca in valor_dados_coletados:
@@ -41,11 +46,19 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Paragraph(texto, estilo["Justify"]))
             dados_save.append(Spacer(1, 10))
 
+        """# Separação"""
+        dados_save.append(Paragraph(separado, estilo['Normal']))
+        dados_save.append(Spacer(1, 20))
+
         """# Abaixo são contabilizados a quantidade de extensões encontradas"""
         for dados_extensao in valor_qtd_extensao:
             texto = f'<font size="12">%s</font>' % dados_extensao
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
+
+        """# Separaãção"""
+        dados_save.append(Paragraph(separado, estilo['Normal']))
+        dados_save.append(Spacer(1, 20))
 
         """# Abaixo são contabilizados a quantidade de arquivos encontrado em cada pasta"""
         for dados_qtd_ext in valor_qtd_arq_pasta:
