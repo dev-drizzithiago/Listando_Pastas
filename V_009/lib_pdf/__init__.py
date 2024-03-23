@@ -37,8 +37,12 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dados_save = []
 
         """# Separação"""
-        dados_save.append(Paragraph(separado, estilo['Normal']))
+        texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
         dados_save.append(Spacer(1, 20))
+        dados_save.append(Paragraph(texto, estilo['Justify']))
+        dados_save.append(Spacer(1, 5))
+        dados_save.append(Paragraph(separado, estilo['Normal']))
+        dados_save.append(Spacer(1, 5))
 
         """# Abaixo, são adicionado os dados da busca no documento"""
         for dados_busca in valor_dados_coletados:
@@ -47,18 +51,26 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Spacer(1, 10))
 
         """# Separação"""
+        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
+        dados_save.append(Spacer(1, 30))
+        dados_save.append(Paragraph(texto, estilo['Justify']))
+        dados_save.append(Spacer(1, 5))
         dados_save.append(Paragraph(separado, estilo['Normal']))
-        dados_save.append(Spacer(1, 20))
+        dados_save.append(Spacer(1, 5))
 
-        """# Abaixo são contabilizados a quantidade de extensões encontradas"""
+        """# Abaixo são contabilizados a quantidade de EXTENSÕES encontradas"""
         for dados_extensao in valor_qtd_extensao:
             texto = f'<font size="12">%s</font>' % dados_extensao
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
 
         """# Separaãção"""
+        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
+        dados_save.append(Spacer(1, 30))
+        dados_save.append(Paragraph(texto, estilo['Justify']))
+        dados_save.append(Spacer(1, 5))
         dados_save.append(Paragraph(separado, estilo['Normal']))
-        dados_save.append(Spacer(1, 20))
+        dados_save.append(Spacer(1, 5))
 
         """# Abaixo são contabilizados a quantidade de arquivos encontrado em cada pasta"""
         for dados_qtd_ext in valor_qtd_arq_pasta:
