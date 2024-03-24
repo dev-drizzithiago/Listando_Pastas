@@ -290,9 +290,14 @@ class ListandoArquivos:
         self.label_info_add_extensao = tk.Label(label_frame_info_add, text=self.var_label_info_add_extensao.get())
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
+    """# Funções simples"""
+
     def linha_aparencia(self):
         self.lista_result_busca.insert('end', '-=-' * 52)
         print('-=-' * 48)
+
+    def cancelar_busca(self):
+        self.ativo_inicio_busca = False
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIANDO AS THREADS
@@ -832,7 +837,8 @@ class ListandoArquivos:
         nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(":", "")}'
         sleep(1)
         print(nome_PDF)
-        Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao, self.lista_qtd_arq_pastas)).start()
+        Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
+                                    self.lista_qtd_arq_pastas)).start()
 
     def save_TXT(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
