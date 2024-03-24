@@ -392,6 +392,12 @@ class ListandoArquivos:
                 sleep(1)
 
     def combo_categoria_busca(self, *args):
+        """
+        Função responsavel em carregas as categorias na lista.
+        :param args:
+        :return: Quando selecionar uma categoria, é carregada na lista de extensão, mostrando as extesões que
+        foram adicionar. Caso não tenha, na função que carrega os arquivos vai mostrar o erro. 
+        """
         self.lista_de_extensoes.delete('0', 'end')
 
         arq_imagem = '\\extensao_imagem.log'
@@ -449,6 +455,10 @@ class ListandoArquivos:
         self.leitura_arq_extensao_add_lista_principal()  # CHAMA A FUNÇÃO
 
     def adicionado_extensao_arq_txt(self):
+        """
+        Funções é responsavel em adicionar as extensões quando são adicionadas no sistema.
+        :return:
+        """
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
         if len(valor_entrada_extensao) == 0:
             tk.messagebox.showerror('ERROR', 'Você precisa digitar uma extensão')
@@ -520,6 +530,11 @@ class ListandoArquivos:
             self.leitura_arq_extensao_add_lista_principal()
 
     def leitura_arq_extensao_add_lista_principal(self):
+        """
+        # Função responsavel em carregaras extensões que estão salvas nos arquivos de texto
+        :return:
+        """
+
         self.lista_ext_imagem = list()
         self.lista_ext_videos = list()
         self.lista_ext_textos = list()
