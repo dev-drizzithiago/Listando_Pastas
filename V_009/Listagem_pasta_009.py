@@ -221,12 +221,6 @@ class ListandoArquivos:
         self.botao_destino_busca.config(command=self.thread_selecionar_destino_busca)
         self.botao_destino_busca.place(y=1, x=785)
 
-        """# Botão cancelar busca"""
-        self.botao_cancelar_busca = Button(self.label_frame_botoes_opcoes, text='Cancelar Busca')
-        self.botao_cancelar_busca.config(width=30)
-        self.botao_cancelar_busca.config(command=self.cancelar_busca)
-        self.botao_cancelar_busca.place(y=30, x=785)
-
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """# Radio Botão"""
         self.label_frame_radio = LabelFrame(self.label_frame_geral, text='Selecione uma opção para Salvar da busca')
@@ -295,9 +289,6 @@ class ListandoArquivos:
     def linha_aparencia(self):
         self.lista_result_busca.insert('end', '-=-' * 52)
         print('-=-' * 48)
-
-    def cancelar_busca(self):
-        self.ativo_inicio_busca = False
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIANDO AS THREADS
