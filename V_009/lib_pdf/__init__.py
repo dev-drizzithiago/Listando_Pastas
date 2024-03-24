@@ -44,28 +44,14 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dados_save.append(Paragraph(separado, estilo['Normal']))
         dados_save.append(Spacer(1, 5))
 
-        """# Abaixo, são adicionado os dados da busca no documento"""
-        for dados_busca in valor_dados_coletados:
-            texto = f'<font size="12">%s</font>' % dados_busca
-            dados_save.append(Paragraph(texto, estilo["Justify"]))
-            dados_save.append(Spacer(1, 10))
-
-        """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
-        dados_save.append(Spacer(1, 30))
-        dados_save.append(Paragraph(texto, estilo['Justify']))
-        dados_save.append(Spacer(1, 5))
-        dados_save.append(Paragraph(separado, estilo['Normal']))
-        dados_save.append(Spacer(1, 5))
-
         """# Abaixo são contabilizados a quantidade de EXTENSÕES encontradas"""
         for dados_extensao in valor_qtd_extensao:
             texto = f'<font size="12">%s</font>' % dados_extensao
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
 
-        """# Separaãção"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
+        """# Separação"""
+        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
@@ -77,6 +63,22 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             texto = f'<font size="12">%s</font>' % dados_qtd_ext
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
+
+        """# Separaãção"""
+        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
+        dados_save.append(Spacer(1, 30))
+        dados_save.append(Paragraph(texto, estilo['Justify']))
+        dados_save.append(Spacer(1, 5))
+        dados_save.append(Paragraph(separado, estilo['Normal']))
+        dados_save.append(Spacer(1, 5))
+
+        """# Abaixo, são adicionado os dados da busca no documento"""
+        for dados_busca in valor_dados_coletados:
+            texto = f'<font size="12">%s</font>' % dados_busca
+            dados_save.append(Paragraph(texto, estilo["Justify"]))
+            dados_save.append(Spacer(1, 10))
+
+
 
         """# Linhas responsavel por adicionar mais paginas, conforme for adicionando os textos"""
         doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
