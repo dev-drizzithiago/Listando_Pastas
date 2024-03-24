@@ -224,7 +224,7 @@ class ListandoArquivos:
         """# Botão cancelar busca"""
         self.botao_cancelar_busca = Button(self.label_frame_botoes_opcoes, text='Cancelar Busca')
         self.botao_cancelar_busca.config(width=30)
-        self.botao_cancelar_busca.config(command='')
+        self.botao_cancelar_busca.config(command=self.cancelar_busca)
         self.botao_cancelar_busca.place(y=30, x=785)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
