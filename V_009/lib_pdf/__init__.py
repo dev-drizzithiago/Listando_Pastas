@@ -30,6 +30,8 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
+
+    print( valor_qtd_extensao)
     print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
     print('Aguarde! Documento esta sendo criado!')
     try:
