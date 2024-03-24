@@ -864,7 +864,7 @@ class ListandoArquivos:
 
     def save_TXT(self):
         """
-        
+
         :return:
         """
         print(f'Processando função SAVE')
