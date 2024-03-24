@@ -843,7 +843,6 @@ class ListandoArquivos:
     def save_TXT(self):
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
-        print(arquivo_save)
         try:
             self.label_status.config(text='Aguarda, salvando os dados em arquivo de texto!!')
 
