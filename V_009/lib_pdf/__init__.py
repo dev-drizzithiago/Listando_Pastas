@@ -32,7 +32,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
                                 topMargin=72, bottomMargin=18)
         estilo = getSampleStyleSheet()
         estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
-
+        
         separado = '-=-' * 35
         dados_save = []
 
