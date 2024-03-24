@@ -1,7 +1,7 @@
 import matplotlib.pyplot
 
-meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-         'Julho', 'Agosto', 'Setembro', "outubro", 'Novembro', 'Desembro']
-valores = [105235, 107697, 110256, 109236, 108859, 109986]
+meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho']
+valores = [9, 5, 10, 2, 0, 8]
 
-matplotlib.pyplot(meses, valores)
+matplotlib.pyplot.plot(meses, valores)
+matplotlib.pyplot.show()
