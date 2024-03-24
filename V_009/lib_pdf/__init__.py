@@ -78,8 +78,6 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Paragraph(texto, estilo["Justify"]))
             dados_save.append(Spacer(1, 10))
 
-
-
         """# Linhas responsavel por adicionar mais paginas, conforme for adicionando os textos"""
         doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
