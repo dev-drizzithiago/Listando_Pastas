@@ -741,7 +741,7 @@ class ListandoArquivos:
             self.botao_escolha_extensao['state'] = 'normal'
             self.radio_txt.config(state=tk.NORMAL)
             self.radio_pdf.config(state=tk.NORMAL)
-            self.label_status.config(text='Processo finalizado')
+            self.label_status.config(text='Processo de busca finalizado')
         else:
             showwarning('ATENÇAO', 'Sua busca foi cancelada')
 
