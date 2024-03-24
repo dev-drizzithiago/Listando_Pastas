@@ -393,10 +393,10 @@ class ListandoArquivos:
 
     def combo_categoria_busca(self, *args):
         """
-        Função responsavel em carregas as categorias na lista.
+        Função responsavel em deixar ativo cada categoria selecionada
         :param args:
         :return: Quando selecionar uma categoria, é carregada na lista de extensão, mostrando as extesões que
-        foram adicionar. Caso não tenha, na função que carrega os arquivos vai mostrar o erro. 
+        foram adicionar. Caso não tenha, na função que carrega os arquivos vai mostrar o erro.
         """
         self.lista_de_extensoes.delete('0', 'end')
 
