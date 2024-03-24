@@ -457,7 +457,7 @@ class ListandoArquivos:
     def adicionado_extensao_arq_txt(self):
         """
         Funções é responsavel em adicionar as extensões quando são adicionadas no sistema.
-        :return:
+        :return: Salva os dados no bloco de notas, referente ao nome
         """
         valor_entrada_extensao = self.caixa_entrada_extensao.get().upper()
         if len(valor_entrada_extensao) == 0:
@@ -532,7 +532,8 @@ class ListandoArquivos:
     def leitura_arq_extensao_add_lista_principal(self):
         """
         # Função responsavel em carregaras extensões que estão salvas nos arquivos de texto
-        :return:
+        :return: Quando é escolhida a extensão, o arquivo é aberto e é realizado a leitura das exentesões
+        que estão salvas
         """
 
         self.lista_ext_imagem = list()
@@ -608,7 +609,6 @@ class ListandoArquivos:
                 self.extensao_selecao_busca = extensao_digitada
             self.label_info_extensao.config(text=extensao_digitada.upper())
             self.ativo_status_extensao = True
-
         else:
             for valor_extensao in valor_lista_extensao:
                 pass
@@ -640,6 +640,10 @@ class ListandoArquivos:
         valor_lista_extensao = 0
 
     def pasta_destino_busca(self):
+        """
+        # Função responsavel em selecionar a pasta de busca
+        :return: Quando digita uma extensão, vai ser enviado os dados para a função "iniciar_busca"
+        """
         self.pasta_local_de_busca = tk.filedialog.askdirectory()
         self.ativo_status_destinos = True
 
