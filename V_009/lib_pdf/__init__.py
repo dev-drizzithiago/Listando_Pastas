@@ -33,16 +33,13 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         estilo = getSampleStyleSheet()
         estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
-        separado = '-=-' * 35
+        """# Lista responsável para gravação no pdf"""
         dados_save = []
 
         """# Separação"""
         texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
         dados_save.append(Spacer(1, 20))
-        dados_save.append(Paragraph(texto, estilo['Justify']))
-        dados_save.append(Spacer(1, 5))
-        dados_save.append(Paragraph(separado, estilo['Normal']))
-        dados_save.append(Spacer(1, 5))
+        doc.canv.lines(x=1, y=1)
 
         """# Abaixo, são adicionado os dados da busca no documento"""
         for dados_busca in valor_dados_coletados:
@@ -53,10 +50,6 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         """# Separação"""
         texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
         dados_save.append(Spacer(1, 30))
-        dados_save.append(Paragraph(texto, estilo['Justify']))
-        dados_save.append(Spacer(1, 5))
-        dados_save.append(Paragraph(separado, estilo['Normal']))
-        dados_save.append(Spacer(1, 5))
 
         """# Abaixo são contabilizados a quantidade de EXTENSÕES encontradas"""
         for dados_extensao in valor_qtd_extensao:
@@ -67,10 +60,6 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         """# Separaãção"""
         texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
         dados_save.append(Spacer(1, 30))
-        dados_save.append(Paragraph(texto, estilo['Justify']))
-        dados_save.append(Spacer(1, 5))
-        dados_save.append(Paragraph(separado, estilo['Normal']))
-        dados_save.append(Spacer(1, 5))
 
         """# Abaixo são contabilizados a quantidade de arquivos encontrado em cada pasta"""
         for dados_qtd_ext in valor_qtd_arq_pasta:
