@@ -852,6 +852,10 @@ class ListandoArquivos:
             self.thread_opcao_save_PDF()
 
     def save_PDF(self):
+        """
+        
+        :return:
+        """
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
         nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-h{hora_atual.replace(":", "")}'
         sleep(1)
