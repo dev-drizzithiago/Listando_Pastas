@@ -834,7 +834,7 @@ class ListandoArquivos:
 
     def save_PDF(self):
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(":", "")}'
+        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-h{hora_atual.replace(":", "")}'
         sleep(1)
         print(nome_PDF)
         Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
