@@ -268,11 +268,17 @@ class ListandoArquivos:
         """# Botões"""
         label_frame_botao_add_ext = tk.LabelFrame(label_frame_add_ext_geral, text='Escolha uma opção')
         label_frame_botao_add_ext.pack(anchor='center', fill='both', pady=5, padx=5)
+
+        """# Botão ADICIONAR A EXTENSÃO"""
         botao_adicionar_ext = tk.Button(label_frame_botao_add_ext, text='Adicionar', width=20, height=1)
         botao_adicionar_ext['command'] = self.thread_adicionar_extensao
         botao_adicionar_ext.pack(anchor='center', pady=5, padx=5)
+
+        """# botão responsavel em corrigir eventual ERROS. Apaga a caixa de texto"""
         botao_corrigir_caixa_entrada = tk.Button(label_frame_botao_add_ext, text='Corrigir Entrada', width=20)
         botao_corrigir_caixa_entrada.pack(side='left', pady=5, padx=5)
+
+        """# Botão VOLTAR A JANELA PRINCIPAL"""
         botao_voltar_janela_principal = tk.Button(label_frame_botao_add_ext, text='Janela Principal', width=20)
         botao_voltar_janela_principal['command'] = janela_add_extensao.destroy
         botao_voltar_janela_principal.pack(side='right', pady=5, padx=5)
