@@ -291,7 +291,6 @@ class ListandoArquivos:
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
     """# Funções simples"""
-
     def linha_aparencia(self):
         self.lista_result_busca.insert('end', '-=-' * 52)
         print('-=-' * 48)
