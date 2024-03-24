@@ -4,10 +4,16 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import mm
 from pathlib import Path
-from tkinter.messagebox import showinfo, showerror, showwarning
+from tkinter.messagebox import showinfo, showerror
+
+import matplotlib.pyplot
 
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
+
+
+"""# Grafico"""
+# _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
 
 # ----------------------------------------------------------------------
@@ -32,7 +38,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
                                 topMargin=72, bottomMargin=18)
         estilo = getSampleStyleSheet()
         estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
-        
+
         separado = '-=-' * 35
         dados_save = []
 
