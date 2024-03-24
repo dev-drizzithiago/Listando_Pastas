@@ -853,7 +853,7 @@ class ListandoArquivos:
 
     def save_PDF(self):
         """
-        
+
         :return:
         """
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
@@ -863,6 +863,10 @@ class ListandoArquivos:
                                     self.lista_qtd_arq_pastas)).start()
 
     def save_TXT(self):
+        """
+        
+        :return:
+        """
         print(f'Processando função SAVE')
         tipo_de_arquivo = [('Texto(.txt)', '*.txt')]
         arquivo_save = asksaveasfile(filetypes=tipo_de_arquivo, defaultextension=tipo_de_arquivo)
