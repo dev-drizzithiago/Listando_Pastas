@@ -337,6 +337,10 @@ class ListandoArquivos:
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def time_busca(self):
+        """
+        Função vai se responsavel em contar o tempo que a busca foi realizada.
+        :return:
+        """
         print('\nIniciando time da busca')
         msg_info_time = str
         contagem_segundos = 0
