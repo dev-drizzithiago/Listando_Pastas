@@ -662,7 +662,8 @@ class ListandoArquivos:
             """# LIMPEZA DA LISTA DE BUSCA"""
             del self.lista_analise_arq_busca[:]
 
-            print(f'\nExtensão {self.extensao_selecao_busca}')
+            print(f'\nExtensão selecionado para busca {self.extensao_selecao_busca}')
+            print(f'número_extensão {len(self.extensao_selecao_busca)}')
             sleep(1)
 
             """# DECLARAÇÃO DE VARIAVEIS"""
