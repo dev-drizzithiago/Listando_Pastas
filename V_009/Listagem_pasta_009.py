@@ -712,6 +712,7 @@ class ListandoArquivos:
             self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
             for raiz, subs, itens in walk(str(valor_path_busca)):
 
+                """# Listas reponsável em organizar o documento"""
                 self.lista_save_busca.append('')
                 self.lista_save_busca.append('')
                 self.lista_save_busca.append(f'>{raiz}<')
@@ -760,6 +761,7 @@ class ListandoArquivos:
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
+            """# Listas reponsável em organizar o documento"""
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', 'Busca finalizada!!')
             self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
