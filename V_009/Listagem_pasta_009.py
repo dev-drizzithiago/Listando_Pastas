@@ -800,7 +800,7 @@ class ListandoArquivos:
         :param contagem_pastas: mostra a quantidade de arquivos em cada pasta
         :param lista_qtd_arq_pastas: insere as informações para serem enviados para criação do PDF
         :param lista_qtd_extensao: insere as informações para serem enviados para criação do PDF
-        :param """
+        :param qts_extensao_grafico: insere as informações para serem enviados para criação do grafico"""
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.lista_qtd_arq_pastas = []
@@ -809,7 +809,9 @@ class ListandoArquivos:
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
 
+        """# Pega o  Bruto da lista de mostra no console para analise do usuário"""
         print(f'Analise RAIZ\n{self.lista_analise_arq_busca}')
+
         """#### Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
