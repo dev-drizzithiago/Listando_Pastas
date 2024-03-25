@@ -291,6 +291,7 @@ class ListandoArquivos:
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
     """# Funções simples"""
+
     def linha_aparencia(self):
         self.lista_result_busca.insert('end', '-=-' * 52)
         print('-=-' * 48)
@@ -695,10 +696,10 @@ class ListandoArquivos:
 
             """# HORARIO DA BUSCAR
             Acrescendo a lista, a data e horario que a busca foi realizada"""
-            self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
+            self.lista_result_busca.insert('end', f'[{data_atual}-{hora_atual}]')
             self.lista_result_busca.insert('end', self.linha_aparencia())
 
-            """# INICIANDO O CONTATO"""
+            """# INICIANDO O Contador"""
             self.ativo_time_busca = True
             Thread(target=self.time_busca).start()
 
@@ -713,16 +714,22 @@ class ListandoArquivos:
 
                 self.lista_save_busca.append('')
                 self.lista_save_busca.append('')
-                self.lista_save_busca.append(f'{raiz}')
+                self.lista_save_busca.append(f'>{raiz}<')
                 self.lista_save_busca.append(f'{"===" * 20}')
 
+                """# Indica ao usuário qual a pasta de busca."""
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
+
+                """# Os dados são insedireto para que seja analisado pela função de analise."""
                 self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 20}')
+
+                """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                 self.lista_result_busca.insert('end', '')
                 self.lista_result_busca.insert('end', f'{raiz}')
-                self.lista_result_busca.config()
                 self.lista_result_busca.insert('end', self.linha_aparencia())
 
+                """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
+                pela '#Verificação de extensão#' """
                 for valor_itens in itens:
                     """# Realiza a junção da pasta com o item encontrado. Logo abaixo ser realizado a monipulação
                     para que fique mais fácil a idenficação na hora de visualizar"""
@@ -735,7 +742,7 @@ class ListandoArquivos:
 
                     """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
                     Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
-                    if search(self.extensao_selecao_busca.lower(), valor_itens):
+                    if search(self.extensao_selecao_busca.lower(), valor_itens):  ##Verificação de extensão#
 
                         """# Mostra o valor que esta sendo encontrado."""
                         self.status_arquivos.config(text=valor_itens)
