@@ -805,7 +805,7 @@ class ListandoArquivos:
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
 
         print(f'Analise RAIZ\n{self.lista_analise_arq_busca}')
-        """# Realiza a analise dos valores da busca."""
+        """#### Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
@@ -813,7 +813,7 @@ class ListandoArquivos:
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip().replace(']', '')
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
-            """Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
+            """# Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
             de arquivos dentro de cada pasta"""
             if valor_pasta in self.contagem_pastas:
                 self.contagem_pastas[valor_pasta] += 1
@@ -827,7 +827,7 @@ class ListandoArquivos:
             else:
                 self.contagem_extensao[valor_extensao] = 1
 
-        """# QUANTIDADE DE EXTENSAO QUE POSSUI"""
+        """#### QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '-=-' * 20)
         self.lista_result_busca.insert('end', 'Total de extenões encontrados...')
@@ -839,12 +839,9 @@ class ListandoArquivos:
         print('-=-' * 22)
         print('Extensão      -      Quantidade')
 
-        """# Analista a lista de extensões"""
-        print(self.contagem_extensao)
-
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
-            valor_extensao_qtd = f' [{extensao.upper()}] {"-":^10"} [{quantidade}]'
+            valor_extensao_qtd = f' [{extensao.upper()}] {"-":-^20} [{quantidade}]'
             self.qts_extensao_grafico.append(f'{extensao}={quantidade}')
             self.lista_qtd_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
@@ -857,7 +854,7 @@ class ListandoArquivos:
 
         print(f'Analisando \n{self.qts_extensao_grafico}')
 
-        """# Quantidade de arquivos dentro das pastas """
+        """#### Quantidade de arquivos dentro das pastas """
         print()
         print('Total de arquivos encontrados...')
         print('-=-' * 20)
