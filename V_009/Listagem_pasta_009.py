@@ -650,9 +650,9 @@ class ListandoArquivos:
     def iniciar_busca(self):
         """
         :param: contador_arquivos = 1 = Reponsavel pela contagem todos dos arquivos encontrados.
-        :param: self.lista_busca_arquivos = list() = fica alocado os valores da busca
+        :param: self.lista_busca_arquivos = list() = fica alocado os valores da busca.
         :param: self.lista_save_busca = list() = fica alocado as informações para salver em arquivo de texto.
-        :return:
+        :return: Retorna varios valores, em várias funções. Seguindo mais abaixo, existemm explicações em cada evento
         """
         if self.ativo_inicio_busca:
             """# MODULOS RESPONSAVEL PELA BUSCA"""
@@ -671,7 +671,9 @@ class ListandoArquivos:
             self.lista_busca_arquivos = list()
             self.lista_save_busca = list()
 
-            """# Desativando os botões para o processo da busca"""
+            """# Desativando os botões para o processo da busca
+            A desativaç~çao é feita para evitar erros. Como o processo estão sendo realizado, clicar mais uma vezes em 
+            iniciar, pode ocorre erros. Achei que desativando acaba deixando mais simples essa questao"""
             self.label_status.config(text='Desativando os botões')
             sleep(1)
             self.botao_iniciar_busca.config(state=tk.DISABLED)
@@ -791,13 +793,13 @@ class ListandoArquivos:
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
 
+        print(f'Analise RAIZ\n{self.lista_analise_arq_busca}')
         """# Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
-
             divisao_valor_extensao = str(valor_lista_busca).split('.')
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
 
-            valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
+            valor_extensao = str(divisao_valor_extensao[-1]).lower().strip().replace(']', '')
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
             """Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
@@ -826,14 +828,18 @@ class ListandoArquivos:
         print('-=-' * 22)
         print('Extensão      -      Quantidade')
 
+        """# Analista a lista de extensões"""
+        print(self.contagem_extensao)
+
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f' {extensao.upper()} - {quantidade}'
             self.lista_resultado_qts_extensao_grafico.append([f'{extensao}={quantidade}'])
-            self.lista_final_busca.append(valor_extensao_qtd)
-            print(f'{valor_extensao_qtd}')
             self.lista_qtd_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
+
+            """# Mostra o valor das quantidade de extensão"""
+            print(f'{valor_extensao_qtd}')
 
         self.lista_result_busca.insert('end', '-=-' * 20)
         self.lista_result_busca.insert('end', '')
