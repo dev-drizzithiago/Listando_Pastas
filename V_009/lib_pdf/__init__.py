@@ -1,18 +1,20 @@
-from reportlab.lib.enums import TA_JUSTIFY
-from reportlab.lib.pagesizes import A4
+"""# Modulos para PDF"""
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.enums import TA_JUSTIFY
+from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from pathlib import Path
-from tkinter.messagebox import showinfo, showerror
 
-import matplotlib.pyplot
+"""# Modulos GERAL"""
+from tkinter.messagebox import showinfo, showerror
 
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
-
 """# Grafico"""
+
+
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
 
@@ -31,7 +33,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
 
-    print( valor_qtd_extensao)
+    print(valor_qtd_extensao)
     print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
     print('Aguarde! Documento esta sendo criado!')
     try:
