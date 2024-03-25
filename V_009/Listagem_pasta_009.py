@@ -772,6 +772,7 @@ class ListandoArquivos:
         self.lista_qtd_arq_pastas = []
         self.lista_qtd_extensao = []
         self.lista_final_busca = []
+        self.lista_resultado_qts_extensao_grafico = list()
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
         for valor_teste in self.lista_busca_arquivos:
@@ -815,6 +816,7 @@ class ListandoArquivos:
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
             valor_extensao_qtd = f' {extensao.upper()} - {quantidade}'
+            self.lista_resultado_qts_extensao_grafico.append([extensao, quantidade])
             self.lista_final_busca.append(valor_extensao_qtd)
             print(f'{valor_extensao_qtd}')
             self.lista_qtd_extensao.append(valor_extensao_qtd)
@@ -822,6 +824,8 @@ class ListandoArquivos:
 
         self.lista_result_busca.insert('end', '-=-' * 20)
         self.lista_result_busca.insert('end', '')
+
+        print(f'teste {self.lista_resultado_qts_extensao_grafico}')
 
         """# Quantidade de arquivos dentro das pastas """
         print()
