@@ -900,7 +900,7 @@ class ListandoArquivos:
         nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(":", "")}'
         sleep(1)
         Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
-                                    self.lista_qtd_arq_pastas)).start()
+                                    self.lista_qtd_arq_pastas, self.qts_extensao_grafico)).start()
 
     def save_TXT(self):
         """
