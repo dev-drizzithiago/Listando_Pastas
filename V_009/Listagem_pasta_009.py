@@ -838,7 +838,7 @@ class ListandoArquivos:
             self.lista_qtd_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', valor_extensao_qtd)
 
-            """# Mostra o valor das quantidade de extensão"""
+            """# Mostra o valor, dentro do console,  das quantidade de extensão encontradas"""
             print(f'{valor_extensao_qtd}')
 
         self.lista_result_busca.insert('end', '-=-' * 20)
@@ -858,9 +858,11 @@ class ListandoArquivos:
         """# Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
             qtd_arq_pastas = f'\\{pastas.upper()} - {quantidade}'
-            print(f'{qtd_arq_pastas}')
             self.lista_qtd_arq_pastas.append(qtd_arq_pastas)
             self.lista_result_busca.insert('end', qtd_arq_pastas)
+
+            """# Mostra na tela do console a quantidade de arquivos entro das pastas"""
+            print(f'{qtd_arq_pastas}')
 
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '')
