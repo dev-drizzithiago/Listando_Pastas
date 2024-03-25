@@ -28,7 +28,16 @@ def numero_paginas(janela, documento):
 
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_documento='nome desconhecido',
-                  valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados'):
+                  valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados',
+                  valor_ext_grafico='sem dados'):
+
+    """# Análise dos valores que chagaram até a funnção"""
+    print(f'Analise "valor_dados_coletados" \n{valor_dados_coletados}')
+    print(f'Analise "valor_nome_documento" \n{valor_nome_documento}')
+    print(f'Analise "valor_qtd_extensao" \n{valor_qtd_extensao}')
+    print(f'Analise "valor_qtd_arq_pasta" \n{valor_qtd_arq_pasta}')
+    print(f'Analise "valor_ext_grafico" \n{valor_ext_grafico}')
+
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
