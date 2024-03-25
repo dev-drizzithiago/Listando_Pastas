@@ -795,11 +795,16 @@ class ListandoArquivos:
     def analise_e_processo_de_dados_da_busca(self):
 
         """# Declarações de variaveis"""
+        """
+        :param contagem_extensao: responsável em contar a quantidade de extensão que esão encontradas
+        :param contagem_pastas: mostra a quantidade de arquivos em cada pasta
+        :param lista_qtd_arq_pastas: insere as informações para serem enviados para criação do PDF
+        :param lista_qtd_extensao: insere as informações para serem enviados para criação do PDF
+        :param """
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.lista_qtd_arq_pastas = []
         self.lista_qtd_extensao = []
-        self.lista_final_busca = []
         self.qts_extensao_grafico = []
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
@@ -865,7 +870,7 @@ class ListandoArquivos:
 
         """# Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
-            qtd_arq_pastas = f'\\{pastas.upper()} - {quantidade}'
+            qtd_arq_pastas = f'\\{pastas.upper()} {"-":-^20} {quantidade}'
             self.lista_qtd_arq_pastas.append(qtd_arq_pastas)
             self.lista_result_busca.insert('end', qtd_arq_pastas)
 
