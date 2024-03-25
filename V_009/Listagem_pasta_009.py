@@ -774,7 +774,9 @@ class ListandoArquivos:
             """# Abrindo função de analise de dados"""
             self.analise_e_processo_de_dados_da_busca()
 
-            """# Emitindo som de finalização"""
+            """# Emitindo som de finalização; O som ajuda o usuário quando a busca finaliza. Existem algumas buscas
+            que podem levar um certo tempo, com um sinalizado sonoro pode ajuda-lo em voltar ao programa, caos tenho 
+            deixando rodando em segundo plano"""
             winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
 
             """# REATIVANDO BOTÕES"""
