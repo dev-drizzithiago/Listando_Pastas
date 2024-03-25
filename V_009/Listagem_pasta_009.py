@@ -729,11 +729,21 @@ class ListandoArquivos:
                     """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
                     Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
                     if search(self.extensao_selecao_busca.lower(), valor_itens):
+
+                        """# Mostra o valor que esta sendo encontrado."""
                         self.status_arquivos.config(text=valor_itens)
-                        self.lista_busca_arquivos.append(f'{destaque_arquivos_pasta}')
+
+                        """# Coloca as informações dentro da lista de busca, para mostra na janela """
                         self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
+
+                        """# Os arquivos são colocados dentro da lista para serem analisados na proxima função"""
                         self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
+
+                        """# As informações são geralmente inseridas de forma para facilitar o salvamento no arquivo"""
                         self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
+
+                        """# Mostra na janela, a quantidade de arquivos encontrados no total"""
+                        
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
@@ -776,8 +786,6 @@ class ListandoArquivos:
         self.lista_resultado_qts_extensao_grafico = list()
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
-        for valor_teste in self.lista_busca_arquivos:
-            print(f'{valor_teste}')
 
         """# Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
