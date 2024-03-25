@@ -74,7 +74,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
 
-        """# Separaãção"""
+        """# Separação"""
         texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
