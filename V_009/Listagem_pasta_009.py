@@ -680,7 +680,9 @@ class ListandoArquivos:
             self.botao_adicionar_extensao['state'] = 'disabled'
             self.botao_escolha_extensao['state'] = 'disabled'
 
-            """# LIMPANDO LISTA DE BUSCA"""
+            """# LIMPANDO LISTA DE BUSCA
+            Função se aplica quando realiza a próxima listagem.
+            Não deixo a lista com os arquivos pois na segunda listagem é acrescentando."""
             self.lista_result_busca.delete('0', 'end')
 
             """# Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário"""
@@ -689,7 +691,8 @@ class ListandoArquivos:
             else:
                 valor_path_busca = Path(valor_pasta_destino)
 
-            """# HORARIO DA BUSCAR"""
+            """# HORARIO DA BUSCAR
+            Acrescendo a lista, a data e horario que a busca foi realizada"""
             self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
             self.lista_result_busca.insert('end', self.linha_aparencia())
 
