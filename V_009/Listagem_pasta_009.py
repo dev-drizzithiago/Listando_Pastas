@@ -719,6 +719,8 @@ class ListandoArquivos:
                 self.lista_result_busca.insert('end', self.linha_aparencia())
 
                 for valor_itens in itens:
+                    """# Realiza a junção da pasta com o item encontrado. Logo abaixo ser realizado a monipulação
+                    para que fique mais fácil a idenficação na hora de visualizar"""
                     caminho_files = path.join(raiz, valor_itens)
 
                     """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
@@ -743,7 +745,6 @@ class ListandoArquivos:
                         self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
 
                         """# Mostra na janela, a quantidade de arquivos encontrados no total"""
-                        
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
