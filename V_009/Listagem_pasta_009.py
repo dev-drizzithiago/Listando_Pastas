@@ -794,13 +794,14 @@ class ListandoArquivos:
 
     def analise_e_processo_de_dados_da_busca(self):
 
-        """# Declarações de variaveis"""
         """
+        # Declarações de variaveis:
         :param contagem_extensao: responsável em contar a quantidade de extensão que esão encontradas
         :param contagem_pastas: mostra a quantidade de arquivos em cada pasta
         :param lista_qtd_arq_pastas: insere as informações para serem enviados para criação do PDF
         :param lista_qtd_extensao: insere as informações para serem enviados para criação do PDF
-        :param qts_extensao_grafico: insere as informações para serem enviados para criação do grafico"""
+        :param qts_extensao_grafico: insere as informações para serem enviados para criação do grafico
+        """
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.lista_qtd_arq_pastas = []
