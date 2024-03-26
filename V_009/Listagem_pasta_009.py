@@ -872,7 +872,7 @@ class ListandoArquivos:
 
         """# Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
-            qtd_arq_pastas = f'\\{pastas.upper():100} {"-":-^20} {quantidade}'
+            qtd_arq_pastas = f'\\{pastas.upper():50} {"-":-^20} {quantidade}'
             self.lista_qtd_arq_pastas.append(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'\\{pastas.upper():100} {"-":-^20} {quantidade}')
 
