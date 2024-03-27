@@ -4,6 +4,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_JUSTIFY
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
+from reportlab.pdfgen import canvas
 from pathlib import Path
 
 """# Modulo PANDAS"""
@@ -49,12 +50,11 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
 
-    """# Apenas testes"""
+    """# Apenas testes com pandas"""
     print(dict_valores_graficos.items())
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
-    '''df_3 = pd.DataFrame(dict_valores_graficos, index=['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1',
-                                                      'mp4=5', 'jpeg=1', 'log=1'])'''
+
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
 
@@ -71,6 +71,10 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
+
+    """#### Criando pdf com CANVAS"""
+    arquivo_pdf = canvas.Canvas('teste.pdf')
+    arquivo_pdf.getPageNumber()
 
     print(valor_qtd_extensao)
     print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
