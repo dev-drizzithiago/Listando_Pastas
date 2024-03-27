@@ -52,7 +52,9 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     print(dict_valores_graficos.items())
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
-    print(f'{df_1}')
+    print(f'\n{df_1}\n')
+    print(f'\n{df_2}\n')
+    
     for cont in range(len(quantidade)):
         print('\n<>\n', df_2.loc[cont])
 
