@@ -90,16 +90,12 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dados_save = []
 
         """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
+        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
         dados_save.append(Spacer(1, 20))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
         dados_save.append(Paragraph(separado, estilo['Normal']))
         dados_save.append(Spacer(1, 5))
-
-        texto = f'<font size="16">%s</font>' % df_1
-        dados_save.append(Paragraph(texto, estilo["Normal"]))
-        dados_save.append(Spacer(1, 10))
 
         """# Abaixo são contabilizados a quantidade de EXTENSÕES encontradas"""
         for dados_extensao in valor_qtd_extensao:
@@ -108,7 +104,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Spacer(1, 10))
 
         """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
+        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
@@ -122,7 +118,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Spacer(1, 10))
 
         """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
+        texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
