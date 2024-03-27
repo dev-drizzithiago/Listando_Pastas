@@ -740,7 +740,7 @@ class ListandoArquivos:
                     """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
                     e as pasta em minusculos."""
                     valor_arquivo = caminho_files.split('\\')[-1]
-                    destaque_arquivos_pasta = f'{raiz.lower()}\\ [> {valor_arquivo.upper()} <]'
+                    destaque_arquivos_pasta = f'{raiz.lower()}\\ [>> {valor_arquivo.upper()} <<]'
 
                     """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
                     Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
@@ -826,7 +826,7 @@ class ListandoArquivos:
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
 
             """# O valor da extensão chega com o simbolo ']' devido a formatação, mas é removido na linha abaixo"""
-            valor_extensao = str(divisao_valor_extensao[-1]).lower().strip().replace(']', '')
+            valor_extensao = str(divisao_valor_extensao[-1]).lower().strip().replace(']', '').replace('<<', '')
 
             """# Na linha abaixo é separa apenas a pasta que está sendo analisada. """
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
@@ -859,10 +859,10 @@ class ListandoArquivos:
 
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
-            valor_extensao_qtd = f' [   {extensao.upper():6}] {"-":-^20} [{quantidade}]'
+            valor_extensao_qtd = f' [{extensao.upper():6}] {"-":-^20} [{quantidade}]'
             self.qts_extensao_grafico.append(f'{extensao}={quantidade}')
             self.lista_qtd_extensao.append(valor_extensao_qtd)
-            self.lista_result_busca.insert('end', f' [   {extensao.upper():6}] {"-":-^20} [{quantidade}]')
+            self.lista_result_busca.insert('end', f'[ {extensao.upper():6}] {"-":-^20} [{quantidade}]')
 
             """# Mostra o valor, dentro do console,  das quantidade de extensão encontradas"""
             print(f'{valor_extensao_qtd}')
@@ -887,8 +887,9 @@ class ListandoArquivos:
             self.lista_qtd_arq_pastas.append(qtd_arq_pastas)
             self.lista_result_busca.insert('end', f'\\{pastas.upper():100} {"-":-^20} {quantidade}')
 
-            """# Mostra na tela do console a quantidade de arquivos entro das pastas"""
+            """# Mostra na tela do console a quantidade de arquivos dentro das pastas"""
             print(f'{qtd_arq_pastas}')
+
         print(f'\nFinalizado busca!\n Salve o resultado ou pode analisar pela lista acima!\n')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '')
