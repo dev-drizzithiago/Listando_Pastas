@@ -36,7 +36,8 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
 
     """# Lendos arquivo 'valor_ext_grafico"""
     for valor_grafico in valor_ext_grafico:
-        print(valor_grafico)
+        dividindo_valores = valor_grafico.split('=')
+        
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
