@@ -34,6 +34,9 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
                   valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados',
                   valor_ext_grafico=None):
     """# Declaração Variaveis"""
+    extensao = list()
+    quantidade = list()
+
     if valor_ext_grafico is None:
         valor_ext_grafico = ['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1', 'mp4=5', 'jpeg=1',
                              'log=1']
@@ -41,13 +44,16 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
 
     """# Lendos arquivo 'valor_ext_grafico"""
     for dividindo_valores in valor_ext_grafico:
-        extensao = dividindo_valores.split('=')[0]
-        quantidade = dividindo_valores.split('=')[1]
+        extensao.append(dividindo_valores.split('=')[0])
+        quantidade.append(dividindo_valores.split('=')[1])
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
-        print(dict_valores_graficos)
-    df = pd.Series(quantidade, index=extensao)
-    print(df)
+
+    print(dict_valores_graficos.items())
+    df_1 = pd.Series(quantidade, index=extensao)
+    df_2 = pd.DataFrame(dict_valores_graficos)
+    print(df_1)
+    print('\n', df_2.loc[4])
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
