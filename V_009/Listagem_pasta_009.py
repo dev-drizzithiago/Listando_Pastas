@@ -715,7 +715,7 @@ class ListandoArquivos:
                 """# Listas reponsável em organizar o documento"""
                 self.lista_save_busca.append('')
                 self.lista_save_busca.append('')
-                self.lista_save_busca.append(f'>>>>>>>{raiz}<<<<<<<')
+                self.lista_save_busca.append(f'>>>>>>>{raiz.upper()}<<<<<<<')
                 self.lista_save_busca.append(f'{"===" * 20}')
 
                 """# Indica ao usuário qual a pasta de busca."""
@@ -726,7 +726,7 @@ class ListandoArquivos:
 
                 """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                 self.lista_result_busca.insert('end', '')
-                self.lista_result_busca.insert('end', f'>>>>>>>{raiz}<<<<<<<')
+                self.lista_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                 self.lista_result_busca.insert('end', self.linha_aparencia())
 
                 """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
