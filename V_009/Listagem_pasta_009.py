@@ -732,7 +732,7 @@ class ListandoArquivos:
                 """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
                 pela '#Verificação de extensão#' """
                 for valor_itens in itens:
-                    
+
                     """# Realiza a junção da pasta com o item encontrado. Logo abaixo ser realizado a monipulação
                     para que fique mais fácil a idenficação na hora de visualizar"""
                     caminho_files = path.join(raiz, valor_itens)
@@ -816,10 +816,19 @@ class ListandoArquivos:
 
         """#### Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
+
+            """# Na linha abaixo, realiza a separação da extensão com o restante do valor, que seria o caminha até
+            a última pasta, que esta sendo realizado a busca. Nesse caso, como descrito mais abaixo, o valor segue 
+            com o simbolo ']' onde é removido"""
             divisao_valor_extensao = str(valor_lista_busca).split('.')
+
+            """# Na linha abaixo, separa os valores da pasta, transformando em uma lista"""
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
 
+            """# O valor da extensão chega com o simbolo ']' devido a formatação, mas é removido na linha abaixo"""
             valor_extensao = str(divisao_valor_extensao[-1]).lower().strip().replace(']', '')
+
+            """# Na linha abaixo é separa apenas a pasta que está sendo analisada. """
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
             """# Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
