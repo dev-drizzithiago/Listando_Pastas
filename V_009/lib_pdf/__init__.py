@@ -46,7 +46,9 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         quantidade = dividindo_valores.split('=')[1]
         dict_teste['Extensao'] = extensao
         dict_teste['Quantidade'] = quantidade
-    print(dict_teste)
+        print(dict_teste)
+    df = pd.DataFrame(dict_teste)
+    print(df)
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
