@@ -32,12 +32,13 @@ def numero_paginas(janela, documento):
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_documento='nome desconhecido',
                   valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados',
-                  valor_ext_grafico='sem dados'):
-
+                  valor_ext_grafico='extensao=quantidade'):
+    """# Declaração Variaveis"""
+    dict_valores_graficos = {}
     """# Lendos arquivo 'valor_ext_grafico"""
-    for valor_grafico in valor_ext_grafico:
-        dividindo_valores = valor_grafico.split('=')
-        
+    dividindo_valores = valor_ext_grafico.split('=')
+    for valor_grafico in dividindo_valores:
+        print(valor_grafico)
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
