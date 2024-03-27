@@ -76,9 +76,10 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     arquivo_pdf = canvas.Canvas('teste.pdf')
     arquivo_pdf.getPageNumber()
 
-    print(valor_qtd_extensao)
-    print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
+    print(f'Arquivos vai ser criado no diretório - [{pdf_diretorio_save}]')
     print('Aguarde! Documento esta sendo criado!')
+
+    """#### Criando documento PDF principal"""
     try:
         """Salvando as informações no documento"""
         doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
