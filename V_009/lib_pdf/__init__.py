@@ -49,11 +49,12 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
 
+    """# Apenas testes"""
     print(dict_valores_graficos.items())
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
-    df_3 = pd.DataFrame(dict_valores_graficos, index=['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1', 'mp4=5', 'jpeg=1',
-                             'log=1'])
+    df_3 = pd.DataFrame(dict_valores_graficos, index=['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1',
+                                                      'mp4=5', 'jpeg=1', 'log=1'])
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
     print(f'\n{df_3}\n')
