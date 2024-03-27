@@ -34,20 +34,19 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
                   valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados',
                   valor_ext_grafico=None):
     """# Declaração Variaveis"""
-    dict_teste = {'Extensao': None,
-                  'Quantidade': None}
     if valor_ext_grafico is None:
         valor_ext_grafico = ['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1', 'mp4=5', 'jpeg=1',
                              'log=1']
-    dict_valores_graficos = {}
+    dict_valores_graficos = {'Extensao': None,
+                             'Quantidade': None}
     """# Lendos arquivo 'valor_ext_grafico"""
     for dividindo_valores in valor_ext_grafico:
         extensao = dividindo_valores.split('=')[0]
         quantidade = dividindo_valores.split('=')[1]
-        dict_teste['Extensao'] = extensao
-        dict_teste['Quantidade'] = quantidade
-        print(dict_teste)
-    df = pd.DataFrame(dict_teste)
+        dict_valores_graficos['Extensao'] = extensao
+        dict_valores_graficos['Quantidade'] = quantidade
+        print(dict_valores_graficos)
+    df = pd.DataFrame(dict_valores_graficos)
     print(df)
 
     """# Análise dos valores que chagaram até a funnção"""
