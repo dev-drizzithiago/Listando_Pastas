@@ -39,11 +39,11 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         print(valor_grafico)
 
     """# Análise dos valores que chagaram até a funnção"""
-    print(f'Analise "valor_dados_coletados" \n>{valor_dados_coletados}<')
-    print(f'Analise "valor_nome_documento" \n>{valor_nome_documento}<')
-    print(f'Analise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
-    print(f'Analise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
-    print(f'Analise "valor_ext_grafico" \n.{valor_ext_grafico}<')
+    print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
+    print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
+    print(f'\nAnalise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
+    print(f'\nAnalise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
+    print(f'\nAnalise "valor_ext_grafico" \n.{valor_ext_grafico}<')
 
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
