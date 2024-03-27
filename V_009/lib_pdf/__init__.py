@@ -37,8 +37,8 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     if valor_ext_grafico is None:
         valor_ext_grafico = ['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1', 'mp4=5', 'jpeg=1',
                              'log=1']
-    dict_valores_graficos = {'Extensao': None,
-                             'Quantidade': None}
+    dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
+
     """# Lendos arquivo 'valor_ext_grafico"""
     for dividindo_valores in valor_ext_grafico:
         extensao = dividindo_valores.split('=')[0]
@@ -46,7 +46,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
         print(dict_valores_graficos)
-    df = pd.DataFrame(dict_valores_graficos)
+    df = pd.Series(quantidade, index=extensao)
     print(df)
 
     """# Análise dos valores que chagaram até a funnção"""
