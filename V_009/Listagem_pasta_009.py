@@ -826,7 +826,8 @@ class ListandoArquivos:
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
 
             """# O valor da extensão chega com o simbolo ']' devido a formatação, mas é removido na linha abaixo"""
-            valor_extensao = str(divisao_valor_extensao[-1]).lower().strip().replace(']', '').replace('<<', '')
+            valor_extensao = (str(divisao_valor_extensao[-1]).lower().strip().replace(']', '').
+                              replace('<<', '')).replace(' ', '')
 
             """# Na linha abaixo é separa apenas a pasta que está sendo analisada. """
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
