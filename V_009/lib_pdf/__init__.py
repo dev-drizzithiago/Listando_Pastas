@@ -6,6 +6,9 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from pathlib import Path
 
+"""# Modulo PANDAS"""
+import pandas as pd
+
 """# Modulos GERAL"""
 from tkinter.messagebox import showinfo, showerror
 
@@ -31,12 +34,16 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
                   valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados',
                   valor_ext_grafico='sem dados'):
 
+    """# Lendos arquivo 'valor_ext_grafico"""
+    for valor_grafico in valor_ext_grafico:
+        print(valor_grafico)
+
     """# Análise dos valores que chagaram até a funnção"""
-    print(f'Analise "valor_dados_coletados" \n{valor_dados_coletados}')
-    print(f'Analise "valor_nome_documento" \n{valor_nome_documento}')
-    print(f'Analise "valor_qtd_extensao" \n{valor_qtd_extensao}')
-    print(f'Analise "valor_qtd_arq_pasta" \n{valor_qtd_arq_pasta}')
-    print(f'Analise "valor_ext_grafico" \n{valor_ext_grafico}')
+    print(f'Analise "valor_dados_coletados" \n>{valor_dados_coletados}<')
+    print(f'Analise "valor_nome_documento" \n>{valor_nome_documento}<')
+    print(f'Analise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
+    print(f'Analise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
+    print(f'Analise "valor_ext_grafico" \n.{valor_ext_grafico}<')
 
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
