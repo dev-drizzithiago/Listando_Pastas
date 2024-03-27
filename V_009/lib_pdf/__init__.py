@@ -52,8 +52,9 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     print(dict_valores_graficos.items())
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
-    print(df_1)
-    print('\n', df_2.loc[4])
+    print(f'{df_1}')
+    for cont in range(len(quantidade)):
+        print('\n<>\n', df_2.loc[cont])
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
