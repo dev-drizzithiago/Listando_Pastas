@@ -879,7 +879,7 @@ class ListandoArquivos:
 
             """# Mostra na tela do console a quantidade de arquivos entro das pastas"""
             print(f'{qtd_arq_pastas}')
-
+        print(f'\nFinalizado busca!\n Salve o resultado ou pode analisar pela lista acima!\n')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
