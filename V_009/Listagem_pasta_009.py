@@ -829,23 +829,23 @@ class ListandoArquivos:
             valor_extensao = (str(divisao_valor_extensao[-1]).lower().strip().replace(']', '').
                               replace('<<', '')).replace(' ', '')
 
-            if len(valor_extensao) <= 4:
-                """# Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
-                            de arquivos dentro de cada pasta"""
-                if valor_pasta in self.contagem_pastas:
-                    self.contagem_pastas[valor_pasta] += 1
-                else:
-                    self.contagem_pastas[valor_pasta] = 1
-
             """# Na linha abaixo é separa apenas a pasta que está sendo analisada. """
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
+            """# Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
+            de arquivos dentro de cada pasta"""
+            if valor_pasta in self.contagem_pastas:
+                self.contagem_pastas[valor_pasta] += 1
+            else:
+                self.contagem_pastas[valor_pasta] = 1
+
             """# Ocorre o mesmo problema com as extensões. Nessa caso ele somas a quantidade de extensão que foi 
             encontrado no total."""
-            if valor_extensao in self.contagem_extensao:
-                self.contagem_extensao[valor_extensao] += 1
-            else:
-                self.contagem_extensao[valor_extensao] = 1
+            if len(valor_extensao) <= 4:
+                if valor_extensao in self.contagem_extensao:
+                    self.contagem_extensao[valor_extensao] += 1
+                else:
+                    self.contagem_extensao[valor_extensao] = 1
 
         """#### QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
