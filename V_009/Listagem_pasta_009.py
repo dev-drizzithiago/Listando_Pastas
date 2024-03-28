@@ -874,7 +874,8 @@ class ListandoArquivos:
             """# Mostra o valor, dentro do console,  das quantidade de extensão encontradas"""
             print(f'{valor_extensao_qtd}')
 
-        for chave, valor in self.contagem_pastas_
+        for chave, valor in self.contagem_demais_extensoes.items():
+            print(f'{chave, valor}')
 
         self.lista_result_busca.insert('end', '-=-' * 20)
         self.lista_result_busca.insert('end', '')
