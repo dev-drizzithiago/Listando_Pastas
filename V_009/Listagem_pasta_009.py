@@ -861,7 +861,7 @@ class ListandoArquivos:
 
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
-            valor_extensao_qtd = f' [{extensao.upper():6}] {"-":-^20} [{quantidade}]'
+            valor_extensao_qtd = f' [ {extensao.upper():6} ] {"-":-^20} [{quantidade}]'
             self.qts_extensao_grafico.append(f'{extensao}={quantidade}')
             self.lista_qtd_extensao.append(valor_extensao_qtd)
             self.lista_result_busca.insert('end', f'[ {extensao.upper():6}] {"-":-^20} [{quantidade}]')
