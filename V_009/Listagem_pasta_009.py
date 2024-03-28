@@ -849,8 +849,6 @@ class ListandoArquivos:
                     self.contagem_extensao[valor_extensao] += 1
                 else:
                     self.contagem_extensao[valor_extensao] = 1
-            else:
-                self.contagem_demais_extensoes['<desconhecidas>'] += 1
 
         """#### QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
