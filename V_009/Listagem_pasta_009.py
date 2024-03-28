@@ -820,7 +820,9 @@ class ListandoArquivos:
             """# Na linha abaixo, realiza a separação da extensão com o restante do valor, que seria o caminha até
             a última pasta, que esta sendo realizado a busca. Nesse caso, como descrito mais abaixo, o valor segue 
             com o simbolo ']' onde é removido"""
-            divisao_valor_extensao = str(valor_lista_busca).split('.')
+
+            if len(str(valor_lista_busca).split('.')[-1]) <= 3:
+                divisao_valor_extensao = str(valor_lista_busca).split('.')
 
             """# Na linha abaixo, separa os valores da pasta, transformando em uma lista"""
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
