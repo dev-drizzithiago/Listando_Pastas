@@ -803,11 +803,14 @@ class ListandoArquivos:
         :param lista_qtd_extensao: insere as informações para serem enviados para criação do PDF
         :param qts_extensao_grafico: insere as informações para serem enviados para criação do grafico
         """
+
+        self.contagem_demais_extensoes = {}
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.lista_qtd_arq_pastas = []
-        self.lista_qtd_extensao = []
         self.qts_extensao_grafico = []
+        self.lista_qtd_extensao = []
+
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
 
@@ -846,6 +849,8 @@ class ListandoArquivos:
                     self.contagem_extensao[valor_extensao] += 1
                 else:
                     self.contagem_extensao[valor_extensao] = 1
+            else:
+                self.contagem_demais_extensoes['<desconhecidas>'] += 1
 
         """#### QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
@@ -868,6 +873,8 @@ class ListandoArquivos:
 
             """# Mostra o valor, dentro do console,  das quantidade de extensão encontradas"""
             print(f'{valor_extensao_qtd}')
+
+        for chave, valor in self.contagem_pastas_
 
         self.lista_result_busca.insert('end', '-=-' * 20)
         self.lista_result_busca.insert('end', '')
