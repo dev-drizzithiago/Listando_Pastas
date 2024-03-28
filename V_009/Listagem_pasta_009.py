@@ -291,6 +291,7 @@ class ListandoArquivos:
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
     """# Funções simples"""
+
     def linha_aparencia(self):
         self.lista_result_busca.insert('end', '-=-' * 52)
         print('-=-' * 48)
@@ -650,9 +651,9 @@ class ListandoArquivos:
     def iniciar_busca(self):
         """
         :param: contador_arquivos = 1 = Reponsavel pela contagem todos dos arquivos encontrados.
-        :param: self.lista_busca_arquivos = list() = fica alocado os valores da busca
+        :param: self.lista_busca_arquivos = list() = fica alocado os valores da busca.
         :param: self.lista_save_busca = list() = fica alocado as informações para salver em arquivo de texto.
-        :return:
+        :return: Retorna varios valores, em várias funções. Seguindo mais abaixo, existemm explicações em cada evento
         """
         if self.ativo_inicio_busca:
             """# MODULOS RESPONSAVEL PELA BUSCA"""
@@ -662,7 +663,8 @@ class ListandoArquivos:
             """# LIMPEZA DA LISTA DE BUSCA"""
             del self.lista_analise_arq_busca[:]
 
-            print(f'\nExtensão {self.extensao_selecao_busca}')
+            print(f'\nExtensão selecionado para busca {self.extensao_selecao_busca}')
+            print(f'número_extensão {len(self.extensao_selecao_busca)}')
             sleep(1)
 
             """# DECLARAÇÃO DE VARIAVEIS"""
@@ -670,7 +672,9 @@ class ListandoArquivos:
             self.lista_busca_arquivos = list()
             self.lista_save_busca = list()
 
-            """# Desativando os botões para o processo da busca"""
+            """# Desativando os botões para o processo da busca
+            A desativaç~çao é feita para evitar erros. Como o processo estão sendo realizado, clicar mais uma vezes em 
+            iniciar, pode ocorre erros. Achei que desativando acaba deixando mais simples essa questao"""
             self.label_status.config(text='Desativando os botões')
             sleep(1)
             self.botao_iniciar_busca.config(state=tk.DISABLED)
@@ -679,7 +683,9 @@ class ListandoArquivos:
             self.botao_adicionar_extensao['state'] = 'disabled'
             self.botao_escolha_extensao['state'] = 'disabled'
 
-            """# LIMPANDO LISTA DE BUSCA"""
+            """# LIMPANDO LISTA DE BUSCA
+            Função se aplica quando realiza a próxima listagem.
+            Não deixo a lista com os arquivos pois na segunda listagem é acrescentando."""
             self.lista_result_busca.delete('0', 'end')
 
             """# Verifica se foi selecionado uma pasta, caso não tenha sido, a busca vai ficar na pasta home do usuário"""
@@ -688,11 +694,12 @@ class ListandoArquivos:
             else:
                 valor_path_busca = Path(valor_pasta_destino)
 
-            """# HORARIO DA BUSCAR"""
-            self.lista_result_busca.insert('end', f'{data_atual}-{hora_atual}')
+            """# HORARIO DA BUSCAR
+            Acrescendo a lista, a data e horario que a busca foi realizada"""
+            self.lista_result_busca.insert('end', f'[{data_atual}-{hora_atual}]')
             self.lista_result_busca.insert('end', self.linha_aparencia())
 
-            """# INICIANDO O CONTATO"""
+            """# INICIANDO O Contador"""
             self.ativo_time_busca = True
             Thread(target=self.time_busca).start()
 
@@ -705,37 +712,57 @@ class ListandoArquivos:
             self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
             for raiz, subs, itens in walk(str(valor_path_busca)):
 
+                """# Listas reponsável em organizar o documento"""
                 self.lista_save_busca.append('')
                 self.lista_save_busca.append('')
-                self.lista_save_busca.append(f'{raiz}')
+                self.lista_save_busca.append(f'>>>>>>>{raiz.upper()}<<<<<<<')
                 self.lista_save_busca.append(f'{"===" * 20}')
 
+                """# Indica ao usuário qual a pasta de busca."""
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
+
+                """# Os dados são insedireto para que seja analisado pela função de analise."""
                 self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 20}')
+
+                """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                 self.lista_result_busca.insert('end', '')
-                self.lista_result_busca.insert('end', f'{raiz}')
-                self.lista_result_busca.config()
+                self.lista_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                 self.lista_result_busca.insert('end', self.linha_aparencia())
 
+                """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
+                pela '#Verificação de extensão#' """
                 for valor_itens in itens:
+
+                    """# Realiza a junção da pasta com o item encontrado. Logo abaixo ser realizado a monipulação
+                    para que fique mais fácil a idenficação na hora de visualizar"""
                     caminho_files = path.join(raiz, valor_itens)
 
                     """# Separa alguns informações da busca. Deixando em destaque o arquivo, com letras maiusculas 
                     e as pasta em minusculos."""
                     valor_arquivo = caminho_files.split('\\')[-1]
-                    destaque_arquivos_pasta = f'{raiz.lower()}\\ [{valor_arquivo.upper()}]'
+                    destaque_arquivos_pasta = f'{raiz.lower()}\\ [>> {valor_arquivo.upper()} <<]'
 
                     """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
                     Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
-                    if search(self.extensao_selecao_busca.lower(), valor_itens):
+                    if search(self.extensao_selecao_busca.lower(), valor_itens):  ##Verificação de extensão#
+
+                        """# Mostra o valor que esta sendo encontrado."""
                         self.status_arquivos.config(text=valor_itens)
-                        self.lista_busca_arquivos.append(f'{destaque_arquivos_pasta}')
+
+                        """# Coloca as informações dentro da lista de busca, para mostra na janela """
                         self.lista_result_busca.insert('end', f'{destaque_arquivos_pasta}')
+
+                        """# Os arquivos são colocados dentro da lista para serem analisados na proxima função"""
                         self.lista_analise_arq_busca.append(f'{destaque_arquivos_pasta}')
+
+                        """# As informações são geralmente inseridas de forma para facilitar o salvamento no arquivo"""
                         self.lista_save_busca.append(f'{destaque_arquivos_pasta}')
+
+                        """# Mostra na janela, a quantidade de arquivos encontrados no total"""
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
 
+            """# Listas reponsável em organizar o documento"""
             self.lista_result_busca.insert('end', '')
             self.lista_result_busca.insert('end', 'Busca finalizada!!')
             self.label_status.config(text='Busca finalizada... \nAguarde... \nAtivando botoes')
@@ -750,7 +777,9 @@ class ListandoArquivos:
             """# Abrindo função de analise de dados"""
             self.analise_e_processo_de_dados_da_busca()
 
-            """# Emitindo som de finalização"""
+            """# Emitindo som de finalização; O som ajuda o usuário quando a busca finaliza. Existem algumas buscas
+            que podem levar um certo tempo, com um sinalizado sonoro pode ajuda-lo em voltar ao programa, caos tenho 
+            deixando rodando em segundo plano"""
             winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
 
             """# REATIVANDO BOTÕES"""
@@ -766,27 +795,47 @@ class ListandoArquivos:
 
     def analise_e_processo_de_dados_da_busca(self):
 
-        """# Declarações de variaveis"""
+        """
+        # Declarações de variaveis:
+        :param contagem_extensao: responsável em contar a quantidade de extensão que esão encontradas
+        :param contagem_pastas: mostra a quantidade de arquivos em cada pasta
+        :param lista_qtd_arq_pastas: insere as informações para serem enviados para criação do PDF
+        :param lista_qtd_extensao: insere as informações para serem enviados para criação do PDF
+        :param qts_extensao_grafico: insere as informações para serem enviados para criação do grafico
+        """
+
+        self.contagem_demais_extensoes = {}
         self.contagem_extensao = {}
         self.contagem_pastas = {}
         self.lista_qtd_arq_pastas = []
+        self.qts_extensao_grafico = []
         self.lista_qtd_extensao = []
-        self.lista_final_busca = []
+
 
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
-        for valor_teste in self.lista_busca_arquivos:
-            print(f'{valor_teste}')
 
-        """# Realiza a analise dos valores da busca."""
+        """# Pega o  Bruto da lista de mostra no console para analise do usuário"""
+        print(f'Analise RAIZ\n{self.lista_analise_arq_busca}')
+
+        """#### Realiza a analise dos valores da busca."""
         for valor_lista_busca in self.lista_analise_arq_busca:
 
+            """# Na linha abaixo, realiza a separação da extensão com o restante do valor, que seria o caminha até
+            a última pasta, que esta sendo realizado a busca. Nesse caso, como descrito mais abaixo, o valor segue 
+            com o simbolo ']' onde é removido"""
             divisao_valor_extensao = str(valor_lista_busca).split('.')
+
+            """# Na linha abaixo, separa os valores da pasta, transformando em uma lista"""
             divisao_valor_pastas = str(valor_lista_busca).split('\\')
 
-            valor_extensao = str(divisao_valor_extensao[-1]).lower().strip()
+            """# O valor da extensão chega com o simbolo ']' devido a formatação, mas é removido na linha abaixo"""
+            valor_extensao = (str(divisao_valor_extensao[-1]).lower().strip().replace(']', '').
+                              replace('<<', '')).replace(' ', '')
+
+            """# Na linha abaixo é separa apenas a pasta que está sendo analisada. """
             valor_pasta = str(divisao_valor_pastas[-2]).strip()
 
-            """Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
+            """# Caso a pasta não esteja no dicionário, é adicionado uma chave com o nome do valor, somando a quantidade
             de arquivos dentro de cada pasta"""
             if valor_pasta in self.contagem_pastas:
                 self.contagem_pastas[valor_pasta] += 1
@@ -795,12 +844,15 @@ class ListandoArquivos:
 
             """# Ocorre o mesmo problema com as extensões. Nessa caso ele somas a quantidade de extensão que foi 
             encontrado no total."""
-            if valor_extensao in self.contagem_extensao:
-                self.contagem_extensao[valor_extensao] += 1
+            if len(valor_extensao) <= 4:
+                if valor_extensao in self.contagem_extensao:
+                    self.contagem_extensao[valor_extensao] += 1
+                else:
+                    self.contagem_extensao[valor_extensao] = 1
             else:
-                self.contagem_extensao[valor_extensao] = 1
+                self.contagem_demais_extensoes['<desconhecidas>'] += 1
 
-        """# QUANTIDADE DE EXTENSAO QUE POSSUI"""
+        """#### QUANTIDADE DE EXTENSAO QUE POSSUI"""
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '-=-' * 20)
         self.lista_result_busca.insert('end', 'Total de extenões encontrados...')
@@ -814,16 +866,23 @@ class ListandoArquivos:
 
         """# Adiciona na lista de busca a quantidade de extensões que foram encontradas no processo de busca."""
         for extensao, quantidade in self.contagem_extensao.items():
-            valor_extensao_qtd = f' {extensao.upper()} - {quantidade}'
-            self.lista_final_busca.append(valor_extensao_qtd)
-            print(f'{valor_extensao_qtd}')
+            valor_extensao_qtd = f' [ {extensao.upper():6} ] {"-":-^20} [{quantidade}]'
+            self.qts_extensao_grafico.append(f'{extensao}={quantidade}')
             self.lista_qtd_extensao.append(valor_extensao_qtd)
-            self.lista_result_busca.insert('end', valor_extensao_qtd)
+            self.lista_result_busca.insert('end', f'[ {extensao.upper():6}] {"-":-^20} [{quantidade}]')
+
+            """# Mostra o valor, dentro do console,  das quantidade de extensão encontradas"""
+            print(f'{valor_extensao_qtd}')
+
+        for chave, valor in self.contagem_demais_extensoes.items():
+            print(f'{chave, valor}')
 
         self.lista_result_busca.insert('end', '-=-' * 20)
         self.lista_result_busca.insert('end', '')
 
-        """# Quantidade de arquivos dentro das pastas """
+        print(f'Analisando \n{self.qts_extensao_grafico}')
+
+        """#### Quantidade de arquivos dentro das pastas """
         print()
         print('Total de arquivos encontrados...')
         print('-=-' * 20)
@@ -834,11 +893,14 @@ class ListandoArquivos:
 
         """# Adiciona na lista de busca, os contagem dos itens encontrados nas pastas"""
         for pastas, quantidade in self.contagem_pastas.items():
-            qtd_arq_pastas = f'\\{pastas.upper()} - {quantidade}'
-            print(f'{qtd_arq_pastas}')
+            qtd_arq_pastas = f'\\{pastas.upper():50} {"-":-^20} {quantidade}'
             self.lista_qtd_arq_pastas.append(qtd_arq_pastas)
-            self.lista_result_busca.insert('end', qtd_arq_pastas)
+            self.lista_result_busca.insert('end', f'\\{pastas.upper():100} {"-":-^20} {quantidade}')
 
+            """# Mostra na tela do console a quantidade de arquivos dentro das pastas"""
+            print(f'{qtd_arq_pastas}')
+
+        print(f'\nFinalizado busca!\n Salve o resultado ou pode analisar pela lista acima!\n')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', '')
         self.lista_result_busca.insert('end', 'Analise finalizada!!')
@@ -857,10 +919,10 @@ class ListandoArquivos:
         :return:
         """
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-h{hora_atual.replace(":", "")}'
+        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(":", "")}'
         sleep(1)
         Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
-                                    self.lista_qtd_arq_pastas)).start()
+                                    self.lista_qtd_arq_pastas, self.qts_extensao_grafico)).start()
 
     def save_TXT(self):
         """

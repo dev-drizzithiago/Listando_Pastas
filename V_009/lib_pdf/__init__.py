@@ -1,18 +1,24 @@
-from reportlab.lib.enums import TA_JUSTIFY
-from reportlab.lib.pagesizes import A4
+"""# Modulos para PDF"""
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.enums import TA_JUSTIFY
+from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
+from reportlab.pdfgen import canvas
 from pathlib import Path
-from tkinter.messagebox import showinfo, showerror
 
-import matplotlib.pyplot
+"""# Modulo PANDAS"""
+import pandas as pd
+
+"""# Modulos GERAL"""
+from tkinter.messagebox import showinfo, showerror
 
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
-
 """# Grafico"""
+
+
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
 
@@ -26,14 +32,54 @@ def numero_paginas(janela, documento):
 
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_documento='nome desconhecido',
-                  valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados'):
+                  valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados',
+                  valor_ext_grafico=None):
+    """# Declaração Variaveis"""
+    extensao = list()
+    quantidade = list()
+
+    if valor_ext_grafico is None:
+        valor_ext_grafico = ['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1', 'mp4=5', 'jpeg=1',
+                             'log=1']
+    dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
+
+    """# Lendos arquivo 'valor_ext_grafico"""
+    for dividindo_valores in valor_ext_grafico:
+        extensao.append(dividindo_valores.split('=')[0])
+        quantidade.append(dividindo_valores.split('=')[1])
+        dict_valores_graficos['Extensao'] = extensao
+        dict_valores_graficos['Quantidade'] = quantidade
+
+    """# Apenas testes com pandas"""
+    print(dict_valores_graficos.items())
+    df_1 = pd.Series(quantidade, index=extensao)
+    df_2 = pd.DataFrame(dict_valores_graficos)
+
+    print(f'\n{df_1}\n')
+    print(f'\n{df_2}\n')
+
+    for cont in range(len(quantidade)):
+        print('\n<>\n', df_2.loc[cont])
+
+    """# Análise dos valores que chagaram até a funnção"""
+    print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
+    print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
+    print(f'\nAnalise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
+    print(f'\nAnalise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
+    print(f'\nAnalise "valor_ext_grafico" \n.{valor_ext_grafico}<')
+
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
 
-    print( valor_qtd_extensao)
-    print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
+    """#### Criando pdf com CANVAS"""
+    arquivo_pdf = canvas.Canvas('teste.pdf')
+    arquivo_pdf.getPageNumber()
+
+    print(f'Arquivos vai ser criado no diretório - [{pdf_diretorio_save}]')
     print('Aguarde! Documento esta sendo criado!')
+
+    """#### Criando documento PDF principal"""
     try:
         """Salvando as informações no documento"""
         doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
@@ -45,7 +91,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dados_save = []
 
         """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
+        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
         dados_save.append(Spacer(1, 20))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
@@ -59,7 +105,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Spacer(1, 10))
 
         """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
+        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
@@ -72,8 +118,8 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
 
-        """# Separaãção"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
+        """# Separação"""
+        texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
