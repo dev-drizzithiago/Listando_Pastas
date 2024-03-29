@@ -811,7 +811,6 @@ class ListandoArquivos:
         self.qts_extensao_grafico = []
         self.lista_qtd_extensao = []
 
-
         self.label_status.config(text='Aguarde!! Analisando os dados de busca')
 
         """# Pega o  Bruto da lista de mostra no console para analise do usuário"""
