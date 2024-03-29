@@ -809,6 +809,7 @@ class ListandoArquivos:
         :param lista_qtd_arq_pastas: insere as informações para serem enviados para criação do PDF
         :param lista_qtd_extensao: insere as informações para serem enviados para criação do PDF
         :param qts_extensao_grafico: insere as informações para serem enviados para criação do grafico
+        :param lista_qtd_extensao: Lista que vai entrar dos dados de extensão.
         """
 
         self.contagem_demais_extensoes = {}
