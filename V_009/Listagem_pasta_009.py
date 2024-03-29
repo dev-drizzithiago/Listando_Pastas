@@ -291,8 +291,8 @@ class ListandoArquivos:
 
     def hora_certa(self):
         valor_datatime = datetime.now()
-        data_atual = valor_datatime.strftime('%d/%m/%Y')
-        hora_atual = valor_datatime.strftime('%H:%M')
+        self.data_atual = valor_datatime.strftime('%d/%m/%Y')
+        self.hora_atual = valor_datatime.strftime('%H:%M')
 
     def linha_aparencia(self):
         self.lista_result_busca.insert('end', '-=-' * 52)
