@@ -13,9 +13,6 @@ from lib_pdf import documento_PDF
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
-valor_datatime = datetime.now()
-data_atual = valor_datatime.strftime('%d/%m/%Y')
-hora_atual = valor_datatime.strftime('%H:%M')
 
 # SONS
 som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\abrindo_programa.wav'
@@ -291,6 +288,11 @@ class ListandoArquivos:
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
     """# Funções simples"""
+
+    def hora_certa(self):
+        valor_datatime = datetime.now()
+        data_atual = valor_datatime.strftime('%d/%m/%Y')
+        hora_atual = valor_datatime.strftime('%H:%M')
 
     def linha_aparencia(self):
         self.lista_result_busca.insert('end', '-=-' * 52)
