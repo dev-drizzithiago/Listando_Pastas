@@ -333,6 +333,10 @@ class ListandoArquivos:
     def thread_opcao_save_PDF(self):
         Thread(target=self.save_PDF()).start()
 
+    def thread_hora_certa(self):
+        print('\nIniciando função "hora_certa"\n')
+        Thread(target=self.hora_certa()).start()
+
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
     # INICIO DAS FUNÇÕES
     def time_busca(self):
@@ -698,7 +702,8 @@ class ListandoArquivos:
 
             """# HORARIO DA BUSCAR
             Acrescendo a lista, a data e horario que a busca foi realizada"""
-            self.lista_result_busca.insert('end', f'[{data_atual}-{hora_atual}]')
+            self.thread_hora_certa()
+            self.lista_result_busca.insert('end', f'[{self.data_atual}-{self.hora_atual}]')
             self.lista_result_busca.insert('end', self.linha_aparencia())
 
             """# INICIANDO O Contador"""
