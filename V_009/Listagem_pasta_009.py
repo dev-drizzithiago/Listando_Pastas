@@ -539,7 +539,7 @@ class ListandoArquivos:
     def leitura_arq_extensao_add_lista_principal(self):
         """
         # Função responsavel em carregaras extensões que estão salvas nos arquivos de texto
-        :return: Quando é escolhida a extensão, o arquivo é aberto e é realizado a leitura das exentesões
+        :return: Quando é escolhida a extensão, o arquivo é aberto sendo realizado a leitura das exentesões
         que estão salvas
         """
 
@@ -751,7 +751,7 @@ class ListandoArquivos:
 
                     """# Esse é o processo responsável em buscar os arquivos conforme a solicitação do usuário. 
                     Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
-                    if search(self.extensao_selecao_busca.lower(), valor_itens):  ##Verificação de extensão#
+                    if search(self.extensao_selecao_busca.lower(), valor_itens):  # #Verificação de extensão#
 
                         """# Mostra o valor que esta sendo encontrado."""
                         self.status_arquivos.config(text=valor_itens)
@@ -923,7 +923,7 @@ class ListandoArquivos:
         :return:
         """
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
-        nome_PDF = f'{valor_nome_PDF}-{data_atual.replace("/", "")}-{hora_atual.replace(":", "")}'
+        nome_PDF = f'{valor_nome_PDF}-{self.data_atual.replace("/", "")}-{self.hora_atual.replace(":", "")}'
         sleep(1)
         Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
                                     self.lista_qtd_arq_pastas, self.qts_extensao_grafico)).start()
@@ -940,7 +940,7 @@ class ListandoArquivos:
             self.label_status.config(text='Aguarda, salvando os dados em arquivo de texto!!')
 
             """# Cabeçalho do salvamento"""
-            arquivo_save.write(f'Data {data_atual} - Hora {hora_atual}\n')
+            arquivo_save.write(f'Data {self.data_atual} - Hora {self.hora_atual}\n')
             arquivo_save.write(f'{"===" * 10}\n')
             arquivo_save.write(f'Tempo da busca {self.tempo_da_busca}\n\n')
 
