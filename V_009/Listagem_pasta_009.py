@@ -755,6 +755,9 @@ class ListandoArquivos:
                     Quando é solecionado uma extensão, ele busca e imprime na tela e na lista de busca"""
                     if search(self.extensao_selecao_busca.lower(), valor_itens):  # #Verificação de extensão#
 
+                        """# Indica que a extensões foi encontrada"""
+                        self.ativo_true_busca = True
+
                         """# Mostra o valor que esta sendo encontrado."""
                         self.status_arquivos.config(text=valor_itens)
 
@@ -770,8 +773,8 @@ class ListandoArquivos:
                         """# Mostra na janela, a quantidade de arquivos encontrados no total"""
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
-                        self.ativo_true_busca = True
                     else:
+                        """# Quando não encontra a extensão, muda o valor para falso."""
                         self.ativo_true_busca = False
 
             """# Listas reponsável em organizar o documento"""
