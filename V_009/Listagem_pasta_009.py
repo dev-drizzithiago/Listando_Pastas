@@ -46,6 +46,7 @@ class ListandoArquivos:
         self.ativo_busca_execul = False
         self.ativo_busca_arqzip = False
         self.ativo_time_busca = False
+        self.ativo_true_busca = True
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         # Janela Principal
@@ -719,11 +720,12 @@ class ListandoArquivos:
             self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
             for raiz, subs, itens in walk(str(valor_path_busca)):
 
-                """# Listas reponsável em organizar o documento"""
-                self.lista_save_busca.append('')
-                self.lista_save_busca.append('')
-                self.lista_save_busca.append(f'>>>>>>>{raiz.upper()}<<<<<<<')
-                self.lista_save_busca.append(f'{"===" * 20}')
+                if self.ativo_true_busca:
+                    """# Listas reponsável em organizar o documento"""
+                    self.lista_save_busca.append('')
+                    self.lista_save_busca.append('')
+                    self.lista_save_busca.append(f'>>>>>>>{raiz.upper()}<<<<<<<')
+                    self.lista_save_busca.append(f'{"===" * 20}')
 
                 """# Indica ao usuário qual a pasta de busca."""
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
@@ -768,6 +770,8 @@ class ListandoArquivos:
                         """# Mostra na janela, a quantidade de arquivos encontrados no total"""
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
+                    else:
+                        self.ativo_true_busca = False
 
             """# Listas reponsável em organizar o documento"""
             self.lista_result_busca.insert('end', '')
