@@ -770,6 +770,7 @@ class ListandoArquivos:
                         """# Mostra na janela, a quantidade de arquivos encontrados no total"""
                         self.status_contagem_arquivos.config(text=f'Arquivos encontrados: [{contador_arquivos}]')
                         contador_arquivos += 1
+                        self.ativo_true_busca = True
                     else:
                         self.ativo_true_busca = False
 
