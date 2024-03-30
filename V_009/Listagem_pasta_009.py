@@ -741,7 +741,7 @@ class ListandoArquivos:
                 """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
                 pela '#Verificação de extensão#' """
                 for valor_itens in itens:
-
+                    
                     """# Realiza a junção da pasta com o item encontrado. Logo abaixo ser realizado a monipulação
                     para que fique mais fácil a idenficação na hora de visualizar"""
                     caminho_files = path.join(raiz, valor_itens)
