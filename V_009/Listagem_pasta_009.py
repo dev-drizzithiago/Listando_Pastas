@@ -736,7 +736,7 @@ class ListandoArquivos:
                     self.lista_result_busca.insert('end', self.linha_aparencia())
 
                 """# Indica ao usuário qual a pasta de busca."""
-                self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}') 
+                self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
 
                 """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
                 pela '#Verificação de extensão#' """
