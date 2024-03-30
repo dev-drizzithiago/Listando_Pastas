@@ -726,6 +726,7 @@ class ListandoArquivos:
                     self.lista_save_busca.append('')
                     self.lista_save_busca.append(f'>>>>>>>{raiz.upper()}<<<<<<<')
                     self.lista_save_busca.append(f'{"===" * 20}')
+                    self.lista_save_busca.append(f'Nenhum item encontrado!!')
 
                     """# Os dados são insedireto para que seja analisado pela função de analise."""
                     self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 20}')
@@ -734,6 +735,7 @@ class ListandoArquivos:
                     self.lista_result_busca.insert('end', '')
                     self.lista_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                     self.lista_result_busca.insert('end', self.linha_aparencia())
+                    self.lista_result_busca.insert('end', f'Nenhum item encontrado!')
 
                 """# Indica ao usuário qual a pasta de busca."""
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
@@ -756,7 +758,7 @@ class ListandoArquivos:
                     if search(self.extensao_selecao_busca.lower(), valor_itens):  # #Verificação de extensão#
 
                         """# Indica que a extensões foi encontrada"""
-                        self.ativo_true_busca = True
+                        self.ativo_true_busca = False
 
                         """# Mostra o valor que esta sendo encontrado."""
                         self.status_arquivos.config(text=valor_itens)
@@ -775,7 +777,7 @@ class ListandoArquivos:
                         contador_arquivos += 1
                     else:
                         """# Quando não encontra a extensão, muda o valor para falso."""
-                        self.ativo_true_busca = False
+                        self.ativo_true_busca = True
 
             """# Listas reponsável em organizar o documento"""
             self.lista_result_busca.insert('end', '')
