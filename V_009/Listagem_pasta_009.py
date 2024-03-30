@@ -727,16 +727,16 @@ class ListandoArquivos:
                     self.lista_save_busca.append(f'>>>>>>>{raiz.upper()}<<<<<<<')
                     self.lista_save_busca.append(f'{"===" * 20}')
 
+                    """# Os dados são insedireto para que seja analisado pela função de analise."""
+                    self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 20}')
+
+                    """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
+                    self.lista_result_busca.insert('end', '')
+                    self.lista_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
+                    self.lista_result_busca.insert('end', self.linha_aparencia())
+
                 """# Indica ao usuário qual a pasta de busca."""
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
-
-                """# Os dados são insedireto para que seja analisado pela função de analise."""
-                self.lista_busca_arquivos.append(f'\n\n{raiz}\n{"===" * 20}')
-
-                """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
-                self.lista_result_busca.insert('end', '')
-                self.lista_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
-                self.lista_result_busca.insert('end', self.linha_aparencia())
 
                 """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
                 pela '#Verificação de extensão#' """
