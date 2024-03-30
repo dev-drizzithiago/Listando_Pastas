@@ -975,7 +975,7 @@ class ListandoArquivos:
             tk.messagebox.showinfo('AVISO', 'Sua busca foi salva com sucesso')
             self.label_status.config(text='Arquivo salvo com sucesso!')
         except:
-            tk.messagebox.showwarning('AVISO', 'Busca não pode ser salva no sistema!')
+            tk.messagebox.showwarning('AVISO', 'Busca não pode ser salva no sistema!'
 
 
 obj_start = ListandoArquivos()
