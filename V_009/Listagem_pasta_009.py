@@ -676,6 +676,7 @@ class ListandoArquivos:
 
             """# DECLARAÇÃO DE VARIAVEIS"""
             contador_arquivos = 1
+            contador_de_raiz = 1
             self.lista_busca_arquivos = list()
             self.lista_save_busca = list()
 
@@ -737,6 +738,11 @@ class ListandoArquivos:
 
                 """# Indica ao usuário qual a pasta de busca."""
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
+
+                contador_de_raiz += 1
+                
+                if contador_de_raiz == 2:
+                    self.ativo_true_busca = True
 
                 """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
                 pela '#Verificação de extensão#' """
