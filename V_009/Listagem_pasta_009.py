@@ -724,7 +724,7 @@ class ListandoArquivos:
                 """# O contador de raiz, vai servir para que a segunda pasta seja ativada e apareça para o usuário ver. 
                 Como a pasta de buscar aparece antes de ser verificado os arquivos, é preciso de alguma forma mostrar
                 """
-                if contador_de_raiz == 2:
+                if contador_de_raiz == 2 and not self.ativo_true_busca:
                     self.ativo_true_busca = True
 
                 """# Analise se o valor é verdadeiro, mostra a pasta que sera realizado a busca. Por padrão
