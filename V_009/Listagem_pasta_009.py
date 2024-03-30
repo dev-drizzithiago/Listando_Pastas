@@ -721,6 +721,14 @@ class ListandoArquivos:
             self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
             for raiz, subs, itens in walk(str(valor_path_busca)):
 
+                """# O contador de raiz, vai servir para que a segunda pasta seja ativada e apareça para o usuário ver. 
+                Como a pasta de buscar aparece antes de ser verificado os arquivos, é preciso de alguma forma mostrar
+                """
+                if contador_de_raiz == 2:
+                    self.ativo_true_busca = True
+
+                """# Analise se o valor é verdadeiro, mostra a pasta que sera realizado a busca. Por padrão
+                O primeiro valor é sempre 'verdadeiro', porém os demais vão variar conforme a busca."""
                 if self.ativo_true_busca:
                     """# Listas reponsável em organizar o documento"""
                     self.lista_save_busca.append('')
@@ -740,9 +748,6 @@ class ListandoArquivos:
                 self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
 
                 contador_de_raiz += 1
-                
-                if contador_de_raiz == 2:
-                    self.ativo_true_busca = True
 
                 """# Realiza um 'loop' do arquivos dentro das pastas. Porem o valor só vai aparece depois que passa
                 pela '#Verificação de extensão#' """
