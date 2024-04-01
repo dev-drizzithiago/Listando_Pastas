@@ -717,7 +717,7 @@ class ListandoArquivos:
             sleep(2)
             self.barra_progresso_busca.start()
 
-            """# INICIO PROCESSO DA BUSCA"""
+            """# INICIO DO PROCESSO DA BUSCA"""
             self.label_status.config(text='Realizando a busca de arquivos, aguarde...!')
             for raiz, subs, itens in walk(str(valor_path_busca)):
 
@@ -870,7 +870,7 @@ class ListandoArquivos:
 
             """# Ocorre o mesmo problema com as extensões. Nessa caso ele somas a quantidade de extensão que foi 
             encontrado no total."""
-            if len(valor_extensao) <= 4:
+            if len(valor_extensao) <= 4 and len(valor_extensao >= 3):
                 if valor_extensao in self.contagem_extensao:
                     self.contagem_extensao[valor_extensao] += 1
                 else:
