@@ -34,6 +34,14 @@ def numero_paginas(janela, documento):
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_qtd_extensao=None,
                   valor_qtd_arq_pasta=None, valor_ext_grafico=None):
+
+    """# Análise dos valores que chagaram até a funnção"""
+    print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
+    print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
+    print(f'\nAnalise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
+    print(f'\nAnalise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
+    print(f'\nAnalise "valor_ext_grafico" \n.{valor_ext_grafico}<')
+
     """# As condições abaixo, são responsável para que, caso execulte o programa nessa parte, não ocorra erros"""
     if valor_qtd_extensao is None:
         valor_qtd_extensao = ['Sem', 'dados', 'para', 'analisar']
@@ -70,13 +78,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
 
-    """# Análise dos valores que chagaram até a funnção"""
-    print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
-    print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
-    print(f'\nAnalise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
-    print(f'\nAnalise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
-    print(f'\nAnalise "valor_ext_grafico" \n.{valor_ext_grafico}<')
-
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
@@ -102,10 +103,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dados_save.append(Spacer(1, 5))
         dados_save.append(Paragraph(separado, estilo['Normal']))
         dados_save.append(Spacer(1, 5))
-
-        texto = f'<font size="12">%s</font>' % df_1
-        dados_save.append(Paragraph(texto, estilo["Normal"]))
-        dados_save.append(Spacer(1, 10))
 
         """# Abaixo são contabilizados a quantidade de EXTENSÕES encontradas"""
         for dados_extensao in valor_qtd_extensao:
