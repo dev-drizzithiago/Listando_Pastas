@@ -678,7 +678,7 @@ class ListandoArquivos:
             contador_arquivos = 1
             contador_de_raiz = 1
 
-            """# Lista responsavel para receber os dados; vai ser levado para suas respectivas funções"""
+            """# Lista responsavel para receber os dados; vai ser levado para suas respectivas funç"""
             self.lista_busca_arquivos = list()
             self.lista_save_busca = list()
 
@@ -872,7 +872,7 @@ class ListandoArquivos:
 
             """# Ocorre o mesmo problema com as extensões. Nessa caso ele somas a quantidade de extensão que foi 
             encontrado no total."""
-            if len(str(valor_extensao)) <= 3 and len(str(valor_extensao) >= 4):
+            if 3 >= len(valor_extensao) >= 4:
                 if valor_extensao in self.contagem_extensao:
                     self.contagem_extensao[valor_extensao] += 1
                 else:
