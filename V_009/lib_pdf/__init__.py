@@ -42,7 +42,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         valor_qtd_arq_pasta = ['Sem dados coletados']
 
     if valor_nome_documento is None:
-        valor_nome_documento = ['nome desconhecido']
+        valor_nome_documento = 'nome desconhecido'
 
     if valor_dados_coletados is None:
         valor_dados_coletados = ['<Sem dados coletados>']
