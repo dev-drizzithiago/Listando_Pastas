@@ -32,9 +32,22 @@ def numero_paginas(janela, documento):
 
 
 # ----------------------------------------------------------------------
-def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_documento='nome desconhecido',
-                  valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados',
-                  valor_ext_grafico=None):
+def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_qtd_extensao=None,
+                  valor_qtd_arq_pasta=None, valor_ext_grafico=None):
+    """# As condições abaixo, são responsável para que, caso execulte o programa nessa parte, não ocorra erros"""
+    if valor_qtd_extensao is None:
+        valor_qtd_extensao = ['Sem dados coletados']
+
+    if valor_qtd_arq_pasta is None:
+        valor_qtd_arq_pasta = ['Sem dados coletados']
+
+    if valor_nome_documento is None:
+        valor_nome_documento = ['nome desconhecido']
+
+    if valor_dados_coletados is None:
+        valor_dados_coletados = ['<Sem dados coletados>']
+
+
     """# Declaração Variaveis"""
     extensao = list()
     quantidade = list()
