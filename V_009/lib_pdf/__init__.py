@@ -52,8 +52,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     quantidade = list()
 
     if valor_ext_grafico is None:
-        valor_ext_grafico = ['txt=2', 'pdf=2', 'ini=6', 'png=194', 'jpg=39', 'zip=1', 'rar=1', 'mp4=5', 'jpeg=1',
-                             'log=1']
+        valor_ext_grafico = ['Sem dados para analisar']
+
     dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
 
     """# Lendos arquivo 'valor_ext_grafico"""
@@ -64,15 +64,11 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dict_valores_graficos['Quantidade'] = quantidade
 
     """# Apenas testes com pandas"""
-    print(dict_valores_graficos.items())
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
-
-    for cont in range(len(quantidade)):
-        print('}\n\n{', df_2.loc[cont])
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
@@ -84,10 +80,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
-
-    """#### Criando pdf com CANVAS"""
-    arquivo_pdf = canvas.Canvas('teste.pdf')
-    arquivo_pdf.getPageNumber()
 
     print(f'Arquivos vai ser criado no diretório - [{pdf_diretorio_save}]')
     print('Aguarde! Documento esta sendo criado!')
@@ -114,7 +106,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         texto = f'<font size="12">%s</font>' % df_1
         dados_save.append(Paragraph(texto, estilo["Normal"]))
         dados_save.append(Spacer(1, 10))
-        
+
         """# Abaixo são contabilizados a quantidade de EXTENSÕES encontradas"""
         for dados_extensao in valor_qtd_extensao:
             texto = f'<font size="12">%s</font>' % dados_extensao
