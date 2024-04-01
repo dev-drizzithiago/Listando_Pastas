@@ -670,13 +670,15 @@ class ListandoArquivos:
             """# LIMPEZA DA LISTA DE BUSCA"""
             del self.lista_analise_arq_busca[:]
 
-            print(f'\nExtensão selecionado para busca {self.extensao_selecao_busca}')
-            print(f'número_extensão {len(self.extensao_selecao_busca)}')
+            print(f'\nExtensão selecionado para busca [{self.extensao_selecao_busca}]')
+            print(f'número_extensão [{len(self.extensao_selecao_busca)}]')
             sleep(1)
 
             """# DECLARAÇÃO DE VARIAVEIS"""
             contador_arquivos = 1
             contador_de_raiz = 1
+
+            """# Lista responsavel para receber os dados; vai ser levado para suas respectivas funções"""
             self.lista_busca_arquivos = list()
             self.lista_save_busca = list()
 
