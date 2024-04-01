@@ -55,12 +55,12 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     if valor_dados_coletados is None:
         valor_dados_coletados = ['Sem', 'dados', 'para', 'analisar']
 
+    if valor_ext_grafico is None:
+        valor_ext_grafico = ['sem=dados=para=analisar']
+
     """# Declaração Variaveis"""
     extensao = list()
     quantidade = list()
-
-    if valor_ext_grafico is None:
-        valor_ext_grafico = ['Sem', 'dados', 'para', 'analisar']
 
     dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
 
