@@ -9,6 +9,7 @@ from pathlib import Path
 
 """# Modulo PANDAS"""
 import pandas as pd
+import numpy as np
 
 """# Modulos GERAL"""
 from tkinter.messagebox import showinfo, showerror
@@ -54,6 +55,9 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
     print(dict_valores_graficos.items())
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
+    df_3 = pd.DataFrame(np.random.rand(10, 4), columns=('1', '2', '3', '4'))
+
+    df_3.plot.bar()
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
