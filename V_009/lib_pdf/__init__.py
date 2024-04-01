@@ -67,9 +67,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(dict_valores_graficos.items())
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
-    df_3 = pd.DataFrame(np.random.rand(10, 4), columns=('1', '2', '3', '4'))
-
-    df_3.plot.bar()
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
@@ -98,8 +95,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """#### Criando documento PDF principal"""
     try:
         """Salvando as informações no documento"""
-        doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
-                                topMargin=72, bottomMargin=18)
+        doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72, topMargin=72,
+                                bottomMargin=18)
         estilo = getSampleStyleSheet()
         estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
@@ -114,6 +111,10 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dados_save.append(Paragraph(separado, estilo['Normal']))
         dados_save.append(Spacer(1, 5))
 
+        texto = f'<font size="12">%s</font>' % df_1
+        dados_save.append(Paragraph(texto, estilo["Normal"]))
+        dados_save.append(Spacer(1, 10))
+        
         """# Abaixo são contabilizados a quantidade de EXTENSÕES encontradas"""
         for dados_extensao in valor_qtd_extensao:
             texto = f'<font size="12">%s</font>' % dados_extensao
