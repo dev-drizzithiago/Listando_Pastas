@@ -870,7 +870,7 @@ class ListandoArquivos:
 
             """# Ocorre o mesmo problema com as extensões. Nessa caso ele somas a quantidade de extensão que foi 
             encontrado no total."""
-            if len(valor_extensao) <= 4 and len(valor_extensao >= 3):
+            if len(valor_extensao) <= 3 and len(valor_extensao >= 4):
                 if valor_extensao in self.contagem_extensao:
                     self.contagem_extensao[valor_extensao] += 1
                 else:
