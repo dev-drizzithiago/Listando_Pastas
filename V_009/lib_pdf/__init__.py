@@ -75,7 +75,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(f'\n{df_2}\n')
 
     for cont in range(len(quantidade)):
-        print('\n<>\n', df_2.loc[cont])
+        print('}\n\n{', df_2.loc[cont])
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
