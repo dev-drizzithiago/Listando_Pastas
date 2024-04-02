@@ -9,7 +9,6 @@ from pathlib import Path
 
 """# Modulo PANDAS"""
 import pandas as pd
-import numpy as np
 
 """# Modulos GERAL"""
 from tkinter.messagebox import showinfo, showerror
