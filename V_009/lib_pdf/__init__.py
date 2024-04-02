@@ -90,6 +90,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
+    plt.plot()
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
