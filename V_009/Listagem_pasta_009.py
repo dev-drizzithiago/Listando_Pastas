@@ -945,13 +945,14 @@ class ListandoArquivos:
         informações da busca é levada para o módulo PDF.
         :return:
         """
+        self.label_status.config(text='Criando seu documento PDF, aguarde!')
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
         nome_PDF = f'{valor_nome_PDF}-{self.data_atual.replace("/", "")}-{self.hora_atual.replace(":", "")}'
         sleep(1)
         Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
                                     self.lista_qtd_arq_pastas, self.qts_extensao_grafico)).start()
         print('Documento criado com sucesso!')
-        self.label_status.config(text='Criando seu documento PDF, aguarde!')
+        self.label_status.config(text='Documento criado com sucesso!')
 
     def save_TXT(self):
         """
