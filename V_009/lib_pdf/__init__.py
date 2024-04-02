@@ -13,11 +13,12 @@ import pandas as pd
 """# Modulos GERAL"""
 from tkinter.messagebox import showinfo, showerror
 
+
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
-"""# Grafico"""
-
+"""# Modulo Grafico"""
+from matplotlib.pyplot import plot, show, title
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
