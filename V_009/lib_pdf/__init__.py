@@ -4,7 +4,6 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_JUSTIFY
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
-from reportlab.pdfgen import canvas
 from pathlib import Path
 
 """# Modulo PANDAS"""
@@ -72,6 +71,9 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         quantidade.append(dividindo_valores.split('=')[1])
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
+
+    """# Teste de Grafico"""
+    grafico_pizza = ['Maça', 'Banana', ]
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
