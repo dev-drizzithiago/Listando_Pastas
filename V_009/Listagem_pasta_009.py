@@ -942,7 +942,7 @@ class ListandoArquivos:
     def save_PDF(self):
         """
         Essa função é responsável por criar um documento em PDF. Eu criei um módulo (para praticar) e todas as
-        informações da busca é levada para o módulo PDF. 
+        informações da busca é levada para o módulo PDF.
         :return:
         """
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
