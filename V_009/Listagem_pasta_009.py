@@ -941,7 +941,8 @@ class ListandoArquivos:
 
     def save_PDF(self):
         """
-
+        Essa função é responsável por criar um documento em PDF. Eu criei um módulo (para praticar) e todas as
+        informações da busca é levada para o módulo PDF. 
         :return:
         """
         valor_nome_PDF = askstring('AVISO!', 'Dê um nome ao arquivo PDF')
@@ -949,6 +950,8 @@ class ListandoArquivos:
         sleep(1)
         Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
                                     self.lista_qtd_arq_pastas, self.qts_extensao_grafico)).start()
+        print('Documento criado com sucesso!')
+        self.label_status.config(text='Criando seu documento PDF, aguarde!')
 
     def save_TXT(self):
         """
