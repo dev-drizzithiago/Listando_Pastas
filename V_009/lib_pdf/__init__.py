@@ -72,11 +72,20 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
 
-    """# Teste de Grafico"""
+    """#### Teste de Grafico"""
+    """# Valores do grafico"""
     grafico_pizza = 'Maça', 'Banana', 'uva', 'Goiaba'
     valores_pizza = [3, 5, 10, 9]
+
+    """# Criando a representação, plotagem"""
     teste_1, teste_2 = plt.subplots()
-    teste_2.pie(valores_pizza, labels=grafico_pizza)
+
+    """# Criando o grafico"""
+    teste_2.pie(quantidade, labels=extensao)
+
+    # teste_1.axis('equal')
+
+    plt.show()
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
