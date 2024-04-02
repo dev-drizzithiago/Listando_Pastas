@@ -12,3 +12,5 @@ grafico_pizza = 'Maça', 'Banana', 'uva', 'Goiaba'
 valores_pizza = [3, 5, 10, 9]
 teste_1, teste_2 = plt.subplots()
 teste_2.pie(valores_pizza, labels=grafico_pizza)
+
+plt.show()
