@@ -17,7 +17,7 @@ home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 """# Modulo Grafico"""
-from matplotlib.pyplot import plot, show, title
+import matplotlib.pyplot as plt
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
@@ -75,8 +75,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """# Teste de Grafico"""
     grafico_pizza = ['Maça', 'Banana', 'uva', 'Goiaba']
     valores_pizza = [3, 5, 10, 9]
-    plot(grafico_pizza, valores_pizza)
-    show()
+    teste_1, teste_2 = plt.subplots()
+    teste_2.pie(grafico_pizza, labels=valores_pizza)
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
