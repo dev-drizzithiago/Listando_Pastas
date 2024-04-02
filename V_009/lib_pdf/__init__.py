@@ -73,7 +73,10 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dict_valores_graficos['Quantidade'] = quantidade
 
     """# Teste de Grafico"""
-    grafico_pizza = ['Maça', 'Banana', ]
+    grafico_pizza = ['Maça', 'Banana', 'uva', 'Goiaba']
+    valores_pizza = [3, 5, 10, 9]
+    plot(grafico_pizza, valores_pizza)
+    show()
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
