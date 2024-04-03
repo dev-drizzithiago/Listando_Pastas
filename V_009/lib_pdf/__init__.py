@@ -85,6 +85,13 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """#### Teste de NP"""
     fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(aspect='equal'))
 
+    def func(pct, allvals):
+        # Calc %
+        absoluto = int(pct/100.*np.sum(allvals))
+        # Legendao do grafico com %
+        
+
+
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
