@@ -91,8 +91,10 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         # Legendao do grafico com %
         return "{:.1f}%\n({:d} kg)".format(pct, allvals)
 
-    wedger, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza))
+    wedges, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza),
+                                        textprops=dict(color="w"))
 
+    ax.legend(wedges, grafico_pizza, plt.title='Extensões', plt.loc='center left', plt.bbox_to_anchor=(1, 0, 0.5, 1))
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
