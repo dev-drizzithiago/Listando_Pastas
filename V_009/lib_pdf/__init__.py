@@ -89,7 +89,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         # Calc %
         absoluto = int(pct/100.*np.sum(allvals))
         # Legendao do grafico com %
-        
+        return "{:.1f}%\n({:d} kg)".format(pct, allvals)
 
 
     """# Apenas testes com pandas"""
