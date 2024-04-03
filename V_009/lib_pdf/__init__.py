@@ -99,6 +99,9 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     leitura_txt = pd.read_csv(diretorio_arquivo_save + '\\teste.txt')
     print(f'Leitura arquivo csv \n{leitura_txt}')
 
+    leitura_pdf = pd.read_csv(diretorio_arquivo_save + '\\123-03042024-1012.pdf')
+    print(f'leitura PDF - \n{leitura_pdf}')
+
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
