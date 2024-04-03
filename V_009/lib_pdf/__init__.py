@@ -65,8 +65,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     """# Lendos arquivo 'valor_ext_grafico"""
     for dividindo_valores in valor_ext_grafico:
-        extensao.append(dividindo_valores.split('=')[0])
-        quantidade.append(dividindo_valores.split('=')[1])
+        extensao.append(str(dividindo_valores.split('=')[0]))
+        quantidade.append(str(dividindo_valores.split('=')[1]))
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
 
