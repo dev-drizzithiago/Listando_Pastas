@@ -670,8 +670,10 @@ class ListandoArquivos:
             """# LIMPEZA DA LISTA DE BUSCA"""
             del self.lista_analise_arq_busca[:]
 
-            print(f'\nExtensão selecionado para busca [{self.extensao_selecao_busca}]')
-            print(f'número_extensão [{len(self.extensao_selecao_busca)}]')
+            if len(self.extensao_selecao_busca) == 0:
+                print('Não foi selecionado nenhuma extensão. Buscando por qualquer arquivo')
+            else:
+                print(f'\nExtensão selecionado para busca [{self.extensao_selecao_busca}]')
             sleep(1)
 
             """# DECLARAÇÃO DE VARIAVEIS"""
@@ -752,7 +754,7 @@ class ListandoArquivos:
                     self.lista_result_busca.insert('end', self.linha_aparencia())
 
                 """# Indica ao usuário qual a pasta de busca."""
-                self.status_DISTINO_pastas.config(text=f'Buscando na pasta => {raiz}')
+                self.status_DISTINO_pastas.config(text=f'Buscando na pasta => [{raiz}]')
 
                 contador_de_raiz += 1
 
@@ -827,7 +829,6 @@ class ListandoArquivos:
             showwarning('ATENÇAO', 'Sua busca foi cancelada')
 
     def analise_e_processo_de_dados_da_busca(self):
-
         """
         # Declarações de variaveis:
         :param contagem_extensao: responsável em contar a quantidade de extensão que esão encontradas
@@ -837,7 +838,6 @@ class ListandoArquivos:
         :param qts_extensao_grafico: insere as informações para serem enviados para criação do grafico
         :param lista_qtd_extensao: Lista que vai entrar dos dados de extensão.
         """
-
         self.contagem_demais_extensoes = {}
         self.contagem_extensao = {}
         self.contagem_pastas = {}
