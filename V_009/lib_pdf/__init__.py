@@ -90,6 +90,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     plt.plot()
 
     df_1.to_string(diretorio_arquivo_save + '\\teste.csv')
+    df_1.to_string(diretorio_arquivo_save + '\\teste.txt')
+    df_1.to_string(diretorio_arquivo_save + '\\teste.xlsx')
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
