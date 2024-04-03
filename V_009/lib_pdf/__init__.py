@@ -80,25 +80,25 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     """# Criando o grafico"""
     teste_2.pie(quantidade, labels=extensao)
-    plt.show()
+    # plt.show()
 
     """#### Teste de NP"""
     """# Criando a representação, plotagem"""
-    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(aspect='equal'))
+    fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(aspect='equal'))
 
     """# Abaixo a função vai ser responsavel ela porcentagem dos valores"""
     def func(pct, allvals):
         # Calc %
         absoluto = int(pct/100.*np.sum(allvals))
         # Legendao do grafico com %
-        return "{:.1f}%\n({:d} kg)".format(pct, allvals)
+        return "{:.1f}%\n({:d} kg)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza),
+    wedges, textos, texto_auto = ax.pie(quantidade, autopct=lambda pct: func(pct, quantidade),
                                         textprops=dict(color="w"))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
-    ax.legend(wedges, grafico_pizza, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+    ax.legend(wedges, extensao, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
 
     """# Define o tamanho do texto dentro do grafico """
     plt.setp(texto_auto, size=8, weight='bold')
