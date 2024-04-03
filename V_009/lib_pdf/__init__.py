@@ -12,12 +12,12 @@ import pandas as pd
 """# Modulos GERAL"""
 from tkinter.messagebox import showinfo, showerror
 
-
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 """# Modulo Grafico"""
 import matplotlib.pyplot as plt
+
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
@@ -33,7 +33,6 @@ def numero_paginas(janela, documento):
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_qtd_extensao=None,
                   valor_qtd_arq_pasta=None, valor_ext_grafico=None):
-
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
     print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
