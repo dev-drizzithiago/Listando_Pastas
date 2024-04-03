@@ -693,6 +693,11 @@ class ListandoArquivos:
             self.botao_adicionar_extensao['state'] = 'disabled'
             self.botao_escolha_extensao['state'] = 'disabled'
 
+            """# Os botões de Radio são desativas por padrão, sendo ativados apenas quando as buscas são finalizadas.
+            Quando refaz a busca é preciso desativar para que não ocorra erros desnecessarios"""
+            self.radio_txt.config(state=tk.DISABLED)
+            self.radio_pdf.config(state=tk.DISABLED)
+
             """# LIMPANDO LISTA DE BUSCA
             Função se aplica quando realiza a próxima listagem.
             Não deixo a lista com os arquivos pois na segunda listagem é acrescentando."""
