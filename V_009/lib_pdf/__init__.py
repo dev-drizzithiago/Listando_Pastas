@@ -88,10 +88,13 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
 
-    df_1.to_string(diretorio_arquivo_save + '\\teste.txt')
+    df_1.to_string(diretorio_arquivo_save + '\\teste.csv')
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
+
+    leitura_txt = pd.read_csv(diretorio_arquivo_save + '\\teste.txt')
+    print(f'Leitura arquivo csv \n{leitura_txt}')
 
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
