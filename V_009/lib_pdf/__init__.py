@@ -91,6 +91,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         # Legendao do grafico com %
         return "{:.1f}%\n({:d} kg)".format(pct, allvals)
 
+    wedger, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza))
+
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
