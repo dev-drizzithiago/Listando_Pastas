@@ -12,12 +12,12 @@ import pandas as pd
 """# Modulos GERAL"""
 from tkinter.messagebox import showinfo, showerror
 
-
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 """# Modulo Grafico"""
 import matplotlib.pyplot as plt
+
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 
@@ -33,7 +33,6 @@ def numero_paginas(janela, documento):
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_qtd_extensao=None,
                   valor_qtd_arq_pasta=None, valor_ext_grafico=None):
-
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
     print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
@@ -55,9 +54,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         valor_dados_coletados = ['Sem', 'dados', 'para', 'analisar']
 
     if valor_ext_grafico is None:
-        valor_ext_grafico = ['jpg=3927', 'txt=113', 'conf=2', 'rdp=29', 'pdf=235', 'jpeg=16', 'png=77', 'xlsx=29',
-                             'docx=6', 'p7s=1', 'pptx=6', 'xps=2', 'zip=3', 'rar=10', 'kdbx=2', 'html=10', 'exe=2',
-                             'msi=3', 'evtx=2', 'msg=2', 'gif=5', 'xls=1', 'mov=1', 'mp4=2']
+        valor_ext_grafico = ['jpg=3927', 'txt=113']
 
     """# Declaração Variaveis"""
     extensao = list()
@@ -92,8 +89,13 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     df_2 = pd.DataFrame(dict_valores_graficos)
     plt.plot()
 
+    df_1.to_string(diretorio_arquivo_save + '\\teste.csv')
+
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
+
+    leitura_txt = pd.read_csv(diretorio_arquivo_save + '\\teste.txt')
+    print(f'Leitura arquivo csv \n{leitura_txt}')
 
     """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
