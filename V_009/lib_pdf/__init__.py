@@ -70,6 +70,9 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
 
+    print(type(quantidade), 'Quantidade')
+    print(type(extensao), 'Extensão')
+
     """#### Teste de Grafico"""
     """# Valores do grafico"""
     grafico_pizza = 'Maça', 'Banana', 'uva', 'Goiaba'
