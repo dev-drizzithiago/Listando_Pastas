@@ -17,6 +17,7 @@ diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 """# Modulo Grafico"""
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
@@ -79,10 +80,11 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     """# Criando o grafico"""
     teste_2.pie(quantidade, labels=extensao)
-
-    # teste_1.axis('equal')
-
     plt.show()
+
+
+    """#### Teste de NP"""
+    fig, ax = plt.subplots()
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
@@ -95,12 +97,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
-
-    """leitura_txt = pd.read_csv(diretorio_arquivo_save + '\\teste.txt')
-    print(f'Leitura arquivo csv \n{leitura_txt}')"""
-
-    """leitura_pdf = pd.read_csv(diretorio_arquivo_save + '\\123-03042024-1012.pdf')
-    print(f'leitura PDF - \n{leitura_pdf}')"""
 
     """Criando parametros para salvar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
