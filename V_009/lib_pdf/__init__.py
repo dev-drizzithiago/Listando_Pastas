@@ -82,9 +82,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     teste_2.pie(quantidade, labels=extensao)
     plt.show()
 
-
     """#### Teste de NP"""
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(aspect='equal'))
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
