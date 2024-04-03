@@ -83,18 +83,31 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     plt.show()
 
     """#### Teste de NP"""
+    """# Criando a representação, plotagem"""
     fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(aspect='equal'))
 
+    """# Abaixo a função vai ser responsavel ela porcentagem dos valores"""
     def func(pct, allvals):
         # Calc %
         absoluto = int(pct/100.*np.sum(allvals))
         # Legendao do grafico com %
         return "{:.1f}%\n({:d} kg)".format(pct, allvals)
 
+    """# Criando o grafico e colocand as legendas"""
     wedges, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza),
                                         textprops=dict(color="w"))
 
-    ax.legend(wedges, grafico_pizza, plt.title='Extensões', plt.loc='center left', plt.bbox_to_anchor=(1, 0, 0.5, 1))
+    """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
+    ax.legend(wedges, grafico_pizza, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+
+    """# Define o tamanho do texto dentro do grafico """
+    plt.setp(texto_auto, size=8, weight='bold')
+
+    """# Titulo do grafico"""
+    ax.set_title('Extensões encontradas')
+
+    """# Rodando o grafico"""
+    plt.show()
 
     """# Apenas testes com pandas"""
     df_1 = pd.Series(quantidade, index=extensao)
