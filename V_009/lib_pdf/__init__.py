@@ -92,6 +92,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     valores_pizza = [3, 5, 10, 9]
     print(type(grafico_pizza), 'grafico_pizza')
     print(type(valores_pizza), 'valores_pizza')
+    print(grafico_pizza)
+    print(valores_pizza)
 
     """# Criando a representação, plotagem"""
     teste_1, teste_2 = plt.subplots()
@@ -102,18 +104,17 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     """#### Teste de NP"""
     """# Criando a representação, plotagem"""
-    fig, ax = plt.subplots(figsize=(5, 10), subplot_kw=dict(aspect='equal'))
+    fig, ax = plt.subplots(figsize=(10, 5), subplot_kw=dict(aspect='equal'))
 
     """# Abaixo a função vai ser responsavel ela porcentagem dos valores"""
     def func(pct, allvals):
         # Calc %
         absoluto = int(pct/100.*np.sum(allvals))
-
         # Legendao do grafico com %
         return "{:.1f}%\n({:d} Quantidades)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza),
+    wedges, textos, texto_auto = ax.pie(int(quantidade), autopct=lambda pct: func(pct, int(quantidade)),
                                         textprops=dict(color="w"))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
