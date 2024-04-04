@@ -117,10 +117,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """# Titulo do grafico"""
     ax.set_title('Extensões encontradas')
 
-    """# Rodando o grafico"""
-    plt.show()
-
-
     """### Grafico barras"""
 
     plt.bar(extensao, valor_quantidade_int, color='rede')
@@ -134,8 +130,11 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """# A label para o eixo X"""
     plt.xlabel('Extensões')
 
-    
+    """# Titulo do Grafico"""
+    plt.title('Extensões encontradas')
 
+    """# Rodando o grafico"""
+    plt.show()
 
     """### Criando parametros para salvar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
