@@ -127,7 +127,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     ax.legend(wedges, extensao, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
 
     """# Define o tamanho do texto dentro do grafico """
-    plt.setp(texto_auto, size=16, weight='bold')
+    plt.setp(texto_auto, size=6, weight='bold')
 
     """# Titulo do grafico"""
     ax.set_title('Extensões encontradas')
