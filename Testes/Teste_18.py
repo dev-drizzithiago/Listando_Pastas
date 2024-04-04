@@ -18,11 +18,14 @@ for dividindo_valores in valor_ext_grafico:
     extensao.append(str(dividindo_valores.split('=')[0]).strip())
     quantidade.append(str(dividindo_valores.split('=')[1]).strip())
     dict_valores_graficos['Extensao'] = extensao
+print(extensao)
+print(quantidade)
 
 for valor in quantidade:
-    quantidade_int = int(valor)
-    dict_valores_graficos['Quantidade'] = quantidade_int
+    quantidade.append(int(valor))
+    dict_valores_graficos['Quantidade'] = quantidade
 
+print(dict_valores_graficos)
 
 df = pd.DataFrame(dict_valores_graficos)
 df.plot(kind='bar')
