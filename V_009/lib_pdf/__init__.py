@@ -98,7 +98,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         return "{:.1f}%\n({:d} kg)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(quantidade, autopct=lambda pct: func(pct, quantidade),
+    wedges, textos, texto_auto = ax.pie(quantidade.apply(str), autopct=lambda pct: func(pct, quantidade.apply(str)),
                                         textprops=dict(color="w"))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
