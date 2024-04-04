@@ -91,7 +91,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
 
-    """#### Teste de NP"""
+    """#### Teste grafico pizza"""
+
     """# Criando a representação, plotagem"""
     fig, ax = plt.subplots(figsize=(10, 5), subplot_kw=dict(aspect='equal'))
 
@@ -119,7 +120,24 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     """# Rodando o grafico"""
     plt.show()
 
-    """Criando parametros para salvar o arquivo no diretorio 'DOWNLOADS' do windows. """
+
+    """### Grafico barras"""
+
+    plt.bar(extensao, valor_quantidade_int, color='rede')
+
+    """# Define a legenda de cada barro, no exio X"""
+    plt.xticks(extensao)
+
+    """# A label para o eixo Y"""
+    plt.ylabel('Quantidade encontrada')
+
+    """# A label para o eixo X"""
+    plt.xlabel('Extensões')
+
+    
+
+
+    """### Criando parametros para salvar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
 
