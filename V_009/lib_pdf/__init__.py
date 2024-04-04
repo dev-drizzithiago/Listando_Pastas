@@ -73,8 +73,9 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(type(quantidade), 'Quantidade')
     print(type(extensao), 'Extensão')
 
-    valor_pandas = pd.DataFrame(quantidade).apply(pd.value_counts())
-    print(valor_pandas)
+    valor_pandas = pd.DataFrame(quantidade, columns=['Quantidade'])
+    quantidade = valor_pandas['Quantidade'].value_counts()
+    print(quantidade)
 
     """#### Teste de Grafico"""
     """# Valores do grafico"""
@@ -101,7 +102,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         return "{:.1f}%\n({:d} kg)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(valor_pandas, autopct=lambda pct: func(pct, valor_pandas),
+    wedges, textos, texto_auto = ax.pie(quantidade, autopct=lambda pct: func(pct, quantidade),
                                         textprops=dict(color="w"))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
