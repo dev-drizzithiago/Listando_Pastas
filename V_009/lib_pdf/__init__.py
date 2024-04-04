@@ -73,6 +73,14 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(type(quantidade), 'Quantidade')
     print(type(extensao), 'Extensão')
 
+    """# Apenas testes com pandas"""
+    df_1 = pd.Series(quantidade, index=extensao)
+    df_2 = pd.DataFrame(dict_valores_graficos)
+    plt.plot()
+
+    print(f'\n{df_1}\n')
+    print(f'\n{df_2}\n')
+
     """#### Teste de Grafico"""
     """# Valores do grafico"""
     grafico_pizza = 'Maça', 'Banana', 'uva', 'Goiaba'
@@ -100,7 +108,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         return "{:.1f}%\n({:d} Quantidades)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza),
+    wedges, textos, texto_auto = ax.pie(df_2["Quantidade"], autopct=lambda pct: func(pct, df_2["Quantidade"]),
                                         textprops=dict(color="w"))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
@@ -114,18 +122,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     """# Rodando o grafico"""
     plt.show()
-
-    """# Apenas testes com pandas"""
-    df_1 = pd.Series(quantidade, index=extensao)
-    df_2 = pd.DataFrame(dict_valores_graficos)
-    plt.plot()
-
-    df_1.to_string(diretorio_arquivo_save + '\\teste.csv')
-    df_1.to_string(diretorio_arquivo_save + '\\teste.txt')
-    df_1.to_string(diretorio_arquivo_save + '\\teste.xlsx')
-
-    print(f'\n{df_1}\n')
-    print(f'\n{df_2}\n')
 
     """Criando parametros para salvar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
