@@ -73,14 +73,12 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(type(quantidade), 'Quantidade')
     print(type(extensao), 'Extensão')
 
-    valor_pandas = pd.DataFrame(quantidade, columns=['Quantidade'])
-    quantidade = valor_pandas['Quantidade'].value_counts()
-    print(quantidade)
-
     """#### Teste de Grafico"""
     """# Valores do grafico"""
     grafico_pizza = 'Maça', 'Banana', 'uva', 'Goiaba'
     valores_pizza = [3, 5, 10, 9]
+    print(type(grafico_pizza), 'grafico_pizza')
+    print(type(valores_pizza), 'valores_pizza')
 
     """# Criando a representação, plotagem"""
     teste_1, teste_2 = plt.subplots()
@@ -102,11 +100,11 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         return "{:.1f}%\n({:d} Quantidades)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(quantidade, autopct=lambda pct: func(pct, quantidade),
+    wedges, textos, texto_auto = ax.pie(valores_pizza, autopct=lambda pct: func(pct, valores_pizza),
                                         textprops=dict(color="w"))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
-    ax.legend(wedges, extensao, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+    ax.legend(wedges, grafico_pizza, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
 
     """# Define o tamanho do texto dentro do grafico """
     plt.setp(texto_auto, size=8, weight='bold')
