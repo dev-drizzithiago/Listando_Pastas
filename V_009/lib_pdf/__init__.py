@@ -73,8 +73,11 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
 
+    valor_quantidade_int = int(quantidade)
+
     print(extensao)
     print(quantidade)
+    print(valor_quantidade_int)
     print(type(quantidade), 'Quantidade')
     print(type(extensao), 'Extensão')
 
@@ -114,7 +117,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         return "{:.1f}%\n({:d} Quantidades)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(int(quantidade), autopct=lambda pct: func(pct, int(quantidade)),
+    wedges, textos, texto_auto = ax.pie(quantidade, autopct=lambda pct: func(pct, quantidade),
                                         textprops=dict(color="w"))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
