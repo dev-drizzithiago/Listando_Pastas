@@ -91,22 +91,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
 
-    """#### Teste de Grafico"""
-    """# Valores do grafico"""
-    grafico_pizza = ['Maça', 'Banana', 'uva', 'Goiaba']
-    valores_pizza = [3, 5, 10, 9]
-    print(type(grafico_pizza), 'grafico_pizza')
-    print(type(valores_pizza), 'valores_pizza')
-    print(grafico_pizza)
-    print(valores_pizza)
-
-    """# Criando a representação, plotagem"""
-    teste_1, teste_2 = plt.subplots()
-
-    """# Criando o grafico"""
-    teste_2.pie(quantidade, labels=extensao)
-    # plt.show()
-
     """#### Teste de NP"""
     """# Criando a representação, plotagem"""
     fig, ax = plt.subplots(figsize=(10, 5), subplot_kw=dict(aspect='equal'))
