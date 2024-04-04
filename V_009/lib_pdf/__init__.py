@@ -55,10 +55,10 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         valor_dados_coletados = ['Sem', 'dados', 'para', 'analisar']
 
     if valor_ext_grafico is None:
-        valor_ext_grafico = ['txt=0', 'pdf=0', 'ini=0',
-                             'png=0', 'jpg=0', 'zip=0',
-                             'rar=0', 'mp4=0', 'jpeg=0',
-                             'log=0']
+        valor_ext_grafico = ['txt=1', 'pdf=1', 'ini=1',
+                             'png=1', 'jpg=1', 'zip=1',
+                             'rar=1', 'mp4=1', 'jpeg=1',
+                             'log=1']
 
     """# Declaração Variaveis"""
     extensao = list()
@@ -98,19 +98,16 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     fig, ax = plt.subplots(figsize=(10, 5), subplot_kw=dict(aspect='equal'))
 
     """# Abaixo a função vai ser responsavel ela porcentagem dos valores"""
+
     def func(pct, allvals):
-        try:
-            # Calc %
-            absoluto = int(pct/100.*np.sum(allvals))
-            # Legendao do grafico com %
-            return "{:.1f}%\n({:d})".format(pct, absoluto)
-        except:
-            return "{:.1f}%\n({:d})".format(pct, 0.1)
+        # Calc %
+        absoluto = int(pct / 100. * np.sum(allvals))
+        # Legendao do grafico com %
+        return "{:.1f}%\n({:d})".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
     wedges, textos, texto_auto = ax.pie(valor_quantidade_int, textprops=dict(color="w"),
                                         autopct=lambda pct: func(pct, valor_quantidade_int))
-
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
     ax.legend(wedges, extensao, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
