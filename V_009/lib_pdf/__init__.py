@@ -99,7 +99,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         absoluto = int(pct/100.*np.sum(allvals))
 
         # Legendao do grafico com %
-        return "{:.1f}%\n({:d} kg)".format(pct, absoluto)
+        return "{:.1f}%\n({:d} Quantidades)".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
     wedges, textos, texto_auto = ax.pie(quantidade, autopct=lambda pct: func(pct, quantidade),
