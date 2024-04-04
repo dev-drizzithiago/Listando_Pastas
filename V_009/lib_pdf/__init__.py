@@ -55,7 +55,10 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         valor_dados_coletados = ['Sem', 'dados', 'para', 'analisar']
 
     if valor_ext_grafico is None:
-        valor_ext_grafico = ['jpg=3927', 'txt=113']
+        valor_ext_grafico = ['txt=2', 'pdf=2', 'ini=6',
+                             'png=194', 'jpg=39', 'zip=1',
+                             'rar=1', 'mp4=5', 'jpeg=1',
+                             'log=1']
 
     """# Declaração Variaveis"""
     extensao = list()
