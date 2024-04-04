@@ -73,6 +73,8 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         dict_valores_graficos['Extensao'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
 
+    print(extensao)
+    print(quantidade)
     print(type(quantidade), 'Quantidade')
     print(type(extensao), 'Extensão')
 
@@ -100,7 +102,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     """#### Teste de NP"""
     """# Criando a representação, plotagem"""
-    fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(aspect='equal'))
+    fig, ax = plt.subplots(figsize=(5, 10), subplot_kw=dict(aspect='equal'))
 
     """# Abaixo a função vai ser responsavel ela porcentagem dos valores"""
     def func(pct, allvals):
