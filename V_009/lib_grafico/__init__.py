@@ -5,15 +5,22 @@ import numpy as np
 """# Modulo PANDAS"""
 import pandas as pd
 
+"""#### Declaração de variaveis"""
+dict_valores_graficos = dict()
+
+
 def arquivos_em_pandas(valor_extensao):
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
         extensao = str(dividinho_ext_qtd).split('=')[0].strip()
         quantidade = str(dividinho_ext_qtd).split('=')[1].strip()
+        dict_valores_graficos['Extensão'] = extensao
+        dict_valores_graficos['Quantidade'] = quantidade
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
+
 
 """#### Teste grafico pizza"""
 """# Criando a representação, plotagem"""
@@ -63,4 +70,3 @@ plt.title('Extensões encontradas')
 
 """# Rodando o grafico"""
 plt.show()
-
