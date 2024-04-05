@@ -208,7 +208,7 @@ class ListandoArquivos:
         self.status_arquivos.place(y=20, x=10)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        """# Barra de progresso da busca"""
+        """#### Barra de progresso da busca"""
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(anchor='s', fill='both', pady=2, padx=2)
         self.barra_progresso_busca = Progressbar(self.label_frame_progresso)
@@ -218,7 +218,7 @@ class ListandoArquivos:
         self.barra_progresso_busca.pack(anchor='s', fill='both', pady=2, padx=2)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        """# BOTÕES"""
+        """#### BOTÕES"""
         self.label_frame_botoes_opcoes = LabelFrame(self.label_frame_geral, text='Escolha um opção')
         self.label_frame_botoes_opcoes.pack(side='bottom', fill='both', pady=2, padx=2)
 
@@ -249,13 +249,17 @@ class ListandoArquivos:
         self.botao_destino_busca.place(y=1, x=785)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        """# Radio Botão"""
+        """#### Radio Botão"""
         self.label_frame_radio = LabelFrame(self.label_frame_geral, text='Selecione uma opção para Salvar da busca')
         self.label_frame_radio.pack(fill=tk.BOTH, side='top')
         self.var_radio = tk.StringVar()
+
+        """# Botão radio valor TXT"""
         self.radio_txt = Radiobutton(self.label_frame_radio, text="TXT", value='TXT', variable=self.var_radio)
         self.radio_txt.config(state=tk.DISABLED)
         self.radio_txt.pack(anchor='center')
+
+        """# Botão radio valor PDF"""
         self.radio_pdf = Radiobutton(self.label_frame_radio, text='PDF', value='PDF', variable=self.var_radio)
         self.radio_pdf.config(state=tk.DISABLED)
         self.radio_pdf.pack(anchor='center')
