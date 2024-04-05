@@ -19,24 +19,34 @@ som_abrindo_programa = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\abr
 som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\apertando_botao.wav'
 som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\inicio_busca.wav'
 som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_busca.wav'
-tipos_de_extensões = {"AUDIO": ['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
-                      "VIDEOS": ['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS',
-                                 'MOV', 'MPEG-2', 'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
-                      "TEXTOS": ['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
-                      "IMAGEM": ['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps',
-                                 'emf', 'exr', 'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2',
-                                 'mng', 'pbm', 'pcd', 'pdf', 'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg',
-                                 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif', 'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
-                      "ARQUIVOS": ['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar',
-                                   'msi', 'mui', 'rar', 'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar',
-                                   'dmg', '7z', 'tar', 'aspx', 'php', 'css', 'ico', 'modell-usb', 'modell', 'version',
-                                   'gitattributes', 'awk', 'inc', 'lib', 'sdb', 'dat', 'bfc', 'data', 'properties',
-                                   'jar', 'src'],
-                      "ACCESS": ['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
-                      "WORD": ['doc', 'docm', 'docx', 'dot', 'dotx'],
-                      "POWERPOINT": ['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
-                      "EXCEL": ['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
-                      'HTML': ['xps', 'htm', 'html']}
+tipos_de_extensoes = dict(
+    AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
+
+    VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS',
+            'MOV', 'MPEG-2', 'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
+    TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
+
+    IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps',
+            'emf', 'exr', 'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2',
+            'mng', 'pbm', 'pcd', 'pdf', 'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg',
+            'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif', 'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
+
+    ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar',
+              'msi', 'mui', 'rar', 'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar',
+              'dmg', '7z', 'tar', 'aspx', 'php', 'css', 'ico', 'modell-usb', 'modell', 'version',
+              'gitattributes', 'awk', 'inc', 'lib', 'sdb', 'dat', 'bfc', 'data', 'properties',
+              'jar', 'src', 'cpx', 'tlb', 'rs', 'vbs', 'ax', 'acm', 'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl',
+              'tsp', 'uce', 'ocx'],
+
+    ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
+
+    WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
+
+    POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
+
+    EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
+    
+    HTML=['xps', 'htm', 'html'])
 
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
