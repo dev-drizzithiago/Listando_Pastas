@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 
 valor_ext_grafico = ['txt=10', 'pdf=7','log=1',
@@ -18,16 +18,18 @@ for dividindo_valores in valor_ext_grafico:
     extensao.append(str(dividindo_valores.split('=')[0]).strip())
     quantidade.append(str(dividindo_valores.split('=')[1]).strip())
     dict_valores_graficos['Extensao'] = extensao
-print(extensao)
-print(quantidade)
 
 for valor in quantidade:
-    quantidade.append(int(valor))
-    dict_valores_graficos['Quantidade'] = quantidade
+    valor_quantidade_int.append(int(valor))
+    dict_valores_graficos['Quantidade'] = valor_quantidade_int
 
 print(dict_valores_graficos)
+
+print(extensao)
+print(quantidade)
 
 df = pd.DataFrame(dict_valores_graficos)
 df.plot(kind='bar')
 print(df)
-df.plot()
+plt.show()
+
