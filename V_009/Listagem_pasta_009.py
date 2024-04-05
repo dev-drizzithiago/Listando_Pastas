@@ -36,7 +36,8 @@ tipos_de_extensoes = dict(
               'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx', 'php', 'css',
               'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'sdb', 'dat', 'bfc',
               'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'vbs', 'ax', 'acm', 'com', 'mof', 'nls', 'rsp',
-              'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr', 'cmd'],
+              'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr', 'cmd', 'conf', 'wsf', 'config',
+              'json', 'dtd', 'iec', 'ime', 'nsl'],
 
     ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
 
