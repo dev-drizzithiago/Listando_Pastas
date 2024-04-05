@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Ajuste_Horario_Windows/.idea/Ajuste_Horario_Windows.iml" filepath="$PROJECT_DIR$/../Ajuste_Horario_Windows/.idea/Ajuste_Horario_Windows.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../JOGO_MEMORIA/.idea/JOGO_MEMORIA.iml" filepath="$PROJECT_DIR$/../JOGO_MEMORIA/.idea/JOGO_MEMORIA.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Listando_Pastas.iml" filepath="$PROJECT_DIR$/.idea/Listando_Pastas.iml" />
       <module fileurl="file://G:/Meu Drive/Estudos/Python/Projetos Abandonados/Projeto_YOUTUBE/.idea/Projeto_YOUTUBE.iml" filepath="G:/Meu Drive/Estudos/Python/Projetos Abandonados/Projeto_YOUTUBE/.idea/Projeto_YOUTUBE.iml" />
     </modules>
