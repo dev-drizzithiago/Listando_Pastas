@@ -24,6 +24,7 @@ tipos_de_extensoes = dict(
 
     VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS',
             'MOV', 'MPEG-2', 'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
+
     TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
 
     IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps',
@@ -31,12 +32,11 @@ tipos_de_extensoes = dict(
             'mng', 'pbm', 'pcd', 'pdf', 'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg',
             'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif', 'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
 
-    ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar',
-              'msi', 'mui', 'rar', 'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar',
-              'dmg', '7z', 'tar', 'aspx', 'php', 'css', 'ico', 'modell-usb', 'modell', 'version',
-              'gitattributes', 'awk', 'inc', 'lib', 'sdb', 'dat', 'bfc', 'data', 'properties',
-              'jar', 'src', 'cpx', 'tlb', 'rs', 'vbs', 'ax', 'acm', 'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl',
-              'tsp', 'uce', 'ocx'],
+    ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui', 'rar',
+              'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx', 'php', 'css',
+              'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'sdb', 'dat', 'bfc',
+              'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'vbs', 'ax', 'acm', 'com', 'mof', 'nls', 'rsp',
+              'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr', 'cmd'],
 
     ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
 
@@ -45,7 +45,7 @@ tipos_de_extensoes = dict(
     POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
 
     EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
-    
+
     HTML=['xps', 'htm', 'html'])
 
 
