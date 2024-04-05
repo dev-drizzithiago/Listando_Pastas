@@ -20,8 +20,18 @@ som_botao = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\apertando_bota
 som_inicio_busca = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\inicio_busca.wav'
 som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_busca.wav'
 tipos_de_extensões = {"AUDIO": ['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
-                      "VIDEOS": ['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv'],
-                      'TEXTOS': [doc, docm, docx, dot, dotx, pdf, rtf, wbk, wpd, wp5]}
+                      "VIDEOS": ['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS',
+                                 'MOV', 'MPEG-2', 'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
+                      "TEXTOS": ['doc', 'docm', 'docx', 'dot', 'dotx', 'pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'pdf'],
+                      "IMAGEM": ['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps',
+                                 'emf', 'exr', 'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2',
+                                 'mng', 'pbm', 'pcd', 'pdf', 'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg',
+                                 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif', 'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
+                      "ARQUIVOS": ['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar',
+                                   'msi', 'mui', 'rar', 'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar',
+                                   'dmg', '7z', 'tar', ],
+                      "ACCESS": [accdb, accde, accdr, accdt, ],
+                      "WORD": []}
 
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
