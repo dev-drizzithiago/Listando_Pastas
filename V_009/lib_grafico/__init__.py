@@ -5,16 +5,17 @@ import numpy as np
 """# Modulo PANDAS"""
 import pandas as pd
 
-
-"""# Apenas testes com pandas"""
-df_1 = pd.Series(quantidade, index=extensao)
-df_2 = pd.DataFrame(dict_valores_graficos)
-
-print(f'\n{df_1}\n')
-print(f'\n{df_2}\n')
+def arquivos_em_pandas(valor_extensao):
+    """# Apenas testes com pandas"""
+    for dividinho_ext_qtd in valor_extensao:
+        extensao = str(dividinho_ext_qtd).split('=')[0].strip()
+        quantidade = str(dividinho_ext_qtd).split('=')[1].strip()
+    df_1 = pd.Series(quantidade, index=extensao)
+    df_2 = pd.DataFrame(dict_valores_graficos)
+    print(f'\n{df_1}\n')
+    print(f'\n{df_2}\n')
 
 """#### Teste grafico pizza"""
-
 """# Criando a representação, plotagem"""
 fig, ax = plt.subplots(figsize=(10, 5), subplot_kw=dict(aspect='equal'))
 
