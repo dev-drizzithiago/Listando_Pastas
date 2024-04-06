@@ -10,8 +10,9 @@ dict_valores_graficos = dict()
 
 
 def arquivos_em_pandas(valor_extensao=None):
-    if valor_extensao in None:
-        valor_extensao = 'sem=dados'
+    if valor_extensao is None:
+        valor_extensao = 'dados=1'
+        
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
         extensao = str(dividinho_ext_qtd).split('=')[0].strip()
@@ -26,7 +27,7 @@ def arquivos_em_pandas(valor_extensao=None):
 
 def grafico_pizza(valor_extensao):
     if valor_extensao is None:
-        valor_extensao = 'sem=dados'
+        valor_extensao = 'dados=1'
 
     """# Declaração de lista"""
     extensao = list()
@@ -73,7 +74,7 @@ def grafico_pizza(valor_extensao):
 
 def grafico_barras(valor_extensao=None):
     if valor_extensao is None:
-        valor_extensao = 'sem=dados'
+        valor_extensao = 'dados=1'
 
     """# Declarando a lista de dados"""
     extensao = list()
