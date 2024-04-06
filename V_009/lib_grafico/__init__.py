@@ -21,12 +21,14 @@ def arquivos_em_pandas(valor_extensao):
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
 
-def grafico_pizza():
+
+def grafico_pizza(valor_extensao):
     """#### Teste grafico pizza"""
     """# Criando a representação, plotagem"""
     fig, ax = plt.subplots(figsize=(10, 5), subplot_kw=dict(aspect='equal'))
 
     """# Abaixo a função vai ser responsavel ela porcentagem dos valores"""
+
     def func(pct, allvals):
         # Calc %
         absoluto = int(pct / 100. * np.sum(allvals))
@@ -49,7 +51,17 @@ def grafico_pizza():
     """# Rodando o grafico"""
     plt.show()
 
-def grafico_barras():
+
+def grafico_barras(valor_extensao):
+    """# Declarando a lista de dados"""
+    extensao = list()
+    quantidade = list()
+    valor_quantidade_int = list()
+
+    for valor_divisao_extensao in valor_extensao:
+        extensao = str(valor_divisao_extensao).split('=')
+        valor_qtd = str(valor_divisao_extensao).split('=')
+
     """### Grafico barras"""
     """# Montando o grafico em barras"""
     plt.bar(extensao, valor_quantidade_int, color='red')
