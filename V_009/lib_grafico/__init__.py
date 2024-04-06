@@ -46,7 +46,7 @@ def grafico_pizza(valor_extensao):
 
     """# Transforma os dados números que chegam como string em inteiros(int)"""
     for valor_inteiro in quantidade:
-        valor_qtd_int.append(int(quantidade))
+        valor_qtd_int.append(int(valor_inteiro))
 
     """#### Teste grafico pizza"""
     """# Criando a representação, plotagem"""
@@ -94,7 +94,7 @@ def grafico_barras(valor_extensao=None):
     print(quantidade)
 
     for valor_inteiro in quantidade:
-        valor_qtd_int.append(int(quantidade))
+        valor_qtd_int.append(int(valor_inteiro))
 
     """### Grafico barras"""
     """# Montando o grafico em barras"""
