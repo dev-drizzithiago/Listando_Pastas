@@ -993,6 +993,8 @@ class ListandoArquivos:
                                     self.lista_qtd_arq_pastas, self.qts_extensao_grafico)).start()
         print('Documento criado com sucesso!')
         self.label_status.config(text='Documento criado com sucesso!')
+        sleep(1)
+        self.label_status.config(text='Fim da busca!')
 
     def save_TXT(self):
         """
