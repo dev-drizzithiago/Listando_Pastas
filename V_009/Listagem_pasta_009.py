@@ -52,8 +52,8 @@ class ListandoArquivos:
         # Janela Principal
         self.janela_principal = tk.Tk()
         self.janela_principal.title('Versão 009')
-        self.janela_principal.geometry('1000x640+150+10')
-        self.janela_principal.resizable(0, 0)
+        self.janela_principal.geometry('1000x740+150+10')
+        # self.janela_principal.resizable(0, 0)
 
         self.icone_busca = tk.PhotoImage(file='lupa.png')
         self.janela_principal.iconphoto(True, self.icone_busca)
@@ -215,7 +215,7 @@ class ListandoArquivos:
         self.var_label_status_geral.set('Bem vindo!')
         self.label_status = Label(self.janela_principal, text=self.var_label_status_geral.get())
         self.label_status.config(justify='center')
-        self.label_status.pack(side='bottom', pady=2, padx=2)
+        self.label_status.place(y=650, x=10)
 
         """# LABEL CONTAGEM ARQUIVOS"""
         self.var_status_contagem_arquivos = tk.StringVar()
@@ -223,7 +223,7 @@ class ListandoArquivos:
         self.status_contagem_arquivos = Label(self.janela_principal)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.pack(anchor='se', pady=2, padx=2)
+        self.status_contagem_arquivos.place(y=650, x=10)
 
         """# LABEL PASTAS DISTINO DA BUSCA"""
         self.var_status_contagem_pastas = tk.StringVar()
@@ -232,7 +232,7 @@ class ListandoArquivos:
         self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_DISTINO_pastas.config(justify='center')
         self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
-        self.status_DISTINO_pastas.place(y=2, x=10)
+        self.status_DISTINO_pastas.place(y=650, x=10)
 
         """# LABEL ARQUIVOS ENCONTRADOS"""
         self.var_msg_tot_busca = tk.StringVar()
@@ -240,7 +240,7 @@ class ListandoArquivos:
         self.status_arquivos = Label(self.janela_principal, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
         self.status_arquivos.pack(anchor='n', pady=2, padx=2)
-        self.status_arquivos.place(y=20, x=10)
+        self.status_arquivos.place(y=650, x=10)
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
