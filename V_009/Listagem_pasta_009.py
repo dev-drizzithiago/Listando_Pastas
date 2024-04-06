@@ -141,44 +141,6 @@ class ListandoArquivos:
         self.lista_result_busca.config(xscrollcommand=self.barra_rolagem_lista_busca_X.set)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-        """# LABEM FRAME INFO BUSCA"""
-        self.label_frame_geral_info = LabelFrame(self.label_frame_geral, text='Informações da busca...!')
-        self.label_frame_geral_info.config(relief=tk.RIDGE)
-        self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
-
-        """# LABEL STATUS GERAL"""
-        self.var_label_status_geral = tk.StringVar()
-        self.var_label_status_geral.set('Bem vindo!')
-        self.label_status = Label(self.label_frame_geral_info, text=self.var_label_status_geral.get())
-        self.label_status.config(justify='center')
-        self.label_status.pack(side='bottom', pady=2, padx=2)
-
-        """# LABEL CONTAGEM ARQUIVOS"""
-        self.var_status_contagem_arquivos = tk.StringVar()
-        self.var_status_contagem_arquivos.set('Total de arquivos encontrados')
-        self.status_contagem_arquivos = Label(self.label_frame_geral_info)
-        self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
-        self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.pack(anchor='se', pady=2, padx=2)
-
-        """# LABEL PASTAS DISTINO DA BUSCA"""
-        self.var_status_contagem_pastas = tk.StringVar()
-        self.var_status_contagem_pastas.set('Buscando na pasta => Aguardando busca!')
-        self.status_DISTINO_pastas = Label(self.label_frame_geral_info)
-        self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
-        self.status_DISTINO_pastas.config(justify='center')
-        self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
-        self.status_DISTINO_pastas.place(y=2, x=10)
-
-        """# LABEL ARQUIVOS ENCONTRADOS"""
-        self.var_msg_tot_busca = tk.StringVar()
-        self.var_msg_tot_busca.set('Aguardando pela busca de arquivos')
-        self.status_arquivos = Label(self.label_frame_geral_info, text=self.var_msg_tot_busca.get())
-        self.status_arquivos.config(justify='center')
-        self.status_arquivos.pack(anchor='n', pady=2, padx=2)
-        self.status_arquivos.place(y=20, x=10)
-
-        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """#### Barra de progresso da busca"""
         self.label_frame_progresso = LabelFrame(self.label_frame_geral, text='Progresso da busca...!')
         self.label_frame_progresso.pack(anchor='s', fill='both', pady=2, padx=2)
@@ -241,6 +203,44 @@ class ListandoArquivos:
         self.botao_save_busca.config(state=tk.DISABLED)
         self.botao_save_busca.config(command=self.opcao_radio)
         self.botao_save_busca.place(y=1, x=785)
+
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+        """#### LABEM FRAME INFO BUSCA"""
+        self.label_frame_geral_info = LabelFrame(self.janela_principal, text='Informações da busca...!')
+        self.label_frame_geral_info.config(relief=tk.RIDGE)
+        self.label_frame_geral_info.pack(anchor='center', fill='both', pady=2, padx=2)
+
+        """# LABEL STATUS GERAL"""
+        self.var_label_status_geral = tk.StringVar()
+        self.var_label_status_geral.set('Bem vindo!')
+        self.label_status = Label(self.janela_principal, text=self.var_label_status_geral.get())
+        self.label_status.config(justify='center')
+        self.label_status.pack(side='bottom', pady=2, padx=2)
+
+        """# LABEL CONTAGEM ARQUIVOS"""
+        self.var_status_contagem_arquivos = tk.StringVar()
+        self.var_status_contagem_arquivos.set('Total de arquivos encontrados')
+        self.status_contagem_arquivos = Label(self.janela_principal)
+        self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
+        self.status_contagem_arquivos.config(justify='center')
+        self.status_contagem_arquivos.pack(anchor='se', pady=2, padx=2)
+
+        """# LABEL PASTAS DISTINO DA BUSCA"""
+        self.var_status_contagem_pastas = tk.StringVar()
+        self.var_status_contagem_pastas.set('Buscando na pasta => Aguardando busca!')
+        self.status_DISTINO_pastas = Label(self.janela_principal)
+        self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
+        self.status_DISTINO_pastas.config(justify='center')
+        self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
+        self.status_DISTINO_pastas.place(y=2, x=10)
+
+        """# LABEL ARQUIVOS ENCONTRADOS"""
+        self.var_msg_tot_busca = tk.StringVar()
+        self.var_msg_tot_busca.set('Aguardando pela busca de arquivos')
+        self.status_arquivos = Label(self.janela_principal, text=self.var_msg_tot_busca.get())
+        self.status_arquivos.config(justify='center')
+        self.status_arquivos.pack(anchor='n', pady=2, padx=2)
+        self.status_arquivos.place(y=20, x=10)
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
