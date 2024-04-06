@@ -12,13 +12,15 @@ dict_valores_graficos = dict()
 def arquivos_em_pandas(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = 'dados=1'
-        
+
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
+
         extensao = str(dividinho_ext_qtd).split('=')[0].strip()
         quantidade = str(dividinho_ext_qtd).split('=')[1].strip()
         dict_valores_graficos['Extensão'] = extensao
         dict_valores_graficos['Quantidade'] = quantidade
+
     df_1 = pd.Series(quantidade, index=extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
     print(f'\n{df_1}\n')
@@ -106,3 +108,7 @@ def grafico_barras(valor_extensao=None):
 
     """# Rodando o grafico"""
     plt.show()
+
+
+grafico_barras()
+grafico_pizza()
