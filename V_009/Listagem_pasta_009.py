@@ -197,6 +197,10 @@ class ListandoArquivos:
         self.radio_pdf.config(state=tk.DISABLED)
         self.radio_pdf.pack(anchor='center')
 
+        """# Radio Graficos"""
+        self.radio_pizza = Radiobutton(self.label_frame_radio, text='Grafico Pizza', value='PIZZA',
+                                       variable=self.var_radio)
+
         '''# BOTÃO SAVE BUSCA'''
         self.botao_save_busca = Button(self.label_frame_radio, text='Salvar Busca')
         self.botao_save_busca.config(width=30)
