@@ -41,6 +41,9 @@ def grafico_pizza(valor_extensao):
         extensao.append(str(valor_divisao_extensao).split('='))
         quantidade.append(str(valor_divisao_extensao).split('='))
 
+    print(extensao)
+    print(quantidade)
+
     """# Transforma os dados números que chegam como string em inteiros(int)"""
     for valor_inteiro in quantidade:
         valor_qtd_int.append(int(quantidade))
@@ -86,6 +89,9 @@ def grafico_barras(valor_extensao=None):
     for valor_divisao_extensao in valor_extensao:
         extensao.append(str(valor_divisao_extensao).split('='))
         quantidade.append(str(valor_divisao_extensao).split('='))
+        
+    print(extensao)
+    print(quantidade)
 
     for valor_inteiro in quantidade:
         valor_qtd_int.append(int(quantidade))
