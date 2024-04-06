@@ -23,7 +23,6 @@ def arquivos_em_pandas(valor_extensao):
 
 
 def grafico_pizza(valor_extensao):
-
     """# Declaração de lista"""
     extensao = list()
     quantidade = list()
@@ -51,8 +50,8 @@ def grafico_pizza(valor_extensao):
         return "{:.1f}%\n({:d})".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
-    wedges, textos, texto_auto = ax.pie(valor_quantidade_int, textprops=dict(color="w"),
-                                        autopct=lambda pct: func(pct, valor_quantidade_int))
+    wedges, textos, texto_auto = ax.pie(valor_qtd_int, textprops=dict(color="w"),
+                                        autopct=lambda pct: func(pct, valor_qtd_int))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
     ax.legend(wedges, extensao, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
