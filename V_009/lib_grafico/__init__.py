@@ -23,6 +23,21 @@ def arquivos_em_pandas(valor_extensao):
 
 
 def grafico_pizza(valor_extensao):
+
+    """# Declaração de lista"""
+    extensao = list()
+    quantidade = list()
+    valor_qtd_int = list()
+
+    """# Divide os valores que vão chegar da busca"""
+    for valor_divisao_extensao in valor_extensao:
+        extensao.append(str(valor_divisao_extensao).split('='))
+        quantidade.append(str(valor_divisao_extensao).split('='))
+
+    """# Transforma os dados números que chegam como string em inteiros(int)"""
+    for valor_inteiro in quantidade:
+        valor_qtd_int.append(int(quantidade))
+
     """#### Teste grafico pizza"""
     """# Criando a representação, plotagem"""
     fig, ax = plt.subplots(figsize=(10, 5), subplot_kw=dict(aspect='equal'))
@@ -61,8 +76,9 @@ def grafico_barras(valor_extensao):
     for valor_divisao_extensao in valor_extensao:
         extensao.append(str(valor_divisao_extensao).split('='))
         quantidade.append(str(valor_divisao_extensao).split('='))
+
     for valor_inteiro in quantidade:
-         valor_qtd_int.append(int(quantidade))
+        valor_qtd_int.append(int(quantidade))
 
     """### Grafico barras"""
     """# Montando o grafico em barras"""
