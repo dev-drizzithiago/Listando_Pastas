@@ -56,15 +56,17 @@ def grafico_barras(valor_extensao):
     """# Declarando a lista de dados"""
     extensao = list()
     quantidade = list()
-    valor_quantidade_int = list()
+    valor_qtd_int = list()
 
     for valor_divisao_extensao in valor_extensao:
-        extensao = str(valor_divisao_extensao).split('=')
-        valor_qtd = str(valor_divisao_extensao).split('=')
+        extensao.append(str(valor_divisao_extensao).split('='))
+        quantidade.append(str(valor_divisao_extensao).split('='))
+    for valor_inteiro in quantidade:
+         valor_qtd_int.append(int(quantidade))
 
     """### Grafico barras"""
     """# Montando o grafico em barras"""
-    plt.bar(extensao, valor_quantidade_int, color='red')
+    plt.bar(extensao, valor_qtd_int, color='red')
 
     """# Define a legenda de cada barro, no exio X"""
     plt.xticks(extensao)
