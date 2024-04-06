@@ -103,7 +103,7 @@ class ListandoArquivos:
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
         """# LABEL DE INFORMAÇÕES"""
-        self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Você escolheu a extensão..!')
+        self.label_frame_info_ext = LabelFrame(self.label_frame_geral, text='Extensão selecionada..!')
         self.label_frame_info_ext.pack(anchor='n')
         self.var_label_info_extensao = tk.StringVar()
         self.var_label_info_extensao.set(' Aguardando escolha da extensão ')
@@ -223,7 +223,7 @@ class ListandoArquivos:
         self.status_contagem_arquivos = Label(self.janela_principal)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.place(y=630, x=10)
+        self.status_contagem_arquivos.place(y=620, x=10)
 
         """# LABEL PASTAS DISTINO DA BUSCA"""
         self.var_status_contagem_pastas = tk.StringVar()
@@ -232,7 +232,7 @@ class ListandoArquivos:
         self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_DISTINO_pastas.config(justify='center')
         self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
-        self.status_DISTINO_pastas.place(y=660, x=10)
+        self.status_DISTINO_pastas.place(y=640, x=10)
 
         """# LABEL ARQUIVOS ENCONTRADOS"""
         self.var_msg_tot_busca = tk.StringVar()
@@ -240,7 +240,7 @@ class ListandoArquivos:
         self.status_arquivos = Label(self.janela_principal, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
         self.status_arquivos.pack(anchor='n', pady=2, padx=2)
-        self.status_arquivos.place(y=690, x=10)
+        self.status_arquivos.place(y=660, x=10)
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
