@@ -25,7 +25,7 @@ def arquivos_em_pandas(valor_extensao=None):
 
 
 def grafico_pizza(valor_extensao):
-    if valor_extensao in None:
+    if valor_extensao is None:
         valor_extensao = 'sem=dados'
 
     """# Declaração de lista"""
@@ -71,8 +71,8 @@ def grafico_pizza(valor_extensao):
     plt.show()
 
 
-def grafico_barras(valor_extensao):
-    if valor_extensao in None:
+def grafico_barras(valor_extensao=None):
+    if valor_extensao is None:
         valor_extensao = 'sem=dados'
 
     """# Declarando a lista de dados"""
