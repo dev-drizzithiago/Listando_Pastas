@@ -215,7 +215,7 @@ class ListandoArquivos:
         self.var_label_status_geral.set('Bem vindo!')
         self.label_status = Label(self.janela_principal, text=self.var_label_status_geral.get())
         self.label_status.config(justify='center')
-        self.label_status.place(y=650, x=10)
+        self.label_status.place(y=600, x=10)
 
         """# LABEL CONTAGEM ARQUIVOS"""
         self.var_status_contagem_arquivos = tk.StringVar()
@@ -223,7 +223,7 @@ class ListandoArquivos:
         self.status_contagem_arquivos = Label(self.janela_principal)
         self.status_contagem_arquivos.config(text=self.var_status_contagem_arquivos.get())
         self.status_contagem_arquivos.config(justify='center')
-        self.status_contagem_arquivos.place(y=650, x=10)
+        self.status_contagem_arquivos.place(y=630, x=10)
 
         """# LABEL PASTAS DISTINO DA BUSCA"""
         self.var_status_contagem_pastas = tk.StringVar()
@@ -232,7 +232,7 @@ class ListandoArquivos:
         self.status_DISTINO_pastas.config(text=self.var_status_contagem_pastas.get())
         self.status_DISTINO_pastas.config(justify='center')
         self.status_DISTINO_pastas.pack(anchor='s', pady=2, padx=2)
-        self.status_DISTINO_pastas.place(y=650, x=10)
+        self.status_DISTINO_pastas.place(y=660, x=10)
 
         """# LABEL ARQUIVOS ENCONTRADOS"""
         self.var_msg_tot_busca = tk.StringVar()
@@ -240,7 +240,7 @@ class ListandoArquivos:
         self.status_arquivos = Label(self.janela_principal, text=self.var_msg_tot_busca.get())
         self.status_arquivos.config(justify='center')
         self.status_arquivos.pack(anchor='n', pady=2, padx=2)
-        self.status_arquivos.place(y=650, x=10)
+        self.status_arquivos.place(y=690, x=10)
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
