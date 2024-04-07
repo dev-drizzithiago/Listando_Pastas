@@ -378,23 +378,35 @@ class ListandoArquivos:
 
     def thread_selecionar_destino_busca(self):
         winsound.PlaySound(som_botao, winsound.SND_ASYNC)
+        print(f'Iniciando thread para seleção do destino que sera realizado a busca')
+        sleep(1)
         Thread(target=self.pasta_destino_busca()).start()
 
     def thread_time_busca(self):
         print('Iniciando THREAD de time')
+        sleep(1)
         Thread(target=self.time_busca()).start()
 
     """# Thread para opção de salvamento"""
     def thread_opcao_save_txt(self):
+        print(f'Iniciando opcao para save em Texto')
+        sleep(1)
         Thread(target=self.save_TXT()).start()
 
+
     def thread_opcao_save_PDF(self):
+        print(f'Iniciando opcao para save em PDF')
+        sleep(1)
         Thread(target=self.save_PDF()).start()
 
     def thread_opcao_save_PIZZA(self):
+        print(f'Iniciando thread para save grafico em pizza')
+        sleep(1)
         Thread(target=self.save_opcao_PIZZA()).start()
 
     def thread_opcao_save_BARRAS(self):
+        print(f'Iniciando thread para save grafico em barras')
+        sleep(1)
         Thread(target=self.save_opcao_BARRAS()).start()
 
     def thread_hora_certa(self):
