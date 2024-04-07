@@ -197,9 +197,16 @@ class ListandoArquivos:
         self.radio_pdf.config(state=tk.DISABLED)
         self.radio_pdf.pack(anchor='center')
 
-        """# Radio Graficos"""
+        """# Radio Grafico Pizza"""
         self.radio_pizza = Radiobutton(self.label_frame_radio, text='Grafico Pizza', value='PIZZA',
                                        variable=self.var_radio)
+        self.radio_pizza.config(state=tk.DISABLED)
+        self.radio_pizza.place(y=1, x=360)
+
+        """# Radio Grafico Barras"""
+        self.radio_barras = Radiobutton(self.label_frame_radio, text='Grafico Barras', value='BARRAS')
+        self.radio_barras.config(state=tk.DISABLED)
+        self.radio_barras.place(y=20, x=360)
 
         '''# BOTÃO SAVE BUSCA'''
         self.botao_save_busca = Button(self.label_frame_radio, text='Salvar Busca')
@@ -372,6 +379,12 @@ class ListandoArquivos:
 
     def thread_opcao_save_PDF(self):
         Thread(target=self.save_PDF()).start()
+
+    def thread_opcao_save_PIZZA(self):
+        Thread(target=self.save_opcao_PIZZA()).start()
+
+    def thread_opcao_save_BARRAS(self):
+        Thread(target=self.save_opcao_BARRAS()).start()
 
     def thread_hora_certa(self):
         print('\nIniciando função "hora_certa"\n')
@@ -980,8 +993,12 @@ class ListandoArquivos:
         valor_opcao_radio = self.var_radio.get()
         if valor_opcao_radio == 'TXT':
             self.thread_opcao_save_txt()
-        else:
+        elif valor_opcao_radio == 'PDF':
             self.thread_opcao_save_PDF()
+        elif valor_opcao_radio == "PIZZA":
+            self.thread_opcao_save_PIZZA()
+        elif valor_opcao_radio == 'BARRAS':
+            self.thread_opcao_save_BARRAS()
 
     def save_PDF(self):
         """
@@ -1047,6 +1064,12 @@ class ListandoArquivos:
             self.label_status.config(text='Arquivo salvo com sucesso!')
         except:
             tk.messagebox.showwarning('AVISO', 'Busca não pode ser salva no sistema!')
+
+    def save_opcao_PIZZA(self):
+        pass
+
+    def save_opcao_BARRAS(self):
+        pass
 
 
 obj_start = ListandoArquivos()
