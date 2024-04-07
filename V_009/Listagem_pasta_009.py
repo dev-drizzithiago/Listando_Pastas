@@ -9,7 +9,12 @@ from datetime import datetime
 from tkinter.messagebox import showerror, showwarning
 from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
+
+"""Modulo criado para salvar um documento em PDF"""
 from lib_pdf import documento_PDF
+
+"""# Modulo para criar um grafico em diversos formatos"""
+from lib_grafico import *
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
