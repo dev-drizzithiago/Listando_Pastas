@@ -885,7 +885,7 @@ class ListandoArquivos:
             self.botao_save_busca['state'] = 'normal'
             self.botao_destino_busca['state'] = 'normal'
             self.botao_escolha_extensao['state'] = 'normal'
-            
+
             self.radio_txt.config(state=tk.NORMAL)
             self.radio_pdf.config(state=tk.NORMAL)
             self.radio_pizza.config(state=tk.NORMAL)
