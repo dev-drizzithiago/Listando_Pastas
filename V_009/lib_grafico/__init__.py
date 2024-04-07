@@ -21,6 +21,7 @@ def opcao_selecionada(valor_opcao=0):
         print('Não foi selecionado nenhuma opção!')
         showinfo("AVISO!", "Não foi selecionado nenhuma opção!")
 
+
 def arquivos_em_pandas(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = ['dados=1']
