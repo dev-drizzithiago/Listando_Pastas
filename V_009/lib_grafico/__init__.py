@@ -22,6 +22,7 @@ def arquivos_em_pandas(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = ['dados=1']
 
+    print(valor_extensao)
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
         extensao = str(dividinho_ext_qtd).split('=')[0].strip()
@@ -136,3 +137,6 @@ def grafico_barras(valor_extensao=None):
 
     """# Rodando o grafico"""
     plt.show()
+
+
+arquivos_em_pandas('extensao=999')
