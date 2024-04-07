@@ -46,7 +46,7 @@ def arquivos_em_pandas(valor_extensao_pandas=None):
 
 
 def grafico_pizza(valor_extensao_pizza=None):
-    print(f'Iniciando grafico de pizza')
+    print(f'\nIniciando grafico de [PIZZA]')
     print(f'Valores dos dados: {valor_extensao_pizza}')
     if valor_extensao_pizza is None:
         valor_extensao = ['dados=1']
@@ -106,7 +106,7 @@ def grafico_pizza(valor_extensao_pizza=None):
 
 
 def grafico_barras(valor_extensao_barras=None):
-    print(f'Iniciando grafico de Barras')
+    print(f'\nIniciando grafico de [Barras]')
     print(f'Valores dos dados: {valor_extensao_barras}')
     if valor_extensao_barras is None:
         valor_extensao = ['dados=1']
