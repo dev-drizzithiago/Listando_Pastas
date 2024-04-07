@@ -53,7 +53,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
 
-
     print(extensao)
     print(quantidade)
 
