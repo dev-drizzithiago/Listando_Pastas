@@ -355,7 +355,7 @@ class ListandoArquivos:
             HTML=['xps', 'htm', 'html'])
 
     # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-    # INICIANDO AS THREADS
+    """# INICIANDO AS THREADS"""
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
         self.ativo_inicio_busca = True
@@ -383,6 +383,7 @@ class ListandoArquivos:
         print('Iniciando THREAD de time')
         Thread(target=self.time_busca()).start()
 
+    """# Thread para opção de salvamento"""
     def thread_opcao_save_txt(self):
         Thread(target=self.save_TXT()).start()
 
@@ -390,10 +391,10 @@ class ListandoArquivos:
         Thread(target=self.save_PDF()).start()
 
     def thread_opcao_save_PIZZA(self):
-        Thread(target=self.save_opcao_PIZZA).start()
+        Thread(target=self.save_opcao_PIZZA()).start()
 
     def thread_opcao_save_BARRAS(self):
-        Thread(target=self.save_opcao_BARRAS).start()
+        Thread(target=self.save_opcao_BARRAS()).start()
 
     def thread_hora_certa(self):
         print('\nIniciando função "hora_certa"\n')
