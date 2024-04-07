@@ -8,6 +8,10 @@ import numpy as np
 """# Modulo PANDAS"""
 import pandas as pd
 
+"""# Modulo Geral"""
+from threading import Thread
+from time import sleep
+
 """#### Declaração de variaveis"""
 dict_valores_graficos = dict()
 
@@ -32,6 +36,11 @@ def arquivos_em_pandas(valor_extensao=None):
 def grafico_pizza(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = ['dados=1']
+
+    """# Encaminhando dados para pandas; Salvando em EXCEL"""
+
+    sleep(1)
+    Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     """# Declaração de lista"""
     extensao = list()
@@ -83,6 +92,10 @@ def grafico_pizza(valor_extensao=None):
 def grafico_barras(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = ['dados=1']
+
+    """# Encaminhando dados para pandas; Salvando em EXCEL"""
+
+    Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     """# Declarando a lista de dados"""
     extensao = list()
