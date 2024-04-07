@@ -1098,9 +1098,13 @@ class ListandoArquivos:
             tk.messagebox.showwarning('AVISO', 'Busca não pode ser salva no sistema!')
 
     def save_opcao_PIZZA(self):
+        print(f'Direcionando dados para função de criação do grafico de PIZZA')
+        sleep(1)
         grafico_pizza(self.qts_extensao_grafico)
 
     def save_opcao_BARRAS(self):
+        print(f'Direcionando dados para função de criação do grafico em BARRAS')
+        sleep(1)
         grafico_barras(self.qts_extensao_grafico)
 
 
