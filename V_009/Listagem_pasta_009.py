@@ -14,7 +14,7 @@ from tkinter.filedialog import askdirectory, asksaveasfile
 from lib_pdf import *
 
 """# Modulo para criar um grafico em diversos formatos"""
-from lib_grafico import opcao_selecionada
+# from lib_grafico import opcao_selecionada
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
@@ -222,7 +222,8 @@ class ListandoArquivos:
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """#### Separador"""
-        Separator(self.janela_principal, orient=tk.HORIZONTAL).place(y=590, x=1)
+        separador_linha = Separator(self.janela_principal, orient=tk.HORIZONTAL)
+        separador_linha.place(relx=600, rely=0.47, relwidth=1, relheight=1)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """#### LABEM FRAME INFO BUSCA"""
