@@ -57,6 +57,9 @@ def grafico_pizza(valor_extensao=None):
 
     """# Divide os valores que vão chegar da busca"""
     for valor_divisao_extensao in valor_extensao:
+        print(f'Extensao: {valor_divisao_extensao.split("=")[0]}')
+        print(f'Quantidade: {valor_divisao_extensao.split("=")[1]}')
+
         extensao.append(str(valor_divisao_extensao).split('=')[0])
         quantidade.append(str(valor_divisao_extensao).split('=')[1])
 
@@ -114,7 +117,6 @@ def grafico_barras(valor_extensao=None):
     valor_qtd_int = list()
 
     for valor_divisao_extensao in valor_extensao:
-
         print(f"{str(valor_divisao_extensao).split('=')[0].strip()}")
         print(f"{str(valor_divisao_extensao).split('=')[1].strip()}")
 
