@@ -14,6 +14,7 @@ from time import sleep
 from winsound import PlaySound, SND_ASYNC
 
 """#### Declaração de variaveis"""
+linhas_divisao = '-=-' * 20
 dict_valores_graficos = dict()
 lista_quantidade = list()
 lista_extensao = list()
@@ -24,10 +25,10 @@ def arquivos_em_pandas(valor_extensao_pandas=None):
     print(f'Iniciando salvamento em EXCEL')
     print(f'Dados entrandono no função "arquivos_em_pastas: {valor_extensao_pandas}')
     if valor_extensao_pandas is None:
-        valor_extensao = ['dados=1']
+        valor_extensao_pandas = ['dados=1']
 
     """# Apenas testes com pandas"""
-    for dividinho_ext_qtd in valor_extensao:
+    for dividinho_ext_qtd in valor_extensao_pandas:
         print(f"Dados no loop 'dividindo_ext_qtd': {str(dividinho_ext_qtd)}")
         lista_extensao.append(str(dividinho_ext_qtd).split('=')[0].strip())
         lista_quantidade.append(str(dividinho_ext_qtd).split('=')[1].strip())
@@ -43,22 +44,24 @@ def arquivos_em_pandas(valor_extensao_pandas=None):
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
+    print('Dados salvos com sucesso na planilha!!\n')
+    print(f'{linhas_divisao}\n')
 
 
 def grafico_pizza(valor_extensao_pizza=None):
     print(f'\nIniciando grafico de [PIZZA]')
     print(f'Valores dos dados: {valor_extensao_pizza}')
     if valor_extensao_pizza is None:
-        valor_extensao = ['dados=1']
+        valor_extensao_pizza = ['dados=1']
 
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
     print(f'Dados sendo encaminhados para salvar em planilha')
     sleep(1)
-    Thread(target=arquivos_em_pandas(valor_extensao)).start()
+    Thread(target=arquivos_em_pandas(valor_extensao_pizza)).start()
 
     """# Divide os valores que vão chegar da busca"""
-    for valor_divisao_extensao in valor_extensao:
-        print(f"Dados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
+    for valor_divisao_extensao in valor_extensao_pizza:
+        print(f"\nDados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
         lista_extensao.append(str(valor_divisao_extensao).split('=')[0].strip())
         lista_quantidade.append(str(valor_divisao_extensao).split('=')[1].strip())
 
@@ -103,6 +106,11 @@ def grafico_pizza(valor_extensao_pizza=None):
     plt.show()
     PlaySound('Exclamation', SND_ASYNC)
     showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
+
+    """# Limpeza das listas"""
+    del lista_extensao[:]
+    del lista_quantidade[:]
+    print(f'{linhas_divisao}\n')
 
 
 def grafico_barras(valor_extensao_barras=None):
@@ -152,6 +160,11 @@ def grafico_barras(valor_extensao_barras=None):
     plt.show()
     showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
     PlaySound('Exclamation', SND_ASYNC)
+
+    """# Limpeza das listas"""
+    del lista_extensao[:]
+    del lista_quantidade[:]
+    print(f'{linhas_divisao}\n')
 
 
 if __name__ == '__main__':
