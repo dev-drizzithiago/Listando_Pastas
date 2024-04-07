@@ -8,6 +8,7 @@ from pathlib import Path
 
 """# Modulos GERAL"""
 from tkinter.messagebox import showinfo, showerror
+from winsound import PlaySound, SND_ASYNC
 
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
@@ -128,6 +129,7 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
         print('\nFinalizado! \nArquivos criado com sucesso!')
+        PlaySound()
         showinfo('Parabens!', f'O documento foi salvo com sucesso na pasta [{"Downloads"}]')
     except:
         print(f'ERROR: Não foi possível gravar o documento {pdf_diretorio_save}')
