@@ -17,6 +17,7 @@ from winsound import PlaySound, SND_ASYNC
 dict_valores_graficos = dict()
 lista_quantidade = list()
 lista_extensao = list()
+valor_qtd_int = list()
 
 
 def arquivos_em_pandas(valor_extensao=None):
@@ -82,9 +83,9 @@ def grafico_pizza(valor_extensao=None):
     """# Abaixo a função vai ser responsavel ela porcentagem dos valores"""
 
     def func(pct, allvals):
-        # Calc %
+        """# Calc %"""
         absoluto = int(pct / 100. * np.sum(allvals))
-        # Legendao do grafico com %
+        """# Legendao do grafico com %"""
         return "{:.1f}%\n({:d})".format(pct, absoluto)
 
     """# Criando o grafico e colocand as legendas"""
@@ -126,15 +127,15 @@ def grafico_barras(valor_extensao=None):
     print(f'Valor da "lista_exntesao": {lista_extensao}')
     print(f'Valor da "lista_quantidade": {lista_quantidade}')
 
-    for valor_inteiro in quantidade:
+    for valor_inteiro in lista_quantidade:
         valor_qtd_int.append(int(valor_inteiro))
 
     """### Grafico barras"""
     """# Montando o grafico em barras"""
-    plt.bar(extensao, valor_qtd_int, color='red')
+    plt.bar(lista_extensao, valor_qtd_int, color='red')
 
     """# Define a legenda de cada barro, no exio X"""
-    plt.xticks(extensao)
+    plt.xticks(lista_extensao)
 
     """# A label para o eixo Y"""
     plt.ylabel('Quantidade encontrada')
