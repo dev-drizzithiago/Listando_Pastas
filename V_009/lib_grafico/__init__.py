@@ -1,5 +1,5 @@
 """# Modulo tkinter"""
-from tkinter.messagebox import showinfo, showerror
+from tkinter.messagebox import showinfo
 
 """# Modulo Grafico"""
 import matplotlib.pyplot as plt
