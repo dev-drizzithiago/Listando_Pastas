@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import *
 
-import winsound
+from winsound import PlaySound, SND_ASYNC
 from time import sleep
 from pathlib import Path
 from threading import Thread
@@ -28,7 +28,7 @@ som_fim_processo = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_009\sons\\final_b
 
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
 class ListandoArquivos:
-    winsound.PlaySound(som_abrindo_programa, winsound.SND_ASYNC)
+    PlaySound(som_abrindo_programa, SND_ASYNC)
 
     def __init__(self):
         self.categorias_busca = ('Arquivo Imagem', 'Arquivos de Vídeos/Audios', 'Arquivos de Leitura',
@@ -360,7 +360,7 @@ class ListandoArquivos:
     def thread_botao_iniciar(self):
         print('Iniciando THREAD [INICIAR BUSCA]')
         self.ativo_inicio_busca = True
-        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
+        PlaySound(som_botao, SND_ASYNC)
         print(f'Iniciando a busca principal do programa')
         sleep(1)
         if self.ativo_status_extensao:
@@ -369,19 +369,19 @@ class ListandoArquivos:
             showerror('AVISO!', 'Voce não escolheu nenhuma extensão')
 
     def thread_botao_extensao(self):
-        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
+        PlaySound(som_botao, SND_ASYNC)
         print('Iniciando THREAD [BUSCA ESPECIFICA POR EXTENSAO]')
         sleep(1)
         Thread(target=self.digitar_extensao()).start()
 
     def thread_adicionar_extensao(self):
-        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
+        PlaySound(som_botao, SND_ASYNC)
         print('Iniciando THREAD [ADICIONAR EXTENSAO]')
         sleep(1)
         Thread(self.adicionado_extensao_arq_txt()).start()
 
     def thread_selecionar_destino_busca(self):
-        winsound.PlaySound(som_botao, winsound.SND_ASYNC)
+        PlaySound(som_botao, SND_ASYNC)
         print(f'Iniciando thread para seleção do destino que sera realizado a busca')
         sleep(1)
         Thread(target=self.pasta_destino_busca()).start()
