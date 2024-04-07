@@ -60,12 +60,14 @@ def grafico_pizza(valor_extensao=None):
         print(f"Dados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
         lista_extensao.append(str(valor_divisao_extensao).split('=')[0].strip())
         lista_quantidade.append(str(valor_divisao_extensao).split('=')[1].strip())
-        dict_valores_graficos['Extensão'] = lista_extensao
-        dict_valores_graficos['Quantidade'] = lista_quantidade
+
+    dict_valores_graficos['Extensão'] = lista_extensao
+    dict_valores_graficos['Quantidade'] = lista_quantidade
 
     """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(f'Valor da "lista_exntesao": {lista_extensao}')
     print(f'Valor da "lista_quantidade": {lista_quantidade}')
+    print(f'Valor do "dict_valores_graficos": {dict_valores_graficos}')
 
     """# Transforma os dados números que chegam como string em inteiros(int)"""
     for valor_inteiro in lista_quantidade:
@@ -115,12 +117,14 @@ def grafico_barras(valor_extensao=None):
         print(f"Dados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
         lista_extensao.append(str(valor_divisao_extensao).split('=')[0].strip())
         lista_quantidade.append(str(valor_divisao_extensao).split('=')[1].strip())
-        dict_valores_graficos['Extensão'] = lista_extensao
-        dict_valores_graficos['Quantidade'] = lista_quantidade
+
+    dict_valores_graficos['Extensão'] = lista_extensao
+    dict_valores_graficos['Quantidade'] = lista_quantidade
 
     """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(f'Valor da "lista_exntesao": {lista_extensao}')
     print(f'Valor da "lista_quantidade": {lista_quantidade}')
+    print(f'Valor do "dict_valores_graficos": {dict_valores_graficos}')
 
     for valor_inteiro in lista_quantidade:
         valor_qtd_int.append(int(valor_inteiro))
@@ -146,4 +150,5 @@ def grafico_barras(valor_extensao=None):
 
 
 if __name__ == '__main__':
-    arquivos_em_pandas()
+    grafico_barras()
+    grafico_pizza()
