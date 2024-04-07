@@ -25,6 +25,9 @@ def arquivos_em_pandas(valor_extensao=None):
     print(valor_extensao)
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
+        print(f"{str(dividinho_ext_qtd).split('=')[0].strip()}")
+        print(f"{str(dividinho_ext_qtd).split('=')[1].strip()}")
+
         extensao = str(dividinho_ext_qtd).split('=')[0].strip()
         quantidade = str(dividinho_ext_qtd).split('=')[1].strip()
         dict_valores_graficos['Extensão'] = extensao
@@ -38,13 +41,14 @@ def arquivos_em_pandas(valor_extensao=None):
 
 def grafico_pizza(valor_extensao=None):
     print(f'Iniciando grafico de pizza')
+    print(f'Valores dos dados: {valor_extensao}')
     if valor_extensao is None:
         valor_extensao = ['dados=1']
 
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
     print(f'Dados sendo encaminhados para salvar em planilha')
     sleep(1)
-    # Thread(target=arquivos_em_pandas(valor_extensao)).start()
+    Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     """# Declaração de lista"""
     extensao = list()
@@ -95,13 +99,14 @@ def grafico_pizza(valor_extensao=None):
 
 def grafico_barras(valor_extensao=None):
     print(f'Iniciando grafico de Barras')
+    print(f'Valores dos dados: {valor_extensao}')
     if valor_extensao is None:
         valor_extensao = ['dados=1']
 
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
     print(f'Dados sendo encaminhados para salvar em planilha')
     sleep(1)
-    # Thread(target=arquivos_em_pandas(valor_extensao)).start()
+    Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     """# Declarando a lista de dados"""
     extensao = list()
@@ -109,6 +114,10 @@ def grafico_barras(valor_extensao=None):
     valor_qtd_int = list()
 
     for valor_divisao_extensao in valor_extensao:
+
+        print(f"{str(valor_divisao_extensao).split('=')[0].strip()}")
+        print(f"{str(valor_divisao_extensao).split('=')[1].strip()}")
+
         extensao.append(str(valor_divisao_extensao).split('=')[0])
         quantidade.append(str(valor_divisao_extensao).split('=')[1])
 
