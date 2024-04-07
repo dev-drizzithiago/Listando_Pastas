@@ -14,7 +14,7 @@ from tkinter.filedialog import askdirectory, asksaveasfile
 from lib_pdf import *
 
 """# Modulo para criar um grafico em diversos formatos"""
-# from lib_grafico import opcao_selecionada
+# from lib_grafico import *
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
