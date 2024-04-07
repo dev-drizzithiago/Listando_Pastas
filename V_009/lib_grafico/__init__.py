@@ -40,6 +40,7 @@ def arquivos_em_pandas(valor_extensao=None):
 
     df_1 = pd.Series(lista_quantidade, index=lista_extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
+
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
 
@@ -100,6 +101,8 @@ def grafico_pizza(valor_extensao=None):
 
     """# Rodando o grafico"""
     plt.show()
+    PlaySound('Exclamation', SND_ASYNC)
+    showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
 
 
 def grafico_barras(valor_extensao=None):
@@ -147,6 +150,8 @@ def grafico_barras(valor_extensao=None):
 
     """# Rodando o grafico"""
     plt.show()
+    showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
+    PlaySound('Exclamation', SND_ASYNC)
 
 
 if __name__ == '__main__':
