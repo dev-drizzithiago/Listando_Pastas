@@ -40,7 +40,7 @@ def arquivos_em_pandas(valor_extensao=None):
     print(f'\n{df_2}\n')
 
 
-def grafico_pizza(valor_extensao):
+def grafico_pizza(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = ['dados=1']
 
@@ -78,7 +78,7 @@ def grafico_pizza(valor_extensao):
                                         autopct=lambda pct: func(pct, valor_qtd_int))
 
     """# Define a caixa de legenda externa, titulos, localização e onde vai ancorar o box"""
-    ax.legend(wedges, extensao, title='teste', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+    ax.legend(wedges, extensao, title='Valores da busca', loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
 
     """# Define o tamanho do texto dentro do grafico """
     plt.setp(texto_auto, size=6, weight='bold')
@@ -123,7 +123,7 @@ def grafico_barras(valor_extensao=None):
     plt.xlabel('Extensões')
 
     """# Titulo do Grafico"""
-    plt.title('Extensões encontradas')
+    plt.title('Valor da busca')
 
     """# Rodando o grafico"""
     plt.show()
