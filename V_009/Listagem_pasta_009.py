@@ -11,7 +11,7 @@ from tkinter.simpledialog import askstring
 from tkinter.filedialog import askdirectory, asksaveasfile
 
 """Modulo criado para salvar um documento em PDF"""
-from lib_pdf import documento_PDF
+from lib_pdf import *
 
 """# Modulo para criar um grafico em diversos formatos"""
 from lib_grafico import *
