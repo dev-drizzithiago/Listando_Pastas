@@ -760,6 +760,8 @@ class ListandoArquivos:
             Quando refaz a busca é preciso desativar para que não ocorra erros desnecessarios"""
             self.radio_txt.config(state=tk.DISABLED)
             self.radio_pdf.config(state=tk.DISABLED)
+            self.radio_pizza.config(state=tk.DISABLED)
+            self.radio_barras.config(state=tk.DISABLED)
 
             """# LIMPANDO LISTA DE BUSCA
             Função se aplica quando realiza a próxima listagem.
@@ -878,13 +880,17 @@ class ListandoArquivos:
             deixando rodando em segundo plano"""
             winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
 
-            """# REATIVANDO BOTÕES"""
+            """# REATIVANDO BOTÕES/Radios"""
             self.botao_iniciar_busca['state'] = 'normal'
             self.botao_save_busca['state'] = 'normal'
             self.botao_destino_busca['state'] = 'normal'
             self.botao_escolha_extensao['state'] = 'normal'
+            
             self.radio_txt.config(state=tk.NORMAL)
             self.radio_pdf.config(state=tk.NORMAL)
+            self.radio_pizza.config(state=tk.NORMAL)
+            self.radio_barras.config(state=tk.NORMAL)
+
             self.label_status.config(text='Processo de busca finalizado')
         else:
             showwarning('ATENÇAO', 'Sua busca foi cancelada')
