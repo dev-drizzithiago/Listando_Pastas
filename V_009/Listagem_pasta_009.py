@@ -221,6 +221,11 @@ class ListandoArquivos:
         self.botao_save_busca.place(y=1, x=785)
 
         # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+        """#### Separador"""
+        Separator(self.janela_principal, orient=tk.HORIZONTAL).place(y=590, x=1)
+
+
+        # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
         """#### LABEM FRAME INFO BUSCA"""
         self.label_frame_geral_info = LabelFrame(self.janela_principal, text='Informações da busca...!')
         self.label_frame_geral_info.config(relief=tk.RIDGE)
@@ -309,7 +314,6 @@ class ListandoArquivos:
         self.label_info_add_extensao.pack(anchor='center', pady=5, padx=5)
 
     """# Funções simples"""
-
     def hora_certa(self):
         valor_datatime = datetime.now()
         self.data_atual = valor_datatime.strftime('%d/%m/%Y')
