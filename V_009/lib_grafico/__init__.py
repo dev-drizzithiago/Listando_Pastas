@@ -11,17 +11,6 @@ import pandas as pd
 """#### Declaração de variaveis"""
 dict_valores_graficos = dict()
 
-
-def opcao_selecionada(valor_opcao=0):
-    if valor_opcao == 1:
-        pass
-    elif valor_opcao == 2:
-        pass
-    else:
-        print('Não foi selecionado nenhuma opção!')
-        showinfo("AVISO!", "Não foi selecionado nenhuma opção!")
-
-
 def arquivos_em_pandas(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = ['dados=1']
