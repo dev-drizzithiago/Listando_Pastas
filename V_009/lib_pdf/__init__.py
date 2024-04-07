@@ -25,8 +25,8 @@ def numero_paginas(janela, documento):
 
 
 # ----------------------------------------------------------------------
-def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_qtd_extensao=None,
-                  valor_qtd_arq_pasta=None):
+def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None,
+                  valor_qtd_extensao=None, valor_qtd_arq_pasta=None):
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
@@ -54,8 +54,9 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
 
-    print(extensao)
-    print(quantidade)
+    """# Mostra os dados para analise do desenvolvedor"""
+    print(f'Lista de extensão: {extensao}')
+    print(f'Lista de quantidade: {quantidade}')
 
     """### Transforma o valor de quantidade em número inteiro"""
     for valor in quantidade:
