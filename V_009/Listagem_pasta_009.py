@@ -14,7 +14,7 @@ from tkinter.filedialog import askdirectory, asksaveasfile
 from lib_pdf import *
 
 """# Modulo para criar um grafico em diversos formatos"""
-# from lib_grafico import *
+from lib_grafico import grafico_pizza, grafico_barras
 
 valor_pasta_destino = Path().home()
 pasta_arq_registro_extensao = str(Path(valor_pasta_destino, 'AppData', 'LocalLow', 'extensoes'))
@@ -1081,10 +1081,10 @@ class ListandoArquivos:
             tk.messagebox.showwarning('AVISO', 'Busca não pode ser salva no sistema!')
 
     def save_opcao_PIZZA(self):
-        pass
+        grafico_pizza(self.qts_extensao_grafico)
 
     def save_opcao_BARRAS(self):
-        pass
+        grafico_barras(self.qts_extensao_grafico)
 
 
 obj_start = ListandoArquivos()
