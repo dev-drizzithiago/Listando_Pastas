@@ -129,10 +129,11 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
         doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
         print('\nFinalizado! \nArquivos criado com sucesso!')
-        PlaySound()
+        PlaySound('Exclamation', SND_ASYNC)
         showinfo('Parabens!', f'O documento foi salvo com sucesso na pasta [{"Downloads"}]')
     except:
         print(f'ERROR: Não foi possível gravar o documento {pdf_diretorio_save}')
+        PlaySound('Critical Stop', SND_ASYNC)
         showerror("ERROR", f'Não foi possível gravar o documento {pdf_diretorio_save}')
 
 
