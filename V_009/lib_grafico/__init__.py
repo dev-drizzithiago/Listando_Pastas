@@ -20,10 +20,10 @@ lista_extensao = list()
 valor_qtd_int = list()
 
 
-def arquivos_em_pandas(valor_extensao=None):
+def arquivos_em_pandas(valor_extensao_pandas=None):
     print(f'Iniciando salvamento em EXCEL')
-    print(f'Dados entrandono no função "arquivos_em_pastas: {valor_extensao}')
-    if valor_extensao is None:
+    print(f'Dados entrandono no função "arquivos_em_pastas: {valor_extensao_pandas}')
+    if valor_extensao_pandas is None:
         valor_extensao = ['dados=1']
 
     """# Apenas testes com pandas"""
@@ -45,10 +45,10 @@ def arquivos_em_pandas(valor_extensao=None):
     print(f'\n{df_2}\n')
 
 
-def grafico_pizza(valor_extensao=None):
+def grafico_pizza(valor_extensao_pizza=None):
     print(f'Iniciando grafico de pizza')
-    print(f'Valores dos dados: {valor_extensao}')
-    if valor_extensao is None:
+    print(f'Valores dos dados: {valor_extensao_pizza}')
+    if valor_extensao_pizza is None:
         valor_extensao = ['dados=1']
 
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
@@ -105,10 +105,10 @@ def grafico_pizza(valor_extensao=None):
     showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
 
 
-def grafico_barras(valor_extensao=None):
+def grafico_barras(valor_extensao_barras=None):
     print(f'Iniciando grafico de Barras')
-    print(f'Valores dos dados: {valor_extensao}')
-    if valor_extensao is None:
+    print(f'Valores dos dados: {valor_extensao_barras}')
+    if valor_extensao_barras is None:
         valor_extensao = ['dados=1']
 
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
