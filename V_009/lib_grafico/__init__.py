@@ -116,7 +116,3 @@ def grafico_barras(valor_extensao=None):
 
     """# Rodando o grafico"""
     plt.show()
-
-
-grafico_pizza()
-grafico_barras()
