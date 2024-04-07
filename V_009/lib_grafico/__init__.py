@@ -19,7 +19,7 @@ dict_valores_graficos = dict()
 
 def arquivos_em_pandas(valor_extensao=None):
     print(f'Iniciando salvamento em EXCEL')
-    print(f'Dados entrando função "arquivos_em_pastas: {valor_extensao}')
+    print(f'Dados entrandono no função "arquivos_em_pastas: {valor_extensao}')
     if valor_extensao is None:
         valor_extensao = ['dados=1']
 
