@@ -11,13 +11,13 @@ import pandas as pd
 """#### Declaração de variaveis"""
 dict_valores_graficos = dict()
 
+
 def arquivos_em_pandas(valor_extensao=None):
     if valor_extensao is None:
         valor_extensao = ['dados=1']
 
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
-
         extensao = str(dividinho_ext_qtd).split('=')[0].strip()
         quantidade = str(dividinho_ext_qtd).split('=')[1].strip()
         dict_valores_graficos['Extensão'] = extensao
