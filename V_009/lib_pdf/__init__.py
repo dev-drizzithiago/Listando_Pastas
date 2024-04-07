@@ -25,14 +25,13 @@ def numero_paginas(janela, documento):
 
 # ----------------------------------------------------------------------
 def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_qtd_extensao=None,
-                  valor_qtd_arq_pasta=None, valor_ext_grafico=None):
+                  valor_qtd_arq_pasta=None):
 
     """# Análise dos valores que chagaram até a funnção"""
     print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
     print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
     print(f'\nAnalise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
     print(f'\nAnalise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
-    print(f'\nAnalise "valor_ext_grafico" \n.{valor_ext_grafico}<')
 
     """# As condições abaixo, são responsável para que, caso execulte o programa nessa parte, não ocorra erros"""
     if valor_qtd_extensao is None:
@@ -47,11 +46,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     if valor_dados_coletados is None:
         valor_dados_coletados = ['Sem', 'dados', 'para', 'analisar']
 
-    if valor_ext_grafico is None:
-        valor_ext_grafico = ['txt=1', 'pdf=1', 'ini=1',
-                             'png=1', 'jpg=1', 'zip=1',
-                             'rar=1', 'mp4=1', 'jpeg=1',
-                             'log=1']
 
     """# Declaração Variaveis"""
     extensao = list()
