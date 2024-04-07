@@ -802,7 +802,7 @@ class ListandoArquivos:
             Thread(target=self.time_busca).start()
 
             """# INICIANDO BARRA DE PROGRESSO"""
-            winsound.PlaySound(som_inicio_busca, winsound.SND_ASYNC)
+            PlaySound(som_inicio_busca, SND_ASYNC)
             sleep(2)
             self.barra_progresso_busca.start()
 
@@ -895,7 +895,7 @@ class ListandoArquivos:
             """# Emitindo som de finalização; O som ajuda o usuário quando a busca finaliza. Existem algumas buscas
             que podem levar um certo tempo, com um sinalizado sonoro pode ajuda-lo em voltar ao programa, caos tenho 
             deixando rodando em segundo plano"""
-            winsound.PlaySound('Som WINDOWS', winsound.SND_ASYNC)
+            PlaySound('Som WINDOWS', SND_ASYNC)
 
             """# REATIVANDO BOTÕES/Radios"""
             self.botao_iniciar_busca['state'] = 'normal'
