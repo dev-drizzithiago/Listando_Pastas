@@ -1026,7 +1026,7 @@ class ListandoArquivos:
         nome_PDF = f'{valor_nome_PDF}-{self.data_atual.replace("/", "")}-{self.hora_atual.replace(":", "")}'
         sleep(1)
         Thread(target=documento_PDF(self.lista_save_busca, nome_PDF, self.lista_qtd_extensao,
-                                    self.lista_qtd_arq_pastas, self.qts_extensao_grafico)).start()
+                                    self.lista_qtd_arq_pastas)).start()
         print('Documento criado com sucesso!')
         self.label_status.config(text='Documento criado com sucesso!')
         sleep(1)
