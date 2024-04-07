@@ -11,6 +11,7 @@ import pandas as pd
 """# Modulo Geral"""
 from threading import Thread
 from time import sleep
+from winsound import PlaySound, SND_ASYNC
 
 """#### Declaração de variaveis"""
 dict_valores_graficos = dict()
