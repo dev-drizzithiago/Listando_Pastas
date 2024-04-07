@@ -44,7 +44,7 @@ def grafico_pizza(valor_extensao=None):
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
     print(f'Dados sendo encaminhados para salvar em planilha')
     sleep(1)
-    Thread(target=arquivos_em_pandas(valor_extensao)).start()
+    # Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     """# Declaração de lista"""
     extensao = list()
@@ -101,7 +101,7 @@ def grafico_barras(valor_extensao=None):
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
     print(f'Dados sendo encaminhados para salvar em planilha')
     sleep(1)
-    Thread(target=arquivos_em_pandas(valor_extensao)).start()
+    # Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     """# Declarando a lista de dados"""
     extensao = list()
@@ -139,4 +139,5 @@ def grafico_barras(valor_extensao=None):
     plt.show()
 
 
-arquivos_em_pandas('extensao=999')
+grafico_pizza('extensao=999')
+grafico_barras('extensao=999')
