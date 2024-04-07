@@ -46,7 +46,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
     if valor_dados_coletados is None:
         valor_dados_coletados = ['Sem', 'dados', 'para', 'analisar']
 
-
     """# Declaração Variaveis"""
     extensao = list()
     quantidade = list()
@@ -54,12 +53,6 @@ def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None, valor_q
 
     dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
 
-    """# Lendos arquivo 'valor_ext_grafico"""
-    for dividindo_valores in valor_ext_grafico:
-        extensao.append(str(dividindo_valores.split('=')[0]).strip())
-        quantidade.append(str(dividindo_valores.split('=')[1]).strip())
-        dict_valores_graficos['Extensao'] = extensao
-        dict_valores_graficos['Quantidade'] = quantidade
 
     print(extensao)
     print(quantidade)
