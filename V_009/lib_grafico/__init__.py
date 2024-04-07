@@ -15,6 +15,8 @@ from winsound import PlaySound, SND_ASYNC
 
 """#### Declaração de variaveis"""
 dict_valores_graficos = dict()
+lista_quantidade = list()
+lista_extensao = list()
 
 
 def arquivos_em_pandas(valor_extensao=None):
@@ -26,12 +28,12 @@ def arquivos_em_pandas(valor_extensao=None):
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
         print(f"Dados no loop 'dividindo_ext_qtd': {str(dividinho_ext_qtd)}")
-        extensao = str(dividinho_ext_qtd).split('=')[0].strip()
-        quantidade = str(dividinho_ext_qtd).split('=')[1].strip()
-        dict_valores_graficos['Extensão'] = extensao
-        dict_valores_graficos['Quantidade'] = quantidade
+        lista_extensao.append(str(dividinho_ext_qtd).split('=')[0].strip())
+        lista_quantidade.append(str(dividinho_ext_qtd).split('=')[1].strip())
+        dict_valores_graficos['Extensão'] = lista_extensao
+        dict_valores_graficos['Quantidade'] = lista_quantidade
 
-    df_1 = pd.Series(quantidade, index=extensao)
+    df_1 = pd.Series(lista_quantidade, index=lista_extensao)
     df_2 = pd.DataFrame(dict_valores_graficos)
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
