@@ -129,5 +129,5 @@ def grafico_barras(valor_extensao=None):
     plt.show()
 
 
-grafico_barras()
 grafico_pizza()
+grafico_barras()
