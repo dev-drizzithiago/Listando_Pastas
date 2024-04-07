@@ -209,7 +209,8 @@ class ListandoArquivos:
         self.radio_pizza.place(y=1, x=360)
 
         """# Radio Grafico Barras"""
-        self.radio_barras = Radiobutton(self.label_frame_radio, text='Grafico Barras', value='BARRAS')
+        self.radio_barras = Radiobutton(self.label_frame_radio, text='Grafico Barras', value='BARRAS',
+                                        variable=self.var_radio)
         self.radio_barras.config(state=tk.DISABLED)
         self.radio_barras.place(y=20, x=360)
 
