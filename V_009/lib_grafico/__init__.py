@@ -19,15 +19,13 @@ dict_valores_graficos = dict()
 
 def arquivos_em_pandas(valor_extensao=None):
     print(f'Iniciando salvamento em EXCEL')
+    print(f'Dados entrando função "arquivos_em_pastas: {valor_extensao}')
     if valor_extensao is None:
         valor_extensao = ['dados=1']
 
-    print(valor_extensao)
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao:
-        print(f"{str(dividinho_ext_qtd).split('=')[0].strip()}")
-        print(f"{str(dividinho_ext_qtd).split('=')[1].strip()}")
-
+        print(f"Dados no loop 'dividindo_ext_qtd': {str(dividinho_ext_qtd)}")
         extensao = str(dividinho_ext_qtd).split('=')[0].strip()
         quantidade = str(dividinho_ext_qtd).split('=')[1].strip()
         dict_valores_graficos['Extensão'] = extensao
