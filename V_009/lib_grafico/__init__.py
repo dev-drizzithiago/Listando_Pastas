@@ -148,5 +148,5 @@ def grafico_barras(valor_extensao=None):
     plt.show()
 
 
-grafico_pizza('extensao=999')
-grafico_barras('extensao=999')
+if __name__ == '__main__':
+    arquivos_em_pandas()
