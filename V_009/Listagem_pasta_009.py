@@ -361,6 +361,8 @@ class ListandoArquivos:
         print('Iniciando THREAD [INICIAR BUSCA]')
         self.ativo_inicio_busca = True
         winsound.PlaySound(som_botao, winsound.SND_ASYNC)
+        print(f'Iniciando a busca principal do programa')
+        sleep(1)
         if self.ativo_status_extensao:
             Thread(target=self.iniciar_busca).start()
         else:
@@ -369,11 +371,13 @@ class ListandoArquivos:
     def thread_botao_extensao(self):
         winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         print('Iniciando THREAD [BUSCA ESPECIFICA POR EXTENSAO]')
+        sleep(1)
         Thread(target=self.digitar_extensao()).start()
 
     def thread_adicionar_extensao(self):
         winsound.PlaySound(som_botao, winsound.SND_ASYNC)
         print('Iniciando THREAD [ADICIONAR EXTENSAO]')
+        sleep(1)
         Thread(self.adicionado_extensao_arq_txt()).start()
 
     def thread_selecionar_destino_busca(self):
@@ -392,7 +396,6 @@ class ListandoArquivos:
         print(f'Iniciando opcao para save em Texto')
         sleep(1)
         Thread(target=self.save_TXT()).start()
-
 
     def thread_opcao_save_PDF(self):
         print(f'Iniciando opcao para save em PDF')
