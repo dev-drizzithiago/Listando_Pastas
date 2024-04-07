@@ -43,6 +43,7 @@ def grafico_pizza(valor_extensao=None):
         extensao.append(str(valor_divisao_extensao).split('=')[0])
         quantidade.append(str(valor_divisao_extensao).split('=')[1])
 
+    """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(extensao)
     print(quantidade)
 
@@ -92,6 +93,7 @@ def grafico_barras(valor_extensao=None):
         extensao.append(str(valor_divisao_extensao).split('=')[0])
         quantidade.append(str(valor_divisao_extensao).split('=')[1])
 
+    """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(extensao)
     print(quantidade)
 
