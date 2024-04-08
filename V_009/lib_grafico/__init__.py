@@ -15,30 +15,31 @@ from winsound import PlaySound, SND_ASYNC
 
 """#### Declaração de variaveis"""
 linhas_divisao = '-=-' * 20
-dict_valores_graficos = dict()
 lista_quantidade = list()
 lista_extensao = list()
 valor_qtd_int = list()
 
 
 def arquivos_em_pandas(valor_extensao_pandas):
+    """# Declaração interna"""
+    dict_valores_graficos_PANDAS = dict()
     print(f'Iniciando salvamento em EXCEL')
     print(f'Dados entrandono no função "valor_extensao_pandas: {valor_extensao_pandas}')
 
     """# Apenas testes com pandas"""
-    for dividinho_ext_qtd in valor_extensao_pandas:
-        print(f"Dados no loop 'dividindo_ext_qtd': {str(dividinho_ext_qtd)}")
-        lista_extensao.append(str(dividinho_ext_qtd).split('=')[0].strip())
-        lista_quantidade.append(str(dividinho_ext_qtd).split('=')[1].strip())
-        dict_valores_graficos['Extensão'] = lista_extensao
-        dict_valores_graficos['Quantidade'] = lista_quantidade
+    for dividinho_ext_qtd_pandas in valor_extensao_pandas:
+        print(f"Dados no loop 'dividinho_ext_qtd_pandas': {str(dividinho_ext_qtd_pandas)}")
+        lista_extensao.append(str(dividinho_ext_qtd_pandas).split('=')[0].strip())
+        lista_quantidade.append(str(dividinho_ext_qtd_pandas).split('=')[1].strip())
+        dict_valores_graficos_PANDAS['Extensão'] = lista_extensao
+        dict_valores_graficos_PANDAS['Quantidade'] = lista_quantidade
 
     """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(f'Valor da "lista_exntesao": {lista_extensao}')
     print(f'Valor da "lista_quantidade": {lista_quantidade}')
 
     df_1 = pd.Series(lista_quantidade, index=lista_extensao)
-    df_2 = pd.DataFrame(dict_valores_graficos)
+    df_2 = pd.DataFrame(dict_valores_graficos_PANDAS)
 
     print(f'\n{df_1}\n')
     print(f'\n{df_2}\n')
@@ -47,24 +48,26 @@ def arquivos_em_pandas(valor_extensao_pandas):
 
 
 def grafico_pizza(valor_extensao_pizza=None):
+    """# Declaração interna"""
+    dict_valores_graficos_PIZZA = dict()
     print(f'\nIniciando grafico de [PIZZA]')
     print(f'Valores dos dados: {valor_extensao_pizza}')
     if valor_extensao_pizza is None:
         valor_extensao_pizza = ['dados=1']
 
     """# Divide os valores que vão chegar da busca"""
-    for valor_divisao_extensao in valor_extensao_pizza:
-        print(f"\nDados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
-        lista_extensao.append(str(valor_divisao_extensao).split('=')[0].strip())
-        lista_quantidade.append(str(valor_divisao_extensao).split('=')[1].strip())
+    for valor_divisao_extensao_PIZZA in valor_extensao_pizza:
+        print(f"\nDados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao_PIZZA)}")
+        lista_extensao.append(str(valor_divisao_extensao_PIZZA).split('=')[0].strip())
+        lista_quantidade.append(str(valor_divisao_extensao_PIZZA).split('=')[1].strip())
 
-    dict_valores_graficos['Extensão'] = lista_extensao
-    dict_valores_graficos['Quantidade'] = lista_quantidade
+    dict_valores_graficos_PIZZA['Extensão'] = lista_extensao
+    dict_valores_graficos_PIZZA['Quantidade'] = lista_quantidade
 
     """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(f'Valor da "lista_exntesao": {lista_extensao}')
     print(f'Valor da "lista_quantidade": {lista_quantidade}')
-    print(f'Valor do "dict_valores_graficos": {dict_valores_graficos}')
+    print(f'Valor do "dict_valores_graficos": {dict_valores_graficos_PIZZA}')
 
     """# Transforma os dados números que chegam como string em inteiros(int)"""
     for valor_inteiro in lista_quantidade:
@@ -112,23 +115,25 @@ def grafico_pizza(valor_extensao_pizza=None):
 
 
 def grafico_barras(valor_extensao_barras=None):
+    """# Declaração interna"""
+    dict_valores_graficos_BARRA = dict()
     print(f'\nIniciando grafico de [Barras]')
     print(f'Valores dos dados: {valor_extensao_barras}')
     if valor_extensao_barras is None:
         valor_extensao_barras = ['dados=1']
 
-    for valor_divisao_extensao in valor_extensao_barras:
-        print(f"Dados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
-        lista_extensao.append(str(valor_divisao_extensao).split('=')[0].strip())
-        lista_quantidade.append(str(valor_divisao_extensao).split('=')[1].strip())
+    for valor_divisao_extensao_BARRAS in valor_extensao_barras:
+        print(f"Dados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao_BARRAS)}")
+        lista_extensao.append(str(valor_divisao_extensao_BARRAS).split('=')[0].strip())
+        lista_quantidade.append(str(valor_divisao_extensao_BARRAS).split('=')[1].strip())
 
-    dict_valores_graficos['Extensão'] = lista_extensao
-    dict_valores_graficos['Quantidade'] = lista_quantidade
+    dict_valores_graficos_BARRA['Extensão'] = lista_extensao
+    dict_valores_graficos_BARRA['Quantidade'] = lista_quantidade
 
     """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(f'Valor da "lista_exntesao": {lista_extensao}')
     print(f'Valor da "lista_quantidade": {lista_quantidade}')
-    print(f'Valor do "dict_valores_graficos": {dict_valores_graficos}')
+    print(f'Valor do "dict_valores_graficos": {dict_valores_graficos_BARRA}')
 
     for valor_inteiro in lista_quantidade:
         valor_qtd_int.append(int(valor_inteiro))
