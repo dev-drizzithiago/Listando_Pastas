@@ -21,11 +21,9 @@ lista_extensao = list()
 valor_qtd_int = list()
 
 
-def arquivos_em_pandas(valor_extensao_pandas=None):
+def arquivos_em_pandas(valor_extensao_pandas):
     print(f'Iniciando salvamento em EXCEL')
     print(f'Dados entrandono no função "valor_extensao_pandas: {valor_extensao_pandas}')
-    if valor_extensao_pandas is None:
-        valor_extensao_pandas = ['dados=1']
 
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd in valor_extensao_pandas:
