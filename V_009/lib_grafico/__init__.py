@@ -23,8 +23,10 @@ valor_qtd_int = list()
 def arquivos_em_pandas(valor_extensao_pandas):
     """# Declaração interna"""
     dict_valores_graficos_PANDAS = dict()
+
+    print(f'{linhas_divisao}\n')
     print(f'Iniciando salvamento em EXCEL')
-    print(f'Dados entrandono no função "valor_extensao_pandas: {valor_extensao_pandas}')
+    print(f'Dados entrandono no função "valor_extensao_pandas: [{valor_extensao_pandas}]')
 
     """# Apenas testes com pandas"""
     for dividinho_ext_qtd_pandas in valor_extensao_pandas:
@@ -114,6 +116,7 @@ def grafico_pizza(valor_extensao_pizza=None):
     """# Limpeza das listas"""
     del lista_extensao[:]
     del lista_quantidade[:]
+    del valor_qtd_int[:]
     print(f'Valor das lista: extensao {lista_extensao} \nquantidade {lista_quantidade}')
     print(f'{linhas_divisao}\n')
 
@@ -164,6 +167,7 @@ def grafico_barras(valor_extensao_barras=None):
     showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
     PlaySound('Exclamation', SND_ASYNC)
 
+    print(f'{linhas_divisao}\n')
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
     print(f'Dados sendo encaminhados para salvar em planilha')
     sleep(1)
@@ -172,6 +176,8 @@ def grafico_barras(valor_extensao_barras=None):
     """# Limpeza das listas"""
     del lista_extensao[:]
     del lista_quantidade[:]
+    del valor_qtd_int[:]
+    print(f'Valor das lista: extensao {lista_extensao} \nquantidade {lista_quantidade}')
     print(f'{linhas_divisao}\n')
 
 
