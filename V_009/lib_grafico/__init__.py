@@ -114,6 +114,7 @@ def grafico_pizza(valor_extensao_pizza=None):
     """# Limpeza das listas"""
     del lista_extensao[:]
     del lista_quantidade[:]
+    print(f'Valor das lista: extensao {lista_extensao} \nquantidade {lista_quantidade}')
     print(f'{linhas_divisao}\n')
 
 
