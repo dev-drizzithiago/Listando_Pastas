@@ -23,7 +23,7 @@ valor_qtd_int = list()
 
 def arquivos_em_pandas(valor_extensao_pandas=None):
     print(f'Iniciando salvamento em EXCEL')
-    print(f'Dados entrandono no função "arquivos_em_pastas: {valor_extensao_pandas}')
+    print(f'Dados entrandono no função "valor_extensao_pandas: {valor_extensao_pandas}')
     if valor_extensao_pandas is None:
         valor_extensao_pandas = ['dados=1']
 
