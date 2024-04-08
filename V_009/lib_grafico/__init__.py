@@ -54,11 +54,6 @@ def grafico_pizza(valor_extensao_pizza=None):
     if valor_extensao_pizza is None:
         valor_extensao_pizza = ['dados=1']
 
-    """# Encaminhando dados para pandas; Salvando em EXCEL"""
-    print(f'Dados sendo encaminhados para salvar em planilha')
-    sleep(1)
-    Thread(target=arquivos_em_pandas(valor_extensao_pizza)).start()
-
     """# Divide os valores que vão chegar da busca"""
     for valor_divisao_extensao in valor_extensao_pizza:
         print(f"\nDados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
@@ -107,6 +102,11 @@ def grafico_pizza(valor_extensao_pizza=None):
     PlaySound('Exclamation', SND_ASYNC)
     showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
 
+    """# Encaminhando dados para pandas; Salvando em EXCEL"""
+    print(f'Dados sendo encaminhados para salvar em planilha')
+    sleep(1)
+    Thread(target=arquivos_em_pandas(valor_extensao_pizza)).start()
+
     """# Limpeza das listas"""
     del lista_extensao[:]
     del lista_quantidade[:]
@@ -118,11 +118,6 @@ def grafico_barras(valor_extensao_barras=None):
     print(f'Valores dos dados: {valor_extensao_barras}')
     if valor_extensao_barras is None:
         valor_extensao = ['dados=1']
-
-    """# Encaminhando dados para pandas; Salvando em EXCEL"""
-    print(f'Dados sendo encaminhados para salvar em planilha')
-    sleep(1)
-    Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     for valor_divisao_extensao in valor_extensao:
         print(f"Dados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
@@ -160,6 +155,11 @@ def grafico_barras(valor_extensao_barras=None):
     plt.show()
     showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
     PlaySound('Exclamation', SND_ASYNC)
+
+    """# Encaminhando dados para pandas; Salvando em EXCEL"""
+    print(f'Dados sendo encaminhados para salvar em planilha')
+    sleep(1)
+    Thread(target=arquivos_em_pandas(valor_extensao)).start()
 
     """# Limpeza das listas"""
     del lista_extensao[:]
