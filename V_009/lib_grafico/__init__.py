@@ -33,8 +33,10 @@ def arquivos_em_pandas(valor_extensao_pandas):
         print(f"Dados no loop 'dividinho_ext_qtd_pandas': {str(dividinho_ext_qtd_pandas)}")
         lista_extensao.append(str(dividinho_ext_qtd_pandas).split('=')[0].strip())
         lista_quantidade.append(str(dividinho_ext_qtd_pandas).split('=')[1].strip())
-        dict_valores_graficos_PANDAS['Extensão'] = lista_extensao
-        dict_valores_graficos_PANDAS['Quantidade'] = lista_quantidade
+
+    """# Adicionando os dados no dicionario PANDAS"""
+    dict_valores_graficos_PANDAS['Extensão'] = lista_extensao
+    dict_valores_graficos_PANDAS['Quantidade'] = lista_quantidade
 
     """# Analise dos valores do arquivo; server para o desenvolvedor analisar como os dados estão chegando"""
     print(f'Valor da "lista_exntesao": {lista_extensao}')
