@@ -50,6 +50,8 @@ def arquivos_em_pandas(valor_extensao_pandas):
 def grafico_pizza(valor_extensao_pizza=None):
     """# Declaração interna"""
     dict_valores_graficos_PIZZA = dict()
+
+    """#### Iniciando função"""
     print(f'\nIniciando grafico de [PIZZA]')
     print(f'Valores dos dados: {valor_extensao_pizza}')
     if valor_extensao_pizza is None:
@@ -61,6 +63,7 @@ def grafico_pizza(valor_extensao_pizza=None):
         lista_extensao.append(str(valor_divisao_extensao_PIZZA).split('=')[0].strip())
         lista_quantidade.append(str(valor_divisao_extensao_PIZZA).split('=')[1].strip())
 
+    """# Adiciona os valores dentro do dicionário"""
     dict_valores_graficos_PIZZA['Extensão'] = lista_extensao
     dict_valores_graficos_PIZZA['Quantidade'] = lista_quantidade
 
@@ -127,6 +130,7 @@ def grafico_barras(valor_extensao_barras=None):
         lista_extensao.append(str(valor_divisao_extensao_BARRAS).split('=')[0].strip())
         lista_quantidade.append(str(valor_divisao_extensao_BARRAS).split('=')[1].strip())
 
+    """# Adiciona os valores dentro do dicionário"""
     dict_valores_graficos_BARRA['Extensão'] = lista_extensao
     dict_valores_graficos_BARRA['Quantidade'] = lista_quantidade
 
