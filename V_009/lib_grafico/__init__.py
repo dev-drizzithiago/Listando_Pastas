@@ -115,9 +115,9 @@ def grafico_barras(valor_extensao_barras=None):
     print(f'\nIniciando grafico de [Barras]')
     print(f'Valores dos dados: {valor_extensao_barras}')
     if valor_extensao_barras is None:
-        valor_extensao = ['dados=1']
+        valor_extensao_barras = ['dados=1']
 
-    for valor_divisao_extensao in valor_extensao:
+    for valor_divisao_extensao in valor_extensao_barras:
         print(f"Dados no loop 'dividindo_ext_qtd': {str(valor_divisao_extensao)}")
         lista_extensao.append(str(valor_divisao_extensao).split('=')[0].strip())
         lista_quantidade.append(str(valor_divisao_extensao).split('=')[1].strip())
@@ -157,7 +157,7 @@ def grafico_barras(valor_extensao_barras=None):
     """# Encaminhando dados para pandas; Salvando em EXCEL"""
     print(f'Dados sendo encaminhados para salvar em planilha')
     sleep(1)
-    Thread(target=arquivos_em_pandas(valor_extensao)).start()
+    Thread(target=arquivos_em_pandas(valor_extensao_barras)).start()
 
     """# Limpeza das listas"""
     del lista_extensao[:]
