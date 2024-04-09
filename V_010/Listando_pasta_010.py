@@ -20,6 +20,10 @@ class ProgramaPrincipal:
         self.frames_superior_02.config(width=900, height=200)
         self.frames_superior_02.place(y=220, x=50)
 
+        self.frames_central_01 = tk.Frame(self.janela_principal, bg='blue')
+        self.frames_central_01.config(width=900, height=200)
+        self.frames_central_01.place(y=440, x=50)
+
         self.janela_principal.mainloop()
 
 
