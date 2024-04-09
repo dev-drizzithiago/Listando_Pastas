@@ -31,9 +31,10 @@ class ProgramaPrincipal:
 
         """COMBO BOX"""
         self.var_combo_box_categoria = tk.StringVar()
-        self.combo_box_cat = Combobox(self.frames_superior, textvariable=self.var_combo_box_categoria.get())
-        self.combo_box_cat.pack(anchor='center', fill='both')
-        self.combo_box_cat.place(y=1, x=10)
+        self.combo_box_cat = Combobox(self.frames_superior)
+        self.combo_box_cat.config(textvariable=self.var_combo_box_categoria.get())
+        self.combo_box_cat.set('Escolha uma categoria')
+        self.combo_box_cat.place(y=3, x=10)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Central: Reposanvel por mostrar o resultado da busca"""
