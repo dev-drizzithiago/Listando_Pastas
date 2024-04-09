@@ -8,14 +8,15 @@ class ProgramaPrincipal:
         """# Janela principal"""
         self.janela_principal = tk.Tk()
         self.janela_principal.title('V_010')
+        self.janela_principal.config(bg='#DCDCDC')
         self.janela_principal.geometry('1000x680+150+5')
         self.janela_principal.resizable(0, 0)
 
         """#### LabelFrame Principal"""
-        self.label_frame_principal = tk.LabelFrame(self.janela_principal)
+        self.label_frame_principal = LabelFrame(self.janela_principal)
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(width=910, height=660)
-        self.label_frame_principal.pack(anchor='center')
+        self.label_frame_principal.place(y=5, x=45)
 
         """#### frames"""
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
