@@ -106,7 +106,7 @@ def grafico_pizza(valor_extensao_pizza=None):
     ax.set_title('Extensões encontradas')
 
     """# Rodando o grafico"""
-    plt.pyplot.savecof()
+    plt.savefig('teste')
     plt.show()
     PlaySound('Exclamation', SND_ASYNC)
     showinfo("Parabéns!", "Grafico apresentado. \nRealize outra busca!")
@@ -185,5 +185,5 @@ def grafico_barras(valor_extensao_barras=None):
 
 
 if __name__ == '__main__':
-    grafico_barras()
+    #grafico_barras()
     grafico_pizza()
