@@ -49,6 +49,13 @@ class ProgramaPrincipal:
         self.frames_central.config(width=900, height=200)
         self.frames_central.config(bd=2)
         self.frames_central.place(y=230, x=50)
+        # ______________________________________________________________________________________________________________
+        """#### Labels"""
+        """# Label teste"""
+        self.var_lbl_ext_cat = tk.StringVar()
+        self.label_ext_cat = Label(self.frames_central, text=self.var_lbl_ext_cat)
+        self.label_ext_cat.config(text='Aguardado informações')
+        self.label_ext_cat.place(y=3, x=10)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
@@ -83,6 +90,7 @@ class ProgramaPrincipal:
 
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         print(valor_categoria_extensao)
+
 
 
 iniciando_obj = ProgramaPrincipal()
