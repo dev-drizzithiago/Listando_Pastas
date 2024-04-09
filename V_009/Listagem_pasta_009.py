@@ -269,6 +269,8 @@ class ListandoArquivos:
         self.var_pasta_raiz.set('Escolha um pasta para realizar a busca!')
         self.status_pasta_raiz = Label(self.janela_principal, text=self.var_pasta_raiz.get())
         self.status_pasta_raiz.config(justify='center')
+        self.status_pasta_raiz.pack(anchor='center', pady=2, padx=2)
+        self.status_pasta_raiz.place(y=680, x=10)
 
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
