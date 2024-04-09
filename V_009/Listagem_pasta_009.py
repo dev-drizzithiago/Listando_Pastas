@@ -740,6 +740,7 @@ class ListandoArquivos:
         """
         self.pasta_local_de_busca = tk.filedialog.askdirectory()
         self.ativo_status_destinos = True
+        self.status_pasta_raiz.config(text=f'Destino da busca: [{self.pasta_local_de_busca}]')
 
     def iniciar_busca(self):
         """
