@@ -82,6 +82,7 @@ class ListandoArquivos:
         self.var_combo_categoria = tk.StringVar()
         self.label_frame_combo_categora = LabelFrame(self.label_frame_geral)
         self.label_frame_combo_categora.pack(side='top', fill=tk.BOTH, pady=2, padx=2)
+
         self.combo_extensao_categoria = Combobox(self.label_frame_combo_categora, justify='center')
         self.combo_extensao_categoria.pack(anchor='center', fill='both')
         self.combo_extensao_categoria['values'] = self.categorias_busca
