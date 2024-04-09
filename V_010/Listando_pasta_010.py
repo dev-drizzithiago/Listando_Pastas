@@ -12,7 +12,7 @@ class ProgramaPrincipal:
         self.janela_principal.resizable(0, 0)
 
         """#### LabelFrame Principal"""
-        self.label_frame_principal = LabelFrame(self.janela_principal)
+        self.label_frame_principal = tk.LabelFrame(self.janela_principal)
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(width=910, height=660)
         self.label_frame_principal.pack(anchor='center')
