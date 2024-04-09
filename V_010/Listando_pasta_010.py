@@ -34,6 +34,7 @@ class ProgramaPrincipal:
         self.combo_box_cat = Combobox(self.frames_superior)
         self.combo_box_cat.place(y=3, x=10)
         self.combo_box_cat.config(textvariable=self.var_combo_box_categoria.get())
+        self.combo_box_cat.config(values=['teste1', 'teste2'])
         self.combo_box_cat.set('Escolha uma categoria')
         Thread(target=self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)).start()
 
@@ -51,10 +52,9 @@ class ProgramaPrincipal:
         self.frames_inferior.config(bd=2)
         self.frames_inferior.place(y=440, x=50)
 
-
         self.janela_principal.mainloop()
 
-    def selecao_combo_extensao(self):
+    def selecao_combo_extensao(self, *args):
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         print(valor_categoria_extensao)
 
