@@ -6,8 +6,13 @@ import tkinter as tk
 from threading import Thread
 
 
+
 class ProgramaPrincipal:
     def __init__(self):
+        """##### Declarações de variaveis"""
+        tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT',
+                            'POWERPOINT', 'EXCEL', 'HTML']
+
         """# Janela principal"""
         self.janela_principal = tk.Tk()
         self.janela_principal.title('V_010')
@@ -34,7 +39,7 @@ class ProgramaPrincipal:
         self.combo_box_cat = Combobox(self.frames_superior)
         self.combo_box_cat.pack(anchor='n', fill='both')
         self.combo_box_cat.config(textvariable=self.var_combo_box_categoria, width=145)
-        self.combo_box_cat.config(values=['teste1', 'teste2'], justify='center')
+        self.combo_box_cat.config(values=tipos_categorias, justify='center')
         self.combo_box_cat.set('Escolha uma categoria')
         self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)
 
