@@ -264,6 +264,12 @@ class ListandoArquivos:
         self.status_arquivos.pack(anchor='n', pady=2, padx=2)
         self.status_arquivos.place(y=660, x=10)
 
+        """# Label pasta RAIZ"""
+        self.var_pasta_raiz = tk.StringVar()
+        self.var_pasta_raiz.set('Escolha um pasta para realizar a busca!')
+        self.status_pasta_raiz = Label(self.janela_principal, text=self.var_pasta_raiz.get())
+        self.status_pasta_raiz.config(justify='center')
+
         # LOOP DA JANELA PRINCIPAL
         self.janela_principal.mainloop()
 
