@@ -89,6 +89,10 @@ class ProgramaPrincipal:
 
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         print(valor_categoria_extensao)
+        for chave, valor in tipos_de_extensoes.items():
+            if chave == valor_categoria_extensao:
+                for valor_extensao in valor:
+                    self.label_ext_cat.config(text=valor_extensao)
 
 
 
