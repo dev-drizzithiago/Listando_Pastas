@@ -5,5 +5,7 @@
     <orderEntry type="jdk" jdkName="Python 3.8 (Interpretador_2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Projeto_YOUTUBE" />
+    <orderEntry type="module" module-name="Ajuste_Horario_Windows" />
+    <orderEntry type="module" module-name="JOGO_MEMORIA" />
   </component>
 </module>

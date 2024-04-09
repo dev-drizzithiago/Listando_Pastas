@@ -1,20 +1,20 @@
-from reportlab.lib.enums import TA_JUSTIFY
-from reportlab.lib.pagesizes import A4
+"""# Modulos para PDF"""
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.enums import TA_JUSTIFY
+from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from pathlib import Path
-from tkinter.messagebox import showinfo, showerror
 
-import matplotlib.pyplot
+"""# Modulos GERAL"""
+from tkinter.messagebox import showinfo, showerror
+from winsound import PlaySound, SND_ASYNC
 
 home = Path.home()
 diretorio_arquivo_save = str(Path(home, 'Downloads'))
 
 
-"""# Grafico"""
 # _+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+
-
 
 # ----------------------------------------------------------------------
 def numero_paginas(janela, documento):
@@ -25,17 +25,59 @@ def numero_paginas(janela, documento):
 
 
 # ----------------------------------------------------------------------
-def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_documento='nome desconhecido',
-                  valor_qtd_extensao='Sem dados coletados', valor_qtd_arq_pasta='Sem dados coletados'):
-    """Criando parametros para savar o arquivo no diretorio 'DOWNLOADS' do windows. """
+def documento_PDF(valor_dados_coletados=None, valor_nome_documento=None,
+                  valor_qtd_extensao=None, valor_qtd_arq_pasta=None):
+
+    """# Análise dos valores que chagaram até a funnção"""
+    print(f'\nAnalise "valor_dados_coletados" \n>{valor_dados_coletados}<')
+    print(f'\nAnalise "valor_nome_documento" \n>{valor_nome_documento}<')
+    print(f'\nAnalise "valor_qtd_extensao" \n>{valor_qtd_extensao}<')
+    print(f'\nAnalise "valor_qtd_arq_pasta" \n>{valor_qtd_arq_pasta}<')
+
+    """# As condições abaixo, são responsável para que, caso execulte o programa nessa parte, não ocorra erros"""
+    if valor_qtd_extensao is None:
+        valor_qtd_extensao = ['Sem', 'dados', 'para', 'analisar']
+
+    if valor_qtd_arq_pasta is None:
+        valor_qtd_arq_pasta = ['Sem', 'dados', 'para', 'analisar']
+
+    if valor_nome_documento is None:
+        valor_nome_documento = 'nome desconhecido'
+
+    if valor_dados_coletados is None:
+        valor_dados_coletados = ['Sem', 'dados', 'para', 'analisar']
+
+    """# Declaração Variaveis"""
+    extensao = list()
+    quantidade = list()
+    valor_quantidade_int = list()
+
+    dict_valores_graficos = {'Extensao': None, 'Quantidade': None}
+
+    """# Mostra os dados para analise do desenvolvedor"""
+    print(f'Lista de extensão: {extensao}')
+    print(f'Lista de quantidade: {quantidade}')
+
+    """### Transforma o valor de quantidade em número inteiro"""
+    for valor in quantidade:
+        valor_quantidade_int.append(int(valor))
+
+    print(f'Valor inteiro deopis da modificação: {valor_quantidade_int}')
+    print(f'Tipo dos dados: {type(quantidade)}', 'Quantidade')
+    print(f'Tipo dos dados: {type(extensao)}', 'Extensão')
+
+    """### Criando parametros para salvar o arquivo no diretorio 'DOWNLOADS' do windows. """
     nome_arquivo_pdf = str(valor_nome_documento)
     pdf_diretorio_save = diretorio_arquivo_save + "\\" + nome_arquivo_pdf + '.pdf'
-    print(f'Diretorio de SAVE - [{pdf_diretorio_save}]')
+
+    print(f'Arquivos vai ser criado no diretório - [{pdf_diretorio_save}]')
     print('Aguarde! Documento esta sendo criado!')
+
+    """#### Criando documento PDF principal"""
     try:
         """Salvando as informações no documento"""
-        doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72,
-                                topMargin=72, bottomMargin=18)
+        doc = SimpleDocTemplate(pdf_diretorio_save, pagezsize=A4, rightMargin=72, leftMargin=72, topMargin=72,
+                                bottomMargin=18)
         estilo = getSampleStyleSheet()
         estilo.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
@@ -43,7 +85,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         dados_save = []
 
         """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
+        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
         dados_save.append(Spacer(1, 20))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
@@ -57,7 +99,7 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Spacer(1, 10))
 
         """# Separação"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de Extenções encontradas'
+        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
@@ -70,8 +112,8 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
             dados_save.append(Paragraph(texto, estilo["Normal"]))
             dados_save.append(Spacer(1, 10))
 
-        """# Separaãção"""
-        texto = f'<font size="16">%s</font>' % 'Quantidade de arquivos por PASTAS'
+        """# Separação"""
+        texto = f'<font size="16">%s</font>' % 'ARQUIVOS ENCONTRADOS'
         dados_save.append(Spacer(1, 30))
         dados_save.append(Paragraph(texto, estilo['Justify']))
         dados_save.append(Spacer(1, 5))
@@ -88,9 +130,11 @@ def documento_PDF(valor_dados_coletados='<Sem dados coletados>', valor_nome_docu
         doc.build(dados_save, onFirstPage=numero_paginas, onLaterPages=numero_paginas)
 
         print('\nFinalizado! \nArquivos criado com sucesso!')
+        PlaySound('Exclamation', SND_ASYNC)
         showinfo('Parabens!', f'O documento foi salvo com sucesso na pasta [{"Downloads"}]')
     except:
         print(f'ERROR: Não foi possível gravar o documento {pdf_diretorio_save}')
+        PlaySound('Critical Stop', SND_ASYNC)
         showerror("ERROR", f'Não foi possível gravar o documento {pdf_diretorio_save}')
 
 

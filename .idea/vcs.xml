@@ -2,6 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+<<<<<<< Updated upstream
+    <mapping directory="$PROJECT_DIR$/../Ajuste_Horario_Windows" vcs="Git" />
+=======
+>>>>>>> Stashed changes
+    <mapping directory="$PROJECT_DIR$/../JOGO_MEMORIA" vcs="Git" />
     <mapping directory="G:/Meu Drive/Estudos/Python/Projetos Abandonados/Projeto_YOUTUBE" vcs="Git" />
   </component>
 </project>
