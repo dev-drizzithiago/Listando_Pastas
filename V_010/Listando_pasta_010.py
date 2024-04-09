@@ -36,7 +36,8 @@ class ProgramaPrincipal:
         self.combo_box_cat.config(textvariable=self.var_combo_box_categoria.get())
         self.combo_box_cat.config(values=['teste1', 'teste2'])
         self.combo_box_cat.set('Escolha uma categoria')
-        Thread(target=self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)).start()
+        # Thread(target=self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)).start()
+        self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Central: Reposanvel por mostrar o resultado da busca"""
