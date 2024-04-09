@@ -33,10 +33,9 @@ class ProgramaPrincipal:
         self.var_combo_box_categoria = tk.StringVar()
         self.combo_box_cat = Combobox(self.frames_superior)
         self.combo_box_cat.place(y=3, x=10)
-        self.combo_box_cat.config(textvariable=self.var_combo_box_categoria.get())
+        self.combo_box_cat.config(textvariable=self.var_combo_box_categoria.get)
         self.combo_box_cat.config(values=['teste1', 'teste2'])
         self.combo_box_cat.set('Escolha uma categoria')
-        # Thread(target=self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)).start()
         self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
