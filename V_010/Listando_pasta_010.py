@@ -28,7 +28,7 @@ class ProgramaPrincipal:
         self.frames_superior.config(width=900, height=200)
         self.frames_superior.config(bd=2)
         self.frames_superior.place(y=20, x=50)
-
+        # ______________________________________________________________________________________________________________
         """COMBO BOX"""
         self.var_combo_box_categoria = tk.StringVar()
         self.combo_box_cat = Combobox(self.frames_superior)
