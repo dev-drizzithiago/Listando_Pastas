@@ -58,11 +58,12 @@ class ProgramaPrincipal:
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.frames_central, width=145, height=5)
+        self.lista_de_result_busca.config(fg='green')
         self.lista_de_result_busca.place(y=30, x=10)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem """
-        self.barra_rolagem_lista_busca_y = Scrollbar(self.frames_central, orient=tk.VERTICAL)
-        self.barra_rolagem_lista_busca_y.pack(side='right')
+        self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.frames_central, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_busca_y.place(y=45, x=865)
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
 
@@ -108,7 +109,7 @@ class ProgramaPrincipal:
         for chave, valor in tipos_de_extensoes.items():
             if chave == valor_categoria_extensao:
                 for valor_extensao in valor:
-                    print(valor_extensao)
+                    self.lista_de_result_busca.insert('end', f'{valor_extensao}')
 
 
 iniciando_obj = ProgramaPrincipal()
