@@ -1,6 +1,7 @@
 """#### Declaração de Modulos"""
 from tkinter.ttk import *
 import tkinter as tk
+from time import sleep
 
 """# Modeulo THREAD"""
 from threading import Thread
@@ -85,10 +86,11 @@ class ProgramaPrincipal:
         self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_diretorio.place(y=60, x=1)
         # ______________________________________________________________________________________________________________
-        """### Botões """
+        """### BOTÕES """
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Iniciar Processo')
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
@@ -128,19 +130,31 @@ class ProgramaPrincipal:
             if chave == valor_categoria_extensao:
                 for valor_extensao in valor:
                     self.lista_de_result_busca.insert('end', f'{valor_extensao.upper()}')
+                    """# Check botões"""
+                    for contagem in range(len(chave)):
+                        check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao)
 
-    def thread_inicio_da_busca(self):
+
+
+
+    """##### THREADS DOS BOTÕES"""
+
+    def thread_botao_inicio_da_busca(self):
         """
 
         :return:
         """
         Thread(target=self.inicio_da_busca_principal).start()
+
     def inicio_da_busca_principal(self):
         """
 
         :return:
         """
-        print('teste')
+        for teste in range(100):
+            print(teste)
+            sleep(1)
+            self.label_ext_cat.config(text=teste)
 
 
 iniciando_obj = ProgramaPrincipal()
