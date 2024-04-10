@@ -103,6 +103,10 @@ class ProgramaPrincipal:
         self.janela_principal.mainloop()
 
     def selecao_combo_extensao(self, *args):
+        """### Declaraçõa de variaveis básicas"""
+        altura, extensao = 1, 1
+
+        """### Declaraçõd do dicionário de extensões"""
         tipos_de_extensoes = dict(
             AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
             VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS', 'MOV', 'MPEG-2',
@@ -133,6 +137,7 @@ class ProgramaPrincipal:
                     """# Check botões"""
                     for contagem in range(len(chave)):
                         check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao)
+                        check_extenso.place(y=altura, x=largura)
 
 
 
