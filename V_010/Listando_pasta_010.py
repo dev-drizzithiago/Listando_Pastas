@@ -55,7 +55,10 @@ class ProgramaPrincipal:
         self.label_ext_cat.config(text='Aguardado informações', bg='#C0C0C0')
         self.label_ext_cat.place(y=3, x=10)
         # ______________________________________________________________________________________________________________
-        """#"""
+        """# Lista de busca"""
+        self.var_lista_result_busca = tk.IntVar()
+        self.lista_de_result_busca = tk.Listbox(self.frames_central)
+        self.lista_de_result_busca
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
