@@ -144,9 +144,9 @@ class ProgramaPrincipal:
                     check_extenso.config(onvalue=1, offvalue=0)
                     check_extenso.place(y=altura, x=linhas)
                     if altura == 100:
-                        altura = 1
+                        altura = 0
                     else:
-                        altura += 20
+                        altura += 17
 
 
     """##### THREADS DOS BOTÕES"""
