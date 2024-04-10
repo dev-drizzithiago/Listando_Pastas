@@ -104,8 +104,8 @@ class ProgramaPrincipal:
 
     def selecao_combo_extensao(self, *args):
         """### Declaraçõa de variaveis básicas"""
-        altura = 45
-        linhas = 1
+        coluna = 1
+        linhas = 24
 
         teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
                             'teste6', 'teste7', 'teste8', 'teste9', 'teste0'])
@@ -142,11 +142,13 @@ class ProgramaPrincipal:
                     """# Check botões"""
                     check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
                     check_extenso.config(onvalue=1, offvalue=0)
-                    check_extenso.place(y=altura, x=linhas)
-                    if altura == 100:
-                        altura = 0
+                    check_extenso.place(y=linhas, x=coluna)
+                    if linhas == 100:
+                        linhas = 24
+                        coluna = 1
                     else:
-                        altura += 17
+                        linhas += 17
+                        coluna += 10
 
 
     """##### THREADS DOS BOTÕES"""
