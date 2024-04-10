@@ -71,23 +71,29 @@ class ProgramaPrincipal:
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
         self.frames_inferior = tk.Frame(self.janela_principal, bg='#D3D3D3')
-        self.frames_inferior.config(width=900, height=200)
-        self.frames_inferior.config(bd=2)
+        self.frames_inferior.config(width=900, height=200, bd=2)
         self.frames_inferior.place(y=440, x=50)
         # ______________________________________________________________________________________________________________
         """### Botões """
-        self.frame_label_botoes = tk.LabelFrame(self.frames_inferior, text='Escolha uma opção')
-        self.frame_label_botoes.config(width=895, height=195, bg='#D3D3D3')
-        self.frame_label_botoes.place(y=1, x=1)
+        """# Label Frame INICIO"""
+        self.frame_label_inicio = tk.LabelFrame(self.frames_inferior, text='Inicio')
+        self.frame_label_inicio.config(bg='#D3D3D3', pady=5, padx=5)
+        self.frame_label_inicio.place(y=0, x=1)
+
+        """# Label Frame Diretorio"""
+        self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Destino')
+        self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
+        self.frame_label_diretorio.place(y=60, x=1)
 
         """# Botão INICIAR PROCESSO"""
-        self.botao_inicio_processo = Button(self.frames_inferior, text='Iniciar Processo')
-        self.botao_inicio_processo.config(width=15)
-        self.botao_inicio_processo.place(y=3, x=400)
+        self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Iniciar Processo')
+        self.botao_inicio_processo.config(width=15, pady=5, padx=5)
+        self.botao_inicio_processo.pack(anchor='n', fill='both')
 
         """# Botao Pasta destino"""
-        self.botao_destino_busca = Button(self.frames_inferior, text='Escolha um diretório')
-        self.botao_destino_busca.place(y=33, x=400)
+        self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Pasta Destino')
+        self.botao_destino_busca.config(width=15, pady=5, padx=5)
+        self.botao_destino_busca.pack(anchor='n', fill='both')
 
         self.janela_principal.mainloop()
 
