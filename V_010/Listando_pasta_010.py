@@ -109,7 +109,7 @@ class ProgramaPrincipal:
         contador = 1
 
         teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
-                            'teste6', 'teste7', 'teste8', 'teste9', 'teste0'])
+                            'teste6', 'teste7', 'teste8', 'teste9', 'teste10'])
 
         """### Declaraçõd do dicionário de extensões"""
         lista_de_extensoes = dict(
@@ -147,7 +147,7 @@ class ProgramaPrincipal:
                     check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
                     check_extenso.config(onvalue=1, offvalue=0, bg='#A9A9A9')
                     check_extenso.place(y=linhas, x=colunas)
-                    if linhas == 195:
+                    if linhas == 110:
                         linhas = 25
                         colunas += 65
                     else:
