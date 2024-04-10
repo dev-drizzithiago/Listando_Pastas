@@ -57,8 +57,8 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.frames_central, width=97, height=5)
-        self.lista_de_result_busca.config(font='Helvetica', justify='center')
+        self.lista_de_result_busca = tk.Listbox(self.frames_central, width=98, height=5)
+        self.lista_de_result_busca.config(font='Helvetica', justify='center', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=30, x=10)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem """
