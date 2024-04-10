@@ -97,7 +97,7 @@ class ListandoArquivos:
         # BARRA DE ROLAGEM
         self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=tk.VERTICAL)
         self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
-        
+
         """#### LISTA EXTENSAO"""
         self.lista_de_extensoes = tk.Listbox(self.label_lista_extensao, selectmode=tk.SINGLE, justify='center')
         self.lista_de_extensoes.config(height=2)
