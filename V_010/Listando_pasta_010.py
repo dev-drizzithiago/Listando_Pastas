@@ -104,12 +104,14 @@ class ProgramaPrincipal:
 
     def selecao_combo_extensao(self, *args):
         """### Declaraçõa de variaveis básicas"""
-        altura, largura, linhas = 1, 1, 1
+        altura = 45
+        linhas = 1
 
-        teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5', 'teste6', 'teste7', 'teste8', 'teste9', 'teste0'])
+        teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
+                            'teste6', 'teste7', 'teste8', 'teste9', 'teste0'])
+
         """### Declaraçõd do dicionário de extensões"""
-
-        tipos_de_extensoes = dict(
+        lista_de_extensoes = dict(
             AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
             VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS', 'MOV', 'MPEG-2',
                     'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
@@ -133,20 +135,18 @@ class ProgramaPrincipal:
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
         for chave, valor in teste.items():
+            print(f'Extensão 1° loop (Dicionario) {chave}-{valor} ')
             if chave == valor_categoria_extensao:
+                """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 for valor_extensao in valor:
-                    self.lista_de_result_busca.insert('end', f'{valor_extensao.upper()}')
                     """# Check botões"""
-                    for contagem in range(len(chave)):
-                        var_check = tk.StringVar()
-                        check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao, textvariable=var_check)
-                        check_extenso.config(onvalue=1, offvalue=0)
-                        check_extenso.place(y=altura, x=largura)
-                        if altura == 100:
-                            altura = 1
-                        else:
-                            altura += 20
-                        
+                    check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
+                    check_extenso.config(onvalue=1, offvalue=0)
+                    check_extenso.place(y=altura, x=linhas)
+                    if altura == 100:
+                        altura = 1
+                    else:
+                        altura += 20
 
 
     """##### THREADS DOS BOTÕES"""
