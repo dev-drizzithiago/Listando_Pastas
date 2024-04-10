@@ -142,8 +142,12 @@ class ProgramaPrincipal:
                         check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao, textvariable=var_check)
                         check_extenso.config(onvalue=1, offvalue=0)
                         check_extenso.place(y=altura, x=largura)
-                        altura += 20
+                        if altura == 100:
+                            altura = 1
+                        else:
+                            altura += 20
                         
+
 
     """##### THREADS DOS BOTÕES"""
 
