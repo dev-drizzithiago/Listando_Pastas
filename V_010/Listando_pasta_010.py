@@ -28,15 +28,15 @@ class ProgramaPrincipal:
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### frames"""
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
-        self.frames_superior = tk.Frame(self.janela_principal, bg='#696969')
+        self.frames_superior = tk.Frame(self.janela_principal, bg='#A9A9A9')
         self.frames_superior.config(width=900, height=200)
         self.frames_superior.place(y=20, x=50)
         # ______________________________________________________________________________________________________________
         """COMBO BOX"""
         self.var_combo_box_categoria = tk.StringVar()
         self.combo_box_cat = Combobox(self.frames_superior)
-        self.combo_box_cat.pack(anchor='n')
-        self.combo_box_cat.config(textvariable=self.var_combo_box_categoria, width=145)
+        self.combo_box_cat.place(y=3, x=10)
+        self.combo_box_cat.config(textvariable=self.var_combo_box_categoria, width=143)
         self.combo_box_cat.config(values=tipos_categorias, justify='center')
         self.combo_box_cat.set('Escolha uma categoria')
         self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)
@@ -58,11 +58,11 @@ class ProgramaPrincipal:
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.frames_central, width=145, height=5)
-        self.lista_de_result_busca.place(y=20, x=10)
+        self.lista_de_result_busca.place(y=30, x=10)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
-        self.frames_inferior = tk.Frame(self.janela_principal, bg='#A9A9A9')
+        self.frames_inferior = tk.Frame(self.janela_principal, bg='#D3D3D3')
         self.frames_inferior.config(width=900, height=200)
         self.frames_inferior.config(bd=2)
         self.frames_inferior.place(y=440, x=50)
