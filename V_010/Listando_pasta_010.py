@@ -76,10 +76,18 @@ class ProgramaPrincipal:
         self.frames_inferior.place(y=440, x=50)
         # ______________________________________________________________________________________________________________
         """### Botões """
+        self.frame_label_botoes = tk.LabelFrame(self.frames_inferior, text='Escolha uma opção')
+        self.frame_label_botoes.config(width=895, height=195, bg='#D3D3D3')
+        self.frame_label_botoes.place(y=1, x=1)
+
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = Button(self.frames_inferior, text='Iniciar Processo')
         self.botao_inicio_processo.config(width=15)
         self.botao_inicio_processo.place(y=3, x=400)
+
+        """# Botao Pasta destino"""
+        self.botao_destino_busca = Button(self.frames_inferior, text='Escolha um diretório')
+        self.botao_destino_busca.place(y=33, x=400)
 
         self.janela_principal.mainloop()
 
