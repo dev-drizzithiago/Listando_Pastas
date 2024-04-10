@@ -66,6 +66,12 @@ class ProgramaPrincipal:
         self.frames_inferior.config(width=900, height=200)
         self.frames_inferior.config(bd=2)
         self.frames_inferior.place(y=440, x=50)
+        # ______________________________________________________________________________________________________________
+        """### Botões """
+        """# Botão INICIAR PROCESSO"""
+        self.botao_inicio_processo = Button(self.frames_inferior, text='Iniciar Processo')
+        self.botao_inicio_processo.config(width=15)
+        self.botao_inicio_processo.place(y=3, x=400)
 
         self.janela_principal.mainloop()
 
