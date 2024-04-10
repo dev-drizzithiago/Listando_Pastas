@@ -148,7 +148,7 @@ class ProgramaPrincipal:
                         coluna = 1
                     else:
                         linhas += 17
-                        coluna += 10
+                        coluna += 64
 
 
     """##### THREADS DOS BOTÕES"""
