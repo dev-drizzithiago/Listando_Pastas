@@ -97,14 +97,16 @@ class ListandoArquivos:
         # BARRA DE ROLAGEM
         self.barra_rolagem_extensao = Scrollbar(self.label_lista_extensao, orient=tk.VERTICAL)
         self.barra_rolagem_extensao.pack(side='right', fill=tk.Y)
-        # LISTA EXTENSAO
+        
+        """#### LISTA EXTENSAO"""
         self.lista_de_extensoes = tk.Listbox(self.label_lista_extensao, selectmode=tk.SINGLE, justify='center')
         self.lista_de_extensoes.config(height=2)
         self.lista_de_extensoes.config(selectforeground='#000000')
         self.lista_de_extensoes.config(selectbackground='#A9A9A9')
         self.lista_de_extensoes.config(selectborderwidth=5)
         self.lista_de_extensoes.pack(anchor='center', fill='both')
-        # BARRA ROLAGEM
+
+        """# BARRA ROLAGEM"""
         self.barra_rolagem_extensao.config(command=self.lista_de_extensoes.yview)
         self.lista_de_extensoes.config(yscrollcommand=self.barra_rolagem_extensao.set)
 
