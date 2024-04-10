@@ -106,7 +106,9 @@ class ProgramaPrincipal:
         """### Declaraçõa de variaveis básicas"""
         altura, largura, linhas = 1, 1, 1
 
+        teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5', 'teste6', 'teste7', 'teste8', 'teste9', 'teste0'])
         """### Declaraçõd do dicionário de extensões"""
+
         tipos_de_extensoes = dict(
             AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
             VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS', 'MOV', 'MPEG-2',
@@ -130,7 +132,7 @@ class ProgramaPrincipal:
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
-        for chave, valor in tipos_de_extensoes.items():
+        for chave, valor in teste.items():
             if chave == valor_categoria_extensao:
                 for valor_extensao in valor:
                     self.lista_de_result_busca.insert('end', f'{valor_extensao.upper()}')
@@ -145,6 +147,8 @@ class ProgramaPrincipal:
                             largura = 20
                         elif linhas == 10:
                             largura = 30
+                        else:
+                            largura += 10
 
     """##### THREADS DOS BOTÕES"""
 
