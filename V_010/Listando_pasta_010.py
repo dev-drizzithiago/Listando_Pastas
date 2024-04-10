@@ -105,33 +105,33 @@ class ProgramaPrincipal:
     def selecao_combo_extensao(self, *args):
         """### Declaraçõa de variaveis básicas"""
         colunas = 1
-        linhas = 25
-        contador = 1
+        linhas = 24
+        contador = 0
 
         teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
-                            'teste6', 'teste7', 'teste8', 'teste9', 'teste10'])
+                            'teste6', 'teste7', 'teste8', 'teste9', 'teste10', 'Final'])
 
         """### Declaraçõd do dicionário de extensões"""
         lista_de_extensoes = dict(
-            AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
+            AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi', 'Final'],
             VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS', 'MOV', 'MPEG-2',
-                    'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
-            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
+                    'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB', 'Final'],
+            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml', 'Final'],
             IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps', 'emf', 'exr',
                     'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2', 'mng', 'pbm', 'pcd', 'pdf',
                     'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg', 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif',
-                    'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
+                    'wbmp', 'wmf', 'xar', 'xcf', 'xpm', 'Final'],
             ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui',
                       'rar', 'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx',
                       'php', 'css', 'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib',
                       'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'vbs', 'ax', 'acm',
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
-                      'cmd', 'conf', 'wsf', 'config', 'json', 'dtd', 'iec', 'ime', 'nsl'],
-            ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
-            WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
-            POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
-            EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
-            HTML=['xps', 'htm', 'html'])
+                      'cmd', 'conf', 'wsf', 'config', 'json', 'dtd', 'iec', 'ime', 'nsl', 'Final'],
+            ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb', 'Final'],
+            WORD=['doc', 'docm', 'docx', 'dot', 'dotx', 'Final'],
+            POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx', 'Final'],
+            EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx', 'Final'],
+            HTML=['xps', 'htm', 'html', 'Final'])
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
@@ -144,18 +144,20 @@ class ProgramaPrincipal:
                 for valor_extensao in valor:
 
                     """# Check botões"""
-                    check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
-                    check_extenso.config(onvalue=1, offvalue=0, bg='#A9A9A9')
-                    check_extenso.place(y=linhas, x=colunas)
+                    self.var_check_extensao = tk.StringVar()
+                    self.check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
+                    self.check_extenso.config(onvalue=valor_extensao, offvalue=0, bg='#A9A9A9')
+                    self.check_extenso.config(variable=self.var_check_extensao)
+                    self.check_extenso.place(y=linhas, x=colunas)
                     if linhas == 110:
                         linhas = 25
-                        colunas += 65
+                        colunas += 85
                     else:
                         linhas += 17
-
-                    print(f'{contador}-linhas{linhas}-colunas{colunas}')
                     contador += 1
-        check_extenso.destroy()
+                    print(f'{contador}-linhas{linhas}-colunas{colunas}')
+        self.check_extenso.destroy()
+
     """##### THREADS DOS BOTÕES"""
 
     def thread_botao_inicio_da_busca(self):
@@ -163,17 +165,15 @@ class ProgramaPrincipal:
 
         :return:
         """
-        Thread(target=self.inicio_da_busca_principal).start()
+        Thread(target=self.inicio_da_busca_principal()).start()
 
     def inicio_da_busca_principal(self):
         """
 
         :return:
         """
-        for teste in range(100):
-            print(teste)
-            sleep(1)
-            self.label_ext_cat.config(text=teste)
+        print(self.var_check_extensao.get())
+        
 
 
 iniciando_obj = ProgramaPrincipal()
