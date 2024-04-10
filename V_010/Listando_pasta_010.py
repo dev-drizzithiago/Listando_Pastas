@@ -59,11 +59,11 @@ class ProgramaPrincipal:
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.frames_central, width=98, height=5)
         self.lista_de_result_busca.config(font='Helvetica', justify='center', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.place(y=30, x=10)
+        self.lista_de_result_busca.place(y=30, x=5)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem """
-        self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.frames_central, orient=tk.VERTICAL)
-        self.barra_rolagem_lista_busca_y.place(y=45, x=865)
+        self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_busca_y.place(y=30, x=860)
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
 
