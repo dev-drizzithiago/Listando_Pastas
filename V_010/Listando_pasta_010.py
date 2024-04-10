@@ -74,27 +74,30 @@ class ProgramaPrincipal:
         self.frames_inferior.config(width=900, height=200, bd=2)
         self.frames_inferior.place(y=440, x=50)
         # ______________________________________________________________________________________________________________
-        """### Botões """
+        """# Label Frames dos botões"""
         """# Label Frame INICIO"""
         self.frame_label_inicio = tk.LabelFrame(self.frames_inferior, text='Inicio')
         self.frame_label_inicio.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_inicio.place(y=0, x=1)
-
+        # ______________________________________________________________________________________________________________
         """# Label Frame Diretorio"""
         self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Destino')
         self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_diretorio.place(y=60, x=1)
-
+        # ______________________________________________________________________________________________________________
+        """### Botões """
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Iniciar Processo')
-        self.botao_inicio_processo.config(width=15, pady=5, padx=5)
+        self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_inicio_processo.pack(anchor='n', fill='both')
-
+        # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Pasta Destino')
-        self.botao_destino_busca.config(width=15, pady=5, padx=5)
+        self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_destino_busca.pack(anchor='n', fill='both')
 
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        """###### LOOP DA JANELA ######"""
         self.janela_principal.mainloop()
 
     def selecao_combo_extensao(self, *args):
@@ -118,13 +121,26 @@ class ProgramaPrincipal:
             POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
             HTML=['xps', 'htm', 'html'])
-
         valor_categoria_extensao = self.var_combo_box_categoria.get()
+        self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
         for chave, valor in tipos_de_extensoes.items():
             if chave == valor_categoria_extensao:
                 for valor_extensao in valor:
                     self.lista_de_result_busca.insert('end', f'{valor_extensao.upper()}')
+
+    def thread_inicio_da_busca(self):
+        """
+
+        :return:
+        """
+        Thread(target=self.inicio_da_busca_principal).start()
+    def inicio_da_busca_principal(self):
+        """
+
+        :return:
+        """
+        print('teste')
 
 
 iniciando_obj = ProgramaPrincipal()
