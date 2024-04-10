@@ -104,7 +104,7 @@ class ProgramaPrincipal:
 
     def selecao_combo_extensao(self, *args):
         """### Declaraçõa de variaveis básicas"""
-        altura, extensao = 1, 1
+        altura, largura, linhas = 1, 1, 1
 
         """### Declaraçõd do dicionário de extensões"""
         tipos_de_extensoes = dict(
@@ -136,11 +136,15 @@ class ProgramaPrincipal:
                     self.lista_de_result_busca.insert('end', f'{valor_extensao.upper()}')
                     """# Check botões"""
                     for contagem in range(len(chave)):
-                        check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao)
+                        var_check = tk.StringVar()
+                        check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao, textvariable=var_check)
+                        check_extenso.config(onvalue=1, offvalue=0)
                         check_extenso.place(y=altura, x=largura)
-
-
-
+                        altura += 20
+                        if linhas == 5:
+                            largura = 20
+                        elif linhas == 10:
+                            largura = 30
 
     """##### THREADS DOS BOTÕES"""
 
