@@ -106,6 +106,7 @@ class ProgramaPrincipal:
         """### Declaraçõa de variaveis básicas"""
         colunas = 1
         linhas = 25
+        contador = 1
 
         teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
                             'teste6', 'teste7', 'teste8', 'teste9', 'teste0'])
@@ -137,22 +138,24 @@ class ProgramaPrincipal:
         for chave, valor in teste.items():
             print(f'Extensão 1° loop (Dicionario) {chave}-{valor} ')
             if chave == valor_categoria_extensao:
+
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
+                print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
 
-                    print(f'linhas{linhas}-colunas{colunas}')
                     """# Check botões"""
                     check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
-                    check_extenso.config(onvalue=1, offvalue=0)
+                    check_extenso.config(onvalue=1, offvalue=0, bg='#A9A9A9')
                     check_extenso.place(y=linhas, x=colunas)
-                    if linhas == 93:
+                    if linhas == 195:
                         linhas = 25
                         colunas += 65
                     else:
                         linhas += 17
 
-                    print(f'linhas{linhas}-colunas{colunas}')
-
+                    print(f'{contador}-linhas{linhas}-colunas{colunas}')
+                    contador += 1
+        check_extenso.destroy()
     """##### THREADS DOS BOTÕES"""
 
     def thread_botao_inicio_da_busca(self):
