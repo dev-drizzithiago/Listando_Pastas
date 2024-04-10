@@ -9,8 +9,8 @@ from threading import Thread
 class ProgramaPrincipal:
     def __init__(self):
         """##### Declarações de variaveis"""
-        tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT',
-                            'POWERPOINT', 'EXCEL', 'HTML']
+        tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
+                            'POWERPOINT', 'EXCEL']
 
         """# Janela principal"""
         self.janela_principal = tk.Tk()
