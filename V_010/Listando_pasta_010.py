@@ -54,6 +54,8 @@ class ProgramaPrincipal:
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
         self.label_ext_cat.config(text='Aguardado informações', bg='#C0C0C0')
         self.label_ext_cat.place(y=3, x=10)
+        # ______________________________________________________________________________________________________________
+        """#"""
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
