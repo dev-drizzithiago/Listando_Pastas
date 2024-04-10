@@ -57,8 +57,8 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.frames_central, width=145, height=5)
-        self.lista_de_result_busca.config(fg='green')
+        self.lista_de_result_busca = tk.Listbox(self.frames_central, width=97, height=5)
+        self.lista_de_result_busca.config(font='Helvetica', justify='center')
         self.lista_de_result_busca.place(y=30, x=10)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem """
@@ -109,7 +109,7 @@ class ProgramaPrincipal:
         for chave, valor in tipos_de_extensoes.items():
             if chave == valor_categoria_extensao:
                 for valor_extensao in valor:
-                    self.lista_de_result_busca.insert('end', f'{valor_extensao}')
+                    self.lista_de_result_busca.insert('end', f'{valor_extensao.upper()}')
 
 
 iniciando_obj = ProgramaPrincipal()
