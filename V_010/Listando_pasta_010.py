@@ -6,7 +6,6 @@ import tkinter as tk
 from threading import Thread
 
 
-
 class ProgramaPrincipal:
     def __init__(self):
         """##### Declarações de variaveis"""
@@ -92,8 +91,7 @@ class ProgramaPrincipal:
         for chave, valor in tipos_de_extensoes.items():
             if chave == valor_categoria_extensao:
                 for valor_extensao in valor:
-                    self.label_ext_cat.config(text=valor_extensao)
-
+                    print(valor_extensao)
 
 
 iniciando_obj = ProgramaPrincipal()
