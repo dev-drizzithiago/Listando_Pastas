@@ -142,21 +142,6 @@ class ProgramaPrincipal:
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
-                    var = []
-                    botoes = []
-                    cont = 0
-
-                    def delHist():
-                        for i in range(len(var)):
-                            if var[i].get() == 1:
-                                print(botoes[i]['text'])
-
-                    for i in 'abcde':
-                        var.append(tk.IntVar())
-                        botoes.append(Checkbutton(self.frames_superior, text=i[0], variable=var[cont], wraplength=500))
-                        botoes[-1].pack()
-                        cont += 1
-
                     if linhas == 110:
                         linhas = 25
                         colunas += 85
@@ -164,7 +149,8 @@ class ProgramaPrincipal:
                         linhas += 17
                     contador += 1
                     print(f'{contador}-linhas{linhas}-colunas{colunas}')
-        self.check_extenso.destroy()
+
+
 
     """##### THREADS DOS BOTÕES"""
 
