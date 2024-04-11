@@ -144,9 +144,10 @@ class ProgramaPrincipal:
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
                     lista_var.append(tk.IntVar())
-                    botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao,
-                                                      variable=lista_var[contador], wraplength=500))
-                    botoes_chek[1].place(y=linhas, x=colunas)
+                    botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
+                                                      variable=lista_var[contador], wraplength=500,
+                                                      bg='#A9A9A9'))
+                    botoes_chek[-1].place(y=linhas, x=colunas)
 
                     if linhas == 110:
                         linhas = 25
