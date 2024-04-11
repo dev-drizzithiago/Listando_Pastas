@@ -135,7 +135,7 @@ class ProgramaPrincipal:
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
-        for chave, valor in teste.items():
+        for chave, valor in lista_de_extensoes.items():
             print(f'Extensão 1° loop (Dicionario) {chave}-{valor} ')
             if chave == valor_categoria_extensao:
 
@@ -144,12 +144,13 @@ class ProgramaPrincipal:
                 for valor_extensao in valor:
 
                     """# Check botões"""
-                    self.var_check_extensao = tk.IntVar()
+                    self.var_check_extensao = tk.StringVar(value=valor_extensao)
                     self.check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
                     self.check_extenso.config(onvalue=1, offvalue=0, bg='#A9A9A9')
                     self.check_extenso.config(variable=self.var_check_extensao)
                     self.check_extenso.config(command=self.mostrar_ext_check)
                     self.check_extenso.place(y=linhas, x=colunas)
+
                     if linhas == 110:
                         linhas = 25
                         colunas += 85
