@@ -150,8 +150,6 @@ class ProgramaPrincipal:
                     contador += 1
                     print(f'{contador}-linhas{linhas}-colunas{colunas}')
 
-
-
     """##### THREADS DOS BOTÕES"""
 
     def thread_botao_inicio_da_busca(self):
