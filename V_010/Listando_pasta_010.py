@@ -109,7 +109,7 @@ class ProgramaPrincipal:
         contador = 0
         lista_var = list()
         botoes_chek = list()
-        
+
 
         teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
                             'teste6', 'teste7', 'teste8', 'teste9', 'teste10', 'Final'])
@@ -162,6 +162,7 @@ class ProgramaPrincipal:
         """
         Thread(target=self.inicio_da_busca_principal()).start()
 
+    """#### Inicio dos processos """
     def inicio_da_busca_principal(self):
         """
 
