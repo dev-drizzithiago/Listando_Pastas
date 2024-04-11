@@ -107,8 +107,8 @@ class ProgramaPrincipal:
         colunas = 1
         linhas = 24
         contador = 0
-        lista_var = list()
-        botoes_chek = list()
+        self.lista_var = list()
+        self.botoes_chek = list()
 
         teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
                             'teste6', 'teste7', 'teste8', 'teste9', 'teste10', 'Final'])
@@ -143,11 +143,11 @@ class ProgramaPrincipal:
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
-                    lista_var.append(tk.IntVar())
-                    botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
-                                                      variable=lista_var[contador], wraplength=500,
-                                                      bg='#A9A9A9'))
-                    botoes_chek[-1].place(y=linhas, x=colunas)
+                    self.lista_var.append(tk.IntVar())
+                    self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
+                                                           variable=self.lista_var[contador], wraplength=500,
+                                                           bg='#A9A9A9'))
+                    self.botoes_chek[-1].place(y=linhas, x=colunas)
 
                     if linhas == 110:
                         linhas = 25
@@ -173,6 +173,8 @@ class ProgramaPrincipal:
 
         :return:
         """
+        for valor_var in range(len(self.lista_var)):
+            print(self.botoes_chek[valor_var])
 
 
 iniciando_obj = ProgramaPrincipal()
