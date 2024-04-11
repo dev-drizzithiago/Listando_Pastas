@@ -174,7 +174,8 @@ class ProgramaPrincipal:
         :return:
         """
         for valor_var in range(len(self.lista_var)):
-            print(self.botoes_chek[valor_var])
+            if self.lista_var[valor_var].get() == 1:
+                print(self.botoes_chek[valor_var]['text'])
 
 
 iniciando_obj = ProgramaPrincipal()
