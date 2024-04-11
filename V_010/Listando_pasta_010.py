@@ -142,14 +142,20 @@ class ProgramaPrincipal:
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
+                    var = []
+                    botoes = []
+                    cont = 0
 
-                    """# Check botões"""
-                    self.var_check_extensao = tk.StringVar(value=valor)
-                    self.check_extenso = tk.Checkbutton(self.frames_superior, text=valor[contador])
-                    self.check_extenso.config(onvalue=1, offvalue=0, bg='#A9A9A9')
-                    self.check_extenso.config(variable=self.var_check_extensao)
-                    self.check_extenso.config(command=self.mostrar_ext_check)
-                    self.check_extenso.place(y=linhas, x=colunas)
+                    def delHist():
+                        for i in range(len(var)):
+                            if var[i].get() == 1:
+                                print(botoes[i]['text'])
+
+                    for i in 'abcde':
+                        var.append(tk.IntVar())
+                        botoes.append(Checkbutton(self.frames_superior, text=i[0], variable=var[cont], wraplength=500))
+                        botoes[-1].pack()
+                        cont += 1
 
                     if linhas == 110:
                         linhas = 25
