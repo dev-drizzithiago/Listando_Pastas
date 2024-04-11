@@ -115,41 +115,42 @@ class ProgramaPrincipal:
 
         """### Declaraçõd do dicionário de extensões"""
         lista_de_extensoes = dict(
-            AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi', 'Final'],
+            AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
             VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS', 'MOV', 'MPEG-2',
-                    'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB', 'Final'],
-            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml', 'Final'],
+                    'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
+            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
             IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps', 'emf', 'exr',
                     'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2', 'mng', 'pbm', 'pcd', 'pdf',
                     'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg', 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif',
-                    'wbmp', 'wmf', 'xar', 'xcf', 'xpm', 'Final'],
+                    'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
             ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui',
                       'rar', 'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx',
                       'php', 'css', 'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib',
                       'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'vbs', 'ax', 'acm',
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
-                      'cmd', 'conf', 'wsf', 'config', 'json', 'dtd', 'iec', 'ime', 'nsl', 'Final'],
-            ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb', 'Final'],
-            WORD=['doc', 'docm', 'docx', 'dot', 'dotx', 'Final'],
-            POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx', 'Final'],
-            EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx', 'Final'],
-            HTML=['xps', 'htm', 'html', 'Final'])
+                      'cmd', 'conf', 'wsf', 'config', 'json', 'dtd', 'iec', 'ime', 'nsl'],
+            ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
+            WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
+            POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
+            EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
+            HTML=['xps', 'htm', 'html'])
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
         for chave, valor in lista_de_extensoes.items():
             print(f'Extensão 1° loop (Dicionario) {chave}-{valor} ')
             if chave == valor_categoria_extensao:
+                self.label_ext_cat.config(text=f'Categoria selecionada: {valor_categoria_extensao}')
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
                     self.lista_var.append(tk.IntVar())
                     self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
-                                                           variable=self.lista_var[contador], wraplength=500,
+                                                           variable=self.lista_var[contador],
                                                            bg='#A9A9A9'))
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
 
-                    if linhas == 110:
+                    if linhas == 194:
                         linhas = 25
                         colunas += 85
                     else:
@@ -175,7 +176,8 @@ class ProgramaPrincipal:
         """
         for valor_var in range(len(self.lista_var)):
             if self.lista_var[valor_var].get() == 1:
-                print(self.botoes_chek[valor_var]['text'])
+                print(f'Valor selecionado: {self.botoes_chek[valor_var]['text']}')
+
 
 
 iniciando_obj = ProgramaPrincipal()
