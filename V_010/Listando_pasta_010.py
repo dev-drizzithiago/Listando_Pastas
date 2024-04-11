@@ -105,7 +105,7 @@ class ProgramaPrincipal:
     def selecao_combo_extensao(self, *args):
         """### Declaraçõa de variaveis básicas"""
         colunas = 1
-        linhas = 24
+        linhas = 25
         contador = 0
         self.lista_var = list()
         self.botoes_chek = list()
@@ -140,7 +140,7 @@ class ProgramaPrincipal:
         for chave, valor in lista_de_extensoes.items():
             print(f'Extensão 1° loop (Dicionario) {chave}-{valor} ')
             if chave == valor_categoria_extensao:
-                self.label_ext_cat.config(text=f'Categoria selecionada: {valor_categoria_extensao}')
+                self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
@@ -150,13 +150,16 @@ class ProgramaPrincipal:
                                                            bg='#A9A9A9'))
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
 
-                    if linhas == 194:
+                    if linhas == 195:
+                        print(f'Resete 194 {linhas}')
                         linhas = 25
-                        colunas += 85
+                        colunas += 120
                     else:
                         linhas += 17
                     contador += 1
-                    print(f'{contador}-linhas{linhas}-colunas{colunas}')
+
+                    """### Mapeamento das coordenadas de criação das opções do checkbutton"""
+                    print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """##### THREADS DOS BOTÕES"""
 
@@ -177,7 +180,6 @@ class ProgramaPrincipal:
         for valor_var in range(len(self.lista_var)):
             if self.lista_var[valor_var].get() == 1:
                 print(f'Valor selecionado: {self.botoes_chek[valor_var]['text']}')
-
 
 
 iniciando_obj = ProgramaPrincipal()
