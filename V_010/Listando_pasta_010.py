@@ -110,7 +110,6 @@ class ProgramaPrincipal:
         lista_var = list()
         botoes_chek = list()
 
-
         teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
                             'teste6', 'teste7', 'teste8', 'teste9', 'teste10', 'Final'])
 
@@ -144,6 +143,9 @@ class ProgramaPrincipal:
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
+                    lista_var.append(tk.IntVar())
+                    botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao,
+                                                      variable=lista_var[contador], wraplength=500))
 
                     if linhas == 110:
                         linhas = 25
@@ -163,10 +165,12 @@ class ProgramaPrincipal:
         Thread(target=self.inicio_da_busca_principal()).start()
 
     """#### Inicio dos processos """
+
     def inicio_da_busca_principal(self):
         """
 
         :return:
         """
+
 
 iniciando_obj = ProgramaPrincipal()
