@@ -166,10 +166,5 @@ class ProgramaPrincipal:
 
         :return:
         """
-        print(self.var_check_extensao.get())
-
-    def mostrar_ext_check(self):
-        print(self.var_check_extensao.get())
-
 
 iniciando_obj = ProgramaPrincipal()
