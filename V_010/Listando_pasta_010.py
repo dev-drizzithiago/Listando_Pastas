@@ -144,8 +144,8 @@ class ProgramaPrincipal:
                 for valor_extensao in valor:
 
                     """# Check botões"""
-                    self.var_check_extensao = tk.StringVar(value=valor_extensao)
-                    self.check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
+                    self.var_check_extensao = tk.StringVar(value=valor)
+                    self.check_extenso = tk.Checkbutton(self.frames_superior, text=valor[contador])
                     self.check_extenso.config(onvalue=1, offvalue=0, bg='#A9A9A9')
                     self.check_extenso.config(variable=self.var_check_extensao)
                     self.check_extenso.config(command=self.mostrar_ext_check)
