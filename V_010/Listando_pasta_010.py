@@ -148,7 +148,7 @@ class ProgramaPrincipal:
                     self.check_extenso = tk.Checkbutton(self.frames_superior, text=valor_extensao.upper())
                     self.check_extenso.config(onvalue=valor_extensao, offvalue=0, bg='#A9A9A9')
                     self.check_extenso.config(variable=self.var_check_extensao)
-                    self.check_extenso.config(command=lambda: self.mostrar_ext_check)
+                    self.check_extenso.config(command=self.mostrar_ext_check)
                     self.check_extenso.place(y=linhas, x=colunas)
                     if linhas == 110:
                         linhas = 25
