@@ -138,7 +138,6 @@ class ProgramaPrincipal:
         for chave, valor in lista_de_extensoes.items():
             print(f'Extensão 1° loop (Dicionario) {chave}-{valor} ')
             if chave == valor_categoria_extensao:
-
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
