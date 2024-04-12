@@ -136,8 +136,8 @@ class ProgramaPrincipal:
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
             HTML=['xps', 'htm', 'html'])
         valor_categoria_extensao = self.var_combo_box_categoria.get()
-        self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
+        self.thread_limpeza_checkbutton()
 
         for chave, valor in lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
@@ -170,6 +170,18 @@ class ProgramaPrincipal:
         :return:
         """
         Thread(target=self.inicio_da_busca_principal()).start()
+
+    def thread_limpeza_checkbutton(self):
+        """
+
+        :return:
+        """
+        Thread(target=self.limpeza_checkbutton_destroy).start()
+
+    """#### Processos simples"""
+    def limpeza_checkbutton_destroy(self):
+        for valor_destroy in self.botoes_chek:
+            valor_destroy.destroy()
 
     """#### Inicio dos processos """
 
