@@ -138,10 +138,9 @@ class ProgramaPrincipal:
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
+        for destroy in self.botoes_chek:
+            destroy.destroy()
         for chave, valor in lista_de_extensoes.items():
-            for destroy in self.botoes_chek:
-                pass
-                #destroy.destroy()
             if chave == valor_categoria_extensao:
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
