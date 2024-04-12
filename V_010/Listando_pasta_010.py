@@ -15,7 +15,7 @@ class ProgramaPrincipal:
 
         """#### Declaraçõas de atiações"""
         self.ativar_combo = False
-        
+
         """# Janela principal"""
         self.janela_principal = tk.Tk()
         self.janela_principal.title('V_010')
@@ -133,6 +133,7 @@ class ProgramaPrincipal:
         print(f'\n Iniciandoaò THREAD para função [limpeza_checkbutton_destroy]')
         Thread(target=self.limpeza_checkbutton_destroy).start()
 
+    """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
         """### Declaraçõa de variaveis básicas"""
         colunas = 1
