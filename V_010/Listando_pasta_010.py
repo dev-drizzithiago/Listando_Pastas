@@ -3,10 +3,14 @@ from tkinter.ttk import *
 import tkinter as tk
 from tkinter.messagebox import showwarning
 from time import sleep
+from pathlib import Path
 
-"""# Modeulo THREAD"""
+"""# Modulo THREAD"""
 from threading import Thread
 
+""" Pasta padrão da busca; sempre tento usar a pasta do usuário"""
+
+diretorio_home = Path.home()
 
 class ProgramaPrincipal:
     def __init__(self):
@@ -109,7 +113,7 @@ class ProgramaPrincipal:
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Limpar Lista Extensão')
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_limpar_checkbuttun.config(command=self.thread_limpeza_checkbutton)
+        self.botao_limpar_checkbuttun.config(command=self.thread_botao_limpeza_checkbutton)
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -124,15 +128,18 @@ class ProgramaPrincipal:
         :return:
         """
         print(f'\n Iniciandoaò THREAD para função inicio_da_busca_principal')
-        Thread(target=self.inicio_da_busca_principal).start()
+        Thread(target=self.botao_inicio_da_busca_principal).start()
 
-    def thread_limpeza_checkbutton(self):
+    def thread_botao_limpeza_checkbutton(self):
         """
 
         :return:
         """
         print(f'\n Iniciandoaò THREAD para função [limpeza_checkbutton_destroy]')
-        Thread(target=self.limpeza_checkbutton_destroy).start()
+        Thread(target=self.botao_limpeza_checkbutton_destroy).start()
+
+    def thread_botao_pasta_destino(self):
+        Thread(target=self.botao_pasta_destino).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -198,7 +205,7 @@ class ProgramaPrincipal:
 
     """#### Processos simples"""
 
-    def limpeza_checkbutton_destroy(self):
+    def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
         for valor_destroy in self.botoes_chek:
             valor_destroy.destroy()
@@ -207,7 +214,10 @@ class ProgramaPrincipal:
 
     """#### Inicio dos processos """
 
-    def inicio_da_busca_principal(self):
+    def botao_pasta_destino(self):
+        
+
+    def botao_inicio_da_busca_principal(self):
         """
 
         :return:
