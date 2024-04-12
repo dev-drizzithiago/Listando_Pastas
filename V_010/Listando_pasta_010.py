@@ -10,17 +10,19 @@ from threading import Thread
 
 """ Pasta padrão da busca; sempre tento usar a pasta do usuário"""
 
-diretorio_home = Path.home()
+
 
 class ProgramaPrincipal:
     def __init__(self):
         """##### Declarações de variaveis"""
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
+        self.diretorio_home = Path.home()
 
-        """#### Declaraçõas de atiações"""
+        """#### Declaraçõas de ativações"""
         self.ativar_combo = False
 
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Janela principal"""
         self.janela_principal = tk.Tk()
         self.janela_principal.title('V_010')
@@ -28,14 +30,16 @@ class ProgramaPrincipal:
         self.janela_principal.geometry('1000x680+150+5')
         self.janela_principal.resizable(0, 0)
 
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(bg='#DCDCDC')
         self.label_frame_principal.config(width=910, height=650)
         self.label_frame_principal.place(y=5, x=45)
+
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        """#### frames"""
+        """#### FRAMES"""
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
         self.frames_superior = tk.Frame(self.janela_principal, bg='#A9A9A9')
         self.frames_superior.config(width=900, height=200)
@@ -215,7 +219,7 @@ class ProgramaPrincipal:
     """#### Inicio dos processos """
 
     def botao_pasta_destino(self):
-        
+
 
     def botao_inicio_da_busca_principal(self):
         """
