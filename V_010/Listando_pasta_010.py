@@ -2,6 +2,7 @@
 from tkinter.ttk import *
 import tkinter as tk
 from tkinter.messagebox import showwarning
+from tkinter.filedialog import askdirectory
 from time import sleep
 from pathlib import Path
 
@@ -17,10 +18,12 @@ class ProgramaPrincipal:
         """##### Declarações de variaveis"""
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
+
         self.diretorio_home = Path.home()
 
         """#### Declaraçõas de ativações"""
         self.ativar_combo = False
+        self.ativar_selecionar_pasta_destino = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Janela principal"""
@@ -219,7 +222,8 @@ class ProgramaPrincipal:
     """#### Inicio dos processos """
 
     def botao_pasta_destino(self):
-
+        self.ativar_selecionar_pasta_destino = True
+        self.diretorio_home = Path(askdirectory())
 
     def botao_inicio_da_busca_principal(self):
         """
