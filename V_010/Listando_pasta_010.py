@@ -1,6 +1,7 @@
 """#### Declaração de Modulos"""
 from tkinter.ttk import *
 import tkinter as tk
+from tkinter.messagebox import showwarning
 from time import sleep
 
 """# Modeulo THREAD"""
@@ -87,11 +88,11 @@ class ProgramaPrincipal:
         """# Label Frame Diretorio"""
         self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Destino')
         self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
-        self.frame_label_diretorio.place(y=60, x=1)
+        self.frame_label_diretorio.place(y=65, x=1)
         # ______________________________________________________________________________________________________________
         self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Destino')
         self.frame_label_limpeza_chk.config(bg='#D3D3D3', pady=5, padx=5)
-        self.frame_label_limpeza_chk.place(y=120, x=1)
+        self.frame_label_limpeza_chk.place(y=130, x=1)
         # ______________________________________________________________________________________________________________
         """### BOTÕES """
         """# Botão INICIAR PROCESSO"""
@@ -164,8 +165,10 @@ class ProgramaPrincipal:
             POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
             HTML=['xps', 'htm', 'html'])
+
         valor_categoria_extensao = self.var_combo_box_categoria.get()
-        print(valor_categoria_extensao)
+        print(f'\n Categoria selecionada: [{valor_categoria_extensao}]')
+
         self.thread_limpeza_checkbutton()
         for chave, valor in lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
@@ -197,6 +200,8 @@ class ProgramaPrincipal:
             valor_destroy.destroy()
             print(f'Botão: {valor_destroy} destroido')
 
+        self.ativar_combo = False
+
     """#### Inicio dos processos """
 
     def inicio_da_busca_principal(self):
@@ -204,9 +209,13 @@ class ProgramaPrincipal:
 
         :return:
         """
-        for valor_var in range(len(self.lista_var)):
-            if self.lista_var[valor_var].get() == 1:
-                print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
+        if self.ativar_combo:
+            for valor_var in range(len(self.lista_var)):
+                if self.lista_var[valor_var].get() == 1:
+                    print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
+        else:
+            print(f'Não foi selecionado nenhuma extensão')
+            showwarning('IMPORTANTE', 'Não foi selecionado nenhuma extensão')
 
 
 iniciando_obj = ProgramaPrincipal()
