@@ -170,7 +170,7 @@ class ProgramaPrincipal:
 
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         print(f'\n Categoria selecionada: [{valor_categoria_extensao}]')
-
+        self.combo_box_cat.config(state=tk.DISABLED)
         for chave, valor in lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
@@ -200,8 +200,7 @@ class ProgramaPrincipal:
         for valor_destroy in self.botoes_chek:
             valor_destroy.destroy()
             print(f'Botão: {valor_destroy} destroido')
-
-        self.ativar_combo = False
+        self.combo_box_cat.config(state=tk.NORMAL)
 
     """#### Inicio dos processos """
 
