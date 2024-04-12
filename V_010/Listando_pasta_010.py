@@ -209,6 +209,12 @@ class ProgramaPrincipal:
 
         :return:
         """
+
+        """# Desativando todos os botãoes"""
+        self.botao_inicio_processo.config(tk.DISABLED)
+        self.botao_limpar_checkbuttun.config(tk.DISABLED)
+        self.botao_destino_busca.config(tk.DISABLED)
+
         if self.ativar_combo:
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
