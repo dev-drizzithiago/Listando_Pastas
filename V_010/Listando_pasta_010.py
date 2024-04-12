@@ -138,7 +138,6 @@ class ProgramaPrincipal:
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
         for chave, valor in lista_de_extensoes.items():
-            print(f'Extensão 1° loop (Dicionario) {chave}-{valor} ')
             if chave == valor_categoria_extensao:
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
@@ -161,7 +160,7 @@ class ProgramaPrincipal:
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
-                    self.botoes_chek[-1].destroy()
+                self.botoes_chek[-1].destroy()
 
     """##### THREADS DOS BOTÕES"""
 
