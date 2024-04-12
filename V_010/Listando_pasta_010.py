@@ -161,6 +161,8 @@ class ProgramaPrincipal:
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
+                    self.botoes_chek[-1].destroy()
+
     """##### THREADS DOS BOTÕES"""
 
     def thread_botao_inicio_da_busca(self):
