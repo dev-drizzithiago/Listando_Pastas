@@ -13,6 +13,9 @@ class ProgramaPrincipal:
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
 
+        """#### Declaraçõas de atiações"""
+        self.ativar_combo = False
+        
         """# Janela principal"""
         self.janela_principal = tk.Tk()
         self.janela_principal.title('V_010')
@@ -86,6 +89,10 @@ class ProgramaPrincipal:
         self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_diretorio.place(y=60, x=1)
         # ______________________________________________________________________________________________________________
+        self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Destino')
+        self.frame_label_limpeza_chk.config(bg='#D3D3D3', pady=5, padx=5)
+        self.frame_label_limpeza_chk.place(y=120, x=1)
+        # ______________________________________________________________________________________________________________
         """### BOTÕES """
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Iniciar Processo')
@@ -97,6 +104,12 @@ class ProgramaPrincipal:
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Pasta Destino')
         self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_destino_busca.pack(anchor='n', fill='both')
+        # ______________________________________________________________________________________________________________
+        """# Botão limpeza lista de extensão"""
+        self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Limpar Lista Extensão')
+        self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_limpar_checkbuttun.config(command=self.thread_limpeza_checkbutton)
+        self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """###### LOOP DA JANELA ######"""
@@ -109,7 +122,8 @@ class ProgramaPrincipal:
 
         :return:
         """
-        Thread(target=self.inicio_da_busca_principal()).start()
+        print(f'\n Iniciandoaò THREAD para função inicio_da_busca_principal')
+        Thread(target=self.inicio_da_busca_principal).start()
 
     def thread_limpeza_checkbutton(self):
         """
