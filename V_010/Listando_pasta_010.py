@@ -102,6 +102,21 @@ class ProgramaPrincipal:
         """###### LOOP DA JANELA ######"""
         self.janela_principal.mainloop()
 
+    """##### THREADS DOS BOTÕES"""
+    def thread_botao_inicio_da_busca(self):
+        """
+
+        :return:
+        """
+        Thread(target=self.inicio_da_busca_principal()).start()
+
+    def thread_limpeza_checkbutton(self):
+        """
+
+        :return:
+        """
+        Thread(target=self.limpeza_checkbutton_destroy).start()
+
     def selecao_combo_extensao(self, *args):
         """### Declaraçõa de variaveis básicas"""
         colunas = 1
@@ -138,7 +153,6 @@ class ProgramaPrincipal:
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         print(valor_categoria_extensao)
         self.thread_limpeza_checkbutton()
-
         for chave, valor in lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
@@ -162,26 +176,14 @@ class ProgramaPrincipal:
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
-    """##### THREADS DOS BOTÕES"""
-
-    def thread_botao_inicio_da_busca(self):
-        """
-
-        :return:
-        """
-        Thread(target=self.inicio_da_busca_principal()).start()
-
-    def thread_limpeza_checkbutton(self):
-        """
-
-        :return:
-        """
-        Thread(target=self.limpeza_checkbutton_destroy).start()
 
     """#### Processos simples"""
+
     def limpeza_checkbutton_destroy(self):
+        print(f'\nDestroindo os botões check\n')
         for valor_destroy in self.botoes_chek:
             valor_destroy.destroy()
+            print(f'Botão: {valor_destroy} destroido')
 
     """#### Inicio dos processos """
 
