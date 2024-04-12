@@ -103,6 +103,7 @@ class ProgramaPrincipal:
         self.janela_principal.mainloop()
 
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -115,6 +116,7 @@ class ProgramaPrincipal:
 
         :return:
         """
+        print(f'\n Iniciandoaò THREAD para função [limpeza_checkbutton_destroy]')
         Thread(target=self.limpeza_checkbutton_destroy).start()
 
     def selecao_combo_extensao(self, *args):
@@ -125,9 +127,6 @@ class ProgramaPrincipal:
         self.lista_var = list()
         self.botoes_chek = list()
         self.destroy_botao = list()
-
-        teste = dict(AUDIO=['teste1', 'teste2', 'teste3', 'teste4', 'teste5',
-                            'teste6', 'teste7', 'teste8', 'teste9', 'teste10', 'Final'])
 
         """### Declaraçõd do dicionário de extensões"""
         lista_de_extensoes = dict(
@@ -166,7 +165,6 @@ class ProgramaPrincipal:
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
 
                     if linhas == 195:
-                        print(f'Resete 194 {linhas}')
                         linhas = 25
                         colunas += 120
                     else:
@@ -176,11 +174,10 @@ class ProgramaPrincipal:
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
-
     """#### Processos simples"""
 
     def limpeza_checkbutton_destroy(self):
-        print(f'\nDestroindo os botões check\n')
+        print(f'\nRemovendo os botões check\n')
         for valor_destroy in self.botoes_chek:
             valor_destroy.destroy()
             print(f'Botão: {valor_destroy} destroido')
