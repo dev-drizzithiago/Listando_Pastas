@@ -172,6 +172,7 @@ class ProgramaPrincipal:
         self.thread_limpeza_checkbutton()
         for chave, valor in lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
+                self.ativar_combo = True
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
@@ -213,9 +214,11 @@ class ProgramaPrincipal:
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
+                else:
+                    print(f'Não foi selecionado nenhuma extensão')
+                    showwarning('IMPORTANTE', 'Não foi selecionado nenhuma extensão')
         else:
-            print(f'Não foi selecionado nenhuma extensão')
-            showwarning('IMPORTANTE', 'Não foi selecionado nenhuma extensão')
+            showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
 
 
 iniciando_obj = ProgramaPrincipal()
