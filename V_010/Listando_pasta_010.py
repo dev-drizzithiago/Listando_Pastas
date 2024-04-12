@@ -138,8 +138,7 @@ class ProgramaPrincipal:
         valor_categoria_extensao = self.var_combo_box_categoria.get()
         self.lista_de_result_busca.delete(0, 'end')
         print(valor_categoria_extensao)
-        for destroy in self.botoes_chek:
-            destroy.destroy()
+
         for chave, valor in lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
@@ -162,7 +161,6 @@ class ProgramaPrincipal:
 
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
-
 
     """##### THREADS DOS BOTÕES"""
 
