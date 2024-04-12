@@ -222,6 +222,7 @@ class ProgramaPrincipal:
     """#### Inicio dos processos """
 
     def botao_pasta_destino(self):
+        print(f'botao_pasta_destino sendo ativado')
         self.ativar_selecionar_pasta_destino = True
         self.diretorio_home = Path(askdirectory())
 
