@@ -173,7 +173,10 @@ class ProgramaPrincipal:
         self.combo_box_cat.config(state=tk.DISABLED)
         for chave, valor in lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
+
+                """# Label que mostra qual categoria foi escolhida."""
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
+
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
@@ -211,9 +214,9 @@ class ProgramaPrincipal:
         """
 
         """# Desativando todos os botãoes"""
-        self.botao_inicio_processo.config(tk.DISABLED)
-        self.botao_limpar_checkbuttun.config(tk.DISABLED)
-        self.botao_destino_busca.config(tk.DISABLED)
+        self.botao_inicio_processo.config(state=tk.DISABLED)
+        self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
+        self.botao_destino_busca.config(state=tk.DISABLED)
 
         if self.ativar_combo:
             for valor_var in range(len(self.lista_var)):
@@ -221,6 +224,12 @@ class ProgramaPrincipal:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
+
+        sleep(5)
+        """# Após as buscas finalizarem, os botões serão ativados"""
+        self.botao_inicio_processo.config(state=tk.NORMAL)
+        self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
+        self.botao_destino_busca.config(state=tk.NORMAL)
 
 
 iniciando_obj = ProgramaPrincipal()
