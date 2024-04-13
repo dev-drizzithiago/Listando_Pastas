@@ -95,7 +95,8 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
-        self.barra_progresso_busca.config(value=0)
+        self.barra_progresso_busca.config(mode='determinate')
+        self.barra_progresso_busca.config()
         self.barra_progresso_busca.place(y=90, x=5)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -248,7 +249,6 @@ class ProgramaPrincipal:
         self.combo_box_cat.config(state=tk.NORMAL)
 
     """#### Inicio dos processos """
-
     def botao_pasta_destino(self):
         print(f'botao_pasta_destino sendo ativado')
         self.ativar_selecionar_pasta_destino = True
@@ -265,6 +265,9 @@ class ProgramaPrincipal:
         self.botao_inicio_processo.config(state=tk.DISABLED)
         self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
         self.botao_destino_busca.config(state=tk.DISABLED)
+
+        """# Inicio da barra de progresso"""
+        self.barra_progresso_busca.start()
 
         if self.ativar_combo:
             for valor_var in range(len(self.lista_var)):
