@@ -236,21 +236,18 @@ class ProgramaPrincipal:
         if self.ativar_combo:
             for valor_destroy in self.botoes_chek:
                 valor_destroy.destroy()
-                print(f'Botão: {valor_destroy} destroido')
 
-            self.ativar_combo = False
-            self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
-
-            """# Ativação e reconfiguração do combo"""
-            print(f'Atualizando as informações do Combo')
-            self.combo_box_cat.set('Escolha uma categoria')
-            self.combo_box_cat.config(state=tk.NORMAL)
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
+        self.ativar_combo = False
+        self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
 
+        """# Ativação e reconfiguração do combo"""
+        print(f'Atualizando as informações do Combo')
+        self.combo_box_cat.set('Escolha uma categoria')
+        self.combo_box_cat.config(state=tk.NORMAL)
 
-
-
+        print(f'"Combo Ativado: {self.ativar_combo}')
     """#### Inicio dos processos """
 
     def botao_pasta_destino(self):
@@ -266,6 +263,7 @@ class ProgramaPrincipal:
         """
         extensoes = list()
 
+        print(f'Combo ativado: {self.ativar_combo}')
         if self.ativar_combo:
             """# Desativando todos os botãoes"""
             self.botao_inicio_processo.config(state=tk.DISABLED)
