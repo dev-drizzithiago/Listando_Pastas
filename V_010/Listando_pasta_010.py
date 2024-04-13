@@ -22,6 +22,7 @@ class ProgramaPrincipal:
 
         """#### Declaraçõas de ativações"""
         self.ativar_combo = False
+        self.ativar_horario = False
         self.ativar_selecionar_pasta_destino = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -40,6 +41,8 @@ class ProgramaPrincipal:
         self.label_frame_principal.config(width=910, height=650)
         self.label_frame_principal.place(y=5, x=45)
 
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        self.thread_hora_certa()
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### FRAMES"""
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
@@ -81,8 +84,12 @@ class ProgramaPrincipal:
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
         self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
         self.lbl_ext_selec.place(y=40, x=1)
-        """# Label INFO hora certo"""
-        self.lbl_hora_certa = tk.Label(self.frames_central, text=self.thread_hora_certa)
+        # ______________________________________________________________________________________________________________
+        """# Label INFO hora certa"""
+        self.var_lbl_hora_certa = tk.StringVar()
+        self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
+        self.lbl_hora_certa.place(y=1, x=800)
+        self.ativar_horario = False
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
@@ -172,7 +179,7 @@ class ProgramaPrincipal:
 
     def thread_hora_certa(self):
         print(f'Iniciando THREAD hora_certa')
-        Thread(target=self.hora_certa).start()
+        Thread(target=self.data_hora_certa).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -237,10 +244,14 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
-    def hora_certa(self):
-        valor_data = datetime.now()
-        self.data_certa = valor_data.strftime('%d/%M/%Y')
-        self.hora_certa = valor_data.strftime("%H:%M:%S")
+    def data_hora_certa(self):
+        while not self.ativar_horario:
+            valor_data = datetime.now()
+            self.data_certa = valor_data.strftime('%d/%M/%Y')
+            self.hora_certa = valor_data.strftime("%H:%M:%S")
+            self.lbl_hora_certa.config(text=self.hora_certa)
+            print(self.hora_certa)
+            sleep(1)
 
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
