@@ -17,6 +17,8 @@ class ProgramaPrincipal:
         """##### Declarações de variaveis"""
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
+        self.tempo_gasto_da_busca = None
+
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
 
@@ -344,7 +346,7 @@ class ProgramaPrincipal:
                             contagem_minutos += 1
 
                 self.lbl_tempo_busca['text'] = msg_info_time
-                self.tempo_da_busca = msg_info_time
+                self.tempo_gasto_da_busca = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
 
