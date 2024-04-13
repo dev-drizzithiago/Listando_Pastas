@@ -6,6 +6,7 @@ import tkinter as tk
 
 from pathlib import Path
 from time import sleep
+from datetime import datetime
 
 """# Modulo THREAD"""
 from threading import Thread
@@ -231,6 +232,11 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
+    def hora_certa(self):
+        valor_data = datetime.now()
+        self.data_certa = valor_data.strftime('%d/%M/%Y')
+        self.hora_certa = valor_data.strftime("%H:%M:%S")
 
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
