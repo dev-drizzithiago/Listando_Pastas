@@ -255,7 +255,7 @@ class ProgramaPrincipal:
         """
         while not self.ativar_horario:
             valor_data = datetime.now()
-            self.data_certa = valor_data.strftime('%d/%M/%Y')
+            self.data_certa = valor_data.strftime('%d/%m/%Y')
             self.hora_certa = valor_data.strftime("%H:%M:%S")
             self.lbl_hora_certa.config(text=f'{self.hora_certa}-{self.data_certa}')
             sleep(1)
