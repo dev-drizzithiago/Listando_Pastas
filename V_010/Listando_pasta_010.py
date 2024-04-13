@@ -91,6 +91,12 @@ class ProgramaPrincipal:
         self.lbl_hora_certa.config(bg='#C0C0C0')
         self.lbl_hora_certa.place(y=1, x=680)
         # ______________________________________________________________________________________________________________
+        """# Label INFO tempo da busca"""
+        self.var_lbl_tempo_busca = tk.StringVar()
+        self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
+        self.lbl_tempo_busca.config(bg="#C0C0C0")
+        self.lbl_tempo_busca.place(y=20, x=680)
+        # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.frames_central, width=98, height=4, bg='#C0C0C0')
