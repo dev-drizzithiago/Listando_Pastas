@@ -42,7 +42,7 @@ class ProgramaPrincipal:
         self.label_frame_principal.place(y=5, x=45)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        self.thread_hora_certa()
+
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### FRAMES"""
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
@@ -152,11 +152,14 @@ class ProgramaPrincipal:
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        """#### Iniciando o relogio"""
+        self.thread_hora_certa()
+
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """###### LOOP DA JANELA ######"""
         self.janela_principal.mainloop()
-
+        
     """##### THREADS DOS BOTÕES"""
-
     def thread_botao_inicio_da_busca(self):
         """
 
