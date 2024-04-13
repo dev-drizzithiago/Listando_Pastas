@@ -62,23 +62,23 @@ class ProgramaPrincipal:
         self.frames_central.place(y=230, x=50)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
-        """# Label info categoria combo"""
+        """# Label INFO categoria combo"""
         self.var_lbl_ext_cat = tk.StringVar()
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
         self.label_ext_cat.config(text='Aguardado informações', bg='#C0C0C0')
-        self.label_ext_cat.place(y=1, x=10)
+        self.label_ext_cat.place(y=1, x=1)
         # ______________________________________________________________________________________________________________
-        """# Label info pasta destino"""
+        """# Label INFO pasta destino"""
         self.var_lbl_pts_dest = tk.StringVar()
         self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
         self.lbl_pts_dest.config(text=f'Pasta padrão de busca: [{self.diretorio_home}]', bg='#C0C0C0')
-        self.lbl_pts_dest.place(y=1, x=200)
+        self.lbl_pts_dest.place(y=25, x=1)
         # ______________________________________________________________________________________________________________
-        """# Label info extensões selecionadas"""
+        """# Label INFO extensões selecionadas"""
         self.var_lbl_ext_selec = tk.StringVar()
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
         self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
-        self.lbl_ext_selec.place(y=1, x=500)
+        self.lbl_ext_selec.place(y=50, x=1)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
