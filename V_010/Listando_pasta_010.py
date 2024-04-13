@@ -65,7 +65,7 @@ class ProgramaPrincipal:
         """# Label INFO categoria combo"""
         self.var_lbl_ext_cat = tk.StringVar()
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
-        self.label_ext_cat.config(text='Aguardado informações', bg='#C0C0C0')
+        self.label_ext_cat.config(text='Aguardado informações de Categoria', bg='#C0C0C0')
         self.label_ext_cat.place(y=1, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO pasta destino"""
@@ -249,6 +249,7 @@ class ProgramaPrincipal:
         self.combo_box_cat.config(state=tk.NORMAL)
 
     """#### Inicio dos processos """
+
     def botao_pasta_destino(self):
         print(f'botao_pasta_destino sendo ativado')
         self.ativar_selecionar_pasta_destino = True
@@ -261,15 +262,16 @@ class ProgramaPrincipal:
         :return:
         """
         extensoes = list()
-        """# Desativando todos os botãoes"""
-        self.botao_inicio_processo.config(state=tk.DISABLED)
-        self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
-        self.botao_destino_busca.config(state=tk.DISABLED)
 
         """# Inicio da barra de progresso"""
         self.barra_progresso_busca.start()
 
         if self.ativar_combo:
+            """# Desativando todos os botãoes"""
+            self.botao_inicio_processo.config(state=tk.DISABLED)
+            self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
+            self.botao_destino_busca.config(state=tk.DISABLED)
+            self.combo_box_cat.config(state=tk.DISABLED)
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
