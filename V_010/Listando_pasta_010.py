@@ -9,16 +9,13 @@ from pathlib import Path
 """# Modulo THREAD"""
 from threading import Thread
 
-""" Pasta padrão da busca; sempre tento usar a pasta do usuário"""
-
-
 
 class ProgramaPrincipal:
     def __init__(self):
         """##### Declarações de variaveis"""
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
-
+        """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
 
         """#### Declaraçõas de ativações"""
@@ -65,11 +62,15 @@ class ProgramaPrincipal:
         self.frames_central.place(y=230, x=50)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
-        """# Label teste"""
+        """# Label info categoria combo"""
         self.var_lbl_ext_cat = tk.StringVar()
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
         self.label_ext_cat.config(text='Aguardado informações', bg='#C0C0C0')
         self.label_ext_cat.place(y=1, x=10)
+
+        self.var_lbl_pts_dest = tk.StringVar()
+        self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
+        self.lbl_pts_dest.config(text=f'Pasta padrão de busca: [{self.diretorio_home}]', bg='#C0C0C0')
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
@@ -149,6 +150,7 @@ class ProgramaPrincipal:
         Thread(target=self.botao_pasta_destino).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
