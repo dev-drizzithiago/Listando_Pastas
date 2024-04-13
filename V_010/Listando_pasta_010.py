@@ -239,7 +239,7 @@ class ProgramaPrincipal:
                 print(f'Botão: {valor_destroy} destroido')
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
-            
+
         self.ativar_combo = False
         self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
 
@@ -263,9 +263,6 @@ class ProgramaPrincipal:
         """
         extensoes = list()
 
-        """# Inicio da barra de progresso"""
-        self.barra_progresso_busca.start()
-
         if self.ativar_combo:
             """# Desativando todos os botãoes"""
             self.botao_inicio_processo.config(state=tk.DISABLED)
@@ -273,23 +270,24 @@ class ProgramaPrincipal:
             self.botao_destino_busca.config(state=tk.DISABLED)
             self.combo_box_cat.config(state=tk.DISABLED)
 
+            """# Inicio da barra de progresso"""
+            self.barra_progresso_busca.start()
+
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+            self.barra_progresso_busca.stop()
+            self.barra_progresso_busca.config(value=100)
+
+            """# Após as buscas finalizarem, os botões serão ativados"""
+            self.thread_botao_limpeza_checkbutton()
+            self.botao_inicio_processo.config(state=tk.NORMAL)
+            self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
+            self.botao_destino_busca.config(state=tk.NORMAL)
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
-
-        sleep(5)
-        self.barra_progresso_busca.stop()
-        self.barra_progresso_busca.config(value=100)
-
-        """# Após as buscas finalizarem, os botões serão ativados"""
-        self.botao_inicio_processo.config(state=tk.NORMAL)
-        self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
-        self.botao_destino_busca.config(state=tk.NORMAL)
-        self.thread_botao_limpeza_checkbutton()
 
 
 iniciando_obj = ProgramaPrincipal()
