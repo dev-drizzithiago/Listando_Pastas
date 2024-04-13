@@ -373,13 +373,15 @@ class ProgramaPrincipal:
             self.barra_progresso_busca.start()
 
             """# Iniciando tempo de busca"""
+            self.ativo_time_busca = True
             self.thread_tempo_processo_busca()
 
-            """# """
+            """# As informações das extensão chegou no loop abaixo"""
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
+
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
             self.barra_progresso_busca.stop()
             self.barra_progresso_busca.config(value=100)
