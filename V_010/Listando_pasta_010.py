@@ -67,6 +67,7 @@ class ProgramaPrincipal:
         self.frames_central.place(y=230, x=50)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
+        
         """# Label INFO categoria combo"""
         self.var_lbl_ext_cat = tk.StringVar()
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
@@ -118,6 +119,7 @@ class ProgramaPrincipal:
         self.frames_inferior.place(y=440, x=50)
         # ______________________________________________________________________________________________________________
         """# Label Frames dos botões"""
+
         """# Label Frame INICIO"""
         self.frame_label_inicio = tk.LabelFrame(self.frames_inferior, text='Inicio')
         self.frame_label_inicio.config(bg='#D3D3D3', pady=5, padx=5)
@@ -134,6 +136,7 @@ class ProgramaPrincipal:
         self.frame_label_limpeza_chk.place(y=130, x=1)
         # ______________________________________________________________________________________________________________
         """### BOTÕES """
+
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Iniciar Processo')
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
