@@ -280,6 +280,7 @@ class ProgramaPrincipal:
 
         sleep(5)
         self.barra_progresso_busca.stop()
+        self.barra_progresso_busca.config(orient='determinade')
         self.barra_progresso_busca.config(value=100)
 
         """# Após as buscas finalizarem, os botões serão ativados"""
