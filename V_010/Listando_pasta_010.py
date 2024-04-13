@@ -220,11 +220,14 @@ class ProgramaPrincipal:
 
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
-        for valor_destroy in self.botoes_chek:
-            valor_destroy.destroy()
-            print(f'Botão: {valor_destroy} destroido')
-        self.combo_box_cat.config(state=tk.NORMAL)
-
+        if self.ativar_combo:
+            for valor_destroy in self.botoes_chek:
+                valor_destroy.destroy()
+                print(f'Botão: {valor_destroy} destroido')
+            self.combo_box_cat.config(state=tk.NORMAL)
+        else:
+            showwarning("AVISO", 'Não existe lista para limpar')
+        self.ativar_combo = False
     """#### Inicio dos processos """
 
     def botao_pasta_destino(self):
