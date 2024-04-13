@@ -22,7 +22,6 @@ class ProgramaPrincipal:
 
         """#### Declaraçõas de ativações"""
         self.ativar_combo = False
-        self.ativar_horario = False
         self.ativar_selecionar_pasta_destino = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -67,7 +66,7 @@ class ProgramaPrincipal:
         self.frames_central.place(y=230, x=50)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
-        
+
         """# Label INFO categoria combo"""
         self.var_lbl_ext_cat = tk.StringVar()
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
@@ -91,7 +90,6 @@ class ProgramaPrincipal:
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
         self.lbl_hora_certa.config(bg='#C0C0C0')
         self.lbl_hora_certa.place(y=1, x=680)
-        self.ativar_horario = False
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
