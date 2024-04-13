@@ -258,7 +258,7 @@ class ProgramaPrincipal:
             self.data_certa = valor_data.strftime('%d/%m/%Y')
             self.hora_certa = valor_data.strftime("%H:%M:%S")
             self.lbl_hora_certa.config(text=f'{self.hora_certa}-{self.data_certa}')
-            sleep(1)
+            # sleep(1)
 
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
