@@ -239,8 +239,8 @@ class ProgramaPrincipal:
                 print(f'Botão: {valor_destroy} destroido')
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
+            
         self.ativar_combo = False
-
         self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
 
         """# Ativação e reconfiguração do combo"""
@@ -272,6 +272,7 @@ class ProgramaPrincipal:
             self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
             self.botao_destino_busca.config(state=tk.DISABLED)
             self.combo_box_cat.config(state=tk.DISABLED)
+
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
@@ -288,6 +289,7 @@ class ProgramaPrincipal:
         self.botao_inicio_processo.config(state=tk.NORMAL)
         self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
         self.botao_destino_busca.config(state=tk.NORMAL)
+        self.thread_botao_limpeza_checkbutton()
 
 
 iniciando_obj = ProgramaPrincipal()
