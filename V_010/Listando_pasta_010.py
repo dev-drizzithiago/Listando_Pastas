@@ -74,6 +74,12 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta padrão de busca: [{self.diretorio_home}]', bg='#C0C0C0')
         self.lbl_pts_dest.place(y=1, x=200)
         # ______________________________________________________________________________________________________________
+        """# Label info extensões selecionadas"""
+        self.var_lbl_ext_selec = tk.StringVar()
+        self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
+        self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
+        self.lbl_ext_selec.place(y=1, x=500)
+        # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.frames_central, width=98, height=4, bg='#C0C0C0')
@@ -104,6 +110,7 @@ class ProgramaPrincipal:
         self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_diretorio.place(y=65, x=1)
         # ______________________________________________________________________________________________________________
+        """# Frame Label para botão de limpeza da lista de extensões"""
         self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Destino')
         self.frame_label_limpeza_chk.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_limpeza_chk.place(y=130, x=1)
