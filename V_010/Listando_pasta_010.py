@@ -231,9 +231,13 @@ class ProgramaPrincipal:
             for valor_destroy in self.botoes_chek:
                 valor_destroy.destroy()
                 print(f'Botão: {valor_destroy} destroido')
+
             self.combo_box_cat.config(state=tk.NORMAL)
             self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
+
+            """# Ativação e reconfiguração do combo"""
             self.combo_box_cat.set('Escolha uma categoria')
+
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
         self.ativar_combo = False
@@ -261,7 +265,7 @@ class ProgramaPrincipal:
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
-            self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca [{extensoes}]')
+            self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
 
