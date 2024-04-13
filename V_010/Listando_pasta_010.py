@@ -22,6 +22,7 @@ class ProgramaPrincipal:
 
         """#### Declaraçõas de ativações"""
         self.ativar_combo = False
+        self.ativo_time_busca = False
         self.ativar_selecionar_pasta_destino = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -94,7 +95,7 @@ class ProgramaPrincipal:
         """# Label INFO tempo da busca"""
         self.var_lbl_tempo_busca = tk.StringVar()
         self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
-        self.lbl_tempo_busca.config(bg="#C0C0C0")
+        self.lbl_tempo_busca.config(text='Tempo de busca', bg="#C0C0C0")
         self.lbl_tempo_busca.place(y=20, x=680)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
@@ -192,6 +193,10 @@ class ProgramaPrincipal:
         print(f'Iniciando THREAD hora_certa')
         Thread(target=self.data_hora_certa).start()
 
+    def thread_tempo_processo_busca(self):
+        print(f'Iniciando THREAD tempo_precesso_busca')
+        Thread(target=self.tempo_processo_busca).start()
+
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
@@ -283,6 +288,65 @@ class ProgramaPrincipal:
 
         print(f'"Combo Ativado: {self.ativar_combo}')
     """#### Inicio dos processos """
+
+    def tempo_processo_busca(self):
+        """
+        Função vai se responsavel em contar o tempo que a busca foi realizada.
+        :return:
+        """
+        print('\nIniciando time da busca')
+        msg_info_time = str
+        contagem_segundos = 0
+        contagem_minutos = 0
+        contagem_horas = 0
+        if self.ativo_time_busca:
+            while self.ativo_time_busca:
+                if contagem_segundos == 0:
+                    msg_info_time = str(f'00:00:00')
+                    self.lbl_tempo_busca['text'] = msg_info_time
+                else:
+                    if contagem_segundos < 10 and contagem_minutos == 0 and contagem_horas == 0:
+                        msg_info_time = str(f'00:00:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos == 0 and contagem_horas == 0:
+                        msg_info_time = str(f'00:00:{contagem_segundos}')
+
+                    elif contagem_segundos < 10 and contagem_minutos < 10 > 1 and contagem_horas == 0:
+                        msg_info_time = str(f'00:0{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas == 0:
+                        msg_info_time = str(f'00:0{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos < 10 and contagem_minutos > 9 and contagem_horas == 0:
+                        msg_info_time = str(f'00:{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas == 0:
+                        msg_info_time = str(f'00:{contagem_minutos}:{contagem_segundos}')
+
+                    elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas < 10:
+                        msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas < 10:
+                        msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos < 10 and contagem_minutos > 9 and contagem_horas < 10:
+                        msg_info_time = str(f'0{contagem_horas}:{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas < 10:
+                        msg_info_time = str(f'0{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas > 9:
+                        msg_info_time = str(f'{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas > 9:
+                        msg_info_time = str(f'{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                    elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas > 9:
+                        msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+
+                    if contagem_segundos == 59:
+                        if contagem_minutos == 59:
+                            contagem_segundos = 0
+                            contagem_minutos = 0
+                            contagem_horas += 1
+                        else:
+                            contagem_segundos = 0
+                            contagem_minutos += 1
+
+                self.lbl_tempo_busca['text'] = msg_info_time
+                self.tempo_da_busca = msg_info_time
+                contagem_segundos += 1
+                sleep(1)
 
     def botao_pasta_destino(self):
         print(f'botao_pasta_destino sendo ativado')
