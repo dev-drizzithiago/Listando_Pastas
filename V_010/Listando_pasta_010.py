@@ -88,7 +88,8 @@ class ProgramaPrincipal:
         """# Label INFO hora certa"""
         self.var_lbl_hora_certa = tk.StringVar()
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
-        self.lbl_hora_certa.place(y=1, x=800)
+        self.lbl_hora_certa.config(bg='#C0C0C0')
+        self.lbl_hora_certa.place(y=1, x=780)
         self.ativar_horario = False
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
@@ -158,7 +159,7 @@ class ProgramaPrincipal:
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """###### LOOP DA JANELA ######"""
         self.janela_principal.mainloop()
-        
+
     """##### THREADS DOS BOTÕES"""
     def thread_botao_inicio_da_busca(self):
         """
@@ -248,12 +249,15 @@ class ProgramaPrincipal:
 
     """#### Processos simples"""
     def data_hora_certa(self):
+        """
+
+        :return:
+        """
         while not self.ativar_horario:
             valor_data = datetime.now()
             self.data_certa = valor_data.strftime('%d/%M/%Y')
             self.hora_certa = valor_data.strftime("%H:%M:%S")
-            self.lbl_hora_certa.config(text=self.hora_certa)
-            print(self.hora_certa)
+            self.lbl_hora_certa.config(text=f'{self.hora_certa}-{self.data_certa}')
             sleep(1)
 
     def botao_limpeza_checkbutton_destroy(self):
