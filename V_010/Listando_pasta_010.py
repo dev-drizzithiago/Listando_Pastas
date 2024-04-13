@@ -72,13 +72,13 @@ class ProgramaPrincipal:
         self.var_lbl_pts_dest = tk.StringVar()
         self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
         self.lbl_pts_dest.config(text=f'Pasta padrão de busca: [{self.diretorio_home}]', bg='#C0C0C0')
-        self.lbl_pts_dest.place(y=25, x=1)
+        self.lbl_pts_dest.place(y=20, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO extensões selecionadas"""
         self.var_lbl_ext_selec = tk.StringVar()
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
         self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
-        self.lbl_ext_selec.place(y=50, x=1)
+        self.lbl_ext_selec.place(y=40, x=1)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
