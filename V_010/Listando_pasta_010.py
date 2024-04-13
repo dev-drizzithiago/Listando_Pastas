@@ -81,6 +81,8 @@ class ProgramaPrincipal:
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
         self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
         self.lbl_ext_selec.place(y=40, x=1)
+        """# Label INFO hora certo"""
+        self.lbl_hora_certa = tk.Label(self.frames_central, text=self.thread_hora_certa)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
@@ -168,8 +170,11 @@ class ProgramaPrincipal:
         print(f'\n Iniciandoaò THREAD para função [botao_pasta_destino]')
         Thread(target=self.botao_pasta_destino).start()
 
-    """#### Sistema de combo e criaçãodo checkbutton"""
+    def thread_hora_certa(self):
+        print(f'Iniciando THREAD hora_certa')
+        Thread(target=self.hora_certa).start()
 
+    """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
@@ -232,7 +237,6 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
-
     def hora_certa(self):
         valor_data = datetime.now()
         self.data_certa = valor_data.strftime('%d/%M/%Y')
