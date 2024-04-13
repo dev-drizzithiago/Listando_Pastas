@@ -89,7 +89,7 @@ class ProgramaPrincipal:
         self.var_lbl_hora_certa = tk.StringVar()
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
         self.lbl_hora_certa.config(bg='#C0C0C0')
-        self.lbl_hora_certa.place(y=1, x=780)
+        self.lbl_hora_certa.place(y=1, x=680)
         self.ativar_horario = False
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
@@ -253,12 +253,10 @@ class ProgramaPrincipal:
 
         :return:
         """
-        while not self.ativar_horario:
-            valor_data = datetime.now()
-            self.data_certa = valor_data.strftime('%d/%m/%Y')
-            self.hora_certa = valor_data.strftime("%H:%M:%S")
-            self.lbl_hora_certa.config(text=f'{self.hora_certa}-{self.data_certa}')
-            # sleep(1)
+        valor_data = datetime.now()
+        self.data_certa = valor_data.strftime('%d/%m/%Y')
+        self.hora_certa = valor_data.strftime("%H:%M")
+        self.lbl_hora_certa.config(text=f'Inicio do programa:[{self.hora_certa}-{self.data_certa}]')
 
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
