@@ -372,6 +372,10 @@ class ProgramaPrincipal:
             """# Inicio da barra de progresso"""
             self.barra_progresso_busca.start()
 
+            """# Iniciando tempo de busca"""
+            self.thread_tempo_processo_busca()
+
+            """# """
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
