@@ -92,6 +92,11 @@ class ProgramaPrincipal:
         self.barra_rolagem_lista_busca_y.place(y=13, x=864)
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
+        # ______________________________________________________________________________________________________________
+        """# Barra progresso"""
+        self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
+        self.barra_progresso_busca.config(value=0)
+        self.barra_progresso_busca.place(y=90, x=5)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
