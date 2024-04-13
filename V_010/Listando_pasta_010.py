@@ -95,7 +95,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
-        self.barra_progresso_busca.config(mode='indeterminate')
+        self.barra_progresso_busca.config(mode='determinate')
         self.barra_progresso_busca.config()
         self.barra_progresso_busca.place(y=90, x=5)
 
@@ -280,7 +280,6 @@ class ProgramaPrincipal:
 
         sleep(5)
         self.barra_progresso_busca.stop()
-        self.barra_progresso_busca.config(orient='determinade')
         self.barra_progresso_busca.config(value=100)
 
         """# Após as buscas finalizarem, os botões serão ativados"""
