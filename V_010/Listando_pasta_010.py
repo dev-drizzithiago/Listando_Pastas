@@ -1,10 +1,11 @@
 """#### Declaração de Modulos"""
-from tkinter.ttk import *
-import tkinter as tk
 from tkinter.messagebox import showwarning
 from tkinter.filedialog import askdirectory
-from time import sleep
+from tkinter.ttk import *
+import tkinter as tk
+
 from pathlib import Path
+from time import sleep
 
 """# Modulo THREAD"""
 from threading import Thread
