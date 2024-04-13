@@ -67,10 +67,12 @@ class ProgramaPrincipal:
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
         self.label_ext_cat.config(text='Aguardado informações', bg='#C0C0C0')
         self.label_ext_cat.place(y=1, x=10)
-
+        # ______________________________________________________________________________________________________________
+        """# Label info pasta destino"""
         self.var_lbl_pts_dest = tk.StringVar()
         self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
         self.lbl_pts_dest.config(text=f'Pasta padrão de busca: [{self.diretorio_home}]', bg='#C0C0C0')
+        self.lbl_pts_dest.place(y=1, x=200)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
@@ -116,6 +118,7 @@ class ProgramaPrincipal:
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Pasta Destino')
         self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_destino_busca.config(command=self.thread_botao_pasta_destino)
         self.botao_destino_busca.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
@@ -147,6 +150,7 @@ class ProgramaPrincipal:
         Thread(target=self.botao_limpeza_checkbutton_destroy).start()
 
     def thread_botao_pasta_destino(self):
+        print(f'\n Iniciandoaò THREAD para função [botao_pasta_destino]')
         Thread(target=self.botao_pasta_destino).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
@@ -227,6 +231,7 @@ class ProgramaPrincipal:
         print(f'botao_pasta_destino sendo ativado')
         self.ativar_selecionar_pasta_destino = True
         self.diretorio_home = Path(askdirectory())
+        self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     def botao_inicio_da_busca_principal(self):
         """
