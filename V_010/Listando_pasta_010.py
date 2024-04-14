@@ -383,8 +383,9 @@ class ProgramaPrincipal:
                 if self.lista_var[valor_var].get() == 1:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
-
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+
+            """# Desliga a barra de progresso, ao final da busca"""
             self.barra_progresso_busca.stop()
             self.barra_progresso_busca.config(value=100)
 
