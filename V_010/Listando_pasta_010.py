@@ -127,14 +127,14 @@ class ProgramaPrincipal:
         self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.frames_central_2, orient=tk.VERTICAL)
         self.barra_rolagem_lista_busca_y.pack(fill=tk.Y)
         self.barra_rolagem_lista_busca_y.place(y=13, x=864)
-        self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
+        self.barra_rolagem_lista_busca_y.config(command=self.frames_central_2)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
         # ______________________________________________________________________________________________________________
         """# Barrade de Rolagem X """
         self.barra_rolagem_lista_busca_x = tk.Scrollbar(self.frames_central_2, orient=tk.HORIZONTAL)
         self.barra_rolagem_lista_busca_x.pack(fill=tk.X)
         self.barra_rolagem_lista_busca_x.place(y=58, x=400)
-        self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
+        self.barra_rolagem_lista_busca_x.config(command=self.frames_central_2)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
         # ______________________________________________________________________________________________________________
 
