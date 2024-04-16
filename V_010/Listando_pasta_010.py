@@ -20,10 +20,10 @@ class ProgramaPrincipal:
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
         self.tempo_gasto_da_busca = None
-
+        # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
-
+        # ______________________________________________________________________________________________________________
         """#### Declaraçõas de ativações"""
         self.ativar_combo = False
         self.ativo_time_busca = False
@@ -44,9 +44,8 @@ class ProgramaPrincipal:
         self.label_frame_principal.config(bg='#DCDCDC')
         self.label_frame_principal.config(width=910, height=650)
         self.label_frame_principal.place(y=5, x=45)
-
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
+        # ______________________________________________________________________________________________________________
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### FRAMES"""
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
@@ -62,6 +61,7 @@ class ProgramaPrincipal:
         self.combo_box_cat.config(values=tipos_categorias, justify='center')
         self.combo_box_cat.set('Escolha uma categoria')
         self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)
+        # ______________________________________________________________________________________________________________
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Central: Reposanvel por mostrar o resultado da busca"""
@@ -127,6 +127,7 @@ class ProgramaPrincipal:
         self.barra_progresso_busca.config(mode='determinate', length=886)
         self.barra_progresso_busca.config()
         self.barra_progresso_busca.place(y=90, x=5)
+        # ______________________________________________________________________________________________________________
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
