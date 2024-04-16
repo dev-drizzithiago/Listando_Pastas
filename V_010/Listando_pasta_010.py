@@ -116,25 +116,30 @@ class ProgramaPrincipal:
         self.frames_central_2.config(width=900, height=200)
         self.frames_central_2.place(y=350, x=55)
         # ______________________________________________________________________________________________________________
+        """# Frame Label"""
+        self.frame_label_lista_busca = LabelFrame(self.frames_central_2, text='Caixa de Resultador')
+        self.frame_label_lista_busca.config(width=900, height=100)
+        self.frame_label_lista_busca.place(y=350, x=13)
+        # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.frames_central_2, width=98, height=4, bg='#C0C0C0')
+        self.lista_de_result_busca = tk.Listbox(self.frame_label_lista_busca, width=98, height=4, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=115, x=5)
         self.lista_de_result_busca.pack(side='bottom')
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
-        self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.frames_central_2, orient=tk.VERTICAL)
-        self.barra_rolagem_lista_busca_y.pack(fill=tk.Y)
-        self.barra_rolagem_lista_busca_y.place(y=13, x=864)
-        self.barra_rolagem_lista_busca_y.config(command=self.frames_central_2)
+        self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_busca_y.pack(side='right', fill=tk.Y)
+        # self.barra_rolagem_lista_busca_y.place(y=13, x=864)
+        self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
         # ______________________________________________________________________________________________________________
         """# Barrade de Rolagem X """
-        self.barra_rolagem_lista_busca_x = tk.Scrollbar(self.frames_central_2, orient=tk.HORIZONTAL)
-        self.barra_rolagem_lista_busca_x.pack(fill=tk.X)
-        self.barra_rolagem_lista_busca_x.place(y=58, x=400)
-        self.barra_rolagem_lista_busca_x.config(command=self.frames_central_2)
+        self.barra_rolagem_lista_busca_x = tk.Scrollbar(self.lista_de_result_busca, orient=tk.HORIZONTAL)
+        self.barra_rolagem_lista_busca_x.pack(side='bottom', fill=tk.X)
+        # self.barra_rolagem_lista_busca_x.place(y=58, x=400)
+        self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
         # ______________________________________________________________________________________________________________
 
@@ -142,7 +147,7 @@ class ProgramaPrincipal:
         """# Frame Inferior: Responsável por registro das informações de busca"""
         self.frames_inferior = tk.Frame(self.janela_principal, bg='#D3D3D3')
         self.frames_inferior.config(width=900, height=200, bd=2)
-        self.frames_inferior.place(y=440, x=50)
+        # self.frames_inferior.place(y=440, x=50)
         # ______________________________________________________________________________________________________________
         """# Label Frames dos botões"""
 
