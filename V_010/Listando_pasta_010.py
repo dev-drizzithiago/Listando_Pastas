@@ -108,12 +108,19 @@ class ProgramaPrincipal:
         self.lista_de_result_busca.config(font='Helvetica', justify='center', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=115, x=5)
         # ______________________________________________________________________________________________________________
-        """# Barra de Rolagem """
+        """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
         self.barra_rolagem_lista_busca_y.pack(fill=tk.Y)
         self.barra_rolagem_lista_busca_y.place(y=13, x=864)
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
+        # ______________________________________________________________________________________________________________
+        """# Barrade de Rolagem X """
+        self.barra_rolagem_lista_busca_x = tk.Scrollbar(self.lista_de_result_busca, orient=tk.HORIZONTAL)
+        self.barra_rolagem_lista_busca_x.pack(fill=tk.X)
+        self.barra_rolagem_lista_busca_x.place(y=58, x=400)
+        self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
+        self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
@@ -393,6 +400,7 @@ class ProgramaPrincipal:
                 print()
                 for valor_itens in arquivo:
                     print(valor_itens)
+                    self.lista_de_result_busca.insert('end', valor_itens)
 
             """###### Fim do processo de busca"""
 
