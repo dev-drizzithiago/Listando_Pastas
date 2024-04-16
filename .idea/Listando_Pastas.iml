@@ -4,10 +4,10 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.12 (Interpretador)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Projeto_YOUTUBE" />
     <orderEntry type="module" module-name="Ajuste_Horario_Windows" />
     <orderEntry type="module" module-name="JOGO_MEMORIA" />
     <orderEntry type="module" module-name="Relatorio_internet" />
     <orderEntry type="module" module-name="Sala_Cinema" />
+    <orderEntry type="module" module-name="Projeto_YOUTUBE" />
   </component>
 </module>
