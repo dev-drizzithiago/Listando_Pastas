@@ -113,8 +113,8 @@ class ProgramaPrincipal:
 
         """# Frame Central 2: Reposanvel por mostrar o resultado da busca"""
         self.frames_central_2 = tk.Frame(self.janela_principal, bg='#C0C0C0')
-        self.frames_central_2.config(width=900, height=200)
-        self.frames_central_2.place(y=350, x=55)
+        self.frames_central_2.config(width=900, height=100)
+        self.frames_central_2.place(y=350, x=50)
         # ______________________________________________________________________________________________________________
         """# Frame Label"""
         self.frame_label_lista_busca = LabelFrame(self.frames_central_2, text='Caixa de Resultador')
