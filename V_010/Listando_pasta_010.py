@@ -48,6 +48,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### FRAMES"""
+
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
         self.frames_superior = tk.Frame(self.janela_principal, bg='#A9A9A9')
         self.frames_superior.config(width=900, height=200)
@@ -64,11 +65,11 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        """# Frame Central: Reposanvel por mostrar o resultado da busca"""
+        """# Frame Central: Reposanvel por mostrar as informações da busca"""
         self.frames_central = tk.Frame(self.janela_principal, bg='#C0C0C0')
-        self.frames_central.config(width=900, height=200)
+        self.frames_central.config(width=900, height=120)
         self.frames_central.config(bd=2)
-        self.frames_central.place(y=350, x=55)
+        self.frames_central.place(y=210, x=50)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
 
@@ -102,9 +103,22 @@ class ProgramaPrincipal:
         self.lbl_tempo_busca.config(text='Tempo de busca', bg="#C0C0C0")
         self.lbl_tempo_busca.place(y=20, x=680)
         # ______________________________________________________________________________________________________________
+        """# Barra progresso"""
+        self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
+        self.barra_progresso_busca.config(mode='determinate', length=886)
+        self.barra_progresso_busca.config()
+        self.barra_progresso_busca.place(y=90, x=5)
+        # ______________________________________________________________________________________________________________
+        """#### Frame Centro 2"""
+
+        """# Frame Central 2: Reposanvel por mostrar o resultado da busca"""
+        self.frames_central_2 = tk.Frame(self.janela_principal, bg='#C0C0C0')
+        self.frames_central_2.config(width=900, height=200)
+        self.frames_central_2.config(bd=2)
+        # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.frames_central, width=98, height=4, bg='#C0C0C0')
+        self.lista_de_result_busca = tk.Listbox(self.frames_central_2, width=98, height=4, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=115, x=5)
         self.lista_de_result_busca.pack(side='bottom')
@@ -122,12 +136,6 @@ class ProgramaPrincipal:
         self.barra_rolagem_lista_busca_x.place(y=58, x=400)
         self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
-        # ______________________________________________________________________________________________________________
-        """# Barra progresso"""
-        self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
-        self.barra_progresso_busca.config(mode='determinate', length=886)
-        self.barra_progresso_busca.config()
-        self.barra_progresso_busca.place(y=90, x=5)
         # ______________________________________________________________________________________________________________
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
