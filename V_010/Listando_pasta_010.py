@@ -2,7 +2,9 @@
 from tkinter.messagebox import showwarning
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
+from os import walk
 import tkinter as tk
+
 
 from pathlib import Path
 from time import sleep
@@ -384,6 +386,15 @@ class ProgramaPrincipal:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+
+            """###### Inicio do processo de busca"""
+            for raiz, subpasta, arquivo in walk(self.diretorio_home):
+                print(raiz)
+                print()
+                for valor_itens in arquivo:
+                    print(valor_itens)
+
+            """###### Fim do processo de busca"""
 
             """# Desliga a barra de progresso, ao final da busca"""
             self.barra_progresso_busca.stop()
