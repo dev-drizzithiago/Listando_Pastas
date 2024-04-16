@@ -68,7 +68,7 @@ class ProgramaPrincipal:
         self.frames_central = tk.Frame(self.janela_principal, bg='#C0C0C0')
         self.frames_central.config(width=900, height=200)
         self.frames_central.config(bd=2)
-        self.frames_central.place(y=230, x=50)
+        self.frames_central.place(y=350, x=55)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
 
@@ -105,8 +105,9 @@ class ProgramaPrincipal:
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.frames_central, width=98, height=4, bg='#C0C0C0')
-        self.lista_de_result_busca.config(font='Helvetica', justify='center', selectmode=tk.SINGLE)
+        self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=115, x=5)
+        self.lista_de_result_busca.pack(side='bottom')
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = tk.Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
