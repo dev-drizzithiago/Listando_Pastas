@@ -118,7 +118,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Frame Label"""
         self.frame_label_lista_busca = LabelFrame(self.frames_central_2, text='Caixa de Resultador')
-        self.frame_label_lista_busca.config(width=900, height=100)
+        self.frame_label_lista_busca.config(width=890, height=99)
         self.frame_label_lista_busca.place(y=350, x=13)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
