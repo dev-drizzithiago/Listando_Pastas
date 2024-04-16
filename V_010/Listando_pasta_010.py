@@ -69,7 +69,7 @@ class ProgramaPrincipal:
         self.frames_central = tk.Frame(self.janela_principal, bg='#C0C0C0')
         self.frames_central.config(width=900, height=120)
         self.frames_central.config(bd=2)
-        self.frames_central.place(y=210, x=50)
+        self.frames_central.place(y=225, x=50)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
 
@@ -115,6 +115,7 @@ class ProgramaPrincipal:
         self.frames_central_2 = tk.Frame(self.janela_principal, bg='#C0C0C0')
         self.frames_central_2.config(width=900, height=200)
         self.frames_central_2.config(bd=2)
+        self.frames_central_2.place(y=350, x=55)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
