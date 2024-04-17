@@ -435,7 +435,7 @@ class ProgramaPrincipal:
 
                 if contador_inicio == 1:
                     print(f'DIRETORIO RAIZ: {raiz}')
-
+                    
                     """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                     self.lista_de_result_busca.insert('end', '')
                     self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
@@ -449,7 +449,7 @@ class ProgramaPrincipal:
                     """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                     caminho_completo = os.path.join(raiz, valor_itens)
                     diretorio_destaque = str(caminho_completo).split('.')[0].lower()
-                    extensao_destaque = str(caminho_completo).split('.')[0].upper()
+                    extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
                     if search('txt', valor_itens):
