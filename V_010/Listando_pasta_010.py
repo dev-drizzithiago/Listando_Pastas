@@ -100,7 +100,7 @@ class ProgramaPrincipal:
         self.var_lbl_pts_dest = tk.StringVar()
         self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
         self.lbl_pts_dest.config(text=f'Pasta padrão de busca: [{self.diretorio_home}]', bg='#C0C0C0')
-        self.lbl_pts_dest.place(y=20, x=1)
+        self.lbl_pts_dest.place(y=40, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO tempo da busca"""
         self.var_lbl_tempo_busca = tk.StringVar()
@@ -112,7 +112,7 @@ class ProgramaPrincipal:
         self.var_lbl_ext_selec = tk.StringVar()
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
         self.lbl_ext_selec.config(text=f'Aguardando informações de extensões', bg='#C0C0C0')
-        self.lbl_ext_selec.place(y=40, x=1)
+        self.lbl_ext_selec.place(y=20, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO arquivos encontrados em real time"""
         self.var_lbl_info_real_time = tk.StringVar()
