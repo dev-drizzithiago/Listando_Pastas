@@ -441,15 +441,17 @@ class ProgramaPrincipal:
                     diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                     extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
-
-                    if search(str(extensoes), valor_itens):
+                    for valor in extensoes:
+                        valor_extensao = valor
+                    if search(valor_extensao, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         if contador_itens == 1:
                             print(f'\n{raiz}')
                             print('===' * 20, '\n')
+                            self.lista_de_result_busca.insert('end', '')
                             self.lista_de_result_busca.insert('end', f'{raiz}\n')
-                            self.lista_de_result_busca.insert('end', '===' * 10, '\n')
+                            self.lista_de_result_busca.insert('end', '===' * 20, '\n')
                         else:
                             print(f'{resultado_destaque}')
                             self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
