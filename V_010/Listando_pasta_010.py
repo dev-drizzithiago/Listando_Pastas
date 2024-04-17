@@ -56,7 +56,7 @@ class ProgramaPrincipal:
 
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
         self.frames_superior = tk.Frame(self.janela_principal, bg='#A9A9A9')
-        self.frames_superior.config(width=900, height=200)
+        self.frames_superior.config(width=900, height=220)
         self.frames_superior.place(y=20, x=50)
         # ______________________________________________________________________________________________________________
         """COMBO BOX"""
