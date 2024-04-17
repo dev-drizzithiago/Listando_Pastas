@@ -306,7 +306,8 @@ class ProgramaPrincipal:
         if self.ativar_combo:
             for valor_destroy in self.botoes_chek:
                 valor_destroy.destroy()
-
+            """# Tambem limpa a lista de busca"""
+            self.lista_de_result_busca.delete('0', 'end')
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
         self.ativar_combo = False
