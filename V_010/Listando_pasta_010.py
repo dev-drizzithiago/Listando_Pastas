@@ -1,4 +1,5 @@
 """#### Declaração de Modulos"""
+import os.path
 from tkinter.messagebox import showwarning
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
@@ -31,6 +32,7 @@ class ProgramaPrincipal:
         self.ativar_combo = False
         self.ativo_time_busca = False
         self.ativar_selecionar_pasta_destino = False
+        self.ativar_arquivo_encontrado = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Janela principal"""
@@ -387,6 +389,7 @@ class ProgramaPrincipal:
         :return:
         """
         extensoes = list()
+        contador_inicio = 0
 
         print(f'Combo ativado: {self.ativar_combo}')
         if self.ativar_combo:
@@ -412,12 +415,26 @@ class ProgramaPrincipal:
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
-                print(raiz)
+                if contador_inicio == 1:
+                    print(f'{raiz}')
+                    self.lista_de_result_busca.insert('end', f'{raiz}')
+
+                if self.ativar_arquivo_encontrado:
+                    print(f'{raiz}')
+                    self.lista_de_result_busca.insert('end', f'{raiz}')
+
                 for valor_itens in arquivo:
+
+                    caminho_completo = os.path.join(raiz, valor_itens)
+                    diretorio_destaque = str(caminho_completo).split('.')[0].lower()
+                    extensao_destaque = str(caminho_completo).split('.')[0].upper()
+                    resultado_destaque = f'{diretorio_destaque} [ {extensao_destaque} ]'
+
                     if search('jpg', valor_itens):
-                        print(valor_itens)
-                        self.lbl_info_real_time.config(text=f'Arquivos encontrados: {valor_itens}')
-                        self.lista_de_result_busca.insert('end', valor_itens)
+                        self.ativar_arquivo_encontrado = True
+                        print(resultado_destaque)
+                        self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
+                        self.lista_de_result_busca.insert('end', resultado_destaque)
 
             """###### Fim do processo de busca"""
 
@@ -430,6 +447,11 @@ class ProgramaPrincipal:
             self.botao_inicio_processo.config(state=tk.NORMAL)
             self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
             self.botao_destino_busca.config(state=tk.NORMAL)
+
+            self.lbl_info_real_time.config(text=f'Todos arquivos encontrados!')
+
+            """# Desativa o validador de arquivos encontrados"""
+            self.ativar_arquivo_encontrado = False
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
 
