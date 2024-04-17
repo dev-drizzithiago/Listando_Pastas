@@ -2,8 +2,9 @@
 from tkinter.messagebox import showwarning
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
-from os import walk
 import tkinter as tk
+from os import walk
+from re import search
 
 
 from pathlib import Path
@@ -406,8 +407,9 @@ class ProgramaPrincipal:
                 print(raiz)
                 print()
                 for valor_itens in arquivo:
-                    print(valor_itens)
-                    self.lista_de_result_busca.insert('end', valor_itens)
+                    if search(extensoes, valor_itens):
+                        print(valor_itens)
+                        self.lista_de_result_busca.insert('end', valor_itens)
 
             """###### Fim do processo de busca"""
 
