@@ -389,7 +389,7 @@ class ProgramaPrincipal:
         :return:
         """
         extensoes = list()
-        contador_inicio = 0
+        contador_inicio = 1
 
         print(f'Combo ativado: {self.ativar_combo}')
         if self.ativar_combo:
@@ -416,8 +416,12 @@ class ProgramaPrincipal:
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
                 if contador_inicio == 1:
-                    print(f'{raiz}')
-                    self.lista_de_result_busca.insert('end', f'{raiz}')
+                    print(f'DIRETORIO RAIZ: {raiz}')
+
+                    """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
+                    self.lista_de_result_busca.insert('end', '')
+                    self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
+                    self.lista_de_result_busca.insert('end', f'{"===" * 20}')
 
                 if self.ativar_arquivo_encontrado:
                     print(f'{raiz}')
@@ -428,13 +432,19 @@ class ProgramaPrincipal:
                     caminho_completo = os.path.join(raiz, valor_itens)
                     diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                     extensao_destaque = str(caminho_completo).split('.')[0].upper()
-                    resultado_destaque = f'{diretorio_destaque} [ {extensao_destaque} ]'
+                    resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
                     if search('jpg', valor_itens):
                         self.ativar_arquivo_encontrado = True
+                        contador_inicio += 1
+
                         print(resultado_destaque)
                         self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
-                        self.lista_de_result_busca.insert('end', resultado_destaque)
+
+                        """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
+                        self.lista_de_result_busca.insert('end', '')
+                        self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
+                        self.lista_de_result_busca.insert('end', f'{"===" * 20}')
 
             """###### Fim do processo de busca"""
 
