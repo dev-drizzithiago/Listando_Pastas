@@ -47,8 +47,8 @@ class ProgramaPrincipal:
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(bg='#DCDCDC')
-        self.label_frame_principal.config(width=910, height=650)
-        self.label_frame_principal.place(y=5, x=45)
+        self.label_frame_principal.config(width=910, height=675)
+        self.label_frame_principal.place(y=1, x=45)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         # ______________________________________________________________________________________________________________
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -74,7 +74,7 @@ class ProgramaPrincipal:
         self.frames_central = tk.Frame(self.janela_principal, bg='#C0C0C0')
         self.frames_central.config(width=900, height=120)
         self.frames_central.config(bd=2)
-        self.frames_central.place(y=225, x=50)
+        self.frames_central.place(y=245, x=50)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
 
@@ -130,7 +130,7 @@ class ProgramaPrincipal:
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.janela_principal, width=99, height=5, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.place(y=350, x=52)
+        self.lista_de_result_busca.place(y=370, x=52)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
@@ -149,7 +149,7 @@ class ProgramaPrincipal:
         """# Frame Inferior: Responsável por registro das informações de busca"""
         self.frames_inferior = tk.Frame(self.janela_principal, bg='#D3D3D3')
         self.frames_inferior.config(width=900, height=200, bd=2)
-        self.frames_inferior.place(y=450, x=50)
+        self.frames_inferior.place(y=470, x=50)
         # ______________________________________________________________________________________________________________
         """# Label Frames dos botões"""
 
@@ -168,7 +168,7 @@ class ProgramaPrincipal:
         self.frame_label_limpeza_chk.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_limpeza_chk.place(y=130, x=1)
         # ______________________________________________________________________________________________________________
-        """### BOTÕES """
+        """#### BOTÕES """
 
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Iniciar Processo')
