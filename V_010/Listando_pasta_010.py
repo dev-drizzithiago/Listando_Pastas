@@ -422,10 +422,10 @@ class ProgramaPrincipal:
                     self.lista_de_result_busca.insert('end', '')
                     self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                     self.lista_de_result_busca.insert('end', f'{"===" * 20}')
-
-                if self.ativar_arquivo_encontrado:
-                    print(f'{raiz}')
-                    self.lista_de_result_busca.insert('end', f'{raiz}')
+                else:
+                    if self.ativar_arquivo_encontrado:
+                        print(f'{raiz}')
+                        self.lista_de_result_busca.insert('end', f'{raiz}')
 
                 for valor_itens in arquivo:
 
