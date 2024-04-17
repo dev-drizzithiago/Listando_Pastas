@@ -394,6 +394,7 @@ class ProgramaPrincipal:
         """
         extensoes = list()
         contador_inicio = 1
+        contador_itens = 1
 
         print(f'Combo ativado: {self.ativar_combo}')
         if self.ativar_combo:
@@ -427,11 +428,6 @@ class ProgramaPrincipal:
                     self.lista_de_result_busca.insert('end', '')
                     self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                     self.lista_de_result_busca.insert('end', f'{"===" * 20}')
-                else:
-                    print(f'\nValor "ativar_arquivo_encontrado: {self.ativar_arquivo_encontrado}')
-                    if self.ativar_arquivo_encontrado:
-                        print(f'\n{raiz}')
-                        self.lista_de_result_busca.insert('end', f'{raiz}')
 
                 contador_inicio += 1
 
@@ -443,7 +439,9 @@ class ProgramaPrincipal:
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
                     if search('jpg', valor_itens):
-                        self.ativar_arquivo_encontrado = True
+                        if contador_itens == 1:
+                            print(f'\n{raiz}')
+                            self.lista_de_result_busca.insert('end', f'{raiz}\n')
 
                         print(f'{resultado_destaque}')
                         self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
@@ -452,9 +450,9 @@ class ProgramaPrincipal:
                         self.lista_de_result_busca.insert('end', '')
                         self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                         self.lista_de_result_busca.insert('end', f'{"===" * 20}')
-
+                        contador_itens += 1
+                        
             """###### Fim do processo de busca"""
-
             """# Desliga a barra de progresso, ao final da busca"""
             self.barra_progresso_busca.stop()
             self.barra_progresso_busca.config(value=100)
