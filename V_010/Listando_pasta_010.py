@@ -439,11 +439,15 @@ class ProgramaPrincipal:
                 contador_itens = 1
 
                 for valor_itens in arquivo:
+
+                    """# Como o valor da extensão esta chegando em lista, até que resolver isso, vou precisar 
+                    pegar apenas o primeiro valor"""
                     for valor in extensoes:
                         valor_extensao = str(valor).lower()
+
                     extensao = str(valor_itens).split('.')[-1]
                     if valor_extensao == extensao:
-                        valor_de_busca = str(valor_extensao)
+                        valor_de_busca = str(valor_itens)
                     print(f'valor_de_busca {valor_de_busca}')
 
                     """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
