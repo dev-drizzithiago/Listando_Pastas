@@ -407,7 +407,7 @@ class ProgramaPrincipal:
                 print(raiz)
                 print()
                 for valor_itens in arquivo:
-                    if search(extensoes, valor_itens):
+                    if search('jpg', valor_itens):
                         print(valor_itens)
                         self.lista_de_result_busca.insert('end', valor_itens)
 
