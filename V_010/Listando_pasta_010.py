@@ -108,9 +108,9 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Label INFO arquivos encontrados em real time"""
         self.var_lbl_info_real_time = tk.StringVar()
-        self.lbl_info_real_time = Label(self.frames_central, text=self.var_lbl_info_real_time)
-        self.lbl_info_real_time.config(text='Arquivos encontrados em real time')
-        self.lbl_info_real_time.place(y=40)
+        self.lbl_info_real_time = tk.Label(self.frames_central, text=self.var_lbl_info_real_time)
+        self.lbl_info_real_time.config(text='Arquivos encontrados em real time', bg='#C0C0C0')
+        self.lbl_info_real_time.place(y=40, x=1)
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
@@ -314,8 +314,8 @@ class ProgramaPrincipal:
         self.combo_box_cat.config(state=tk.NORMAL)
 
         print(f'"Combo Ativado: {self.ativar_combo}')
-    """#### Inicio dos processos """
 
+    """#### Inicio dos processos """
     def tempo_processo_busca(self):
         """
         Função vai se responsavel em contar o tempo que a busca foi realizada.
@@ -416,6 +416,7 @@ class ProgramaPrincipal:
                 for valor_itens in arquivo:
                     if search('jpg', valor_itens):
                         print(valor_itens)
+                        self.lbl_info_real_time.config(text=f'Arquivos encontrados: {valor_itens}')
                         self.lista_de_result_busca.insert('end', valor_itens)
 
             """###### Fim do processo de busca"""
