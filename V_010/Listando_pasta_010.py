@@ -477,6 +477,7 @@ class ProgramaPrincipal:
             print(f'Itens encontrados: [{contador_de_arquivos}]')
 
             """# Desativa o validador de arquivos encontrados"""
+            self.ativo_time_busca = False
             self.ativar_arquivo_encontrado = False
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
