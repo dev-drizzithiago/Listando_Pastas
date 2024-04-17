@@ -240,7 +240,7 @@ class ProgramaPrincipal:
         self.destroy_botao = list()
 
         """### Declaraçõd do dicionário de extensões"""
-        lista_de_extensoes = dict(
+        self.lista_de_extensoes = dict(
             AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
             VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS', 'MOV', 'MPEG-2',
                     'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
@@ -250,11 +250,12 @@ class ProgramaPrincipal:
                     'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg', 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif',
                     'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
             ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui',
-                      'rar', 'sys', 'tmp', 'wmd', 'py', 'lua', 'java', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx',
-                      'php', 'css', 'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib',
-                      'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'vbs', 'ax', 'acm',
+                      'rar', 'sys', 'tmp', 'wmd', 'lua', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx', 'nsl', 'dtd',
+                      'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'iec', 'ime',
+                      'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs',  'ax', 'acm', 'json',
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
-                      'cmd', 'conf', 'wsf', 'config', 'json', 'dtd', 'iec', 'ime', 'nsl'],
+                      'cmd', 'conf', 'wsf', 'config'],
+            PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', ],
             ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
             WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
             POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
@@ -262,9 +263,10 @@ class ProgramaPrincipal:
             HTML=['xps', 'htm', 'html'])
 
         valor_categoria_extensao = self.var_combo_box_categoria.get()
+        self.categoria_filtro = self.var_combo_box_categoria.get()
         print(f'\n Categoria selecionada: [{valor_categoria_extensao}]')
         self.combo_box_cat.config(state=tk.DISABLED)
-        for chave, valor in lista_de_extensoes.items():
+        for chave, valor in self.lista_de_extensoes.items():
             if chave == valor_categoria_extensao:
 
                 """# Label que mostra qual categoria foi escolhida."""
