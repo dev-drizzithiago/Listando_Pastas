@@ -88,7 +88,7 @@ class ProgramaPrincipal:
         self.var_lbl_qtd_arquivos = tk.StringVar()
         self.lbl_qtd_arquivos = tk.Label(self.frames_central, text=self.var_lbl_qtd_arquivos)
         self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados', bg='#C0C0C0')
-        self.lbl_qtd_arquivos.place(y=1, x=225)
+        self.lbl_qtd_arquivos.place(y=1, x=300)
         # ______________________________________________________________________________________________________________
         """# Label INFO hora certa"""
         self.var_lbl_hora_certa = tk.StringVar()
