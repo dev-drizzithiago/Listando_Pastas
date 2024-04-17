@@ -468,7 +468,6 @@ class ProgramaPrincipal:
             self.barra_progresso_busca.config(value=100)
 
             """# Após as buscas finalizarem, os botões serão ativados"""
-            self.thread_botao_limpeza_checkbutton()
             self.botao_inicio_processo.config(state=tk.NORMAL)
             self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
             self.botao_destino_busca.config(state=tk.NORMAL)
