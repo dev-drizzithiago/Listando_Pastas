@@ -111,27 +111,20 @@ class ProgramaPrincipal:
         """# Label INFO extensões selecionadas"""
         self.var_lbl_ext_selec = tk.StringVar()
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
-        self.lbl_ext_selec.config(text=f'Aguardando informações', bg='#C0C0C0')
+        self.lbl_ext_selec.config(text=f'Aguardando informações de extensões', bg='#C0C0C0')
         self.lbl_ext_selec.place(y=40, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO arquivos encontrados em real time"""
         self.var_lbl_info_real_time = tk.StringVar()
         self.lbl_info_real_time = tk.Label(self.frames_central, text=self.var_lbl_info_real_time)
         self.lbl_info_real_time.config(text='Arquivos encontrados em real time', bg='#C0C0C0')
-        self.lbl_info_real_time.place(y=40, x=1)
+        self.lbl_info_real_time.place(y=60, x=1)
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
         self.barra_progresso_busca.config(mode='determinate', length=886)
         self.barra_progresso_busca.config()
         self.barra_progresso_busca.place(y=90, x=5)
-        # ______________________________________________________________________________________________________________
-        """#### Frame Centro 2"""
-
-        """# Frame Central 2: Reposanvel por mostrar o resultado da busca"""
-        self.frames_central_2 = tk.Frame(self.janela_principal)
-        self.frames_central_2.config(width=900, height=100, bg='#C0C0C0')
-        # self.frames_central_2.place(y=350, x=50)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
@@ -281,7 +274,7 @@ class ProgramaPrincipal:
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
                     self.lista_var.append(tk.IntVar())
-                    self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
+                    self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao,
                                                            variable=self.lista_var[contador],
                                                            bg='#A9A9A9'))
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
@@ -425,6 +418,7 @@ class ProgramaPrincipal:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+            print(f'Valor da lista extensoes: {extensoes}')
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
@@ -451,8 +445,6 @@ class ProgramaPrincipal:
                     diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                     extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
-
-                    print(f'Valor da lista extensoes: {extensoes}')
 
                     if search(str(extensoes), valor_itens):
                         print(f'Itens encontrados: [{contador_de_arquivos}]')
