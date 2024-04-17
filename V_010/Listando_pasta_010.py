@@ -433,8 +433,6 @@ class ProgramaPrincipal:
                 print(f'valor contador_inicio: {contador_inicio}')
                 print(f'valor contador_itens: {contador_itens}')
 
-                contador_itens = 1
-
                 if contador_inicio == 1:
                     print(f'DIRETORIO RAIZ: {raiz}')
 
@@ -444,6 +442,7 @@ class ProgramaPrincipal:
                     self.lista_de_result_busca.insert('end', f'{"===" * 20}\n')
 
                 contador_inicio += 1
+                contador_itens = 1
 
                 for valor_itens in arquivo:
 
