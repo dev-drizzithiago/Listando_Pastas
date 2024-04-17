@@ -7,7 +7,7 @@ import tkinter as tk
 
 """#### Modulos do sistema"""
 from os import walk
-from re import search
+from re import search, findall
 
 """### Modulos básicos"""
 from time import sleep
@@ -452,7 +452,7 @@ class ProgramaPrincipal:
                     extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
-                    if search('txt', valor_itens):
+                    if findall(extensoes, valor_itens):
                         print(f'Itens encontrados: [{contador_de_arquivos}]')
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
