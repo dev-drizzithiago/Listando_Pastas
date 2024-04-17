@@ -452,7 +452,9 @@ class ProgramaPrincipal:
                     extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
-                    if findall(extensoes, valor_itens):
+                    print(f'Valor da lista extensoes: {extensoes}')
+
+                    if search(str(extensoes), valor_itens):
                         print(f'Itens encontrados: [{contador_de_arquivos}]')
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
