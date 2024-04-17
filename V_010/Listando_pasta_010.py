@@ -3,12 +3,14 @@ from tkinter.messagebox import showwarning
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
 import tkinter as tk
+
+"""#### Modulos do sistema"""
 from os import walk
 from re import search
 
-
-from pathlib import Path
+"""### Modulos básicos"""
 from time import sleep
+from pathlib import Path
 from datetime import datetime
 
 """# Modulo THREAD"""
@@ -103,6 +105,12 @@ class ProgramaPrincipal:
         self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
         self.lbl_tempo_busca.config(text='Tempo de busca', bg="#C0C0C0")
         self.lbl_tempo_busca.place(y=20, x=680)
+        # ______________________________________________________________________________________________________________
+        """# Label INFO arquivos encontrados em real time"""
+        self.var_lbl_info_real_time = tk.StringVar()
+        self.lbl_info_real_time
+
+
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
@@ -405,7 +413,6 @@ class ProgramaPrincipal:
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
                 print(raiz)
-                print()
                 for valor_itens in arquivo:
                     if search('jpg', valor_itens):
                         print(valor_itens)
