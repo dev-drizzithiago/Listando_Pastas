@@ -443,7 +443,6 @@ class ProgramaPrincipal:
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
                     if search(str(extensoes), valor_itens):
-                        print(f'Itens encontrados: [{contador_de_arquivos}]')
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         if contador_itens == 1:
@@ -469,7 +468,9 @@ class ProgramaPrincipal:
             self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
             self.botao_destino_busca.config(state=tk.NORMAL)
 
+            """# Número de itens encontrados"""
             self.lbl_info_real_time.config(text=f'Todos arquivos encontrados!')
+            print(f'Itens encontrados: [{contador_de_arquivos}]')
 
             """# Desativa o validador de arquivos encontrados"""
             self.ativar_arquivo_encontrado = False
