@@ -479,9 +479,9 @@ class ProgramaPrincipal:
             """# Desativa o validador de arquivos encontrados"""
             self.ativo_time_busca = False
             self.ativar_arquivo_encontrado = False
-            
+
             self.lista_de_result_busca.insert('end', '')
-            self.lista_de_result_busca.insert('end', '===' * 20, '\n')
+            self.lista_de_result_busca.insert('end', '===' * 20)
             self.lista_de_result_busca.insert('end', f'Busca finalizada!')
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
