@@ -198,6 +198,7 @@ class ProgramaPrincipal:
         self.janela_principal.mainloop()
 
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -227,6 +228,7 @@ class ProgramaPrincipal:
         Thread(target=self.tempo_processo_busca).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
@@ -289,6 +291,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
     def data_hora_certa(self):
         """
 
@@ -318,6 +321,7 @@ class ProgramaPrincipal:
         print(f'"Combo Ativado: {self.ativar_combo}')
 
     """#### Inicio dos processos """
+
     def tempo_processo_busca(self):
         """
         Função vai se responsavel em contar o tempo que a busca foi realizada.
@@ -415,6 +419,7 @@ class ProgramaPrincipal:
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
+                print(f'valor contador_inicio: {contador_inicio}')
                 if contador_inicio == 1:
                     print(f'DIRETORIO RAIZ: {raiz}')
 
@@ -423,9 +428,12 @@ class ProgramaPrincipal:
                     self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                     self.lista_de_result_busca.insert('end', f'{"===" * 20}')
                 else:
+                    print(f'\nValor "ativar_arquivo_encontrado: {self.ativar_arquivo_encontrado}')
                     if self.ativar_arquivo_encontrado:
-                        print(f'{raiz}')
+                        print(f'\n{raiz}')
                         self.lista_de_result_busca.insert('end', f'{raiz}')
+
+                contador_inicio += 1
 
                 for valor_itens in arquivo:
 
@@ -436,9 +444,8 @@ class ProgramaPrincipal:
 
                     if search('jpg', valor_itens):
                         self.ativar_arquivo_encontrado = True
-                        contador_inicio += 1
 
-                        print(resultado_destaque)
+                        print(f'{resultado_destaque}')
                         self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
 
                         """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
