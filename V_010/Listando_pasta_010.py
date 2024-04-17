@@ -274,7 +274,7 @@ class ProgramaPrincipal:
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')
                 for valor_extensao in valor:
                     self.lista_var.append(tk.IntVar())
-                    self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao,
+                    self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
                                                            variable=self.lista_var[contador],
                                                            bg='#A9A9A9'))
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
@@ -441,8 +441,10 @@ class ProgramaPrincipal:
                     diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                     extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
+
                     for valor in extensoes:
-                        valor_extensao = valor
+                        valor_extensao = str(valor).lower()
+
                     if search(valor_extensao, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
