@@ -399,6 +399,7 @@ class ProgramaPrincipal:
         contador_de_pastas = 0
         contador_inicio = 1
         contador_itens = 1
+        valor_de_busca = None
 
         print(f'Combo ativado: {self.ativar_combo}')
         if self.ativar_combo:
@@ -442,7 +443,8 @@ class ProgramaPrincipal:
                         valor_extensao = str(valor).lower()
                     extensao = str(valor_itens).split('.')[-1]
                     if valor_extensao == extensao:
-                        valor_de_busca = valor_extensao
+                        valor_de_busca = str(valor_extensao)
+                    print(f'valor_de_busca {valor_de_busca}')
 
                     """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                     caminho_completo = os.path.join(raiz, valor_itens)
