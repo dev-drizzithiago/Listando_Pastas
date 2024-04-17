@@ -84,6 +84,12 @@ class ProgramaPrincipal:
         self.label_ext_cat.config(text='Aguardado informações de Categoria', bg='#C0C0C0')
         self.label_ext_cat.place(y=1, x=1)
         # ______________________________________________________________________________________________________________
+        """# Label INFO quantidade de arquivos encontrados"""
+        self.var_lbl_qtd_arquivos = tk.StringVar()
+        self.lbl_qtd_arquivos = tk.Label(self.frames_central, text=self.var_lbl_qtd_arquivos)
+        self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados', bg='#C0C0C0')
+        self.lbl_qtd_arquivos.place(y=1, x=225)
+        # ______________________________________________________________________________________________________________
         """# Label INFO hora certa"""
         self.var_lbl_hora_certa = tk.StringVar()
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
@@ -393,6 +399,8 @@ class ProgramaPrincipal:
         :return:
         """
         extensoes = list()
+        contador_de_arquivos = 0
+        contador_de_pastas = 0
         contador_inicio = 1
         contador_itens = 1
 
@@ -444,6 +452,9 @@ class ProgramaPrincipal:
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
                     if search('jpg', valor_itens):
+                        print(f'Itens encontrados: [{contador_de_arquivos}]')
+                        self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
+
                         if contador_itens == 1:
                             print(f'\n{raiz}')
                             print('===' * 20, '\n')
@@ -454,6 +465,7 @@ class ProgramaPrincipal:
                             self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
                             self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
                         contador_itens += 1
+                        contador_de_arquivos += 1
 
             """###### Fim do processo de busca"""
             """# Desliga a barra de progresso, ao final da busca"""
