@@ -428,6 +428,8 @@ class ProgramaPrincipal:
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
+
+                """# Informa os valores dos contadores para analisar se esta tudo correto"""
                 print(f'valor contador_inicio: {contador_inicio}')
                 print(f'valor contador_itens: {contador_itens}')
 
@@ -451,7 +453,7 @@ class ProgramaPrincipal:
                     extensao_destaque = str(caminho_completo).split('.')[0].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
-                    if search('jpg', valor_itens):
+                    if search('txt', valor_itens):
                         print(f'Itens encontrados: [{contador_de_arquivos}]')
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
