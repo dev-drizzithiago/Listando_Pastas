@@ -427,12 +427,13 @@ class ProgramaPrincipal:
                     """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                     self.lista_de_result_busca.insert('end', '')
                     self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
-                    self.lista_de_result_busca.insert('end', f'{"===" * 20}')
+                    self.lista_de_result_busca.insert('end', f'{"===" * 20}\n')
 
                 contador_inicio += 1
 
                 for valor_itens in arquivo:
 
+                    """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                     caminho_completo = os.path.join(raiz, valor_itens)
                     diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                     extensao_destaque = str(caminho_completo).split('.')[0].upper()
@@ -441,17 +442,15 @@ class ProgramaPrincipal:
                     if search('jpg', valor_itens):
                         if contador_itens == 1:
                             print(f'\n{raiz}')
+                            print('===' * 20, '\n')
                             self.lista_de_result_busca.insert('end', f'{raiz}\n')
-
-                        print(f'{resultado_destaque}')
-                        self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
-
-                        """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
-                        self.lista_de_result_busca.insert('end', '')
-                        self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
-                        self.lista_de_result_busca.insert('end', f'{"===" * 20}')
+                            self.lista_de_result_busca.insert('end', '===' * 10, '\n')
+                        else:
+                            print(f'{resultado_destaque}')
+                            self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
+                            self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
                         contador_itens += 1
-                        
+
             """###### Fim do processo de busca"""
             """# Desliga a barra de progresso, ao final da busca"""
             self.barra_progresso_busca.stop()
