@@ -421,6 +421,10 @@ class ProgramaPrincipal:
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
                 print(f'valor contador_inicio: {contador_inicio}')
+                print(f'valor contador_itens: {contador_itens}')
+
+                contador_itens = 1
+
                 if contador_inicio == 1:
                     print(f'DIRETORIO RAIZ: {raiz}')
 
