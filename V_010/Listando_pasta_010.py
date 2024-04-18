@@ -430,7 +430,7 @@ class ProgramaPrincipal:
 
             for valor_item_extensao in extensoes:
                 valor_da_extensao_busca = str(valor_item_extensao).lower()
-            print(f'Valor selecionado: {valor_da_extensao_busca}')
+            print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
@@ -486,11 +486,15 @@ class ProgramaPrincipal:
             self.botao_destino_busca.config(state=tk.NORMAL)
 
             """# Número de itens encontrados"""
-            self.lbl_info_real_time.config(text=f'Todos arquivos encontrados!')
-            print(f'Itens encontrados: [{contador_de_arquivos}]')
+            self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
+            print(f'Itens encontrados: [ {contador_de_arquivos} ]')
 
             """# Desativa o validador de arquivos encontrados"""
+            print(f'Desativando "time_busca"')
+            sleep(1)
             self.ativo_time_busca = False
+            print(f'Desativado "arquivo_encontrado"')
+            sleep(1)
             self.ativar_arquivo_encontrado = False
 
             self.lista_de_result_busca.insert('end', '')
