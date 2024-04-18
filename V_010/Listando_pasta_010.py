@@ -491,8 +491,9 @@ class ProgramaPrincipal:
                 contador_itens = 1
                 for valor_itens in arquivo:
 
+                    """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário"""
                     if search(valor_da_extensao_busca, valor_itens):
-                        contador_de_pastas += 1
+
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
@@ -506,9 +507,16 @@ class ProgramaPrincipal:
                         extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                         resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
+                        """# Mostra a pasta que foram encontrado algum arquivo"""
                         if contador_itens == 1:
+                            """# Conta quantas pastas foram encontrados os itens da busca"""
+                            contador_de_pastas += 1
+
+                            """ #Mostra o resultado da busca no prompt"""
                             print(f'\n{raiz}')
                             print('===' * 20, '\n')
+
+                            """# Mostra o resultado na lista de busca"""
                             self.lista_de_result_busca.insert('end', '')
                             self.lista_de_result_busca.insert('end', f'{raiz}\n')
                             self.lista_de_result_busca.insert('end', '===' * 20, '\n')
