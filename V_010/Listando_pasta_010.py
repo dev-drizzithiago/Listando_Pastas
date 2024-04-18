@@ -29,10 +29,14 @@ class ProgramaPrincipal:
         self.func_pasta_destino()
         # ______________________________________________________________________________________________________________
         """#### Declaraçõas de ativações"""
-        self.ativar_combo = False
-        self.ativo_time_busca = False
+
         self.ativar_selecionar_pasta_destino = False
         self.ativar_arquivo_encontrado = False
+        self.ativo_time_busca = False
+        self.ativar_segundos = False
+        self.ativar_minutos = False
+        self.ativar_combo = False
+        self.ativar_horas = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Janela principal"""
@@ -344,34 +348,68 @@ class ProgramaPrincipal:
                     msg_info_time = str(f'00:00:00')
                     self.lbl_tempo_busca['text'] = msg_info_time
                 else:
+                    # Contagem dos SEGUNDOS
                     if contagem_segundos < 10 and contagem_minutos == 0 and contagem_horas == 0:
                         msg_info_time = str(f'00:00:0{contagem_segundos}')
+                        self.ativar_segundos = True
                     elif contagem_segundos > 9 and contagem_minutos == 0 and contagem_horas == 0:
                         msg_info_time = str(f'00:00:{contagem_segundos}')
+                        self.ativar_segundos = True
 
+                    # Contagem dos MINUTOS
                     elif contagem_segundos < 10 and contagem_minutos < 10 > 1 and contagem_horas == 0:
                         msg_info_time = str(f'00:0{contagem_minutos}:0{contagem_segundos}')
+                        self.ativar_minutos = True
+                        self.ativar_segundos = False
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas == 0:
                         msg_info_time = str(f'00:0{contagem_minutos}:{contagem_segundos}')
+                        self.ativar_minutos = True
+                        self.ativar_segundos = False
                     elif contagem_segundos < 10 and contagem_minutos > 9 and contagem_horas == 0:
                         msg_info_time = str(f'00:{contagem_minutos}:0{contagem_segundos}')
+                        self.ativar_minutos = True
+                        self.ativar_segundos = False
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas == 0:
                         msg_info_time = str(f'00:{contagem_minutos}:{contagem_segundos}')
+                        self.ativar_minutos = True
+                        self.ativar_segundos = False
 
+                    # Contagem das horas
                     elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas < 10:
                         msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                        self.ativar_horas = True
+                        self.ativar_minutos = False
+                        self.ativar_segundos = False
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas < 10:
                         msg_info_time = str(f'0{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                        self.ativar_horas = True
+                        self.ativar_minutos = False
+                        self.ativar_segundos = False
                     elif contagem_segundos < 10 and contagem_minutos > 9 and contagem_horas < 10:
                         msg_info_time = str(f'0{contagem_horas}:{contagem_minutos}:0{contagem_segundos}')
+                        self.ativar_horas = True
+                        self.ativar_minutos = False
+                        self.ativar_segundos = False
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas < 10:
                         msg_info_time = str(f'0{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                        self.ativar_horas = True
+                        self.ativar_minutos = False
+                        self.ativar_segundos = False
                     elif contagem_segundos < 10 and contagem_minutos < 10 and contagem_horas > 9:
                         msg_info_time = str(f'{contagem_horas}:0{contagem_minutos}:0{contagem_segundos}')
+                        self.ativar_horas = True
+                        self.ativar_minutos = False
+                        self.ativar_segundos = False
                     elif contagem_segundos > 9 and contagem_minutos < 10 and contagem_horas > 9:
                         msg_info_time = str(f'{contagem_horas}:0{contagem_minutos}:{contagem_segundos}')
+                        self.ativar_horas = True
+                        self.ativar_minutos = False
+                        self.ativar_segundos = False
                     elif contagem_segundos > 9 and contagem_minutos > 9 and contagem_horas > 9:
                         msg_info_time = str(f'{contagem_horas}:{contagem_minutos}:{contagem_segundos}')
+                        self.ativar_horas = True
+                        self.ativar_minutos = False
+                        self.ativar_segundos = False
 
                     if contagem_segundos == 59:
                         if contagem_minutos == 59:
@@ -381,8 +419,13 @@ class ProgramaPrincipal:
                         else:
                             contagem_segundos = 0
                             contagem_minutos += 1
+                if self.ativar_segundos:
+                    self.lbl_tempo_busca['text'] = f"{msg_info_time} Segundo's"
+                elif self.ativar_minutos:
+                    self.lbl_tempo_busca['text'] = f"{msg_info_time} Minuto's"
+                elif self.ativar_horas:
+                    self.lbl_tempo_busca['text'] = f"{msg_info_time} HORA'S"
 
-                self.lbl_tempo_busca['text'] = msg_info_time
                 self.tempo_gasto_da_busca = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
@@ -470,7 +513,7 @@ class ProgramaPrincipal:
                             self.lista_de_result_busca.insert('end', '===' * 20, '\n')
                         else:
                             print(f'{resultado_destaque}')
-                            self.lbl_info_real_time.config(text=f'Arquivos encontrados: {resultado_destaque}')
+                            self.lbl_info_real_time.config(text=f'Arquivos encontrados: {valor_de_busca}')
                             self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
                         contador_itens += 1
                         contador_de_arquivos += 1
@@ -489,10 +532,16 @@ class ProgramaPrincipal:
             self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
             print(f'Itens encontrados: [ {contador_de_arquivos} ]')
 
-            """# Desativa o validador de arquivos encontrados"""
+            """# Desativa o validador de tempo de busca"""            
             print(f'Desativando "time_busca"')
             sleep(1)
             self.ativo_time_busca = False
+            self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} H/M/S"
+            self.ativar_horas = False
+            self.ativar_minutos = False
+            self.ativar_segundos = False
+
+            """# Desativa o validador de arquivos encontrados"""
             print(f'Desativado "arquivo_encontrado"')
             sleep(1)
             self.ativar_arquivo_encontrado = False
