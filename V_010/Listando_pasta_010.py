@@ -403,6 +403,7 @@ class ProgramaPrincipal:
         contador_de_pastas = 0
         contador_inicio = 1
         contador_itens = 1
+        valor_da_extensao_busca = None
         valor_de_busca = None
 
         print(f'Combo ativado: {self.ativar_combo}')
@@ -427,9 +428,9 @@ class ProgramaPrincipal:
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
 
-            for valor_extensao in extensoes:
-                valor_de_busca = str(valor_extensao).lower()
-            print(f'Valor selecionado: {valor_de_busca}')
+            for valor_item_extensao in extensoes:
+                valor_da_extensao_busca = str(valor_item_extensao).lower()
+            print(f'Valor selecionado: {valor_da_extensao_busca}')
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
@@ -447,16 +448,16 @@ class ProgramaPrincipal:
                 contador_itens = 1
                 for valor_itens in arquivo:
 
-                    if search(valor_de_busca, valor_itens):
+                    if search(valor_da_extensao_busca, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                         Esse programa eu quero que pegue apenas os valores da extensão"""
-                        if valor_de_busca == str(valor_itens).split('.')[-1]:
+                        if valor_da_extensao_busca == str(valor_itens).split('.')[-1]:
                             valor_de_busca = valor_itens
 
                         """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
-                        caminho_completo = os.path.join(raiz, valor_itens)
+                        caminho_completo = os.path.join(raiz, valor_de_busca)
                         diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                         extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                         resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
