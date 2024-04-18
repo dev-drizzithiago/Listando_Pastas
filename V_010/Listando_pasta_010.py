@@ -445,8 +445,7 @@ class ProgramaPrincipal:
                     for valor in extensoes:
                         valor_extensao = str(valor).lower()
 
-                    extensao = str(valor_itens).split('.')[-1]
-                    if valor_extensao == extensao:
+                    if valor_extensao == str(valor_itens).split('.')[-1]:
                         valor_de_busca = valor_itens
                         print(f'valor_de_busca {valor_de_busca}')
 
@@ -456,7 +455,7 @@ class ProgramaPrincipal:
                     extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
-                    if search(valor_extensao, valor_itens):
+                    if search(valor_extensao, valor_de_busca):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         if contador_itens == 1:
