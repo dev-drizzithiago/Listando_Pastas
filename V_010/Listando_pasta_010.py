@@ -422,14 +422,13 @@ class ProgramaPrincipal:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
-            print(f'Valor da lista extensoes: {extensoes}')
             valor_extensao_busca = extensoes[0]
-            print(valor_extensao_busca)
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
 
                 if contador_inicio == 1:
+                    print()
                     print(f'DIRETORIO RAIZ: {raiz}')
                     
                     """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
@@ -447,7 +446,7 @@ class ProgramaPrincipal:
                     for valor in extensoes:
                         valor_extensao = str(valor).lower()
 
-                    if search(valor_extensao, valor_itens):
+                    if search(valor_extensao_busca, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
