@@ -231,7 +231,6 @@ class ProgramaPrincipal:
         Thread(target=self.tempo_processo_busca).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
-
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
@@ -246,24 +245,33 @@ class ProgramaPrincipal:
         """### Declaraçõd do dicionário de extensões"""
         self.lista_de_extensoes = dict(
             AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
-            VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'IFF'   'AVI'  'ASF', 'DVR-MS', 'MOV', 'MPEG-2',
-                    'Ogg', 'OGM', 'RealMedia', 'Matroska', 'MKV', '3gp', 'VOB'],
+            VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'iff'   'avi'  'asf', 'dvr-ms', 'mov', 'mpeg-2',
+                    'ogg', 'ogm', 'realMedia', 'matroska', 'MKV', '3gp', 'vob'],
+
             TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
+
             IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps', 'emf', 'exr',
                     'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2', 'mng', 'pbm', 'pcd', 'pdf',
                     'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg', 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif',
                     'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
+
             ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui',
                       'rar', 'sys', 'tmp', 'wmd', 'lua', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx', 'nsl', 'dtd',
                       'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'iec', 'ime',
                       'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'ax', 'acm', 'json',
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
                       'cmd', 'conf', 'wsf', 'config'],
+
             PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', ],
+
             ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
+
             WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
+
             POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
+
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
+
             HTML=['xps', 'htm', 'html'])
 
         valor_categoria_extensao = self.var_combo_box_categoria.get()
@@ -296,7 +304,6 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
-
     def data_hora_certa(self):
         """
 
@@ -523,11 +530,13 @@ class ProgramaPrincipal:
                             """ #Mostra o resultado da busca no prompt"""
                             print(f'\n{raiz}')
                             print('===' * 20, '\n')
+                            print(f'{resultado_destaque}')
 
                             """# Mostra o resultado na lista de busca"""
                             self.lista_de_result_busca.insert('end', '')
                             self.lista_de_result_busca.insert('end', f'{raiz}\n')
                             self.lista_de_result_busca.insert('end', '===' * 20, '\n')
+                            self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
                         else:
 
                             """# Mostra os resultados no prompt e na lista de busca"""
