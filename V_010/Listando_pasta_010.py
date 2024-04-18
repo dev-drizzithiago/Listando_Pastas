@@ -447,8 +447,8 @@ class ProgramaPrincipal:
 
                     extensao = str(valor_itens).split('.')[-1]
                     if valor_extensao == extensao:
-                        valor_de_busca = str(valor_itens)
-                    print(f'valor_de_busca {valor_de_busca}')
+                        valor_de_busca = valor_itens
+                        print(f'valor_de_busca {valor_de_busca}')
 
                     """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                     caminho_completo = os.path.join(raiz, valor_itens)
@@ -456,7 +456,7 @@ class ProgramaPrincipal:
                     extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                     resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
-                    if search(valor_de_busca, valor_itens):
+                    if search(valor_extensao, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         if contador_itens == 1:
