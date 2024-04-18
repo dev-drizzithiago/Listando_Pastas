@@ -426,7 +426,7 @@ class ProgramaPrincipal:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
-            valor_extensao_busca = extensoes[0].lower()
+            valor_extensao_busca = str(extensoes[0]).lower()
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
