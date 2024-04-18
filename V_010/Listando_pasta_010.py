@@ -429,7 +429,6 @@ class ProgramaPrincipal:
 
             for valor_extensao in extensoes:
                 valor_de_busca = str(valor_extensao).lower()
-
             print(f'Valor selecionado: {valor_de_busca}')
 
             """###### Inicio do processo de busca"""
@@ -446,7 +445,6 @@ class ProgramaPrincipal:
 
                 contador_inicio += 1
                 contador_itens = 1
-                print(f'Iniciando Busca com o valor {extensoes}')
                 for valor_itens in arquivo:
 
                     if search(valor_de_busca, valor_itens):
