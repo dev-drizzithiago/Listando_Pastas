@@ -426,8 +426,11 @@ class ProgramaPrincipal:
                     # print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
-            valor_extensao_busca = str(extensoes[0]).lower()
-            print(f'Valor selecionado: {valor_extensao_busca}')
+
+            for valor_extensao in extensoes:
+                valor_de_busca = str(valor_extensao).lower()
+
+            print(f'Valor selecionado: {valor_de_busca}')
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
@@ -443,10 +446,11 @@ class ProgramaPrincipal:
 
                 contador_inicio += 1
                 contador_itens = 1
-
+                print(f'Iniciando Busca com o valor {extensoes}')
                 for valor_itens in arquivo:
 
-                    if search('jpg', valor_itens):
+
+                    if search(valor_de_busca, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
