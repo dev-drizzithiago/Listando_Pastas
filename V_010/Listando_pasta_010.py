@@ -426,7 +426,7 @@ class ProgramaPrincipal:
                     print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
-            valor_extensao_busca = extensoes[0]
+            valor_extensao_busca = extensoes[0].lower()
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
@@ -445,18 +445,13 @@ class ProgramaPrincipal:
 
                 for valor_itens in arquivo:
 
-                    """# Como o valor da extensão esta chegando em lista, até que resolver isso, vou precisar 
-                    pegar apenas o primeiro valor"""
-                    for valor in extensoes:
-                        valor_extensao = str(valor).lower()
-
                     if search(valor_extensao_busca, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                         Esse programa eu quero que pegue apenas os valores da extensão"""
-                        if valor_extensao == str(valor_itens).split('.')[-1]:
-                            valor_de_busca = valor_itens
+                        if valor_extensao_busca == str(valor_itens).split('.')[-1]:
+                            valor_extensao_busca = valor_itens
 
                         """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                         caminho_completo = os.path.join(raiz, valor_itens)
