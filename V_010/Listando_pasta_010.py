@@ -231,6 +231,7 @@ class ProgramaPrincipal:
         Thread(target=self.tempo_processo_busca).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
@@ -255,7 +256,7 @@ class ProgramaPrincipal:
             ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui',
                       'rar', 'sys', 'tmp', 'wmd', 'lua', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx', 'nsl', 'dtd',
                       'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'iec', 'ime',
-                      'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs',  'ax', 'acm', 'json',
+                      'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'ax', 'acm', 'json',
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
                       'cmd', 'conf', 'wsf', 'config'],
             PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', ],
@@ -295,6 +296,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
     def data_hora_certa(self):
         """
 
@@ -481,22 +483,28 @@ class ProgramaPrincipal:
                 if contador_inicio == 1:
                     print()
                     print(f'DIRETORIO RAIZ: {raiz}')
-                    
+
                     """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                     self.lista_de_result_busca.insert('end', '')
                     self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
                     self.lista_de_result_busca.insert('end', f'{"===" * 20}\n')
 
                 contador_inicio += 1
+
+                """# Por padrão, o contador_itens, começa com 1 no valor, após encontrar todos os arquivos dentros de 
+                uma pasta, o programa vai passar para próxima pasta e o contador chega no valor padrão. """
                 contador_itens = 1
+
+                """# Loop responsável por mostrar os arquivos """
                 for valor_itens in arquivo:
 
-                    """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário"""
+                    """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário
+                    São vários filtros para não jogar todos os arquivos"""
                     if search(valor_da_extensao_busca, valor_itens):
 
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
-                        """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
+                        """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                         Esse programa eu quero que pegue apenas os valores da extensão"""
                         if valor_da_extensao_busca == str(valor_itens).split('.')[-1]:
                             valor_de_busca = valor_itens
@@ -521,10 +529,19 @@ class ProgramaPrincipal:
                             self.lista_de_result_busca.insert('end', f'{raiz}\n')
                             self.lista_de_result_busca.insert('end', '===' * 20, '\n')
                         else:
+
+                            """# Mostra os resultados no prompt e na lista de busca"""
                             print(f'{resultado_destaque}')
                             self.lbl_info_real_time.config(text=f'Arquivos encontrados: {valor_de_busca}')
                             self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
+
+                        """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
+                         ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
+                         apenas os arquivos dentro dessa pasta.
+                          - Após mostrar a pasta, o contador passa a soma o valor para cada item."""
                         contador_itens += 1
+
+                        """# Contador que é responsável pela quantidade de arquivos encontrados."""
                         contador_de_arquivos += 1
 
             """###### Fim do processo de busca"""
