@@ -26,7 +26,7 @@ class ProgramaPrincipal:
         self.tempo_gasto_da_busca = None
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
-        self.diretorio_home = Path.home()
+        self.func_pasta_destino()
         # ______________________________________________________________________________________________________________
         """#### Declaraçõas de ativações"""
         self.ativar_combo = False
@@ -227,7 +227,6 @@ class ProgramaPrincipal:
         Thread(target=self.tempo_processo_busca).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
-
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
@@ -292,7 +291,6 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
-
     def data_hora_certa(self):
         """
 
@@ -303,6 +301,11 @@ class ProgramaPrincipal:
         self.hora_certa = valor_data.strftime("%H:%M")
         self.lbl_hora_certa.config(text=f'Inicio do programa:[{self.hora_certa}-{self.data_certa}]')
 
+    def func_pasta_destino(self):
+        # ______________________________________________________________________________________________________________
+        """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
+        self.diretorio_home = Path.home()
+
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
         if self.ativar_combo:
@@ -310,6 +313,7 @@ class ProgramaPrincipal:
                 valor_destroy.destroy()
             """# Tambem limpa a lista de busca"""
             self.lista_de_result_busca.delete('0', 'end')
+            self.func_pasta_destino()
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
         self.ativar_combo = False
@@ -453,7 +457,6 @@ class ProgramaPrincipal:
                         Esse programa eu quero que pegue apenas os valores da extensão"""
                         if valor_extensao == str(valor_itens).split('.')[-1]:
                             valor_de_busca = valor_itens
-                            print(f'valor_de_busca {valor_de_busca}')
 
                         """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                         caminho_completo = os.path.join(raiz, valor_itens)
