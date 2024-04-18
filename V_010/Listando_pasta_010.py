@@ -492,6 +492,7 @@ class ProgramaPrincipal:
                 for valor_itens in arquivo:
 
                     if search(valor_da_extensao_busca, valor_itens):
+                        contador_de_pastas += 1
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
@@ -532,7 +533,7 @@ class ProgramaPrincipal:
             self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
             print(f'Itens encontrados: [ {contador_de_arquivos} ]')
 
-            """# Desativa o validador de tempo de busca"""            
+            """# Desativa o validador de tempo de busca"""
             print(f'Desativando "time_busca"')
             sleep(1)
             self.ativo_time_busca = False
@@ -549,6 +550,9 @@ class ProgramaPrincipal:
             self.lista_de_result_busca.insert('end', '')
             self.lista_de_result_busca.insert('end', '===' * 20)
             self.lista_de_result_busca.insert('end', f'Busca finalizada!')
+
+            print(f'Busca Finalizada')
+            print(f'Foram encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
 
