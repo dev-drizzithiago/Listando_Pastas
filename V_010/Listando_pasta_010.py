@@ -423,10 +423,11 @@ class ProgramaPrincipal:
             """# As informações das extensão chegou no loop abaixo"""
             for valor_var in range(len(self.lista_var)):
                 if self.lista_var[valor_var].get() == 1:
-                    print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
+                    # print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
                     extensoes.append(self.botoes_chek[valor_var]["text"])
             self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
             valor_extensao_busca = str(extensoes[0]).lower()
+            print(f'Valor selecionado: {valor_extensao_busca}')
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
@@ -445,7 +446,7 @@ class ProgramaPrincipal:
 
                 for valor_itens in arquivo:
 
-                    if search(valor_extensao_busca, valor_itens):
+                    if search('jpg', valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
