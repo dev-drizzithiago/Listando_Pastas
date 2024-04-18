@@ -449,14 +449,13 @@ class ProgramaPrincipal:
                 print(f'Iniciando Busca com o valor {extensoes}')
                 for valor_itens in arquivo:
 
-
                     if search(valor_de_busca, valor_itens):
                         self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                         """# Realiza um filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                         Esse programa eu quero que pegue apenas os valores da extensão"""
-                        if valor_extensao_busca == str(valor_itens).split('.')[-1]:
-                            valor_extensao_busca = valor_itens
+                        if valor_de_busca == str(valor_itens).split('.')[-1]:
+                            valor_de_busca = valor_itens
 
                         """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                         caminho_completo = os.path.join(raiz, valor_itens)
