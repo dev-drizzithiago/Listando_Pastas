@@ -588,10 +588,11 @@ class ProgramaPrincipal:
                 self.ativo_time_busca = False
                 self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} H/M/S"
 
-                self.ativar_uma_extensao = False
+                """# Desativa os valores importantes"""
                 self.ativar_horas = False
                 self.ativar_minutos = False
                 self.ativar_segundos = False
+                self.ativar_uma_extensao = False
 
                 """# Desativa o validador de arquivos encontrados"""
                 print(f'Desativado "arquivo_encontrado"')
