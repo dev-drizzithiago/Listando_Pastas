@@ -1,9 +1,9 @@
 """#### Declaração de Modulos"""
-import os.path
-from tkinter.messagebox import showwarning
+from tkinter.messagebox import showwarning, showinfo, showerror
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
 import tkinter as tk
+import os.path
 
 """#### Modulos do sistema"""
 from os import walk
@@ -472,8 +472,10 @@ class ProgramaPrincipal:
         """# Valida se extensão possui mais de um valor"""
         if len(extensoes) == 1:
             self.ativar_uma_extensao = True
+        elif len(extensoes) == 0:
+            showwarning("AVISO", 'Você não selecionou nenhuma extensão')
         else:
-            showwarning("AVISO IMPORTANTE", 'Você não pode adicionar mais que uma extensão, \n'
+            showerror("AVISO IMPORTANTE", 'Você não pode adicionar mais que uma extensão, \n'
                                             'escolha apenas uma')
 
         for valor_item_extensao in extensoes:
