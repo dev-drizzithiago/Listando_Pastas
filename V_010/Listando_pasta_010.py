@@ -537,7 +537,8 @@ class ProgramaPrincipal:
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                             Esse programa eu quero que pegue apenas os valores da extensão"""
                             if valor_da_extensao_busca == str(valor_itens).split('.')[-1]:
-                                valor_de_busca = str(valor_itens)
+                                valor_de_busca = str(valor_itens).strip().lower()
+                                print(f'valor_de_busca: {valor_de_busca}')
 
                             """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                             caminho_completo = os.path.join(raiz, valor_de_busca)
