@@ -476,20 +476,20 @@ class ProgramaPrincipal:
                 for valor_var in range(len(self.lista_var)):
                     if self.lista_var[valor_var].get() == 1:
                         extensoes.append(self.botoes_chek[valor_var]["text"])
-                self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+                self.lbl_ext_selec.config(text=f'Você selecionou a extensão {extensoes} para busca.')
             except AttributeError:
-                showwarning("AVISO", 'Não foi selecionado nenhuma extensão')
+                showwarning("AVISO", 'Você não selecionou nenhuma extensão')
 
             """# Valida se extensão possui mais de um valor"""
             if len(extensoes) == 1:
                 self.ativar_uma_extensao = True
             elif len(extensoes) == 0:
-                showwarning("AVISO", 'Você não selecionou nenhuma extensão')
+                showwarning("AVISO", 'Você não selecionou nenhuma extensão, selecione uma')
 
             """# Prepara o valor para que a função re.search possa identificar """
             for valor_item_extensao in extensoes:
                 valor_da_extensao_busca = str(valor_item_extensao).lower()
-            print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
+            print(f'Valor da busca selecionado: {valor_da_extensao_busca}')
 
             if self.ativar_uma_extensao:
                 """# Desativando todos os botãoes"""
@@ -616,9 +616,10 @@ class ProgramaPrincipal:
                 print(f'Busca Finalizada')
                 print(f'Foram encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
             else:
-                showwarning('AVISO', 'Você preciso escolher uma única extensão')
+                showwarning('AVISO', 'Escolha apenas um extensão')
         else:
-            showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
+            showwarning("IMPORTANTE AVISO!", 'Escolha uma categora e uma unica extensão '
+                                             'para realizar a busca.')
 
 
 iniciando_obj = ProgramaPrincipal()
