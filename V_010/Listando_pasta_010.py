@@ -347,6 +347,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
+        self.lbl_pts_dest.config(text=self.diretorio_home)
 
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
@@ -493,6 +494,9 @@ class ProgramaPrincipal:
                 lista_arq_duplicado = [diretorio_arquivos, duplicado_files]
             else:
                 arquivo_duplicado[valor_arquivo] = 1
+                diretorio_arquivos.append(valor_pastas)
+                duplicado_files.append(valor_arquivo)
+                lista_arq_duplicado = [diretorio_arquivos, duplicado_files]
 
         for chave, valor in arquivo_duplicado.items():
             print(f'{chave} - {valor}')
