@@ -247,6 +247,9 @@ class ProgramaPrincipal:
         print(f'Iniciando THREAD tempo_precesso_busca')
         Thread(target=self.tempo_processo_busca).start()
 
+    def thread_botao_duplicidade(self):
+        pass
+
     """#### Sistema de combo e criaçãodo checkbutton"""
 
     def selecao_combo_extensao(self, *args):
@@ -468,6 +471,9 @@ class ProgramaPrincipal:
         self.ativar_selecionar_pasta_destino = True
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
+
+    def botao_duplicidade(self):
+        pass
 
     def botao_inicio_da_busca_principal(self):
         """
