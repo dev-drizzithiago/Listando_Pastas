@@ -478,7 +478,7 @@ class ProgramaPrincipal:
         arquivo_duplicado = dict()
         print(f'Iniciando botao_duplicidade')
 
-        print(len(self.dados_do_processo_busca))
+        print(f"Quantidade de arquivos dentro da lista: {len(self.dados_do_processo_busca)}")
         for valor in self.dados_do_processo_busca:
             print(valor)
             if valor in arquivo_duplicado:
@@ -573,11 +573,9 @@ class ProgramaPrincipal:
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                             Esse programa eu quero que pegue apenas os valores da extensão"""
                             valor_ext_comparacao = str(valor_file).split('.')[-1]
-                            print(f'valor_comparacao: {valor_ext_comparacao}')
                             try:
                                 if valor_da_extensao_busca == valor_ext_comparacao:
                                     valor_of_file = str(f'{valor_file}').strip().lower()
-                                    print(f'valor_de_busca: {valor_of_file}')
                             except:
                                 valor_of_file = valor_file
 
