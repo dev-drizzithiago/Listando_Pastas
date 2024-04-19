@@ -537,7 +537,7 @@ class ProgramaPrincipal:
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                             Esse programa eu quero que pegue apenas os valores da extensão"""
                             if valor_da_extensao_busca == str(valor_itens).split('.')[-1]:
-                                valor_de_busca = str(valor_itens).strip().lower()
+                                valor_de_busca = str(f'{valor_itens}').strip().lower()
                                 print(f'valor_de_busca: {valor_de_busca}')
 
                             """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
@@ -559,6 +559,7 @@ class ProgramaPrincipal:
                                 print(f'{resultado_destaque}')
 
                                 """# Mostra o resultado na lista de busca"""
+                                self.lista_de_result_busca.insert('end', '')
                                 self.lista_de_result_busca.insert('end', '')
                                 self.lista_de_result_busca.insert('end', f'{raiz}\n')
                                 self.lista_de_result_busca.insert('end', '===' * 20, '\n')
@@ -610,6 +611,7 @@ class ProgramaPrincipal:
                 sleep(1)
                 self.ativar_arquivo_encontrado = False
 
+                self.lista_de_result_busca.insert('end', '')
                 self.lista_de_result_busca.insert('end', '')
                 self.lista_de_result_busca.insert('end', '===' * 20)
                 self.lista_de_result_busca.insert('end', f'Busca finalizada!')
