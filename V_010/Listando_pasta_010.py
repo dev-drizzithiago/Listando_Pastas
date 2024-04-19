@@ -488,7 +488,7 @@ class ProgramaPrincipal:
 
             """# Prepara o valor para que a função re.search possa identificar """
             for valor_item_extensao in extensoes:
-                valor_da_extensao_busca = str(valor_item_extensao).lower()
+                valor_da_extensao_busca = str(valor_item_extensao).lower().strip()
             print(f'Valor da busca selecionado: {valor_da_extensao_busca}')
 
             if self.ativar_uma_extensao:
