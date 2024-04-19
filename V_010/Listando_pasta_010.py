@@ -475,11 +475,19 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     def func_botao_duplicidade(self):
+        arquivo_duplicado = dict()
         print(f'Iniciando botao_duplicidade')
 
+        print(len(self.dados_do_processo_busca))
+        for valor in self.dados_do_processo_busca:
+            print(valor)
+            if valor in arquivo_duplicado:
+                arquivo_duplicado[valor] += 1
+            else:
+                arquivo_duplicado[valor] = 1
 
-
-
+        for chave, valor in arquivo_duplicado.items():
+            print(f'{chave} - {valor}')
         print('Finalizado!')
 
     def botao_inicio_da_busca_principal(self):
@@ -585,7 +593,7 @@ class ProgramaPrincipal:
                                 contador_de_pastas += 1
                                 self.lbl_qtd_pasta.config(text=f'Quantidade de pasta com arquivos:'
                                                                f' [{contador_de_pastas}]')
-
+                                self.dados_do_processo_busca.append(f'{diretorio_destaque}\\{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20, '\n')
@@ -598,6 +606,9 @@ class ProgramaPrincipal:
                                 self.lista_de_result_busca.insert('end', '===' * 20, '\n')
                                 self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
                             else:
+                                """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
+                                realizado qualquer tipo de analise"""
+                                self.dados_do_processo_busca.append(f'{diretorio_destaque}\\{extensao_destaque}')
 
                                 """# Mostra os resultados no prompt e na lista de busca"""
                                 print(f'[{resultado_destaque}]')
