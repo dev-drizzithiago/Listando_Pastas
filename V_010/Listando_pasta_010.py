@@ -206,7 +206,7 @@ class ProgramaPrincipal:
         """# Botão limpeza lista de extensão"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Duplicidade')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_duplicidade)
+        self.botao_duplicidade.config(command=self.thread_botao_duplicidade, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -249,7 +249,7 @@ class ProgramaPrincipal:
 
     def thread_botao_duplicidade(self):
         print(f'Iniciando THREAD botao_duplicidade')
-        Thread(target=self.botao_duplicidade).start()
+        Thread(target=self.func_botao_duplicidade).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
 
@@ -473,8 +473,13 @@ class ProgramaPrincipal:
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
-    def botao_duplicidade(self):
-        pass
+    def func_botao_duplicidade(self):
+        print(f'Iniciando botao_duplicidade')
+
+
+
+
+        print('Finalizado!')
 
     def botao_inicio_da_busca_principal(self):
         """
