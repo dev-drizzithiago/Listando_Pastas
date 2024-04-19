@@ -605,7 +605,9 @@ class ProgramaPrincipal:
                 print(f'Busca Finalizada')
                 print(f'Foram encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
             else:
-                showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
+                showwarning('Você preciso escolher uma única extensão')
+        else:
+            showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
 
 
 iniciando_obj = ProgramaPrincipal()
