@@ -29,13 +29,14 @@ class ProgramaPrincipal:
         self.func_pasta_destino()
         # ______________________________________________________________________________________________________________
         """#### Declaraçõas de ativações"""
-
         self.ativar_selecionar_pasta_destino = False
         self.ativar_arquivo_encontrado = False
+        self.ativar_uma_extensao = False
         self.ativo_time_busca = False
+        self.ativar_combo = False
+
         self.ativar_segundos = False
         self.ativar_minutos = False
-        self.ativar_combo = False
         self.ativar_horas = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -340,7 +341,6 @@ class ProgramaPrincipal:
         print(f'"Combo Ativado: {self.ativar_combo}')
 
     """#### Inicio dos processos """
-
     def tempo_processo_busca(self):
         """
         Função vai se responsavel em contar o tempo que a busca foi realizada.
@@ -459,7 +459,26 @@ class ProgramaPrincipal:
         valor_de_busca = None
 
         print(f'Combo ativado: {self.ativar_combo}')
-        if self.ativar_combo:
+
+        """# As informações das extensão chegou no loop abaixo"""
+        for valor_var in range(len(self.lista_var)):
+            if self.lista_var[valor_var].get() == 1:
+                extensoes.append(self.botoes_chek[valor_var]["text"])
+        self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+
+        """# Valida se extensão possui mais de um valor"""
+        if len(extensoes == 1):
+            self.ativar_uma_extensao = True
+        else:
+            showwarning("AVISO IMPORTANTE", 'Você não pode adicionar que uma extensão, \n'
+                                            'escolha apenas uma')
+
+        for valor_item_extensao in extensoes:
+            valor_da_extensao_busca = str(valor_item_extensao).lower()
+        print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
+
+        if self.ativar_combo and self.ativar_uma_extensao:
+
             """# Desativando todos os botãoes"""
             self.botao_inicio_processo.config(state=tk.DISABLED)
             self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
@@ -472,17 +491,6 @@ class ProgramaPrincipal:
             """# Iniciando tempo de busca"""
             self.ativo_time_busca = True
             self.thread_tempo_processo_busca()
-
-            """# As informações das extensão chegou no loop abaixo"""
-            for valor_var in range(len(self.lista_var)):
-                if self.lista_var[valor_var].get() == 1:
-                    # print(f'Valor selecionado: {self.botoes_chek[valor_var]["text"]}')
-                    extensoes.append(self.botoes_chek[valor_var]["text"])
-            self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
-
-            for valor_item_extensao in extensoes:
-                valor_da_extensao_busca = str(valor_item_extensao).lower()
-            print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
 
             """###### Inicio do processo de busca"""
             for raiz, subpasta, arquivo in walk(self.diretorio_home):
