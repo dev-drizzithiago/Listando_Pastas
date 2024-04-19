@@ -488,15 +488,21 @@ class ProgramaPrincipal:
 
             if valor_arquivo in arquivo_duplicado:
                 arquivo_duplicado[valor_arquivo] += 1
-                diretorio_arquivos.append(valor_pastas)
-                duplicado_files.append(valor_arquivo)
+                diretorio_arquivos = [valor_pastas]
+                duplicado_files [valor_arquivo]
                 lista_arq_duplicado = [diretorio_arquivos, duplicado_files]
-
             else:
                 arquivo_duplicado[valor_arquivo] = 1
 
         for chave, valor in arquivo_duplicado.items():
             print(f'{chave} - {valor}')
+
+        input()
+        for linhas in lista_arq_duplicado:
+            print()
+            for coluna in linhas:
+                print(coluna, end=' ')
+
         print('Finalizado!')
 
     def botao_inicio_da_busca_principal(self):
