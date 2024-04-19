@@ -461,142 +461,145 @@ class ProgramaPrincipal:
         print(f'Combo ativado: {self.ativar_combo}')
 
         """# As informações das extensão chegou no loop abaixo"""
-        for valor_var in range(len(self.lista_var)):
-            if self.lista_var[valor_var].get() == 1:
-                extensoes.append(self.botoes_chek[valor_var]["text"])
-        self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+        try:
+            for valor_var in range(len(self.lista_var)):
+                if self.lista_var[valor_var].get() == 1:
+                    extensoes.append(self.botoes_chek[valor_var]["text"])
+            self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+        except AttributeError:
+            showwarning("AVISO", 'Não foi selecionado nenhuma extensão')
 
         """# Valida se extensão possui mais de um valor"""
-        if len(extensoes == 1):
+        if len(extensoes) == 1:
             self.ativar_uma_extensao = True
         else:
-            showwarning("AVISO IMPORTANTE", 'Você não pode adicionar que uma extensão, \n'
+            showwarning("AVISO IMPORTANTE", 'Você não pode adicionar mais que uma extensão, \n'
                                             'escolha apenas uma')
 
         for valor_item_extensao in extensoes:
             valor_da_extensao_busca = str(valor_item_extensao).lower()
         print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
 
-        if self.ativar_combo and self.ativar_uma_extensao:
+        if self.ativar_combo:
+            if self.ativar_uma_extensao:
+                """# Desativando todos os botãoes"""
+                self.botao_inicio_processo.config(state=tk.DISABLED)
+                self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
+                self.botao_destino_busca.config(state=tk.DISABLED)
+                self.combo_box_cat.config(state=tk.DISABLED)
 
-            """# Desativando todos os botãoes"""
-            self.botao_inicio_processo.config(state=tk.DISABLED)
-            self.botao_limpar_checkbuttun.config(state=tk.DISABLED)
-            self.botao_destino_busca.config(state=tk.DISABLED)
-            self.combo_box_cat.config(state=tk.DISABLED)
+                """# Inicio da barra de progresso"""
+                self.barra_progresso_busca.start()
 
-            """# Inicio da barra de progresso"""
-            self.barra_progresso_busca.start()
+                """# Iniciando tempo de busca"""
+                self.ativo_time_busca = True
+                self.thread_tempo_processo_busca()
 
-            """# Iniciando tempo de busca"""
-            self.ativo_time_busca = True
-            self.thread_tempo_processo_busca()
+                """###### Inicio do processo de busca"""
+                for raiz, subpasta, arquivo in walk(self.diretorio_home):
 
-            """###### Inicio do processo de busca"""
-            for raiz, subpasta, arquivo in walk(self.diretorio_home):
+                    if contador_inicio == 1:
+                        print()
+                        print(f'DIRETORIO RAIZ: {raiz}')
 
-                if contador_inicio == 1:
-                    print()
-                    print(f'DIRETORIO RAIZ: {raiz}')
+                        """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
+                        self.lista_de_result_busca.insert('end', '')
+                        self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
+                        self.lista_de_result_busca.insert('end', f'{"===" * 20}\n')
 
-                    """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
-                    self.lista_de_result_busca.insert('end', '')
-                    self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
-                    self.lista_de_result_busca.insert('end', f'{"===" * 20}\n')
+                    contador_inicio += 1
 
-                contador_inicio += 1
+                    """# Por padrão, o contador_itens, começa com 1 no valor, após encontrar todos os arquivos dentros de 
+                    uma pasta, o programa vai passar para próxima pasta e o contador chega no valor padrão. """
+                    contador_itens = 1
 
-                """# Por padrão, o contador_itens, começa com 1 no valor, após encontrar todos os arquivos dentros de 
-                uma pasta, o programa vai passar para próxima pasta e o contador chega no valor padrão. """
-                contador_itens = 1
+                    """# Loop responsável por mostrar os arquivos """
+                    for valor_itens in arquivo:
 
-                """# Loop responsável por mostrar os arquivos """
-                for valor_itens in arquivo:
+                        """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário
+                        São vários filtros para não jogar todos os arquivos"""
+                        if search(valor_da_extensao_busca, valor_itens):
 
-                    """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário
-                    São vários filtros para não jogar todos os arquivos"""
-                    if search(valor_da_extensao_busca, valor_itens):
+                            self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
-                        self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
+                            """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
+                            Esse programa eu quero que pegue apenas os valores da extensão"""
+                            if valor_da_extensao_busca == str(valor_itens).split('.')[-1]:
+                                valor_de_busca = valor_itens
 
-                        """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
-                        Esse programa eu quero que pegue apenas os valores da extensão"""
-                        if valor_da_extensao_busca == str(valor_itens).split('.')[-1]:
-                            valor_de_busca = valor_itens
+                            """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
+                            caminho_completo = os.path.join(raiz, valor_de_busca)
+                            diretorio_destaque = str(caminho_completo).split('.')[0].lower()
+                            extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
+                            resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
 
-                        """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
-                        caminho_completo = os.path.join(raiz, valor_de_busca)
-                        diretorio_destaque = str(caminho_completo).split('.')[0].lower()
-                        extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
-                        resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
+                            """# Mostra a pasta que foram encontrado algum arquivo"""
+                            if contador_itens == 1:
+                                """# Conta quantas pastas foram encontrados os itens da busca"""
+                                contador_de_pastas += 1
 
-                        """# Mostra a pasta que foram encontrado algum arquivo"""
-                        if contador_itens == 1:
-                            """# Conta quantas pastas foram encontrados os itens da busca"""
-                            contador_de_pastas += 1
+                                """ #Mostra o resultado da busca no prompt"""
+                                print(f'\n{raiz}')
+                                print('===' * 20, '\n')
+                                print(f'{resultado_destaque}')
 
-                            """ #Mostra o resultado da busca no prompt"""
-                            print(f'\n{raiz}')
-                            print('===' * 20, '\n')
-                            print(f'{resultado_destaque}')
+                                """# Mostra o resultado na lista de busca"""
+                                self.lista_de_result_busca.insert('end', '')
+                                self.lista_de_result_busca.insert('end', f'{raiz}\n')
+                                self.lista_de_result_busca.insert('end', '===' * 20, '\n')
+                                self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
+                            else:
 
-                            """# Mostra o resultado na lista de busca"""
-                            self.lista_de_result_busca.insert('end', '')
-                            self.lista_de_result_busca.insert('end', f'{raiz}\n')
-                            self.lista_de_result_busca.insert('end', '===' * 20, '\n')
-                            self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
-                        else:
+                                """# Mostra os resultados no prompt e na lista de busca"""
+                                print(f'{resultado_destaque}')
+                                self.lbl_info_real_time.config(text=f'Arquivos encontrados: {valor_de_busca}')
+                                self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
 
-                            """# Mostra os resultados no prompt e na lista de busca"""
-                            print(f'{resultado_destaque}')
-                            self.lbl_info_real_time.config(text=f'Arquivos encontrados: {valor_de_busca}')
-                            self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
+                            """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
+                             ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
+                             apenas os arquivos dentro dessa pasta.
+                              - Após mostrar a pasta, o contador passa a soma o valor para cada item."""
+                            contador_itens += 1
 
-                        """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
-                         ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
-                         apenas os arquivos dentro dessa pasta.
-                          - Após mostrar a pasta, o contador passa a soma o valor para cada item."""
-                        contador_itens += 1
+                            """# Contador que é responsável pela quantidade de arquivos encontrados."""
+                            contador_de_arquivos += 1
 
-                        """# Contador que é responsável pela quantidade de arquivos encontrados."""
-                        contador_de_arquivos += 1
+                """###### Fim do processo de busca"""
+                """# Desliga a barra de progresso, ao final da busca"""
+                self.barra_progresso_busca.stop()
+                self.barra_progresso_busca.config(value=100)
 
-            """###### Fim do processo de busca"""
-            """# Desliga a barra de progresso, ao final da busca"""
-            self.barra_progresso_busca.stop()
-            self.barra_progresso_busca.config(value=100)
+                """# Após as buscas finalizarem, os botões serão ativados"""
+                self.botao_inicio_processo.config(state=tk.NORMAL)
+                self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
+                self.botao_destino_busca.config(state=tk.NORMAL)
 
-            """# Após as buscas finalizarem, os botões serão ativados"""
-            self.botao_inicio_processo.config(state=tk.NORMAL)
-            self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
-            self.botao_destino_busca.config(state=tk.NORMAL)
+                """# Número de itens encontrados"""
+                self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
+                print(f'Itens encontrados: [ {contador_de_arquivos} ]')
 
-            """# Número de itens encontrados"""
-            self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
-            print(f'Itens encontrados: [ {contador_de_arquivos} ]')
+                """# Desativa o validador de tempo de busca"""
+                print(f'Desativando "time_busca"')
+                sleep(1)
+                self.ativo_time_busca = False
+                self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} H/M/S"
+                self.ativar_horas = False
+                self.ativar_minutos = False
+                self.ativar_segundos = False
 
-            """# Desativa o validador de tempo de busca"""
-            print(f'Desativando "time_busca"')
-            sleep(1)
-            self.ativo_time_busca = False
-            self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} H/M/S"
-            self.ativar_horas = False
-            self.ativar_minutos = False
-            self.ativar_segundos = False
+                """# Desativa o validador de arquivos encontrados"""
+                print(f'Desativado "arquivo_encontrado"')
+                sleep(1)
+                self.ativar_arquivo_encontrado = False
 
-            """# Desativa o validador de arquivos encontrados"""
-            print(f'Desativado "arquivo_encontrado"')
-            sleep(1)
-            self.ativar_arquivo_encontrado = False
+                self.lista_de_result_busca.insert('end', '')
+                self.lista_de_result_busca.insert('end', '===' * 20)
+                self.lista_de_result_busca.insert('end', f'Busca finalizada!')
 
-            self.lista_de_result_busca.insert('end', '')
-            self.lista_de_result_busca.insert('end', '===' * 20)
-            self.lista_de_result_busca.insert('end', f'Busca finalizada!')
-
-            print(f'Busca Finalizada')
-            print(f'Foram encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
-        else:
-            showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
+                print(f'Busca Finalizada')
+                print(f'Foram encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
+            else:
+                showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
 
 
 iniciando_obj = ProgramaPrincipal()
