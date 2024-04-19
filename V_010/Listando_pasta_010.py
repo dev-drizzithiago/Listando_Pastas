@@ -556,7 +556,7 @@ class ProgramaPrincipal:
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20, '\n')
-                                print(f'{resultado_destaque}')
+                                print(f'[{resultado_destaque}]')
 
                                 """# Mostra o resultado na lista de busca"""
                                 self.lista_de_result_busca.insert('end', '')
@@ -567,8 +567,8 @@ class ProgramaPrincipal:
                             else:
 
                                 """# Mostra os resultados no prompt e na lista de busca"""
-                                print(f'{resultado_destaque}')
-                                self.lbl_info_real_time.config(text=f'Arquivos encontrados: {valor_de_busca}')
+                                print(f'[{resultado_destaque}]')
+                                self.lbl_info_real_time.config(text=f'Arquivos encontrados: [ {valor_de_busca} ]')
                                 self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
 
                             """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
