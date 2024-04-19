@@ -531,25 +531,27 @@ class ProgramaPrincipal:
                     contador_itens = 1
 
                     """# Loop responsável por mostrar os arquivos """
-                    for valor_itens in arquivo:
+                    for valor_file in arquivo:
 
                         """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário
                         São vários filtros para não jogar todos os arquivos"""
-                        if search(valor_da_extensao_busca, valor_itens):
+                        if search(valor_da_extensao_busca, valor_file):
 
                             self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                             Esse programa eu quero que pegue apenas os valores da extensão"""
-                            valor_ext_comparacao = str(valor_itens).split('.')[-1]
+                            valor_ext_comparacao = str(valor_file).split('.')[-1]
                             print(f'valor_comparacao: {valor_ext_comparacao}')
-
-                            if valor_da_extensao_busca == valor_ext_comparacao:
-                                valor_de_busca = str(f'{valor_itens}').strip().lower()
-                                print(f'valor_de_busca: {valor_de_busca}')
+                            try:
+                                if valor_da_extensao_busca == valor_ext_comparacao:
+                                    valor_of_file = str(f'{valor_file}').strip().lower()
+                                    print(f'valor_de_busca: {valor_of_file}')
+                            except:
+                                valor_of_file = valor_file
 
                             """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
-                            caminho_completo = os.path.join(raiz, valor_de_busca)
+                            caminho_completo = os.path.join(raiz, valor_of_file)
                             diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                             extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                             resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
