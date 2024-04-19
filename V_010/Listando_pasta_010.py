@@ -501,9 +501,6 @@ class ProgramaPrincipal:
         for chave, valor in arquivo_duplicado.items():
             print(f'{chave} - {valor}')
 
-        input()
-        for linhas in lista_arq_duplicado:
-            print(linhas)
 
         print('Finalizado!')
 
