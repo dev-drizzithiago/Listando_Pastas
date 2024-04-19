@@ -252,7 +252,7 @@ class ProgramaPrincipal:
 
         """### Declaraçõd do dicionário de extensões"""
         self.lista_de_extensoes = dict(
-            
+
             ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui',
                       'rar', 'sys', 'tmp', 'wmd', 'lua', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx', 'nsl', 'dtd',
                       'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'iec', 'ime',
@@ -542,7 +542,7 @@ class ProgramaPrincipal:
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                             Esse programa eu quero que pegue apenas os valores da extensão"""
                             valor_ext_comparacao = str(valor_itens).split('.')[-1]
-                            print(valor_ext_comparacao)
+                            print(f'valor_comparacao: {valor_ext_comparacao}')
 
                             if valor_da_extensao_busca == valor_ext_comparacao:
                                 valor_de_busca = str(f'{valor_itens}').strip().lower()
