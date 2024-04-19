@@ -252,17 +252,7 @@ class ProgramaPrincipal:
 
         """### Declaraçõd do dicionário de extensões"""
         self.lista_de_extensoes = dict(
-            AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
-            VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'iff'   'avi'  'asf', 'dvr-ms', 'mov', 'mpeg-2',
-                    'ogg', 'ogm', 'realMedia', 'matroska', 'MKV', '3gp', 'vob'],
-
-            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
-
-            IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps', 'emf', 'exr',
-                    'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2', 'mng', 'pbm', 'pcd', 'pdf',
-                    'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg', 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif',
-                    'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
-
+            
             ARQUIVOS=['exe', 'dll', 'ini', 'in', 'bat', 'bin', 'cab', 'csv', 'dif', 'dll', 'iso', 'jar', 'msi', 'mui',
                       'rar', 'sys', 'tmp', 'wmd', 'lua', 'pas', 'r', 'rar', 'dmg', '7z', 'tar', 'aspx', 'nsl', 'dtd',
                       'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'iec', 'ime',
@@ -270,15 +260,27 @@ class ProgramaPrincipal:
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
                       'cmd', 'conf', 'wsf', 'config'],
 
-            PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', ],
+            IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps', 'emf', 'exr',
+                    'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2', 'mng', 'pbm', 'pcd', 'pdf',
+                    'pgm', 'pict', 'png', 'ppm', 'ps', 'psd', 'psp', 'svg', 'svgz', 'skp', 'skb', 'swf', 'tiff', 'tif',
+                    'wbmp', 'wmf', 'xar', 'xcf', 'xpm'],
 
-            ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
+            VIDEOS=['flv', 'mov', 'mp4', 'mpeg', 'mpg', 'vob', 'wmv', 'iff'   'avi'  'asf', 'dvr-ms', 'mov', 'mpeg-2',
+                    'ogg', 'ogm', 'realMedia', 'matroska', 'MKV', '3gp', 'vob'],
 
-            WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
+            AUDIO=['aac', 'adt', 'adts', 'cda', 'm4a', 'mp3', 'wav', 'aif', 'aifc', 'aiff', 'mid', 'midi'],
 
             POWERPOINT=['pot', 'potm', 'potx', 'ppam', 'pps', 'ppsm', 'ppsx', 'ppt', 'pptm', 'pptx'],
 
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
+
+            TEXTOS = ['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
+
+            PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', 'pyi'],
+
+            ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
+
+            WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
 
             HTML=['xps', 'htm', 'html'])
 
@@ -287,13 +289,16 @@ class ProgramaPrincipal:
         print(f'\n Categoria selecionada: [{valor_categoria_extensao}]')
         self.combo_box_cat.config(state=tk.DISABLED)
         for chave, valor in self.lista_de_extensoes.items():
+            print(chave, valor)
+
+            """# Define qual categoria de extensão vai ser apresentado na janela"""
             if chave == valor_categoria_extensao:
 
                 """# Label que mostra qual categoria foi escolhida."""
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
 
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
-                print(f'{contador}-linhas{linhas}-colunas{colunas}')
+                print(f'{contador}-linhas{linhas}-colunas{colunas}')  # Primeira linha dos codigos de linhas
                 for valor_extensao in valor:
                     self.lista_var.append(tk.IntVar())
                     self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
@@ -536,7 +541,10 @@ class ProgramaPrincipal:
 
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                             Esse programa eu quero que pegue apenas os valores da extensão"""
-                            if valor_da_extensao_busca == str(valor_itens).split('.')[-1]:
+                            valor_ext_comparacao = str(valor_itens).split('.')[-1]
+                            print(valor_ext_comparacao)
+
+                            if valor_da_extensao_busca == valor_ext_comparacao:
                                 valor_de_busca = str(f'{valor_itens}').strip().lower()
                                 print(f'valor_de_busca: {valor_de_busca}')
 
