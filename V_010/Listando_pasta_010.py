@@ -492,6 +492,8 @@ class ProgramaPrincipal:
                 self.botao_destino_busca.config(state=tk.DISABLED)
                 self.combo_box_cat.config(state=tk.DISABLED)
 
+                self.lista_de_result_busca.delete(0, 'end')
+
                 """# Inicio da barra de progresso"""
                 self.barra_progresso_busca.start()
 
