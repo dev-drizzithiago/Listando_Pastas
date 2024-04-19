@@ -23,6 +23,7 @@ class ProgramaPrincipal:
         """##### Declarações de variaveis"""
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
+        self.dados_do_processo_busca = list()
         self.tempo_gasto_da_busca = None
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
@@ -621,6 +622,7 @@ class ProgramaPrincipal:
                 self.botao_inicio_processo.config(state=tk.NORMAL)
                 self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
                 self.botao_destino_busca.config(state=tk.NORMAL)
+                self.botao_duplicidade.config(state=tk.NORMAL)
 
                 """# Número de itens encontrados"""
                 self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
