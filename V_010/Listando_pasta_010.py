@@ -206,7 +206,7 @@ class ProgramaPrincipal:
         """# Botão limpeza lista de extensão"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Duplicidade')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_limpeza_checkbutton)
+        self.botao_duplicidade.config(command=self.thread_botao_duplicidade)
         self.botao_duplicidade.pack(anchor='n', fill='both')
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -248,7 +248,8 @@ class ProgramaPrincipal:
         Thread(target=self.tempo_processo_busca).start()
 
     def thread_botao_duplicidade(self):
-        pass
+        print(f'Iniciando THREAD botao_duplicidade')
+        Thread(target=self.botao_duplicidade).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
 
