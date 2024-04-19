@@ -134,24 +134,23 @@ class ProgramaPrincipal:
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
         self.barra_progresso_busca.config(mode='determinate', length=886)
-        self.barra_progresso_busca.config()
         self.barra_progresso_busca.place(y=90, x=5)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.janela_principal, width=99, height=5, bg='#C0C0C0')
+        self.lista_de_result_busca = tk.Listbox(self.janela_principal, width=99, height=11, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=370, x=52)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
-        self.barra_rolagem_lista_busca_y.place(y=20, x=870)
+        self.barra_rolagem_lista_busca_y.place(y=75, x=875)
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
         # ______________________________________________________________________________________________________________
         """# Barrade de Rolagem X """
         self.barra_rolagem_lista_busca_x = Scrollbar(self.lista_de_result_busca, orient=tk.HORIZONTAL)
-        self.barra_rolagem_lista_busca_x.place(y=75, x=400)
+        self.barra_rolagem_lista_busca_x.place(y=192, x=400)
         self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
         # ______________________________________________________________________________________________________________
@@ -159,25 +158,30 @@ class ProgramaPrincipal:
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
         self.frames_inferior = tk.Frame(self.janela_principal, bg='#D3D3D3')
-        self.frames_inferior.config(width=900, height=200, bd=2)
-        self.frames_inferior.place(y=470, x=50)
+        self.frames_inferior.config(width=900, height=80, bd=2)
+        self.frames_inferior.place(y=590, x=50)
         # ______________________________________________________________________________________________________________
         """# Label Frames dos botões"""
 
         """# Label Frame INICIO"""
         self.frame_label_inicio = tk.LabelFrame(self.frames_inferior, text='Inicio')
         self.frame_label_inicio.config(bg='#D3D3D3', pady=5, padx=5)
-        self.frame_label_inicio.place(y=0, x=1)
+        self.frame_label_inicio.place(y=5, x=1)
         # ______________________________________________________________________________________________________________
         """# Label Frame Diretorio"""
         self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Destino')
         self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
-        self.frame_label_diretorio.place(y=65, x=1)
+        self.frame_label_diretorio.place(y=5, x=140)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de limpeza da lista de extensões"""
         self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Destino')
         self.frame_label_limpeza_chk.config(bg='#D3D3D3', pady=5, padx=5)
-        self.frame_label_limpeza_chk.place(y=130, x=1)
+        self.frame_label_limpeza_chk.place(y=5, x=280)
+        # ______________________________________________________________________________________________________________
+        """# Frame Label para botão de encontrar duplicidade"""
+        self.frame_label_duplicidade = tk.LabelFrame(self.frames_inferior, text='Duplicidade')
+        self.frame_label_duplicidade.config(bg='#D3D3D3', pady=5, padx=5)
+        self.frame_label_duplicidade.place(y=5, x=420)
         # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
@@ -198,6 +202,12 @@ class ProgramaPrincipal:
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_limpar_checkbuttun.config(command=self.thread_botao_limpeza_checkbutton)
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
+        # ______________________________________________________________________________________________________________
+        """# Botão limpeza lista de extensão"""
+        self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Duplicidade')
+        self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_duplicidade.config(command=self.thread_botao_limpeza_checkbutton)
+        self.botao_duplicidade.pack(anchor='n', fill='both')
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### Iniciando o relogio"""
