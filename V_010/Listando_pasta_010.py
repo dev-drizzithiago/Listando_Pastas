@@ -479,10 +479,8 @@ class ProgramaPrincipal:
                 self.ativar_uma_extensao = True
             elif len(extensoes) == 0:
                 showwarning("AVISO", 'Você não selecionou nenhuma extensão')
-            else:
-                showerror("AVISO IMPORTANTE", 'Você não pode adicionar mais que uma extensão, \n'
-                                              'escolha apenas uma')
 
+            """# Prepara o valor para que a função re.search possa identificar """
             for valor_item_extensao in extensoes:
                 valor_da_extensao_busca = str(valor_item_extensao).lower()
             print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
@@ -605,7 +603,7 @@ class ProgramaPrincipal:
                 print(f'Busca Finalizada')
                 print(f'Foram encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
             else:
-                showwarning('Você preciso escolher uma única extensão')
+                showwarning('AVISO', 'Você preciso escolher uma única extensão')
         else:
             showwarning("IMPORTANTE AVISO!", 'Escolha uma categoria e posteriormente uma extensão')
 
