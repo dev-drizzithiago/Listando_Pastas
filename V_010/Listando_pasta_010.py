@@ -232,6 +232,7 @@ class ProgramaPrincipal:
         Thread(target=self.tempo_processo_busca).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
@@ -305,6 +306,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
     def data_hora_certa(self):
         """
 
@@ -341,6 +343,7 @@ class ProgramaPrincipal:
         print(f'"Combo Ativado: {self.ativar_combo}')
 
     """#### Inicio dos processos """
+
     def tempo_processo_busca(self):
         """
         Função vai se responsavel em contar o tempo que a busca foi realizada.
@@ -460,29 +463,30 @@ class ProgramaPrincipal:
 
         print(f'Combo ativado: {self.ativar_combo}')
 
-        """# As informações das extensão chegou no loop abaixo"""
-        try:
-            for valor_var in range(len(self.lista_var)):
-                if self.lista_var[valor_var].get() == 1:
-                    extensoes.append(self.botoes_chek[valor_var]["text"])
-            self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
-        except AttributeError:
-            showwarning("AVISO", 'Não foi selecionado nenhuma extensão')
-
-        """# Valida se extensão possui mais de um valor"""
-        if len(extensoes) == 1:
-            self.ativar_uma_extensao = True
-        elif len(extensoes) == 0:
-            showwarning("AVISO", 'Você não selecionou nenhuma extensão')
-        else:
-            showerror("AVISO IMPORTANTE", 'Você não pode adicionar mais que uma extensão, \n'
-                                            'escolha apenas uma')
-
-        for valor_item_extensao in extensoes:
-            valor_da_extensao_busca = str(valor_item_extensao).lower()
-        print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
-
         if self.ativar_combo:
+
+            """# As informações das extensão chegou no loop abaixo"""
+            try:
+                for valor_var in range(len(self.lista_var)):
+                    if self.lista_var[valor_var].get() == 1:
+                        extensoes.append(self.botoes_chek[valor_var]["text"])
+                self.lbl_ext_selec.config(text=f'Extenções selecionadas para busca {extensoes}')
+            except AttributeError:
+                showwarning("AVISO", 'Não foi selecionado nenhuma extensão')
+
+            """# Valida se extensão possui mais de um valor"""
+            if len(extensoes) == 1:
+                self.ativar_uma_extensao = True
+            elif len(extensoes) == 0:
+                showwarning("AVISO", 'Você não selecionou nenhuma extensão')
+            else:
+                showerror("AVISO IMPORTANTE", 'Você não pode adicionar mais que uma extensão, \n'
+                                              'escolha apenas uma')
+
+            for valor_item_extensao in extensoes:
+                valor_da_extensao_busca = str(valor_item_extensao).lower()
+            print(f'Valor de busca selecionado: {valor_da_extensao_busca}')
+
             if self.ativar_uma_extensao:
                 """# Desativando todos os botãoes"""
                 self.botao_inicio_processo.config(state=tk.DISABLED)
