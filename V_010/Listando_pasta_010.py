@@ -95,6 +95,12 @@ class ProgramaPrincipal:
         self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados', bg='#C0C0C0')
         self.lbl_qtd_arquivos.place(y=1, x=300)
         # ______________________________________________________________________________________________________________
+        """# Quantidade de pastas que foram encontrado arquivos"""
+        self.var_lbl_qtd_pasta = tk.StringVar()
+        self.lbl_qtd_pasta = tk.Label(self.frames_central, text=self.var_lbl_qtd_pasta)
+        self.lbl_qtd_pasta.config(text='Quantidade de pastas em real time', bg='#C0C0C0')
+        self.lbl_qtd_pasta.place(y=20, x=300)
+        # ______________________________________________________________________________________________________________
         """# Label INFO hora certa"""
         self.var_lbl_hora_certa = tk.StringVar()
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
@@ -543,6 +549,8 @@ class ProgramaPrincipal:
                             if contador_itens == 1:
                                 """# Conta quantas pastas foram encontrados os itens da busca"""
                                 contador_de_pastas += 1
+                                self.lbl_qtd_pasta.config(text=f'Quantidade de pasta com arquivos:'
+                                                               f' [{contador_de_pastas}]')
 
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
