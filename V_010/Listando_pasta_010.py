@@ -590,13 +590,13 @@ class ProgramaPrincipal:
 
                 """# Número de itens encontrados"""
                 self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
-                print(f'Itens encontrados: [ {contador_de_arquivos} ]')
+                print(f'\nItens encontrados: [ {contador_de_arquivos} ]')
 
                 """# Desativa o validador de tempo de busca"""
-                print(f'Desativando "time_busca"')
+                print(f'\nDesativando "time_busca"')
                 sleep(1)
                 self.ativo_time_busca = False
-                self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} H/M/S"
+                self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} (H/M/S)"
 
                 """# Desativa os valores importantes"""
                 self.ativar_horas = False
@@ -605,7 +605,7 @@ class ProgramaPrincipal:
                 self.ativar_uma_extensao = False
 
                 """# Desativa o validador de arquivos encontrados"""
-                print(f'Desativado "arquivo_encontrado"')
+                print(f'\nDesativando "arquivo_encontrado"')
                 sleep(1)
                 self.ativar_arquivo_encontrado = False
 
@@ -613,12 +613,12 @@ class ProgramaPrincipal:
                 self.lista_de_result_busca.insert('end', '===' * 20)
                 self.lista_de_result_busca.insert('end', f'Busca finalizada!')
 
-                print(f'Busca Finalizada')
-                print(f'Foram encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
+                print(f'\nBusca Finalizada')
+                print(f'\nForam encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
             else:
                 showwarning('AVISO', 'Escolha apenas um extensão')
         else:
-            showwarning("IMPORTANTE AVISO!", 'Escolha uma categora e uma unica extensão '
+            showwarning("IMPORTANTE AVISO!", 'Escolha uma categora e uma única extensão '
                                              'para realizar a busca.')
 
 
