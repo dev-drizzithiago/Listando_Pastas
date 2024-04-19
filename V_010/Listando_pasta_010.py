@@ -347,7 +347,6 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
-        self.lbl_pts_dest.config(text=self.diretorio_home)
 
     def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
@@ -357,6 +356,7 @@ class ProgramaPrincipal:
             """# Tambem limpa a lista de busca"""
             self.lista_de_result_busca.delete('0', 'end')
             self.func_pasta_destino()
+            self.lbl_pts_dest.config(text=self.diretorio_home)
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
         self.ativar_combo = False
