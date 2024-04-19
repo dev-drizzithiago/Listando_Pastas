@@ -587,6 +587,8 @@ class ProgramaPrincipal:
                 sleep(1)
                 self.ativo_time_busca = False
                 self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} H/M/S"
+
+                self.ativar_uma_extensao = False
                 self.ativar_horas = False
                 self.ativar_minutos = False
                 self.ativar_segundos = False
