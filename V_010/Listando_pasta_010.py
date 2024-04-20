@@ -486,6 +486,7 @@ class ProgramaPrincipal:
 
             if valor_arquivo in arquivo_duplicado:
                 arquivo_duplicado[valor_arquivo] += 1
+                arquivo_duplicado['Path'] = valor_pastas
             else:
                 arquivo_duplicado[valor_arquivo] = 1
 
@@ -494,7 +495,7 @@ class ProgramaPrincipal:
                 print(f'{chave} - {valor}')
 
         for index, data in enumerate(zip(self.dados_do_processo_busca_1, self.dados_do_processo_busca_2)):
-            
+            pass
 
         print('Finalizado!')
 
