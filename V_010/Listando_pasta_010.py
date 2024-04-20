@@ -486,8 +486,8 @@ class ProgramaPrincipal:
             valor_pastas = str(valor).split('|')[0]
 
             if valor_arquivo in arquivo_duplicado:
+                lista_arq_duplicado.append(f'{valor_pastas} -- {valor_arquivo}')
                 arquivo_duplicado[valor_arquivo] += 1
-                lista_arq_duplicado.append(f'{valor_pastas}\n{valor_arquivo}')
             else:
                 arquivo_duplicado[valor_arquivo] = 1
 
@@ -495,7 +495,8 @@ class ProgramaPrincipal:
             print(f'{chave} - {valor}')
 
         for valor_lista_arq_duplicado in lista_arq_duplicado:
-            print(valor_lista_arq_duplicado)
+            if valor_lista_arq_duplicado in lista_arq_duplicado:
+                print(valor_lista_arq_duplicado)
 
         print('Finalizado!')
 
