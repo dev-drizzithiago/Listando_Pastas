@@ -1,5 +1,14 @@
+lista_dados = [
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-01-31_14-12-49.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-02_16-32-27.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-07_20-36-40.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-12_08-25-13.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-01-31_14-12-49.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-02_16-32-27.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-07_20-36-40.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-12_08-25-13.PNG'
+]
 
-lista_dados = [1, 1, 2, 3, 4, 5, 5, 6, 7, 8, 10]
 lista_dados.sort()
 
 duplicado = dict()
@@ -15,8 +24,5 @@ for k, v in duplicado.items():
 for i in range(0, len(lista_dados) - 1):
     comparacao_1 = lista_dados[i]
     print(f'Item para comparar {comparacao_1}')
-    for j in range(1, len(lista_dados) - 1):
-        comparacao_2 = lista_dados[j + i]
-        print(f'Item comparador {comparacao_2}')
-        if comparacao_1 == comparacao_2:
-            print(f'{comparacao_2}')
+    if comparacao_1 == lista_dados[i + 1]:
+        print(f'{comparacao_1}')
