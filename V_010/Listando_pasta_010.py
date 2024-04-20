@@ -477,6 +477,7 @@ class ProgramaPrincipal:
     def func_botao_duplicidade(self):
         arquivo_duplicado = dict()
         lista_arq_duplicado = []
+        contador_duplo = 0
         print(f'Iniciando botao_duplicidade')
 
         print(f"Quantidade de arquivos dentro da lista: {len(self.dados_do_processo_busca)}")
@@ -486,13 +487,13 @@ class ProgramaPrincipal:
 
             if valor_arquivo in arquivo_duplicado:
                 arquivo_duplicado[valor_arquivo] += 1
-                lista_arq_duplicado.append(f'{valor_pastas} -- {valor_arquivo}')
             else:
                 arquivo_duplicado[valor_arquivo] = 1
 
         for chave, valor in arquivo_duplicado.items():
             if valor > 1:
                 print(f'{chave} - {valor}')
+                lista_arq_duplicado.append(f'{valor_pastas} -- {valor_arquivo}')
 
         for valor_lista_arq_duplicado in lista_arq_duplicado:
             print(valor_lista_arq_duplicado)
