@@ -23,7 +23,8 @@ for valor in lista_da_busca:
 
     lista_dados.append(str(valor).split('\\')[-1].strip())
 
-    print(lista_dados)
+    for valor_lista_dados in lista_dados:
+        print(valor_lista_dados)
 
 duplicado = dict()
 for valor in lista_dados:
