@@ -27,17 +27,17 @@ for valor in lista_da_busca:
 for valor_lista_dados in lista_dados:
     print(valor_lista_dados)
 
-    for indice in range(0, 2, len(valor_lista_dados)):
-        lista_da_busca[indice]
-        if valor_lista_dados in duplicado:
-            duplicado[valor] += 1
-        else:
-            duplicado[valor] = 1
-    for k, v in duplicado.items():
-        if v > 1:
-            print(f'{k} - {v}')
+for indice in range(0, 2, len(valor_lista_dados)):
+    valor_item = lista_da_busca[indice]
+    if valor_item in duplicado:
+        duplicado[valor_item] += 1
+    else:
+        duplicado[valor_item] = 1
+for k, v in duplicado.items():
+    if v > 1:
+        print(f'{k} - {v}')
 
-    for i in range(0, len(lista_dados) - 1):
-        comparacao_1 = lista_dados[i]
-        if comparacao_1 == lista_dados[i + 1]:
-            print(f'{comparacao_1}')
+for i in range(0, len(lista_dados) - 1):
+    comparacao_1 = lista_dados[i]
+    if comparacao_1 == lista_dados[i + 1]:
+        print(f'{comparacao_1}')
