@@ -24,11 +24,9 @@ for valor in lista_da_busca:
 
     lista_dados.append(str(valor).split('\\')[-1].strip())
 
-for valor_lista_dados in lista_dados:
-    print(valor_lista_dados)
-
-for indice in range(0, 2, len(valor_lista_dados)):
+for indice in range(0, len(lista_dados)):
     valor_item = lista_da_busca[indice]
+    print(f'Indice:{indice} - {valor_item}')
     if valor_item in duplicado:
         duplicado[valor_item] += 1
     else:
