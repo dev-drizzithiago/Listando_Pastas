@@ -274,7 +274,7 @@ class ProgramaPrincipal:
                       'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'iec', 'ime',
                       'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'ax', 'acm', 'json',
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
-                      'cmd', 'conf', 'wsf', 'config'],
+                      'cmd', 'conf', 'wsf', 'config', 'py', 'java', 'vbs', 'css', 'php', 'pyi'],
 
             IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps', 'emf', 'exr',
                     'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2', 'mng', 'pbm', 'pcd', 'pdf',
@@ -291,8 +291,6 @@ class ProgramaPrincipal:
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
 
             TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
-
-            PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', 'pyi'],
 
             ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
 
