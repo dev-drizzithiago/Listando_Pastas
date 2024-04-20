@@ -23,7 +23,8 @@ class ProgramaPrincipal:
         """##### Declarações de variaveis"""
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
-        self.dados_do_processo_busca = list()
+        self.dados_do_processo_busca_1 = list()
+        self.dados_do_processo_busca_2 = list()
         self.tempo_gasto_da_busca = None
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
@@ -476,12 +477,11 @@ class ProgramaPrincipal:
 
     def func_botao_duplicidade(self):
         arquivo_duplicado = dict()
-        lista_arq_duplicado = []
         contador_duplo = 0
         print(f'Iniciando botao_duplicidade')
 
-        print(f"Quantidade de arquivos dentro da lista: {len(self.dados_do_processo_busca)}")
-        for valor in self.dados_do_processo_busca:
+        print(f"Quantidade de arquivos dentro da lista: {len(self.dados_do_processo_busca_1)}")
+        for valor in self.dados_do_processo_busca_1:
             valor_arquivo = str(valor).split('|')[-1]
             valor_pastas = str(valor).split('|')[0]
 
@@ -596,7 +596,8 @@ class ProgramaPrincipal:
                                 contador_de_pastas += 1
                                 self.lbl_qtd_pasta.config(text=f'Quantidade de pasta com arquivos:'
                                                                f' [{contador_de_pastas}]')
-                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
+                                self.dados_do_processo_busca_1.append(f'{raiz}|{extensao_destaque}')
+                                self.dados_do_processo_busca_2.append(f'{raiz}|{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20, '\n')
@@ -611,7 +612,8 @@ class ProgramaPrincipal:
                             else:
                                 """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
                                 realizado qualquer tipo de analise"""
-                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
+                                self.dados_do_processo_busca_1.append(f'{raiz}|{extensao_destaque}')
+                                self.dados_do_processo_busca_2.append(f'{raiz}|{extensao_destaque}')
 
                                 """# Mostra os resultados no prompt e na lista de busca"""
                                 print(f'[{resultado_destaque}]')
