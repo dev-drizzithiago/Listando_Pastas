@@ -494,12 +494,13 @@ class ProgramaPrincipal:
                 print(f'{chave} - {valor}')
 
         for i in range(0, len(self.dados_do_processo_busca_1)):
+            print(i)
             comparacao = self.dados_do_processo_busca_1[i]
-            for c in range(1, len(self.dados_do_processo_busca_1)):
-                if comparacao == self.dados_do_processo_busca_1[c]:
-                    print(comparacao)
-
-        print(comparacao)
+            i += 1
+            print(i)
+            if comparacao == self.dados_do_processo_busca_1[i]:
+                print(comparacao)
+            i -= 1
 
         print('Finalizado!')
 
