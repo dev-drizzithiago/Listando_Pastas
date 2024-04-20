@@ -477,7 +477,6 @@ class ProgramaPrincipal:
 
     def func_botao_duplicidade(self):
         arquivo_duplicado = dict()
-        contador_duplo = 0
         print(f'Iniciando botao_duplicidade')
 
         print(f"Quantidade de arquivos dentro da lista: {len(self.dados_do_processo_busca_1)}")
@@ -493,6 +492,9 @@ class ProgramaPrincipal:
         for chave, valor in arquivo_duplicado.items():
             if valor > 1:
                 print(f'{chave} - {valor}')
+
+        for index, data in enumerate(zip(self.dados_do_processo_busca_1, self.dados_do_processo_busca_2)):
+            
 
         print('Finalizado!')
 
