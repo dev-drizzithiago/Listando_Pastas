@@ -15,7 +15,7 @@ for valor in lista_da_busca:
     valor_pasta = (str(valor_pasta_lista).replace('[', '').replace(']', '').
                    replace(',', '\\').replace("'", '').replace(' ', '').
                    replace('\\', '/').strip())
-    
+
     lista_dados = [valor_pasta, valor_arquivo]
 
     print(lista_dados)
