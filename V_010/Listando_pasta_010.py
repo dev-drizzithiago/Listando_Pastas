@@ -494,8 +494,13 @@ class ProgramaPrincipal:
             if valor > 1:
                 print(f'{chave} - {valor}')
 
-        for index, data in enumerate(zip(self.dados_do_processo_busca_1, self.dados_do_processo_busca_2)):
-            pass
+        for busca_1, busca_2 in zip(self.dados_do_processo_busca_1, self.dados_do_processo_busca_2):
+            valor_files_1 = str(busca_1).split('|')[-1]
+            valor_paths_1 = str(busca_1).split('|')[0]
+            valor_files_2 = str(busca_2).split('|')[-1]
+            valor_paths_2 = str(busca_2).split('|')[0]
+
+                      
 
         print('Finalizado!')
 
