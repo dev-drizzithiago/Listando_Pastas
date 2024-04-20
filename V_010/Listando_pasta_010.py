@@ -498,12 +498,10 @@ class ProgramaPrincipal:
                 print(f'{chave} - {valor}')
 
         for i in range(0, len(lista_arquivo_duplicado)):
-            print(f'Posição da lista: {i}°')
             comparacao_1 = lista_arquivo_duplicado[i]
-            print(f'Item comparação: 1°{comparacao_1}')
             for j in range(1, len(lista_arquivo_duplicado)):
                 comparacao_2 = lista_arquivo_duplicado[j]
-                print(f'Item comparação: 2°{comparacao_2}')
+
                 if comparacao_1 == comparacao_2:
                     print(f'Duplicado: 1° {comparacao_1}\nDuplicado: 2° {comparacao_2}')
                     comparador += 1
