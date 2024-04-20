@@ -7,10 +7,11 @@ pasta_de_busca = Path(str(askdirectory()))
 for resultado_busca in pasta_de_busca.glob('**/*'):
     if resultado_busca.is_file():
         lista_dados.append(resultado_busca)
+        print(resultado_busca)
 
 for valor in lista_dados:
-    valor_arquivo = str(valor).split('==>')[-1].strip()
-    valor_pasta = str(valor).split('==>')[0].strip()
+    valor_arquivo = str(valor).split('\\')[-1].strip()
+    valor_pasta = str(valor).split('\\')[:-2]
 
 duplicado = dict()
 for valor in lista_dados:
