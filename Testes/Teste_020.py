@@ -1,15 +1,20 @@
 lista_dados = [
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-01-31_14-12-49.PNG',
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-02_16-32-27.PNG',
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-07_20-36-40.PNG',
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-12_08-25-13.PNG',
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-01-31_14-12-49.PNG',
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-02_16-32-27.PNG',
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-07_20-36-40.PNG',
-    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==>  SPARK_2024-02-12_08-25-13.PNG'
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-01-31_14-12-49.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-02_16-32-27.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-07_20-36-40.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-12_08-25-13.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-01-31_14-12-49.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-02_16-32-27.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-07_20-36-40.PNG',
+    'C:\\Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-12_08-25-13.PNG'
 ]
 
 lista_dados.sort()
+
+for valor in lista_dados:
+    valor_arquivo =
+
+valor_arquivo =
 
 duplicado = dict()
 for valor in lista_dados:
