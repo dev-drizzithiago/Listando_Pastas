@@ -11,12 +11,12 @@ home = Path.home()
 
 try:
     caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
-    os.mkdir(caminho_destino)
+    os.mkdir(str(caminho_destino).replace('\\', '/'))
 except FileNotFoundError:
     caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
-    os.mkdir(caminho_destino)
+    os.mkdir(str(caminho_destino).replace('\\', '/'))
 except FileExistsError:
-    print('Pasta ja existe!')
+    print(f"Pasta ja existe! {str(caminho_destino).replace('\\', '/')}")
 
 pasta_de_busca = Path(str(askdirectory()))
 
