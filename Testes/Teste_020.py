@@ -23,6 +23,5 @@ for k, v in duplicado.items():
 
 for i in range(0, len(lista_dados) - 1):
     comparacao_1 = lista_dados[i]
-    print(f'Item para comparar {comparacao_1}')
     if comparacao_1 == lista_dados[i + 1]:
         print(f'{comparacao_1}')
