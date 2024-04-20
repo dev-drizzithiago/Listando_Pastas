@@ -24,7 +24,7 @@ for valor in lista_da_busca:
 
     lista_dados.append(str(valor).split('\\')[-1].strip())
 
-for indice in range(0, 2, len(lista_dados)):
+for indice in range(2, len(lista_dados)):
     valor_item = lista_dados[indice]
 
     print(f'Indice:{indice} - {valor_item}')
