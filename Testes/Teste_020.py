@@ -12,8 +12,7 @@ for valor in lista_da_busca:
     valor_arquivo = str(valor).split('\\')[-1].strip()
     valor_pasta = str(valor).split('\\')[:-2]
 
-
-    lista_dados = [[valor_pasta], [valor_arquivo]]
+    lista_dados = [valor_pasta, valor_arquivo]
 
     print(lista_dados)
 duplicado = dict()
