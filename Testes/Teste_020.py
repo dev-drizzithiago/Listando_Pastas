@@ -28,8 +28,10 @@ for valor in lista_da_busca:
 
 for indice in range(0, len(lista_dados)):
     valor_item = lista_dados[indice]
-    print(f'Indice:{indice} - {valor_item}')
+    
     if indice % 2 == 0:
+        print(f'Indice:{indice} - {valor_item}')
+    else:
         print(f'Indice:{indice} - {valor_item}')
 
     if valor_item in duplicado:
