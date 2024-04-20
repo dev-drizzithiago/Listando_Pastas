@@ -1,12 +1,23 @@
 import os
 from tkinter.filedialog import askdirectory
 from pathlib import Path
+import glob
+import shutil
 
 lista_da_busca = []
 lista_dados = []
 duplicado = dict()
 home = Path.home()
-caminho_direto_duplicado = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
+
+try:
+    caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
+    os.mkdir(caminho_destino)
+except FileNotFoundError:
+    caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
+    os.mkdir(caminho_destino)
+except FileExistsError:
+    print('Pasta ja existe!')
+
 pasta_de_busca = Path(str(askdirectory()))
 
 for resultado_busca in pasta_de_busca.glob('**/*'):
@@ -35,15 +46,20 @@ for indice in range(0, len(lista_dados)):
     else:
         print(f'Indice:{indice} - {valor_item}')
         caminho_origem = str(valor_diretorio + valor_item)
+        arquivos = glob.glob(caminho_origem)
         print(f'Caminho de origem: {caminho_origem}')
-
+        print('=-=' * 20)
 
     if valor_item in duplicado:
         duplicado[valor_item] += 1
+        try:
+            shutil.move(arquivos, caminho_destino)
+            print('Arquivo movido!')
+        except:
+            print('Não foi possível mover os arquivos para pasta de destino!')
     else:
         duplicado[valor_item] = 1
 
-print('=-=' * 20)
 for k, v in duplicado.items():
     if v > 1:
         print(f'{k} - {v}')
