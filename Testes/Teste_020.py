@@ -12,9 +12,9 @@ lista_dados = [
 lista_dados.sort()
 
 for valor in lista_dados:
-    valor_arquivo =
+    valor_arquivo = str(valor).split('==>')[-1].strip()
+    valor_pasta = str(valor).split('==>')[0].strip()
 
-valor_arquivo =
 
 duplicado = dict()
 for valor in lista_dados:
