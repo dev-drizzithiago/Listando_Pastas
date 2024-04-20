@@ -479,7 +479,7 @@ class ProgramaPrincipal:
         arquivo_duplicado = dict()
         lista_arquivo_duplicado = []
         lista_pastas_arq_duplo = []
-        contador = 1
+        comparador = 0
         print(f'Iniciando botao_duplicidade')
 
         print(f"Quantidade de arquivos dentro da lista: {len(self.dados_do_processo_busca_1)}")
@@ -500,14 +500,14 @@ class ProgramaPrincipal:
         for i in range(0, len(lista_arquivo_duplicado)):
             print(f'Posição da lista: {i}°')
             comparacao_1 = lista_arquivo_duplicado[i]
-            comparacao_2 = lista_arquivo_duplicado[contador]
             print(f'Item comparação: 1°{comparacao_1}')
-            print(f'Item comparação: 2°{comparacao_2}')
-
-            if comparacao_1 == comparacao_2:
-                print(f'Duplicado: 1° {comparacao_1}\nDuplicado: 2° {comparacao_2}')
-            contador += 1
-
+            for j in range(1, len(lista_arquivo_duplicado)):
+                comparacao_2 = lista_arquivo_duplicado[j]
+                print(f'Item comparação: 2°{comparacao_2}')
+                if comparacao_1 == comparacao_2:
+                    print(f'Duplicado: 1° {comparacao_1}\nDuplicado: 2° {comparacao_2}')
+                    comparador += 1
+        print(comparador)
         print('Finalizado!')
 
     def botao_inicio_da_busca_principal(self):
