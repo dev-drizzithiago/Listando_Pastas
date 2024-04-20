@@ -4,6 +4,7 @@ from pathlib import Path
 
 lista_da_busca = []
 lista_dados = []
+duplicado = dict()
 pasta_de_busca = Path(str(askdirectory()))
 
 for resultado_busca in pasta_de_busca.glob('**/*'):
@@ -26,7 +27,7 @@ for valor in lista_da_busca:
     for valor_lista_dados in lista_dados:
         print(valor_lista_dados)
 
-duplicado = dict()
+
 for valor in lista_dados:
     if str(valor).split('\\')[-1].strip() in duplicado:
         duplicado[str(valor).split('\\')[-1].strip()] += 1
