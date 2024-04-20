@@ -304,7 +304,6 @@ class ProgramaPrincipal:
         print(f'\n Categoria selecionada: [{valor_categoria_extensao}]')
         self.combo_box_cat.config(state=tk.DISABLED)
         for chave, valor in self.lista_de_extensoes.items():
-            print(chave, valor)
 
             """# Define qual categoria de extensão vai ser apresentado na janela"""
             if chave == valor_categoria_extensao:
@@ -486,17 +485,17 @@ class ProgramaPrincipal:
             valor_pastas = str(valor).split('|')[0]
 
             if valor_arquivo in arquivo_duplicado:
-                lista_arq_duplicado.append(f'{valor_pastas} -- {valor_arquivo}')
                 arquivo_duplicado[valor_arquivo] += 1
+                lista_arq_duplicado.append(f'{valor_pastas} -- {valor_arquivo}')
             else:
                 arquivo_duplicado[valor_arquivo] = 1
 
         for chave, valor in arquivo_duplicado.items():
-            print(f'{chave} - {valor}')
+            if valor > 1:
+                print(f'{chave} - {valor}')
 
         for valor_lista_arq_duplicado in lista_arq_duplicado:
-            if valor_lista_arq_duplicado in lista_arq_duplicado:
-                print(valor_lista_arq_duplicado)
+            print(valor_lista_arq_duplicado)
 
         print('Finalizado!')
 
@@ -591,9 +590,8 @@ class ProgramaPrincipal:
 
                             """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
                             caminho_completo = os.path.join(raiz, valor_of_file)
-                            diretorio_destaque = str(caminho_completo).split('.')[0].lower()
                             extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
-                            resultado_destaque = f'{diretorio_destaque} ==> [ {extensao_destaque} ]'
+                            resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
 
                             """# Mostra a pasta que foram encontrado algum arquivo"""
                             if contador_itens == 1:
@@ -601,7 +599,7 @@ class ProgramaPrincipal:
                                 contador_de_pastas += 1
                                 self.lbl_qtd_pasta.config(text=f'Quantidade de pasta com arquivos:'
                                                                f' [{contador_de_pastas}]')
-                                self.dados_do_processo_busca.append(f'{diretorio_destaque}|{extensao_destaque}')
+                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20, '\n')
@@ -616,7 +614,7 @@ class ProgramaPrincipal:
                             else:
                                 """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
                                 realizado qualquer tipo de analise"""
-                                self.dados_do_processo_busca.append(f'{diretorio_destaque}|{extensao_destaque}')
+                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
 
                                 """# Mostra os resultados no prompt e na lista de busca"""
                                 print(f'[{resultado_destaque}]')
