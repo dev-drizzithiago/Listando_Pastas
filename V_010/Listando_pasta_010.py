@@ -493,10 +493,7 @@ class ProgramaPrincipal:
         for chave, valor in arquivo_duplicado.items():
             if valor > 1:
                 print(f'{chave} - {valor}')
-                lista_arq_duplicado.append(f'{valor_pastas} -- {valor_arquivo}')
 
-        for valor_lista_arq_duplicado in lista_arq_duplicado:
-            print(valor_lista_arq_duplicado)
 
         print('Finalizado!')
 
