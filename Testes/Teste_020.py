@@ -1,6 +1,7 @@
 import os.path
 from tkinter.filedialog import askdirectory
 from pathlib import Path
+
 lista_da_busca = []
 lista_dados = []
 pasta_de_busca = Path(str(askdirectory()))
@@ -10,18 +11,18 @@ for resultado_busca in pasta_de_busca.glob('**/*'):
         lista_da_busca.append(resultado_busca)
 
 for valor in lista_da_busca:
-    valor_arquivo = str(valor).split('\\')[-1].strip()
     valor_pasta_lista = str(valor).split('\\')[:-2]
-    valor_pasta = (str(valor_pasta_lista)
-                   .replace('[', '')
-                   .replace(']', '')
-                   .replace(',', '\\')
-                   .replace("'", '')
-                   .replace(' ', '')
-                   .replace('\\', '/')
-                   .strip())
+    lista_dados.append((str(valor_pasta_lista))
+                       .replace('[', '')
+                       .replace(']', '')
+                       .replace(',', '\\')
+                       .replace("'", '')
+                       .replace(' ', '')
+                       .replace('\\', '/')
+                       .strip())
 
-    lista_dados = [valor_pasta, valor_arquivo]
+    lista_dados.append(str(valor).split('\\')[-1].strip())
+
     print(lista_dados)
 
 duplicado = dict()
