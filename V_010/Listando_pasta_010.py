@@ -289,7 +289,7 @@ class ProgramaPrincipal:
 
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
 
-            TEXTOS = ['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
+            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
 
             PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', 'pyi'],
 
@@ -493,7 +493,6 @@ class ProgramaPrincipal:
         for chave, valor in arquivo_duplicado.items():
             if valor > 1:
                 print(f'{chave} - {valor}')
-
 
         print('Finalizado!')
 
