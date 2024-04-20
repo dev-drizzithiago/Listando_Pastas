@@ -1,3 +1,4 @@
+import os.path
 from tkinter.filedialog import askdirectory
 from pathlib import Path
 lista_da_busca = []
