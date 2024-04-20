@@ -1,19 +1,12 @@
-lista_dados = ['Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-01-31_14-12-49.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-02_16-32-27.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-07_20-36-40.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-12_08-25-13.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-01-31_14-12-49.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-02_16-32-27.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-07_20-36-40.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-12_08-25-13.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-01-31_14-12-49.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-02_16-32-27.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-07_20-36-40.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-12_08-25-13.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-01-31_14-12-49.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-02_16-32-27.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-07_20-36-40.PNG',
-               'Users\Thiago\OneDrive\Documentos\SimCity\Pictures ==> SPARK_2024-02-12_08-25-13.PNG']
+from tkinter.filedialog import askdirectory
+from pathlib import Path
+
+lista_dados = []
+pasta_de_busca = Path(str(askdirectory()))
+
+for resultado_busca in pasta_de_busca.glob('**/*'):
+    if resultado_busca.is_file():
+        lista_dados.append(resultado_busca)
 
 for valor in lista_dados:
     valor_arquivo = str(valor).split('==>')[-1].strip()
