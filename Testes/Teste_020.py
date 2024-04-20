@@ -26,14 +26,17 @@ for valor in lista_da_busca:
 
     lista_dados.append(str(valor).split('\\')[-1].strip())
 
-for indice in range(2, len(lista_dados)):
+for indice in range(0, len(lista_dados)):
     valor_item = lista_dados[indice]
     print(f'Indice:{indice} - {valor_item}')
+    if indice % 2 == 0:
+        print(f'Indice:{indice} - {valor_item}')
+
     if valor_item in duplicado:
         duplicado[valor_item] += 1
     else:
         duplicado[valor_item] = 1
-                
+
 for k, v in duplicado.items():
     if v > 1:
         print(f'{k} - {v}')
