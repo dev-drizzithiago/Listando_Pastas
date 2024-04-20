@@ -28,20 +28,27 @@ for valor in lista_da_busca:
 
 for indice in range(0, len(lista_dados)):
     valor_item = lista_dados[indice]
-    
+
     if indice % 2 == 0:
-        print(f'Indice:{indice} - {valor_item}')
+        valor_diretorio = lista_dados[indice]
+        print(f'Indice:{indice} - {valor_diretorio}')
     else:
         print(f'Indice:{indice} - {valor_item}')
+        caminho_origem = str(valor_diretorio + valor_item)
+        print(f'Caminho de origem: {caminho_origem}')
+
 
     if valor_item in duplicado:
         duplicado[valor_item] += 1
     else:
         duplicado[valor_item] = 1
 
+print('=-=' * 20)
 for k, v in duplicado.items():
     if v > 1:
         print(f'{k} - {v}')
+
+print('=-=' * 20)
 
 for i in range(0, len(lista_dados) - 1):
     comparacao_1 = lista_dados[i]
