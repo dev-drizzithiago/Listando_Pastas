@@ -11,7 +11,11 @@ for resultado_busca in pasta_de_busca.glob('**/*'):
 
 for valor in lista_da_busca:
     valor_arquivo = str(valor).split('\\')[-1].strip()
-    valor_pasta = str(valor).split('\\')[:-2]
+    valor_pasta_lista = str(valor).split('\\')[:-2]
+    valor_pasta = (str(valor_pasta_lista).replace('[', '').replace(']', '').
+                   replace(',', '\\').replace("'", '').replace(' ', '').
+                   replace('\\', '/').strip())
+
 
     lista_dados = [valor_pasta, valor_arquivo]
 
