@@ -11,12 +11,13 @@ home = Path.home()
 
 try:
     caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
+    print(caminho_destino)
     os.mkdir(str(caminho_destino).replace('\\', '/'))
 except FileNotFoundError:
-    caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
+    caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados\\')
     os.mkdir(str(caminho_destino).replace('\\', '/'))
 except FileExistsError:
-    print(f"Pasta ja existe! {str(caminho_destino).replace('\\', '/')}")
+    print(f"Pasta ja existe! \n{str(caminho_destino).replace('\\', '/')}")
 
 pasta_de_busca = Path(str(askdirectory()))
 
@@ -45,7 +46,7 @@ for indice in range(0, len(lista_dados)):
         print(f'Indice:{indice} - {valor_diretorio}')
     else:
         print(f'Indice:{indice} - {valor_item}')
-        caminho_origem = str(valor_diretorio + valor_item)
+        caminho_origem = str(valor_diretorio + '/' + valor_item)
         arquivos = glob.glob(caminho_origem)
         print(f'Caminho de origem: {caminho_origem}')
         print('=-=' * 20)
@@ -53,7 +54,7 @@ for indice in range(0, len(lista_dados)):
     if valor_item in duplicado:
         duplicado[valor_item] += 1
         try:
-            shutil.move(arquivos, caminho_destino)
+            shutil.move(caminho_origem, caminho_destino)
             print('Arquivo movido!')
         except:
             print('Não foi possível mover os arquivos para pasta de destino!')
@@ -62,7 +63,7 @@ for indice in range(0, len(lista_dados)):
 
 for k, v in duplicado.items():
     if v > 1:
-        print(f'{k} - {v}')
+        print(f'Arquivos repetidos: {k}')
 
 print('=-=' * 20)
 
