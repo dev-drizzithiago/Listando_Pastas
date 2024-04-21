@@ -27,7 +27,8 @@ for raiz, subdir, item in os.walk(pasta_de_busca):
         caminho_arquivo = os.path.join(raiz, valor_do_item)
         hash_file = hashlib.md5(open(caminho_arquivo, 'rb').read()).hexdigest()
 
-    if hash_file not in arquivo_unico:
-        arquivo_unico[hash_file] = caminho_arquivo
-    else:
-        print(f'verdadeiro {caminho_arquivo}')
+        if hash_file not in arquivo_unico:
+            arquivo_unico[hash_file] = caminho_arquivo
+        else:
+            shutil.move(caminho_arquivo, caminho_destino)
+            print(f'verdadeiro {caminho_arquivo}')
