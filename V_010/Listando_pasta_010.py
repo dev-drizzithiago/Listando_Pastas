@@ -483,12 +483,17 @@ class ProgramaPrincipal:
 
             if valor_item in arquivo_repetido:
                 arquivo_repetido[valor_item] += 1
+                lista_dados.append(valor)
             else:
                 arquivo_repetido[valor_item] = 1
 
         for k, v in arquivo_repetido.items():
             if v > 1:
                 print(f'Arquivo Repetido: {k} - Quantidade: {v}')
+
+        print()
+        for valor_origem_duplicados in lista_dados:
+            print(valor_origem_duplicados)
 
     def botao_inicio_da_busca_principal(self):
         """
