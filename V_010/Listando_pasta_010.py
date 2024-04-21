@@ -141,9 +141,15 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.janela_principal, width=99, height=11, bg='#C0C0C0')
+        self.lista_de_result_busca = tk.Listbox(self.janela_principal, width=49, height=11, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.place(y=370, x=52)
+        self.lista_de_result_busca.place(y=370, x=49)
+        # ______________________________________________________________________________________________________________
+        """# Lista de Duplicados"""
+        self.var_lista_duplicados = tk.IntVar()
+        self.lista_duplicados = tk.Listbox(self.janela_principal, width=49, height=11, bg='#C0C0C0')
+        self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
+        self.lista_duplicados.place(y=370, x=505)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
@@ -558,7 +564,7 @@ class ProgramaPrincipal:
                         """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                         self.lista_de_result_busca.insert('end', '')
                         self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
-                        self.lista_de_result_busca.insert('end', f'{"===" * 20}\n')
+                        self.lista_de_result_busca.insert('end', f'{"===" * 20}')
 
                     contador_inicio += 1
 
@@ -599,15 +605,15 @@ class ProgramaPrincipal:
                                 self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
-                                print('===' * 20, '\n')
+                                print('===' * 20)
                                 print(f'[{resultado_destaque}]')
 
                                 """# Mostra o resultado na lista de busca"""
                                 self.lista_de_result_busca.insert('end', '')
                                 self.lista_de_result_busca.insert('end', '')
-                                self.lista_de_result_busca.insert('end', f'{raiz}\n')
-                                self.lista_de_result_busca.insert('end', '===' * 20, '\n')
-                                self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
+                                self.lista_de_result_busca.insert('end', f'{raiz}')
+                                self.lista_de_result_busca.insert('end', '===' * 20)
+                                self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
                             else:
                                 """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
                                 realizado qualquer tipo de analise"""
@@ -616,7 +622,7 @@ class ProgramaPrincipal:
                                 """# Mostra os resultados no prompt e na lista de busca"""
                                 print(f'[{resultado_destaque}]')
                                 self.lbl_info_real_time.config(text=f'Arquivos encontrados: [ {valor_de_busca} ]')
-                                self.lista_de_result_busca.insert('end', f'[ {resultado_destaque} ]')
+                                self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
 
                             """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
                              ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
