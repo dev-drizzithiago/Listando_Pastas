@@ -479,9 +479,9 @@ class ProgramaPrincipal:
         lista_dados = list()
 
         for valor in self.dados_do_processo_busca:
-            valor_item = (str(valor).split('|')[1].strip())
+            valor_item = str(valor).split('|')[1]
 
-            if valor_item == arquivo_repetido:
+            if valor_item in arquivo_repetido:
                 arquivo_repetido[valor_item] += 1
             else:
                 arquivo_repetido[valor_item] = 1
