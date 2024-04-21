@@ -23,8 +23,7 @@ class ProgramaPrincipal:
         """##### Declarações de variaveis"""
         tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
                             'POWERPOINT', 'EXCEL']
-        self.dados_do_processo_busca_1 = list()
-        self.dados_do_processo_busca_2 = list()
+        self.dados_do_processo_busca = list()
         self.tempo_gasto_da_busca = None
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
@@ -476,8 +475,21 @@ class ProgramaPrincipal:
     def func_botao_duplicidade(self):
         from shutil import move
         from hashlib import md5
+        arquivo_repetido = dict()
+        lista_dados = list()
 
-        for valor in self.
+        for valor in self.dados_do_processo_busca:
+            valor_pasta_lista = str(valor).split('\\')[:-2]
+            lista_dados.append((str(valor_pasta_lista))
+                               .replace('[', '')
+                               .replace(']', '')
+                               .replace(',', '\\')
+                               .replace("'", '')
+                               .replace(' ', '')
+                               .replace('\\', '/')
+                               .strip())
+
+
 
     def botao_inicio_da_busca_principal(self):
         """
