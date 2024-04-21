@@ -21,9 +21,10 @@ except FileExistsError:
 
 pasta_de_busca = Path(str(askdirectory()))
 
-for resultado_busca in pasta_de_busca.glob('**/*'):
-    if resultado_busca.is_file():
-        lista_da_busca.append(resultado_busca)
+for raiz, subdir, item in os.walk(pasta_de_busca):
+
+    for valor_item in item:
+        lista_da_busca.append(f'{raiz}\\{valor_item}')
 
 for valor in lista_da_busca:
     valor_pasta_lista = str(valor).split('\\')[:-2]
@@ -47,11 +48,8 @@ for indice in range(0, len(lista_dados) - 2):
     else:
         # print(f'Indice:{indice} - {valor_item}')
         caminho_origem = str(valor_diretorio + '/' + valor_item)
-        # print(f'Caminho de origem: {caminho_origem}')
-        # print('=-=' * 20)
-    for j in range(1, len(valor_item)):
-        if valor_item == lista_dados[j]:
-            print(f'{valor_item}')
+        print(f'Caminho de origem: {caminho_origem}')
+        print('=-=' * 20)
 
     if valor_item in duplicado:
         duplicado[valor_item] += 1
