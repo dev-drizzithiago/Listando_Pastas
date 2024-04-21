@@ -474,28 +474,10 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     def func_botao_duplicidade(self):
-        arquivo_duplicado = dict()
-        lista_arquivo_duplicado = []
-        lista_pastas_arq_duplo = []
-        contador_duplo = - 1
-        contagem_arq_duplicados = 0
+        from shutil import move
+        from hashlib import md5
 
-        print(f'Iniciando botao_duplicidade')
-
-        print(f"Quantidade de arquivos dentro da lista: {len(self.dados_do_processo_busca_1)}")
-        for valor in self.dados_do_processo_busca_1:
-            valor_arquivo = str(valor).split('|')[-1]
-            valor_pastas = str(valor).split('|')[0]
-            lista_arquivo_duplicado.append(valor_arquivo)
-
-            if valor_arquivo in arquivo_duplicado:
-                arquivo_duplicado[valor_arquivo] += 1
-            else:
-                arquivo_duplicado[valor_arquivo] = 1
-
-        for chave, valor in arquivo_duplicado.items():
-            if valor > 1:
-                print(f'{chave} - {valor}')
+        for valor in self.
 
     def botao_inicio_da_busca_principal(self):
         """
@@ -599,7 +581,6 @@ class ProgramaPrincipal:
                                 self.lbl_qtd_pasta.config(text=f'Quantidade de pasta com arquivos:'
                                                                f' [{contador_de_pastas}]')
                                 self.dados_do_processo_busca_1.append(f'{raiz}|{extensao_destaque}')
-                                self.dados_do_processo_busca_2.append(f'{raiz}|{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20, '\n')
@@ -615,7 +596,6 @@ class ProgramaPrincipal:
                                 """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
                                 realizado qualquer tipo de analise"""
                                 self.dados_do_processo_busca_1.append(f'{raiz}|{extensao_destaque}')
-                                self.dados_do_processo_busca_2.append(f'{raiz}|{extensao_destaque}')
 
                                 """# Mostra os resultados no prompt e na lista de busca"""
                                 print(f'[{resultado_destaque}]')
