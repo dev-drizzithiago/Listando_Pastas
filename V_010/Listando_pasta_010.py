@@ -480,7 +480,7 @@ class ProgramaPrincipal:
 
         for valor in self.dados_do_processo_busca:
             valor_item_repetido = (str(valor).split('|')[1].strip())
-            
+
             if valor_item_repetido == arquivo_repetido:
                 arquivo_repetido[valor_item_repetido] += 1
             else:
