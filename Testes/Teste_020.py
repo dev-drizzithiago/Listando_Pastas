@@ -58,4 +58,4 @@ for indice in range(0, len(lista_dados) - 2):
 
 for k, v in duplicado.items():
     if v > 1:
-        print(f'Arquivos repetidos: {k}')
+        print(f'Arquivos repetidos: {k} {v}')
