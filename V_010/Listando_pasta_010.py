@@ -482,6 +482,8 @@ class ProgramaPrincipal:
             valor_item_repetido = (str(valor).split('|')[1].strip())
             valor_pasta_lista = str(valor).split('|')[0].strip()
 
+            print(valor_item_repetido)
+
             if valor_item_repetido == arquivo_repetido:
                 arquivo_repetido[valor_item_repetido] += 1
             else:
