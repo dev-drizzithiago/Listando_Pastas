@@ -580,7 +580,7 @@ class ProgramaPrincipal:
                                 contador_de_pastas += 1
                                 self.lbl_qtd_pasta.config(text=f'Quantidade de pasta com arquivos:'
                                                                f' [{contador_de_pastas}]')
-                                self.dados_do_processo_busca_1.append(f'{raiz}|{extensao_destaque}')
+                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20, '\n')
@@ -595,7 +595,7 @@ class ProgramaPrincipal:
                             else:
                                 """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
                                 realizado qualquer tipo de analise"""
-                                self.dados_do_processo_busca_1.append(f'{raiz}|{extensao_destaque}')
+                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
 
                                 """# Mostra os resultados no prompt e na lista de busca"""
                                 print(f'[{resultado_destaque}]')
