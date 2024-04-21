@@ -55,7 +55,7 @@ class ProgramaPrincipal:
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(bg='#DCDCDC')
-        self.label_frame_principal.config(width=910, height=675)
+        self.label_frame_principal.config(width=910, height=460)
         self.label_frame_principal.place(y=1, x=45)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         # ______________________________________________________________________________________________________________
@@ -143,13 +143,13 @@ class ProgramaPrincipal:
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.janela_principal, width=49, height=11, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.place(y=370, x=49)
+        # self.lista_de_result_busca.pack(side='left')
         # ______________________________________________________________________________________________________________
         """# Lista de Duplicados"""
         self.var_lista_duplicados = tk.IntVar()
         self.lista_duplicados = tk.Listbox(self.janela_principal, width=49, height=11, bg='#C0C0C0')
         self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_duplicados.place(y=370, x=505)
+        self.lista_duplicados.pack(anchor='e')
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
@@ -168,7 +168,7 @@ class ProgramaPrincipal:
         """# Frame Inferior: Responsável por registro das informações de busca"""
         self.frames_inferior = tk.Frame(self.janela_principal, bg='#D3D3D3')
         self.frames_inferior.config(width=900, height=80, bd=2)
-        self.frames_inferior.place(y=590, x=50)
+        self.frames_inferior.place(y=375, x=50)
         # ______________________________________________________________________________________________________________
         """# Label Frames dos botões"""
 
