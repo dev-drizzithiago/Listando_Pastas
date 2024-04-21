@@ -19,7 +19,7 @@ except FileNotFoundError:
 except FileExistsError:
     pass
 
-pasta_de_busca = Path(str(askdirectory()))
+pasta_de_busca = Path(str(askdirectory(title='Escolha uma pasta')))
 
 for raiz, subdir, item in os.walk(pasta_de_busca):
 
