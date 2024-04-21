@@ -10,14 +10,14 @@ duplicado = dict()
 home = Path.home()
 
 try:
-    caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados')
+    caminho_destino = 'C:/Users/Thiago/OneDrive/Documentos/Duplicados/'
     print(caminho_destino)
-    os.mkdir(str(caminho_destino).replace('\\', '/'))
+    os.mkdir(caminho_destino)
 except FileNotFoundError:
-    caminho_destino = Path(home, 'OneDrive', 'Documentos', 'Duplicados\\')
-    os.mkdir(str(caminho_destino).replace('\\', '/'))
+    caminho_destino = 'C:/Users/Thiago/OneDrive/Documentos/Duplicados/'
+    os.mkdir(caminho_destino)
 except FileExistsError:
-    print(f"Pasta ja existe! \n{str(caminho_destino).replace('\\', '/')}")
+    pass
 
 pasta_de_busca = Path(str(askdirectory()))
 
@@ -47,11 +47,9 @@ for indice in range(0, len(lista_dados) - 2):
     else:
         # print(f'Indice:{indice} - {valor_item}')
         caminho_origem = str(valor_diretorio + '/' + valor_item)
-        arquivos = glob.glob(caminho_origem)
         # print(f'Caminho de origem: {caminho_origem}')
         # print('=-=' * 20)
-    for j in range(1, len(valor_item) - 1):
-        if valor_item == lista_dados[j]:
+        if valor_item == lista_dados[indice]:
             print(f'{valor_item}')
 
     if valor_item in duplicado:
