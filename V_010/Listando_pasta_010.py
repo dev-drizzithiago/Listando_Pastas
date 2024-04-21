@@ -495,7 +495,7 @@ class ProgramaPrincipal:
 
         for chave, valor in arquivo_duplicado.items():
             if valor > 1:
-                print(f'{chave} - {valor}')                
+                print(f'{chave} - {valor}')
 
     def botao_inicio_da_busca_principal(self):
         """
@@ -578,7 +578,8 @@ class ProgramaPrincipal:
                             self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
 
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
-                            Esse programa eu quero que pegue apenas os valores da extensão"""
+                            Esse programa eu quero que pegue apenas os valores da extensão, e não valores que passa
+                            esta contidos em testos como 'txt01.txt'"""
                             valor_ext_comparacao = str(valor_file).split('.')[-1]
                             try:
                                 if valor_da_extensao_busca == valor_ext_comparacao:
