@@ -21,8 +21,10 @@ from threading import Thread
 class ProgramaPrincipal:
     def __init__(self):
         """##### Declarações de variaveis"""
-        tipos_categorias = ['AUDIO', 'VIDEOS', 'TEXTOS', 'IMAGEM', 'ARQUIVOS', 'ACCESS', 'WORD', 'POWERPOINT', 'HTML',
-                            'POWERPOINT', 'EXCEL']
+        tipos_categorias = ['ARQUIVOS', 'IMAGEM', 'VIDEOS', 'AUDIO', 'POWERPOINT', 'EXCEL', 'TEXTOS', 'PROGRAMACAO',
+                            'ACCESS', 'WORD', 'HTML']
+        tipos_categorias.sort()
+
         self.dados_do_processo_busca = list()
         self.tempo_gasto_da_busca = None
         # ______________________________________________________________________________________________________________
@@ -273,7 +275,7 @@ class ProgramaPrincipal:
                       'ico', 'modell-usb', 'modell', 'version', 'gitattributes', 'awk', 'inc', 'lib', 'iec', 'ime',
                       'sdb', 'dat', 'bfc', 'data', 'properties', 'jar', 'src', 'cpx', 'tlb', 'rs', 'ax', 'acm', 'json',
                       'com', 'mof', 'nls', 'rsp', 'sdi', 'sep', 'tbl', 'tsp', 'uce', 'ocx', 'msc', 'rtf', 'drv', 'scr',
-                      'cmd', 'conf', 'wsf', 'config', 'py', 'java', 'vbs', 'css', 'php', 'pyi'],
+                      'cmd', 'conf', 'wsf', 'config'],
 
             IMAGEM=['ai', 'art', 'blend', 'bmp', 'cdr', 'cgm', 'cin', 'cpt', 'dpx', 'dxf', 'dwg', 'eps', 'emf', 'exr',
                     'fla', 'swf', 'fpx', 'gif', 'iff', 'ilbm', 'jpeg', 'jpg', 'jpg2', 'jp2', 'mng', 'pbm', 'pcd', 'pdf',
@@ -290,6 +292,8 @@ class ProgramaPrincipal:
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
 
             TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
+
+            PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', 'pyi'],
 
             ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
 
@@ -490,10 +494,6 @@ class ProgramaPrincipal:
         for k, v in arquivo_repetido.items():
             if v > 1:
                 print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-
-        print()
-        for valor_origem_duplicados in lista_dados:
-            print(valor_origem_duplicados)
 
     def botao_inicio_da_busca_principal(self):
         """
