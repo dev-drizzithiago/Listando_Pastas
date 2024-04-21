@@ -495,20 +495,7 @@ class ProgramaPrincipal:
 
         for chave, valor in arquivo_duplicado.items():
             if valor > 1:
-                print(f'{chave} - {valor}')
-
-        while True:
-            comparacao_1 = lista_arquivo_duplicado[contador_duplo]
-            comparacao_2 = lista_arquivo_duplicado[contador_duplo + 1]
-            if comparacao_1 == comparacao_2:
-                contagem_arq_duplicados += 1
-
-            contador_duplo += 1
-            if contador_duplo == len(lista_arquivo_duplicado):
-                break
-
-        print(contagem_arq_duplicados)
-        print('Finalizado!')
+                print(f'{chave} - {valor}')                
 
     def botao_inicio_da_busca_principal(self):
         """
