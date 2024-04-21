@@ -49,7 +49,8 @@ for indice in range(0, len(lista_dados) - 2):
         caminho_origem = str(valor_diretorio + '/' + valor_item)
         # print(f'Caminho de origem: {caminho_origem}')
         # print('=-=' * 20)
-        if valor_item == lista_dados[indice]:
+    for j in range(1, len(valor_item)):
+        if valor_item == lista_dados[j]:
             print(f'{valor_item}')
 
     if valor_item in duplicado:
