@@ -480,17 +480,15 @@ class ProgramaPrincipal:
 
         for valor in self.dados_do_processo_busca:
             valor_item_repetido = (str(valor).split('|')[1].strip())
-            valor_pasta_lista = str(valor).split('|')[0].strip()
-
-            print(f'valor_item_repetido: {valor_pasta_lista}/{valor_item_repetido}')
-
+            
             if valor_item_repetido == arquivo_repetido:
                 arquivo_repetido[valor_item_repetido] += 1
             else:
                 arquivo_repetido[valor_item_repetido] = 1
 
         for k, v in arquivo_repetido.items():
-            print(f'Arquivo Repetido: {k} - Quantidade: {v}')
+            if v > 1:
+                print(f'Arquivo Repetido: {k} - Quantidade: {v}')
 
     def botao_inicio_da_busca_principal(self):
         """
