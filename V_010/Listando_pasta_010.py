@@ -592,6 +592,7 @@ class ProgramaPrincipal:
                                 valor_of_file = valor_file
 
                             """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
+
                             caminho_completo = os.path.join(raiz, valor_of_file)
                             extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
                             resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
