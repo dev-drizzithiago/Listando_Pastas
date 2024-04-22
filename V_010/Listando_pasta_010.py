@@ -101,26 +101,26 @@ class ProgramaPrincipal:
         """# Quantidade de pastas que foram encontrado arquivos"""
         self.var_lbl_qtd_pasta = tk.StringVar()
         self.lbl_qtd_pasta = tk.Label(self.frames_central, text=self.var_lbl_qtd_pasta)
-        self.lbl_qtd_pasta.config(text='Quantidade de pastas: ', bg='#C0C0C0')
+        self.lbl_qtd_pasta.config(text='Quantidade de pastas verificadas: ', bg='#C0C0C0')
         self.lbl_qtd_pasta.place(y=20, x=300)
         # ______________________________________________________________________________________________________________
         """# Label INFO hora certa"""
         self.var_lbl_hora_certa = tk.StringVar()
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
         self.lbl_hora_certa.config(bg='#C0C0C0')
-        self.lbl_hora_certa.place(y=1, x=680)
+        self.lbl_hora_certa.place(y=1, x=750)
+        # ______________________________________________________________________________________________________________
+        """# Label INFO tempo da busca"""
+        self.var_lbl_tempo_busca = tk.StringVar()
+        self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
+        self.lbl_tempo_busca.config(text='Tempo de busca', bg="#C0C0C0")
+        self.lbl_tempo_busca.place(y=20, x=750)
         # ______________________________________________________________________________________________________________
         """# Label INFO pasta destino"""
         self.var_lbl_pts_dest = tk.StringVar()
         self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
         self.lbl_pts_dest.config(text=f'Pasta padrão: [{self.diretorio_home}]', bg='#C0C0C0')
         self.lbl_pts_dest.place(y=40, x=1)
-        # ______________________________________________________________________________________________________________
-        """# Label INFO tempo da busca"""
-        self.var_lbl_tempo_busca = tk.StringVar()
-        self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
-        self.lbl_tempo_busca.config(text='Tempo de busca', bg="#C0C0C0")
-        self.lbl_tempo_busca.place(y=20, x=680)
         # ______________________________________________________________________________________________________________
         """# Label INFO extensões selecionadas"""
         self.var_lbl_ext_selec = tk.StringVar()
@@ -194,47 +194,47 @@ class ProgramaPrincipal:
         """# Label Frames dos botões"""
 
         """# Label Frame INICIO"""
-        self.frame_label_inicio = tk.LabelFrame(self.frames_inferior, text='Inicio')
+        self.frame_label_inicio = tk.LabelFrame(self.frames_inferior, text='Iniciar busca')
         self.frame_label_inicio.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_inicio.place(y=5, x=1)
         # ______________________________________________________________________________________________________________
         """# Label Frame Diretorio"""
-        self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Destino')
+        self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Pasta Destino')
         self.frame_label_diretorio.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_diretorio.place(y=5, x=140)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de limpeza da lista de extensões"""
-        self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Destino')
+        self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Limpar listas')
         self.frame_label_limpeza_chk.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_limpeza_chk.place(y=5, x=705)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de encontrar duplicidade"""
-        self.frame_label_duplicidade = tk.LabelFrame(self.frames_inferior, text='Duplicidade')
+        self.frame_label_duplicidade = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
         self.frame_label_duplicidade.config(bg='#D3D3D3', pady=5, padx=5)
         self.frame_label_duplicidade.place(y=5, x=845)
         # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
         """# Botão INICIAR PROCESSO"""
-        self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Iniciar Processo')
+        self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Aplicar')
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
-        self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Pasta Destino')
+        self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Aplicar')
         self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_destino_busca.config(command=self.thread_botao_pasta_destino)
         self.botao_destino_busca.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
-        self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Limpar Lista Extensão')
+        self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_limpar_checkbuttun.config(command=self.thread_botao_limpeza_checkbutton)
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
-        self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Duplicidade')
+        self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_duplicidade.config(command=self.thread_botao_duplicidade, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
@@ -324,7 +324,7 @@ class ProgramaPrincipal:
 
             ACCESS=['accdb', 'accde', 'accdr', 'accdt', 'mdb'],
 
-            WORD=['doc', 'docm', 'docx', 'dot', 'dotx'],
+            WORD=['doc', 'docm', 'dot', 'dotx', 'docx'],
 
             HTML=['xps', 'htm', 'html'])
 
@@ -600,7 +600,8 @@ class ProgramaPrincipal:
                         São vários filtros para não jogar todos os arquivos"""
                         if search(valor_da_extensao_busca, valor_file):
 
-                            self.lbl_qtd_arquivos.config(text=f'Arquivos encontrados: [{contador_de_arquivos}]')
+                            self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
+                                                              f'[{contador_de_arquivos}]')
 
                             """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
                             Esse programa eu quero que pegue apenas os valores da extensão, e não valores que passa
@@ -622,7 +623,7 @@ class ProgramaPrincipal:
                             if contador_itens == 1:
                                 """# Conta quantas pastas foram encontrados os itens da busca"""
                                 contador_de_pastas += 1
-                                self.lbl_qtd_pasta.config(text=f'Quantidade de pasta com arquivos:'
+                                self.lbl_qtd_pasta.config(text=f'Quantidade de pastas verificadas:'
                                                                f' [{contador_de_pastas}]')
                                 self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
