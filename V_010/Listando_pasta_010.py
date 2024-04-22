@@ -146,27 +146,43 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.frame_label_lista_resultado, width=49, height=10, bg='#C0C0C0')
+        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.pack(side='left')
+        self.lista_de_result_busca.place(y=435, x=1)
         # ______________________________________________________________________________________________________________
-        """# Lista de Duplicados"""
-        self.var_lista_duplicados = tk.IntVar()
-        self.lista_duplicados = tk.Listbox(self.frame_label_lista_resultado, width=49, height=10, bg='#C0C0C0')
-        self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_duplicados.pack(side='right', fill='both')
-        # ______________________________________________________________________________________________________________
-        """# Barra de Rolagem Y """
-        self.barra_rolagem_lista_busca_y = Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
-        self.barra_rolagem_lista_busca_y.pack(side='right', fill=tk.Y)
+        """# Barra de Rolagem Y Lista RESULTADO"""
+        self.barra_rolagem_lista_busca_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_busca_y.place(in_=self.lista_de_result_busca, relx=1.0, relheight=1.0)
+        self.barra_rolagem_lista_busca_y.place(bordermode='outside')
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
         # ______________________________________________________________________________________________________________
-        """# Barrade de Rolagem X """
-        self.barra_rolagem_lista_busca_x = Scrollbar(self.lista_de_result_busca, orient=tk.HORIZONTAL)
-        self.barra_rolagem_lista_busca_x.pack(side='bottom', fill=tk.X)
+        """# Barrade de Rolagem X Lista RESULTADO"""
+        self.barra_rolagem_lista_busca_x = Scrollbar(self.label_frame_principal, orient=tk.HORIZONTAL)
+        self.barra_rolagem_lista_busca_x.place(in_=self.lista_de_result_busca, relx=0.0, rely=1.0, relwidth=1.0)
+        self.barra_rolagem_lista_busca_x.place(bordermode='outside')
         self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
+        # ______________________________________________________________________________________________________________
+        """# Lista de Duplicados"""
+        self.var_lista_duplicados = tk.IntVar()
+        self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#C0C0C0')
+        self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
+        self.lista_duplicados.place(y=435, x=500)
+        # ______________________________________________________________________________________________________________
+        """# Barra de Rolagem Y Lista Duplicados"""
+        self.barra_rolagem_lista_duplicados_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_duplicados_y.place(in_=self.lista_duplicados, relx=1.0, relheight=1.0)
+        self.barra_rolagem_lista_duplicados_y.place(bordermode='outside')
+        self.barra_rolagem_lista_duplicados_y.config(command=self.lista_duplicados.yview)
+        self.lista_duplicados.config(yscrollcommand=self.barra_rolagem_lista_duplicados_y.set)
+        # ______________________________________________________________________________________________________________
+        """# Barrade de Rolagem X Lista Duplicados"""
+        self.barra_rolagem_lista_duplicados_x = Scrollbar(self.label_frame_principal, orient=tk.HORIZONTAL)
+        self.barra_rolagem_lista_duplicados_x.place(in_=self.lista_duplicados, relx=0.0, rely=1.0, relwidth=1.0)
+        self.barra_rolagem_lista_duplicados_x.place(bordermode='outside')
+        self.barra_rolagem_lista_duplicados_x.config(command=self.lista_duplicados.xview)
+        self.lista_duplicados.config(yscrollcommand=self.barra_rolagem_lista_duplicados_x.set)
         # ______________________________________________________________________________________________________________
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
