@@ -55,7 +55,7 @@ class ProgramaPrincipal:
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(bg='#DCDCDC')
-        self.label_frame_principal.config(width=910, height=679)
+        self.label_frame_principal.config(width=900, height=680)
         self.label_frame_principal.pack(fill=tk.BOTH, pady=5, padx=5)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         # ______________________________________________________________________________________________________________
@@ -63,9 +63,9 @@ class ProgramaPrincipal:
         """#### FRAMES"""
 
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
-        self.frames_superior = tk.Frame(self.janela_principal, bg='#A9A9A9')
-        self.frames_superior.config(width=900, height=216)
-        self.frames_superior.place(y=15, x=50)
+        self.frames_superior = tk.Frame(self.label_frame_principal, bg='#A9A9A9')
+        self.frames_superior.config(width=983, height=220)
+        self.frames_superior.place(y=1, x=1)
         # ______________________________________________________________________________________________________________
         """COMBO BOX"""
         self.var_combo_box_categoria = tk.StringVar()
@@ -79,10 +79,10 @@ class ProgramaPrincipal:
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Central: Reposanvel por mostrar as informações da busca"""
-        self.frames_central = tk.Frame(self.janela_principal, bg='#C0C0C0')
-        self.frames_central.config(width=900, height=120)
+        self.frames_central = tk.Frame(self.label_frame_principal, bg='#C0C0C0')
+        self.frames_central.config(width=983, height=120)
         self.frames_central.config(bd=2)
-        self.frames_central.place(y=235, x=50)
+        self.frames_central.place(y=223, x=1)
         # ______________________________________________________________________________________________________________
         """#### Labels"""
 
@@ -140,20 +140,21 @@ class ProgramaPrincipal:
         self.barra_progresso_busca.place(y=90, x=5)
         # ______________________________________________________________________________________________________________
         """# Frame Label Listas de buscas"""
-        self.frame_label_lista_resultado = tk.LabelFrame(self.janela_principal, text='Resultado das buscas')
-        self.frame_label_lista_resultado.pack(side='bottom', pady=5, padx=5)
+        self.frame_label_lista_resultado = tk.LabelFrame(self.label_frame_principal, text='Resultado das buscas')
+        self.frame_label_lista_resultado.config(width=983)
+        self.frame_label_lista_resultado.place(y=430, x=1)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.frame_label_lista_resultado, width=49, height=11, bg='#C0C0C0')
+        self.lista_de_result_busca = tk.Listbox(self.frame_label_lista_resultado, width=49, height=10, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.pack(side='left')
         # ______________________________________________________________________________________________________________
         """# Lista de Duplicados"""
         self.var_lista_duplicados = tk.IntVar()
-        self.lista_duplicados = tk.Listbox(self.frame_label_lista_resultado, width=49, height=11, bg='#C0C0C0')
+        self.lista_duplicados = tk.Listbox(self.frame_label_lista_resultado, width=49, height=10, bg='#C0C0C0')
         self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_duplicados.pack(side='right')
+        self.lista_duplicados.pack(side='right', fill='both')
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
@@ -170,9 +171,9 @@ class ProgramaPrincipal:
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
-        self.frames_inferior = tk.Frame(self.janela_principal, bg='#D3D3D3')
-        self.frames_inferior.config(width=900, height=75, bd=2)
-        self.frames_inferior.place(y=359, x=50)
+        self.frames_inferior = tk.Frame(self.label_frame_principal, bg='#D3D3D3')
+        self.frames_inferior.config(width=983, height=75, bd=2)
+        self.frames_inferior.place(y=348, x=1)
         # ______________________________________________________________________________________________________________
         """# Label Frames dos botões"""
 
@@ -189,12 +190,12 @@ class ProgramaPrincipal:
         """# Frame Label para botão de limpeza da lista de extensões"""
         self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Destino')
         self.frame_label_limpeza_chk.config(bg='#D3D3D3', pady=5, padx=5)
-        self.frame_label_limpeza_chk.place(y=5, x=620)
+        self.frame_label_limpeza_chk.place(y=5, x=705)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de encontrar duplicidade"""
         self.frame_label_duplicidade = tk.LabelFrame(self.frames_inferior, text='Duplicidade')
         self.frame_label_duplicidade.config(bg='#D3D3D3', pady=5, padx=5)
-        self.frame_label_duplicidade.place(y=5, x=760)
+        self.frame_label_duplicidade.place(y=5, x=845)
         # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
