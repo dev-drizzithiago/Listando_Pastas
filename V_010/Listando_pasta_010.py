@@ -136,8 +136,8 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
-        self.barra_progresso_busca.config(mode='determinate', length=886)
-        self.barra_progresso_busca.place(y=90, x=5)
+        self.barra_progresso_busca.config(mode='determinate', length=976)
+        self.barra_progresso_busca.place(y=90, x=1)
         # ______________________________________________________________________________________________________________
         """# Frame Label Listas de buscas"""
         self.frame_label_lista_resultado = tk.LabelFrame(self.label_frame_principal, text='Resultado das buscas')
