@@ -89,7 +89,7 @@ class ProgramaPrincipal:
         """# Label INFO categoria combo"""
         self.var_lbl_ext_cat = tk.StringVar()
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
-        self.label_ext_cat.config(text='Aguardado informações de Categoria', bg='#C0C0C0')
+        self.label_ext_cat.config(text='Categoria', bg='#C0C0C0')
         self.label_ext_cat.place(y=1, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO quantidade de arquivos encontrados"""
@@ -101,7 +101,7 @@ class ProgramaPrincipal:
         """# Quantidade de pastas que foram encontrado arquivos"""
         self.var_lbl_qtd_pasta = tk.StringVar()
         self.lbl_qtd_pasta = tk.Label(self.frames_central, text=self.var_lbl_qtd_pasta)
-        self.lbl_qtd_pasta.config(text='Quantidade de pastas em real time', bg='#C0C0C0')
+        self.lbl_qtd_pasta.config(text='Quantidade de pastas: ', bg='#C0C0C0')
         self.lbl_qtd_pasta.place(y=20, x=300)
         # ______________________________________________________________________________________________________________
         """# Label INFO hora certa"""
@@ -113,7 +113,7 @@ class ProgramaPrincipal:
         """# Label INFO pasta destino"""
         self.var_lbl_pts_dest = tk.StringVar()
         self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
-        self.lbl_pts_dest.config(text=f'Pasta padrão de busca: [{self.diretorio_home}]', bg='#C0C0C0')
+        self.lbl_pts_dest.config(text=f'Pasta padrão: [{self.diretorio_home}]', bg='#C0C0C0')
         self.lbl_pts_dest.place(y=40, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO tempo da busca"""
@@ -125,13 +125,13 @@ class ProgramaPrincipal:
         """# Label INFO extensões selecionadas"""
         self.var_lbl_ext_selec = tk.StringVar()
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
-        self.lbl_ext_selec.config(text=f'Aguardando informações de extensões', bg='#C0C0C0')
+        self.lbl_ext_selec.config(text=f'Escolha uma extensão para busca', bg='#C0C0C0')
         self.lbl_ext_selec.place(y=20, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO arquivos encontrados em real time"""
         self.var_lbl_info_real_time = tk.StringVar()
         self.lbl_info_real_time = tk.Label(self.frames_central, text=self.var_lbl_info_real_time)
-        self.lbl_info_real_time.config(text='Arquivos encontrados em real time', bg='#C0C0C0')
+        self.lbl_info_real_time.config(text='Arquivos encontrados: ', bg='#C0C0C0')
         self.lbl_info_real_time.place(y=60, x=1)
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
