@@ -135,7 +135,7 @@ class ProgramaPrincipal:
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
         self.barra_progresso_busca.config(mode='determinate', length=1060)
-        self.barra_progresso_busca.place(y=90, x=2)
+        self.barra_progresso_busca.place(y=90, x=1)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
@@ -191,7 +191,6 @@ class ProgramaPrincipal:
         self.botao_duplicidade.config(command=self.thread_botao_duplicidade, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
-        # ______________________________________________________________________________________________________________
         """# Frame Label Listas de buscas"""
         self.frame_label_lista_resultado = tk.LabelFrame(self.label_frame_principal, text='Resultado das buscas')
         self.frame_label_lista_resultado.config(width=983)
@@ -199,45 +198,39 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.frame_label_lista_resultado, width=51, height=10, bg='#DCDCDC')
+        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#DCDCDC')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        # self.lista_de_result_busca.place(y=435, x=1)
+        self.lista_de_result_busca.place(y=435, x=1)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista RESULTADO"""
-        self.barra_rolagem_lista_busca_y = Scrollbar(self.frame_label_lista_resultado, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_busca_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
         self.barra_rolagem_lista_busca_y.place(in_=self.lista_de_result_busca, relx=1.0, relheight=1.0)
         self.barra_rolagem_lista_busca_y.place(bordermode='outside')
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
         # ______________________________________________________________________________________________________________
         """# Barrade de Rolagem X Lista RESULTADO"""
-        self.barra_rolagem_lista_busca_x = Scrollbar(self.frame_label_lista_resultado, orient=tk.HORIZONTAL)
+        self.barra_rolagem_lista_busca_x = Scrollbar(self.label_frame_principal, orient=tk.HORIZONTAL)
         self.barra_rolagem_lista_busca_x.place(in_=self.lista_de_result_busca, relx=0.0, rely=1.0, relwidth=1.0)
         self.barra_rolagem_lista_busca_x.place(bordermode='outside')
         self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
         # ______________________________________________________________________________________________________________
-        # ______________________________________________________________________________________________________________
-        """# Frame Label Listas de buscas"""
-        self.frame_label_lista_duplicados = tk.LabelFrame(self.label_frame_principal, text='Resultado das buscas')
-        self.frame_label_lista_duplicados.config(width=500)
-        self.frame_label_lista_duplicados.place(y=600, x=550)
-        # ______________________________________________________________________________________________________________
         """# Lista de Duplicados"""
         self.var_lista_duplicados = tk.IntVar()
-        self.lista_duplicados = tk.Listbox(self.frame_label_lista_duplicados, width=51, height=10, bg='#DCDCDC')
+        self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#DCDCDC')
         self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_duplicados.place(y=1, x=1)
+        self.lista_duplicados.place(y=435, x=500)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista Duplicados"""
-        self.barra_rolagem_lista_duplicados_y = Scrollbar(self.frame_label_lista_duplicados, orient=tk.VERTICAL)
+        self.barra_rolagem_lista_duplicados_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
         self.barra_rolagem_lista_duplicados_y.place(in_=self.lista_duplicados, relx=1.0, relheight=1.0)
         self.barra_rolagem_lista_duplicados_y.place(bordermode='outside')
         self.barra_rolagem_lista_duplicados_y.config(command=self.lista_duplicados.yview)
         self.lista_duplicados.config(yscrollcommand=self.barra_rolagem_lista_duplicados_y.set)
         # ______________________________________________________________________________________________________________
         """# Barrade de Rolagem X Lista Duplicados"""
-        self.barra_rolagem_lista_duplicados_x = Scrollbar(self.frame_label_lista_duplicados, orient=tk.HORIZONTAL)
+        self.barra_rolagem_lista_duplicados_x = Scrollbar(self.label_frame_principal, orient=tk.HORIZONTAL)
         self.barra_rolagem_lista_duplicados_x.place(in_=self.lista_duplicados, relx=0.0, rely=1.0, relwidth=1.0)
         self.barra_rolagem_lista_duplicados_x.place(bordermode='outside')
         self.barra_rolagem_lista_duplicados_x.config(command=self.lista_duplicados.xview)
