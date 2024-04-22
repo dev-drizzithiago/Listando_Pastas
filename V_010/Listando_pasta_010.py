@@ -56,7 +56,7 @@ class ProgramaPrincipal:
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(bg='#DCDCDC')
         self.label_frame_principal.config(width=910, height=679)
-        self.label_frame_principal.place(y=1, x=45)
+        self.label_frame_principal.pack(fill=tk.BOTH, pady=5, padx=5)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         # ______________________________________________________________________________________________________________
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -134,14 +134,14 @@ class ProgramaPrincipal:
         self.lbl_info_real_time.config(text='Arquivos encontrados em real time', bg='#C0C0C0')
         self.lbl_info_real_time.place(y=60, x=1)
         # ______________________________________________________________________________________________________________
-        """# Frame Label Listas de buscas"""
-        self.frame_label_lista_resultado = Labelframe(self.janela_principal, text='Resultado das buscas')
-        self.frame_label_lista_resultado.pack(side='bottom', pady=5, padx=5)
-        # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
         self.barra_progresso_busca.config(mode='determinate', length=886)
         self.barra_progresso_busca.place(y=90, x=5)
+        # ______________________________________________________________________________________________________________
+        """# Frame Label Listas de buscas"""
+        self.frame_label_lista_resultado = tk.LabelFrame(self.janela_principal, text='Resultado das buscas')
+        self.frame_label_lista_resultado.pack(side='bottom', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
@@ -157,13 +157,13 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y """
         self.barra_rolagem_lista_busca_y = Scrollbar(self.lista_de_result_busca, orient=tk.VERTICAL)
-        self.barra_rolagem_lista_busca_y.place(y=75, x=875)
+        self.barra_rolagem_lista_busca_y.pack(side='right', fill=tk.Y)
         self.barra_rolagem_lista_busca_y.config(command=self.lista_de_result_busca.yview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_y.set)
         # ______________________________________________________________________________________________________________
         """# Barrade de Rolagem X """
         self.barra_rolagem_lista_busca_x = Scrollbar(self.lista_de_result_busca, orient=tk.HORIZONTAL)
-        self.barra_rolagem_lista_busca_x.place(y=192, x=400)
+        self.barra_rolagem_lista_busca_x.pack(side='bottom', fill=tk.X)
         self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
         # ______________________________________________________________________________________________________________
