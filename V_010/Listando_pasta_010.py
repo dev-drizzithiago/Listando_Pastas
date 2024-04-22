@@ -578,6 +578,8 @@ class ProgramaPrincipal:
                 """###### Inicio do processo de busca"""
                 for raiz, subpasta, arquivo in walk(self.diretorio_home):
 
+                    """# O contador de inicio ser para verificar se é a primeira pasta. Ja que o 'os.walk' mostra
+                    todas as pastas, devido ao loop. Então essa condição evita que mostre todos as pastas descenecess"""
                     if contador_inicio == 1:
                         print()
                         print(f'DIRETORIO RAIZ: {raiz}')
