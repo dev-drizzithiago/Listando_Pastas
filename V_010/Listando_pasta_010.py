@@ -46,7 +46,7 @@ class ProgramaPrincipal:
         """# Janela principal"""
         self.janela_principal = tk.Tk()
         self.janela_principal.title('V_010')
-        self.janela_principal.config(bg='#FF8C00')
+        self.janela_principal.config(bg='#1C1C1C')
         self.janela_principal.geometry('1000x680+150+5')
         self.janela_principal.resizable(0, 0)
 
@@ -54,7 +54,7 @@ class ProgramaPrincipal:
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
-        self.label_frame_principal.config(bg='#FF8C00')
+        self.label_frame_principal.config(bg='#363636', fg='#DCDCDC')
         self.label_frame_principal.config(width=900, height=680)
         self.label_frame_principal.pack(fill=tk.BOTH, pady=5, padx=5)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -63,7 +63,7 @@ class ProgramaPrincipal:
         """#### FRAMES"""
 
         """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
-        self.frames_superior = tk.Frame(self.label_frame_principal, bg='#FFA500')
+        self.frames_superior = tk.Frame(self.label_frame_principal, bg='#4F4F4F')
         self.frames_superior.config(width=983, height=220)
         self.frames_superior.place(y=1, x=1)
         # ______________________________________________________________________________________________________________
@@ -79,7 +79,7 @@ class ProgramaPrincipal:
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Central: Reposanvel por mostrar as informações da busca"""
-        self.frames_central = tk.Frame(self.label_frame_principal, bg='#FFD700')
+        self.frames_central = tk.Frame(self.label_frame_principal, bg='#696969')
         self.frames_central.config(width=983, height=120)
         self.frames_central.config(bd=2)
         self.frames_central.place(y=223, x=1)
@@ -89,49 +89,49 @@ class ProgramaPrincipal:
         """# Label INFO categoria combo"""
         self.var_lbl_ext_cat = tk.StringVar()
         self.label_ext_cat = tk.Label(self.frames_central, text=self.var_lbl_ext_cat)
-        self.label_ext_cat.config(text='Categoria', bg='#FFD700')
+        self.label_ext_cat.config(text='Categoria', bg='#696969')
         self.label_ext_cat.place(y=1, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO quantidade de arquivos encontrados"""
         self.var_lbl_qtd_arquivos = tk.StringVar()
         self.lbl_qtd_arquivos = tk.Label(self.frames_central, text=self.var_lbl_qtd_arquivos)
-        self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados', bg='#FFD700')
+        self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados', bg='#696969')
         self.lbl_qtd_arquivos.place(y=1, x=300)
         # ______________________________________________________________________________________________________________
         """# Quantidade de pastas que foram encontrado arquivos"""
         self.var_lbl_qtd_pasta = tk.StringVar()
         self.lbl_qtd_pasta = tk.Label(self.frames_central, text=self.var_lbl_qtd_pasta)
-        self.lbl_qtd_pasta.config(text='Quantidade de pastas verificadas: ', bg='#FFD700')
+        self.lbl_qtd_pasta.config(text='Quantidade de pastas verificadas: ', bg='#696969')
         self.lbl_qtd_pasta.place(y=20, x=300)
         # ______________________________________________________________________________________________________________
         """# Label INFO hora certa"""
         self.var_lbl_hora_certa = tk.StringVar()
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
-        self.lbl_hora_certa.config(bg='#FFD700')
+        self.lbl_hora_certa.config(bg='#696969')
         self.lbl_hora_certa.place(y=1, x=750)
         # ______________________________________________________________________________________________________________
         """# Label INFO tempo da busca"""
         self.var_lbl_tempo_busca = tk.StringVar()
         self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
-        self.lbl_tempo_busca.config(text='Tempo de busca', bg="#FFD700")
+        self.lbl_tempo_busca.config(text='Tempo de busca', bg="#696969")
         self.lbl_tempo_busca.place(y=20, x=750)
         # ______________________________________________________________________________________________________________
         """# Label INFO pasta destino"""
         self.var_lbl_pts_dest = tk.StringVar()
         self.lbl_pts_dest = tk.Label(self.frames_central, text=self.var_lbl_pts_dest)
-        self.lbl_pts_dest.config(text=f'Pasta padrão: [{self.diretorio_home}]', bg='#FFD700')
+        self.lbl_pts_dest.config(text=f'Pasta padrão: [{self.diretorio_home}]', bg='#696969')
         self.lbl_pts_dest.place(y=40, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO extensões selecionadas"""
         self.var_lbl_ext_selec = tk.StringVar()
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
-        self.lbl_ext_selec.config(text=f'Escolha uma extensão para busca', bg='#FFD700')
+        self.lbl_ext_selec.config(text=f'Escolha uma extensão para busca', bg='#696969')
         self.lbl_ext_selec.place(y=20, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO arquivos encontrados em real time"""
         self.var_lbl_info_real_time = tk.StringVar()
         self.lbl_info_real_time = tk.Label(self.frames_central, text=self.var_lbl_info_real_time)
-        self.lbl_info_real_time.config(text='Arquivos encontrados: ', bg='#FFD700')
+        self.lbl_info_real_time.config(text='Arquivos encontrados: ', bg='#696969')
         self.lbl_info_real_time.place(y=60, x=1)
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
@@ -141,7 +141,7 @@ class ProgramaPrincipal:
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
-        self.frames_inferior = tk.Frame(self.label_frame_principal, bg='#FFFF00')
+        self.frames_inferior = tk.Frame(self.label_frame_principal, bg='#808080')
         self.frames_inferior.config(width=983, height=75, bd=2)
         self.frames_inferior.place(y=348, x=1)
         # ______________________________________________________________________________________________________________
@@ -149,47 +149,47 @@ class ProgramaPrincipal:
 
         """# Label Frame INICIO"""
         self.frame_label_inicio = tk.LabelFrame(self.frames_inferior, text='Iniciar busca')
-        self.frame_label_inicio.config(bg='#FFFF00', pady=5, padx=5)
+        self.frame_label_inicio.config(bg='#808080', pady=5, padx=5)
         self.frame_label_inicio.place(y=5, x=1)
         # ______________________________________________________________________________________________________________
         """# Label Frame Diretorio"""
         self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Pasta Destino')
-        self.frame_label_diretorio.config(bg='#FFFF00', pady=5, padx=5)
+        self.frame_label_diretorio.config(bg='#808080', pady=5, padx=5)
         self.frame_label_diretorio.place(y=5, x=140)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de limpeza da lista de extensões"""
         self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Limpar listas')
-        self.frame_label_limpeza_chk.config(bg='#FFFF00', pady=5, padx=5)
+        self.frame_label_limpeza_chk.config(bg='#808080', pady=5, padx=5)
         self.frame_label_limpeza_chk.place(y=5, x=705)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de encontrar duplicidade"""
         self.frame_label_duplicidade = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
-        self.frame_label_duplicidade.config(bg='#FFFF00', pady=5, padx=5)
+        self.frame_label_duplicidade.config(bg='#808080', pady=5, padx=5)
         self.frame_label_duplicidade.place(y=5, x=845)
         # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Aplicar')
-        self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#FFFF00')
+        self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#A9A9A9')
         self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Aplicar')
-        self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#FFFF00')
+        self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#A9A9A9')
         self.botao_destino_busca.config(command=self.thread_botao_pasta_destino)
         self.botao_destino_busca.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
-        self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#FFFF00')
+        self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#A9A9A9')
         self.botao_limpar_checkbuttun.config(command=self.thread_botao_limpeza_checkbutton)
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
-        self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#FFFF00')
+        self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#A9A9A9')
         self.botao_duplicidade.config(command=self.thread_botao_duplicidade, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
@@ -200,7 +200,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#F0E68C')
+        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#C0C0C0')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=435, x=1)
         # ______________________________________________________________________________________________________________
@@ -220,7 +220,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de Duplicados"""
         self.var_lista_duplicados = tk.IntVar()
-        self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#F0E68C')
+        self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#C0C0C0')
         self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_duplicados.place(y=435, x=500)
         # ______________________________________________________________________________________________________________
@@ -346,7 +346,7 @@ class ProgramaPrincipal:
                     self.lista_var.append(tk.IntVar())
                     self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
                                                            variable=self.lista_var[contador],
-                                                           bg='#A9A9A9'))
+                                                           bg='#4F4F4F', fg='#DCDCDC'))
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
 
                     if linhas == 195:
