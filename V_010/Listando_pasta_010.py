@@ -70,8 +70,8 @@ class ProgramaPrincipal:
         """COMBO BOX"""
         self.var_combo_box_categoria = tk.StringVar()
         self.combo_box_cat = Combobox(self.frames_superior)
-        self.combo_box_cat.place(y=3, x=10)
-        self.combo_box_cat.config(textvariable=self.var_combo_box_categoria, width=143)
+        self.combo_box_cat.place(y=3, x=2)
+        self.combo_box_cat.config(textvariable=self.var_combo_box_categoria, width=159)
         self.combo_box_cat.config(values=tipos_categorias, justify='center')
         self.combo_box_cat.set('Escolha uma categoria')
         self.var_combo_box_categoria.trace('w', self.selecao_combo_extensao)
