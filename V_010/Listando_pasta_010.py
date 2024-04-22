@@ -198,9 +198,9 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#DCDCDC')
+        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=55, height=10, bg='#DCDCDC')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.place(y=435, x=1)
+        self.lista_de_result_busca.place(y=435, x=2)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista RESULTADO"""
         self.barra_rolagem_lista_busca_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
@@ -218,9 +218,9 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de Duplicados"""
         self.var_lista_duplicados = tk.IntVar()
-        self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=51, height=10, bg='#DCDCDC')
+        self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=55, height=10, bg='#DCDCDC')
         self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_duplicados.place(y=435, x=500)
+        self.lista_duplicados.place(y=435, x=550)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista Duplicados"""
         self.barra_rolagem_lista_duplicados_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
