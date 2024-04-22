@@ -94,25 +94,25 @@ class ProgramaPrincipal:
         self.var_lbl_qtd_arquivos = tk.StringVar()
         self.lbl_qtd_arquivos = tk.Label(self.frames_central, text=self.var_lbl_qtd_arquivos)
         self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados', bg='#D3D3D3')
-        self.lbl_qtd_arquivos.place(y=1, x=300)
+        self.lbl_qtd_arquivos.place(y=1, x=400)
         # ______________________________________________________________________________________________________________
         """# Quantidade de pastas que foram encontrado arquivos"""
         self.var_lbl_qtd_pasta = tk.StringVar()
         self.lbl_qtd_pasta = tk.Label(self.frames_central, text=self.var_lbl_qtd_pasta)
         self.lbl_qtd_pasta.config(text='Quantidade de pastas verificadas: ', bg='#D3D3D3')
-        self.lbl_qtd_pasta.place(y=20, x=300)
+        self.lbl_qtd_pasta.place(y=20, x=400)
         # ______________________________________________________________________________________________________________
         """# Label INFO hora certa"""
         self.var_lbl_hora_certa = tk.StringVar()
         self.lbl_hora_certa = tk.Label(self.frames_central, text=self.var_lbl_hora_certa)
         self.lbl_hora_certa.config(bg='#D3D3D3')
-        self.lbl_hora_certa.place(y=1, x=750)
+        self.lbl_hora_certa.place(y=1, x=855)
         # ______________________________________________________________________________________________________________
         """# Label INFO tempo da busca"""
         self.var_lbl_tempo_busca = tk.StringVar()
         self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
         self.lbl_tempo_busca.config(text='Tempo de busca', bg="#D3D3D3")
-        self.lbl_tempo_busca.place(y=20, x=750)
+        self.lbl_tempo_busca.place(y=20, x=855)
         # ______________________________________________________________________________________________________________
         """# Label INFO pasta destino"""
         self.var_lbl_pts_dest = tk.StringVar()
@@ -134,8 +134,8 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Barra progresso"""
         self.barra_progresso_busca = Progressbar(self.frames_central, orient=tk.HORIZONTAL)
-        self.barra_progresso_busca.config(mode='determinate', length=976)
-        self.barra_progresso_busca.place(y=90, x=1)
+        self.barra_progresso_busca.config(mode='determinate', length=1060)
+        self.barra_progresso_busca.place(y=90, x=2)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Inferior: Responsável por registro das informações de busca"""
