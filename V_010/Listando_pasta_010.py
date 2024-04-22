@@ -519,6 +519,7 @@ class ProgramaPrincipal:
         for k, v in arquivo_repetido.items():
             if v > 1:
                 print(f'Arquivo Repetido: {k} - Quantidade: {v}')
+                self.lista_duplicados.insert('end', f'Arquivo: {k} - Quantidade: {v}')
 
     def botao_inicio_da_busca_principal(self):
         """
