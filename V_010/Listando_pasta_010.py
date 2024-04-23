@@ -49,7 +49,7 @@ class ProgramaPrincipal:
         self.janela_principal.title('V_010')
         self.janela_principal.geometry('1100x680+150+5')
         self.janela_principal.resizable(0, 0)
-        self.thread_botao_duplicidade()
+        # self.thread_botao_duplicidade()
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
