@@ -528,7 +528,7 @@ class ProgramaPrincipal:
             for k, v in arquivo_repetido.items():
                 if v > 1:
                     print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                    lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [{v}]')
+                    lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
 
         """##########################################################################################################"""
         """##########################################################################################################"""
