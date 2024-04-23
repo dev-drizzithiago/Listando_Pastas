@@ -507,11 +507,11 @@ class ProgramaPrincipal:
         arquivo_repetido = dict()
         lista_dados = list()
 
-
         def thread_lista_duplicado():
             Thread(target=processo_arquivo_duplicados).start()
 
         """# Proceddo de verificação"""
+
         def processo_arquivo_duplicados():
             for valor in self.dados_do_processo_busca:
                 valor_item = str(valor).split('|')[1]
@@ -527,7 +527,7 @@ class ProgramaPrincipal:
                     print(f'Arquivo Repetido: {k} - Quantidade: {v}')
                     self.lista_result_duplicidade.insert('end', f'Arquivo: {k} - Quantidade: {v}')
 
-        """#### Janela de opções"""
+        """#### Janela de opções duplicados"""
         self.janela_opc_duplicidade = tk.Tk()
         self.janela_opc_duplicidade.geometry('1000x600+200+50')
         self.janela_opc_duplicidade.resizable(0, 0)
@@ -544,8 +544,10 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
         self.lista_result_duplicidade.place(y=3, x=3)
 
+        """# Chamada da função que vai processar as informações dos aquivos."""
         thread_lista_duplicado()
-
+                
+        """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         self.janela_opc_duplicidade.mainloop()
 
     def botao_inicio_da_busca_principal(self):
