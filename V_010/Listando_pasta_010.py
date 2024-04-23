@@ -246,11 +246,8 @@ class ProgramaPrincipal:
         """###### LOOP DA JANELA ######"""
         self.janela_principal.mainloop()
 
-
-
-
-
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -362,6 +359,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
     def evento_mouse(self):
         showinfo('Teste', 'teste')
 
@@ -548,18 +546,18 @@ class ProgramaPrincipal:
         janela_opc_duplicidade.geometry('1000x600+200+50')
         janela_opc_duplicidade.resizable(0, 0)
         janela_opc_duplicidade.title('Verificando duplicidade!')
-
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Frame Principal DUPLICIDADE"""
         frame_label_duplicidade = tk.LabelFrame(janela_opc_duplicidade, text='Verificando duplicidade!')
         frame_label_duplicidade.config(width=900, height=580)
         frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
-
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Lista de resultado dos arquivos duplicados"""
         var_result_duplicidade = tk.StringVar()
         lista_result_duplicidade = tk.Listbox(frame_label_duplicidade)
         lista_result_duplicidade.config(selectmode=tk.SINGLE, width=160, height=15)
         lista_result_duplicidade.place(y=3, x=3)
-
+        # ______________________________________________________________________________________________________________
         """# Criando a barra de rolagem para lista de resultado"""
         barra_rolagem_lista_resultado_ducplicados = Scrollbar(janela_opc_duplicidade)
         barra_rolagem_lista_resultado_ducplicados.config(orient='vertical')
@@ -568,14 +566,18 @@ class ProgramaPrincipal:
         barra_rolagem_lista_resultado_ducplicados.place(bordermode='outside')
         barra_rolagem_lista_resultado_ducplicados.config(command=lista_result_duplicidade.yview)
         lista_result_duplicidade.config(yscrollcommand=barra_rolagem_lista_resultado_ducplicados.set)
-
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """Frame Superior duplicidade"""
         frame_superior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
         frame_superior_dupli.place(y=250, x=3)
-
+        # ______________________________________________________________________________________________________________
+        # ______________________________________________________________________________________________________________
         frame_inferior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
         frame_inferior_dupli.place(y=407, x=3)
+        # ______________________________________________________________________________________________________________
+        # ______________________________________________________________________________________________________________
 
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Chamada da função que vai processar as informações dos aquivos."""
         thread_lista_duplicado()
 
