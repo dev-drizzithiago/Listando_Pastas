@@ -509,13 +509,13 @@ class ProgramaPrincipal:
 
         """#### Janela de opções"""
         self.janela_opc_duplicidade = tk.Tk()
-        self.janela_opc_duplicidade.geometry('600x600+400+5')
+        self.janela_opc_duplicidade.geometry('1000x600+200+50')
         self.janela_opc_duplicidade.resizable(0, 0)
         self.janela_opc_duplicidade.title('Verificando duplicidade!')
 
         """# Frame Principal DUPLICIDADE"""
-        self.frame_label_duplicidade = LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
-        self.frame_label_duplicidade.pack(fill=tk.BOTH)
+        self.frame_label_duplicidade = tk.LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
+        self.frame_label_duplicidade.pack(side='top', fill=tk.BOTH, pady=5, padx=5)
         self.frame_label_duplicidade.place(y=3, x=3)
 
         """# Lista de resultado dos arquivos duplicados"""
@@ -524,6 +524,7 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=400, height=5)
         self.lista_result_duplicidade.place(y=3, x=3)
 
+        """# Proceddo de verificação"""
         for valor in self.dados_do_processo_busca:
             valor_item = str(valor).split('|')[1]
 
