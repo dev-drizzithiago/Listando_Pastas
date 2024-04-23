@@ -511,9 +511,13 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.geometry('300x300+150+10')
         self.janela_opc_duplicidade.title('Verificando duplicidade!')
 
+        """# Frame Principal DUPLICIDADE"""
         self.frame_label_duplicidade = LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
         self.frame_label_duplicidade.place(y=1, x=1)
         self.frame_label_duplicidade.pack(fill=tk.BOTH)
+
+        """# Frame lista de resultado"""
+        self.Frame_lbl_lista_resultado_duplicidade = Labelframe(self.frame_label_duplicidade, text='Lista de Resultado:')
 
         self.janela_opc_duplicidade.mainloop()
 
