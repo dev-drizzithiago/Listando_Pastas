@@ -49,7 +49,7 @@ class ProgramaPrincipal:
         self.janela_principal.title('V_010')
         self.janela_principal.geometry('1100x680+150+5')
         self.janela_principal.resizable(0, 0)
-
+        self.func_botao_duplicidade()
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -509,22 +509,20 @@ class ProgramaPrincipal:
 
         """#### Janela de opções"""
         self.janela_opc_duplicidade = tk.Tk()
-        self.janela_opc_duplicidade.geometry('500x300+150+10')
+        self.janela_opc_duplicidade.geometry('600x600+400+5')
         self.janela_opc_duplicidade.resizable(0, 0)
         self.janela_opc_duplicidade.title('Verificando duplicidade!')
 
         """# Frame Principal DUPLICIDADE"""
         self.frame_label_duplicidade = LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
-        self.frame_label_duplicidade.place(y=1, x=1)
         self.frame_label_duplicidade.pack(fill=tk.BOTH)
+        self.frame_label_duplicidade.place(y=3, x=3)
 
         """# Lista de resultado dos arquivos duplicados"""
         self.var_result_duplicidade = tk.StringVar()
-        self.lista_result_duplicidade = tk.Listbox(self.frame_label_lista_resultado)
+        self.lista_result_duplicidade = tk.Listbox(self.frame_label_duplicidade)
         self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=400, height=5)
-        self.lista_result_duplicidade.place(y=1, x=1)
-
-        self.janela_opc_duplicidade.mainloop()
+        self.lista_result_duplicidade.place(y=3, x=3)
 
         for valor in self.dados_do_processo_busca:
             valor_item = str(valor).split('|')[1]
