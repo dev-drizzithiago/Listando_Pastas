@@ -49,7 +49,7 @@ class ProgramaPrincipal:
         self.janela_principal.title('V_010')
         self.janela_principal.geometry('1100x680+150+5')
         self.janela_principal.resizable(0, 0)
-        self.thread_botao_duplicidade()
+        # self.thread_botao_duplicidade()
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -172,6 +172,7 @@ class ProgramaPrincipal:
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
+        self.botao_inicio_processo.bind('<Return>', self.thread_botao_inicio_da_busca())
         # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Aplicar')
@@ -183,6 +184,7 @@ class ProgramaPrincipal:
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_limpar_checkbuttun.config(command=self.thread_botao_limpeza_checkbutton)
+        self.botao_limpar_checkbuttun.bind('<Double-Button-1>', self.thread_botao_limpeza_checkbutton())
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
@@ -198,7 +200,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
         self.var_lista_result_busca = tk.IntVar()
-        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=55, height=10, bg='#DCDCDC')
+        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=117, height=10, bg='#DCDCDC')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=435, x=2)
         # ______________________________________________________________________________________________________________
@@ -216,20 +218,20 @@ class ProgramaPrincipal:
         self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
         # ______________________________________________________________________________________________________________
-        """# Lista de Duplicados"""
+        """# Lista de Duplicados   DESATIVADO"""
         self.var_lista_duplicados = tk.IntVar()
         self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=55, height=10, bg='#DCDCDC')
         self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_duplicados.place(y=435, x=550)
+        # self.lista_duplicados.place(y=435, x=550)
         # ______________________________________________________________________________________________________________
-        """# Barra de Rolagem Y Lista Duplicados"""
+        """# Barra de Rolagem Y Lista Duplicados  DESATIVADO"""
         self.barra_rolagem_lista_duplicados_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
         self.barra_rolagem_lista_duplicados_y.place(in_=self.lista_duplicados, relx=1.0, relheight=1.0)
         self.barra_rolagem_lista_duplicados_y.place(bordermode='outside')
         self.barra_rolagem_lista_duplicados_y.config(command=self.lista_duplicados.yview)
         self.lista_duplicados.config(yscrollcommand=self.barra_rolagem_lista_duplicados_y.set)
         # ______________________________________________________________________________________________________________
-        """# Barrade de Rolagem X Lista Duplicados"""
+        """# Barrade de Rolagem X Lista Duplicados DESATIVADO"""
         self.barra_rolagem_lista_duplicados_x = Scrollbar(self.label_frame_principal, orient=tk.HORIZONTAL)
         self.barra_rolagem_lista_duplicados_x.place(in_=self.lista_duplicados, relx=0.0, rely=1.0, relwidth=1.0)
         self.barra_rolagem_lista_duplicados_x.place(bordermode='outside')
@@ -374,7 +376,7 @@ class ProgramaPrincipal:
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
 
-    def botao_limpeza_checkbutton_destroy(self):
+    def botao_limpeza_checkbutton_destroy(self, event):
         print(f'\nRemovendo os botões check\n')
         if self.ativar_combo:
             for valor_destroy in self.botoes_chek:
@@ -576,7 +578,7 @@ class ProgramaPrincipal:
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         janela_opc_duplicidade.mainloop()
 
-    def botao_inicio_da_busca_principal(self):
+    def botao_inicio_da_busca_principal(self, event):
         """
 
         :return:
@@ -641,7 +643,7 @@ class ProgramaPrincipal:
                         """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                         self.lista_de_result_busca.insert('end', '')
                         self.lista_de_result_busca.insert('end', f'>>>>>>>{raiz.upper()}<<<<<<<')
-                        self.lista_de_result_busca.insert('end', f'{"===" * 20}')
+                        self.lista_de_result_busca.insert('end', f'{"===" * 40}')
 
                     contador_inicio += 1
 
@@ -691,7 +693,7 @@ class ProgramaPrincipal:
                                 self.lista_de_result_busca.insert('end', '')
                                 self.lista_de_result_busca.insert('end', '')
                                 self.lista_de_result_busca.insert('end', f'{raiz}')
-                                self.lista_de_result_busca.insert('end', '===' * 20)
+                                self.lista_de_result_busca.insert('end', '===' * 40)
                                 self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
                             else:
                                 """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
@@ -746,7 +748,7 @@ class ProgramaPrincipal:
 
                 self.lista_de_result_busca.insert('end', '')
                 self.lista_de_result_busca.insert('end', '')
-                self.lista_de_result_busca.insert('end', '===' * 20)
+                self.lista_de_result_busca.insert('end', '===' * 40)
                 self.lista_de_result_busca.insert('end', f'Busca finalizada!')
 
                 print(f'\nBusca Finalizada')
