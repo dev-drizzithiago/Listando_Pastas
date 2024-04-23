@@ -20,7 +20,7 @@ from threading import Thread
 
 class ProgramaPrincipal:
     def __init__(self):
-        self.func_botao_duplicidade()
+
         """##### Declarações de variaveis"""
         tipos_categorias = ['ARQUIVOS', 'IMAGEM', 'VIDEOS', 'AUDIO', 'POWERPOINT', 'EXCEL', 'TEXTOS', 'PROGRAMACAO',
                             'ACCESS', 'WORD', 'HTML']
@@ -521,7 +521,6 @@ class ProgramaPrincipal:
         """# Lista de resultado dos arquivos duplicados"""
         self.var_result_duplicidade = tk.StringVar()
         self.lista_result_duplicidade = tk.Listbox(self.frame_label_lista_resultado)
-        self.lista_result_duplicidade.config(listvariable=self.var_result_duplicidade)
         self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=400, height=5)
         self.lista_result_duplicidade.place(y=1, x=1)
 
