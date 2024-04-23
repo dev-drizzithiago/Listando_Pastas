@@ -511,29 +511,6 @@ class ProgramaPrincipal:
         arquivo_repetido = dict()
         lista_dados = list()
 
-        def thread_lista_duplicado():
-            Thread(target=processo_arquivo_duplicados).start()
-
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """# Proceddo de verificação das informaçoes"""
-
-        def processo_arquivo_duplicados():
-            for valor in self.dados_do_processo_busca:
-                valor_item = str(valor).split('|')[1]
-
-                if valor_item in arquivo_repetido:
-                    arquivo_repetido[valor_item] += 1
-                else:
-                    arquivo_repetido[valor_item] = 1
-
-            for k, v in arquivo_repetido.items():
-                if v > 1:
-                    print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                    lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
-
         def opcao_check_botao():
             resposta_move = var_opcao_move.get()
             if resposta_move:
@@ -542,13 +519,6 @@ class ProgramaPrincipal:
             resposta_delete = var_opcao_delete.get()
             if resposta_delete:
                 print('teste delete')
-
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
 
         """#### Janela de opções duplicados; só interno """
         janela_opc_duplicidade = tk.Tk()
@@ -589,7 +559,7 @@ class ProgramaPrincipal:
         """# Opção Deletar arquivos duplicados"""
         var_opcao_delete = tk.BooleanVar()
         opcao_delete = tk.Checkbutton(frame_superior_dupli, text='Deletar arquivos duplicados', bg='#C0C0C0')
-        opcao_delete.config(textvariable=var_opcao_delete, pady=5, padx=5, bd=2)
+        opcao_delete.config(variable=var_opcao_delete, pady=5, padx=5, bd=2)
         opcao_delete.place(y=30, x=5)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         frame_inferior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
@@ -605,12 +575,30 @@ class ProgramaPrincipal:
         botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
 
-        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        """# Chamada da função que vai processar as informações dos aquivos."""
-        thread_lista_duplicado()
-
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
-        janela_opc_duplicidade.mainloop()
+
+        def thread_lista_duplicado():
+            Thread(target=processo_arquivo_duplicados).start()
+
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """# Proceddo de verificação das informaçoes"""
+
+        def processo_arquivo_duplicados():
+            for valor in self.dados_do_processo_busca:
+                valor_item = str(valor).split('|')[1]
+
+                if valor_item in arquivo_repetido:
+                    arquivo_repetido[valor_item] += 1
+                else:
+                    arquivo_repetido[valor_item] = 1
+
+            for k, v in arquivo_repetido.items():
+                if v > 1:
+                    print(f'Arquivo Repetido: {k} - Quantidade: {v}')
+                    lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
 
     def botao_inicio_da_busca_principal(self):
         """
