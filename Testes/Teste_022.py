@@ -51,7 +51,7 @@ opcao_move.place(y=5, x=5)
 """# Opção Deletar arquivos duplicados"""
 var_opcao_delete = tk.BooleanVar()
 opcao_delete = tk.Checkbutton(frame_superior_dupli, text='Deletar arquivos duplicados', bg='#C0C0C0')
-opcao_delete.config(textvariable=var_opcao_delete, pady=5, padx=5, bd=2)
+opcao_delete.config(variable=var_opcao_delete, pady=5, padx=5, bd=2)
 opcao_delete.place(y=30, x=5)
 # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 frame_inferior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
