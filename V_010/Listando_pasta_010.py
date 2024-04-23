@@ -178,7 +178,7 @@ class ProgramaPrincipal:
         self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_destino_busca.config(command=self.thread_botao_pasta_destino)
         self.botao_destino_busca.pack(anchor='n', fill='both')
-        self.botao_destino_busca.bind("<Button-3>", self.evento_mouse)
+        # self.botao_destino_busca.bind("<Button-1>", self.evento_mouse)
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
@@ -246,11 +246,11 @@ class ProgramaPrincipal:
         """###### LOOP DA JANELA ######"""
         self.janela_principal.mainloop()
 
+
+
+
+
     """##### THREADS DOS BOTÕES"""
-
-    def evento_mouse(self, event):
-        showinfo('Teste', 'teste')
-
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -362,6 +362,8 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+    def evento_mouse(self):
+        showinfo('Teste', 'teste')
 
     def data_hora_certa(self):
         """
@@ -378,7 +380,7 @@ class ProgramaPrincipal:
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
 
-    def botao_limpeza_checkbutton_destroy(self, event):
+    def botao_limpeza_checkbutton_destroy(self):
         print(f'\nRemovendo os botões check\n')
         if self.ativar_combo:
             for valor_destroy in self.botoes_chek:
@@ -580,7 +582,7 @@ class ProgramaPrincipal:
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         janela_opc_duplicidade.mainloop()
 
-    def botao_inicio_da_busca_principal(self, event):
+    def botao_inicio_da_busca_principal(self):
         """
 
         :return:
