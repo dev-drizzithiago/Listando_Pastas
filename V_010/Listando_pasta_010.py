@@ -536,11 +536,11 @@ class ProgramaPrincipal:
 
         def opcao_check_botao():
             resposta_move = var_opcao_move.get()
-            if resposta_move == 'mover':
+            if resposta_move:
                 print('teste mover')
 
             resposta_delete = var_opcao_delete.get()
-            if resposta_delete == 'delete':
+            if resposta_delete:
                 print('teste delete')
 
         """##########################################################################################################"""
@@ -581,15 +581,15 @@ class ProgramaPrincipal:
         frame_superior_dupli.place(y=250, x=3)
         # ______________________________________________________________________________________________________________
         """# Opcao check movendo os arquivos duplicados"""
-        var_opcao_move = tk.StringVar()
+        var_opcao_move = tk.BooleanVar()
         opcao_move = tk.Checkbutton(frame_superior_dupli, text='Mover arquivos duplicados', bg='#C0C0C0')
-        opcao_move.config(variable=var_opcao_move, pady=5, padx=5, bd=2, offvalue=0, onvalue='mover')
+        opcao_move.config(variable=var_opcao_move, pady=5, padx=5, bd=2)
         opcao_move.place(y=5, x=5)
         # ______________________________________________________________________________________________________________
         """# Opção Deletar arquivos duplicados"""
-        var_opcao_delete = tk.StringVar()
+        var_opcao_delete = tk.BooleanVar()
         opcao_delete = tk.Checkbutton(frame_superior_dupli, text='Deletar arquivos duplicados', bg='#C0C0C0')
-        opcao_delete.config(textvariable=var_opcao_delete, pady=5, padx=5, bd=2, offvalue=0, onvalue='delete')
+        opcao_delete.config(textvariable=var_opcao_delete, pady=5, padx=5, bd=2)
         opcao_delete.place(y=30, x=5)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         frame_inferior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
@@ -601,6 +601,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
         botao_aplica_opcao_check = tk.Button(frame_lbl_botao, text='Aplicar', bg='#C0C0C0', width=133)
+        botao_aplica_opcao_check.config(command=opcao_check_botao)
         botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
 
