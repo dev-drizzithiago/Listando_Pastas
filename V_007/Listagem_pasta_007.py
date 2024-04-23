@@ -153,7 +153,7 @@ class ListagemPastas:
             self.lista_ativa_especi = True
 
     def thread_inicio_busca(self):
-        Thread(target=self.janela_inicio_busca()).start()
+        Thread(target=self.janela_inicio_busca).start()
 
     def janela_inicio_busca(self):
         self.lista_salves_busca = list()
