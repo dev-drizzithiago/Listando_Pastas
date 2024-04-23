@@ -506,6 +506,10 @@ class ProgramaPrincipal:
         arquivo_repetido = dict()
         lista_dados = list()
 
+        """#### Janela de opções"""
+        self.janela_opc_duplicidade = tk.Tk()
+        self.janela_opc_duplicidade.geometry('300x300+150+10')
+
         for valor in self.dados_do_processo_busca:
             valor_item = str(valor).split('|')[1]
 
