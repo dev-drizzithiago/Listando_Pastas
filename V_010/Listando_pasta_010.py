@@ -172,19 +172,18 @@ class ProgramaPrincipal:
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
-        self.botao_inicio_processo.bind('<Return>', self.thread_botao_inicio_da_busca())
         # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Aplicar')
         self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_destino_busca.config(command=self.thread_botao_pasta_destino)
         self.botao_destino_busca.pack(anchor='n', fill='both')
+        self.botao_destino_busca.bind("<Button-3>", self.evento_mouse)
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_limpar_checkbuttun.config(command=self.thread_botao_limpeza_checkbutton)
-        self.botao_limpar_checkbuttun.bind('<Double-Button-1>', self.thread_botao_limpeza_checkbutton())
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
@@ -248,6 +247,9 @@ class ProgramaPrincipal:
         self.janela_principal.mainloop()
 
     """##### THREADS DOS BOTÕES"""
+
+    def evento_mouse(self, event):
+        showinfo('Teste', 'teste')
 
     def thread_botao_inicio_da_busca(self):
         """
