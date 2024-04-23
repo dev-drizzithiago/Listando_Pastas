@@ -55,12 +55,11 @@ class ProgramaPrincipal:
         self.label_frame_principal.config(text='Bem vindo ao buscador de arquivos!')
         self.label_frame_principal.config(width=1000, height=680)
         self.label_frame_principal.pack(fill=tk.BOTH, pady=5, padx=10)
-        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        # ______________________________________________________________________________________________________________
+
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### FRAMES"""
 
-        """# Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
+        """$$$$$$$ Frame SUPERIOR: Responsavel por mostrar as opções de buscas"""
         self.frames_superior = tk.Frame(self.label_frame_principal, bg='#C0C0C0')
         self.frames_superior.config(width=1070, height=220)
         self.frames_superior.place(y=1, x=2)
@@ -76,7 +75,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        """# Frame Central: Reposanvel por mostrar as informações da busca"""
+        """$$$$$$$ Frame Central: Reposanvel por mostrar as informações da busca"""
         self.frames_central = tk.Frame(self.label_frame_principal, bg='#D3D3D3')
         self.frames_central.config(width=1070, height=120)
         self.frames_central.config(bd=2)
@@ -138,7 +137,7 @@ class ProgramaPrincipal:
         self.barra_progresso_busca.place(y=90, x=1)
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        """# Frame Inferior: Responsável por registro das informações de busca"""
+        """$$$$$$$ Frame Inferior: Responsável por registro das informações de busca"""
         self.frames_inferior = tk.Frame(self.label_frame_principal, bg='#DCDCDC')
         self.frames_inferior.config(width=1070, height=75, bd=2)
         self.frames_inferior.place(y=348, x=2)
