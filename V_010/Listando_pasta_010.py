@@ -522,7 +522,6 @@ class ProgramaPrincipal:
 
                 if valor_item in arquivo_repetido:
                     arquivo_repetido[valor_item] += 1
-                    lista_dados.append(valor)
                 else:
                     arquivo_repetido[valor_item] = 1
 
