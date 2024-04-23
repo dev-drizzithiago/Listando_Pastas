@@ -519,9 +519,10 @@ class ProgramaPrincipal:
         self.frame_label_duplicidade.pack(fill=tk.BOTH)
 
         """# Lista de resultado dos arquivos duplicados"""
-        self.var_lista_duplicidade = tk.StringVar()
-        self.lista_result_duplicidade = tk.Listbox(self.frame_label_lista_resultado, selectmode=tk.SINGLE)
-        self.lista_result_duplicidade.config(width=400, height=5)
+        self.var_result_duplicidade = tk.StringVar()
+        self.lista_result_duplicidade = tk.Listbox(self.frame_label_lista_resultado)
+        self.lista_result_duplicidade.config(listvariable=self.var_result_duplicidade)
+        self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=400, height=5)
         self.lista_result_duplicidade.place(y=1, x=1)
 
         self.janela_opc_duplicidade.mainloop()
