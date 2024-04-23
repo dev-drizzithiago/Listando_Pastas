@@ -510,8 +510,11 @@ class ProgramaPrincipal:
         def thread_lista_duplicado():
             Thread(target=processo_arquivo_duplicados).start()
 
-        """# Proceddo de verificação"""
-
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """# Proceddo de verificação das informaçoes"""
         def processo_arquivo_duplicados():
             for valor in self.dados_do_processo_busca:
                 valor_item = str(valor).split('|')[1]
@@ -525,30 +528,41 @@ class ProgramaPrincipal:
             for k, v in arquivo_repetido.items():
                 if v > 1:
                     print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                    self.lista_result_duplicidade.insert('end', f'Arquivo: {k} - Quantidade: {v}')
+                    lista_result_duplicidade.insert('end', f'Arquivo: {k} - Quantidade: {v}')
 
-        """#### Janela de opções duplicados"""
-        self.janela_opc_duplicidade = tk.Tk()
-        self.janela_opc_duplicidade.geometry('1000x600+200+50')
-        self.janela_opc_duplicidade.resizable(0, 0)
-        self.janela_opc_duplicidade.title('Verificando duplicidade!')
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+        """##########################################################################################################"""
+
+        """#### Janela de opções duplicados; só interno """
+        janela_opc_duplicidade = tk.Tk()
+        janela_opc_duplicidade.geometry('1000x600+200+50')
+        janela_opc_duplicidade.resizable(0, 0)
+        janela_opc_duplicidade.title('Verificando duplicidade!')
 
         """# Frame Principal DUPLICIDADE"""
-        self.frame_label_duplicidade = tk.LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
-        self.frame_label_duplicidade.config(width=900, height=580)
-        self.frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
+        frame_label_duplicidade = tk.LabelFrame(janela_opc_duplicidade, text='Verificando duplicidade!')
+        frame_label_duplicidade.config(width=900, height=580)
+        frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
+
+        """# Criando a barra de rolagem para lista de resultado"""
+
 
         """# Lista de resultado dos arquivos duplicados"""
-        self.var_result_duplicidade = tk.StringVar()
-        self.lista_result_duplicidade = tk.Listbox(self.frame_label_duplicidade)
-        self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
-        self.lista_result_duplicidade.place(y=3, x=3)
+        var_result_duplicidade = tk.StringVar()
+        lista_result_duplicidade = tk.Listbox(frame_label_duplicidade)
+        lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
+        lista_result_duplicidade.place(y=3, x=3)
+
 
         """# Chamada da função que vai processar as informações dos aquivos."""
         thread_lista_duplicado()
-                
+
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
-        self.janela_opc_duplicidade.mainloop()
+        janela_opc_duplicidade.mainloop()
 
     def botao_inicio_da_busca_principal(self):
         """
