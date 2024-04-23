@@ -49,7 +49,7 @@ class ProgramaPrincipal:
         self.janela_principal.title('V_010')
         self.janela_principal.geometry('1100x680+150+5')
         self.janela_principal.resizable(0, 0)
-        # self.thread_botao_duplicidade()
+        self.thread_botao_duplicidade()
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -514,6 +514,9 @@ class ProgramaPrincipal:
         def thread_lista_duplicado():
             Thread(target=processo_arquivo_duplicados).start()
 
+        def thread_opcao_check_botao():
+            Thread(target=opcao_check_botao).start()
+
         """##########################################################################################################"""
         """##########################################################################################################"""
         """##########################################################################################################"""
@@ -533,6 +536,9 @@ class ProgramaPrincipal:
                 if v > 1:
                     print(f'Arquivo Repetido: {k} - Quantidade: {v}')
                     lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
+
+        def opcao_check_botao():
+            pass
 
         """##########################################################################################################"""
         """##########################################################################################################"""
@@ -571,7 +577,18 @@ class ProgramaPrincipal:
         frame_superior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
         frame_superior_dupli.place(y=250, x=3)
         # ______________________________________________________________________________________________________________
+        """# Opcao check"""
+        var_opcao_move = tk.StringVar()
+        opcao_move = tk.Checkbutton(frame_superior_dupli, text='Mover arquivos duplicados', bg='#C0C0C0')
+        opcao_move.config(variable=var_opcao_move, pady=5, padx=5, bd=2)
+        opcao_move.place(y=5, x=5)
         # ______________________________________________________________________________________________________________
+        """# Opção Deletar arquivos temporários"""
+        var_opcao_delete = tk.StringVar()
+        opcao_delete = tk.Checkbutton(frame_superior_dupli, text='Deletar arquivos duplicados', bg='#C0C0C0')
+        opcao_delete.config(textvariable=var_opcao_delete, pady=5, padx=5, bd=2)
+        opcao_delete.place(y=30, x=5)
+        # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         frame_inferior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
         frame_inferior_dupli.place(y=407, x=3)
         # ______________________________________________________________________________________________________________
