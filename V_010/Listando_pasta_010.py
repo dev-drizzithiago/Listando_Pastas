@@ -515,6 +515,7 @@ class ProgramaPrincipal:
         """##########################################################################################################"""
         """##########################################################################################################"""
         """# Proceddo de verificação das informaçoes"""
+
         def processo_arquivo_duplicados():
             for valor in self.dados_do_processo_busca:
                 valor_item = str(valor).split('|')[1]
@@ -548,16 +549,20 @@ class ProgramaPrincipal:
         frame_label_duplicidade.config(width=900, height=580)
         frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
 
-        """# Criando a barra de rolagem para lista de resultado"""
-        barra_rolagem_lista_resultado_ducplicados = Scrollbar(janela_opc_duplicidade)
-        barra_rolagem_lista_resultado_ducplicados.config()
-
         """# Lista de resultado dos arquivos duplicados"""
         var_result_duplicidade = tk.StringVar()
         lista_result_duplicidade = tk.Listbox(frame_label_duplicidade)
         lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
         lista_result_duplicidade.place(y=3, x=3)
 
+        """# Criando a barra de rolagem para lista de resultado"""
+        barra_rolagem_lista_resultado_ducplicados = Scrollbar(janela_opc_duplicidade)
+        barra_rolagem_lista_resultado_ducplicados.config(orient='vertical')
+        barra_rolagem_lista_resultado_ducplicados.place(in_=lista_result_duplicidade)
+        barra_rolagem_lista_resultado_ducplicados.place( relx=1.0, relheight=1.0)
+        barra_rolagem_lista_resultado_ducplicados.place(bordermode='outside')
+        barra_rolagem_lista_resultado_ducplicados.config(command=lista_result_duplicidade.yview)
+        lista_result_duplicidade.config(yscrollcommand=barra_rolagem_lista_resultado_ducplicados.set)
 
         """# Chamada da função que vai processar as informações dos aquivos."""
         thread_lista_duplicado()
