@@ -508,7 +508,8 @@ class ProgramaPrincipal:
 
         """#### Janela de opções"""
         self.janela_opc_duplicidade = tk.Tk()
-        self.janela_opc_duplicidade.geometry('300x300+150+10')
+        self.janela_opc_duplicidade.geometry('500x300+150+10')
+        self.janela_opc_duplicidade.resizable(0, 0)
         self.janela_opc_duplicidade.title('Verificando duplicidade!')
 
         """# Frame Principal DUPLICIDADE"""
@@ -518,6 +519,8 @@ class ProgramaPrincipal:
 
         """# Frame lista de resultado"""
         self.Frame_lbl_lista_resultado_duplicidade = Labelframe(self.frame_label_duplicidade, text='Lista de Resultado:')
+        self.Frame_lbl_lista_resultado_duplicidade.config(width=290, height=200)
+        self.Frame_lbl_lista_resultado_duplicidade.place(y=3, x=3)
 
         self.janela_opc_duplicidade.mainloop()
 
