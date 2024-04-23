@@ -49,7 +49,7 @@ class ProgramaPrincipal:
         self.janela_principal.title('V_010')
         self.janela_principal.geometry('1100x680+150+5')
         self.janela_principal.resizable(0, 0)
-        # self.thread_botao_duplicidade()
+        self.thread_botao_duplicidade()
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -552,14 +552,14 @@ class ProgramaPrincipal:
         """# Lista de resultado dos arquivos duplicados"""
         var_result_duplicidade = tk.StringVar()
         lista_result_duplicidade = tk.Listbox(frame_label_duplicidade)
-        lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
+        lista_result_duplicidade.config(selectmode=tk.SINGLE, width=160, height=15)
         lista_result_duplicidade.place(y=3, x=3)
 
         """# Criando a barra de rolagem para lista de resultado"""
         barra_rolagem_lista_resultado_ducplicados = Scrollbar(janela_opc_duplicidade)
         barra_rolagem_lista_resultado_ducplicados.config(orient='vertical')
         barra_rolagem_lista_resultado_ducplicados.place(in_=lista_result_duplicidade)
-        barra_rolagem_lista_resultado_ducplicados.place( relx=1.0, relheight=1.0)
+        barra_rolagem_lista_resultado_ducplicados.place(relx=1.0, relheight=1.0)
         barra_rolagem_lista_resultado_ducplicados.place(bordermode='outside')
         barra_rolagem_lista_resultado_ducplicados.config(command=lista_result_duplicidade.yview)
         lista_result_duplicidade.config(yscrollcommand=barra_rolagem_lista_resultado_ducplicados.set)
