@@ -515,13 +515,13 @@ class ProgramaPrincipal:
 
         """# Frame Principal DUPLICIDADE"""
         self.frame_label_duplicidade = tk.LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
-        self.frame_label_duplicidade.pack(side='top', fill=tk.BOTH, pady=5, padx=5)
-        self.frame_label_duplicidade.place(y=3, x=3)
+        self.frame_label_duplicidade.config(width=900, height=580)
+        self.frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
 
         """# Lista de resultado dos arquivos duplicados"""
         self.var_result_duplicidade = tk.StringVar()
         self.lista_result_duplicidade = tk.Listbox(self.frame_label_duplicidade)
-        self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=400, height=5)
+        self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
         self.lista_result_duplicidade.place(y=3, x=3)
 
         """# Proceddo de verificação"""
