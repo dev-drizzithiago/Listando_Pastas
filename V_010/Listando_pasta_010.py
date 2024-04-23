@@ -524,6 +524,8 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
         self.lista_result_duplicidade.place(y=3, x=3)
 
+        thread_lista_duplicado()
+
         self.janela_opc_duplicidade.mainloop()
 
         def thread_lista_duplicado():
