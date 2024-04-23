@@ -535,8 +535,13 @@ class ProgramaPrincipal:
                     lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
 
         def opcao_check_botao():
-            pass
+            resposta_move = var_opcao_move.get()
+            if resposta_move == 'mover':
+                print('teste mover')
 
+            resposta_delete = var_opcao_delete.get()
+            if resposta_delete == 'delete':
+                print('teste delete')
 
         """##########################################################################################################"""
         """##########################################################################################################"""
@@ -578,13 +583,15 @@ class ProgramaPrincipal:
         """# Opcao check movendo os arquivos duplicados"""
         var_opcao_move = tk.StringVar()
         opcao_move = tk.Checkbutton(frame_superior_dupli, text='Mover arquivos duplicados', bg='#C0C0C0')
-        opcao_move.config(variable=var_opcao_move, pady=5, padx=5, bd=2, offvalue=0, onvalue='delete')
+        opcao_move.config(variable=var_opcao_move, pady=5, padx=5, bd=2, offvalue=0, onvalue='mover')
+        opcao_move.config(command=opcao_check_botao)
         opcao_move.place(y=5, x=5)
         # ______________________________________________________________________________________________________________
         """# Opção Deletar arquivos duplicados"""
         var_opcao_delete = tk.StringVar()
         opcao_delete = tk.Checkbutton(frame_superior_dupli, text='Deletar arquivos duplicados', bg='#C0C0C0')
         opcao_delete.config(textvariable=var_opcao_delete, pady=5, padx=5, bd=2, offvalue=0, onvalue='delete')
+        opcao_delete.config(command=opcao_check_botao)
         opcao_delete.place(y=30, x=5)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         frame_inferior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
