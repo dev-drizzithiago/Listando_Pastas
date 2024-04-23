@@ -49,7 +49,7 @@ class ProgramaPrincipal:
         self.janela_principal.title('V_010')
         self.janela_principal.geometry('1100x680+150+5')
         self.janela_principal.resizable(0, 0)
-        self.func_botao_duplicidade()
+        # self.thread_botao_duplicidade()
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -524,20 +524,26 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.config(selectmode=tk.SINGLE, width=162, height=15)
         self.lista_result_duplicidade.place(y=3, x=3)
 
+        self.janela_opc_duplicidade.mainloop()
+
+        def thread_lista_duplicado():
+            Thread(target=processo_arquivo_duplicados).start()
+
         """# Proceddo de verificação"""
-        for valor in self.dados_do_processo_busca:
-            valor_item = str(valor).split('|')[1]
+        def processo_arquivo_duplicados():
+            for valor in self.dados_do_processo_busca:
+                valor_item = str(valor).split('|')[1]
 
-            if valor_item in arquivo_repetido:
-                arquivo_repetido[valor_item] += 1
-                lista_dados.append(valor)
-            else:
-                arquivo_repetido[valor_item] = 1
+                if valor_item in arquivo_repetido:
+                    arquivo_repetido[valor_item] += 1
+                    lista_dados.append(valor)
+                else:
+                    arquivo_repetido[valor_item] = 1
 
-        for k, v in arquivo_repetido.items():
-            if v > 1:
-                print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                self.lista_duplicados.insert('end', f'Arquivo: {k} - Quantidade: {v}')
+            for k, v in arquivo_repetido.items():
+                if v > 1:
+                    print(f'Arquivo Repetido: {k} - Quantidade: {v}')
+                    self.lista_result_duplicidade.insert('end', f'Arquivo: {k} - Quantidade: {v}')
 
     def botao_inicio_da_busca_principal(self):
         """
