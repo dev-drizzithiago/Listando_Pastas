@@ -509,6 +509,13 @@ class ProgramaPrincipal:
         """#### Janela de opções"""
         self.janela_opc_duplicidade = tk.Tk()
         self.janela_opc_duplicidade.geometry('300x300+150+10')
+        self.janela_opc_duplicidade.title('Verificando duplicidade!')
+
+        self.frame_label_duplicidade = LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
+        self.frame_label_duplicidade.place(y=1, x=1)
+        self.frame_label_duplicidade.pack(fill=tk.BOTH)
+
+        self.janela_opc_duplicidade.mainloop()
 
         for valor in self.dados_do_processo_busca:
             valor_item = str(valor).split('|')[1]
