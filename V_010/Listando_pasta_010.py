@@ -528,7 +528,7 @@ class ProgramaPrincipal:
             for k, v in arquivo_repetido.items():
                 if v > 1:
                     print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                    lista_result_duplicidade.insert('end', f'Arquivo: {k} - Quantidade: {v}')
+                    lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [{v}]')
 
         """##########################################################################################################"""
         """##########################################################################################################"""
@@ -549,7 +549,8 @@ class ProgramaPrincipal:
         frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
 
         """# Criando a barra de rolagem para lista de resultado"""
-
+        barra_rolagem_lista_resultado_ducplicados = Scrollbar(janela_opc_duplicidade)
+        barra_rolagem_lista_resultado_ducplicados.config()
 
         """# Lista de resultado dos arquivos duplicados"""
         var_result_duplicidade = tk.StringVar()
