@@ -507,6 +507,26 @@ class ProgramaPrincipal:
         arquivo_repetido = dict()
         lista_dados = list()
 
+
+        def thread_lista_duplicado():
+            Thread(target=processo_arquivo_duplicados).start()
+
+        """# Proceddo de verificação"""
+        def processo_arquivo_duplicados():
+            for valor in self.dados_do_processo_busca:
+                valor_item = str(valor).split('|')[1]
+
+                if valor_item in arquivo_repetido:
+                    arquivo_repetido[valor_item] += 1
+                    lista_dados.append(valor)
+                else:
+                    arquivo_repetido[valor_item] = 1
+
+            for k, v in arquivo_repetido.items():
+                if v > 1:
+                    print(f'Arquivo Repetido: {k} - Quantidade: {v}')
+                    self.lista_result_duplicidade.insert('end', f'Arquivo: {k} - Quantidade: {v}')
+
         """#### Janela de opções"""
         self.janela_opc_duplicidade = tk.Tk()
         self.janela_opc_duplicidade.geometry('1000x600+200+50')
@@ -527,25 +547,6 @@ class ProgramaPrincipal:
         thread_lista_duplicado()
 
         self.janela_opc_duplicidade.mainloop()
-
-        def thread_lista_duplicado():
-            Thread(target=processo_arquivo_duplicados).start()
-
-        """# Proceddo de verificação"""
-        def processo_arquivo_duplicados():
-            for valor in self.dados_do_processo_busca:
-                valor_item = str(valor).split('|')[1]
-
-                if valor_item in arquivo_repetido:
-                    arquivo_repetido[valor_item] += 1
-                    lista_dados.append(valor)
-                else:
-                    arquivo_repetido[valor_item] = 1
-
-            for k, v in arquivo_repetido.items():
-                if v > 1:
-                    print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                    self.lista_result_duplicidade.insert('end', f'Arquivo: {k} - Quantidade: {v}')
 
     def botao_inicio_da_busca_principal(self):
         """
