@@ -594,6 +594,11 @@ class ProgramaPrincipal:
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
+        """
+
+        :return:
+        """
+
         print('Iniciando "botao_modulo_duplicidade"')
         self.janela_duplicidade()
         for valor_lista_busca in self.dados_do_processo_busca:
