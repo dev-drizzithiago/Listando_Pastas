@@ -1,5 +1,5 @@
 """#### Declaração de Modulos"""
-from tkinter.messagebox import showwarning, showinfo, showerror
+from tkinter.messagebox import showwarning, showinfo
 from tkinter.filedialog import askdirectory
 from janela_duplicidade import *
 from tkinter.ttk import *
@@ -8,7 +8,7 @@ import os.path
 
 """#### Modulos do sistema"""
 from os import walk
-from re import search, findall
+from re import search
 
 """### Modulos básicos"""
 from time import sleep
@@ -307,7 +307,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
         self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao, text='Aplicar', bg='#C0C0C0', width=133)
-        self.botao_aplica_opcao_check.config(command=self.opcao_check_botao_duplicidade)
+        self.botao_aplica_opcao_check.config(command=self.thread_opcao_check_botao_duplicidade)
         self.botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
 
         self.janela_opc_duplicidade.mainloop()
