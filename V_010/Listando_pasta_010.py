@@ -189,7 +189,7 @@ class ProgramaPrincipal:
         """# Botão verificar duplicidade"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.janela_duplicidade, state=tk.DISABLED)
+        self.botao_duplicidade.config(command=self.thread_botao_duplicidade, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
@@ -217,26 +217,6 @@ class ProgramaPrincipal:
         self.barra_rolagem_lista_busca_x.place(bordermode='outside')
         self.barra_rolagem_lista_busca_x.config(command=self.lista_de_result_busca.xview)
         self.lista_de_result_busca.config(yscrollcommand=self.barra_rolagem_lista_busca_x.set)
-        # ______________________________________________________________________________________________________________
-        """# Lista de Duplicados   DESATIVADO"""
-        self.var_lista_duplicados = tk.IntVar()
-        self.lista_duplicados = tk.Listbox(self.label_frame_principal, width=55, height=10, bg='#DCDCDC')
-        self.lista_duplicados.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        # self.lista_duplicados.place(y=435, x=550)
-        # ______________________________________________________________________________________________________________
-        """# Barra de Rolagem Y Lista Duplicados  DESATIVADO"""
-        self.barra_rolagem_lista_duplicados_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
-        self.barra_rolagem_lista_duplicados_y.place(in_=self.lista_duplicados, relx=1.0, relheight=1.0)
-        self.barra_rolagem_lista_duplicados_y.place(bordermode='outside')
-        self.barra_rolagem_lista_duplicados_y.config(command=self.lista_duplicados.yview)
-        self.lista_duplicados.config(yscrollcommand=self.barra_rolagem_lista_duplicados_y.set)
-        # ______________________________________________________________________________________________________________
-        """# Barrade de Rolagem X Lista Duplicados DESATIVADO"""
-        self.barra_rolagem_lista_duplicados_x = Scrollbar(self.label_frame_principal, orient=tk.HORIZONTAL)
-        self.barra_rolagem_lista_duplicados_x.place(in_=self.lista_duplicados, relx=0.0, rely=1.0, relwidth=1.0)
-        self.barra_rolagem_lista_duplicados_x.place(bordermode='outside')
-        self.barra_rolagem_lista_duplicados_x.config(command=self.lista_duplicados.xview)
-        self.lista_duplicados.config(yscrollcommand=self.barra_rolagem_lista_duplicados_x.set)
         # ______________________________________________________________________________________________________________
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -352,18 +332,8 @@ class ProgramaPrincipal:
         Thread(target=self.opcao_check_botao).start()
 
     def thread_botao_duplicidade(self):
+        print('Iniciando "thread_botao_duplicidade"')
         Thread(target=self.botao_modulo_duplicidade).start()
-
-    """# Processo de duplicidade"""
-
-    def opcao_check_botao(self):
-        resposta_move = self.var_opcao_move.get()
-        if resposta_move:
-            print('teste mover')
-
-        resposta_delete = self.var_opcao_delete.get()
-        if resposta_delete:
-            print('teste delete')
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -587,9 +557,22 @@ class ProgramaPrincipal:
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
+    """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
-        valor_dados_busca(self.dados_do_processo_busca)
+        print('Iniciando "botao_modulo_duplicidade"')
+        pass
 
+    def opcao_check_botao(self):
+        print('Iniciando "opcao_check_botao"')
+        resposta_move = self.var_opcao_move.get()
+        if resposta_move:
+            print('teste mover')
+
+        resposta_delete = self.var_opcao_delete.get()
+        if resposta_delete:
+            print('teste delete')
+
+    """#### Processo de Busca"""
     def botao_inicio_da_busca_principal(self):
         """
 
