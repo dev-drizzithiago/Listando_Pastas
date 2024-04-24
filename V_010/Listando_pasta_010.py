@@ -298,17 +298,20 @@ class ProgramaPrincipal:
 
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
-        self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao_proc_dados, text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao_proc_dados)
+        self.botao_aplica_opcao_check.config(text='Aplicar', bg='#C0C0C0', width=133)
         self.botao_aplica_opcao_check.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """# Botão para limpar as lista e os checklist"""
-        self.botao_aplica_opcao_limpar = tk.Button(self.frame_lbl_botao_limpar, text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_limpar = tk.Button(self.frame_lbl_botao_limpar)
+        self.botao_aplica_opcao_limpar.config(text='Aplicar', bg='#C0C0C0', width=133)
         self.botao_aplica_opcao_limpar.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_limpar.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """# Botão para fechar a janela secundaria e voltar para janela principal """
-        self.botao_aplica_opcao_voltar = tk.Button(self.frame_lbl_botao_voltar, text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_voltar = tk.Button(self.frame_lbl_botao_voltar)
+        self.botao_aplica_opcao_voltar.config(text='Aplicar', bg='#C0C0C0', width=133)
         self.botao_aplica_opcao_voltar.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_voltar.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
