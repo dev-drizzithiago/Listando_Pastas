@@ -576,29 +576,12 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
-
         def thread_lista_duplicado():
             Thread(target=processo_arquivo_duplicados).start()
 
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
-        """##########################################################################################################"""
         """# Proceddo de verificação das informaçoes"""
-
         def processo_arquivo_duplicados():
-            for valor in self.dados_do_processo_busca:
-                valor_item = str(valor).split('|')[1]
 
-                if valor_item in arquivo_repetido:
-                    arquivo_repetido[valor_item] += 1
-                else:
-                    arquivo_repetido[valor_item] = 1
-
-            for k, v in arquivo_repetido.items():
-                if v > 1:
-                    print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                    lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
 
     def botao_inicio_da_busca_principal(self):
         """
