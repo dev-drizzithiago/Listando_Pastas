@@ -307,7 +307,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
         self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao, text='Aplicar', bg='#C0C0C0', width=133)
-        self.botao_aplica_opcao_check.config(command=self.thread_opcao_check_botao_duplicidade)
+        self.botao_aplica_opcao_check.config(command=self.opcao_check_botao_duplicidade)
         self.botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
 
         self.janela_opc_duplicidade.mainloop()
@@ -352,6 +352,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
     def opcao_check_botao_duplicidade(self):
+        print('Iniciando "opcao_check_botao_duplicidade"')
         resposta_move = self.var_opcao_move.get()
         if resposta_move:
             print('teste mover')
