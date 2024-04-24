@@ -350,7 +350,7 @@ class ProgramaPrincipal:
 
     def thread_botao_duplicidade_janela_principal(self):
         print(f'Iniciando THREAD botao_duplicidade')
-        Thread(target=self.botao_processo_duplicidade).start()
+        Thread(target=self.janela_duplicidade).start()
 
     """# Processo de duplicidade"""
 
