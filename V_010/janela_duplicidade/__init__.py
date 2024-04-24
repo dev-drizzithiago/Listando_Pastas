@@ -8,7 +8,7 @@ arquivo_repetido = dict()
 """#### Valor entra direto na função abaixo"""
 def valor_dados_da_busca(valor_busca):
     for item_lista_busca in valor_busca:
-        dados_do_processo_busca.insert(item_lista_busca)
+        dados_do_processo_busca.insert('end', item_lista_busca)
 
 
 """#### Threads do modulo"""
@@ -44,19 +44,21 @@ def opcao_check_botao():
         print('teste delete')
 
 
+# -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 """#### Janela de opções duplicados; só interno """
 janela_opc_duplicidade = tk.Tk()
 janela_opc_duplicidade.geometry('1000x600+200+50')
 janela_opc_duplicidade.resizable(0, 0)
 janela_opc_duplicidade.title('Verificando duplicidade!')
 
-# -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# ______________________________________________________________________________________________________________
 """# Frame Principal DUPLICIDADE"""
 frame_label_duplicidade = tk.LabelFrame(janela_opc_duplicidade, text='Verificando duplicidade!')
 frame_label_duplicidade.config(width=900, height=580)
 frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
 
-# -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# ______________________________________________________________________________________________________________
 """# Lista de resultado dos arquivos duplicados"""
 var_result_duplicidade = tk.StringVar()
 lista_result_duplicidade = tk.Listbox(frame_label_duplicidade)
@@ -73,7 +75,7 @@ barra_rolagem_lista_resultado_ducplicados.place(bordermode='outside')
 barra_rolagem_lista_resultado_ducplicados.config(command=lista_result_duplicidade.yview)
 lista_result_duplicidade.config(yscrollcommand=barra_rolagem_lista_resultado_ducplicados.set)
 
-# -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# ______________________________________________________________________________________________________________
 """Frame Superior duplicidade"""
 frame_superior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
 frame_superior_dupli.place(y=250, x=3)
@@ -92,7 +94,7 @@ opcao_delete = tk.Checkbutton(frame_superior_dupli, text='Deletar arquivos dupli
 opcao_delete.config(variable=var_opcao_delete, pady=5, padx=5, bd=2)
 opcao_delete.place(y=30, x=5)
 
-# -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# ______________________________________________________________________________________________________________
 frame_inferior_dupli = tk.Frame(frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
 frame_inferior_dupli.place(y=407, x=3)
 
