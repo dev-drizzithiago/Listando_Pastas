@@ -1,15 +1,23 @@
 import tkinter as tk
 from tkinter.ttk import *
+from threading import Thread
 
 dados_do_processo_busca = list()
 arquivo_repetido = dict()
 
-
+"""#### Valor entra direto na função abaixo"""
 def valor_dados_da_busca(valor_busca):
     for item_lista_busca in valor_busca:
         dados_do_processo_busca.insert(item_lista_busca)
 
 
+"""#### Threads do modulo"""
+def thread_opcao_check_botao():
+    print('Iniciando thread "opcao_check_botao"')
+    Thread(target=opcao_check_botao).start()
+
+
+"""#### Funçao responsável por mostra os dados para o usuário"""
 def verificaaoo_duplicidade():
     for valor in dados_do_processo_busca:
         valor_item = str(valor).split('|')[1]
@@ -25,6 +33,7 @@ def verificaaoo_duplicidade():
             lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
 
 
+"""#### Opções para serem realizar alguns processos. """
 def opcao_check_botao():
     resposta_move = var_opcao_move.get()
     if resposta_move:
