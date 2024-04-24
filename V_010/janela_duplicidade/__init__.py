@@ -19,10 +19,14 @@ lista_teste_1 = ['SCREENSHOT_20220725-085708.PNG',
                  'SCREENSHOT_20220731-111027.PNG'
                  ]
 
+
 class JanelaDuplicados:
     def __init__(self):
+        pass
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    def janela_duplicidade(self):
         """#### Janela de opções duplicados; só interno """
         self.janela_opc_duplicidade = tk.Tk()
         self.janela_opc_duplicidade.geometry('1000x600+200+50')
@@ -92,22 +96,28 @@ class JanelaDuplicados:
         self.janela_opc_duplicidade.mainloop()
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
+
     """#### Valor entra direto na função abaixo"""
+
     def recebendo_valores(self, valor_busca):
         print(f'Iniciando função "recebendo_valores')
         print(valor_busca)
         for item_lista_busca in valor_busca:
             dados_do_processo_busca.insert(item_lista_busca)
         print(dados_do_processo_busca)
+
     # ______________________________________________________________________________________________________________
 
     """#### Threads do modulo"""
+
     def thread_opcao_check_botao(self):
         print('Iniciando thread "opcao_check_botao"')
         Thread(target=self.opcao_check_botao).start()
+
     # ______________________________________________________________________________________________________________
 
     """#### Funçao responsável por mostra os dados para o usuário"""
+
     def verificaaoo_duplicidade(self):
         for valor in dados_do_processo_busca:
             valor_item = str(valor).split('|')[1]
@@ -124,6 +134,7 @@ class JanelaDuplicados:
 
     # ______________________________________________________________________________________________________________
     """#### Opções para serem realizar alguns processos. """
+
     def opcao_check_botao(self):
         resposta_move = self.var_opcao_move.get()
         if resposta_move:
@@ -135,6 +146,7 @@ class JanelaDuplicados:
 
 
 obj_inicio = JanelaDuplicados()
+
 
 def valor_dados_busca(valor_dos_dados):
     obj_inicio.recebendo_valores(valor_dos_dados)
