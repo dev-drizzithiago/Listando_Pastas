@@ -581,7 +581,7 @@ class ProgramaPrincipal:
 
         """# Proceddo de verificação das informaçoes"""
         def processo_arquivo_duplicados():
-
+            pass
 
     def botao_inicio_da_busca_principal(self):
         """
