@@ -295,21 +295,28 @@ class ProgramaPrincipal:
         self.frame_lbl_botao_voltar = tk.LabelFrame(self.frame_inferior_dupli, text='Limpar lista')
         self.frame_lbl_botao_voltar.config(bg="#C0C0C0", pady=5, padx=5)
         self.frame_lbl_botao_voltar.place(y=57, x=5)
-        
 
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
-        self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao, text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao_proc_dados, text='Aplicar', bg='#C0C0C0', width=133)
         self.botao_aplica_opcao_check.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
-
+        # ______________________________________________________________________________________________________________
+        """# Botão para limpar as lista e os checklist"""
+        self.botao_aplica_opcao_limpar = tk.Button(self.frame_lbl_botao_limpar, text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_limpar.config(command=self.thread_opcao_check_botao)
+        self.botao_aplica_opcao_limpar.pack(anchor='center', pady=5, padx=5)
+        # ______________________________________________________________________________________________________________
+        """# Botão para fechar a janela secundaria e voltar para janela principal """
+        self.botao_aplica_opcao_voltar = tk.Button(self.frame_lbl_botao_voltar, text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_voltar.config(command=self.thread_opcao_check_botao)
+        self.botao_aplica_opcao_voltar.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
 
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
-
     def thread_botao_inicio_da_busca(self):
         """
 
