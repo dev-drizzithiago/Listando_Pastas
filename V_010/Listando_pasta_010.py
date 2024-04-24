@@ -50,7 +50,7 @@ class ProgramaPrincipal:
         self.janela_principal.title('V_010')
         self.janela_principal.geometry('1100x680+150+5')
         self.janela_principal.resizable(0, 0)
-        self.thread_botao_duplicidade()
+
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -190,7 +190,7 @@ class ProgramaPrincipal:
         """# Botão limpeza lista de extensão"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_duplicidade, state=tk.DISABLED)
+        self.botao_duplicidade.config(command=self.thread_botao_duplicidade_janela_principal, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Frame Label Listas de buscas"""
@@ -307,8 +307,10 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
         self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao, text='Aplicar', bg='#C0C0C0', width=133)
-        self.botao_aplica_opcao_check.config(command=self.thread_opcao_check_botao)
+        self.botao_aplica_opcao_check.config(command=self.opcao_check_botao_duplicidade)
         self.botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
+
+        self.janela_opc_duplicidade.mainloop()
 
     """##### THREADS DOS BOTÕES"""
     def thread_botao_inicio_da_busca(self):
@@ -339,9 +341,38 @@ class ProgramaPrincipal:
         print(f'Iniciando THREAD tempo_precesso_busca')
         Thread(target=self.tempo_processo_busca).start()
 
-    def thread_botao_duplicidade(self):
+    """#### Processos de duplicidade"""
+    def thread_botao_duplicidade_janela_principal(self):
         print(f'Iniciando THREAD botao_duplicidade')
-        Thread(target=self.func_botao_duplicidade).start()
+        Thread(target=self.janela_duplicidade).start()
+
+    def thread_opcao_check_botao_duplicidade(self):
+        print('Iniciando thread "opcao_check_botao"')
+        Thread(target=self.opcao_check_botao_duplicidade).start()
+        # ______________________________________________________________________________________________________________
+
+    def opcao_check_botao_duplicidade(self):
+        resposta_move = self.var_opcao_move.get()
+        if resposta_move:
+            print('teste mover')
+
+        resposta_delete = self.var_opcao_delete.get()
+        if resposta_delete:
+            print('teste delete')
+
+    def verificacao_duplicidade(self):
+        for valor in dados_do_processo_busca:
+            valor_item = str(valor).split('|')[1]
+
+            if valor_item in arquivo_repetido:
+                arquivo_repetido[valor_item] += 1
+            else:
+                arquivo_repetido[valor_item] = 1
+
+        for k, v in arquivo_repetido.items():
+            if v > 1:
+                print(f'Arquivo Repetido: {k} - Quantidade: {v}')
+                self.lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -565,10 +596,6 @@ class ProgramaPrincipal:
         self.ativar_selecionar_pasta_destino = True
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
-
-    def func_botao_duplicidade(self):
-        from shutil import move
-        from hashlib import md5
 
     def botao_inicio_da_busca_principal(self):
         """
