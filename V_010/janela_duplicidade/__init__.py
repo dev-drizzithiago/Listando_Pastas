@@ -13,7 +13,7 @@ class JanelaDuplicados:
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
         """#### Janela de opções duplicados; só interno """
-        self.janela_opc_duplicidade = tk.Tk()
+        self.janela_opc_duplicidade = tk.Toplevel()
         self.janela_opc_duplicidade.geometry('1000x600+200+50')
         self.janela_opc_duplicidade.resizable(0, 0)
         self.janela_opc_duplicidade.title('Verificando duplicidade!')
