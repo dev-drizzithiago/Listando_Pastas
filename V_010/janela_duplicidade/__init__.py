@@ -104,7 +104,7 @@ frame_lbl_botao.place(y=7, x=5)
 # ______________________________________________________________________________________________________________
 """#### Botoes de opcao"""
 botao_aplica_opcao_check = tk.Button(frame_lbl_botao, text='Aplicar', bg='#C0C0C0', width=133)
-botao_aplica_opcao_check.config(command=opcao_check_botao)
+botao_aplica_opcao_check.config(command=thread_opcao_check_botao)
 botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
 
 # ______________________________________________________________________________________________________________
