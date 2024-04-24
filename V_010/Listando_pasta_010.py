@@ -589,7 +589,7 @@ class ProgramaPrincipal:
 
     def botao_modulo_duplicidade(self):
         valor_dados_busca(self.dados_do_processo_busca)
-        
+
     def botao_inicio_da_busca_principal(self):
         """
 
