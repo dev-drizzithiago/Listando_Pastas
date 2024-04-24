@@ -249,7 +249,7 @@ class ProgramaPrincipal:
 
     def janela_duplicidade(self):
         """#### Janela de opções duplicados; só interno """
-        self.janela_opc_duplicidade = tk.Tk()
+        self.janela_opc_duplicidade = tk.Toplevel()
         self.janela_opc_duplicidade.geometry('1000x600+200+50')
         self.janela_opc_duplicidade.resizable(0, 0)
         self.janela_opc_duplicidade.title('Verificando duplicidade!')
@@ -314,7 +314,9 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
+
         self.janela_opc_duplicidade.mainloop()
+        self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
     def thread_botao_inicio_da_busca(self):
@@ -350,7 +352,7 @@ class ProgramaPrincipal:
 
     def thread_botao_duplicidade_janela_principal(self):
         print(f'Iniciando THREAD botao_duplicidade')
-        Thread(target=self.janela_duplicidade).start()
+        Thread(target=self.botao_processo_duplicidade).start()
 
     """# Processo de duplicidade"""
 
