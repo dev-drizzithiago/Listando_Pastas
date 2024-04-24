@@ -509,7 +509,7 @@ class ProgramaPrincipal:
     def func_botao_duplicidade(self):
         from shutil import move
         from hashlib import md5
-        valor_dados_da_busca(self.dados_do_processo_busca)
+        valor_dados_busca(self.dados_do_processo_busca)
 
     def botao_inicio_da_busca_principal(self):
         """
