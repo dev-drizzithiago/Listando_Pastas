@@ -1,7 +1,7 @@
 """#### Declaração de Modulos"""
 from tkinter.messagebox import showwarning, showinfo
 from tkinter.filedialog import askdirectory
-# from janela_duplicidade import *
+from janela_duplicidade import *
 from tkinter.ttk import *
 import tkinter as tk
 import os.path
@@ -189,7 +189,7 @@ class ProgramaPrincipal:
         """# Botão verificar duplicidade"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_duplicidade_janela_principal, state=tk.DISABLED)
+        self.botao_duplicidade.config(command=self.janela_duplicidade, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
@@ -319,6 +319,7 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -350,9 +351,8 @@ class ProgramaPrincipal:
     def thread_opcao_check_botao(self):
         Thread(target=self.opcao_check_botao).start()
 
-    def thread_botao_duplicidade_janela_principal(self):
-        print(f'Iniciando THREAD botao_duplicidade')
-        Thread(target=self.botao_processo_duplicidade).start()
+    def thread_botao_duplicidade(self):
+        Thread(target=self.botao_modulo_duplicidade).start()
 
     """# Processo de duplicidade"""
 
@@ -587,8 +587,9 @@ class ProgramaPrincipal:
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
-    def botao_processo_duplicidade(self):
-        pass
+    def botao_modulo_duplicidade(self):
+        valor_dados_busca(self.dados_do_processo_busca)
+        
     def botao_inicio_da_busca_principal(self):
         """
 
