@@ -596,6 +596,8 @@ class ProgramaPrincipal:
     def botao_modulo_duplicidade(self):
         print('Iniciando "botao_modulo_duplicidade"')
         self.janela_duplicidade()
+        for valor_lista_busca in self.dados_do_processo_busca:
+            self.lista_result_duplicidade.insert('end', f'{valor_lista_busca}')
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
