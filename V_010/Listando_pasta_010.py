@@ -263,20 +263,34 @@ class ProgramaPrincipal:
         self.frame_superior_dupli.place(y=250, x=3)
 
         # ______________________________________________________________________________________________________________
+        """######## ckeck button"""
         """# Opcao check movendo os arquivos duplicados"""
-        self.var_opcao_move = tk.BooleanVar()
-        self.opcao_move = tk.Checkbutton(self.frame_superior_dupli, text='Mover arquivos duplicados', bg='#C0C0C0')
-        self.opcao_move.config(variable=self.var_opcao_move, pady=5, padx=5, bd=2)
+        # 1
+        self.var_opcao_radio = tk.IntVar()
+        self.opcao_move = tk.Radiobutton(self.frame_superior_dupli)
+        self.opcao_move.config(text='Mover arquivos duplicados', bg='#C0C0C0', value=1)
+        self.opcao_move.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
         self.opcao_move.place(y=5, x=5)
 
         # ______________________________________________________________________________________________________________
         """# Opção Deletar arquivos duplicados"""
-        self.var_opcao_delete = tk.BooleanVar()
-        self.opcao_delete = tk.Checkbutton(self.frame_superior_dupli, text='Deletar arquivos duplicados', bg='#C0C0C0')
-        self.opcao_delete.config(variable=self.var_opcao_delete, pady=5, padx=5, bd=2)
+        # 2
+        self.var_opcao_delete = tk.IntVar()
+        self.opcao_delete = tk.Radiobutton(self.frame_superior_dupli)
+        self.opcao_delete.config( text='Deletar arquivos duplicados', bg='#C0C0C0', value=2)
+        self.opcao_delete.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
         self.opcao_delete.place(y=30, x=5)
+        # ______________________________________________________________________________________________________________
+        """# Opção Renomear arquivos selecionados"""
+        # 3
+        self.var_opcao_renomear = tk.BooleanVar()
+        self.opcao_renomear = tk.Radiobutton(self.frame_superior_dupli)
+        self.opcao_renomear.config(text='Renomear arquivos duplicados', bg='#C0C0C0', value=3)
+        self.opcao_renomear.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
+        self.opcao_renomear.place(y=5, x=200)
 
         # ______________________________________________________________________________________________________________
+        """#### Frame Inferio para botões"""
         self.frame_inferior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#DCDCDC', width=980, height=233)
         self.frame_inferior_dupli.place(y=325, x=3)
 
@@ -585,13 +599,15 @@ class ProgramaPrincipal:
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
-        resposta_move = self.var_opcao_move.get()
-        if resposta_move:
+        resposta_radio = self.var_opcao_radio.get()
+        if resposta_radio == 1:
             print('teste mover')
 
-        resposta_delete = self.var_opcao_delete.get()
-        if resposta_delete:
+        if resposta_radio == 2:
             print('teste delete')
+
+        if resposta_radio == 3:
+            print('teste renomear')
 
     """#### Processo de Busca"""
     def botao_inicio_da_busca_principal(self):
