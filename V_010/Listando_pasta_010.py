@@ -1,6 +1,7 @@
 """#### Declaração de Modulos"""
 from tkinter.messagebox import showwarning, showinfo, showerror
 from tkinter.filedialog import askdirectory
+from janela_duplicidade import *
 from tkinter.ttk import *
 import tkinter as tk
 import os.path
