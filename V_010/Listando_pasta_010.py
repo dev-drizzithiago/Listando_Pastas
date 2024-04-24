@@ -188,7 +188,8 @@ class ProgramaPrincipal:
         """# Botão verificar duplicidade"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_duplicidade_tk_principal, state=tk.DISABLED)
+        self.botao_duplicidade.config(command=self.thread_botao_duplicidade_tk_principal)
+        # self.botao_duplicidade.config(state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
@@ -258,7 +259,7 @@ class ProgramaPrincipal:
 
         # ______________________________________________________________________________________________________________
         """Frame Superior duplicidade"""
-        self.frame_superior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
+        self.frame_superior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#C0C0C0', width=980, height=70)
         self.frame_superior_dupli.place(y=250, x=3)
 
         # ______________________________________________________________________________________________________________
@@ -276,42 +277,42 @@ class ProgramaPrincipal:
         self.opcao_delete.place(y=30, x=5)
 
         # ______________________________________________________________________________________________________________
-        self.frame_inferior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#C0C0C0', width=980, height=150)
-        self.frame_inferior_dupli.place(y=407, x=3)
+        self.frame_inferior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#DCDCDC', width=980, height=233)
+        self.frame_inferior_dupli.place(y=325, x=3)
 
         # ______________________________________________________________________________________________________________
         """#### Frame botao """
         """# Frame Botão de processar"""
         self.frame_lbl_botao_proc_dados = tk.LabelFrame(self.frame_inferior_dupli, text='Processar dados')
-        self.frame_lbl_botao_proc_dados.config(bg="#C0C0C0", pady=5, padx=5)
+        self.frame_lbl_botao_proc_dados.config(bg="#DCDCDC", pady=5, padx=5)
         self.frame_lbl_botao_proc_dados.place(y=7, x=5)
-
+        # ______________________________________________________________________________________________________________
         """# Frame Botão de limpar"""
         self.frame_lbl_botao_limpar = tk.LabelFrame(self.frame_inferior_dupli, text='Limpar lista')
-        self.frame_lbl_botao_limpar.config(bg="#C0C0C0", pady=5, padx=5)
-        self.frame_lbl_botao_limpar.place(y=37, x=5)
-
+        self.frame_lbl_botao_limpar.config(bg="#DCDCDC", pady=5, padx=5)
+        self.frame_lbl_botao_limpar.place(y=80, x=5)
+        # ______________________________________________________________________________________________________________
         """# Frame Botão de Voltar a janela principal"""
         self.frame_lbl_botao_voltar = tk.LabelFrame(self.frame_inferior_dupli, text='Limpar lista')
-        self.frame_lbl_botao_voltar.config(bg="#C0C0C0", pady=5, padx=5)
-        self.frame_lbl_botao_voltar.place(y=57, x=5)
+        self.frame_lbl_botao_voltar.config(bg="#DCDCDC", pady=5, padx=5)
+        self.frame_lbl_botao_voltar.place(y=150, x=5)
 
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
         self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao_proc_dados)
-        self.botao_aplica_opcao_check.config(text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_check.config(text='Aplicar', bg='#DCDCDC', width=133)
         self.botao_aplica_opcao_check.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_check.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """# Botão para limpar as lista e os checklist"""
         self.botao_aplica_opcao_limpar = tk.Button(self.frame_lbl_botao_limpar)
-        self.botao_aplica_opcao_limpar.config(text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_limpar.config(text='Aplicar', bg='#DCDCDC', width=133)
         self.botao_aplica_opcao_limpar.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_limpar.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """# Botão para fechar a janela secundaria e voltar para janela principal """
         self.botao_aplica_opcao_voltar = tk.Button(self.frame_lbl_botao_voltar)
-        self.botao_aplica_opcao_voltar.config(text='Aplicar', bg='#C0C0C0', width=133)
+        self.botao_aplica_opcao_voltar.config(text='Aplicar', bg='#DCDCDC', width=133)
         self.botao_aplica_opcao_voltar.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_voltar.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
