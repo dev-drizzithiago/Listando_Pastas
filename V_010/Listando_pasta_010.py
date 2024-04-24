@@ -281,36 +281,6 @@ class ProgramaPrincipal:
         print(f'Iniciando THREAD botao_duplicidade')
         Thread(target=valor_dados_busca(self.dados_do_processo_busca)).start()
 
-    def thread_opcao_check_botao_duplicidade(self):
-        print('Iniciando thread "opcao_check_botao"')
-        Thread(target=self.opcao_check_botao_duplicidade).start()
-        # ______________________________________________________________________________________________________________
-
-    def opcao_check_botao_duplicidade(self):
-        print('Iniciando "opcao_check_botao_duplicidade"')
-        print(self.var_opcao_move.get())
-        resposta_move = self.var_opcao_move.get()
-        if resposta_move:
-            print('teste mover')
-
-        resposta_delete = self.var_opcao_delete.get()
-        if resposta_delete:
-            print('teste delete')
-
-    def verificacao_duplicidade(self):
-        for valor in dados_do_processo_busca:
-            valor_item = str(valor).split('|')[1]
-
-            if valor_item in arquivo_repetido:
-                arquivo_repetido[valor_item] += 1
-            else:
-                arquivo_repetido[valor_item] = 1
-
-        for k, v in arquivo_repetido.items():
-            if v > 1:
-                print(f'Arquivo Repetido: {k} - Quantidade: {v}')
-                self.lista_result_duplicidade.insert('end', f'File: [ {k} ] - QTDS: [ {v} ]')
-
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
