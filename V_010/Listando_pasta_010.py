@@ -188,7 +188,7 @@ class ProgramaPrincipal:
         """# Botão verificar duplicidade"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_duplicidade, state=tk.DISABLED)
+        self.botao_duplicidade.config(command=self.thread_botao_duplicidade_tk_principal, state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
@@ -351,7 +351,7 @@ class ProgramaPrincipal:
     def thread_opcao_check_botao(self):
         Thread(target=self.opcao_check_botao).start()
 
-    def thread_botao_duplicidade(self):
+    def thread_botao_duplicidade_tk_principal(self):
         print('Iniciando "thread_botao_duplicidade"')
         Thread(target=self.botao_modulo_duplicidade).start()
 
