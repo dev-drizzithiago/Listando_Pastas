@@ -5,28 +5,13 @@ from threading import Thread
 dados_do_processo_busca = list()
 arquivo_repetido = dict()
 
-lista_teste_1 = ['SCREENSHOT_20220725-085708.PNG',
-                 'SCREENSHOT_20220725-224021.PNG',
-                 'SCREENSHOT_20220727-080238.PNG',
-                 'SCREENSHOT_20220728-120141.PNG',
-                 'SCREENSHOT_20220729-123824.PNG',
-                 'SCREENSHOT_20220731-111027.PNG',
-                 'SCREENSHOT_20220725-085708.PNG',
-                 'SCREENSHOT_20220725-224021.PNG',
-                 'SCREENSHOT_20220727-080238.PNG',
-                 'SCREENSHOT_20220728-120141.PNG',
-                 'SCREENSHOT_20220729-123824.PNG',
-                 'SCREENSHOT_20220731-111027.PNG'
-                 ]
-
 
 class JanelaDuplicados:
     def __init__(self):
-        pass
+
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    def janela_duplicidade(self):
         """#### Janela de opções duplicados; só interno """
         self.janela_opc_duplicidade = tk.Tk()
         self.janela_opc_duplicidade.geometry('1000x600+200+50')
