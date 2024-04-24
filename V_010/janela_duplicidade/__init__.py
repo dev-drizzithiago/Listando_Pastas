@@ -93,7 +93,8 @@ class JanelaDuplicados:
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
     """#### Valor entra direto na função abaixo"""
-    def valor_dados_da_busca(self, valor_busca):
+    def recebendo_valores(self, valor_busca):
+        print(f'Iniciando função "recebendo_valores')
         print(valor_busca)
         for item_lista_busca in valor_busca:
             dados_do_processo_busca.insert(item_lista_busca)
@@ -132,4 +133,8 @@ class JanelaDuplicados:
         if resposta_delete:
             print('teste delete')
 
+
 obj_inicio = JanelaDuplicados()
+
+def valor_dados_busca(valor_dos_dados):
+    obj_inicio.recebendo_valores(valor_dos_dados)
