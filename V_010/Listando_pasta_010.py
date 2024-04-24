@@ -281,8 +281,21 @@ class ProgramaPrincipal:
 
         # ______________________________________________________________________________________________________________
         """#### Frame botao """
-        self.frame_lbl_botao = tk.LabelFrame(self.frame_inferior_dupli, text='Processar', bg="#C0C0C0", pady=5, padx=5)
-        self.frame_lbl_botao.place(y=7, x=5)
+        """# Frame Botão de processar"""
+        self.frame_lbl_botao_proc_dados = tk.LabelFrame(self.frame_inferior_dupli, text='Processar dados')
+        self.frame_lbl_botao_proc_dados.config(bg="#C0C0C0", pady=5, padx=5)
+        self.frame_lbl_botao_proc_dados.place(y=7, x=5)
+
+        """# Frame Botão de limpar"""
+        self.frame_lbl_botao_limpar = tk.LabelFrame(self.frame_inferior_dupli, text='Limpar lista')
+        self.frame_lbl_botao_limpar.config(bg="#C0C0C0", pady=5, padx=5)
+        self.frame_lbl_botao_limpar.place(y=37, x=5)
+
+        """# Frame Botão de Voltar a janela principal"""
+        self.frame_lbl_botao_voltar = tk.LabelFrame(self.frame_inferior_dupli, text='Limpar lista')
+        self.frame_lbl_botao_voltar.config(bg="#C0C0C0", pady=5, padx=5)
+        self.frame_lbl_botao_voltar.place(y=57, x=5)
+        
 
         # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
@@ -293,8 +306,6 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
-
-        self.janela_opc_duplicidade.mainloop()
         self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
@@ -559,7 +570,7 @@ class ProgramaPrincipal:
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
         print('Iniciando "botao_modulo_duplicidade"')
-        pass
+        self.janela_duplicidade()
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
