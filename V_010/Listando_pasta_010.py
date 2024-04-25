@@ -43,6 +43,10 @@ class ProgramaPrincipal:
         self.ativar_minutos = False
         self.ativar_horas = False
 
+        self.ativar_opcao_mover = False
+        self.ativar_opcao_delete = True
+        self.ativar_opcao_renomear = False
+
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """# Janela principal"""
         self.janela_principal = tk.Tk()
@@ -372,6 +376,9 @@ class ProgramaPrincipal:
         print('Iniciando "thread_botao_duplicidade"')
         Thread(target=self.botao_modulo_duplicidade).start()
 
+    def thread_processo_hashlib_duplicados(self):
+        Thread(target=self.processo_hashlib_duplicados).start()
+
     """#### Sistema de combo e criaçãodo checkbutton"""
 
     def selecao_combo_extensao(self, *args):
@@ -610,14 +617,9 @@ class ProgramaPrincipal:
 
         :return:
         """
-        """ Declaração de variais locais"""
-
-        """chamada de modulo local"""
-        from hashlib import md5
 
         """# Declarações de varial local"""
         dict_duplicado = dict()
-        unico_arquivo = list()
 
         print('Iniciando "botao_modulo_duplicidade"')
 
@@ -648,24 +650,45 @@ class ProgramaPrincipal:
         except:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
 
+    def processo_hashlib_duplicados(self):
+        """chamada de modulo local"""
+        from hashlib import md5
+        unico_arquivo = list()
+
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         hash_file = md5(open(self.dados_do_processo_busca, 'rb').read()).hexdigest()
-        if hash_file not in unico_arquivo:
-            unico_arquivo[hash_file] = self.dados_do_processo_busca
-        
+        if self.ativar_opcao_mover:
+            if hash_file not in unico_arquivo:
+                unico_arquivo[hash_file] = self.dados_do_processo_busca
+        elif self.ativar_opcao_delete:
+            if hash_file not in unico_arquivo:
+                unico_arquivo[hash_file] = self.dados_do_processo_busca
+        elif self.ativar_opcao_renomear:
+            if hash_file not in unico_arquivo:
+                unico_arquivo[hash_file] = self.dados_do_processo_busca
+
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
         resposta_radio = self.var_opcao_radio.get()
         if resposta_radio == 1:
-            print('teste mover')
+            self.ativar_opcao_mover = True
+            self.ativar_opcao_delete = False
+            self.ativar_opcao_renomear = False
 
         if resposta_radio == 2:
             print('teste delete')
+            self.ativar_opcao_mover = False
+            self.ativar_opcao_delete = True
+            self.ativar_opcao_renomear = False
 
         if resposta_radio == 3:
             print('teste renomear')
+            self.ativar_opcao_mover = False
+            self.ativar_opcao_delete = False
+            self.ativar_opcao_renomear = True
 
     """#### Processo de Busca"""
+
     def botao_inicio_da_busca_principal(self):
         print('Iniciando função "botao_inicio_da_busca_principal"')
         """
