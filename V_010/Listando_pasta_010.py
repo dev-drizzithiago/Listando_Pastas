@@ -650,7 +650,9 @@ class ProgramaPrincipal:
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         hash_file = md5(open(self.dados_do_processo_busca, 'rb').read()).hexdigest()
-
+        if hash_file not in unico_arquivo:
+            unico_arquivo[hash_file] = self.dados_do_processo_busca
+        
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
         resposta_radio = self.var_opcao_radio.get()
