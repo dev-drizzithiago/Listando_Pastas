@@ -617,6 +617,7 @@ class ProgramaPrincipal:
 
         """# Declarações de varial local"""
         dict_duplicado = dict()
+        unico_arquivo = list()
 
         print('Iniciando "botao_modulo_duplicidade"')
 
@@ -646,7 +647,9 @@ class ProgramaPrincipal:
                 showerror("ERROR", "Não existem dados para serem apresentados na lista de duplicados!")
         except:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
+
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
+        hash_file = md5(open(self.dados_do_processo_busca, 'rb').read()).hexdigest()
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
