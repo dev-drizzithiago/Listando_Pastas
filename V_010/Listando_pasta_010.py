@@ -620,14 +620,10 @@ class ProgramaPrincipal:
                 valor_arquivo_da_busca = cortando_valores_da_busca[1]
 
                 """# Calcula os dados duplicados"""
-                try:
-                    if valor_arquivo_da_busca in dict_duplicado:
-                        dict_duplicado[valor_arquivo_da_busca] += 1
-                        dict_duplicado['Diretorio'] = [valor_caminho_da_busca]
-                    else:
-                        dict_duplicado[valor_arquivo_da_busca] = 1
-                except:
-                    showwarning("AVISO", 'Não foi possível calcular os arquivos duplicados')
+                if valor_arquivo_da_busca in dict_duplicado:
+                    dict_duplicado[f'[{valor_arquivo_da_busca.upper()}]'] += 1
+                else:
+                    dict_duplicado[valor_arquivo_da_busca] = 1
 
             """# Abre o dicionario e mostras as informações para o usuário"""
             try:
