@@ -611,6 +611,11 @@ class ProgramaPrincipal:
         :return:
         """
         """ Declaração de variais locais"""
+
+        """chamada de modulo local"""
+        from hashlib import md5
+
+        """# Declarações de varial local"""
         dict_duplicado = dict()
 
         print('Iniciando "botao_modulo_duplicidade"')
@@ -641,6 +646,7 @@ class ProgramaPrincipal:
                 showerror("ERROR", "Não existem dados para serem apresentados na lista de duplicados!")
         except:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
+        """# Processo para verificar os arquivos ducplicados usando o hashlib """
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
@@ -655,7 +661,6 @@ class ProgramaPrincipal:
             print('teste renomear')
 
     """#### Processo de Busca"""
-
     def botao_inicio_da_busca_principal(self):
         print('Iniciando função "botao_inicio_da_busca_principal"')
         """
