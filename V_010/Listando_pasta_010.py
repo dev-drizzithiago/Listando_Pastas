@@ -277,7 +277,7 @@ class ProgramaPrincipal:
         # 2
         self.var_opcao_delete = tk.IntVar()
         self.opcao_delete = tk.Radiobutton(self.frame_superior_dupli)
-        self.opcao_delete.config( text='Deletar arquivos duplicados', bg='#C0C0C0', value=2)
+        self.opcao_delete.config(text='Deletar arquivos duplicados', bg='#C0C0C0', value=2)
         self.opcao_delete.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
         self.opcao_delete.place(y=30, x=5)
         # ______________________________________________________________________________________________________________
@@ -335,6 +335,7 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -371,6 +372,7 @@ class ProgramaPrincipal:
         Thread(target=self.botao_modulo_duplicidade).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
@@ -448,6 +450,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
     def evento_mouse(self):
         showinfo('Teste', 'teste')
 
@@ -488,6 +491,7 @@ class ProgramaPrincipal:
         print(f'"Combo Ativado: {self.ativar_combo}')
 
     """#### Inicio dos processos """
+
     def tempo_processo_busca(self):
         """
         Função vai se responsavel em contar o tempo que a busca foi realizada.
@@ -593,14 +597,21 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """#### Modulo de processo de duplicidade"""
+
     def botao_modulo_duplicidade(self):
         """
 
         :return:
         """
+        """ Declaração de variais locais"""
+        dict_duplicado = dict()
 
         print('Iniciando "botao_modulo_duplicidade"')
+
+        """# Abre a janela de duplicidade. Nela contém todas as opções para tratar os dados duplicados"""
         self.janela_duplicidade()
+        """Identifica os arquivos plicados e mostra na lista de duplicados"""
+
         for valor_lista_busca in self.dados_do_processo_busca:
             self.lista_result_duplicidade.insert('end', f'{valor_lista_busca}')
 
@@ -617,6 +628,7 @@ class ProgramaPrincipal:
             print('teste renomear')
 
     """#### Processo de Busca"""
+
     def botao_inicio_da_busca_principal(self):
         """
 
