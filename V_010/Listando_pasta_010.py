@@ -27,6 +27,7 @@ class ProgramaPrincipal:
         tipos_categorias.sort()
 
         self.dados_do_processo_busca = list()
+        self.dados_para_duplicidade = list()
         self.tempo_gasto_da_busca = None
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
@@ -662,27 +663,24 @@ class ProgramaPrincipal:
         unico_arquivo = list()
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
-        for valor_da_lista in self.dados_do_processo_busca:
-            valor_dos_dados_de_busca = (str(valor_da_lista)
-                                        .replace('|', '\\')
-                                        .replace('\\', '/').strip())
+        for valor_da_lista in self.dados_para_duplicidade:
 
-            hash_file = md5(open(valor_dos_dados_de_busca, 'rb').read()).hexdigest()
+            hash_file = md5(open(valor_da_lista, 'rb').read()).hexdigest()
 
             if self.ativar_opcao_mover:
                 print('mover_arquivos')
                 if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = self.dados_do_processo_busca
+                    unico_arquivo[hash_file] = self.dados_para_duplicidade
 
             elif self.ativar_opcao_delete:
                 print('deletar_arquivos')
                 if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = self.dados_do_processo_busca
+                    unico_arquivo[hash_file] = self.dados_para_duplicidade
 
             elif self.ativar_opcao_renomear:
                 print('renomar_arquivos')
                 if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = self.dados_do_processo_busca
+                    unico_arquivo[hash_file] = self.dados_para_duplicidade
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
@@ -788,7 +786,7 @@ class ProgramaPrincipal:
                         """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário
                         São vários filtros para não jogar todos os arquivos"""
                         if search(valor_da_extensao_busca, valor_file):
-
+                            self.dados_para_duplicidade.append(os.path.join(raiz, valor_file))
                             self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                               f'[{contador_de_arquivos}]')
 
