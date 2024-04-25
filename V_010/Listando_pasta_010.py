@@ -628,11 +628,12 @@ class ProgramaPrincipal:
                         dict_duplicado[valor_arquivo_da_busca] = 1
                 except:
                     showwarning("AVISO", 'Não foi possível calcular os arquivos duplicados')
-                    
+
             """# Abre o dicionario e mostras as informações para o usuário"""
             try:
                 for k, v in dict_duplicado.items():
-                    self.lista_result_duplicidade.insert('end', f'{k}: {v}')
+                    if v > 1:
+                        self.lista_result_duplicidade.insert('end', f'{k}: {v}')
             except UnboundLocalError:
                 showerror("ERROR", "Não existem dados para ser apresentados na lista!")
         except:
