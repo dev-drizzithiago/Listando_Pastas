@@ -662,7 +662,11 @@ class ProgramaPrincipal:
         unico_arquivo = list()
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
-        for valor_dos_dados_de_busca in self.dados_do_processo_busca:
+        for valor_da_lista in self.dados_do_processo_busca:
+            valor_dos_dados_de_busca = (str(valor_da_lista)
+                                        .replace('|', '\\')
+                                        .replace('\\', '/').strip())
+
             hash_file = md5(open(valor_dos_dados_de_busca, 'rb').read()).hexdigest()
 
             if self.ativar_opcao_mover:
