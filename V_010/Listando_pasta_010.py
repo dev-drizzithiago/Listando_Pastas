@@ -621,7 +621,7 @@ class ProgramaPrincipal:
 
                 """# Calcula os dados duplicados"""
                 if valor_arquivo_da_busca in dict_duplicado:
-                    dict_duplicado[f'[{valor_arquivo_da_busca.upper()}]'] += 1
+                    dict_duplicado[valor_arquivo_da_busca] += 1
                 else:
                     dict_duplicado[valor_arquivo_da_busca] = 1
 
@@ -631,9 +631,9 @@ class ProgramaPrincipal:
                     if v > 1:
                         self.lista_result_duplicidade.insert('end', f'{k}: {v}')
             except UnboundLocalError:
-                showerror("ERROR", "Não existem dados para ser apresentados na lista!")
+                showerror("ERROR", "Não existem dados para serem apresentados na lista de duplicados!")
         except:
-            showwarning("AVISO", "Não possui dados na lista 'elf.dados_do_processo_busca'")
+            showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
