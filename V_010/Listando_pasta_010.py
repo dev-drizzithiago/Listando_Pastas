@@ -377,6 +377,7 @@ class ProgramaPrincipal:
         Thread(target=self.botao_modulo_duplicidade).start()
 
     def thread_processo_hashlib_duplicados(self):
+        print('Iniciando thread "thread_processo_hashlib_duplicados"')
         Thread(target=self.processo_hashlib_duplicados).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
@@ -651,8 +652,9 @@ class ProgramaPrincipal:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
 
     def processo_hashlib_duplicados(self):
+        print('Iniciando processo de "processo_hashlib_duplicados"')
         """
-        
+
         :return:
         """
         """chamada de modulo local"""
@@ -660,18 +662,21 @@ class ProgramaPrincipal:
         unico_arquivo = list()
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
-        for i in range(len(self.dados_do_processo_busca)):
-            hash_file = md5(open(self.dados_do_processo_busca, 'rb').read()).hexdigest()
+        for valor_dos_dados_de_busca in self.dados_do_processo_busca:
+            hash_file = md5(open(valor_dos_dados_de_busca, 'rb').read()).hexdigest()
 
             if self.ativar_opcao_mover:
+                print('mover_arquivos')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = self.dados_do_processo_busca
 
             elif self.ativar_opcao_delete:
+                print('deletar_arquivos')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = self.dados_do_processo_busca
 
             elif self.ativar_opcao_renomear:
+                print('renomar_arquivos')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = self.dados_do_processo_busca
 
