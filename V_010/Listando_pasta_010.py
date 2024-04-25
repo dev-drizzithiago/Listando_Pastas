@@ -670,17 +670,17 @@ class ProgramaPrincipal:
             if self.ativar_opcao_mover:
                 print('mover_arquivos')
                 if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = self.dados_para_duplicidade
+                    unico_arquivo[hash_file] = valor_da_lista
 
             elif self.ativar_opcao_delete:
                 print('deletar_arquivos')
                 if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = self.dados_para_duplicidade
+                    unico_arquivo[hash_file] = valor_da_lista
 
             elif self.ativar_opcao_renomear:
                 print('renomar_arquivos')
                 if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = self.dados_para_duplicidade
+                    unico_arquivo[hash_file] = valor_da_lista
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
