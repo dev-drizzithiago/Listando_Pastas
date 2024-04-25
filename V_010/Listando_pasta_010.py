@@ -365,6 +365,7 @@ class ProgramaPrincipal:
         Thread(target=self.tempo_processo_busca).start()
 
     def thread_opcao_check_botao(self):
+        print('Iniciando thread "thread_opcao_check_botao"')
         Thread(target=self.opcao_check_botao).start()
 
     def thread_botao_duplicidade_tk_principal(self):
@@ -374,6 +375,7 @@ class ProgramaPrincipal:
     """#### Sistema de combo e criaçãodo checkbutton"""
 
     def selecao_combo_extensao(self, *args):
+        print('Iniciando função "selecao_combo_extensao" ')
         self.ativar_combo = True
         print(f'Combo ativado: {self.ativar_combo}')
         """### Declaraçõa de variaveis básicas"""
