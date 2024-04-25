@@ -656,16 +656,20 @@ class ProgramaPrincipal:
         unico_arquivo = list()
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
-        hash_file = md5(open(self.dados_do_processo_busca, 'rb').read()).hexdigest()
-        if self.ativar_opcao_mover:
-            if hash_file not in unico_arquivo:
-                unico_arquivo[hash_file] = self.dados_do_processo_busca
-        elif self.ativar_opcao_delete:
-            if hash_file not in unico_arquivo:
-                unico_arquivo[hash_file] = self.dados_do_processo_busca
-        elif self.ativar_opcao_renomear:
-            if hash_file not in unico_arquivo:
-                unico_arquivo[hash_file] = self.dados_do_processo_busca
+        for i in range(len(self.dados_do_processo_busca)):
+            hash_file = md5(open(self.dados_do_processo_busca, 'rb').read()).hexdigest()
+
+            if self.ativar_opcao_mover:
+                if hash_file not in unico_arquivo:
+                    unico_arquivo[hash_file] = self.dados_do_processo_busca
+
+            elif self.ativar_opcao_delete:
+                if hash_file not in unico_arquivo:
+                    unico_arquivo[hash_file] = self.dados_do_processo_busca
+
+            elif self.ativar_opcao_renomear:
+                if hash_file not in unico_arquivo:
+                    unico_arquivo[hash_file] = self.dados_do_processo_busca
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
