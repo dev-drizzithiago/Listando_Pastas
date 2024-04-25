@@ -457,6 +457,7 @@ class ProgramaPrincipal:
         showinfo('Teste', 'teste')
 
     def data_hora_certa(self):
+        print('Iniciando função "data_hora_certa"')
         """
 
         :return:
@@ -467,11 +468,13 @@ class ProgramaPrincipal:
         self.lbl_hora_certa.config(text=f'Inicio do programa:[{self.hora_certa}-{self.data_certa}]')
 
     def func_pasta_destino(self):
+        print('Iniciando função "func_pasta_destino"')
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.diretorio_home = Path.home()
 
     def botao_limpeza_checkbutton_destroy(self):
+        print('Iniciando funçao "botao_limpeza_checkbutton_destroy"')
         print(f'\nRemovendo os botões check\n')
         if self.ativar_combo:
             for valor_destroy in self.botoes_chek:
@@ -495,6 +498,7 @@ class ProgramaPrincipal:
     """#### Inicio dos processos """
 
     def tempo_processo_busca(self):
+        print('Iniciando função "tempo_processo_busca"')
         """
         Função vai se responsavel em contar o tempo que a busca foi realizada.
         :return:
@@ -601,6 +605,7 @@ class ProgramaPrincipal:
     """#### Modulo de processo de duplicidade"""
 
     def botao_modulo_duplicidade(self):
+        print('Iniciando função "botao_modulo_duplicidade"')
         """
 
         :return:
@@ -652,6 +657,7 @@ class ProgramaPrincipal:
     """#### Processo de Busca"""
 
     def botao_inicio_da_busca_principal(self):
+        print('Iniciando função "botao_inicio_da_busca_principal"')
         """
 
         :return:
