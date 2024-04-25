@@ -636,6 +636,9 @@ class ProgramaPrincipal:
                 valor_caminho_da_busca = cortando_valores_da_busca[0]
                 valor_arquivo_da_busca = cortando_valores_da_busca[1]
 
+                print(valor_caminho_da_busca)
+                print(valor_arquivo_da_busca)
+
                 """# Calcula os dados duplicados"""
                 if valor_arquivo_da_busca in dict_duplicado:
                     dict_duplicado[valor_arquivo_da_busca] += 1
