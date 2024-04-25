@@ -618,23 +618,25 @@ class ProgramaPrincipal:
                 cortando_valores_da_busca = str(valor_lista_busca).split('|')
                 valor_caminho_da_busca = cortando_valores_da_busca[0]
                 valor_arquivo_da_busca = cortando_valores_da_busca[1]
-        except:
-            showwarning("AVISO", "Não possui dados na lista 'elf.dados_do_processo_busca'")
 
-            try:
-                if valor_arquivo_da_busca in dict_duplicado:
-                    dict_duplicado[valor_arquivo_da_busca] += 1
-                    dict_duplicado['Diretorio'] = [valor_caminho_da_busca]
-                else:
-                    dict_duplicado[valor_arquivo_da_busca] = 1
-            except:
-                showwarning("AVISO", 'Não foi possível calcular os arquivos duplicados')
-
+                """# Calcula os dados duplicados"""
+                try:
+                    if valor_arquivo_da_busca in dict_duplicado:
+                        dict_duplicado[valor_arquivo_da_busca] += 1
+                        dict_duplicado['Diretorio'] = [valor_caminho_da_busca]
+                    else:
+                        dict_duplicado[valor_arquivo_da_busca] = 1
+                except:
+                    showwarning("AVISO", 'Não foi possível calcular os arquivos duplicados')
+                    
+            """# Abre o dicionario e mostras as informações para o usuário"""
             try:
                 for k, v in dict_duplicado.items():
                     self.lista_result_duplicidade.insert('end', f'{k}: {v}')
             except UnboundLocalError:
                 showerror("ERROR", "Não existem dados para ser apresentados na lista!")
+        except:
+            showwarning("AVISO", "Não possui dados na lista 'elf.dados_do_processo_busca'")
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
