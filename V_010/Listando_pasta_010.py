@@ -663,7 +663,7 @@ class ProgramaPrincipal:
         """
         """chamada de modulo local"""
         from hashlib import md5
-        unico_arquivo = list()
+        unico_arquivo = dict()
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
