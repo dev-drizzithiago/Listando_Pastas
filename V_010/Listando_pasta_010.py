@@ -651,6 +651,10 @@ class ProgramaPrincipal:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
 
     def processo_hashlib_duplicados(self):
+        """
+        
+        :return:
+        """
         """chamada de modulo local"""
         from hashlib import md5
         unico_arquivo = list()
@@ -691,6 +695,8 @@ class ProgramaPrincipal:
             self.ativar_opcao_delete = False
             self.ativar_opcao_renomear = True
 
+        """# chama a função para realizar o processo dos arquivos duplicados"""
+        self.thread_processo_hashlib_duplicados()
     """#### Processo de Busca"""
 
     def botao_inicio_da_busca_principal(self):
