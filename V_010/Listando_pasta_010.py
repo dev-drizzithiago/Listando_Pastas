@@ -612,7 +612,18 @@ class ProgramaPrincipal:
         self.janela_duplicidade()
         """Identifica os arquivos plicados e mostra na lista de duplicados"""
 
+        """ Identificando os valores repetidos"""
         for valor_lista_busca in self.dados_do_processo_busca:
+            cortando_valores_da_busca = str(valor_lista_busca).split('|')
+            valor_caminho_da_busca = cortando_valores_da_busca[0]
+            valor_arquivo_da_busca = cortando_valores_da_busca[1]
+
+            if valor_arquivo_da_busca in dict_duplicado:
+                dict_duplicado[valor_arquivo_da_busca] += 1
+                dict_duplicado['Diretorio'] = [valor_caminho_da_busca]
+            else:
+                dict_duplicado[valor_arquivo_da_busca] = 1
+
             self.lista_result_duplicidade.insert('end', f'{valor_lista_busca}')
 
     def opcao_check_botao(self):
