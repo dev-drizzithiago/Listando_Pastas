@@ -666,8 +666,8 @@ class ProgramaPrincipal:
         unico_arquivo = list()
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
-        for valor_da_lista in self.dados_para_duplicidade:
-
+        for valor in self.dados_para_duplicidade:
+            valor_da_lista = Path(valor)
             hash_file = md5(open(valor_da_lista, 'rb').read()).hexdigest()
 
             if self.ativar_opcao_mover:
