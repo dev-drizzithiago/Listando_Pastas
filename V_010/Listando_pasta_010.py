@@ -1,4 +1,5 @@
 """#### Declaração de Modulos"""
+import shutil
 from tkinter.messagebox import showwarning, showinfo, showerror
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
@@ -673,8 +674,8 @@ class ProgramaPrincipal:
                         move(caminho_arquivo, caminho_destino)
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
                               f'Pasta de destino: {caminho_destino}\n')
-                    except:
-                        showerror('AVISO', f'Não foi possível mover o arquivo{caminho_arquivo}')
+                    except shutil.Error:
+                        showerror('AVISO', f'Arquivo {caminho_arquivo} já existe nessa pasta')
 
             elif self.ativar_opcao_delete:
                 """#### opcao delete"""
