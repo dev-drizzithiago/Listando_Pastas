@@ -669,14 +669,12 @@ class ProgramaPrincipal:
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
-                    print('Processando...')
-                    sleep(5)
                     try:
                         move(caminho_arquivo, caminho_destino)
-                        print('Arquivos movidos com sucesso!')
-                        showinfo('Parabéns', 'Arquivos movidos com sucesso!')
+                        print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
+                              f'Pasta de destino: {caminho_destino}\n')
                     except:
-                        showerror('AVISO', 'Não foi possível mover o arquivo')
+                        showerror('AVISO', f'Não foi possível mover o arquivo{caminho_arquivo}')
 
             elif self.ativar_opcao_delete:
                 """#### opcao delete"""
