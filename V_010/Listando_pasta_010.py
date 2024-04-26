@@ -670,12 +670,12 @@ class ProgramaPrincipal:
         print('Iniciando barra de progresso na janela duplicidade')
         self.barra_progresso_processo_duplicidade.start()
 
-        """# Mudando o status do lbl na barra de progresso"""
-        self.lbl_barra_progresso.config(text='Processando...', bg='#C0C0C0')
-
         """#### Caso escolha mover os arquivos para outra pasta, abre-se uma janela para escolha qual pasta"""
         if self.ativar_opcao_mover:
             caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
+
+        """# Mudando o status do lbl na barra de progresso"""
+        self.lbl_barra_progresso.config(text='Processando...', bg='#C0C0C0')
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
