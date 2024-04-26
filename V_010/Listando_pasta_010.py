@@ -678,6 +678,11 @@ class ProgramaPrincipal:
         """# Mudando o status do lbl na barra de progresso"""
         self.lbl_barra_progresso.config(text='Processando...', bg='#C0C0C0')
 
+        """# Valor de cara RADIO Button"""
+        print(f'Status mover: {self.ativar_opcao_mover}\n'
+              f'Status deletar: {self.ativar_opcao_delete}\n'
+              f'status renomear: {self.ativar_opcao_renomear}')
+
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
             caminho_arquivo = Path(valor)
