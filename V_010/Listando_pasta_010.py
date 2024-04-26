@@ -710,7 +710,7 @@ class ProgramaPrincipal:
                 else:
                     pass
                 indice += 1
-                
+
             elif self.ativar_opcao_renomear:
                 """#### opcao renomear"""
                 if hash_file not in unico_arquivo:
@@ -723,6 +723,14 @@ class ProgramaPrincipal:
         self.barra_progresso_processo_duplicidade.stop()
         self.barra_progresso_processo_duplicidade.config(value=100)
         print('Finalizando barra de progresso na janela duplicidade')
+
+        if self.ativar_opcao_mover:
+            funcao_realizada = f'Arquivo movimentao para {caminho_destino}'
+        elif self.ativar_opcao_delete:
+            funcao_realizada = 'Todos os arquivos duplicados foram deletados'
+        elif self.ativar_opcao_renomear:
+            funcao_realizada = 'Nome do arquivo renomeado para {}'
+        self.lbl_barra_progresso.config(f'{funcao_realizada}')
 
         """# Limpando lista de dados"""
         del self.dados_para_duplicidade[:]
