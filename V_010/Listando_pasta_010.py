@@ -666,6 +666,7 @@ class ProgramaPrincipal:
 
         """# Declaração de variavel"""
         unico_arquivo = dict()
+
         """# Iniciando barra de progresso na janela de duplicidade """
         print('Iniciando barra de progresso na janela duplicidade')
         self.barra_progresso_processo_duplicidade.start()
@@ -712,6 +713,9 @@ class ProgramaPrincipal:
         self.barra_progresso_processo_duplicidade.stop()
         self.barra_progresso_processo_duplicidade.config(value=100)
         print('Finalizando barra de progresso na janela duplicidade')
+
+        """# Limpando lista de dados"""
+        del self.dados_para_duplicidade[:]
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
