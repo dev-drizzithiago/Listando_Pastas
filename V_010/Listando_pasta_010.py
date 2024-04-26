@@ -666,8 +666,13 @@ class ProgramaPrincipal:
 
         """# Declaração de variavel"""
         unico_arquivo = dict()
+        """# Iniciando barra de progresso na janela de duplicidade """
+        print('Iniciando barra de progresso na janela duplicidade')
         self.barra_progresso_processo_duplicidade.start()
+
+        """# Mudando o status do lbl na barra de progresso"""
         self.lbl_barra_progresso.config(text='Processando...', bg='#C0C0C0')
+
         """#### Caso escolha mover os arquivos para outra pasta, abre-se uma janela para escolha qual pasta"""
         if self.ativar_opcao_mover:
             caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
@@ -702,8 +707,11 @@ class ProgramaPrincipal:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     pass
+
+        """# Finalizando a barro de progresso na janela duplicidade"""
         self.barra_progresso_processo_duplicidade.stop()
         self.barra_progresso_processo_duplicidade.config(value=100)
+        print('Finalizando barra de progresso na janela duplicidade')
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
