@@ -668,12 +668,13 @@ class ProgramaPrincipal:
         """# Declaração de variavel"""
         unico_arquivo = dict()
 
-        """# Processo para verificar os arquivos ducplicados usando o hashlib """
-        for valor in self.dados_para_duplicidade:
-            caminho_arquivo = Path(valor)
-            hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
+        if self.ativar_opcao_mover:
 
-            if self.ativar_opcao_mover:
+            """# Processo para verificar os arquivos ducplicados usando o hashlib """
+            for valor in self.dados_para_duplicidade:
+                caminho_arquivo = Path(valor)
+                hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
+
                 print('mover_arquivos')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
@@ -688,14 +689,25 @@ class ProgramaPrincipal:
                     except:
                         showerror('AVISO', 'Não foi possível mover o arquivo')
 
-            elif self.ativar_opcao_delete:
+        elif self.ativar_opcao_delete:
+
+            """# Processo para verificar os arquivos ducplicados usando o hashlib """
+            for valor in self.dados_para_duplicidade:
+                caminho_arquivo = Path(valor)
+                hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
+
                 print('deletar_arquivos')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     print(valor)
 
-            elif self.ativar_opcao_renomear:
+        elif self.ativar_opcao_renomear:
+
+            """# Processo para verificar os arquivos ducplicados usando o hashlib """
+            for valor in self.dados_para_duplicidade:
+                caminho_arquivo = Path(valor)
+                hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
                 print('renomear_arquivos')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
