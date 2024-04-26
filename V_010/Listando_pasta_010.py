@@ -666,6 +666,7 @@ class ProgramaPrincipal:
 
         """# Declaração de variavel"""
         unico_arquivo = dict()
+        indice = 1
 
         """# Iniciando barra de progresso na janela de duplicidade """
         print('Iniciando barra de progresso na janela duplicidade')
@@ -694,11 +695,13 @@ class ProgramaPrincipal:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     try:
+                        print(f'Movendo {caminho_arquivo} para {caminho_destino}')
                         move(caminho_arquivo, caminho_destino)
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
                               f'Pasta de destino: {caminho_destino}\n')
                     except shutil.Error:
                         showerror('AVISO', f'Arquivo {caminho_arquivo} já existe nessa pasta')
+                    indice += 1
 
             elif self.ativar_opcao_delete:
                 """#### opcao delete"""
@@ -706,13 +709,15 @@ class ProgramaPrincipal:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     pass
-
+                indice += 1
+                
             elif self.ativar_opcao_renomear:
                 """#### opcao renomear"""
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     pass
+                indice += 1
 
         """# Finalizando a barro de progresso na janela duplicidade"""
         self.barra_progresso_processo_duplicidade.stop()
