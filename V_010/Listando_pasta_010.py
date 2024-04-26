@@ -299,12 +299,18 @@ class ProgramaPrincipal:
         self.barra_progresso_processo_duplicidade = Progressbar(self.frame_superior_dupli, orient=tk.HORIZONTAL)
         self.barra_progresso_processo_duplicidade.config(mode='determinate', length=165)
         self.barra_progresso_processo_duplicidade.place(y=45, x=800)
+        # ______________________________________________________________________________________________________________
         """# Label barra de progresso"""
         self.var_lbl_barra_progresso = tk.StringVar()
         self.lbl_barra_progresso = tk.Label(self.frame_superior_dupli, text=self.var_lbl_barra_progresso)
         self.lbl_barra_progresso.config(text='Ocioso...', bg='#C0C0C0')
         self.lbl_barra_progresso.place(y=45, x=700)
-
+        # ______________________________________________________________________________________________________________
+        """# Label Informação do processo final"""
+        self.var_lbl_info_process_fim = tk.StringVar()
+        self.lbl_info_process_fim = tk.Label(self.frame_superior_dupli, text=self.var_lbl_info_process_fim)
+        self.lbl_info_process_fim.config(text='Ocioso...', bg='#C0C0C0')
+        self.lbl_info_process_fim.place(y=11, x=700)
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
         """#### Frame Inferio para botões"""
@@ -695,7 +701,7 @@ class ProgramaPrincipal:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     try:
-                        print(f'Movendo {caminho_arquivo} para {caminho_destino}')
+                        print(f'Movendo 1º{indice}-{caminho_arquivo} para {caminho_destino}')
                         move(caminho_arquivo, caminho_destino)
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
                               f'Pasta de destino: {caminho_destino}\n')
@@ -709,7 +715,7 @@ class ProgramaPrincipal:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     pass
-                indice += 1
+                    indice += 1
 
             elif self.ativar_opcao_renomear:
                 """#### opcao renomear"""
@@ -717,7 +723,7 @@ class ProgramaPrincipal:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     pass
-                indice += 1
+                    indice += 1
 
         """# Finalizando a barro de progresso na janela duplicidade"""
         self.barra_progresso_processo_duplicidade.stop()
@@ -730,7 +736,7 @@ class ProgramaPrincipal:
             funcao_realizada = 'Todos os arquivos duplicados foram deletados'
         elif self.ativar_opcao_renomear:
             funcao_realizada = 'Nome do arquivo renomeado para {}'
-        self.lbl_barra_progresso.config(f'{funcao_realizada}')
+        self.lbl_info_process_fim.config(text=f'{funcao_realizada}')
 
         """# Limpando lista de dados"""
         del self.dados_para_duplicidade[:]
