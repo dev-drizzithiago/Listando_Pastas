@@ -645,62 +645,52 @@ class ProgramaPrincipal:
         except:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
 
-    def processo_hashlib_duplicados(self):
+    def acao_arquivos_duplicidades(self):
         print('Iniciando processo de "processo_hashlib_duplicados"')
 
         """chamada de modulo local"""
         from hashlib import md5
+        from shutil import move
 
         """# Declaração de variavel"""
         unico_arquivo = dict()
 
-        """# Processo para verificar os arquivos ducplicados usando o hashlib """
-        for valor in self.dados_para_duplicidade:
-            valor_caminho_arquivo = valor
-            valor_hash = md5(open(valor_caminho_arquivo, 'rb').read()).hexdigest()
-            return valor_caminho_arquivo, valor_hash
-
-    def acao_arquivos_duplicidades(self):
-        from shutil import move
-        unico_arquivo = dict()
-        lista_dados = self.processo_hashlib_duplicados()
-        print(lista_dados)
         """#### Caso escolha mover os arquivos para outra pasta, abre-se uma janela para escolha qual pasta"""
         if self.ativar_opcao_mover:
             caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
 
-        for dados in lista_dados:
-            hash_file = ''
-            caminho_arquivo = ''
-            """#### opcao mover"""
-            if self.ativar_opcao_mover:
-                if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = caminho_arquivo
-                else:
-                    print('Processando...')
-                    sleep(5)
-                    try:
-                        move(caminho_arquivo, caminho_destino)
-                        print('Arquivos movidos com sucesso!')
-                        showinfo('Parabéns', 'Arquivos movidos com sucesso!')
-                    except:
-                        showerror('AVISO', 'Não foi possível mover o arquivo')
+        """# Processo para verificar os arquivos ducplicados usando o hashlib """
+        for valor in self.dados_para_duplicidade:
+            caminho_arquivo = Path(valor)
+            hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
 
+        """#### opcao mover"""
+        if self.ativar_opcao_mover:
+            if hash_file not in unico_arquivo:
+                unico_arquivo[hash_file] = caminho_arquivo
+            else:
+                print('Processando...')
+                sleep(5)
+                try:
+                    move(caminho_arquivo, caminho_destino)
+                    print('Arquivos movidos com sucesso!')
+                    showinfo('Parabéns', 'Arquivos movidos com sucesso!')
+                except:
+                    showerror('AVISO', 'Não foi possível mover o arquivo')
 
-            elif self.ativar_opcao_delete:
-                """#### opcao delete"""
-                if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = caminho_arquivo
-                else:
-                    pass
+        elif self.ativar_opcao_delete:
+            """#### opcao delete"""
+            if hash_file not in unico_arquivo:
+                unico_arquivo[hash_file] = caminho_arquivo
+            else:
+                pass
 
-
-            elif self.ativar_opcao_renomear:
-                """#### opcao renomear"""
-                if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = caminho_arquivo
-                else:
-                    pass
+        elif self.ativar_opcao_renomear:
+            """#### opcao renomear"""
+            if hash_file not in unico_arquivo:
+                unico_arquivo[hash_file] = caminho_arquivo
+            else:
+                pass
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
