@@ -10,6 +10,7 @@ lista_dados = []
 duplicado = dict()
 home = Path.home()
 
+"""##### Caminho local do meu computador"""
 try:
     caminho_destino = 'C:/Users/Thiago/OneDrive/Documentos/Duplicados/'
     print(caminho_destino)
