@@ -294,7 +294,11 @@ class ProgramaPrincipal:
         self.opcao_renomear.config(text='Renomear arquivos duplicados', bg='#C0C0C0', value=3)
         self.opcao_renomear.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
         self.opcao_renomear.place(y=5, x=200)
+        # ______________________________________________________________________________________________________________
+        """#### Barra de progresso"""
+        self.barra_progresso_processo_duplicidade = Progressbar(self.frame)
 
+        # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
         """#### Frame Inferio para botões"""
         self.frame_inferior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#DCDCDC', width=980, height=233)
