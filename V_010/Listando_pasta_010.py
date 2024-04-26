@@ -379,7 +379,7 @@ class ProgramaPrincipal:
 
     def thread_processo_hashlib_duplicados(self):
         print('Iniciando thread "thread_processo_hashlib_duplicados"')
-        Thread(target=self.processo_hashlib_duplicados).start()
+        Thread(target=self.acao_arquivos_duplicidades).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
 
@@ -621,7 +621,6 @@ class ProgramaPrincipal:
 
         """# Abre a janela de duplicidade. Nela contém todas as opções para tratar os dados duplicados"""
         self.janela_duplicidade()
-        """Identifica os arquivos plicados e mostra na lista de duplicados"""
 
         """ Identificando os valores repetidos"""
         try:
@@ -629,9 +628,6 @@ class ProgramaPrincipal:
                 cortando_valores_da_busca = str(valor_lista_busca).split('|')
                 valor_caminho_da_busca = cortando_valores_da_busca[0]
                 valor_arquivo_da_busca = cortando_valores_da_busca[1]
-
-                print(valor_caminho_da_busca)
-                print(valor_arquivo_da_busca)
 
                 """# Calcula os dados duplicados"""
                 if valor_arquivo_da_busca in dict_duplicado:
@@ -660,16 +656,20 @@ class ProgramaPrincipal:
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
-            valor_caminho_arquivo = Path(valor)
-            valor_hash =  md5(open(valor_caminho_arquivo, 'rb').read()).hexdigest()
+            valor_caminho_arquivo = valor
+            valor_hash = md5(open(valor_caminho_arquivo, 'rb').read()).hexdigest()
             return valor_caminho_arquivo, valor_hash
 
     def acao_arquivos_duplicidades(self):
         from shutil import move
         unico_arquivo = dict()
         lista_dados = self.processo_hashlib_duplicados()
+        print(lista_dados)
+        """#### Caso escolha mover os arquivos para outra pasta, abre-se uma janela para escolha qual pasta"""
+        if self.ativar_opcao_mover:
+            caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
+
         for dados in lista_dados:
-            print(dados)
             hash_file = ''
             caminho_arquivo = ''
             """#### opcao mover"""
@@ -677,25 +677,26 @@ class ProgramaPrincipal:
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
-                    caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
                     print('Processando...')
                     sleep(5)
-                try:
-                    move(caminho_arquivo, caminho_destino)
-                    print('Arquivos movidos com sucesso!')
-                    showinfo('Parabéns', 'Arquivos movidos com sucesso!')
-                except:
-                    showerror('AVISO', 'Não foi possível mover o arquivo')
+                    try:
+                        move(caminho_arquivo, caminho_destino)
+                        print('Arquivos movidos com sucesso!')
+                        showinfo('Parabéns', 'Arquivos movidos com sucesso!')
+                    except:
+                        showerror('AVISO', 'Não foi possível mover o arquivo')
 
-            """#### opcao delete"""
+
             elif self.ativar_opcao_delete:
+                """#### opcao delete"""
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     pass
 
-            """#### opcao renomear"""
+
             elif self.ativar_opcao_renomear:
+                """#### opcao renomear"""
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
@@ -723,6 +724,7 @@ class ProgramaPrincipal:
 
         """# chama a função para realizar o processo dos arquivos duplicados"""
         self.thread_processo_hashlib_duplicados()
+
     """#### Processo de Busca"""
 
     def botao_inicio_da_busca_principal(self):
