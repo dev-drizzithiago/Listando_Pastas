@@ -678,7 +678,7 @@ class ProgramaPrincipal:
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
-                    caminho_destino = Path(askdirectory("Escolha uma Pasta"))
+                    caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
                     print('Processando...')
                     sleep(5)
                     try:
