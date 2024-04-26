@@ -683,6 +683,8 @@ class ProgramaPrincipal:
                     sleep(5)
                     try:
                         move(caminho_arquivo, caminho_destino)
+                        print('Arquivos movidos com sucesso!')
+                        showinfo('Parabéns', 'Arquivos movidos com sucesso!')
                     except:
                         showerror('AVISO', 'Não foi possível mover o arquivo')
 
