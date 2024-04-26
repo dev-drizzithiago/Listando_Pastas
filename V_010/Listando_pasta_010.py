@@ -296,7 +296,14 @@ class ProgramaPrincipal:
         self.opcao_renomear.place(y=5, x=200)
         # ______________________________________________________________________________________________________________
         """#### Barra de progresso"""
-        self.barra_progresso_processo_duplicidade = Progressbar(self.frame)
+        self.barra_progresso_processo_duplicidade = Progressbar(self.frame_superior_dupli, orient=tk.HORIZONTAL)
+        self.barra_progresso_processo_duplicidade.config(mode='determinate', length=165)
+        self.barra_progresso_processo_duplicidade.place(y=45, x=800)
+        """# Label barra de progresso"""
+        self.var_lbl_barra_progresso = tk.StringVar()
+        self.lbl_barra_progresso = tk.Label(self.frame_superior_dupli, text=self.var_lbl_barra_progresso)
+        self.lbl_barra_progresso.config(text='Ocioso...', bg='#C0C0C0')
+        self.lbl_barra_progresso.place(y=45, x=700)
 
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
@@ -659,7 +666,8 @@ class ProgramaPrincipal:
 
         """# Declaração de variavel"""
         unico_arquivo = dict()
-
+        self.barra_progresso_processo_duplicidade.start()
+        self.lbl_barra_progresso.config(text='Processando...', bg='#C0C0C0')
         """#### Caso escolha mover os arquivos para outra pasta, abre-se uma janela para escolha qual pasta"""
         if self.ativar_opcao_mover:
             caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
@@ -694,6 +702,8 @@ class ProgramaPrincipal:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     pass
+        self.barra_progresso_processo_duplicidade.stop()
+        self.barra_progresso_processo_duplicidade.config(value=100)
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
