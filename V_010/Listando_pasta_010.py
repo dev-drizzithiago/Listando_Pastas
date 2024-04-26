@@ -615,15 +615,9 @@ class ProgramaPrincipal:
 
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
-        """
-
-        :return:
-        """
 
         """# Declarações de varial local"""
         dict_duplicado = dict()
-
-        print('Iniciando "botao_modulo_duplicidade"')
 
         """# Abre a janela de duplicidade. Nela contém todas as opções para tratar os dados duplicados"""
         self.janela_duplicidade()
@@ -657,62 +651,55 @@ class ProgramaPrincipal:
 
     def processo_hashlib_duplicados(self):
         print('Iniciando processo de "processo_hashlib_duplicados"')
-        """
 
-        :return:
-        """
         """chamada de modulo local"""
         from hashlib import md5
-        from shutil import move, copy
 
         """# Declaração de variavel"""
         unico_arquivo = dict()
 
-        if self.ativar_opcao_mover:
+        """# Processo para verificar os arquivos ducplicados usando o hashlib """
+        for valor in self.dados_para_duplicidade:
+            valor_caminho_arquivo = Path(valor)
+            valor_hash =  md5(open(valor_caminho_arquivo, 'rb').read()).hexdigest()
+            return valor_caminho_arquivo, valor_hash
 
-            """# Processo para verificar os arquivos ducplicados usando o hashlib """
-            for valor in self.dados_para_duplicidade:
-                caminho_arquivo = Path(valor)
-                hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
-
-                print('mover_arquivos')
+    def acao_arquivos_duplicidades(self):
+        from shutil import move
+        unico_arquivo = dict()
+        lista_dados = self.processo_hashlib_duplicados()
+        for dados in lista_dados:
+            print(dados)
+            hash_file = ''
+            caminho_arquivo = ''
+            """#### opcao mover"""
+            if self.ativar_opcao_mover:
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
                     print('Processando...')
                     sleep(5)
-                    try:
-                        move(caminho_arquivo, caminho_destino)
-                        print('Arquivos movidos com sucesso!')
-                        showinfo('Parabéns', 'Arquivos movidos com sucesso!')
-                    except:
-                        showerror('AVISO', 'Não foi possível mover o arquivo')
+                try:
+                    move(caminho_arquivo, caminho_destino)
+                    print('Arquivos movidos com sucesso!')
+                    showinfo('Parabéns', 'Arquivos movidos com sucesso!')
+                except:
+                    showerror('AVISO', 'Não foi possível mover o arquivo')
 
-        elif self.ativar_opcao_delete:
-
-            """# Processo para verificar os arquivos ducplicados usando o hashlib """
-            for valor in self.dados_para_duplicidade:
-                caminho_arquivo = Path(valor)
-                hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
-
-                print('deletar_arquivos')
+            """#### opcao delete"""
+            elif self.ativar_opcao_delete:
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
-                    print(valor)
+                    pass
 
-        elif self.ativar_opcao_renomear:
-
-            """# Processo para verificar os arquivos ducplicados usando o hashlib """
-            for valor in self.dados_para_duplicidade:
-                caminho_arquivo = Path(valor)
-                hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
-                print('renomear_arquivos')
+            """#### opcao renomear"""
+            elif self.ativar_opcao_renomear:
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
-                    print(valor)
+                    pass
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
