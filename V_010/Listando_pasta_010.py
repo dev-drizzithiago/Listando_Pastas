@@ -651,7 +651,7 @@ class ProgramaPrincipal:
             try:
                 for k, v in dict_duplicado.items():
                     if v > 1:
-                        self.lista_result_duplicidade.insert('end', f'{k}: {v}')
+                        self.lista_result_duplicidade.insert('end', f'[{k}]  ===>  [{v}]')
             except UnboundLocalError:
                 showerror("ERROR", "Não existem dados para serem apresentados na lista de duplicados!")
         except:
