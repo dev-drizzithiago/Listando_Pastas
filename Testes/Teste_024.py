@@ -35,8 +35,11 @@ for root, folders, files in list_of_files:
 
         # If file hash has already #
         # been added we'll simply delete that file
-        if Hash_file not in unique_files:
-            unique_files[Hash_file] = file_path
-        else:
+        if Hash_file in unique_files:
             os.remove(file_path)
             print(f"{file_path} has been deleted")
+        else:
+            unique_files[Hash_file] = file_path
+
+for k, v in unique_files.items():
+    print(f'{k}{v}')
