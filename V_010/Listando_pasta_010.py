@@ -713,13 +713,14 @@ class ProgramaPrincipal:
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
-
+            print(f'Valor arquivo duplicado: {valor}')
             """#### Declarando o valor de hashlib"""
             caminho_arquivo = Path(valor)
             hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
 
             """#### opcao mover"""
             if self.ativar_opcao_mover:
+                print('mover')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
