@@ -763,7 +763,7 @@ class ProgramaPrincipal:
         """#### Desativando tempo do processo"""
         self.ativar_time_busca = False
         self.ativar_time_proce = False
-
+        self.lbl_info_tempo_processo['text'] = f"O processo levou {self.tempo_gasto_da_busca} (H/M/S)"
         """# Limpando lista de dados"""
         del self.dados_para_duplicidade[:]
 
@@ -952,7 +952,7 @@ class ProgramaPrincipal:
                 """# Desativa o validador de tempo de busca"""
                 print(f'\nDesativando "time_busca"')
                 sleep(1)
-                self.ativo_time_busca = False
+                self.ativar_time_busca = False
                 self.lbl_tempo_busca['text'] = f"A busca levou {self.tempo_gasto_da_busca} (H/M/S)"
 
                 """# Desativa os valores importantes"""
