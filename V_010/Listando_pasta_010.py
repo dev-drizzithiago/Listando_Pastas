@@ -640,9 +640,6 @@ class ProgramaPrincipal:
                 contagem_segundos += 1
                 sleep(1)
 
-                """# Desligando o ativador do processo """
-                self.ativar_time_proce = False
-
     def botao_pasta_destino(self):
         print(f'botao_pasta_destino sendo ativado')
         self.ativar_selecionar_pasta_destino = True
@@ -765,6 +762,7 @@ class ProgramaPrincipal:
 
         """#### Desativando tempo do processo"""
         self.ativar_time_busca = False
+        self.ativar_time_proce = False
 
         """# Limpando lista de dados"""
         del self.dados_para_duplicidade[:]
