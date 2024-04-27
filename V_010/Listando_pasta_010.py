@@ -711,7 +711,7 @@ class ProgramaPrincipal:
             """# Ativando tempo do processo """
             self.ativar_time_busca = True
             self.ativar_time_proce = True
-            self.tempo_processo_busca()
+            self.thread_tempo_processo_busca()
 
             """#### Declarando o valor de hashlib"""
             caminho_arquivo = Path(valor)
