@@ -782,7 +782,14 @@ class ProgramaPrincipal:
 
         print(f'Combo ativado: {self.ativar_combo}')
 
+
+
+        """# A busca apenas começa quando se escolhe uma extensão"""
         if self.ativar_combo:
+
+            """#### Limpando as listas de buscas"""
+            del self.dados_do_processo_busca[:]
+            del self.dados_para_duplicidade[:]
 
             """# As informações das extensão chegou no loop abaixo"""
             try:
