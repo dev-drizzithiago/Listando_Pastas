@@ -690,10 +690,6 @@ class ProgramaPrincipal:
         unico_arquivo = dict()
         indice = 1
 
-        """# Iniciando barra de progresso na janela de duplicidade """
-        print('Iniciando barra de progresso na janela duplicidade')
-        self.barra_progresso_processo_duplicidade.start()
-
         """#### Caso escolha mover os arquivos para outra pasta, abre-se uma janela para escolha qual pasta"""
         if self.ativar_opcao_mover:
             caminho_destino = Path(askdirectory(title="Escolha uma Pasta"))
@@ -705,6 +701,10 @@ class ProgramaPrincipal:
         print(f'Status mover: {self.ativar_opcao_mover}\n'
               f'Status deletar: {self.ativar_opcao_delete}\n'
               f'status renomear: {self.ativar_opcao_renomear}')
+
+        """# Iniciando barra de progresso na janela de duplicidade """
+        print('Iniciando barra de progresso na janela duplicidade')
+        self.barra_progresso_processo_duplicidade.start()
 
         """# Ativando tempo do processo """
         self.ativar_time_busca = True
