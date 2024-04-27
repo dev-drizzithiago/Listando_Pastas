@@ -640,6 +640,9 @@ class ProgramaPrincipal:
                 contagem_segundos += 1
                 sleep(1)
 
+                """# Desligando o ativador do processo """
+                self.ativar_time_proce = False
+
     def botao_pasta_destino(self):
         print(f'botao_pasta_destino sendo ativado')
         self.ativar_selecionar_pasta_destino = True
@@ -710,7 +713,10 @@ class ProgramaPrincipal:
         for valor in self.dados_para_duplicidade:
             """# Ativando tempo do processo """
             self.ativar_time_busca = True
+            self.ativar_time_proce = True
             self.tempo_processo_busca()
+
+            """#### Declarando o valor de hashlib"""
             caminho_arquivo = Path(valor)
             hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
 
