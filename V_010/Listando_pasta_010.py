@@ -315,7 +315,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Label Informação tempo que vai levar para finalizar o processo."""
         self.var_lbl_info_tempo_processo = tk.StringVar()
-        self.lbl_info_tempo_processo = tk.Label(self.frame_superior_dupli, text=self.lbl_info_tempo_processo)
+        self.lbl_info_tempo_processo = tk.Label(self.frame_superior_dupli, text=self.var_lbl_info_tempo_processo)
         self.lbl_info_tempo_processo.config(text=f'Time search: 00:00:00', bg='#C0C0C0')
         self.lbl_info_tempo_processo.place(y=1, x=800)
         # ______________________________________________________________________________________________________________
