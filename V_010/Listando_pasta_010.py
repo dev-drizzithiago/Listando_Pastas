@@ -728,7 +728,7 @@ class ProgramaPrincipal:
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
                               f'Pasta de destino: {caminho_destino}\n')
                     except shutil.Error:
-                        caminho_arquivo + f'Copy-{indice}'
+                        move(caminho_arquivo + str(f'Copy-{indice}'), caminho_destino)
                         showerror('AVISO', f'Arquivo {caminho_arquivo} já existe nessa pasta')
                 else:
                     unico_arquivo[hash_file] = caminho_arquivo
