@@ -38,7 +38,8 @@ class ProgramaPrincipal:
         self.ativar_selecionar_pasta_destino = False
         self.ativar_arquivo_encontrado = False
         self.ativar_uma_extensao = False
-        self.ativo_time_busca = False
+        self.ativar_time_busca = False
+        self.ativar_time_proce = False
         self.ativar_combo = False
 
         self.ativar_segundos = False
@@ -46,7 +47,7 @@ class ProgramaPrincipal:
         self.ativar_horas = False
 
         self.ativar_opcao_mover = False
-        self.ativar_opcao_delete = True
+        self.ativar_opcao_delete = False
         self.ativar_opcao_renomear = False
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -313,10 +314,10 @@ class ProgramaPrincipal:
         self.lbl_info_process_fim.place(y=30, x=5)
         # ______________________________________________________________________________________________________________
         """# Label Informação tempo que vai levar para finalizar o processo."""
-        self.var_lbl_info_tempo_busca = tk.StringVar()
-        self.lbl_info_tempo_busca = tk.Label(self.frame_superior_dupli, text=self.var_lbl_info_tempo_busca)
-        self.lbl_info_tempo_busca.config(text=f'Time search: 00:00:00', bg='#C0C0C0')
-        self.lbl_info_tempo_busca.place(y=1, x=800)
+        self.var_lbl_info_tempo_processo = tk.StringVar()
+        self.lbl_info_tempo_processo = tk.Label(self.frame_superior_dupli, text=self.lbl_info_tempo_processo)
+        self.lbl_info_tempo_processo.config(text=f'Time search: 00:00:00', bg='#C0C0C0')
+        self.lbl_info_tempo_processo.place(y=1, x=800)
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
         """#### Frame Inferio para botões"""
@@ -529,7 +530,6 @@ class ProgramaPrincipal:
         print(f'"Combo Ativado: {self.ativar_combo}')
 
     """#### Inicio dos processos """
-
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
@@ -541,8 +541,8 @@ class ProgramaPrincipal:
         contagem_segundos = 0
         contagem_minutos = 0
         contagem_horas = 0
-        if self.ativo_time_busca:
-            while self.ativo_time_busca:
+        if self.ativar_time_busca:
+            while self.ativar_time_busca:
                 if contagem_segundos == 0:
                     msg_info_time = str(f'00:00:00')
                     self.lbl_tempo_busca['text'] = msg_info_time
@@ -618,13 +618,24 @@ class ProgramaPrincipal:
                         else:
                             contagem_segundos = 0
                             contagem_minutos += 1
-                if self.ativar_segundos:
-                    self.lbl_tempo_busca['text'] = f"{msg_info_time} Segundo's"
-                elif self.ativar_minutos:
-                    self.lbl_tempo_busca['text'] = f"{msg_info_time} Minuto's"
-                elif self.ativar_horas:
-                    self.lbl_tempo_busca['text'] = f"{msg_info_time} HORA'S"
 
+                """#### Utilizo o mesmo ativar para o processo de duplicidade para ativar o cronometro"""
+                if self.ativar_time_proce:
+                    if self.ativar_segundos:
+                        self.lbl_info_tempo_processo['text'] = f"{msg_info_time} Segundo's"
+                    elif self.ativar_minutos:
+                        self.lbl_info_tempo_processo['text'] = f"{msg_info_time} Minuto's"
+                    elif self.ativar_horas:
+                        self.lbl_info_tempo_processo['text'] = f"{msg_info_time} HORA'S"
+                else:
+                    if self.ativar_segundos:
+                        self.lbl_tempo_busca['text'] = f"{msg_info_time} Segundo's"
+                    elif self.ativar_minutos:
+                        self.lbl_tempo_busca['text'] = f"{msg_info_time} Minuto's"
+                    elif self.ativar_horas:
+                        self.lbl_tempo_busca['text'] = f"{msg_info_time} HORA'S"
+
+                """# Guarda as informações para colocar no relatório"""
                 self.tempo_gasto_da_busca = msg_info_time
                 contagem_segundos += 1
                 sleep(1)
@@ -634,7 +645,6 @@ class ProgramaPrincipal:
         self.ativar_selecionar_pasta_destino = True
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
-
     """#### Modulo de processo de duplicidade"""
 
     def botao_modulo_duplicidade(self):
@@ -698,6 +708,9 @@ class ProgramaPrincipal:
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
+            """# Ativando tempo do processo """
+            self.ativar_time_busca = True
+            self.tempo_processo_busca()
             caminho_arquivo = Path(valor)
             hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
 
@@ -743,6 +756,9 @@ class ProgramaPrincipal:
         elif self.ativar_opcao_renomear:
             funcao_realizada = 'Nome do arquivo renomeado para {}'
         self.lbl_info_process_fim.config(text=f'{funcao_realizada}')
+
+        """#### Desativando tempo do processo"""
+        self.ativar_time_busca = False
 
         """# Limpando lista de dados"""
         del self.dados_para_duplicidade[:]
@@ -828,7 +844,7 @@ class ProgramaPrincipal:
                 self.barra_progresso_busca.start()
 
                 """# Iniciando tempo de busca"""
-                self.ativo_time_busca = True
+                self.ativar_time_busca = True
                 self.thread_tempo_processo_busca()
 
                 """###### Inicio do processo de busca"""
