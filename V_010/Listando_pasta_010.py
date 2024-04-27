@@ -720,11 +720,11 @@ class ProgramaPrincipal:
 
             """#### opcao mover"""
             if self.ativar_opcao_mover:
-                print('mover')
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
                     print(f'Movendo 1º{indice}-{caminho_arquivo} para {caminho_destino}')
+                    self.lbl_info_process_fim.config(text=f'Movendo 1º{indice}-{caminho_arquivo} para {caminho_destino}')
                     try:
                         move(caminho_arquivo, caminho_destino)
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
