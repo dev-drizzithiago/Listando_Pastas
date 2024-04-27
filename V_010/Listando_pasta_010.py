@@ -713,7 +713,7 @@ class ProgramaPrincipal:
 
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
-            print(f'Valor arquivo duplicado: {valor}')
+
             """#### Declarando o valor de hashlib"""
             caminho_arquivo = Path(valor)
             hash_file = md5(open(caminho_arquivo, 'rb').read()).hexdigest()
@@ -721,9 +721,8 @@ class ProgramaPrincipal:
             """#### opcao mover"""
             if self.ativar_opcao_mover:
                 if hash_file in unico_arquivo:
-                    print(f'Movendo 1º{indice}-{caminho_arquivo} para {caminho_destino}')
-                    self.lbl_info_process_fim.config(
-                        text=f'Movendo 1º{indice}-{caminho_arquivo} para {caminho_destino}')
+                    print(f'Movendo {indice}º {caminho_arquivo} para {caminho_destino}')
+                    self.lbl_info_process_fim.config(text=f'Movendo {indice}-{caminho_arquivo} para {caminho_destino}')
                     try:
                         move(caminho_arquivo, caminho_destino)
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
@@ -731,25 +730,24 @@ class ProgramaPrincipal:
                     except shutil.Error:
                         showerror('AVISO', f'Arquivo {caminho_arquivo} já existe nessa pasta')
                     indice += 1
-
                 else:
                     unico_arquivo[hash_file] = caminho_arquivo
 
             elif self.ativar_opcao_delete:
                 """#### opcao delete"""
-                if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = caminho_arquivo
+                if hash_file in unico_arquivo:
+                    indice += 1
                 else:
                     pass
-                    indice += 1
+                    unico_arquivo[hash_file] = caminho_arquivo
 
             elif self.ativar_opcao_renomear:
                 """#### opcao renomear"""
-                if hash_file not in unico_arquivo:
-                    unico_arquivo[hash_file] = caminho_arquivo
-                else:
-                    pass
+                if hash_file in unico_arquivo:
                     indice += 1
+                else:
+                    unico_arquivo[hash_file] = caminho_arquivo
+
 
         """# Finalizando a barro de progresso na janela duplicidade"""
         self.barra_progresso_processo_duplicidade.stop()
