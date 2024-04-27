@@ -728,25 +728,27 @@ class ProgramaPrincipal:
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
                               f'Pasta de destino: {caminho_destino}\n')
                     except shutil.Error:
+                        caminho_arquivo +
                         showerror('AVISO', f'Arquivo {caminho_arquivo} já existe nessa pasta')
-                    indice += 1
                 else:
                     unico_arquivo[hash_file] = caminho_arquivo
+                    indice += 1
 
             elif self.ativar_opcao_delete:
                 """#### opcao delete"""
                 if hash_file in unico_arquivo:
-                    indice += 1
-                else:
                     pass
+                else:
                     unico_arquivo[hash_file] = caminho_arquivo
+                    indice += 1
 
             elif self.ativar_opcao_renomear:
                 """#### opcao renomear"""
                 if hash_file in unico_arquivo:
-                    indice += 1
+                    pass
                 else:
                     unico_arquivo[hash_file] = caminho_arquivo
+                    indice += 1
 
 
         """# Finalizando a barro de progresso na janela duplicidade"""
