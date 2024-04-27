@@ -40,4 +40,3 @@ for root, folders, files in list_of_files:
         else:
             os.remove(file_path)
             print(f"{file_path} has been deleted")
-            
