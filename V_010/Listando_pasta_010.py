@@ -706,12 +706,13 @@ class ProgramaPrincipal:
               f'Status deletar: {self.ativar_opcao_delete}\n'
               f'status renomear: {self.ativar_opcao_renomear}')
 
+        """# Ativando tempo do processo """
+        self.ativar_time_busca = True
+        self.ativar_time_proce = True
+        self.thread_tempo_processo_busca()
+
         """# Processo para verificar os arquivos ducplicados usando o hashlib """
         for valor in self.dados_para_duplicidade:
-            """# Ativando tempo do processo """
-            self.ativar_time_busca = True
-            self.ativar_time_proce = True
-            self.thread_tempo_processo_busca()
 
             """#### Declarando o valor de hashlib"""
             caminho_arquivo = Path(valor)
