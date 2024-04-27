@@ -276,7 +276,7 @@ class ProgramaPrincipal:
         self.opcao_move = tk.Radiobutton(self.frame_superior_dupli)
         self.opcao_move.config(text='Mover arquivos duplicados', bg='#C0C0C0', value=1)
         self.opcao_move.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
-        self.opcao_move.place(y=5, x=5)
+        self.opcao_move.place(y=1, x=5)
 
         # ______________________________________________________________________________________________________________
         """# Opção Deletar arquivos duplicados"""
@@ -285,7 +285,7 @@ class ProgramaPrincipal:
         self.opcao_delete = tk.Radiobutton(self.frame_superior_dupli)
         self.opcao_delete.config(text='Deletar arquivos duplicados', bg='#C0C0C0', value=2)
         self.opcao_delete.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
-        self.opcao_delete.place(y=30, x=5)
+        self.opcao_delete.place(y=1, x=180)
         # ______________________________________________________________________________________________________________
         """# Opção Renomear arquivos selecionados"""
         # 3
@@ -293,7 +293,7 @@ class ProgramaPrincipal:
         self.opcao_renomear = tk.Radiobutton(self.frame_superior_dupli)
         self.opcao_renomear.config(text='Renomear arquivos duplicados', bg='#C0C0C0', value=3)
         self.opcao_renomear.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
-        self.opcao_renomear.place(y=5, x=200)
+        self.opcao_renomear.place(y=1, x=360)
         # ______________________________________________________________________________________________________________
         """#### Barra de progresso"""
         self.barra_progresso_processo_duplicidade = Progressbar(self.frame_superior_dupli, orient=tk.HORIZONTAL)
@@ -304,13 +304,19 @@ class ProgramaPrincipal:
         self.var_lbl_barra_progresso = tk.StringVar()
         self.lbl_barra_progresso = tk.Label(self.frame_superior_dupli, text=self.var_lbl_barra_progresso)
         self.lbl_barra_progresso.config(text='Ocioso...', bg='#C0C0C0')
-        self.lbl_barra_progresso.place(y=45, x=700)
+        self.lbl_barra_progresso.place(y=45, x=720)
         # ______________________________________________________________________________________________________________
         """# Label Informação do processo final"""
         self.var_lbl_info_process_fim = tk.StringVar()
         self.lbl_info_process_fim = tk.Label(self.frame_superior_dupli, text=self.var_lbl_info_process_fim)
         self.lbl_info_process_fim.config(text='Ocioso...', bg='#C0C0C0')
-        self.lbl_info_process_fim.place(y=11, x=700)
+        self.lbl_info_process_fim.place(y=30, x=5)
+        # ______________________________________________________________________________________________________________
+        """# Label Informação tempo que vai levar para finalizar o processo."""
+        self.var_lbl_info_tempo_busca = tk.StringVar()
+        self.lbl_info_tempo_busca = tk.Label(self.frame_superior_dupli, text=self.var_lbl_info_tempo_busca)
+        self.lbl_info_tempo_busca.config(text=f'Time search: 00:00:00', bg='#C0C0C0')
+        self.lbl_info_tempo_busca.place(y=1, x=800)
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
         """#### Frame Inferio para botões"""
@@ -700,8 +706,8 @@ class ProgramaPrincipal:
                 if hash_file not in unico_arquivo:
                     unico_arquivo[hash_file] = caminho_arquivo
                 else:
+                    print(f'Movendo 1º{indice}-{caminho_arquivo} para {caminho_destino}')
                     try:
-                        print(f'Movendo 1º{indice}-{caminho_arquivo} para {caminho_destino}')
                         move(caminho_arquivo, caminho_destino)
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
                               f'Pasta de destino: {caminho_destino}\n')
@@ -781,8 +787,6 @@ class ProgramaPrincipal:
         valor_de_busca = None
 
         print(f'Combo ativado: {self.ativar_combo}')
-
-
 
         """# A busca apenas começa quando se escolhe uma extensão"""
         if self.ativar_combo:
