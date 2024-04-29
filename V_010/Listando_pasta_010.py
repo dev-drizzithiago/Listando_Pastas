@@ -237,14 +237,14 @@ class ProgramaPrincipal:
     def janela_duplicidade(self):
         """#### Janela de opções duplicados; só interno """
         self.janela_opc_duplicidade = tk.Toplevel()
-        self.janela_opc_duplicidade.geometry('1000x600+200+50')
+        self.janela_opc_duplicidade.geometry('1000x620+200+20')
         self.janela_opc_duplicidade.resizable(0, 0)
         self.janela_opc_duplicidade.title('Verificando duplicidade!')
 
         # ______________________________________________________________________________________________________________
         """# Frame Principal DUPLICIDADE"""
         self.frame_label_duplicidade = tk.LabelFrame(self.janela_opc_duplicidade, text='Verificando duplicidade!')
-        self.frame_label_duplicidade.config(width=900, height=580)
+        self.frame_label_duplicidade.config(width=900, height=600)
         self.frame_label_duplicidade.pack(fill=tk.BOTH, pady=5, padx=5)
 
         # ______________________________________________________________________________________________________________
@@ -266,7 +266,7 @@ class ProgramaPrincipal:
 
         # ______________________________________________________________________________________________________________
         """Frame Superior duplicidade"""
-        self.frame_superior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#C0C0C0', width=980, height=70)
+        self.frame_superior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#C0C0C0', width=980, height=90)
         self.frame_superior_dupli.place(y=250, x=3)
 
         # ______________________________________________________________________________________________________________
@@ -295,17 +295,19 @@ class ProgramaPrincipal:
         self.opcao_renomear.config(text='Renomear arquivos duplicados', bg='#C0C0C0', value=3)
         self.opcao_renomear.config(variable=self.var_opcao_radio, pady=5, padx=5, bd=2)
         self.opcao_renomear.place(y=1, x=360)
+
         # ______________________________________________________________________________________________________________
         """#### Barra de progresso"""
         self.barra_progresso_processo_duplicidade = Progressbar(self.frame_superior_dupli, orient=tk.HORIZONTAL)
         self.barra_progresso_processo_duplicidade.config(mode='determinate', length=165)
-        self.barra_progresso_processo_duplicidade.place(y=45, x=800)
+        self.barra_progresso_processo_duplicidade.place(y=65, x=800)
+
         # ______________________________________________________________________________________________________________
         """# Label barra de progresso"""
         self.var_lbl_barra_progresso = tk.StringVar()
         self.lbl_barra_progresso = tk.Label(self.frame_superior_dupli, text=self.var_lbl_barra_progresso)
         self.lbl_barra_progresso.config(text='Ocioso...', bg='#C0C0C0')
-        self.lbl_barra_progresso.place(y=45, x=720)
+        self.lbl_barra_progresso.place(y=65, x=720)
         # ______________________________________________________________________________________________________________
         """# Label Informação do processo final"""
         self.var_lbl_info_process_fim = tk.StringVar()
@@ -318,11 +320,12 @@ class ProgramaPrincipal:
         self.lbl_info_tempo_processo = tk.Label(self.frame_superior_dupli, text=self.var_lbl_info_tempo_processo)
         self.lbl_info_tempo_processo.config(text=f'Time search: 00:00:00', bg='#C0C0C0')
         self.lbl_info_tempo_processo.place(y=1, x=800)
+
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
         """#### Frame Inferio para botões"""
         self.frame_inferior_dupli = tk.Frame(self.frame_label_duplicidade, bg='#DCDCDC', width=980, height=233)
-        self.frame_inferior_dupli.place(y=325, x=3)
+        self.frame_inferior_dupli.place(y=345, x=3)
 
         # ______________________________________________________________________________________________________________
         """#### Frame botao """
@@ -365,7 +368,6 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
-
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -407,7 +409,6 @@ class ProgramaPrincipal:
         Thread(target=self.acao_arquivos_duplicidades).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
-
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
         self.ativar_combo = True
@@ -486,7 +487,6 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
-
     def evento_mouse(self):
         showinfo('Teste', 'teste')
 
@@ -645,8 +645,8 @@ class ProgramaPrincipal:
         self.ativar_selecionar_pasta_destino = True
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
-    """#### Modulo de processo de duplicidade"""
 
+    """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
 
@@ -728,7 +728,7 @@ class ProgramaPrincipal:
                         print(f'Arquivos {caminho_arquivo} movidos com sucesso! \n'
                               f'Pasta de destino: {caminho_destino}\n')
                     except shutil.Error:
-                        move(caminho_arquivo + str(f'Copy-{indice}'), caminho_destino)
+                        move(caminho_arquivo, caminho_destino)
                         showerror('AVISO', f'Arquivo {caminho_arquivo} já existe nessa pasta')
                 else:
                     unico_arquivo[hash_file] = caminho_arquivo
