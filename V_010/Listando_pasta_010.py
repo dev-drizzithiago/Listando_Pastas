@@ -319,7 +319,7 @@ class ProgramaPrincipal:
         self.var_lbl_info_tempo_processo = tk.StringVar()
         self.lbl_info_tempo_processo = tk.Label(self.frame_superior_dupli, text=self.var_lbl_info_tempo_processo)
         self.lbl_info_tempo_processo.config(text=f'Time search: 00:00:00', bg='#C0C0C0')
-        self.lbl_info_tempo_processo.place(y=1, x=800)
+        self.lbl_info_tempo_processo.place(y=1, x=720)
 
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
@@ -407,6 +407,9 @@ class ProgramaPrincipal:
     def thread_processo_hashlib_duplicados(self):
         print('Iniciando thread "thread_processo_hashlib_duplicados"')
         Thread(target=self.acao_arquivos_duplicidades).start()
+
+    def thread_limpeza_lista_dupli(self):
+        Thread(target=self.botao_limpa_list_dupli).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -528,6 +531,9 @@ class ProgramaPrincipal:
         self.combo_box_cat.config(state=tk.NORMAL)
 
         print(f'"Combo Ativado: {self.ativar_combo}')
+
+    def botao_limpa_list_dupli(self):
+        self.lista_result_duplicidade.destroy()
 
     """#### Inicio dos processos """
     def tempo_processo_busca(self):
