@@ -451,7 +451,7 @@ class ProgramaPrincipal:
 
             EXCEL=['xla', 'xlam', 'xll', 'xlm', 'xls', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],
 
-            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml'],
+            TEXTOS=['pdf', 'rtf', 'wbk', 'wpd', 'wp5', 'txt', 'log', 'xml', 'parquet'],
 
             PROGRAMACAO=['py', 'java', 'vbs', 'css', 'php', 'pyi'],
 
