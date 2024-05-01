@@ -917,7 +917,7 @@ class ProgramaPrincipal:
                             try:
                                 resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
                             except UnboundLocalError:
-                                pass
+                                resultado_destaque = 'desconhecido'
 
                             """# Mostra a pasta que foram encontrado algum arquivo"""
                             if contador_itens == 1:
@@ -929,7 +929,7 @@ class ProgramaPrincipal:
                                     self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
                                 except UnboundLocalError:
                                     pass
-                                
+
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20)
