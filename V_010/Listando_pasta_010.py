@@ -889,63 +889,66 @@ class ProgramaPrincipal:
                         """#### As linhas abaixo são responsáveis por buscar os arquivos especificados pelo usuário
                         São vários filtros para não jogar todos os arquivos"""
                         if search(valor_da_extensao_busca, valor_file):
-                            self.dados_para_duplicidade.append(os.path.join(raiz, valor_file))
-                            self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
-                                                              f'[{contador_de_arquivos}]')
-
-                            """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
-                            Esse programa eu quero que pegue apenas os valores da extensão, e não valores que passa
-                            esta contidos em testos como 'txt01.txt'"""
-                            valor_ext_comparacao = str(valor_file).split('.')[-1]
                             try:
-                                if valor_da_extensao_busca == valor_ext_comparacao:
-                                    valor_of_file = str(f'{valor_file}').strip().lower()
-                            except:
-                                valor_of_file = valor_file
+                                self.dados_para_duplicidade.append(os.path.join(raiz, valor_file))
+                                self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
+                                                                  f'[{contador_de_arquivos}]')
 
-                            """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
+                                """# Realiza o filtro; o modulo 're.search' busca qualquer arquivo com uma string 'txt'.
+                                Esse programa eu quero que pegue apenas os valores da extensão, e não valores que passa
+                                esta contidos em testos como 'txt01.txt'"""
+                                valor_ext_comparacao = str(valor_file).split('.')[-1]
+                                try:
+                                    if valor_da_extensao_busca == valor_ext_comparacao:
+                                        valor_of_file = str(f'{valor_file}').strip().lower()
+                                except:
+                                    valor_of_file = valor_file
 
-                            caminho_completo = os.path.join(raiz, valor_of_file)
+                                """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
 
-                            extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
-                            resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
+                                caminho_completo = os.path.join(raiz, valor_of_file)
 
-                            """# Mostra a pasta que foram encontrado algum arquivo"""
-                            if contador_itens == 1:
-                                """# Conta quantas pastas foram encontrados os itens da busca"""
-                                contador_de_pastas += 1
-                                self.lbl_qtd_pasta.config(text=f'Quantidade de pastas verificadas:'
-                                                               f' [{contador_de_pastas}]')
-                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
-                                """ #Mostra o resultado da busca no prompt"""
-                                print(f'\n{raiz}')
-                                print('===' * 20)
-                                print(f'[{resultado_destaque}]')
+                                extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
+                                resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
 
-                                """# Mostra o resultado na lista de busca"""
-                                self.lista_de_result_busca.insert('end', '')
-                                self.lista_de_result_busca.insert('end', '')
-                                self.lista_de_result_busca.insert('end', f'{raiz}')
-                                self.lista_de_result_busca.insert('end', '===' * 40)
-                                self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
-                            else:
-                                """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
-                                realizado qualquer tipo de analise"""
-                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
+                                """# Mostra a pasta que foram encontrado algum arquivo"""
+                                if contador_itens == 1:
+                                    """# Conta quantas pastas foram encontrados os itens da busca"""
+                                    contador_de_pastas += 1
+                                    self.lbl_qtd_pasta.config(text=f'Quantidade de pastas verificadas:'
+                                                                   f' [{contador_de_pastas}]')
+                                    self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
+                                    """ #Mostra o resultado da busca no prompt"""
+                                    print(f'\n{raiz}')
+                                    print('===' * 20)
+                                    print(f'[{resultado_destaque}]')
 
-                                """# Mostra os resultados no prompt e na lista de busca"""
-                                print(f'[{resultado_destaque}]')
-                                self.lbl_info_real_time.config(text=f'Arquivos encontrados: [ {valor_de_busca} ]')
-                                self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
+                                    """# Mostra o resultado na lista de busca"""
+                                    self.lista_de_result_busca.insert('end', '')
+                                    self.lista_de_result_busca.insert('end', '')
+                                    self.lista_de_result_busca.insert('end', f'{raiz}')
+                                    self.lista_de_result_busca.insert('end', '===' * 40)
+                                    self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
+                                else:
+                                    """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
+                                    realizado qualquer tipo de analise"""
+                                    self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
 
-                            """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
-                             ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
-                             apenas os arquivos dentro dessa pasta.
-                              - Após mostrar a pasta, o contador passa a soma o valor para cada item."""
-                            contador_itens += 1
+                                    """# Mostra os resultados no prompt e na lista de busca"""
+                                    print(f'[{resultado_destaque}]')
+                                    self.lbl_info_real_time.config(text=f'Arquivos encontrados: [ {valor_de_busca} ]')
+                                    self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
 
-                            """# Contador que é responsável pela quantidade de arquivos encontrados."""
-                            contador_de_arquivos += 1
+                                """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
+                                 ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
+                                 apenas os arquivos dentro dessa pasta.
+                                  - Após mostrar a pasta, o contador passa a soma o valor para cada item."""
+                                contador_itens += 1
+
+                                """# Contador que é responsável pela quantidade de arquivos encontrados."""
+                                contador_de_arquivos += 1
+                            except UnboundLocalError:
+                                pass
 
                 """###### Fim do processo de busca"""
                 """# Desliga a barra de progresso, ao final da busca"""
