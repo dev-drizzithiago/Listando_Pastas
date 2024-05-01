@@ -904,20 +904,11 @@ class ProgramaPrincipal:
                                 valor_of_file = valor_file
 
                             """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
-                            try:
-                                caminho_completo = os.path.join(raiz, valor_of_file)
-                            except UnboundLocalError:
-                                pass
 
-                            try:
-                                extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
-                            except UnboundLocalError:
-                                pass
+                            caminho_completo = os.path.join(raiz, valor_of_file)
 
-                            try:
-                                resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
-                            except UnboundLocalError:
-                                resultado_destaque = 'desconhecido'
+                            extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
+                            resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
 
                             """# Mostra a pasta que foram encontrado algum arquivo"""
                             if contador_itens == 1:
@@ -925,11 +916,7 @@ class ProgramaPrincipal:
                                 contador_de_pastas += 1
                                 self.lbl_qtd_pasta.config(text=f'Quantidade de pastas verificadas:'
                                                                f' [{contador_de_pastas}]')
-                                try:
-                                    self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
-                                except UnboundLocalError:
-                                    pass
-
+                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20)
