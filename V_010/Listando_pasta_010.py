@@ -909,8 +909,15 @@ class ProgramaPrincipal:
                             except UnboundLocalError:
                                 pass
 
-                            extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
-                            resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
+                            try:
+                                extensao_destaque = str(caminho_completo).split('\\')[-1].upper()
+                            except UnboundLocalError:
+                                pass
+
+                            try:
+                                resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
+                            except UnboundLocalError:
+                                pass
 
                             """# Mostra a pasta que foram encontrado algum arquivo"""
                             if contador_itens == 1:
@@ -918,7 +925,11 @@ class ProgramaPrincipal:
                                 contador_de_pastas += 1
                                 self.lbl_qtd_pasta.config(text=f'Quantidade de pastas verificadas:'
                                                                f' [{contador_de_pastas}]')
-                                self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
+                                try:
+                                    self.dados_do_processo_busca.append(f'{raiz}|{extensao_destaque}')
+                                except UnboundLocalError:
+                                    pass
+                                
                                 """ #Mostra o resultado da busca no prompt"""
                                 print(f'\n{raiz}')
                                 print('===' * 20)
