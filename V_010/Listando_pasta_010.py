@@ -174,7 +174,7 @@ class ProgramaPrincipal:
         """# Frame Label para botão de encontrar duplicidade"""
         self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
         self.frame_label_abrir_arquivos.config(bg='#DCDCDC', pady=5, padx=5)
-        self.frame_label_abrir_arquivos.place(y=5, x=925)
+        self.frame_label_abrir_arquivos.place(y=5, x=450)
         # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
@@ -208,6 +208,7 @@ class ProgramaPrincipal:
         self.botao_abrir_arquivo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_abrir_arquivo.config(command=self.thread_abrir_arquivos)
         self.botao_abrir_arquivo.config(state=tk.DISABLED)
+        self.botao_abrir_arquivo.pack(anchor='center', fill='both')
 
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
