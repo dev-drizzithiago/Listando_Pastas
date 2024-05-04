@@ -171,6 +171,11 @@ class ProgramaPrincipal:
         self.frame_label_duplicidade.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_duplicidade.place(y=5, x=925)
         # ______________________________________________________________________________________________________________
+        """# Frame Label para botão de encontrar duplicidade"""
+        self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
+        self.frame_label_abrir_arquivos.config(bg='#DCDCDC', pady=5, padx=5)
+        self.frame_label_abrir_arquivos.place(y=5, x=925)
+        # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
         """# Botão INICIAR PROCESSO"""
@@ -184,7 +189,6 @@ class ProgramaPrincipal:
         self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_destino_busca.config(command=self.thread_botao_pasta_destino)
         self.botao_destino_busca.pack(anchor='n', fill='both')
-        # self.botao_destino_busca.bind("<Button-1>", self.evento_mouse)
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
@@ -196,8 +200,15 @@ class ProgramaPrincipal:
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_duplicidade.config(command=self.thread_botao_duplicidade_tk_principal)
-        # self.botao_duplicidade.config(state=tk.DISABLED)
+        self.botao_duplicidade.config(state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
+        # ______________________________________________________________________________________________________________
+        """# Botão abrir aquivos selecionado"""
+        self.botao_abrir_arquivo = tk.Button(self.frame_label_abrir_arquivos, text='Abrir um arquivo')
+        self.botao_abrir_arquivo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_abrir_arquivo.config(command=self.thread_abrir_arquivos)
+        self.botao_abrir_arquivo.config(state=tk.DISABLED)
+
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
         """# Frame Label Listas de buscas"""
@@ -370,6 +381,7 @@ class ProgramaPrincipal:
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         self.janela_opc_duplicidade.update_idletasks()
 
+
     """##### THREADS DOS BOTÕES"""
     def thread_botao_inicio_da_busca(self):
         """
@@ -413,6 +425,9 @@ class ProgramaPrincipal:
 
     def thread_limpeza_lista_dupli(self):
         Thread(target=self.botao_limpa_list_dupli).start()
+
+    def thread_abrir_arquivos(self):
+        pass
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -537,6 +552,9 @@ class ProgramaPrincipal:
 
     def botao_limpa_list_dupli(self):
         self.lista_result_duplicidade.destroy()
+
+    def abrir_arquivos(self):
+        pass
 
     """#### Inicio dos processos """
     def tempo_processo_busca(self):
