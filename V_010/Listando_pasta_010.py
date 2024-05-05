@@ -221,6 +221,7 @@ class ProgramaPrincipal:
         self.var_lista_result_busca = tk.IntVar()
         self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=117, height=10, bg='#DCDCDC')
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
+        self.lista_de_result_busca.config(listvariable=self.var_lista_result_busca)
         self.lista_de_result_busca.place(y=435, x=2)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista RESULTADO"""
@@ -382,7 +383,6 @@ class ProgramaPrincipal:
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         self.janela_opc_duplicidade.update_idletasks()
 
-
     """##### THREADS DOS BOTÕES"""
     def thread_botao_inicio_da_busca(self):
         """
@@ -428,7 +428,8 @@ class ProgramaPrincipal:
         Thread(target=self.botao_limpa_list_dupli).start()
 
     def thread_abrir_arquivos(self):
-        pass
+        print('Iniciando "thread_abrir_arquivos"')
+        Thread(target=self.abrir_arquivos).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
