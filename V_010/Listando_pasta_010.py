@@ -555,7 +555,8 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.destroy()
 
     def abrir_arquivos(self):
-        pass
+        open_arquivo = self.lista_de_result_busca.get()
+        os.startfile(open_arquivo)
 
     """#### Inicio dos processos """
     def tempo_processo_busca(self):
@@ -979,6 +980,7 @@ class ProgramaPrincipal:
                 self.botao_limpar_checkbuttun.config(state=tk.NORMAL)
                 self.botao_destino_busca.config(state=tk.NORMAL)
                 self.botao_duplicidade.config(state=tk.NORMAL)
+                self.botao_abrir_arquivo.config(state=tk.NORMAL)
 
                 """# Número de itens encontrados"""
                 self.lbl_info_real_time.config(text=f'Fim da BUSCA!')
