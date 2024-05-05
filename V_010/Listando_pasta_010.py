@@ -218,7 +218,7 @@ class ProgramaPrincipal:
         self.frame_label_lista_resultado.place(y=430, x=1)
         # ______________________________________________________________________________________________________________
         """# Lista de busca"""
-        self.var_lista_result_busca = tk.IntVar()
+        self.var_lista_result_busca = tk.StringVar()
         self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=117, height=10, bg='#DCDCDC')
         self.lista_de_result_busca.config(listvariable=self.var_lista_result_busca)
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
@@ -556,7 +556,8 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.destroy()
 
     def abrir_arquivos(self):
-        open_arquivo = self.var_lista_result_busca.get()
+        open_arquivo = self.lista_result_duplicidade.curselection()
+        print(open_arquivo)
         os.startfile(open_arquivo)
 
     """#### Inicio dos processos """
