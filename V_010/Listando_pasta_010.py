@@ -1,13 +1,13 @@
 """#### Declaração de Modulos"""
-import shutil
 from tkinter.messagebox import showwarning, showinfo, showerror
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
 import tkinter as tk
 import os.path
+import shutil
 
 """#### Modulos do sistema"""
-from os import walk
+from os import walk, startfile
 from re import search
 
 """### Modulos básicos"""
@@ -556,9 +556,9 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.destroy()
 
     def abrir_arquivos(self):
-        open_arquivo = self.lista_result_duplicidade.curselection()
+        open_arquivo = self.lista_de_result_busca.curselection()
         print(open_arquivo)
-        os.startfile(open_arquivo)
+        startfile(open_arquivo)
 
     """#### Inicio dos processos """
     def tempo_processo_busca(self):
@@ -961,7 +961,7 @@ class ProgramaPrincipal:
                                     print(f'[{resultado_destaque}]')
                                     self.lbl_info_real_time.config(text=f'Arquivos encontrados:{valor_de_busca}')
                                     self.lista_de_result_busca.insert('end',
-                                                                      f'[{raiz}\\{extensao_destaque} ]')
+                                                                      f'{raiz}\\{extensao_destaque}')
 
                                 """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
                                  ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
