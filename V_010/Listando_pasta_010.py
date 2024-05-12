@@ -950,7 +950,7 @@ class ProgramaPrincipal:
                                     self.lista_de_result_busca.insert('end', '')
                                     self.lista_de_result_busca.insert('end', f'{raiz}')
                                     self.lista_de_result_busca.insert('end', '===' * 40)
-                                    self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
+                                    self.lista_de_result_busca.insert('end', f'[{raiz}\\{extensao_destaque} ]')
                                 else:
                                     """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
                                     realizado qualquer tipo de analise"""
