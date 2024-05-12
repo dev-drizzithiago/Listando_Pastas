@@ -558,7 +558,10 @@ class ProgramaPrincipal:
     def abrir_arquivos(self):
         open_arquivo = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
         print(f'Abrindo arquivo: {open_arquivo}')
-        Thread(target=startfile(open_arquivo))
+        try:
+            Thread(target=startfile(open_arquivo))
+        except FileNotFoundError:
+            showwarning('AVISO', 'Arquivo não existe!')
         print()
         print('Arquivo em excusão!!')
 
