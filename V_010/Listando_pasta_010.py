@@ -556,9 +556,10 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.destroy()
 
     def abrir_arquivos(self):
-        open_arquivo = self.lista_de_result_busca.curselection()
+        open_arquivo = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
         print(open_arquivo)
-        startfile(open_arquivo)
+        for valor in open_arquivo:
+            print(valor)
 
     """#### Inicio dos processos """
     def tempo_processo_busca(self):
