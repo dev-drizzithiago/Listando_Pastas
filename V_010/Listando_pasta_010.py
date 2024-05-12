@@ -950,7 +950,8 @@ class ProgramaPrincipal:
                                     self.lista_de_result_busca.insert('end', '')
                                     self.lista_de_result_busca.insert('end', f'{raiz}')
                                     self.lista_de_result_busca.insert('end', '===' * 40)
-                                    self.lista_de_result_busca.insert('end', f'[{raiz}\\{extensao_destaque} ]')
+                                    self.lista_de_result_busca.insert('end',
+                                                                      f'[{raiz}\\{extensao_destaque} ]')
                                 else:
                                     """# Na lista abaixo, são inseridos todos os dados da busca para que possa ser 
                                     realizado qualquer tipo de analise"""
@@ -959,7 +960,8 @@ class ProgramaPrincipal:
                                     """# Mostra os resultados no prompt e na lista de busca"""
                                     print(f'[{resultado_destaque}]')
                                     self.lbl_info_real_time.config(text=f'Arquivos encontrados: [ {valor_de_busca} ]')
-                                    self.lista_de_result_busca.insert('end', f'[ {extensao_destaque} ]')
+                                    self.lista_de_result_busca.insert('end',
+                                                                      f'[{raiz}\\{extensao_destaque} ]')
 
                                 """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
                                  ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
