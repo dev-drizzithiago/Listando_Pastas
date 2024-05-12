@@ -562,7 +562,6 @@ class ProgramaPrincipal:
         print()
         print('Arquivo em excusão!!')
 
-
     """#### Inicio dos processos """
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
