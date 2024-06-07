@@ -508,7 +508,7 @@ class ProgramaPrincipal:
 
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
-        print(self.lista_var)
+        
     """#### Processos simples"""
     def evento_mouse(self):
         showinfo('Teste', 'teste')
