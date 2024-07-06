@@ -10,5 +10,7 @@
     <orderEntry type="module" module-name="Sala_Cinema" />
     <orderEntry type="module" module-name="Projeto_YOUTUBE" />
     <orderEntry type="module" module-name="Cadastro_Pessoas_v3" />
+    <orderEntry type="module" module-name="DJANGO" />
+    <orderEntry type="module" module-name="Interpretador" />
   </component>
 </module>
