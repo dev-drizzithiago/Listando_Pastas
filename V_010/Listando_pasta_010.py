@@ -384,6 +384,7 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -432,6 +433,7 @@ class ProgramaPrincipal:
         Thread(target=self.abrir_arquivos).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
         self.ativar_combo = True
@@ -494,9 +496,14 @@ class ProgramaPrincipal:
                 print(f'{contador}-linhas{linhas}-colunas{colunas}')  # Primeira linha dos codigos de linhas
                 for valor_extensao in valor:
                     self.lista_var.append(tk.IntVar())
-                    self.botoes_chek.append(tk.Checkbutton(self.frames_superior, text=valor_extensao.upper(),
-                                                           variable=self.lista_var[contador],
-                                                           bg='#C0C0C0'))
+                    self.botoes_chek.append(tk.Checkbutton(
+
+                        self.frames_superior, text=valor_extensao.upper(),
+                        variable=self.lista_var[contador],
+                        bg='#C0C0C0')
+
+                    )
+
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
 
                     if linhas == 195:
@@ -510,6 +517,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
     def evento_mouse(self):
         showinfo('Teste', 'teste')
 
@@ -566,6 +574,7 @@ class ProgramaPrincipal:
         print('Arquivo em excusão!!')
 
     """#### Inicio dos processos """
+
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
@@ -683,6 +692,7 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """#### Modulo de processo de duplicidade"""
+
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
 
