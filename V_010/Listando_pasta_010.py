@@ -723,11 +723,12 @@ class ProgramaPrincipal:
                 item_selecao = self.lista_de_result_busca.get(item_unico)
                 formatar_selecao = str(item_selecao).split('\\')
                 arquivo_para_renomear = formatar_selecao[-1]
+                print(arquivo_para_renomear)
                 # os.rename(arquivo_renomear)
 
         def renomar_um_unico_arquivo():
-            # novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
-            pass
+            novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
+            print(novo_nome)
 
         nomear_unico_arquivos = self.lista_de_result_busca.curselection()
         if len(nomear_unico_arquivos) > 1:
