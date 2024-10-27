@@ -27,6 +27,7 @@ class ProgramaPrincipal:
                             'ACCESS', 'WORD', 'HTML']
         tipos_categorias.sort()
 
+        self.lista_para_renomear = list()
         self.dados_do_processo_busca = list()
         self.dados_para_duplicidade = list()
         self.tempo_gasto_da_busca = None
@@ -199,10 +200,10 @@ class ProgramaPrincipal:
         self.botao_destino_busca.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão para renomear arquivos """
-        self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear)
-        self.botao_aplica_opcao_renomar.config(text='Aplicar', bg='#DCDCDC', width=15)
-        self.botao_aplica_opcao_renomar.config(command=self.thread_opcao_check_botao)
-        self.botao_aplica_opcao_renomar.pack(anchor='center', pady=5, padx=5)
+        self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear, text='Aplicar')
+        self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_aplica_opcao_renomar.config(command='')
+        self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
@@ -700,6 +701,10 @@ class ProgramaPrincipal:
         self.ativar_selecionar_pasta_destino = True
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
+
+    """ Processo para renomar os arquivos """
+    def botao_renomear_arquivos(self):
+        pass
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
