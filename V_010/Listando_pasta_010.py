@@ -413,7 +413,10 @@ class ProgramaPrincipal:
         self.frame_lbl_janela_renomar.config(width=780, height=590)
         self.frame_lbl_janela_renomar.pack(fill=tk.BOTH, pady=5, padx=5)
 
-        
+        self.frame_lbl_opcao_rename = tk.LabelFrame(self.frame_lbl_janela_renomar, text='Escolha uma opcação')
+        self.frame_lbl_opcao_rename.config(width=780, height=100)
+        self.frame_lbl_opcao_rename.place(y=5, x=5)
+
 
 
     """##### THREADS DOS BOTÕES"""
