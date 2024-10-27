@@ -403,8 +403,15 @@ class ProgramaPrincipal:
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         self.janela_opc_duplicidade.update_idletasks()
 
-    """##### THREADS DOS BOTÕES"""
+    def janela_renomar_varios_arquivos(self):
+        self.janela_renomar_arquivos = tk.Tk()
+        self.janela_renomar_arquivos.geometry('300x300')
+        self.janela_renomar_arquivos.title('Renomeando arquivos.')
 
+
+
+
+    """##### THREADS DOS BOTÕES"""
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -719,7 +726,9 @@ class ProgramaPrincipal:
         """
 
         def renomear_varios_arquivos():
+            self.janela_renomar_varios_arquivos()
             for item_unico in nomear_unico_arquivos:
+
                 item_selecao = self.lista_de_result_busca.get(item_unico)
                 formatar_selecao = str(item_selecao).split('\\')
                 arquivo_para_renomear = formatar_selecao[-1]
