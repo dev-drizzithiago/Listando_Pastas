@@ -713,7 +713,7 @@ class ProgramaPrincipal:
         Essa função será responsável por renomar os arquivos.
         """
         nomear_unico_arquivos = self.lista_de_result_busca.curselection()
-        novo_nome = askstring('Digite um novo nome: ')
+        novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
         for item_unico in nomear_unico_arquivos:
             item_selecao = self.lista_de_result_busca.get(item_unico)
             formatar_selecao = str(item_selecao).split('\\')
