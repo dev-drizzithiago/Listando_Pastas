@@ -755,18 +755,20 @@ class ProgramaPrincipal:
                 print(arquivo_para_renomear)
                 # os.rename(arquivo_renomear)
 
-        def renomar_um_unico_arquivo():
+        def renomar_um_unico_arquivo(valor_de_entrada):
             novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
+            nome_arquivo = str(valor_de_entrada).split('\\')
             print(novo_nome)
 
         """ Recebe o/os valores que o usuários selcionou. Se for apenas um arquivos, vai para função que será 
         modificado. Caso seja 2 ou mais arquivos selecionados, vai para funnção onde vai ter outras opção. """
-
         nomear_unico_arquivos = self.lista_de_result_busca.curselection()
+
         if len(nomear_unico_arquivos) > 1:
             renomear_varios_arquivos()
+
         elif len(nomear_unico_arquivos) == 1:
-            renomar_um_unico_arquivo()
+            renomar_um_unico_arquivo(nomear_unico_arquivos)
 
         # novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
 
