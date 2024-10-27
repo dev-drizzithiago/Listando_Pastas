@@ -175,6 +175,12 @@ class ProgramaPrincipal:
         self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
         self.frame_label_abrir_arquivos.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_abrir_arquivos.place(y=5, x=463)
+
+        """# Botão para fechar a janela secundaria e voltar para janela principal """
+        self.botao_aplica_opcao_renomar = tk.Button(self.frames_inferior)
+        self.botao_aplica_opcao_renomar.config(text='Aplicar', bg='#DCDCDC', width=133)
+        self.botao_aplica_opcao_renomar.config(command=self.thread_opcao_check_botao)
+        self.botao_aplica_opcao_renomar.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
@@ -209,6 +215,11 @@ class ProgramaPrincipal:
         self.botao_abrir_arquivo.config(command=self.thread_abrir_arquivos)
         self.botao_abrir_arquivo.config(state=tk.DISABLED)
         self.botao_abrir_arquivo.pack(anchor='center', fill='both')
+        # ______________________________________________________________________________________________________________
+        """# Frame Botão de Renomar arquivos"""
+        self.frame_lbl_botao_renomear = tk.LabelFrame(self.botao_aplica_opcao_renomar, text='Limpar lista')
+        self.frame_lbl_botao_renomear.config(bg="#DCDCDC", pady=5, padx=5)
+        self.frame_lbl_botao_renomear.pack(anchor='center', fill='both')
 
         # ______________________________________________________________________________________________________________
         # ______________________________________________________________________________________________________________
@@ -360,12 +371,6 @@ class ProgramaPrincipal:
         self.frame_lbl_botao_voltar.config(bg="#DCDCDC", pady=5, padx=5)
         self.frame_lbl_botao_voltar.place(y=150, x=5)
         # ______________________________________________________________________________________________________________
-        """# Frame Botão de Renomar arquivos"""
-        self.frame_lbl_botao_renomear = tk.LabelFrame(self.frame_inferior_dupli, text='Limpar lista')
-        self.frame_lbl_botao_renomear.config(bg="#DCDCDC", pady=5, padx=5)
-        self.frame_lbl_botao_renomear.place(y=150, x=5)
-
-        # ______________________________________________________________________________________________________________
         """#### Botoes de opcao"""
         self.botao_aplica_opcao_check = tk.Button(self.frame_lbl_botao_proc_dados)
         self.botao_aplica_opcao_check.config(text='Aplicar', bg='#DCDCDC', width=133)
@@ -383,13 +388,6 @@ class ProgramaPrincipal:
         self.botao_aplica_opcao_voltar.config(text='Aplicar', bg='#DCDCDC', width=133)
         self.botao_aplica_opcao_voltar.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_voltar.pack(anchor='center', pady=5, padx=5)
-        # ______________________________________________________________________________________________________________
-        """# Botão para fechar a janela secundaria e voltar para janela principal """
-        self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear)
-        self.botao_aplica_opcao_renomar.config(text='Aplicar', bg='#DCDCDC', width=133)
-        self.botao_aplica_opcao_renomar.config(command=self.thread_opcao_check_botao)
-        self.botao_aplica_opcao_renomar.pack(anchor='center', pady=5, padx=5)
-
         # ______________________________________________________________________________________________________________
 
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
