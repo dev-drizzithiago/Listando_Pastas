@@ -709,7 +709,7 @@ class ProgramaPrincipal:
     def botao_renomear_arquivos(self):
         nomear_unico_arquivos = self.lista_de_result_busca.curselection()
         for item_unico in nomear_unico_arquivos:
-            print(item_unico)
+            print(self.lista_de_result_busca.get(item_unico))
         ...
 
     """#### Modulo de processo de duplicidade"""
