@@ -421,13 +421,12 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """ Oções para manipular o nome dos arquivos. """
 
-        self.var_opcao_01_radio_rename = tk.IntVar()
-        self.opcao_01 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.var_opcao_01_radio_rename)
+        radio_rename = tk.IntVar()
+        self.opcao_01 = Radiobutton(self.frame_lbl_opcao_rename, variable=radio_rename)
         self.opcao_01.config(text='Remover Caracteres', value=1)
         self.opcao_01.place(y=5, x=5)
 
-        self.var_opcao_02_radio_rename = tk.IntVar()
-        self.opcao_02 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.var_opcao_02_radio_rename)
+        self.opcao_02 = Radiobutton(self.frame_lbl_opcao_rename, variable=radio_rename)
         self.opcao_02.config(text='Acrescentar Caracteres', value=2)
         self.opcao_02.place(y=30, x=5)
         # ______________________________________________________________________________________________________________
