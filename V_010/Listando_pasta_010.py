@@ -431,6 +431,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -748,9 +749,10 @@ class ProgramaPrincipal:
             ...
 
         def renomar_um_unico_arquivo(valor_de_entrada):
-            novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
+            novo_nome = 'teste'  # #askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
 
             separando_arquivo = str(valor_de_entrada).split('\\')
+            print(len(separando_arquivo))
 
             nome_arquivo = separando_arquivo[-1]
             rename(valor_de_entrada, novo_nome)
@@ -768,8 +770,6 @@ class ProgramaPrincipal:
         elif len(quantidade_de_arquivos) == 1:
             dado_selecionado = self.lista_de_result_busca.get(quantidade_de_arquivos)
             renomar_um_unico_arquivo(dado_selecionado)
-
-        # novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
 
     """#### Modulo de processo de duplicidade"""
 
