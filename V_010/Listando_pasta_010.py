@@ -5,11 +5,10 @@ from tkinter.simpledialog import askstring, askinteger, askfloat
 from tkinter.filedialog import askdirectory
 from tkinter.ttk import *
 import tkinter as tk
-import os.path
 import shutil
 
 """#### Modulos do sistema"""
-from os import walk, startfile, rename
+from os import walk, startfile, rename, path
 from re import search
 
 """### Modulos básicos"""
@@ -746,18 +745,13 @@ class ProgramaPrincipal:
         """
 
         def renomear_varios_arquivos():
-            self.janela_renomar_varios_arquivos()
-            for item_unico in nomear_unico_arquivos:
-
-                item_selecao = self.lista_de_result_busca.get(item_unico)
-                formatar_selecao = str(item_selecao).split('\\')
-                arquivo_para_renomear = formatar_selecao[-1]
-                print(arquivo_para_renomear)
-                # os.rename(arquivo_renomear)
+            ...
 
         def renomar_um_unico_arquivo(valor_de_entrada):
             novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
+
             separando_arquivo = str(valor_de_entrada).split('\\')
+
             nome_arquivo = separando_arquivo[-1]
             rename(valor_de_entrada, novo_nome)
 
