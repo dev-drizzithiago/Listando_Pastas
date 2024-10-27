@@ -405,8 +405,9 @@ class ProgramaPrincipal:
 
     def janela_renomar_varios_arquivos(self):
         self.janela_renomar_arquivos = tk.Tk()
-        self.janela_renomar_arquivos.geometry('300x300')
+        self.janela_renomar_arquivos.geometry('600x800')
         self.janela_renomar_arquivos.title('Renomeando arquivos.')
+        self.janela_renomar_arquivos.resizable(0, 0)
 
 
 
