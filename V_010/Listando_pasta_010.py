@@ -410,10 +410,10 @@ class ProgramaPrincipal:
         self.janela_renomar_arquivos.resizable(0, 0)
 
         self.frame_lbl_janela_renomar = tk.LabelFrame(self.janela_renomar_arquivos, text='Renomeando arquivos')
-        self.frame_lbl_janela_renomar.config(width=750, height=550)
+        self.frame_lbl_janela_renomar.config(width=780, height=590)
         self.frame_lbl_janela_renomar.pack(fill=tk.BOTH, pady=5, padx=5)
 
-
+        
 
 
     """##### THREADS DOS BOTÕES"""
