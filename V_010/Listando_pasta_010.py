@@ -202,7 +202,7 @@ class ProgramaPrincipal:
         """# Botão para renomear arquivos """
         self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear, text='Aplicar')
         self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_aplica_opcao_renomar.config(command='')
+        self.botao_aplica_opcao_renomar.config(command=self.botao_renomear_arquivos)
         self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
@@ -233,7 +233,10 @@ class ProgramaPrincipal:
         self.frame_label_lista_resultado.config(width=983)
         self.frame_label_lista_resultado.place(y=430, x=1)
         # ______________________________________________________________________________________________________________
-        """# Lista de busca"""
+        """
+        # Lista de busca
+        Aqui você vai encontrar todas as informações da busca, conforme a extensão selecionar. 
+        """
         self.var_lista_result_busca = tk.StringVar()
         self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=117, height=10, bg='#DCDCDC')
         self.lista_de_result_busca.config(listvariable=self.var_lista_result_busca)
@@ -704,7 +707,9 @@ class ProgramaPrincipal:
 
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
-        pass
+        nomear_unico_arquivos = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
+        print(nomear_unico_arquivos)
+        ...
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
