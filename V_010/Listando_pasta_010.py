@@ -1004,7 +1004,6 @@ class ProgramaPrincipal:
                                 pass
 
                 """###### Fim do processo de busca"""
-                print(f' Lista de renomeação de arquivos: {self.lista_para_renomear}')
                 """# Desliga a barra de progresso, ao final da busca"""
                 self.barra_progresso_busca.stop()
                 self.barra_progresso_busca.config(value=100)
