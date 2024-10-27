@@ -149,6 +149,7 @@ class ProgramaPrincipal:
         self.frames_inferior.config(width=1070, height=75, bd=2)
         self.frames_inferior.place(y=348, x=2)
         # ______________________________________________________________________________________________________________
+
         """# Label Frames dos botões"""
 
         """# Label Frame INICIO"""
@@ -162,9 +163,9 @@ class ProgramaPrincipal:
         self.frame_label_diretorio.place(y=5, x=140)
         # ______________________________________________________________________________________________________________
         """# Frame Botão de Renomar arquivos"""
-        self.frame_lbl_botao_renomear = tk.LabelFrame(self.frames_inferior, text='Limpar lista')
+        self.frame_lbl_botao_renomear = tk.LabelFrame(self.frames_inferior, text='Renomear Arquivos')
         self.frame_lbl_botao_renomear.config(bg="#DCDCDC", pady=5, padx=5)
-        self.frame_lbl_botao_renomear.place(y=5, x=240)
+        self.frame_lbl_botao_renomear.place(y=5, x=280)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de limpeza da lista de extensões"""
         self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Limpar listas')
@@ -199,7 +200,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """# Botão para renomear arquivos """
         self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear)
-        self.botao_aplica_opcao_renomar.config(text='Aplicar', bg='#DCDCDC', width=133)
+        self.botao_aplica_opcao_renomar.config(text='Aplicar', bg='#DCDCDC', width=15)
         self.botao_aplica_opcao_renomar.config(command=self.thread_opcao_check_botao)
         self.botao_aplica_opcao_renomar.pack(anchor='center', pady=5, padx=5)
         # ______________________________________________________________________________________________________________
