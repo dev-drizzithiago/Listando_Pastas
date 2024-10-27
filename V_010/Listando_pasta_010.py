@@ -579,7 +579,6 @@ class ProgramaPrincipal:
         self.lista_result_duplicidade.destroy()
 
     def abrir_arquivos(self):
-
         open_arquivo = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
         print(f'Abrindo arquivo: {open_arquivo}')
         try:
@@ -708,8 +707,9 @@ class ProgramaPrincipal:
 
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
-        nomear_unico_arquivos = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
-        print(nomear_unico_arquivos)
+        nomear_unico_arquivos = self.lista_de_result_busca.curselection()
+        for item_unico in nomear_unico_arquivos:
+            print(item_unico)
         ...
 
     """#### Modulo de processo de duplicidade"""
