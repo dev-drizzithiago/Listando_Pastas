@@ -409,13 +409,26 @@ class ProgramaPrincipal:
         self.janela_renomar_arquivos.title('Renomeando arquivos.')
         self.janela_renomar_arquivos.resizable(0, 0)
 
+        """ Label frame da janela principal. """
         self.frame_lbl_janela_renomar = tk.LabelFrame(self.janela_renomar_arquivos, text='Renomeando arquivos')
         self.frame_lbl_janela_renomar.config(width=780, height=590)
         self.frame_lbl_janela_renomar.pack(fill=tk.BOTH, pady=5, padx=5)
 
+        """ Label Frame das opções de renomear """
         self.frame_lbl_opcao_rename = tk.LabelFrame(self.frame_lbl_janela_renomar, text='Escolha uma opcação')
-        self.frame_lbl_opcao_rename.config(width=770, height=150)
+        self.frame_lbl_opcao_rename.config(width=780, height=150)
         self.frame_lbl_opcao_rename.place(y=5, x=5)
+
+        """ Oções para manipular o nome dos arquivos. """
+        txt_opcao_1 = 'Remover Caracteres'
+        self.var_opcao_radio_rename = tk.Variable
+        self.opcao_01 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.var_opcao_radio_rename, text=txt_opcao_1)
+        self.opcao_01.place(y=5, x=5)
+
+        txt_opcao_2 = 'Acrescentar Caracteres'
+        self.opcao_02 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.var_opcao_radio_rename, )
+        self.opcao_02.config(text=txt_opcao_2, )
+        self.opcao_02.place(y=15, x=5)
 
 
 
