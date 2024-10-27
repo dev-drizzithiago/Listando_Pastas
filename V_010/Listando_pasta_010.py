@@ -404,6 +404,7 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.update_idletasks()
 
     """##### THREADS DOS BOTÕES"""
+
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -452,6 +453,7 @@ class ProgramaPrincipal:
         Thread(target=self.abrir_arquivos).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
         self.ativar_combo = True
@@ -535,6 +537,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
+
     def evento_mouse(self):
         showinfo('Teste', 'teste')
 
@@ -591,6 +594,7 @@ class ProgramaPrincipal:
         print('Arquivo em excusão!!')
 
     """#### Inicio dos processos """
+
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
@@ -708,21 +712,31 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """ Processo para renomar os arquivos """
+
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos.
         """
+
+        def renomear_varios_arquivos():
+            for item_unico in nomear_unico_arquivos:
+                item_selecao = self.lista_de_result_busca.get(item_unico)
+                formatar_selecao = str(item_selecao).split('\\')
+                arquivo_para_renomear = formatar_selecao[-1]
+                # os.rename(arquivo_renomear)
+
+        def renomar_um_unico_arquivo():
+            # novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
+            pass
+
         nomear_unico_arquivos = self.lista_de_result_busca.curselection()
-        novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
-        for item_unico in nomear_unico_arquivos:
-            item_selecao = self.lista_de_result_busca.get(item_unico)
-            formatar_selecao = str(item_selecao).split('\\')
-            arquivo_para_renomear = formatar_selecao[-1]
-            # os.rename(arquivo_renomear)
+        if len(nomear_unico_arquivos) > 1:
+            renomear_varios_arquivos()
 
-
+        # novo_nome = askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
 
     """#### Modulo de processo de duplicidade"""
+
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
 
@@ -870,6 +884,7 @@ class ProgramaPrincipal:
         self.thread_processo_hashlib_duplicados()
 
     """#### Processo de Busca"""
+
     def botao_inicio_da_busca_principal(self):
         print('Iniciando função "botao_inicio_da_busca_principal"')
         """
