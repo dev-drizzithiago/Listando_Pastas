@@ -7,7 +7,7 @@ import os.path
 import shutil
 
 """#### Modulos do sistema"""
-from os import walk, startfile
+from os import walk, startfile, rename
 from re import search
 
 """### Modulos básicos"""
@@ -707,10 +707,18 @@ class ProgramaPrincipal:
 
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
+        """
+        Essa função será responsável por renomar os arquivos.
+        """
         nomear_unico_arquivos = self.lista_de_result_busca.curselection()
+        novo_nome = ''
         for item_unico in nomear_unico_arquivos:
-            print(self.lista_de_result_busca.get(item_unico))
-        ...
+            item_selecao = self.lista_de_result_busca.get(item_unico)
+            formatar_selecao = str(item_selecao).split('\\')
+            arquivo_para_renomear = formatar_selecao[-1]
+            # os.rename(arquivo_renomear)
+
+
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
@@ -946,7 +954,7 @@ class ProgramaPrincipal:
                         São vários filtros para não jogar todos os arquivos"""
                         if search(valor_da_extensao_busca, valor_file):
                             try:
-                                self.lista_para_renomear.append(os.path.join(raiz, valor_file))
+                                self.lista_para_renomear.append(valor_file)
                                 self.dados_para_duplicidade.append(os.path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                                   f'[{contador_de_arquivos}]')
