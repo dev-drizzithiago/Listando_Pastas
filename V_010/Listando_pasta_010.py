@@ -216,7 +216,7 @@ class ProgramaPrincipal:
         """# Botão verificar duplicidade"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_duplicidade_tk_principal)
+        self.botao_duplicidade.config(command='self.thread_botao_duplicidade_tk_principal')
         self.botao_duplicidade.config(state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
