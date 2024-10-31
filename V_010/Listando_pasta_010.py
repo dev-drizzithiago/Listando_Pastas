@@ -1008,7 +1008,7 @@ class ProgramaPrincipal:
                         if search(valor_da_extensao_busca, valor_file):
                             try:
                                 self.lista_para_renomear.append(valor_file)
-                                self.dados_para_duplicidade.append(os.path.join(raiz, valor_file))
+                                self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                                   f'[{contador_de_arquivos}]')
 
@@ -1024,7 +1024,7 @@ class ProgramaPrincipal:
 
                                 """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
 
-                                caminho_completo = os.path.join(raiz, valor_of_file)
+                                caminho_completo = path.join(raiz, valor_of_file)
 
                                 extensao_destaque = str(caminho_completo).split('\\')[-1]
                                 resultado_destaque = f'{raiz} ==> [ {extensao_destaque} ]'
