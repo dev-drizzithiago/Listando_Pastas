@@ -37,7 +37,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """ Declarações para tooltip"""
         self.texto = 'Entrou com o mouse'
-        self.tooltip = None        
+        self.tooltip = None
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.func_pasta_destino()
@@ -585,10 +585,37 @@ class ProgramaPrincipal:
         print(event)
         print('Funciona')
 
-    def evento_mostrar(event=None):
+    def evento_mostrar(self, event=None):
+
+        """ Verifica se já existe um tooltip
+        ou se o texto está vazio; se qualquer
+        uma dessas condições for verdadeira,
+        a função retorna imediatamente."""
+        if self.tooltip or not self.texto:
+            return
+
+        """Calcula a posição onde o tooltip deve aparecer, 
+        ajustando a posição do botão na janela."""
+        x, y, _, _ = self.botao_inicio_processo.bbox('insert')
+        x += self.botao_inicio_processo.winfo_rootx() + 25
+        y += self.botao_inicio_processo.winfo_rooty() + 25
+
+        """Cria uma nova janela de topo (Toplevel), remove as 
+        bordas padrão (wm_overrideredirect(True)), e posiciona a 
+        janela de acordo com os cálculos anteriores."""
+        self.tooltip = tk.Toplevel(self.janela_principal)
+        self.tooltip.wm_overrideredirect(True)
+        self.tooltip.wm_geometry(f'+{x}+{y}')
+
+        """Adiciona um rótulo (Label) à janela do tooltip com o 
+        texto apropriado e estilo visual, e imprime "Entrou" no console."""
+        msg_label = Label(self.tooltip, text=self.texto, background='yellow')
+        msg_label.pack()
         print('Entrou')
 
-    def evento_esconder(event=None):
+
+
+    def evento_esconder(self, event=None):
         print('Saiu')
 
     """#### Processos simples"""
