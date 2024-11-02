@@ -580,15 +580,11 @@ class ProgramaPrincipal:
         print(event)
         print('Funciona')
 
-    def evento_tooltip(self):
-        self.texto = 'Entrou com o mouse'
-        self.tooltip = None
-        
-        def evento_mostrar(event=None):
-            print('Entrou')
-                
-        def evento_esconder(event=None):
-            print('Saiu')            
+    def evento_mostrar(event=None):
+        print('Entrou')
+
+    def evento_esconder(event=None):
+        print('Saiu')
 
     """#### Processos simples"""
     def data_hora_certa(self):
