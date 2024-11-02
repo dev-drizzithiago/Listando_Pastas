@@ -755,8 +755,9 @@ class ProgramaPrincipal:
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
         """
-        Essa função será responsável por renomar os arquivos."""
-        # caminho_teste = 'G:\\Meu Drive\\Fotos\\Privado\\IMG_20241026_220743240_AE.jpg'
+        Essa função será responsável por renomar os arquivos.
+        """
+
         valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
 
         separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
