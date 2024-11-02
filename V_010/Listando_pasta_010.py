@@ -480,7 +480,6 @@ class ProgramaPrincipal:
         Thread(target=self.abrir_arquivos).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
-
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
         self.ativar_combo = True
@@ -564,7 +563,6 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """#### Processos simples"""
-
     def evento_mouse(self):
         showinfo('Teste', 'teste')
 
@@ -738,7 +736,6 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """ Processo para renomar os arquivos """
-
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos."""
