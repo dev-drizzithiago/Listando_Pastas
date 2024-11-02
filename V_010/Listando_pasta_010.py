@@ -33,6 +33,11 @@ class ProgramaPrincipal:
         self.dados_do_processo_busca = list()
         self.dados_para_duplicidade = list()
         self.tempo_gasto_da_busca = None
+
+        # ______________________________________________________________________________________________________________
+        """ Declarações para tooltip"""
+        self.texto = 'Entrou com o mouse'
+        self.tooltip = None        
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
         self.func_pasta_destino()
