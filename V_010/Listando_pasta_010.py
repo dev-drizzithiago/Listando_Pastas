@@ -742,12 +742,12 @@ class ProgramaPrincipal:
 
     def botao_renomear_arquivos(self):
         """
-        Essa função será responsável por renomar os arquivos.        """
+        Essa função será responsável por renomar os arquivos."""
 
         valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
         separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
         nome_arquivo_renomear = separacao_pasta_arq[-1]
-        print(separacao_pasta_arq)
+        print(nome_arquivo_renomear)
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
