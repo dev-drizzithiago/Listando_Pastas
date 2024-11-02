@@ -579,7 +579,16 @@ class ProgramaPrincipal:
         print(event)
         print('Funciona')
 
-    def evento_toolip
+    def evento_toolip(self, janela, msg):
+        self.janela = janela
+        self.msg = msg
+        self.toolip = None
+
+        def mostrar_msg(event=None):
+            ...
+
+        def esconder_msg(event=None):
+            ...
 
     """#### Processos simples"""
     def data_hora_certa(self):
