@@ -444,7 +444,6 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
-
     def thread_botao_inicio_da_busca(self):
         """
 
@@ -575,10 +574,11 @@ class ProgramaPrincipal:
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
-    """#### Processos simples"""
+    """ Processos de eventos"""
     def evento_mouse(self):
         showinfo('Teste', 'teste')
 
+    """#### Processos simples"""
     def data_hora_certa(self):
         print('Iniciando função "data_hora_certa"')
         """
@@ -632,6 +632,7 @@ class ProgramaPrincipal:
         print('Arquivo em execusão!!')
 
     """#### Inicio dos processos """
+
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
