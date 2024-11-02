@@ -621,7 +621,6 @@ class ProgramaPrincipal:
         print('Arquivo em excusão!!')
 
     """#### Inicio dos processos """
-
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
@@ -743,7 +742,6 @@ class ProgramaPrincipal:
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos."""
-
         valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
         separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
         nome_arquivo_renomear = separacao_pasta_arq[-1]
@@ -897,7 +895,6 @@ class ProgramaPrincipal:
         self.thread_processo_hashlib_duplicados()
 
     """#### Processo de Busca"""
-
     def botao_inicio_da_busca_principal(self):
         print('Iniciando função "botao_inicio_da_busca_principal"')
         """
