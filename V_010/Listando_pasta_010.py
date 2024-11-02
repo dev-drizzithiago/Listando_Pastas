@@ -618,7 +618,7 @@ class ProgramaPrincipal:
         except FileNotFoundError:
             showwarning('AVISO', 'Arquivo não existe!')
         print()
-        print('Arquivo em excusão!!')
+        print('Arquivo em execusão!!')
 
     """#### Inicio dos processos """
     def tempo_processo_busca(self):
