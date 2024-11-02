@@ -170,6 +170,11 @@ class ProgramaPrincipal:
         self.frame_lbl_botao_renomear.config(bg="#DCDCDC", pady=5, padx=5)
         self.frame_lbl_botao_renomear.place(y=5, x=280)
         # ______________________________________________________________________________________________________________
+        """# Frame Label para botão adiconar indices nos arquivos"""
+        self.frame_label_adiconar_indice = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
+        self.frame_label_adiconar_indice.config(bg='#DCDCDC', pady=5, padx=5)
+        self.frame_label_adiconar_indice.place(y=5, x=420)
+        # ______________________________________________________________________________________________________________
         """# Frame Label para botão de limpeza da lista de extensões"""
         self.frame_label_limpeza_chk = tk.LabelFrame(self.frames_inferior, text='Limpar listas')
         self.frame_label_limpeza_chk.config(bg='#DCDCDC', pady=5, padx=5)
@@ -184,11 +189,6 @@ class ProgramaPrincipal:
         self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
         self.frame_label_abrir_arquivos.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_abrir_arquivos.place(y=5, x=645)
-        # ______________________________________________________________________________________________________________
-        """# Frame Label para botão adiconar indices nos arquivos"""
-        self.frame_label_adiconar_indice = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
-        self.frame_label_adiconar_indice.config(bg='#DCDCDC', pady=5, padx=5)
-        self.frame_label_adiconar_indice.place(y=5, x=645)
         # ______________________________________________________________________________________________________________
 
         # ==============================================================================================================
@@ -212,6 +212,12 @@ class ProgramaPrincipal:
         self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_aplica_opcao_renomar.config(command=self.botao_renomear_arquivos)
         self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
+        # ______________________________________________________________________________________________________________
+        """# Botão para adicionar um indice no inicio do arquivos """
+        self.botao_aplica_opcao_indice = tk.Button(self.frame_label_adiconar_indice, text='ADD Indice')
+        self.botao_aplica_opcao_indice.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_aplica_opcao_indice.config(command='')
+        self.botao_aplica_opcao_indice.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
