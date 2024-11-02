@@ -751,17 +751,18 @@ class ProgramaPrincipal:
 
         novo_nome = askstring('...', 'Digite um novo nome: ')
 
-        print()
+        print('-------------')
         print(f'Arquivo original: {caminho_formtado}\\{nome_arquivo_renomear}')
         arquivo_original = f'{caminho_formtado}\\{nome_arquivo_renomear}'
 
-        print()
-        print(f'Arquivo novo: {caminho_formtado}\\{nome_arquivo_renomear}')
-        arquivo_novo = f'{caminho_formtado}\\{nome_arquivo_renomear}'
+        print('-------------')
+        print(f'Arquivo novo: {caminho_formtado}\\{novo_nome}.{extensao_arquivo}')
+        arquivo_novo = f'{caminho_formtado}\\{novo_nome}.{extensao_arquivo}'
 
-        print()
+        print('-------------')
         try:
-            os.rename(arquivo_original, arquivo_novo)
+            os.rename(f'{arquivo_original}', f'{arquivo_novo}')
+            print('Nome modificado')
         except Exception as e:
             print(f'Erro: {e}')
 
