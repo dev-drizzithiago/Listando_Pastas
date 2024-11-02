@@ -749,15 +749,13 @@ class ProgramaPrincipal:
         caminho_do_arquivo = separacao_pasta_arq[:-1]
         caminho_formtado = '\\'.join(caminho_do_arquivo)
 
+        novo_nome = askstring('...', 'Digite um novo nome: ')
+
         print()
         print(f'Arquivo original: {caminho_formtado}\\{nome_arquivo_renomear}')
 
         print()
-        novo_nome = askstring('...', 'Digite um novo nome: ')
-        print(f'Arquivo Novo: {caminho_formtado}\\{novo_nome}')
-
-        print()
-        print(f'{caminho_formtado}\\{nome_arquivo_renomear}', f'{caminho_formtado}\\{novo_nome}')
+        print(f'{caminho_formtado}\\{nome_arquivo_renomear}', f'{caminho_formtado}\\{novo_nome}.{extensao_arquivo}')
 
         print()
         try:
