@@ -183,9 +183,15 @@ class ProgramaPrincipal:
         """# Frame Label para botão de encontrar duplicidade"""
         self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
         self.frame_label_abrir_arquivos.config(bg='#DCDCDC', pady=5, padx=5)
-        self.frame_label_abrir_arquivos.place(y=5, x=463)
+        self.frame_label_abrir_arquivos.place(y=5, x=645)
+        # ______________________________________________________________________________________________________________
+        """# Frame Label para botão adiconar indices nos arquivos"""
+        self.frame_label_adiconar_indice = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
+        self.frame_label_adiconar_indice.config(bg='#DCDCDC', pady=5, padx=5)
+        self.frame_label_adiconar_indice.place(y=5, x=645)
         # ______________________________________________________________________________________________________________
 
+        # ==============================================================================================================
         # ______________________________________________________________________________________________________________
         """#### BOTÕES """
 
