@@ -190,7 +190,7 @@ class ProgramaPrincipal:
 
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Aplicar')
-        self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
+        self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#00FA9A')
         self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
@@ -241,7 +241,7 @@ class ProgramaPrincipal:
         self.var_lista_result_busca = tk.StringVar()
         self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=117, height=10, bg='#DCDCDC')
         self.lista_de_result_busca.config(listvariable=self.var_lista_result_busca)
-        self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.MULTIPLE)
+        self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
         self.lista_de_result_busca.place(y=435, x=2)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista RESULTADO"""
@@ -742,37 +742,13 @@ class ProgramaPrincipal:
 
     def botao_renomear_arquivos(self):
         """
-        Essa função será responsável por renomar os arquivos.
-        """
+        Essa função será responsável por renomar os arquivos.        """
 
-        def renomear_varios_arquivos():
-            ...
-
-        def renomar_um_unico_arquivo(valor_de_entrada):
-            novo_nome = 'teste'  # #askstring('Renomeando Arquivos.', 'Digite um novo nome: ')
-
-            separando_arquivo = str(valor_de_entrada).split('\\')
-            print(len(separando_arquivo))
-
-            nome_arquivo = separando_arquivo[-1]
-            rename(valor_de_entrada, novo_nome)
-
-            print(valor_de_entrada)
-
-        """ Recebe o/os valores que o usuários selcionou. Se for apenas um arquivos, vai para função que será 
-        modificado. Caso seja 2 ou mais arquivos selecionados, vai para funnção onde vai ter outras opção. """
-
-        quantidade_de_arquivos = self.lista_de_result_busca.curselection()
-
-        if len(quantidade_de_arquivos) > 1:
-            renomear_varios_arquivos()
-
-        elif len(quantidade_de_arquivos) == 1:
-            dado_selecionado = self.lista_de_result_busca.get(quantidade_de_arquivos)
-            renomar_um_unico_arquivo(dado_selecionado)
+        valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
+        separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
+        print(separacao_pasta_arq)
 
     """#### Modulo de processo de duplicidade"""
-
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
 
