@@ -200,6 +200,7 @@ class ProgramaPrincipal:
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#00FA9A')
         self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
+        self.botao_inicio_processo.bind('<Enter>', self.evento_mouse)
         # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Aplicar')
@@ -238,7 +239,6 @@ class ProgramaPrincipal:
         self.botao_abrir_arquivo.config(command=self.thread_abrir_arquivos)
         self.botao_abrir_arquivo.config(state=tk.DISABLED)
         self.botao_abrir_arquivo.pack(anchor='center', fill='both')
-
         # ______________________________________________________________________________________________________________
 
         # ______________________________________________________________________________________________________________
@@ -575,7 +575,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """ Processos de eventos"""
-    def evento_mouse(self):
+    def evento_mouse(self, *args):
         showinfo('Teste', 'teste')
 
     """#### Processos simples"""
