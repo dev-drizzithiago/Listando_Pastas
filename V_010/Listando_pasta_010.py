@@ -611,12 +611,13 @@ class ProgramaPrincipal:
         texto apropriado e estilo visual, e imprime "Entrou" no console."""
         msg_label = Label(self.tooltip, text=self.texto, background='yellow')
         msg_label.pack()
-        print('Entrou')
-
-
 
     def evento_esconder(self, event=None):
-        print('Saiu')
+        """Se um tooltip está presente, destrói a
+        janela do tooltip e define o atributo tooltip como None."""
+        if self.tooltip:
+            self.tooltip.destroy()
+            self.tooltip = None
 
     """#### Processos simples"""
     def data_hora_certa(self):
