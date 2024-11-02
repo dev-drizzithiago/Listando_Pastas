@@ -746,6 +746,7 @@ class ProgramaPrincipal:
 
         valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
         separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
+        nome_arquivo_renomear = separacao_pasta_arq[-1]
         print(separacao_pasta_arq)
 
     """#### Modulo de processo de duplicidade"""
