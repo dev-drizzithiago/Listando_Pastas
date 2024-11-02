@@ -740,10 +740,10 @@ class ProgramaPrincipal:
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos."""
-        caminho_teste = 'G:\\Meu Drive\\Fotos\\Privado\\IMG_20241026_220743240_AE.jpg'
-        # valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
+        # caminho_teste = 'G:\\Meu Drive\\Fotos\\Privado\\IMG_20241026_220743240_AE.jpg'
+        valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
 
-        separacao_pasta_arq = str(caminho_teste).split('\\')
+        separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
         nome_arquivo_renomear = separacao_pasta_arq[-1]
         extensao_arquivo = nome_arquivo_renomear.split('.')[-1]
         caminho_do_arquivo = separacao_pasta_arq[:-1]
