@@ -575,8 +575,11 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """ Processos de eventos"""
-    def evento_mouse(self, *args):
-        showinfo('Teste', 'teste')
+    def evento_mouse(self, event):
+        print(event)
+        print('Funciona')
+
+    def evento_toolip
 
     """#### Processos simples"""
     def data_hora_certa(self):
