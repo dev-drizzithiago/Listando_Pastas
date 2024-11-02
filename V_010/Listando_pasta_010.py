@@ -574,21 +574,10 @@ class ProgramaPrincipal:
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
-    """ Processos de eventos"""
+    """ Processos de eventos simples"""
     def evento_mouse(self, event):
         print(event)
         print('Funciona')
-
-    def evento_toolip(self, janela, msg):
-        self.janela = janela
-        self.msg = msg
-        self.toolip = None
-
-        def mostrar_msg(event=None):
-            ...
-
-        def esconder_msg(event=None):
-            ...
 
     """#### Processos simples"""
     def data_hora_certa(self):
