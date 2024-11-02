@@ -1,4 +1,5 @@
 """#### Declaração de Modulos"""
+import os
 import tkinter.simpledialog
 from tkinter.messagebox import showwarning, showinfo, showerror
 from tkinter.simpledialog import askstring, askinteger, askfloat
@@ -739,13 +740,22 @@ class ProgramaPrincipal:
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos."""
-        valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
-        separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
+        caminho_teste = 'G:\\Meu Drive\\Fotos/Privado\\IMG_20241026_220743240_AE.jpg'
+        # valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
+
+        separacao_pasta_arq = str(caminho_teste).split('/')
         nome_arquivo_renomear = separacao_pasta_arq[-1]
         caminho_do_arquivo = separacao_pasta_arq[:-1]
-        caminho_formtado = '/'.join(caminho_do_arquivo)
+        caminho_formtado = '\\'.join(caminho_do_arquivo)
+
+        novo_nome = askstring('...', 'Digite um novo nome: ')
+
         print(caminho_formtado)
         print(nome_arquivo_renomear)
+        try:
+            os.rename(f'{caminho_formtado}\\{nome_arquivo_renomear}', f'{caminho_formtado}\\{novo_nome}')
+        except Exception as e:
+            print(f'Erro: {e}')
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
