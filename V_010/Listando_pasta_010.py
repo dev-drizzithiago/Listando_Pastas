@@ -748,6 +748,10 @@ class ProgramaPrincipal:
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
+    """ Processo para adicionar um indice em cada arquivo """
+    def adicionar_indice(self):
+        ...
+
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
         """
