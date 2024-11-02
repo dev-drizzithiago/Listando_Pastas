@@ -740,10 +740,10 @@ class ProgramaPrincipal:
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos."""
-        caminho_teste = 'G:\\Meu Drive\\Fotos/Privado\\IMG_20241026_220743240_AE.jpg'
+        caminho_teste = 'G:\\Meu Drive\\Fotos\\Privado\\IMG_20241026_220743240_AE.jpg'
         # valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
 
-        separacao_pasta_arq = str(caminho_teste).split('/')
+        separacao_pasta_arq = str(caminho_teste).split('\\')
         nome_arquivo_renomear = separacao_pasta_arq[-1]
         extensao_arquivo = nome_arquivo_renomear.split('.')[-1]
         caminho_do_arquivo = separacao_pasta_arq[:-1]
@@ -753,15 +753,15 @@ class ProgramaPrincipal:
 
         print('-------------')
         print(f'Arquivo original: {caminho_formtado}\\{nome_arquivo_renomear}')
-        arquivo_original = f'{caminho_formtado}\\{nome_arquivo_renomear}'
+        arquivo_original = str(f'{caminho_formtado}\\{nome_arquivo_renomear}')
 
         print('-------------')
         print(f'Arquivo novo: {caminho_formtado}\\{novo_nome}.{extensao_arquivo}')
-        arquivo_novo = f'{caminho_formtado}\\{novo_nome}.{extensao_arquivo}'
+        arquivo_novo = str(f'{caminho_formtado}\\{novo_nome}.jpg')
 
         print('-------------')
         try:
-            os.rename(f'{arquivo_original}', f'{arquivo_novo}')
+            rename(f'{arquivo_original}', f'{arquivo_novo}')
             print('Nome modificado')
         except Exception as e:
             print(f'Erro: {e}')
