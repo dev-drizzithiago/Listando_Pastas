@@ -753,13 +753,15 @@ class ProgramaPrincipal:
 
         print()
         print(f'Arquivo original: {caminho_formtado}\\{nome_arquivo_renomear}')
+        arquivo_original = f'{caminho_formtado}\\{nome_arquivo_renomear}'
 
         print()
-        print(f'{caminho_formtado}\\{nome_arquivo_renomear}', f'{caminho_formtado}\\{novo_nome}.{extensao_arquivo}')
+        print(f'Arquivo novo: {caminho_formtado}\\{nome_arquivo_renomear}')
+        arquivo_novo = f'{caminho_formtado}\\{nome_arquivo_renomear}'
 
         print()
         try:
-            os.rename(f'{caminho_formtado}\\{nome_arquivo_renomear}', f'{caminho_formtado}\\{novo_nome}')
+            os.rename(arquivo_original, arquivo_novo)
         except Exception as e:
             print(f'Erro: {e}')
 
