@@ -200,7 +200,8 @@ class ProgramaPrincipal:
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#00FA9A')
         self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
         self.botao_inicio_processo.pack(anchor='n', fill='both')
-        self.botao_inicio_processo.bind('<Enter>', self.evento_mouse)
+        self.botao_inicio_processo.bind('<Enter>', self.evento_mostrar)
+        self.botao_inicio_processo.bind('<Leave>', self.evento_esconder)
         # ______________________________________________________________________________________________________________
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Aplicar')
@@ -578,6 +579,16 @@ class ProgramaPrincipal:
     def evento_mouse(self, event):
         print(event)
         print('Funciona')
+
+    def evento_tooltip(self):
+        self.texto = 'Entrou com o mouse'
+        self.tooltip = None
+        
+        def evento_mostrar(event=None):
+            print('Entrou')
+                
+        def evento_esconder(event=None):
+            print('Saiu')            
 
     """#### Processos simples"""
     def data_hora_certa(self):
