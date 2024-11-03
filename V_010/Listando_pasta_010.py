@@ -1020,9 +1020,9 @@ class ProgramaPrincipal:
                 for valor_var in range(len(self.lista_var)):
                     if self.lista_var[valor_var].get() == 1:
                         extensoes.append(self.botoes_chek[valor_var]["text"])
-                self.lbl_ext_selec.config(text=f'Você selecionou a extensão {extensoes} para busca.')
+                self.lbl_ext_selec.config(text=f'Selecionado extensão: [{extensoes}] para o processo de busca.')
             except AttributeError:
-                showwarning("AVISO", 'Você não selecionou nenhuma extensão')
+                showwarning("AVISO", 'É preciso selecionar uma extensão')
 
             """# Valida se extensão possui mais de um valor"""
             if len(extensoes) == 1:
