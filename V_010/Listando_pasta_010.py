@@ -1126,7 +1126,7 @@ class ProgramaPrincipal:
 
                                     """# Mostra os resultados no prompt e na lista de busca"""
                                     print(f'[{resultado_destaque}]')
-                                    self.lbl_info_real_time.config(text=f'Arquivos encontrados:{valor_de_busca}')
+                                    self.lbl_info_real_time.config(text=f'Arquivos encontrados: [{valor_de_busca}]')
                                     self.lista_de_result_busca.insert(
                                         'end', f'{raiz}\\{extensao_destaque}'
                                     )
