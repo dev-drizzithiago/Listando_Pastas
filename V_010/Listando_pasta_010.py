@@ -40,7 +40,7 @@ class ProgramaPrincipal:
         self.tooltip = None
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
-        self.func_pasta_destino()
+        self.func_pasta_destino_padrao()
         # ______________________________________________________________________________________________________________
         """#### Declaraçõas de ativações"""
         self.ativar_selecionar_pasta_destino = False
@@ -633,7 +633,8 @@ class ProgramaPrincipal:
         self.hora_certa = valor_data.strftime("%H:%M")
         self.lbl_hora_certa.config(text=f'Inicio do programa:[{self.hora_certa}-{self.data_certa}]')
 
-    def func_pasta_destino(self):
+    # Responsavel por manter uma pasta de busca padrão
+    def func_pasta_destino_padrao(self):
         print('Iniciando função "func_pasta_destino"')
         # ______________________________________________________________________________________________________________
         """# Pasta padrão da busca; sempre tento usar a pasta do usuário"""
@@ -647,7 +648,7 @@ class ProgramaPrincipal:
                 valor_destroy.destroy()
             """# Tambem limpa a lista de busca"""
             self.lista_de_result_busca.delete('0', 'end')
-            self.func_pasta_destino()
+            self.func_pasta_destino_padrao()
             self.lbl_pts_dest.config(text=self.diretorio_home)
         else:
             showwarning("AVISO", 'Não existe lista para limpar')
@@ -797,7 +798,9 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def adicionar_indice(self):
-        print(self.lista_para_renomear)
+        arquivo_teste = self.lista_para_renomear[0]
+        novo_nome = f'{self.diretorio_home}\\01.{arquivo_teste}'
+        print(novo_nome)
 
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
@@ -1174,3 +1177,4 @@ class ProgramaPrincipal:
 
 
 iniciando_obj = ProgramaPrincipal()
+iniciando_obj.adicionar_indice()
