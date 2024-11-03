@@ -1022,13 +1022,13 @@ class ProgramaPrincipal:
                         extensoes.append(self.botoes_chek[valor_var]["text"])
                 self.lbl_ext_selec.config(text=f'Selecionado extensão: [{extensoes}] para o processo de busca.')
             except AttributeError:
-                showwarning("AVISO", 'É preciso selecionar uma extensão')
+                showwarning("AVISO", 'Nenhuma extensão selecionada')
 
             """# Valida se extensão possui mais de um valor"""
             if len(extensoes) == 1:
                 self.ativar_uma_extensao = True
             elif len(extensoes) == 0:
-                showwarning("AVISO", 'Você não selecionou nenhuma extensão, selecione uma')
+                showwarning("AVISO", 'É preciso selecionar uma extensão')
 
             """# Prepara o valor para que a função re.search possa identificar """
             for valor_item_extensao in extensoes:
