@@ -22,6 +22,8 @@ from threading import Thread
 
 
 class ProgramaPrincipal:
+
+    """__init__ fica a janela principal"""
     def __init__(self):
 
         """##### Declarações de variaveis"""
@@ -878,7 +880,7 @@ class ProgramaPrincipal:
         except:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
 
-    def acao_arquivos_duplicidades(self):
+    def acao_arquivos_duplicidades_desativado(self):
         print('Iniciando processo de "processo_hashlib_duplicados"')
 
         """chamada de modulo local"""
@@ -968,6 +970,9 @@ class ProgramaPrincipal:
         self.lbl_info_tempo_processo['text'] = f"O processo levou {self.tempo_gasto_da_busca} (H/M/S)"
         """# Limpando lista de dados"""
         del self.dados_para_duplicidade[:]
+
+    def acao_arquivos_duplicidades(self):
+        ...
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
