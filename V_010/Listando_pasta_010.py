@@ -430,11 +430,11 @@ class ProgramaPrincipal:
         print('Iniciando a janela "janela_renomar_varios_arquivos"')
         self.janela_renomar_arquivos = tk.Toplevel()
         self.janela_renomar_arquivos.geometry('900x300')
-        self.janela_renomar_arquivos.title('Renomeando arquivos.')
+        self.janela_renomar_arquivos.title('Manipulando arquivos.')
         self.janela_renomar_arquivos.resizable(0, 0)
         # ______________________________________________________________________________________________________________
         """ Label frame da janela principal. """
-        self.frame_lbl_janela_renomar = tk.LabelFrame(self.janela_renomar_arquivos, text='Renomeando arquivos')
+        self.frame_lbl_janela_renomar = tk.LabelFrame(self.janela_renomar_arquivos, text='Manipulando arquivos')
         self.frame_lbl_janela_renomar.config(width=850, height=290)
         self.frame_lbl_janela_renomar.pack(fill=tk.BOTH, pady=5, padx=5)
         # ______________________________________________________________________________________________________________
@@ -459,12 +459,13 @@ class ProgramaPrincipal:
         self.opcao_03.place(y=30, x=150)
 
         self.opcao_03 = Radiobutton(self.frame_lbl_opcao_rename, variable=radio_rename)
-        self.opcao_03.config(text='Adicionar indice', value=3)
+        self.opcao_03.config(text='Adicionar indice', value=4)
         self.opcao_03.place(y=5, x=150)
 
-        self.lista_arquivos_listados = tk.Listbox(self.frame_lbl_janela_renomar)
-        self.lista_arquivos_listados.config(width=875, height=80)
-        self.lista_arquivos_listados.place(y=80, x=3)
+        self.var_lista_manipular = tk.StringVar()
+        self.lista_arquivos_listados = tk.Listbox(self.frame_lbl_janela_renomar, listvariable=self.var_lista_manipular)
+        self.lista_arquivos_listados.config(width=145, height=10)
+        self.lista_arquivos_listados.place(y=90, x=5)
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
