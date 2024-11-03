@@ -62,8 +62,10 @@ class ProgramaPrincipal:
         """# Janela principal"""
         self.janela_principal = tk.Tk()
         self.janela_principal.title('V_010')
-        self.janela_principal.geometry('1100x680+150+5')
+        self.janela_principal.geometry('1100x680+100+50')
         self.janela_principal.resizable(0, 0)
+        self.janela_principal.wm_overrideredirect(False)
+        self.janela_principal.protocol("WM_DELETE_WINDOW", self.janela_fechada)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -662,6 +664,10 @@ class ProgramaPrincipal:
     def botao_limpa_list_dupli(self):
         self.lista_result_duplicidade.destroy()
 
+    def janela_fechada(self):
+        print('Janela fechou')
+        self.janela_principal.destroy()
+
     def abrir_arquivos(self):
         open_arquivo = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
         print(f'Abrindo arquivo: {open_arquivo}')
@@ -672,8 +678,7 @@ class ProgramaPrincipal:
         print()
         print('Arquivo em execusão!!')
 
-    """#### Inicio dos processos """
-
+    """#### Inicio dos processos de busca """
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
