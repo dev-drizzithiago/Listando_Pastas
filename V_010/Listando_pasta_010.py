@@ -798,9 +798,11 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def adicionar_indice(self):
-        arquivo_teste = self.lista_para_renomear[0]
-        novo_nome = f'{self.diretorio_home}\\01.{arquivo_teste}'
-        print(novo_nome)
+        indice = 1
+        for arquivo_teste in self.lista_para_renomear:
+            novo_nome = f'{self.diretorio_home}\\{indice}.{arquivo_teste}'
+            print(novo_nome)
+            indice += 1
 
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
