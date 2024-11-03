@@ -225,7 +225,7 @@ class ProgramaPrincipal:
         """# Botão para adicionar um indice no inicio do arquivos """
         self.botao_aplica_opcao_indice = tk.Button(self.frame_label_adiconar_indice, text='ADD Indice')
         self.botao_aplica_opcao_indice.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_aplica_opcao_indice.config(command='')
+        self.botao_aplica_opcao_indice.config(command=self.thread_renomear_adicionar_indice)
         self.botao_aplica_opcao_indice.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
@@ -498,6 +498,12 @@ class ProgramaPrincipal:
     def thread_abrir_arquivos(self):
         print('Iniciando "thread_abrir_arquivos"')
         Thread(target=self.abrir_arquivos).start()
+
+    def thread_renomar_arquivo_unico(self):
+        Thread(target=self.opcao_renomear).start()
+
+    def thread_renomear_adicionar_indice(self):
+        Thread(target=self.renomear_e_adicionar_indice).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -797,7 +803,7 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """ Processo para adicionar um indice em cada arquivo """
-    def adicionar_indice(self):
+    def renomear_e_adicionar_indice(self):
         indice = 1
         for arquivo_teste in self.lista_para_renomear:
             print(f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
@@ -1180,4 +1186,3 @@ class ProgramaPrincipal:
 
 
 iniciando_obj = ProgramaPrincipal()
-iniciando_obj.adicionar_indice()
