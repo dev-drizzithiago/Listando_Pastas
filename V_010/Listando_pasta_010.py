@@ -174,8 +174,8 @@ class ProgramaPrincipal:
         self.frame_label_diretorio.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_diretorio.place(y=5, x=140)
         # ______________________________________________________________________________________________________________
-        """# Frame Botão de Renomar arquivos"""
-        self.frame_lbl_botao_renomear = tk.LabelFrame(self.frames_inferior, text='Renomear arquivos')
+        """# Frame Botão de Manipular arquivos"""
+        self.frame_lbl_botao_renomear = tk.LabelFrame(self.frames_inferior, text='Manipular arquivos')
         self.frame_lbl_botao_renomear.config(bg="#DCDCDC", pady=5, padx=5)
         self.frame_lbl_botao_renomear.place(y=5, x=280)
         # ______________________________________________________________________________________________________________
@@ -221,7 +221,7 @@ class ProgramaPrincipal:
         """# Botão para renomear arquivos """
         self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear, text='Aplicar')
         self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_aplica_opcao_renomar.config(command=self.botao_renomear_arquivos)
+        self.botao_aplica_opcao_renomar.config(command=self.janela_renomar_varios_arquivos)
         self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão para adicionar um indice no inicio do arquivos """
@@ -429,18 +429,18 @@ class ProgramaPrincipal:
     def janela_renomar_varios_arquivos(self):
         print('Iniciando a janela "janela_renomar_varios_arquivos"')
         self.janela_renomar_arquivos = tk.Toplevel()
-        self.janela_renomar_arquivos.geometry('800x600')
+        self.janela_renomar_arquivos.geometry('900x300')
         self.janela_renomar_arquivos.title('Renomeando arquivos.')
         self.janela_renomar_arquivos.resizable(0, 0)
         # ______________________________________________________________________________________________________________
         """ Label frame da janela principal. """
         self.frame_lbl_janela_renomar = tk.LabelFrame(self.janela_renomar_arquivos, text='Renomeando arquivos')
-        self.frame_lbl_janela_renomar.config(width=780, height=590)
+        self.frame_lbl_janela_renomar.config(width=450, height=190)
         self.frame_lbl_janela_renomar.pack(fill=tk.BOTH, pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """ Label Frame das opções de renomear """
         self.frame_lbl_opcao_rename = tk.LabelFrame(self.frame_lbl_janela_renomar, text='Escolha uma opcação')
-        self.frame_lbl_opcao_rename.config(width=780, height=150)
+        self.frame_lbl_opcao_rename.config(width=400, height=100)
         self.frame_lbl_opcao_rename.place(y=5, x=5)
         # ______________________________________________________________________________________________________________
         """ Oções para manipular o nome dos arquivos. """
@@ -490,7 +490,7 @@ class ProgramaPrincipal:
 
     def thread_botao_duplicidade_tk_principal(self):
         print('Iniciando a thread "thread_botao_duplicidade_tk_principal"')
-        Thread(target=self.acao_arquivos_duplicidades).start()
+        Thread(target=self.botao_modulo_duplicidade).start()
 
     def thread_processo_hashlib_duplicados(self):
         print('Iniciando a thread "thread_processo_hashlib_duplicados"')
