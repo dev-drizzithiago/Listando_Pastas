@@ -1058,7 +1058,7 @@ class ProgramaPrincipal:
                     todas as pastas, devido ao loop. Então essa condição evita que mostre todos as pastas descenecess"""
                     if contador_inicio == 1:
                         print()
-                        print(f'DIRETORIO RAIZ: {raiz}')
+                        print(f'DIRETORIO RAIZ: [{raiz}]')
 
                         """# Os dados são inseridos dentro da lista, para que possoa aparecer na janela de busca"""
                         self.lista_de_result_busca.insert('end', '')
@@ -1127,12 +1127,13 @@ class ProgramaPrincipal:
                                     """# Mostra os resultados no prompt e na lista de busca"""
                                     print(f'[{resultado_destaque}]')
                                     self.lbl_info_real_time.config(text=f'Arquivos encontrados:{valor_de_busca}')
-                                    self.lista_de_result_busca.insert('end',
-                                                                      f'{raiz}\\{extensao_destaque}')
+                                    self.lista_de_result_busca.insert(
+                                        'end', f'{raiz}\\{extensao_destaque}'
+                                    )
 
-                                """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que correponda
-                                 ao valor de extensão, caso seja, mostra a pasta que foi encontrado, mas depois passa a mostrar
-                                 apenas os arquivos dentro dessa pasta.
+                                """# Por padrão, o valor começa com 1, antes é anlisado se possui um arquivo que 
+                                correponda ao valor de extensão, caso seja, mostra a pasta que foi encontrado, 
+                                mas depois passa a mostrar apenas os arquivos dentro dessa pasta.
                                   - Após mostrar a pasta, o contador passa a soma o valor para cada item."""
                                 contador_itens += 1
 
@@ -1180,7 +1181,7 @@ class ProgramaPrincipal:
                 self.lista_de_result_busca.insert('end', f'Busca finalizada!')
 
                 print(f'\nBusca Finalizada')
-                print(f'\nForam encontrados {contador_de_arquivos} arquivos, dentro de {contador_de_pastas} pastas')
+                print(f'\nForam encontrados [{contador_de_arquivos}] arquivos, dentro de [{contador_de_pastas}] pastas')
             else:
                 showwarning('AVISO', 'Escolha apenas um extensão')
         else:
