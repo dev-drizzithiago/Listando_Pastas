@@ -65,7 +65,7 @@ class ProgramaPrincipal:
         self.janela_principal.geometry('1100x680+100+50')
         self.janela_principal.resizable(0, 0)
         self.janela_principal.wm_overrideredirect(False)
-        self.janela_principal.protocol("WM_DELETE_WINDOW", self.janela_fechada)
+        self.janela_principal.protocol("WM_DELETE_WINDOW", self.fechar_janela)
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### LabelFrame Principal"""
         self.label_frame_principal = tk.LabelFrame(self.janela_principal)
@@ -664,7 +664,7 @@ class ProgramaPrincipal:
     def botao_limpa_list_dupli(self):
         self.lista_result_duplicidade.destroy()
 
-    def janela_fechada(self):
+    def fechar_janela(self):
         print('Janela fechou')
         self.janela_principal.destroy()
 
