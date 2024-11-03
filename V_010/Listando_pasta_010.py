@@ -797,7 +797,7 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def adicionar_indice(self):
-        ...
+        print(self.lista_para_renomear)
 
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
@@ -981,7 +981,6 @@ class ProgramaPrincipal:
     def botao_inicio_da_busca_principal(self):
         print('Iniciando função "botao_inicio_da_busca_principal"')
         """
-
         :return:
         """
         extensoes = list()
