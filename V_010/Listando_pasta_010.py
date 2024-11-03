@@ -168,17 +168,17 @@ class ProgramaPrincipal:
         self.frame_label_inicio.place(y=5, x=1)
         # ______________________________________________________________________________________________________________
         """# Label Frame Diretorio"""
-        self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Pasta Destino')
+        self.frame_label_diretorio = tk.LabelFrame(self.frames_inferior, text='Pasta de busca')
         self.frame_label_diretorio.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_diretorio.place(y=5, x=140)
         # ______________________________________________________________________________________________________________
         """# Frame Botão de Renomar arquivos"""
-        self.frame_lbl_botao_renomear = tk.LabelFrame(self.frames_inferior, text='Renomear Arquivos')
+        self.frame_lbl_botao_renomear = tk.LabelFrame(self.frames_inferior, text='Renomear arquivos')
         self.frame_lbl_botao_renomear.config(bg="#DCDCDC", pady=5, padx=5)
         self.frame_lbl_botao_renomear.place(y=5, x=280)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão adiconar indices nos arquivos"""
-        self.frame_label_adiconar_indice = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
+        self.frame_label_adiconar_indice = tk.LabelFrame(self.frames_inferior, text='Adiconar indices')
         self.frame_label_adiconar_indice.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_adiconar_indice.place(y=5, x=420)
         # ______________________________________________________________________________________________________________
@@ -188,12 +188,12 @@ class ProgramaPrincipal:
         self.frame_label_limpeza_chk.place(y=5, x=785)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de encontrar duplicidade"""
-        self.frame_label_duplicidade = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
+        self.frame_label_duplicidade = tk.LabelFrame(self.frames_inferior, text='Analisar duplicidade')
         self.frame_label_duplicidade.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_duplicidade.place(y=5, x=925)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de encontrar duplicidade"""
-        self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Abrir Selecionado')
+        self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Abrir selecionado')
         self.frame_label_abrir_arquivos.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_abrir_arquivos.place(y=5, x=645)
         # ______________________________________________________________________________________________________________
