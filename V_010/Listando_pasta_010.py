@@ -684,7 +684,7 @@ class ProgramaPrincipal:
         try:
             Thread(target=startfile(open_arquivo))
         except FileNotFoundError:
-            showwarning('AVISO', 'Arquivo não existe!')
+            showwarning('AVISO', 'Não foi possível abrir o arquivo selecionado!')
         print()
         print('Arquivo em execusão!!')
 
@@ -810,7 +810,7 @@ class ProgramaPrincipal:
         indice = 1
         for arquivo_teste in self.lista_para_renomear:
             print(f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
-            rename(f'{self.diretorio_home}\\{arquivo_teste}', \
+            rename(f'{self.diretorio_home}\\{arquivo_teste}',
                    f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
             indice += 1
 
