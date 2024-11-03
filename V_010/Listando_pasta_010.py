@@ -221,7 +221,7 @@ class ProgramaPrincipal:
         """# Botão para renomear arquivos """
         self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear, text='Aplicar')
         self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_aplica_opcao_renomar.config(command=self.janela_renomar_varios_arquivos)
+        self.botao_aplica_opcao_renomar.config(command=self.botao_renomear_arquivos)
         self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão para adicionar um indice no inicio do arquivos """
@@ -822,14 +822,15 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def renomear_e_adicionar_indice(self):
-        print('Abrindo a função "renomear_e_adicionar_indice"')
-        indice = 1
-
-        for arquivo_teste in self.lista_para_renomear:
-            print(f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
-            rename(f'{self.diretorio_home}\\{arquivo_teste}',
-                   f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
-            indice += 1
+        # print('Abrindo a função "renomear_e_adicionar_indice"')
+        # indice = 1
+        novo_nome = askstring('...', 'Digite um novo nome: ')
+        print(novo_nome)
+        # for arquivo_teste in self.lista_para_renomear:
+        #     print(f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
+        #     rename(f'{self.diretorio_home}\\{arquivo_teste}',
+        #            f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
+        #     indice += 1
 
     """ Processo para renomar os arquivos """
     def botao_renomear_arquivos(self):
