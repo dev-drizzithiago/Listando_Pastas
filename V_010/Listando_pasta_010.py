@@ -109,7 +109,7 @@ class ProgramaPrincipal:
         """# Label INFO quantidade de arquivos encontrados"""
         self.var_lbl_qtd_arquivos = tk.StringVar()
         self.lbl_qtd_arquivos = tk.Label(self.frames_central, text=self.var_lbl_qtd_arquivos)
-        self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados', bg='#D3D3D3')
+        self.lbl_qtd_arquivos.config(text='Quantidade de arquivos encontrados: ', bg='#D3D3D3')
         self.lbl_qtd_arquivos.place(y=1, x=400)
         # ______________________________________________________________________________________________________________
         """# Quantidade de pastas que foram encontrado arquivos"""
@@ -127,7 +127,7 @@ class ProgramaPrincipal:
         """# Label INFO tempo da busca"""
         self.var_lbl_tempo_busca = tk.StringVar()
         self.lbl_tempo_busca = tk.Label(self.frames_central, text=self.var_lbl_tempo_busca)
-        self.lbl_tempo_busca.config(text='Tempo de busca', bg="#D3D3D3")
+        self.lbl_tempo_busca.config(text='Tempo de busca: ', bg="#D3D3D3")
         self.lbl_tempo_busca.place(y=20, x=855)
         # ______________________________________________________________________________________________________________
         """# Label INFO pasta destino"""
@@ -139,7 +139,7 @@ class ProgramaPrincipal:
         """# Label INFO extensões selecionadas"""
         self.var_lbl_ext_selec = tk.StringVar()
         self.lbl_ext_selec = tk.Label(self.frames_central, text=self.var_lbl_ext_selec)
-        self.lbl_ext_selec.config(text=f'Escolha uma extensão para busca', bg='#D3D3D3')
+        self.lbl_ext_selec.config(text=f'Escolha uma extensão para busca: ', bg='#D3D3D3')
         self.lbl_ext_selec.place(y=20, x=1)
         # ______________________________________________________________________________________________________________
         """# Label INFO arquivos encontrados em real time"""
