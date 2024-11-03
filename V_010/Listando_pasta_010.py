@@ -225,7 +225,7 @@ class ProgramaPrincipal:
         self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão para adicionar um indice no inicio do arquivos """
-        self.botao_aplica_opcao_indice = tk.Button(self.frame_label_adiconar_indice, text='ADD Indice')
+        self.botao_aplica_opcao_indice = tk.Button(self.frame_label_adiconar_indice, text='Add Indice')
         self.botao_aplica_opcao_indice.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_aplica_opcao_indice.config(command=self.thread_renomear_adicionar_indice)
         self.botao_aplica_opcao_indice.pack(anchor='n', fill='both')
@@ -880,7 +880,7 @@ class ProgramaPrincipal:
         except:
             showwarning("AVISO", "Não possui dados na lista 'self.dados_do_processo_busca'")
 
-    def acao_arquivos_duplicidades_desativado(self):
+    def acao_arquivos_duplicidades(self):
         print('Iniciando processo de "processo_hashlib_duplicados"')
 
         """chamada de modulo local"""
@@ -970,10 +970,6 @@ class ProgramaPrincipal:
         self.lbl_info_tempo_processo['text'] = f"O processo levou {self.tempo_gasto_da_busca} (H/M/S)"
         """# Limpando lista de dados"""
         del self.dados_para_duplicidade[:]
-
-    def acao_arquivos_duplicidades(self):
-        teste = set(self.dados_para_duplicidade)
-        print(teste)
 
     def opcao_check_botao(self):
         print('Iniciando "opcao_check_botao"')
