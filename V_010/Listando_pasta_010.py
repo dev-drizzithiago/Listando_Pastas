@@ -193,7 +193,7 @@ class ProgramaPrincipal:
         self.frame_label_duplicidade.place(y=5, x=925)
         # ______________________________________________________________________________________________________________
         """# Frame Label para botão de encontrar duplicidade"""
-        self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Verificar Duplicidade')
+        self.frame_label_abrir_arquivos = tk.LabelFrame(self.frames_inferior, text='Abrir Selecionado')
         self.frame_label_abrir_arquivos.config(bg='#DCDCDC', pady=5, padx=5)
         self.frame_label_abrir_arquivos.place(y=5, x=645)
         # ______________________________________________________________________________________________________________
@@ -292,6 +292,7 @@ class ProgramaPrincipal:
             pass
 
     def janela_duplicidade(self):
+        print('Iniciando a janela "janela_duplicidade"')
         """#### Janela de opções duplicados; só interno """
         self.janela_opc_duplicidade = tk.Toplevel()
         self.janela_opc_duplicidade.geometry('1000x620+200+20')
@@ -424,6 +425,7 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.update_idletasks()
 
     def janela_renomar_varios_arquivos(self):
+        print('Iniciando a janela "janela_renomar_varios_arquivos"')
         self.janela_renomar_arquivos = tk.Toplevel()
         self.janela_renomar_arquivos.geometry('800x600')
         self.janela_renomar_arquivos.title('Renomeando arquivos.')
@@ -457,7 +459,7 @@ class ProgramaPrincipal:
 
         :return:
         """
-        print(f'\n Iniciandoaò THREAD para função inicio_da_busca_principal')
+        print('Iniciando a thread "thread_botao_inicio_da_busca"')
         Thread(target=self.botao_inicio_da_busca_principal).start()
 
     def thread_botao_limpeza_checkbutton(self):
@@ -465,34 +467,35 @@ class ProgramaPrincipal:
 
         :return:
         """
-        print(f'\n Iniciandoaò THREAD para função [limpeza_checkbutton_destroy]')
+        print('Iniciando a thread "thread_botao_limpeza_checkbutton"')
         Thread(target=self.botao_limpeza_checkbutton_destroy).start()
 
     def thread_botao_pasta_destino(self):
-        print(f'\n Iniciandoaò THREAD para função [botao_pasta_destino]')
+        print('Iniciando a thread "thread_botao_pasta_destino"')
         Thread(target=self.botao_pasta_destino).start()
 
     def thread_hora_certa(self):
-        print(f'Iniciando THREAD hora_certa')
+        print('Iniciando a thread "thread_hora_certa"')
         Thread(target=self.data_hora_certa).start()
 
     def thread_tempo_processo_busca(self):
-        print(f'Iniciando THREAD tempo_precesso_busca')
+        print('Iniciando a thread "thread_tempo_processo_busca"')
         Thread(target=self.tempo_processo_busca).start()
 
     def thread_opcao_check_botao(self):
-        print('Iniciando thread "thread_opcao_check_botao"')
+        print('Iniciando a thread "thread_opcao_check_botao"')
         Thread(target=self.opcao_check_botao).start()
 
     def thread_botao_duplicidade_tk_principal(self):
-        print('Iniciando "thread_botao_duplicidade"')
+        print('Iniciando a thread "thread_botao_duplicidade_tk_principal"')
         Thread(target=self.botao_modulo_duplicidade).start()
 
     def thread_processo_hashlib_duplicados(self):
-        print('Iniciando thread "thread_processo_hashlib_duplicados"')
+        print('Iniciando a thread "thread_processo_hashlib_duplicados"')
         Thread(target=self.acao_arquivos_duplicidades).start()
 
     def thread_limpeza_lista_dupli(self):
+        print('Iniciando a thread "thread_limpeza_lista_dupli"')
         Thread(target=self.botao_limpa_list_dupli).start()
 
     def thread_abrir_arquivos(self):
