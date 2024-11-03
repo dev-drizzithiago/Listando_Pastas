@@ -592,7 +592,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """ Processos de eventos simples"""
-    def evento_mouse(self, event):
+    def evento_mouse(self, event=None):
         print(event)
         print('Funciona')
 
