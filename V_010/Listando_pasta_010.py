@@ -22,8 +22,8 @@ from threading import Thread
 
 
 class ProgramaPrincipal:
-
     """__init__ fica a janela principal"""
+
     def __init__(self):
 
         """##### Declarações de variaveis"""
@@ -207,7 +207,7 @@ class ProgramaPrincipal:
         """# Botão INICIAR PROCESSO"""
         self.botao_inicio_processo = tk.Button(self.frame_label_inicio, text='Aplicar')
         self.botao_inicio_processo.config(width=15, pady=5, padx=5, bg='#00FA9A')
-        self.botao_inicio_processo.config(command=self.thread_botao_inicio_da_busca)
+        self.botao_inicio_processo.config(command=lambda: Thread(target=self.botao_inicio_da_busca_principal).start())
         self.botao_inicio_processo.pack(anchor='n', fill='both')
         self.botao_inicio_processo.bind('<Enter>', self.evento_mostrar)
         self.botao_inicio_processo.bind('<Leave>', self.evento_esconder)
@@ -469,13 +469,6 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
-    def thread_botao_inicio_da_busca(self):
-        """
-
-        :return:
-        """
-        print('Iniciando a thread "thread_botao_inicio_da_busca"')
-        Thread(target=self.botao_inicio_da_busca_principal).start()
 
     def thread_botao_limpeza_checkbutton(self):
         """
@@ -524,6 +517,7 @@ class ProgramaPrincipal:
         Thread(target=self.renomear_e_adicionar_indice).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
+
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
         self.ativar_combo = True
@@ -607,6 +601,7 @@ class ProgramaPrincipal:
                     print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """ Processos de eventos simples"""
+
     def evento_mouse(self, event=None):
         print(event)
         print('Funciona')
@@ -646,6 +641,7 @@ class ProgramaPrincipal:
             self.tooltip = None
 
     """#### Processos simples"""
+
     def data_hora_certa(self):
         print('Iniciando função "data_hora_certa"')
         """
@@ -704,6 +700,7 @@ class ProgramaPrincipal:
         print('Arquivo em execusão!!')
 
     """#### Inicio dos processos de busca """
+
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
@@ -821,6 +818,7 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """ Processo para adicionar um indice em cada arquivo """
+
     def renomear_e_adicionar_indice(self):
         # print('Abrindo a função "renomear_e_adicionar_indice"')
         # indice = 1
@@ -833,6 +831,7 @@ class ProgramaPrincipal:
         #     indice += 1
 
     """ Processo para renomar os arquivos """
+
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos.
@@ -864,6 +863,7 @@ class ProgramaPrincipal:
             print(f'Erro: {e}')
 
     """#### Modulo de processo de duplicidade"""
+
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
 
@@ -1011,6 +1011,7 @@ class ProgramaPrincipal:
         self.thread_processo_hashlib_duplicados()
 
     """#### Processo de Busca"""
+
     def botao_inicio_da_busca_principal(self):
         print('Iniciando função "botao_inicio_da_busca_principal"')
         """
