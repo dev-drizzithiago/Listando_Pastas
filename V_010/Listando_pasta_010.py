@@ -215,7 +215,7 @@ class ProgramaPrincipal:
         """# Botao Pasta destino"""
         self.botao_destino_busca = tk.Button(self.frame_label_diretorio, text='Aplicar')
         self.botao_destino_busca.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_destino_busca.config(command=self.thread_botao_pasta_destino)
+        self.botao_destino_busca.config(command=lambda: Thread(target=self.botao_pasta_destino).start())
         self.botao_destino_busca.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão para renomear arquivos """
@@ -233,7 +233,7 @@ class ProgramaPrincipal:
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_limpar_checkbuttun.config(command=self.thread_botao_limpeza_checkbutton)
+        self.botao_limpar_checkbuttun.config(command=lambda: Thread(target=self.botao_limpeza_checkbutton_destroy).start())
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão verificar duplicidade"""
@@ -284,7 +284,7 @@ class ProgramaPrincipal:
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### Iniciando o relogio"""
-        self.thread_hora_certa()
+        lambda: Thread(target=self.data_hora_certa).start()
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """###### LOOP DA JANELA ######"""
@@ -469,22 +469,6 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
-
-    def thread_botao_limpeza_checkbutton(self):
-        """
-
-        :return:
-        """
-        print('Iniciando a thread "thread_botao_limpeza_checkbutton"')
-        Thread(target=self.botao_limpeza_checkbutton_destroy).start()
-
-    def thread_botao_pasta_destino(self):
-        print('Iniciando a thread "thread_botao_pasta_destino"')
-        Thread(target=self.botao_pasta_destino).start()
-
-    def thread_hora_certa(self):
-        print('Iniciando a thread "thread_hora_certa"')
-        Thread(target=self.data_hora_certa).start()
 
     def thread_tempo_processo_busca(self):
         print('Iniciando a thread "thread_tempo_processo_busca"')
@@ -700,7 +684,6 @@ class ProgramaPrincipal:
         print('Arquivo em execusão!!')
 
     """#### Inicio dos processos de busca """
-
     def tempo_processo_busca(self):
         print('Iniciando função "tempo_processo_busca"')
         """
@@ -818,7 +801,6 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """ Processo para adicionar um indice em cada arquivo """
-
     def renomear_e_adicionar_indice(self):
         # print('Abrindo a função "renomear_e_adicionar_indice"')
         # indice = 1
@@ -831,7 +813,6 @@ class ProgramaPrincipal:
         #     indice += 1
 
     """ Processo para renomar os arquivos """
-
     def botao_renomear_arquivos(self):
         """
         Essa função será responsável por renomar os arquivos.
@@ -863,7 +844,6 @@ class ProgramaPrincipal:
             print(f'Erro: {e}')
 
     """#### Modulo de processo de duplicidade"""
-
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
 
