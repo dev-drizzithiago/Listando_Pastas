@@ -565,15 +565,13 @@ class ProgramaPrincipal:
                 for valor_extensao in valor:
                     self.lista_var.append(tk.IntVar())
                     self.botoes_chek.append(tk.Checkbutton(
-
                         self.frames_superior, text=valor_extensao.upper(),
                         variable=self.lista_var[contador],
                         bg='#C0C0C0')
-
                     )
 
+                    # calcula as posições de cada check box
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
-
                     if linhas == 195:
                         linhas = 25
                         colunas += 120
@@ -582,7 +580,7 @@ class ProgramaPrincipal:
                     contador += 1
 
                     """### Mapeamento das coordenadas de criação das opções do checkbutton"""
-                    print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
+                    # print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """ Processos de eventos simples"""
 
