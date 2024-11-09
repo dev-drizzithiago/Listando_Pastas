@@ -239,14 +239,14 @@ class ProgramaPrincipal:
         """# Botão verificar duplicidade"""
         self.botao_duplicidade = tk.Button(self.frame_label_duplicidade, text='Aplicar')
         self.botao_duplicidade.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_duplicidade.config(command=self.thread_botao_duplicidade_tk_principal)
+        self.botao_duplicidade.config(command=lambda: Thread(target=self.botao_modulo_duplicidade).start())
         self.botao_duplicidade.config(state=tk.DISABLED)
         self.botao_duplicidade.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão abrir aquivos selecionado"""
         self.botao_abrir_arquivo = tk.Button(self.frame_label_abrir_arquivos, text='Abrir um arquivo')
         self.botao_abrir_arquivo.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_abrir_arquivo.config(command=self.thread_abrir_arquivos)
+        self.botao_abrir_arquivo.config(command=lambda: Thread(target=self.abrir_arquivos).start())
         self.botao_abrir_arquivo.config(state=tk.DISABLED)
         self.botao_abrir_arquivo.pack(anchor='center', fill='both')
         # ______________________________________________________________________________________________________________
@@ -469,7 +469,6 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
-
     def thread_tempo_processo_busca(self):
         print('Iniciando a thread "thread_tempo_processo_busca"')
         Thread(target=self.tempo_processo_busca).start()
@@ -477,10 +476,6 @@ class ProgramaPrincipal:
     def thread_opcao_check_botao(self):
         print('Iniciando a thread "thread_opcao_check_botao"')
         Thread(target=self.opcao_check_botao).start()
-
-    def thread_botao_duplicidade_tk_principal(self):
-        print('Iniciando a thread "thread_botao_duplicidade_tk_principal"')
-        Thread(target=self.botao_modulo_duplicidade).start()
 
     def thread_processo_hashlib_duplicados(self):
         print('Iniciando a thread "thread_processo_hashlib_duplicados"')
@@ -490,10 +485,6 @@ class ProgramaPrincipal:
         print('Iniciando a thread "thread_limpeza_lista_dupli"')
         Thread(target=self.botao_limpa_list_dupli).start()
 
-    def thread_abrir_arquivos(self):
-        print('Iniciando "thread_abrir_arquivos"')
-        Thread(target=self.abrir_arquivos).start()
-
     def thread_renomar_arquivo_unico(self):
         Thread(target=self.opcao_renomear).start()
 
@@ -501,7 +492,6 @@ class ProgramaPrincipal:
         Thread(target=self.renomear_e_adicionar_indice).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
-
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
         self.ativar_combo = True
@@ -582,7 +572,6 @@ class ProgramaPrincipal:
                     # print(f'{contador}-linhas[{linhas}]-colunas[{colunas}]')
 
     """ Processos de eventos simples"""
-
     def evento_mouse(self, event=None):
         print(event)
         print('Funciona')
