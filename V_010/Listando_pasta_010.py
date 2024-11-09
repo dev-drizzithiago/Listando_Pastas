@@ -227,7 +227,7 @@ class ProgramaPrincipal:
         """# Botão para adicionar um indice no inicio do arquivos """
         self.botao_aplica_opcao_indice = tk.Button(self.frame_label_adiconar_indice, text='Add Indice')
         self.botao_aplica_opcao_indice.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_aplica_opcao_indice.config(command=self.thread_renomear_adicionar_indice)
+        self.botao_aplica_opcao_indice.config(command=lambda: Thread(target=self.renomear_e_adicionar_indice).start())
         self.botao_aplica_opcao_indice.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
@@ -488,9 +488,6 @@ class ProgramaPrincipal:
     def thread_renomar_arquivo_unico(self):
         Thread(target=self.opcao_renomear).start()
 
-    def thread_renomear_adicionar_indice(self):
-        Thread(target=self.renomear_e_adicionar_indice).start()
-
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
@@ -611,7 +608,6 @@ class ProgramaPrincipal:
             self.tooltip = None
 
     """#### Processos simples"""
-
     def data_hora_certa(self):
         print('Iniciando função "data_hora_certa"')
         """
@@ -977,7 +973,6 @@ class ProgramaPrincipal:
         self.thread_processo_hashlib_duplicados()
 
     """#### Processo de Busca"""
-
     def botao_inicio_da_busca_principal(self):
         print('Iniciando função "botao_inicio_da_busca_principal"')
         """
