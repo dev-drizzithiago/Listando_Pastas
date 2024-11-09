@@ -221,7 +221,7 @@ class ProgramaPrincipal:
         """# Botão para renomear arquivos """
         self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear, text='Aplicar')
         self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_aplica_opcao_renomar.config(command=Thread(target=self.botao_renomear_arquivos).start())
+        self.botao_aplica_opcao_renomar.config(command=lambda: Thread(target=self.botao_renomear_arquivos).start())
         self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão para adicionar um indice no inicio do arquivos """
