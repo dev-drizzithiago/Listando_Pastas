@@ -221,7 +221,7 @@ class ProgramaPrincipal:
         """# Botão para renomear arquivos """
         self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear, text='Aplicar')
         self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_aplica_opcao_renomar.config(command=self.botao_renomear_arquivos)
+        self.botao_aplica_opcao_renomar.config(command=Thread(target=self.botao_renomear_arquivos).start())
         self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão para adicionar um indice no inicio do arquivos """
@@ -484,9 +484,6 @@ class ProgramaPrincipal:
     def thread_limpeza_lista_dupli(self):
         print('Iniciando a thread "thread_limpeza_lista_dupli"')
         Thread(target=self.botao_limpa_list_dupli).start()
-
-    def thread_renomar_arquivo_unico(self):
-        Thread(target=self.opcao_renomear).start()
 
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
@@ -794,11 +791,8 @@ class ProgramaPrincipal:
         #            f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
         #     indice += 1
 
-    """ Processo para renomar os arquivos """
+    """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
     def botao_renomear_arquivos(self):
-        """
-        Essa função será responsável por renomar os arquivos.
-        """
 
         valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
 
