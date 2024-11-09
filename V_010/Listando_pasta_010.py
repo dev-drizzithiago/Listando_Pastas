@@ -561,7 +561,7 @@ class ProgramaPrincipal:
                 self.label_ext_cat.config(text=f'Categoria selecionada: [{valor_categoria_extensao}]')
 
                 """### Loop de para separar as extensões e criar um checkbutton para cada extensao"""
-                print(f'{contador}-linhas{linhas}-colunas{colunas}')  # Primeira linha dos codigos de linhas
+                # print(f'{contador}-linhas{linhas}-colunas{colunas}')  # Primeira linha dos codigos de linhas
                 for valor_extensao in valor:
                     self.lista_var.append(tk.IntVar())
                     self.botoes_chek.append(tk.Checkbutton(
@@ -569,7 +569,6 @@ class ProgramaPrincipal:
                         variable=self.lista_var[contador],
                         bg='#C0C0C0')
                     )
-
                     # calcula as posições de cada check box
                     self.botoes_chek[-1].place(y=linhas, x=colunas)
                     if linhas == 195:
