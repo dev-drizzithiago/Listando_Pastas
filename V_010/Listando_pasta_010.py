@@ -469,10 +469,6 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
-    def thread_tempo_processo_busca(self):
-        print('Iniciando a thread "thread_tempo_processo_busca"')
-        Thread(target=self.tempo_processo_busca).start()
-
     def thread_opcao_check_botao(self):
         print('Iniciando a thread "thread_opcao_check_botao"')
         Thread(target=self.opcao_check_botao).start()
@@ -1023,7 +1019,7 @@ class ProgramaPrincipal:
 
                 """# Iniciando tempo de busca"""
                 self.ativar_time_busca = True
-                self.thread_tempo_processo_busca()
+                lambda: Thread(target=self.tempo_processo_busca).start()
 
                 """###### Inicio do processo de busca"""
                 for raiz, subpasta, arquivo in walk(self.diretorio_home):
