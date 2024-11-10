@@ -777,12 +777,27 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def renomear_e_adicionar_indice(self):
-        indice = 1
+        indice = 1  # declaração em número interiro
+
+        # Verifica se a lista possui algum item para adicionar o indice.
         if len(self.lista_para_renomear) > 0:
             for arquivo_indice in self.lista_para_renomear:
+
+                # Trasnforma o indice em str para realizar uma verificação
+                indice_str = str(indice)
+
+                # Se o indice tiver não possui dois digitos, acrescenta um "0" antes do número.
+                if len(indice_str) < 4:
+                    indice_str = str(f'000{indice_str}')
+                elif len(indice_str) < 3:
+                    indice_str = str(f'00{indice_str}')
+                elif len(indice_str) < 2:
+                    indice_str = str(f'0{indice_str}')
+
+                # O arquivo sera renomeado adicionando apenas o indice.
                 rename(f'{self.diretorio_home}\\{arquivo_indice}',
-                       f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
-                print(f'Adiconado indice: {indice} ao arquivo {arquivo_indice}')
+                       f'{self.diretorio_home}\\{indice_str}.{arquivo_indice}')
+                print(f'Adiconado indice: {indice_str} ao arquivo {arquivo_indice}')
                 indice += 1
             del self.lista_para_renomear[:]
         else:
@@ -1049,9 +1064,11 @@ class ProgramaPrincipal:
                         São vários filtros para não jogar todos os arquivos"""
                         if search(valor_da_extensao_busca, valor_file):
                             try:
-                                validacao_indice = valor_file.split('.')
-                                if len(validacao_indice) < 2:
-                                    self.lista_para_renomear.append(valor_file)
+
+                                # validacao_indice = valor_file.split('.')
+                                # if len(validacao_indice) < 2:
+                                self.lista_para_renomear.append(valor_file)
+                                    
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                                   f'[{contador_de_arquivos}]')
