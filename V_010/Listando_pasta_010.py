@@ -779,17 +779,17 @@ class ProgramaPrincipal:
     def renomear_e_adicionar_indice(self):
 
         indice = 1
-        # novo_nome = askstring('...', 'Digite um novo nome: ')
-        # print(novo_nome)
 
         for arquivo_teste in self.lista_para_renomear:
             validacao_indice = str(arquivo_teste).split('.')
-            print(f'Validação de indice: {validacao_indice[0]}')
 
-            # print(f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
-            # rename(f'{self.diretorio_home}\\{arquivo_teste}',
-            #        f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
-            # indice += 1
+            if len(validacao_indice) >= 2:
+                print(f'Validação de indice: {validacao_indice[0]}')
+
+            elif len(validacao_indice) < 2:
+                rename(f'{self.diretorio_home}\\{arquivo_teste}',
+                       f'{self.diretorio_home}\\{indice}.{arquivo_teste}')
+                indice += 1
 
     """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
     def botao_renomear_arquivos(self):
