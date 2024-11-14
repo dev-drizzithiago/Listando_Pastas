@@ -1084,7 +1084,8 @@ class ProgramaPrincipal:
                                 except:
                                     valor_of_file = valor_file
 
-                                """# As 4 variaveis são responsaveis por dividir as informações, para dar mais destaque"""
+                                """# As 4 variaveis são responsaveis por dividir as informações, para dar mais 
+                                destaque"""
 
                                 caminho_completo = path.join(raiz, valor_of_file)
 
