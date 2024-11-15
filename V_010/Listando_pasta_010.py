@@ -1056,12 +1056,12 @@ class ProgramaPrincipal:
                             try:
 
                                 validacao_indice = int(valor_file.split('.')[0])
-                                print(validacao_indice, type(validacao_indice))
-                                if validacao_indice > 1:
-                                    print('O arquivo já possui indice')
-                                elif validacao_indice < 0:
-                                    self.lista_para_renomear.append(valor_file)
 
+                                if isinstance(validacao_indice, int):
+                                    print(validacao_indice, 'O arquivo já possui indice')
+                                else:
+                                    print(validacao_indice, 'Arquivo não possui indice')
+                                    # self.lista_para_renomear.append(valor_file)
 
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
