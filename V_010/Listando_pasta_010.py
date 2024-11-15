@@ -1065,8 +1065,8 @@ class ProgramaPrincipal:
                         if search(valor_da_extensao_busca, valor_file):
                             try:
 
-                                validacao_indice = int(valor_file.split('.')[0])
-                                if isinstance(validacao_indice, int):
+                                validacao_indice = valor_file.split('.')[0]
+                                if len(validacao_indice) <= 4:
                                     self.lista_para_renomear.append(valor_file)
 
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
