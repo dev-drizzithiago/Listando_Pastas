@@ -777,31 +777,32 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def renomear_e_adicionar_indice(self):
-        indice = 1  # declaração em número interiro
-
-        # Verifica se a lista possui algum item para adicionar o indice.
-        if len(self.lista_para_renomear) > 0:
-            for arquivo_indice in self.lista_para_renomear:
-
-                # Trasnforma o indice em str para realizar uma verificação
-                indice_str = str(indice)
-
-                # Se o indice tiver não possui dois digitos, acrescenta um "0" antes do número.
-                if len(indice_str) < 4:
-                    indice_str = str(f'000{indice_str}')
-                elif len(indice_str) < 3:
-                    indice_str = str(f'00{indice_str}')
-                elif len(indice_str) < 2:
-                    indice_str = str(f'0{indice_str}')
-
-                # O arquivo sera renomeado adicionando apenas o indice.
-                rename(f'{self.diretorio_home}\\{arquivo_indice}',
-                       f'{self.diretorio_home}\\{indice_str}.{arquivo_indice}')
-                print(f'Adiconado indice: {indice_str} ao arquivo {arquivo_indice}')
-                indice += 1
-            del self.lista_para_renomear[:]
-        else:
-            showinfo('Aviso', 'Os arquivos já estão com um indice')
+        print(self.lista_para_renomear)
+        # indice = 1  # declaração em número interiro
+        #
+        # # Verifica se a lista possui algum item para adicionar o indice.
+        # if len(self.lista_para_renomear) > 0:
+        #     for arquivo_indice in self.lista_para_renomear:
+        #
+        #         # Trasnforma o indice em str para realizar uma verificação
+        #         indice_str = str(indice)
+        #
+        #         # Se o indice tiver não possui dois digitos, acrescenta um "0" antes do número.
+        #         if len(indice_str) < 4:
+        #             indice_str = str(f'000{indice_str}')
+        #         elif len(indice_str) < 3:
+        #             indice_str = str(f'00{indice_str}')
+        #         elif len(indice_str) < 2:
+        #             indice_str = str(f'0{indice_str}')
+        #
+        #         # O arquivo sera renomeado adicionando apenas o indice.
+        #         rename(f'{self.diretorio_home}\\{arquivo_indice}',
+        #                f'{self.diretorio_home}\\{indice_str}.{arquivo_indice}')
+        #         print(f'Adiconado indice: {indice_str} ao arquivo {arquivo_indice}')
+        #         indice += 1
+        #     del self.lista_para_renomear[:]
+        # else:
+        #     showinfo('Aviso', 'Os arquivos já estão com um indice')
 
     """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
     def botao_renomear_arquivos(self):
