@@ -1057,9 +1057,9 @@ class ProgramaPrincipal:
 
                                 validacao_indice = valor_file.split('.')[0]
 
-                                if isinstance(int(validacao_indice), int):
+                                if isinstance(validacao_indice, int):
                                     print(validacao_indice, 'O arquivo já possui indice')
-                                else:
+                                elif isinstance(validacao_indice, str):
                                     print(validacao_indice, 'Arquivo não possui indice')
                                     # self.lista_para_renomear.append(valor_file)
 
