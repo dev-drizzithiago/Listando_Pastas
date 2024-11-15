@@ -1055,14 +1055,6 @@ class ProgramaPrincipal:
                         if search(valor_da_extensao_busca, valor_file):
                             try:
 
-                                validacao_indice = valor_file.split('.')[0]
-
-                                if isinstance(validacao_indice, int):
-                                    print(validacao_indice, 'O arquivo já possui indice')
-                                elif isinstance(validacao_indice, str):
-                                    print(validacao_indice, 'Arquivo não possui indice')
-                                    # self.lista_para_renomear.append(valor_file)
-
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                                   f'[{contador_de_arquivos}]')
