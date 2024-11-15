@@ -1056,9 +1056,8 @@ class ProgramaPrincipal:
                             try:
 
                                 validacao_indice = valor_file.split('.')[0]
-                                print(len(validacao_indice))
 
-                                if isinstance(validacao_indice, int):
+                                if isinstance(int(validacao_indice), int):
                                     print(validacao_indice, 'O arquivo já possui indice')
                                 else:
                                     print(validacao_indice, 'Arquivo não possui indice')
