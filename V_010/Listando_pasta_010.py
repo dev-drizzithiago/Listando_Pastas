@@ -784,15 +784,10 @@ class ProgramaPrincipal:
         if len(self.lista_para_renomear) > 0:
             for arquivo_indice in self.lista_para_renomear:
 
-                showinfo(
-                    'Analise',
-                    f'Arquivos para colocar indices: {arquivo_indice}'
-                )
-
                 # O arquivo sera renomeado adicionando apenas o indice.
                 rename(f'{self.diretorio_home}\\{arquivo_indice}',
                        f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
-                print(f'Adiconado indice: {indice} ao arquivo {arquivo_indice}')
+                print(f'Arquivo com indice: {indice}.{arquivo_indice}')
                 indice += 1
             del self.lista_para_renomear[:]
         else:
@@ -1069,7 +1064,7 @@ class ProgramaPrincipal:
                                     arquivos_com_indices.append(
                                         f'{validacao_indice_int}.{nome_arquivo_com_indice}.{extensao_arq_com_indice}'
                                     )
-                                    print('AVISO', 'Arquivos já possui indices')
+
                                 except ValueError:
                                     validacao_indice = valor_file.split('.')[0]
                                     extensao_arquivo = valor_file.split('.')[-1]
