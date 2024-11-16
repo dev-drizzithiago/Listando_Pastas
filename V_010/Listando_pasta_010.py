@@ -1056,7 +1056,20 @@ class ProgramaPrincipal:
                             try:
 
                                 # Processo para indices
-                                validacao_indice = valor_file.split('.')[0]
+                                arquivos_com_indices = list()
+                                arquivos_sem_indices = list()
+                                try:
+                                    validacao_indice_int = int(valor_file.split('.')[0])
+                                    nome_arquivo_com_indice = valor_file.split('.')[1]
+                                    extensao_arq_com_indice = valor_file.split('.')[-1]
+                                    arquivos_com_indices.append(
+                                        f'{validacao_indice_int}.{nome_arquivo_com_indice}.{extensao_arq_com_indice}')
+                                except ValueError:
+                                    validacao_indice = valor_file.split('.')[0]
+                                    extensao_arquivo = valor_file.split('.')[-1]
+                                    arquivos_sem_indices.append(f'{validacao_indice}.{extensao_arquivo}')d
+
+
 
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
