@@ -1066,12 +1066,14 @@ class ProgramaPrincipal:
                                     nome_arquivo_com_indice = valor_file.split('.')[1]
                                     extensao_arq_com_indice = valor_file.split('.')[-1]
                                     arquivos_com_indices.append(
-                                        f'{validacao_indice_int}.{nome_arquivo_com_indice}.{extensao_arq_com_indice}')
+                                        f'{validacao_indice_int}.{nome_arquivo_com_indice}.{extensao_arq_com_indice}'
+                                    )
+                                    print('AVISO', 'Arquivos já possui indices')
                                 except ValueError:
                                     validacao_indice = valor_file.split('.')[0]
                                     extensao_arquivo = valor_file.split('.')[-1]
                                     self.lista_para_renomear.append(f'{validacao_indice}.{extensao_arquivo}')
-                                
+
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                                   f'[{contador_de_arquivos}]')
