@@ -1055,6 +1055,9 @@ class ProgramaPrincipal:
                         if search(valor_da_extensao_busca, valor_file):
                             try:
 
+                                # Processo para indices
+                                validacao_indice = valor_file.split('.')[0]
+
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                                   f'[{contador_de_arquivos}]')
