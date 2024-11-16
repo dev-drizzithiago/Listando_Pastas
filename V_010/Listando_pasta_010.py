@@ -1069,6 +1069,7 @@ class ProgramaPrincipal:
                                     extensao_arquivo = valor_file.split('.')[-1]
                                     self.lista_para_renomear.append(f'{validacao_indice}.{extensao_arquivo}')
 
+                                # Adiciona os arquivos na lista, para processar arq duplicados
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
                                                                   f'[{contador_de_arquivos}]')
