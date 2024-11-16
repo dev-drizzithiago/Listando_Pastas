@@ -1064,7 +1064,6 @@ class ProgramaPrincipal:
                                     arquivos_com_indices.append(
                                         f'{validacao_indice_int}.{nome_arquivo_com_indice}.{extensao_arq_com_indice}'
                                     )
-
                                 except ValueError:
                                     validacao_indice = valor_file.split('.')[0]
                                     extensao_arquivo = valor_file.split('.')[-1]
