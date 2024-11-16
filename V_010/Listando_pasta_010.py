@@ -791,7 +791,7 @@ class ProgramaPrincipal:
                 indice += 1
             del self.lista_para_renomear[:]
         else:
-            showinfo('Aviso', 'Os arquivos já estão com um indice')
+            showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
     """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
     def botao_renomear_arquivos(self):
