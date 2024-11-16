@@ -1058,6 +1058,7 @@ class ProgramaPrincipal:
                                 # Processo para indices
                                 arquivos_com_indices = list()
                                 arquivos_sem_indices = list()
+                                
                                 try:
                                     validacao_indice_int = int(valor_file.split('.')[0])
                                     nome_arquivo_com_indice = valor_file.split('.')[1]
@@ -1067,9 +1068,8 @@ class ProgramaPrincipal:
                                 except ValueError:
                                     validacao_indice = valor_file.split('.')[0]
                                     extensao_arquivo = valor_file.split('.')[-1]
-                                    arquivos_sem_indices.append(f'{validacao_indice}.{extensao_arquivo}')d
-
-
+                                    arquivos_sem_indices.append(f'{validacao_indice}.{extensao_arquivo}')
+                                self.lista_para_renomear.append(arquivos_sem_indices)
 
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
                                 self.lbl_qtd_arquivos.config(text=f'Quantidade de arquivos encontrados: '
