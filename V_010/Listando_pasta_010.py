@@ -777,9 +777,12 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def renomear_e_adicionar_indice(self):
-        print(self.lista_para_renomear)
-        indice = 1  # declaração em número interiro
+        lista_ordenada = []
 
+
+
+
+        indice = 1  # declaração em número interiro
         # Verifica se a lista possui algum item para adicionar o indice.
         if len(self.lista_para_renomear) > 0:
             for arquivo_indice in self.lista_para_renomear:
