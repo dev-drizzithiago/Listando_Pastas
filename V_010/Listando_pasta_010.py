@@ -1056,18 +1056,21 @@ class ProgramaPrincipal:
                             try:
 
                                 # Processo para indices
-                                arquivos_com_indices = list()
-                                try:
-                                    validacao_indice_int = int(valor_file.split('.')[0])
-                                    nome_arquivo_com_indice = valor_file.split('.')[1]
-                                    extensao_arq_com_indice = valor_file.split('.')[-1]
-                                    arquivos_com_indices.append(
-                                        f'{validacao_indice_int}.{nome_arquivo_com_indice}.{extensao_arq_com_indice}'
-                                    )
-                                except ValueError:
-                                    validacao_indice = valor_file.split('.')[0]
-                                    extensao_arquivo = valor_file.split('.')[-1]
-                                    self.lista_para_renomear.append(f'{validacao_indice}.{extensao_arquivo}')
+                                # arquivos_com_indices = list()
+                                # try:
+                                #     validacao_indice_int = int(valor_file.split('.')[0])
+                                #     nome_arquivo_com_indice = valor_file.split('.')[1]
+                                #     extensao_arq_com_indice = valor_file.split('.')[-1]
+                                #     arquivos_com_indices.append(
+                                #         f'{validacao_indice_int}.{nome_arquivo_com_indice}.{extensao_arq_com_indice}'
+                                #     )
+                                # except ValueError:
+                                #     validacao_indice = valor_file.split('.')[0]
+                                #     extensao_arquivo = valor_file.split('.')[-1]
+                                #     self.lista_para_renomear.append(f'{validacao_indice}.{extensao_arquivo}')
+
+
+
 
                                 # Adiciona os arquivos na lista, para processar arq duplicados
                                 self.dados_para_duplicidade.append(path.join(raiz, valor_file))
