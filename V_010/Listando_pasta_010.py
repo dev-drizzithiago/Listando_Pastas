@@ -807,7 +807,7 @@ class ProgramaPrincipal:
 
                 # O arquivo sera renomeado adicionando apenas o indice.
                 rename(
-                    f'{separacao_diretorio_arquivo}',
+                    f'{self.diretorio_home}\\{separacao_diretorio_arquivo}',
                     f'{self.diretorio_home}\\{indice}.{separacao_diretorio_arquivo}'
                 )
                 indice += 1
