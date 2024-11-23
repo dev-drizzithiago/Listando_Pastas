@@ -796,13 +796,13 @@ class ProgramaPrincipal:
             for valor_completo_arquivo in arquivos_ordenados:
 
                 formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
-                separacao_arquivo = str(valor_completo_arquivo).split('/')[-1]
-
+                separacao_data_criacao_do_arquivo = str(valor_completo_arquivo).split(' - ')[-1]
+                separacao_arquivo_do_diretorio = str(separacao_data_criacao_do_arquivo).split('/')[-1]
                 # O arquivo sera renomeado adicionando apenas o indice.
-                rename(f'{separacao_arquivo}',
-                       f'{self.diretorio_home}/{indice}.{separacao_arquivo}')
-                indice += 1
-                print()
+                # rename(f'{separacao_arquivo_do_diretorio}',
+                #        f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
+                # indice += 1
+                print(f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
         else:
             showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
