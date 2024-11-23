@@ -791,25 +791,25 @@ class ProgramaPrincipal:
                 data_fomatada = ctime(data_criacao)
                 lista_arquivos_com_data.append(f'{arquivos_por_data} - {data_fomatada}')
 
-            arquivos_ordenados = lista_arquivos_com_data.sort()
+            arquivos_ordenados = sorted(lista_arquivos_com_data, key=lambda x: x[1])
             print(arquivos_ordenados)
             for valor in arquivos_ordenados:
                 print(valor)
 
-        #     for valor_completo_arquivo in arquivos_ordenados:
-        #
-        #         formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
-        #         separacao_data_criacao_do_arquivo = str(valor_completo_arquivo).split(' - ')[-1]
-        #         separacao_arquivo_do_diretorio = str(separacao_data_criacao_do_arquivo).split('/')[-1]
-        #
-        #         # O arquivo sera renomeado adicionando apenas o indice.
-        #         # rename(f'{separacao_arquivo_do_diretorio}',
-        #         #        f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
-        #         # indice += 1
-        #
-        #         print(f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
-        # else:
-        #     showinfo('Aviso', 'Não existe arquivos para inserir os indices')
+            for valor_completo_arquivo in arquivos_ordenados:
+
+                formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
+                separacao_data_criacao_do_arquivo = str(valor_completo_arquivo).split(' - ')[-1]
+                separacao_arquivo_do_diretorio = str(separacao_data_criacao_do_arquivo).split('/')[-1]
+
+                # O arquivo sera renomeado adicionando apenas o indice.
+                # rename(f'{separacao_arquivo_do_diretorio}',
+                #        f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
+                # indice += 1
+
+                print(f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
+        else:
+            showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
     """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
     def botao_renomear_arquivos(self):
