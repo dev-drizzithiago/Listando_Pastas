@@ -777,20 +777,26 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def renomear_e_adicionar_indice(self):
-        lista_ordenada = []
-        indice = 1  # declaração em número interiro
-        # Verifica se a lista possui algum item para adicionar o indice.
-        if len(self.lista_para_renomear) > 0:
-            for arquivo_indice in self.lista_para_renomear:
 
-                # O arquivo sera renomeado adicionando apenas o indice.
-                rename(f'{self.diretorio_home}\\{arquivo_indice}',
-                       f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
-                print(f'Arquivo com indice: {indice}.{arquivo_indice}')
-                indice += 1
-            del self.lista_para_renomear[:]
-        else:
-            showinfo('Aviso', 'Não existe arquivos para inserir os indices')
+
+        for teste in self.lista_para_renomear:
+            print(teste)
+
+
+        lista_ordenada = []
+        # indice = 1  # declaração em número interiro
+        # # Verifica se a lista possui algum item para adicionar o indice.
+        # if len(self.lista_para_renomear) > 0:
+        #     for arquivo_indice in self.lista_para_renomear:
+        #
+        #         # O arquivo sera renomeado adicionando apenas o indice.
+        #         rename(f'{self.diretorio_home}\\{arquivo_indice}',
+        #                f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
+        #         print(f'Arquivo com indice: {indice}.{arquivo_indice}')
+        #         indice += 1
+        #     del self.lista_para_renomear[:]
+        # else:
+        #     showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
     """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
     def botao_renomear_arquivos(self):
