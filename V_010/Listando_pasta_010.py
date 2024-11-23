@@ -794,16 +794,15 @@ class ProgramaPrincipal:
             arquivos_ordenados = lista_arquivos_com_data.sort()
 
             for valor_completo_arquivo in arquivos_ordenados:
-                
+
                 formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
-                separacao_arquivo = str(valor_completo_arquivo).split('/')
+                separacao_arquivo = str(valor_completo_arquivo).split('/')[-1]
 
                 # O arquivo sera renomeado adicionando apenas o indice.
-                rename(f'{indice_para_arquivos}',
-                       f'{indice_para_arquivos}')
-
+                rename(f'{separacao_arquivo}',
+                       f'{self.diretorio_home}/{indice}.{separacao_arquivo}')
                 indice += 1
-
+                print()
         else:
             showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
