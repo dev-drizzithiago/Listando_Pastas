@@ -23,7 +23,6 @@ from threading import Thread
 
 class ProgramaPrincipal:
     """__init__ fica a janela principal"""
-
     def __init__(self):
 
         """##### Declarações de variaveis"""
@@ -233,7 +232,8 @@ class ProgramaPrincipal:
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
-        self.botao_limpar_checkbuttun.config(command=lambda: Thread(target=self.botao_limpeza_checkbutton_destroy).start())
+        self.botao_limpar_checkbuttun.config(
+            command=lambda: Thread(target=self.botao_limpeza_checkbutton_destroy).start())
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão verificar duplicidade"""
@@ -806,9 +806,11 @@ class ProgramaPrincipal:
                 # IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
                 # O arquivo sera renomeado adicionando apenas o indice.
-                # rename(f'{separacao_arquivo_do_diretorio}',
-                #        f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
-                # indice += 1
+                rename(
+                    f'{separacao_diretorio_arquivo}',
+                    f'{self.diretorio_home}\\{indice}.{separacao_diretorio_arquivo}'
+                )
+                indice += 1
 
                 print(f'{self.diretorio_home}\\{indice}.{separacao_diretorio_arquivo}')
         else:
