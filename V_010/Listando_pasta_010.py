@@ -779,11 +779,13 @@ class ProgramaPrincipal:
     def renomear_e_adicionar_indice(self):
         from os import path
         from time import ctime
+        lista_arquivos_com_data = []
 
         for arquivos_por_data in self.lista_para_renomear:
             data_criacao = path.getctime(arquivos_por_data)
             print(f'{arquivos_por_data} - Data Criação: {ctime(data_criacao)}')
 
+        arquivos_ordenados =
 
         lista_ordenada = []
         # indice = 1  # declaração em número interiro
@@ -796,7 +798,7 @@ class ProgramaPrincipal:
         #                f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
         #         print(f'Arquivo com indice: {indice}.{arquivo_indice}')
         #         indice += 1
-        #     del self.lista_para_renomear[:]
+        #
         # else:
         #     showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
