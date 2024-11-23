@@ -783,11 +783,14 @@ class ProgramaPrincipal:
 
         for arquivos_por_data in self.lista_para_renomear:
             data_criacao = path.getctime(arquivos_por_data)
+            data_fomatada = ctime(data_criacao)
+            lista_arquivos_com_data.append(f'{arquivos_por_data} - {data_fomatada}')
 
-            print(f'{arquivos_por_data} - Data Criação: {ctime(data_criacao)}')
+        arquivos_ordenados = lista_arquivos_com_data.reverse()
 
-        arquivos_ordenados = lista_arquivos_com_data.sort()
-        print(arquivos_ordenados)
+        for valor in lista_arquivos_com_data:
+            print(valor)
+
 
         lista_ordenada = []
         # indice = 1  # declaração em número interiro
