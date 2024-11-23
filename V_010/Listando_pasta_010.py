@@ -793,12 +793,15 @@ class ProgramaPrincipal:
 
             arquivos_ordenados = lista_arquivos_com_data.sort()
 
-            for arquivo_indice in arquivos_ordenados:
+            for valor_completo_arquivo in arquivos_ordenados:
+                
+                formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
+                separacao_arquivo = str(valor_completo_arquivo).split('/')
 
                 # O arquivo sera renomeado adicionando apenas o indice.
-                rename(f'{self.diretorio_home}\\{arquivo_indice}',
-                       f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
-                print(f'Arquivo com indice: {indice}.{arquivo_indice}')
+                rename(f'{indice_para_arquivos}',
+                       f'{indice_para_arquivos}')
+
                 indice += 1
 
         else:
