@@ -777,10 +777,12 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def renomear_e_adicionar_indice(self):
-        import os
+        from os import path
+        from time import ctime
+
         for arquivos_por_data in self.lista_para_renomear:
-            data_criacao = os.path.getctime(arquivos_por_data)
-            print(data_criacao)
+            data_criacao = path.getctime(arquivos_por_data)
+            print(f'{arquivos_por_data} - Data Criação: {ctime(data_criacao)}')
 
 
         lista_ordenada = []
