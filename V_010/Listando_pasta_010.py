@@ -797,10 +797,13 @@ class ProgramaPrincipal:
                 print(valor)
 
             for valor_completo_arquivo in arquivos_ordenados:
-
+                print(valor_completo_arquivo)
                 formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
+                print(formatacao_diretorio)
                 separacao_data_criacao_do_arquivo = str(valor_completo_arquivo).split(' - ')[-1]
+                print(separacao_data_criacao_do_arquivo)
                 separacao_arquivo_do_diretorio = str(separacao_data_criacao_do_arquivo).split('/')[-1]
+                print(separacao_arquivo_do_diretorio)
 
                 # O arquivo sera renomeado adicionando apenas o indice.
                 # rename(f'{separacao_arquivo_do_diretorio}',
