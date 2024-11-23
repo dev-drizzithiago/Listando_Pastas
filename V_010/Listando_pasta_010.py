@@ -781,31 +781,28 @@ class ProgramaPrincipal:
         from time import ctime
         lista_arquivos_com_data = []
 
-        for arquivos_por_data in self.lista_para_renomear:
-            data_criacao = path.getctime(arquivos_por_data)
-            data_fomatada = ctime(data_criacao)
-            lista_arquivos_com_data.append(f'{arquivos_por_data} - {data_fomatada}')
+        indice = 1  # declaração em número interiro
 
-        arquivos_ordenados = lista_arquivos_com_data.reverse()
+        # Verifica se a lista possui algum item para adicionar o indice.
+        if len(self.lista_para_renomear) > 0:
 
-        for valor in lista_arquivos_com_data:
-            print(valor)
+            for arquivos_por_data in self.lista_para_renomear:
+                data_criacao = path.getctime(arquivos_por_data)
+                data_fomatada = ctime(data_criacao)
+                lista_arquivos_com_data.append(f'{arquivos_por_data} - {data_fomatada}')
 
+            arquivos_ordenados = lista_arquivos_com_data.sort()
 
-        lista_ordenada = []
-        # indice = 1  # declaração em número interiro
-        # # Verifica se a lista possui algum item para adicionar o indice.
-        # if len(self.lista_para_renomear) > 0:
-        #     for arquivo_indice in self.lista_para_renomear:
-        #
-        #         # O arquivo sera renomeado adicionando apenas o indice.
-        #         rename(f'{self.diretorio_home}\\{arquivo_indice}',
-        #                f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
-        #         print(f'Arquivo com indice: {indice}.{arquivo_indice}')
-        #         indice += 1
-        #
-        # else:
-        #     showinfo('Aviso', 'Não existe arquivos para inserir os indices')
+            for arquivo_indice in arquivos_ordenados:
+
+                # O arquivo sera renomeado adicionando apenas o indice.
+                rename(f'{self.diretorio_home}\\{arquivo_indice}',
+                       f'{self.diretorio_home}\\{indice}.{arquivo_indice}')
+                print(f'Arquivo com indice: {indice}.{arquivo_indice}')
+                indice += 1
+
+        else:
+            showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
     """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
     def botao_renomear_arquivos(self):
