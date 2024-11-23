@@ -795,22 +795,22 @@ class ProgramaPrincipal:
 
             for valor_completo_arquivo in arquivos_ordenados:
                 print(valor_completo_arquivo)
+                # G:\Meu Drive\Fotos\Privado\IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
                 formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
                 print(formatacao_diretorio)
+                # G:/Meu Drive/Fotos/Privado/IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
-                separacao_data_criacao_do_arquivo = str(valor_completo_arquivo).split(' - ')[-1]
-                print(separacao_data_criacao_do_arquivo)
-                
-                separacao_arquivo_do_diretorio = str(separacao_data_criacao_do_arquivo).split('/')[-1]
-                print(separacao_arquivo_do_diretorio)
+                separacao_diretorio_arquivo = str(formatacao_diretorio).split('/')[-1]
+                print(separacao_diretorio_arquivo)
+                # IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
                 # O arquivo sera renomeado adicionando apenas o indice.
                 # rename(f'{separacao_arquivo_do_diretorio}',
                 #        f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
                 # indice += 1
 
-                print(f'{self.diretorio_home}/{indice}.{separacao_arquivo_do_diretorio}')
+                print(f'{self.diretorio_home}\\{indice}.{separacao_diretorio_arquivo}')
         else:
             showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
