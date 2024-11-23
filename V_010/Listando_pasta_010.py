@@ -783,7 +783,7 @@ class ProgramaPrincipal:
 
         for arquivos_por_data in self.lista_para_renomear:
             data_criacao = path.getctime(arquivos_por_data)
-            lista_arquivos_com_data.append(path.join(arquivos_por_data, data_criacao))
+
             print(f'{arquivos_por_data} - Data Criação: {ctime(data_criacao)}')
 
         arquivos_ordenados = lista_arquivos_com_data.sort()
