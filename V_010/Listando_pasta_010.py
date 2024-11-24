@@ -484,6 +484,9 @@ class ProgramaPrincipal:
         print('Iniciando a thread "thread_limpeza_lista_dupli"')
         Thread(target=self.botao_limpa_list_dupli).start()
 
+    def thread_tempo__busca(self):
+        Thread(target=self.tempo_processo_busca).start()
+
     """#### Sistema de combo e criaçãodo checkbutton"""
     def selecao_combo_extensao(self, *args):
         print('Iniciando função "selecao_combo_extensao" ')
@@ -1058,7 +1061,7 @@ class ProgramaPrincipal:
 
                 """# Iniciando tempo de busca"""
                 self.ativar_time_busca = True
-                lambda: Thread(target=self.tempo_processo_busca).start()
+                self.thread_tempo__busca()
 
                 """###### Inicio do processo de busca"""
                 for raiz, subpasta, arquivo in walk(self.diretorio_home):
