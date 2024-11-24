@@ -459,18 +459,11 @@ class ProgramaPrincipal:
         self.lista_arquivos_listados = tk.Listbox(self.frame_lbl_janela_renomar, listvariable=self.var_lista_manipular)
         self.lista_arquivos_listados.config(width=145, height=10)
         self.lista_arquivos_listados.place(y=90, x=5)
-
-        """ -------------------------------------------------------------------------------------------------------- """
-        """ Label dos botões """
-        self.lbl_botao_aplicar_opcoes = tk.LabelFrame(self.frame_lbl_opcao_rename, name='Processar')
-        self.frame_lbl_janela_renomar.config()
-        self.lbl_botao_aplicar_opcoes.place(y=500, x=400)
-
+        # ______________________________________________________________________________________________________________
         """ Botões"""
-
-        self.botao_aplicar_opcao = Button(self.lbl_botao_aplicar_opcoes, text='Aplicar')
-        self.botao_aplicar_opcao.pack(fill=tk.BOTH, pady=5, padx=5)
-
+        self.botao_aplicar_opcao = Button(self.frame_lbl_opcao_rename, text='Aplicar')
+        self.botao_aplicar_opcao.config(width=25)
+        self.botao_aplicar_opcao.place(y=15, x=700)
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
