@@ -432,7 +432,7 @@ class ProgramaPrincipal:
         self.frame_lbl_janela_renomar.pack(fill=tk.BOTH, pady=5, padx=5)
         # ______________________________________________________________________________________________________________
         """ Label Frame das opções de renomear """
-        self.frame_lbl_opcao_rename = tk.LabelFrame(self.frame_lbl_janela_renomar, text='Escolha uma opcação')
+        self.frame_lbl_opcao_rename = tk.LabelFrame(self.frame_lbl_janela_renomar, text='Escolha uma opção')
         self.frame_lbl_opcao_rename.config(width=875, height=75)
         self.frame_lbl_opcao_rename.place(y=5, x=5)
         # ______________________________________________________________________________________________________________
@@ -462,13 +462,14 @@ class ProgramaPrincipal:
 
         """ -------------------------------------------------------------------------------------------------------- """
         """ Label dos botões """
-        self.lbl_botao_aplicar_opcoes = tk.LabelFrame(self.frame_lbl_janela_renomar, name='Processar')
+        self.lbl_botao_aplicar_opcoes = tk.LabelFrame(self.frame_lbl_opcao_rename, name='Processar')
         self.frame_lbl_janela_renomar.config()
-        self.lbl_botao_aplicar_opcoes.place(y=5, x=5)
+        self.lbl_botao_aplicar_opcoes.place(y=500, x=400)
 
         """ Botões"""
 
         self.botao_aplicar_opcao = Button(self.lbl_botao_aplicar_opcoes, text='Aplicar')
+        self.botao_aplicar_opcao.pack(fill=tk.BOTH, pady=5, padx=5)
 
         # ______________________________________________________________________________________________________________
 
