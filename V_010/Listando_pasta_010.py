@@ -659,6 +659,8 @@ class ProgramaPrincipal:
     def opcao_manipulacao(self):
         opcao_selecionada = self.radio_rename.get()
         print(opcao_selecionada)
+        if opcao_selecionada == 4:
+            Thread(target=self.inserir_indices).start()
 
     """#### Inicio dos processos de busca """
     def tempo_processo_busca(self):
@@ -778,7 +780,7 @@ class ProgramaPrincipal:
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
     """ Processo para adicionar um indice em cada arquivo """
-    def renomear_e_adicionar_indice(self):
+    def inserir_indices(self):
 
         showinfo('IMPORTANTE', 'Útilize apenas com arquivos da mesma pasta.')
         from os import path
