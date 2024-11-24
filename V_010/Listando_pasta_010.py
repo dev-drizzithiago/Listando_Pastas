@@ -263,10 +263,10 @@ class ProgramaPrincipal:
         Aqui você vai encontrar todas as informações da busca, conforme a extensão selecionar. 
         """
         self.var_lista_result_busca = tk.StringVar()
-        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=87, height=7, bg='#DCDCDC')
+        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=175, height=12, bg='#DCDCDC')
         self.lista_de_result_busca.config(listvariable=self.var_lista_result_busca)
-        self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.place(y=450, x=2)
+        self.lista_de_result_busca.config(justify='left', selectmode=tk.SINGLE)
+        self.lista_de_result_busca.place(y=435, x=2)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista RESULTADO"""
         self.barra_rolagem_lista_busca_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
