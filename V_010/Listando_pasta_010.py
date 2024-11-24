@@ -804,7 +804,7 @@ class ProgramaPrincipal:
 
                 print(len(arquivo_sem_data))
 
-                separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[4]
+                separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[len(arquivo_sem_data) -1 ]
                 print(separacao_diretorio_arquivo)
                 # IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
