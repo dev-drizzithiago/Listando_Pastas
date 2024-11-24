@@ -800,8 +800,9 @@ class ProgramaPrincipal:
                 # G:\Meu Drive\Fotos\Privado\IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
                 # Calcula a quantidade de elementos que possui dentro da lista.
-                #
                 indice_lista = int(len(str(valor_completo_arquivo).split('\\')))
+
+                # Separa o arquivo do diretório
                 separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[indice_lista - 1]
                 print('Arquivo: ', separacao_diretorio_arquivo)
                 # IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
