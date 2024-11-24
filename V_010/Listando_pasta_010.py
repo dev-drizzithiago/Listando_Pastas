@@ -777,6 +777,8 @@ class ProgramaPrincipal:
 
     """ Processo para adicionar um indice em cada arquivo """
     def renomear_e_adicionar_indice(self):
+
+        showinfo('IMPORTANTE', 'Útilize apenas com arquivos da mesma pasta.')
         from os import path
         from time import ctime
         lista_arquivos_com_data = []
@@ -812,15 +814,15 @@ class ProgramaPrincipal:
                 # IMG_20241120_212541871_AE.jpg
 
                 # O arquivo sera renomeado adicionando apenas o indice.
-                rename(
-                    f'{self.diretorio_home}\\{arquivo_sem_data}',
-                    f'{self.diretorio_home}\\{indice}.{arquivo_sem_data}'
-                )
+                # rename(
+                #     f'{self.diretorio_home}\\{arquivo_sem_data}',
+                #     f'{self.diretorio_home}\\{indice}°|{arquivo_sem_data}'
+                # )
 
                 # G:\Meu Drive\Fotos\Privado\63.IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
                 indice += 1
 
-                print(f'{self.diretorio_home}\\{indice}.{arquivo_sem_data}')
+                print(f'{self.diretorio_home}\\{indice}°|{arquivo_sem_data}')
         else:
             showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
