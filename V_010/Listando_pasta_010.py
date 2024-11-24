@@ -800,7 +800,7 @@ class ProgramaPrincipal:
                 # G:\Meu Drive\Fotos\Privado\IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
                 # Removendo a data imbutida
-                arquivo_sem_data = str(valor_completo_arquivo).split('\\')
+                arquivo_sem_data = str(valor_completo_arquivo).split(' - ')[-2:-1]
                 print(arquivo_sem_data)
 
                 separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[-1]
