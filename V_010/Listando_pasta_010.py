@@ -799,14 +799,13 @@ class ProgramaPrincipal:
                 print(valor_completo_arquivo)
                 # G:\Meu Drive\Fotos\Privado\IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
-                # Removendo a data imbutida
-                arquivo_sem_data = str(valor_completo_arquivo).split('-')
-
-                print(len(arquivo_sem_data))
-
-                separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[len(arquivo_sem_data) -1 ]
-                print(separacao_diretorio_arquivo)
+                separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[4]
+                print('Arquivo: ', separacao_diretorio_arquivo)
                 # IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
+
+                # Removendo a data imbutida
+                # arquivo_sem_data = str(separacao_diretorio_arquivo).split('-')[0].strip()
+                # print(arquivo_sem_data)
 
                 # O arquivo sera renomeado adicionando apenas o indice.
                 rename(
