@@ -438,20 +438,20 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """ Oções para manipular o nome dos arquivos. """
 
-        radio_rename = tk.IntVar()
-        self.opcao_01 = Radiobutton(self.frame_lbl_opcao_rename, variable=radio_rename)
+        self.radio_rename = tk.IntVar()
+        self.opcao_01 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.radio_rename)
         self.opcao_01.config(text='Remover Caracteres', value=1)
         self.opcao_01.place(y=5, x=5)
 
-        self.opcao_02 = Radiobutton(self.frame_lbl_opcao_rename, variable=radio_rename)
+        self.opcao_02 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.radio_rename)
         self.opcao_02.config(text='Acrescentar Caracteres', value=2)
         self.opcao_02.place(y=30, x=5)
 
-        self.opcao_03 = Radiobutton(self.frame_lbl_opcao_rename, variable=radio_rename)
+        self.opcao_03 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.radio_rename)
         self.opcao_03.config(text='Renomear arquivo', value=3)
         self.opcao_03.place(y=30, x=150)
 
-        self.opcao_03 = Radiobutton(self.frame_lbl_opcao_rename, variable=radio_rename)
+        self.opcao_03 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.radio_rename)
         self.opcao_03.config(text='Adicionar indice', value=4)
         self.opcao_03.place(y=5, x=150)
 
@@ -462,7 +462,7 @@ class ProgramaPrincipal:
         # ______________________________________________________________________________________________________________
         """ Botões"""
         self.botao_aplicar_opcao = Button(self.frame_lbl_opcao_rename, text='Aplicar')
-        self.botao_aplicar_opcao.config(width=25)
+        self.botao_aplicar_opcao.config(command=self.opcao_manipulacao, width=25)
         self.botao_aplicar_opcao.place(y=15, x=700)
         # ______________________________________________________________________________________________________________
 
@@ -655,6 +655,10 @@ class ProgramaPrincipal:
             showwarning('AVISO', 'Não foi possível abrir o arquivo selecionado!')
         print()
         print('Arquivo em execusão!!')
+
+    def opcao_manipulacao(self):
+        opcao_selecionada = self.radio_rename.get()
+        print(opcao_selecionada)
 
     """#### Inicio dos processos de busca """
     def tempo_processo_busca(self):
