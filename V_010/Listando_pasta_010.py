@@ -1089,6 +1089,7 @@ class ProgramaPrincipal:
                             try:
 
                                 # Processo para indices
+
                                 self.lista_para_renomear.append(path.join(raiz, valor_file))
 
                                 # Adiciona os arquivos na lista, para processar arq duplicados
