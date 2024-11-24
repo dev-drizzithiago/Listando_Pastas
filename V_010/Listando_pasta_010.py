@@ -659,7 +659,17 @@ class ProgramaPrincipal:
     def opcao_manipulacao(self):
         opcao_selecionada = self.radio_rename.get()
         print(opcao_selecionada)
-        if opcao_selecionada == 4:
+
+        if opcao_selecionada == 1:
+            Thread(target='').start()
+
+        elif opcao_selecionada == 2:
+            Thread(target='').start()
+
+        elif opcao_selecionada == 3:
+            Thread(target=self.renomear_um_arquivo).start()
+
+        elif opcao_selecionada == 4:
             Thread(target=self.inserir_indices).start()
 
     """#### Inicio dos processos de busca """
@@ -779,7 +789,8 @@ class ProgramaPrincipal:
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
-    """ Processo para adicionar um indice em cada arquivo """
+    """ Processo para adicionar indice, renomear, deletar e remover """
+
     def inserir_indices(self):
 
         showinfo('IMPORTANTE', 'Útilize apenas com arquivos da mesma pasta.')
@@ -830,10 +841,13 @@ class ProgramaPrincipal:
         else:
             showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
-    """ Processo para renomar os arquivo único. Selecione um arquivo, após a busca e renomei """
-    def botao_renomear_arquivos(self):
-
-        valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
+    def renomear_um_arquivo(self):
+        print('debug: "renomear_um_arquivo"')
+        try:
+            valor_arq_selecionado = self.lista_de_result_busca.get(self.lista_de_result_busca.curselection())
+        except tk.TclError:
+            print('Sem arquivos para monipular')
+            return self.janela_renomar_arquivos.destroy()
 
         separacao_pasta_arq = str(valor_arq_selecionado).split('\\')
         nome_arquivo_renomear = separacao_pasta_arq[-1]
@@ -854,9 +868,12 @@ class ProgramaPrincipal:
         print('-------------')
         try:
             rename(f'{arquivo_original}', f'{arquivo_novo}')
-            print('Nome modificado')
+            print('Nome modificado com sucesso')
         except Exception as e:
             print(f'Erro: {e}')
+
+    def renomear_varios_arquivo(self):
+        ...
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
