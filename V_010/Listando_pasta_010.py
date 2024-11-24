@@ -809,12 +809,14 @@ class ProgramaPrincipal:
                 # Removendo a data imbutida
                 arquivo_sem_data = str(separacao_diretorio_arquivo).split('-')[0].strip()
                 print(arquivo_sem_data)
+                # IMG_20241120_212541871_AE.jpg
 
                 # O arquivo sera renomeado adicionando apenas o indice.
                 rename(
-                    f'{self.diretorio_home}\\{separacao_diretorio_arquivo}',
-                    f'{self.diretorio_home}\\{indice}.{separacao_diretorio_arquivo}'
+                    f'{self.diretorio_home}\\{arquivo_sem_data}',
+                    f'{self.diretorio_home}\\{indice}.{arquivo_sem_data}'
                 )
+                # G:\Meu Drive\Fotos\Privado\63.IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
                 indice += 1
 
                 print(f'{self.diretorio_home}\\{indice}.{separacao_diretorio_arquivo}')
