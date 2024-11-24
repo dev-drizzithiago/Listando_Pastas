@@ -285,7 +285,7 @@ class ProgramaPrincipal:
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """#### Iniciando o relogio"""
-        lambda: Thread(target=self.data_hora_certa).start()
+        self.data_hora_certa()
 
         # -=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         """###### LOOP DA JANELA ######"""
@@ -606,10 +606,7 @@ class ProgramaPrincipal:
     """#### Processos simples"""
     def data_hora_certa(self):
         print('Iniciando função "data_hora_certa"')
-        """
 
-        :return:
-        """
         valor_data = datetime.now()
         self.data_certa = valor_data.strftime('%d/%m/%Y')
         self.hora_certa = valor_data.strftime("%H:%M")
