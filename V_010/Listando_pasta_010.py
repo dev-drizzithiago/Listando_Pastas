@@ -233,7 +233,8 @@ class ProgramaPrincipal:
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
         self.botao_limpar_checkbuttun.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_limpar_checkbuttun.config(
-            command=lambda: Thread(target=self.botao_limpeza_checkbutton_destroy).start())
+            command=lambda: Thread(target=self.botao_limpeza_checkbutton_destroy).start()
+        )
         self.botao_limpar_checkbuttun.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão verificar duplicidade"""
@@ -262,10 +263,10 @@ class ProgramaPrincipal:
         Aqui você vai encontrar todas as informações da busca, conforme a extensão selecionar. 
         """
         self.var_lista_result_busca = tk.StringVar()
-        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=117, height=10, bg='#DCDCDC')
+        self.lista_de_result_busca = tk.Listbox(self.label_frame_principal, width=87, height=7, bg='#DCDCDC')
         self.lista_de_result_busca.config(listvariable=self.var_lista_result_busca)
         self.lista_de_result_busca.config(font='Arial', justify='left', selectmode=tk.SINGLE)
-        self.lista_de_result_busca.place(y=435, x=2)
+        self.lista_de_result_busca.place(y=450, x=2)
         # ______________________________________________________________________________________________________________
         """# Barra de Rolagem Y Lista RESULTADO"""
         self.barra_rolagem_lista_busca_y = Scrollbar(self.label_frame_principal, orient=tk.VERTICAL)
@@ -292,6 +293,8 @@ class ProgramaPrincipal:
             self.janela_principal.mainloop()
         except RuntimeError:
             pass
+        except KeyboardInterrupt:
+            ...
 
     def janela_duplicidade(self):
         print('Iniciando a janela "janela_duplicidade"')
