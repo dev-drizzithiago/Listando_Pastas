@@ -789,14 +789,13 @@ class ProgramaPrincipal:
             for arquivos_por_data in self.lista_para_renomear:
                 data_criacao = path.getctime(arquivos_por_data)
                 data_fomatada = ctime(data_criacao)
-                lista_arquivos_com_data.append(f'{arquivos_por_data} - {data_fomatada}')
+                lista_arquivos_com_data.append(f'{arquivos_por_data} <--> {data_fomatada}')
 
             arquivos_ordenados = sorted(lista_arquivos_com_data, key=lambda x: x[1])
 
             for valor_completo_arquivo in arquivos_ordenados:
 
-                # Mostra o valor compledo do dados que esta chegando.
-                print(valor_completo_arquivo)
+                # Valor compledo dos dados que esta chegando.
                 # G:\Meu Drive\Fotos\Privado\IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
                 # Calcula a quantidade de elementos que possui dentro da lista.
@@ -804,12 +803,12 @@ class ProgramaPrincipal:
 
                 # Separa o arquivo do diretório
                 separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[indice_lista - 1]
-                print('Arquivo: ', separacao_diretorio_arquivo)
                 # IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
                 # Removendo a data imbutida
-                arquivo_sem_data = str(separacao_diretorio_arquivo).split('-')[0].strip()
-                print(arquivo_sem_data)
+                indice_do_arquivo = len(str(separacao_diretorio_arquivo).split('<-->'))
+                arquivo_sem_data = str(separacao_diretorio_arquivo).split('<-->')[indice_do_arquivo - 2].strip()
+
                 # IMG_20241120_212541871_AE.jpg
 
                 # O arquivo sera renomeado adicionando apenas o indice.
@@ -817,10 +816,11 @@ class ProgramaPrincipal:
                     f'{self.diretorio_home}\\{arquivo_sem_data}',
                     f'{self.diretorio_home}\\{indice}.{arquivo_sem_data}'
                 )
+
                 # G:\Meu Drive\Fotos\Privado\63.IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
                 indice += 1
 
-                print(f'{self.diretorio_home}\\{indice}.{separacao_diretorio_arquivo}')
+                print(f'{self.diretorio_home}\\{indice}.{arquivo_sem_data}')
         else:
             showinfo('Aviso', 'Não existe arquivos para inserir os indices')
 
