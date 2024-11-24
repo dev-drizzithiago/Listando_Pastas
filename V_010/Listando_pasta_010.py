@@ -794,14 +794,12 @@ class ProgramaPrincipal:
             arquivos_ordenados = sorted(lista_arquivos_com_data, key=lambda x: x[1])
 
             for valor_completo_arquivo in arquivos_ordenados:
+
+                # Mostra o valor compledo do dados que esta chegando.
                 print(valor_completo_arquivo)
                 # G:\Meu Drive\Fotos\Privado\IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
-                formatacao_diretorio = str(valor_completo_arquivo).replace('\\', '/')
-                print(formatacao_diretorio)
-                # G:/Meu Drive/Fotos/Privado/IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
-
-                separacao_diretorio_arquivo = str(formatacao_diretorio).split('/')[-1]
+                separacao_diretorio_arquivo = str(valor_completo_arquivo).split('\\')[-1]
                 print(separacao_diretorio_arquivo)
                 # IMG_20241120_212541871_AE.jpg - Sat Nov 23 12:42:59 2024
 
