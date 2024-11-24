@@ -216,7 +216,7 @@ class ProgramaPrincipal:
         self.botao_aplica_opcao_renomar = tk.Button(self.frame_lbl_botao_renomear, text='Aplicar')
         self.botao_aplica_opcao_renomar.config(width=15, pady=5, padx=5, bg='#D3D3D3')
         self.botao_aplica_opcao_renomar.config(command=lambda: Thread(target=self.manipulando_arquivos).start())
-        self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')        
+        self.botao_aplica_opcao_renomar.pack(anchor='n', fill='both')
         # ______________________________________________________________________________________________________________
         """# Botão limpeza lista de extensão"""
         self.botao_limpar_checkbuttun = tk.Button(self.frame_label_limpeza_chk, text='Aplicar')
@@ -419,6 +419,7 @@ class ProgramaPrincipal:
         self.janela_opc_duplicidade.update_idletasks()
 
     def manipulando_arquivos(self):
+
         print('Iniciando a janela "janela_renomar_varios_arquivos"')
         self.janela_renomar_arquivos = tk.Toplevel()
         self.janela_renomar_arquivos.geometry('900x300')
@@ -458,6 +459,17 @@ class ProgramaPrincipal:
         self.lista_arquivos_listados = tk.Listbox(self.frame_lbl_janela_renomar, listvariable=self.var_lista_manipular)
         self.lista_arquivos_listados.config(width=145, height=10)
         self.lista_arquivos_listados.place(y=90, x=5)
+
+        """ -------------------------------------------------------------------------------------------------------- """
+        """ Label dos botões """
+        self.lbl_botao_aplicar_opcoes = tk.LabelFrame(self.frame_lbl_janela_renomar, name='Processar')
+        self.frame_lbl_janela_renomar.config()
+        self.lbl_botao_aplicar_opcoes.place(y=5, x=5)
+
+        """ Botões"""
+
+        self.botao_aplicar_opcao = Button(self.lbl_botao_aplicar_opcoes, text='Aplicar')
+
         # ______________________________________________________________________________________________________________
 
     """##### THREADS DOS BOTÕES"""
