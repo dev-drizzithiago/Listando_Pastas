@@ -1216,6 +1216,8 @@ class ProgramaPrincipal:
                 self.lista_de_result_busca.insert('end', '===' * 40)
                 self.lista_de_result_busca.insert('end', f'Busca finalizada!')
 
+                self.botao_abrir_arquivo.config(bg='#00FA9A')
+
                 print(f'\nBusca Finalizada')
                 print(f'\nForam encontrados [{contador_de_arquivos}] arquivos, dentro de [{contador_de_pastas}] pastas')
             else:
