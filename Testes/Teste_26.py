@@ -1,11 +1,7 @@
 import os
 import pathlib
-import stat
-import subprocess
-import json
 
 import ffmpeg
-
 import pymediainfo
 
 LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
@@ -50,14 +46,14 @@ LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'Tintim na América (último episódio)',
 ]
 PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(
-    r'\\muonline\Mini_CELERON\Videos\Classicos\As Aventuras de Tintin Completo'
+    r'\\muonline\Mini_CELERON\Videos\Classicos\As Brumas de Avalon 720p'
 )
 
 indice = 1
 for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
-    CAMINHO_ABS_MODIFICADO = rf'{}'
-    informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
+    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
+    # informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
 
     # COMANDO_SHELL = rf'ffprobe -v quiet -print_format json -show_format -show_streams {CAMINHO_ABS}'
     # resultado = subprocess.run(COMANDO_SHELL, shell=True, capture_output=True, text=True)
@@ -72,3 +68,9 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
                 print(track.title)
         else:
             print('Não pode verificar uma pasta')
+    indice += 1
+    ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
+        CAMINHO_ABS_MODIFICADO, metadata="title=Novo Título").run(overwrite_output=True)
+
+
+
