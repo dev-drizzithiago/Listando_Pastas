@@ -4,6 +4,8 @@ import stat
 import subprocess
 import json
 
+import ffmpeg
+
 import pymediainfo
 
 LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
@@ -51,20 +53,21 @@ PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(
     r'\\muonline\Mini_CELERON\Videos\Classicos\As Aventuras de Tintin Completo'
 )
 
+indice = 1
 for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
-    CAMINHO_ABS = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
-
-    informacao_arquivo = os.stat(rf'{CAMINHO_ABS}')
+    CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
+    CAMINHO_ABS_MODIFICADO = rf'{}'
+    informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
 
     # COMANDO_SHELL = rf'ffprobe -v quiet -print_format json -show_format -show_streams {CAMINHO_ABS}'
     # resultado = subprocess.run(COMANDO_SHELL, shell=True, capture_output=True, text=True)
     # metadados = json.loads(resultado.stdout)
     # print(json.dumps(metadados, indent=4))
 
-    info = pymediainfo.MediaInfo.parse(CAMINHO_ABS)
+    info = pymediainfo.MediaInfo.parse(CAMINHO_ABS_ORIGINAL)
 
     for track in info.tracks:
-        if os.path.isfile(CAMINHO_ABS):
+        if os.path.isfile(CAMINHO_ABS_ORIGINAL):
             if track.track_type == 'General':
                 print(track.title)
         else:
