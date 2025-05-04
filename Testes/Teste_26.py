@@ -41,6 +41,8 @@ Algumas opções interessantes que você pode usar:
 💡 Quer modificar outra funcionalidade ou explorar algo específico? Me avisa! 🚀
 """
 
+from tkinter.filedialog import askdirectory
+
 LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'O Caranguejo das Tenazes de Ouro (primeira parte)',
     'O Caranguejo das Tenazes de Ouro (segunda parte)',
@@ -82,33 +84,30 @@ LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'Explorando a Lua (segunda parte)',
     'Tintim na América (último episódio)',
 ]
-PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(
-    r'Z:\Videos\Classicos\As Aventuras de Tintin Completo'
-)
+# PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(r'Z:\Videos\Classicos\As Aventuras de Tintin Completo')
+
+PASTA_VIDEOS_AS_AVENTURAS_TITIN = askdirectory()
 
 indice = 1
 for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
-    # print()
-    # print(item)
+    print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
-    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.{LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]}'
+    CAMINHO_ABS_MODIFICADO = (rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.'
+                              rf'{LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]}.mp4')
 
+    # ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
+    #     CAMINHO_ABS_MODIFICADO, metadata=f"title={LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]}"
+    # ).run(overwrite_output=True)
+
+    indice += 1
     info = pymediainfo.MediaInfo.parse(CAMINHO_ABS_ORIGINAL)
 
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
             if track.track_type == 'General':
-
-                ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
-                    CAMINHO_ABS_MODIFICADO, metadata="title=Novo Título").run(overwrite_output=True)
-
-                indice += 1
-                # print(track.title)
-                # print(track.codecs_image)
-                # print(track.other_duration[4])
+                print(track.title)
+                print(track.codecs_image)
+                print(track.other_duration[4])
                 # print(track.to_data())
-
-        else:
-            print('Não pode verificar uma pasta')
 
     # print(CAMINHO_ABS_ORIGINAL)
