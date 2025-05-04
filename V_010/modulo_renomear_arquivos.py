@@ -13,7 +13,7 @@ def renomeando_arquivos(PASTA_SELECIONADA):
             if track.track_type == "General":
                 try:
                     os.rename(
-                        CAMINHO_ABS_ORIGINAL, rf'{CAMINHO_ABS_MODIFICADO}\{indice}.novo_nome.{track.file_extension}'
+                        CAMINHO_ABS_ORIGINAL, rf'{CAMINHO_ABS_MODIFICADO}\{indice}.{''}.{track.file_extension}'
                     )
                     return True
                 except:
