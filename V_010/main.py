@@ -881,21 +881,11 @@ class ProgramaPrincipal:
             print(f'Erro: {e}')
 
     def renomear_varios_arquivo(self):
+        from modulo_renomear_arquivos import renomeando_arquivos
         indice = 0
         PASTA_ARQUIVOS = askdirectory()
-        lista_dir_arquivos = os.listdir(PASTA_ARQUIVOS)
+        renomeando_arquivos(PASTA_ARQUIVOS)
 
-        for item in lista_dir_arquivos:
-            CAMINHO_ABS_ORIGINAL = rf'{PASTA_ARQUIVOS}\{item}'
-            info = pymediainfo.MediaInfo.parse(CAMINHO_ABS_ORIGINAL)
-
-            for track in info.tracks:
-
-                if track.track_type == "General":
-                    print(track.to_data())
-                    print(track.file_extension)
-                    os.rename(PASTA_ARQUIVOS, rf'{PASTA_ARQUIVOS}\{indice}.{}.{track.file_extension}')
-            indice += 1
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
