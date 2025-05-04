@@ -54,7 +54,7 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     print()
     print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
-    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.{item}'
+    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}'
     # informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
 
     # COMANDO_SHELL = rf'ffprobe -v quiet -print_format json -show_format -show_streams {CAMINHO_ABS}'
@@ -66,13 +66,17 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
 
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
-            if track.track_type == 'General':
+            if track.track_type == 'General' and track.codecs_image == 'JPEG':
 
                 print(track.to_data())
-                print(track.codecs_image)
-                input(CAMINHO_ABS_ORIGINAL).output(CAMINHO_ABS_MODIFICADO, metadata=f"title={item}").run(overwrite_output=True)
+
+                input(CAMINHO_ABS_ORIGINAL).output(
+                    rf'{CAMINHO_ABS_MODIFICADO}\{indice}.{item}', metadata=f"title={item}").run(overwrite_output=True)
+
+                # input(rf'{CAMINHO_ABS_ORIGINAL}').output(rf'{CAMINHO_ABS_MODIFICADO}\{'imagem.png'}').run()
                 indice += 1
                 print(track.title)
+                print(track.codecs_image)
         else:
             print('Não pode verificar uma pasta')
 
