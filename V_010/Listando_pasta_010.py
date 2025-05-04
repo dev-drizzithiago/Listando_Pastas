@@ -1,12 +1,14 @@
 """#### Declaração de Modulos"""
-import os
-import tkinter.simpledialog
+
 from tkinter.messagebox import showwarning, showinfo, showerror
 from tkinter.simpledialog import askstring, askinteger, askfloat
 from tkinter.filedialog import askdirectory
+import tkinter.simpledialog
 from tkinter.ttk import *
 import tkinter as tk
+import pymediainfo
 import shutil
+import os
 
 """#### Modulos do sistema"""
 from os import walk, startfile, rename, path
@@ -873,11 +875,20 @@ class ProgramaPrincipal:
             print(f'Erro: {e}')
 
     def renomear_varios_arquivo(self):
+        indice = 0
         PASTA_ARQUIVOS = askdirectory()
         lista_dir_arquivos = os.listdir(PASTA_ARQUIVOS)
         for item in lista_dir_arquivos:
-            print(item)
+            info = pymediainfo.MediaInfo.parse(PASTA_ARQUIVOS)
 
+            for track in info.tracks:
+                if track.track_type == "General":
+                    print(track.to_data())
+                    print(track.file_extension)
+
+                    os.rename(PASTA_ARQUIVOS, rf'{PASTA_ARQUIVOS}\{indice}.novo_nome.{track.file_extension}')
+
+            indice += 1
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
