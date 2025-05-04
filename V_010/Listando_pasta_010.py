@@ -677,6 +677,9 @@ class ProgramaPrincipal:
 
         elif opcao_selecionada == 4:
             Thread(target=self.inserir_indices).start()
+            
+        elif opcao_selecionada == 5:
+            Thread(target=self.renomear_varios_arquivo).start()
 
     """#### Inicio dos processos de busca """
     def tempo_processo_busca(self):
