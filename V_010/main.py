@@ -884,9 +884,8 @@ class ProgramaPrincipal:
         from modulo_renomear_arquivos import renomeando_arquivos
         indice = 0
         PASTA_ARQUIVOS = askdirectory()
-        renomeando_arquivos(PASTA_ARQUIVOS)
-
-
+        resultado = renomeando_arquivos(PASTA_ARQUIVOS)
+        print(resultado)
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
