@@ -49,12 +49,12 @@ LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'Tintim na América (último episódio)',
 ]
 PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(
-    r'\\muonline\Mini_CELERON\Videos\Classicos\As Brumas de Avalon 720p'
+    r'G:\Meu Drive\Fotos\Outros'
 )
 
 indice = 1
 for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
-    print()
+    # print()
     print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
     CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}'
@@ -69,13 +69,18 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
 
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
-            if track.track_type == 'General' and track.track_type == 'JPEG':
+            if track.track_type == 'General':
                 imagem = Image.open(CAMINHO_ABS_ORIGINAL)
 
-                # imagem.save(rf'{CAMINHO_ABS_MODIFICADO}\imagem_modificada.png', title=f'{item}')
+                imagem.save(rf'{CAMINHO_ABS_MODIFICADO}\imagem_modificada.png', title=f'{item}')
 
-                with exiftool.ExifTool as img:
-                    img.execute(f'Title={item}', f'Artist={"Thiago"}', CAMINHO_ABS_ORIGINAL)
+                # with exiftool.ExifTool as et:
+                #     et.execute(f'Title={item}', f'Artist={"Thiago"}', CAMINHO_ABS_ORIGINAL)
+
+                # with exiftool.ExifToolHelper as eth:
+                #     metadata = eth.get_metadata(CAMINHO_ABS_ORIGINAL)
+                #     for i in metadata:
+                #         print(i['SourceFile'])
 
                 # input(CAMINHO_ABS_ORIGINAL).output(
                 #     rf'{CAMINHO_ABS_MODIFICADO}\{indice}.{item}', metadata=f"title={item}").run(overwrite_output=True)
