@@ -420,6 +420,7 @@ class ProgramaPrincipal:
         """ Responsável por manter a janela de duplicidade ativa (padrão do tkinter)"""
         self.janela_opc_duplicidade.update_idletasks()
 
+    """ JANELA PARA MANIPULAR ARQUIVOS """
     def manipulando_arquivos(self):
 
         print('Iniciando a janela "janela_renomar_varios_arquivos"')
@@ -660,7 +661,6 @@ class ProgramaPrincipal:
 
     def opcao_manipulacao(self):
         opcao_selecionada = self.var_radio_rename.get()
-        print(opcao_selecionada)
 
         if opcao_selecionada == 1:
             Thread(target='').start()
@@ -791,8 +791,7 @@ class ProgramaPrincipal:
         self.diretorio_home = Path(askdirectory())
         self.lbl_pts_dest.config(text=f'Pasta de busca: [{self.diretorio_home}]', bg='#C0C0C0')
 
-    """ Processo para adicionar indice, renomear, deletar e remover """
-
+    """ Processos para adicionar indice, renomear, deletar e remover """
     def inserir_indices(self):
 
         showinfo('IMPORTANTE', 'Útilize apenas com arquivos da mesma pasta.')
