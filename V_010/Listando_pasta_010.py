@@ -454,9 +454,13 @@ class ProgramaPrincipal:
         self.opcao_03.config(text='Renomear arquivo', value=3)
         self.opcao_03.place(y=30, x=150)
 
-        self.opcao_03 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.var_radio_rename)
-        self.opcao_03.config(text='Adicionar indice', value=4)
-        self.opcao_03.place(y=5, x=150)
+        self.opcao_04 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.var_radio_rename)
+        self.opcao_04.config(text='Adicionar indice', value=4)
+        self.opcao_04.place(y=5, x=150)
+
+        self.opcao_05 = Radiobutton(self.frame_lbl_opcao_rename, variable=self.var_radio_rename)
+        self.opcao_05.config(text='Renomear vários arquivos', value=5)
+        self.opcao_05.place(y=5, x=300)
 
         self.var_lista_manipular = tk.StringVar()
         self.lista_arquivos_listados = tk.Listbox(self.frame_lbl_janela_renomar, listvariable=self.var_lista_manipular)
