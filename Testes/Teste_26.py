@@ -49,13 +49,13 @@ LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'Tintim na América (último episódio)',
 ]
 PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(
-    r'G:\Meu Drive\Fotos\Outros'
+    r'Z:\Videos\Classicos\As Aventuras de Tintin Completo'
 )
 
 indice = 1
 for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     # print()
-    print(item)
+    # print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
     CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}'
     # informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
@@ -70,25 +70,18 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
             if track.track_type == 'General':
-                imagem = Image.open(CAMINHO_ABS_ORIGINAL)
 
-                imagem.save(rf'{CAMINHO_ABS_MODIFICADO}\imagem_modificada.png', title=f'{item}')
-
-                # with exiftool.ExifTool as et:
-                #     et.execute(f'Title={item}', f'Artist={"Thiago"}', CAMINHO_ABS_ORIGINAL)
-
-                # with exiftool.ExifToolHelper as eth:
-                #     metadata = eth.get_metadata(CAMINHO_ABS_ORIGINAL)
-                #     for i in metadata:
-                #         print(i['SourceFile'])
-
-                # input(CAMINHO_ABS_ORIGINAL).output(
-                #     rf'{CAMINHO_ABS_MODIFICADO}\{indice}.{item}', metadata=f"title={item}").run(overwrite_output=True)
+                input(CAMINHO_ABS_ORIGINAL).output(
+                    rf'{CAMINHO_ABS_MODIFICADO}/{indice}.{LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]} - '
+                    rf'{track.other_duration[0]}', metadado=f'title={item}'
+                ).run(overwrite_output=True)
 
                 indice += 1
                 print(track.title)
                 print(track.codecs_image)
-                print(track.to_data())
+                # print(track.other_duration[4])
+                # print(track.to_data())
+
         else:
             print('Não pode verificar uma pasta')
 
