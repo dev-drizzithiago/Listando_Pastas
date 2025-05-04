@@ -19,7 +19,7 @@ def renomeando_arquivos(PASTA_SELECIONADA):
                 print(track.to_data())
                 print(track.file_extension)
 
-                os.rename(CAMINHO_ABS_ORIGINAL, rf'{CAMINHO_ABS_MODIFICADO}\{indice}.novo_nome.{track.file_extension}')
+                # os.rename(CAMINHO_ABS_ORIGINAL, rf'{CAMINHO_ABS_MODIFICADO}\{indice}.novo_nome.{track.file_extension}')
 
         indice += 1
         # print(CAMINHO_ABS_ORIGINAL)
