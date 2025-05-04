@@ -101,7 +101,7 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
             if track.track_type == 'General':
 
                 processo = ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
-                    rf'{CAMINHO_ABS_MODIFICADO}/{indice}.{LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]} - {track.other_duration[0]}', metadado=f'title={item}'
+                    rf'{CAMINHO_ABS_MODIFICADO}/{indice}.{CAMINHO_ABS_MODIFICADO[indice - 1]} - {track.other_duration[0]}', metadado=f'title={item}'
                 ).run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
                 saida, error = processo
                 print('Saída', saida)
