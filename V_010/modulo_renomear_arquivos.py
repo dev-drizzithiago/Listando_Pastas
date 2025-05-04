@@ -1,7 +1,7 @@
 import os
 import pymediainfo
 from tkinter.filedialog import askdirectory
-
+PASTA_SELECIONADA = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_010'
 def renomeando_arquivos(PASTA_SELECIONADA):
     indice = 1
     for item in os.listdir(PASTA_SELECIONADA):
@@ -12,7 +12,7 @@ def renomeando_arquivos(PASTA_SELECIONADA):
         for track in info.tracks:
             if track.track_type == "General":
                 print(track.to_data())
-                print(track.file_extension)
+                # print(track.file_extension)
                 try:
                     os.rename(
                         CAMINHO_ABS_ORIGINAL, rf'{CAMINHO_ABS_MODIFICADO}\{indice}.novo_nome.{track.file_extension}'
@@ -24,3 +24,6 @@ def renomeando_arquivos(PASTA_SELECIONADA):
         indice += 1
         # print(CAMINHO_ABS_ORIGINAL)
 
+
+if __name__ == '__main__':
+    renomeando_arquivos(PASTA_SELECIONADA)
