@@ -2,7 +2,7 @@
 
 from tkinter.messagebox import showwarning, showinfo, showerror
 from tkinter.simpledialog import askstring, askinteger, askfloat
-from tkinter.filedialog import askdirectory
+from tkinter.filedialog import askdirectory, askopenfile
 import tkinter.simpledialog
 from tkinter.ttk import *
 import tkinter as tk
@@ -884,7 +884,8 @@ class ProgramaPrincipal:
         from modulo_renomear_arquivos import renomeando_arquivos
         indice = 0
         PASTA_ARQUIVOS = askdirectory()
-        resultado = renomeando_arquivos(PASTA_ARQUIVOS)
+        ARQUIVO_PARA_RENOMEAR = askopenfile()
+        resultado = renomeando_arquivos(PASTA_ARQUIVOS, ARQUIVO_PARA_RENOMEAR)
         print(resultado)
 
     """#### Modulo de processo de duplicidade"""
