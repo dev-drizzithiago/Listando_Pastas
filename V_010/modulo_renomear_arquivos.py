@@ -1,7 +1,7 @@
 import os
 import pymediainfo
 from tkinter.filedialog import askdirectory
-PASTA_SELECIONADA = 'D:\Estudos\Python\GitHub\Listando_Pastas\V_010'
+PASTA_SELECIONADA_TESTE = r'D:\Estudos\Python\GitHub\Listando_Pastas\V_010'
 def renomeando_arquivos(PASTA_SELECIONADA):
     indice = 1
     for item in os.listdir(PASTA_SELECIONADA):
