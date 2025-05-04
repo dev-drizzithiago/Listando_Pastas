@@ -91,18 +91,16 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     # print()
     # print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
-    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.{item}'
+    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.{LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]}'
 
     info = pymediainfo.MediaInfo.parse(CAMINHO_ABS_ORIGINAL)
 
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
             if track.track_type == 'General':
-                processo = ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
+
+                ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
                     CAMINHO_ABS_MODIFICADO, metadata="title=Novo Título").run(overwrite_output=True)
-                saida, error = processo
-                print('Saída', saida)
-                print('ERROR', error)
 
                 indice += 1
                 # print(track.title)
