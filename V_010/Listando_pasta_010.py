@@ -878,6 +878,7 @@ class ProgramaPrincipal:
         indice = 0
         PASTA_ARQUIVOS = askdirectory()
         lista_dir_arquivos = os.listdir(PASTA_ARQUIVOS)
+
         for item in lista_dir_arquivos:
             info = pymediainfo.MediaInfo.parse(PASTA_ARQUIVOS)
 
@@ -886,7 +887,7 @@ class ProgramaPrincipal:
                     print(track.to_data())
                     print(track.file_extension)
 
-                    os.rename(PASTA_ARQUIVOS, rf'{PASTA_ARQUIVOS}\{indice}.novo_nome.{track.file_extension}')
+                    # os.rename(PASTA_ARQUIVOS, rf'{PASTA_ARQUIVOS}\{indice}.novo_nome.{track.file_extension}')
 
             indice += 1
 
