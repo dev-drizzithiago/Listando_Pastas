@@ -1,7 +1,7 @@
 import os
 import pymediainfo
 from tkinter.filedialog import askdirectory
-PASTA_SELECIONADA_TESTE = r'D:\Estudos\Python\GitHub\Listando_Pastas\V_010'
+PASTA_SELECIONADA_TESTE = r'\\muonline\Mini_CELERON\Videos\Novos\11 - 22 - 63 2016 - 1ª Temporada'
 def renomeando_arquivos(PASTA_SELECIONADA):
     indice = 1
     for item in os.listdir(PASTA_SELECIONADA):
@@ -26,4 +26,4 @@ def renomeando_arquivos(PASTA_SELECIONADA):
 
 
 if __name__ == '__main__':
-    renomeando_arquivos(PASTA_SELECIONADA)
+    renomeando_arquivos(PASTA_SELECIONADA_TESTE)
