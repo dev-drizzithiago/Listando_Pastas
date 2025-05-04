@@ -3,6 +3,45 @@ import pathlib
 import ffmpeg
 import pymediainfo
 
+
+"""
+
+
+O método `.run()` no `ffmpeg-python` executa o comando FFmpeg gerado pelo código, processando o arquivo de 
+entrada e aplicando as transformações configuradas. Ele é essencial para que as operações sejam realmente executadas! 
+Algumas opções interessantes que você pode usar:
+
+### 🔧 **Principais opções do `.run()`**
+1. **Executar normalmente**:
+   ```python
+   ffmpeg.input("video.mp4").output("video_editado.mp4").run()
+   ```
+   Aqui, FFmpeg processa o vídeo e cria um novo arquivo com as alterações.
+
+2. **Forçar sobrescrição** (`overwrite_output=True`):
+   ```python
+   ffmpeg.input("video.mp4").output("video.mp4").run(overwrite_output=True)
+   ```
+   Essa opção evita que FFmpeg pergunte se você quer substituir um arquivo existente.
+
+3. **Capturar saída e erro do FFmpeg** (`capture_stdout=True`, `capture_stderr=True`):
+   ```python
+   processo = ffmpeg.input("video.mp4").output("video_editado.mp4").run(capture_stdout=True, capture_stderr=True)
+   stdout, stderr = processo
+   print("Saída:", stdout)
+   print("Erros:", stderr)
+   ```
+   Isso é útil para depuração, caso FFmpeg retorne erros.
+
+4. **Modo assíncrono (`async=True`)**:
+   ```python
+   ffmpeg.input("video.mp4").output("video_editado.mp4").run(async=True)
+   ```
+   Executa o comando em segundo plano sem bloquear o restante do código Python.
+
+💡 Quer modificar outra funcionalidade ou explorar algo específico? Me avisa! 🚀
+"""
+
 LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'O Caranguejo das Tenazes de Ouro (primeira parte)',
     'O Caranguejo das Tenazes de Ouro (segunda parte)',
