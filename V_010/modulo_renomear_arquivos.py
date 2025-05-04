@@ -9,8 +9,8 @@ def renomeando_arquivos(PASTA_SELECIONADA, ARQUIVO_PARA_RENOMEAR):
     indice = 1
     lista_itens = []
     with open(ARQUIVO_PARA_RENOMEAR, 'r', encoding='utf8') as arquivo:
-        for item_titulo in arquivo.read():
-            lista_itens.append(item_titulo)
+        for item_titulo in arquivo.readlines():
+            lista_itens.append(item_titulo.replace('\n', ''))
 
     print(lista_itens)
 
