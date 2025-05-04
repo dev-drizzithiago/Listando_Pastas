@@ -72,7 +72,10 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
             if track.track_type == 'General' and track.track_type == 'JPEG':
                 imagem = Image.open(CAMINHO_ABS_ORIGINAL)
 
-                imagem.save(rf'{CAMINHO_ABS_MODIFICADO}\imagem_modificada.png', title=item)
+                # imagem.save(rf'{CAMINHO_ABS_MODIFICADO}\imagem_modificada.png', title=f'{item}')
+
+                with exiftool.ExifTool as img:
+                    img.execute(f'Title={item}', f'Artist={"Thiago"}', CAMINHO_ABS_ORIGINAL)
 
                 # input(CAMINHO_ABS_ORIGINAL).output(
                 #     rf'{CAMINHO_ABS_MODIFICADO}\{indice}.{item}', metadata=f"title={item}").run(overwrite_output=True)
@@ -86,8 +89,3 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
 
 
     # print(CAMINHO_ABS_ORIGINAL)
-
-
-
-
-
