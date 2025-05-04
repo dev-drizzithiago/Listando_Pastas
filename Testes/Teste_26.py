@@ -1,11 +1,7 @@
 import os
 import pathlib
-
-from ffmpeg import input
+import ffmpeg
 import pymediainfo
-
-from PIL import Image  # manipulação básica
-import  exiftool # (mais completo) pip install pyexiftool
 
 LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'O Caranguejo das Tenazes de Ouro (primeira parte)',
@@ -58,12 +54,6 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     # print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
     CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}'
-    # informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
-
-    # COMANDO_SHELL = rf'ffprobe -v quiet -print_format json -show_format -show_streams {CAMINHO_ABS}'
-    # resultado = subprocess.run(COMANDO_SHELL, shell=True, capture_output=True, text=True)
-    # metadados = json.loads(resultado.stdout)
-    # print(json.dumps(metadados, indent=4))
 
     info = pymediainfo.MediaInfo.parse(CAMINHO_ABS_ORIGINAL)
 
@@ -71,14 +61,16 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
             if track.track_type == 'General':
 
-                input(CAMINHO_ABS_ORIGINAL).output(
-                    rf'{CAMINHO_ABS_MODIFICADO}/{indice}.{LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]} - '
-                    rf'{track.other_duration[0]}', metadado=f'title={item}'
-                ).run(overwrite_output=True)
+                processo = ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
+                    rf'{CAMINHO_ABS_MODIFICADO}/{indice}.{LISTA_EPISODIOS_AS_AVENTURAS_TINTIN[indice - 1]} - {track.other_duration[0]}', metadado=f'title={item}'
+                ).run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
+                saida, error = processo
+                print('Saída', saida)
+                print('ERROR', error)
 
                 indice += 1
-                print(track.title)
-                print(track.codecs_image)
+                # print(track.title)
+                # print(track.codecs_image)
                 # print(track.other_duration[4])
                 # print(track.to_data())
 
