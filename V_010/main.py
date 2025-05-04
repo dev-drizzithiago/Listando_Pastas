@@ -887,6 +887,7 @@ class ProgramaPrincipal:
         renomeando_arquivos(PASTA_ARQUIVOS)
 
 
+
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
         print('Iniciando função "botao_modulo_duplicidade"')
