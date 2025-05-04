@@ -7,10 +7,12 @@ ARQUIVO_PARA_RENOMEAR_TESTE = r'D:\Estudos\Python\GitHub\Listando_Pastas\V_010\l
 
 def renomeando_arquivos(PASTA_SELECIONADA, ARQUIVO_PARA_RENOMEAR):
     indice = 1
-    arquivo_aberto = open(ARQUIVO_PARA_RENOMEAR, 'r', encoding='utf8')
-    for item_titulo in arquivo_aberto.readlines():
-        print(item_titulo)
-    arquivo_aberto.close()
+    lista_itens = []
+    with open(ARQUIVO_PARA_RENOMEAR, 'r', encoding='utf8') as arquivo:
+        for item_titulo in arquivo.read():
+            lista_itens.append(item_titulo)
+
+    print(lista_itens)
 
     for item in os.listdir(PASTA_SELECIONADA):
 
