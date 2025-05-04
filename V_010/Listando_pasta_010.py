@@ -677,7 +677,7 @@ class ProgramaPrincipal:
 
         elif opcao_selecionada == 4:
             Thread(target=self.inserir_indices).start()
-            
+
         elif opcao_selecionada == 5:
             Thread(target=self.renomear_varios_arquivo).start()
 
@@ -886,9 +886,11 @@ class ProgramaPrincipal:
         lista_dir_arquivos = os.listdir(PASTA_ARQUIVOS)
 
         for item in lista_dir_arquivos:
-            info = pymediainfo.MediaInfo.parse(PASTA_ARQUIVOS)
+            CAMINHO_ABS_ORIGINAL = rf'{PASTA_ARQUIVOS}\{item}'
+            info = pymediainfo.MediaInfo.parse(CAMINHO_ABS_ORIGINAL)
 
             for track in info.tracks:
+
                 if track.track_type == "General":
                     print(track.to_data())
                     print(track.file_extension)
