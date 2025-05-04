@@ -4,6 +4,9 @@ import pathlib
 from ffmpeg import input
 import pymediainfo
 
+from PIL import Image  # manipulação básica
+import  exiftool # (mais completo) pip install pyexiftool
+
 LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
     'O Caranguejo das Tenazes de Ouro (primeira parte)',
     'O Caranguejo das Tenazes de Ouro (segunda parte)',
@@ -66,17 +69,18 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
 
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
-            if track.track_type == 'General' and track.codecs_image == 'JPEG':
+            if track.track_type == 'General' and track.track_type == 'JPEG':
+                imagem = Image.open(CAMINHO_ABS_ORIGINAL)
 
-                print(track.to_data())
+                imagem.save(rf'{CAMINHO_ABS_MODIFICADO}\imagem_modificada.png', title=item)
 
-                input(CAMINHO_ABS_ORIGINAL).output(
-                    rf'{CAMINHO_ABS_MODIFICADO}\{indice}.{item}', metadata=f"title={item}").run(overwrite_output=True)
+                # input(CAMINHO_ABS_ORIGINAL).output(
+                #     rf'{CAMINHO_ABS_MODIFICADO}\{indice}.{item}', metadata=f"title={item}").run(overwrite_output=True)
 
-                # input(rf'{CAMINHO_ABS_ORIGINAL}').output(rf'{CAMINHO_ABS_MODIFICADO}\{'imagem.png'}').run()
                 indice += 1
                 print(track.title)
                 print(track.codecs_image)
+                print(track.to_data())
         else:
             print('Não pode verificar uma pasta')
 
