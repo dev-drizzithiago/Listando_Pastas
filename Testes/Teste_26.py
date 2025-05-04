@@ -1,7 +1,7 @@
 import os
 import pathlib
 
-import ffmpeg
+from ffmpeg import input
 import pymediainfo
 
 LISTA_EPISODIOS_AS_AVENTURAS_TINTIN = [
@@ -52,7 +52,7 @@ PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(
 indice = 1
 for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
-    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
+    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.{item}'
     # informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
 
     # COMANDO_SHELL = rf'ffprobe -v quiet -print_format json -show_format -show_streams {CAMINHO_ABS}'
@@ -69,7 +69,8 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
         else:
             print('Não pode verificar uma pasta')
     indice += 1
-    ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
+
+    input(CAMINHO_ABS_ORIGINAL).output(
         CAMINHO_ABS_MODIFICADO, metadata="title=Novo Título").run(overwrite_output=True)
 
 
