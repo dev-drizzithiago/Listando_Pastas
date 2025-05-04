@@ -3,7 +3,6 @@ import pathlib
 import ffmpeg
 import pymediainfo
 
-
 """
 
 
@@ -92,17 +91,15 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     # print()
     # print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
-    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}'
+    CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.{item}'
 
     info = pymediainfo.MediaInfo.parse(CAMINHO_ABS_ORIGINAL)
 
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
             if track.track_type == 'General':
-
                 processo = ffmpeg.input(CAMINHO_ABS_ORIGINAL).output(
-                    rf'{CAMINHO_ABS_MODIFICADO}/{indice}.{CAMINHO_ABS_MODIFICADO[indice - 1]} - {track.other_duration[0]}', metadado=f'title={item}'
-                ).run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
+                    CAMINHO_ABS_MODIFICADO, metadata="title=Novo Título").run(overwrite_output=True)
                 saida, error = processo
                 print('Saída', saida)
                 print('ERROR', error)
@@ -115,6 +112,5 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
 
         else:
             print('Não pode verificar uma pasta')
-
 
     # print(CAMINHO_ABS_ORIGINAL)
