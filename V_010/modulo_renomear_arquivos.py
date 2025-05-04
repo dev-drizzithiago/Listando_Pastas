@@ -1,9 +1,17 @@
 import os
 import pymediainfo
+
 from tkinter.filedialog import askdirectory
 PASTA_SELECIONADA_TESTE = r'\\muonline\Mini_CELERON\Videos\Novos\11 - 22 - 63 2016 - 1ª Temporada'
-def renomeando_arquivos(PASTA_SELECIONADA):
+ARQUIVO_PARA_RENOMEAR_TESTE = r'D:\Estudos\Python\GitHub\Listando_Pastas\V_010\lista_episodios_tintin.txt'
+def renomeando_arquivos(PASTA_SELECIONADA, ARQUIVO_PARA_RENOMEAR):
     indice = 1
+    arquivo_aberto = open(ARQUIVO_PARA_RENOMEAR, 'r')
+    lista_de_info = arquivo_aberto.readlines()
+    print(lista_de_info)
+    arquivo_aberto.close()
+
+
     for item in os.listdir(PASTA_SELECIONADA):
         CAMINHO_ABS_ORIGINAL = rf'{PASTA_SELECIONADA}\{item}'
         CAMINHO_ABS_MODIFICADO = rf'{PASTA_SELECIONADA}'
@@ -23,4 +31,4 @@ def renomeando_arquivos(PASTA_SELECIONADA):
 
 
 if __name__ == '__main__':
-    renomeando_arquivos(PASTA_SELECIONADA_TESTE)
+    renomeando_arquivos(PASTA_SELECIONADA_TESTE, ARQUIVO_PARA_RENOMEAR_TESTE)
