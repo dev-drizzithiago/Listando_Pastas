@@ -51,6 +51,8 @@ PASTA_VIDEOS_AS_AVENTURAS_TITIN = pathlib.Path(
 
 indice = 1
 for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
+    print()
+    print(item)
     CAMINHO_ABS_ORIGINAL = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}'
     CAMINHO_ABS_MODIFICADO = rf'{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{indice}.{item}'
     # informacao_arquivo = os.stat(rf'{indice}.{PASTA_VIDEOS_AS_AVENTURAS_TITIN}\{item}')
@@ -65,13 +67,19 @@ for item in os.listdir(PASTA_VIDEOS_AS_AVENTURAS_TITIN):
     for track in info.tracks:
         if os.path.isfile(CAMINHO_ABS_ORIGINAL):
             if track.track_type == 'General':
+
+                print(track.to_data())
+                print(track.codecs_image)
+                input(CAMINHO_ABS_ORIGINAL).output(CAMINHO_ABS_MODIFICADO, metadata=f"title={item}").run(overwrite_output=True)
+                indice += 1
                 print(track.title)
         else:
             print('Não pode verificar uma pasta')
-    indice += 1
 
-    input(CAMINHO_ABS_ORIGINAL).output(
-        CAMINHO_ABS_MODIFICADO, metadata="title=Novo Título").run(overwrite_output=True)
+
+    # print(CAMINHO_ABS_ORIGINAL)
+
+
 
 
 
