@@ -873,7 +873,11 @@ class ProgramaPrincipal:
             print(f'Erro: {e}')
 
     def renomear_varios_arquivo(self):
-        ...
+        PASTA_ARQUIVOS = askdirectory()
+        lista_dir_arquivos = os.listdir(PASTA_ARQUIVOS)
+        for item in lista_dir_arquivos:
+            print(item)
+
 
     """#### Modulo de processo de duplicidade"""
     def botao_modulo_duplicidade(self):
